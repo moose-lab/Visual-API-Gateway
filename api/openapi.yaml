@@ -1,0 +1,161 @@
+openapi: 3.1.0
+info:
+  title: Visual-API-Gateway Specification
+  description: High-performance unified gateway for Vision-Language Models (VLMs) and specialized scenario services.
+  version: 0.1.0-alpha
+servers:
+  - url: http://localhost:8080/v1
+    description: Local Gateway Instance
+
+paths:
+  /chat/completions:
+    post:
+      summary: Unified Multimodal Chat Completion
+      description: OpenAI-compatible multimodal endpoint with scenario routing and vision optimization headers.
+      parameters:
+        - name: X-VLM-Scenario
+          in: header
+          required: false
+          description: Target scenario identifier (e.g. document_ocr, industrial_inspection, ecommerce_multimodal)
+          schema:
+            type: string
+        - name: X-VLM-Skip-Cache
+          in: header
+          required: false
+          description: Force bypass semantic and image hash cache
+          schema:
+            type: boolean
+            default: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatCompletionRequest'
+      responses:
+        '200':
+          description: Successful inference response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatCompletionResponse'
+            text/event-stream:
+              schema:
+                type: string
+                description: Server-sent events for streaming generation
+        '400':
+          description: Invalid request payload or corrupt image data
+        '429':
+          description: Rate limit or concurrency quota exceeded
+        '502':
+          description: All upstream model backends unavailable
+
+  /health:
+    get:
+      summary: Health check & upstream backend readiness
+      responses:
+        '200':
+          description: Gateway and backends operational
+
+components:
+  schemas:
+    ChatCompletionRequest:
+      type: object
+      required:
+        - model
+        - messages
+      properties:
+        model:
+          type: string
+          description: Virtual model alias or backend model ID
+          example: vlm-auto
+        messages:
+          type: array
+          items:
+            type: object
+            required:
+              - role
+              - content
+            properties:
+              role:
+                type: string
+                enum: [system, user, assistant]
+              content:
+                oneOf:
+                  - type: string
+                  - type: array
+                    items:
+                      $ref: '#/components/schemas/MultimodalContentPart'
+        temperature:
+          type: number
+          default: 0.2
+        max_tokens:
+          type: integer
+          default: 2048
+        stream:
+          type: boolean
+          default: false
+
+    MultimodalContentPart:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          enum: [text, image_url]
+        text:
+          type: string
+        image_url:
+          type: object
+          required:
+            - url
+          properties:
+            url:
+              type: string
+              description: HTTP(S) URL or base64 data URI (data:image/jpeg;base64,...)
+            detail:
+              type: string
+              enum: [auto, low, high]
+              default: auto
+
+    ChatCompletionResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+          example: chat.completion
+        created:
+          type: integer
+        model:
+          type: string
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              index:
+                type: integer
+              message:
+                type: object
+                properties:
+                  role:
+                    type: string
+                  content:
+                    type: string
+              finish_reason:
+                type: string
+        usage:
+          type: object
+          properties:
+            prompt_tokens:
+              type: integer
+            completion_tokens:
+              type: integer
+            total_tokens:
+              type: integer
+            vision_tokens:
+              type: integer
+              description: Dedicated token count incurred by vision encoder

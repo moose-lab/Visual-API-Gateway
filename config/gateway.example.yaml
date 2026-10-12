@@ -1,0 +1,111 @@
+# Visual-API-Gateway Configuration Example
+version: "v1alpha1"
+
+server:
+  http:
+    host: "0.0.0.0"
+    port: 8080
+    read_timeout_sec: 60
+    write_timeout_sec: 120
+    max_body_size_mb: 50 # Support high-resolution multi-image uploads
+  grpc:
+    host: "0.0.0.0"
+    port: 9090
+    max_recv_msg_size_mb: 50
+  metrics:
+    enabled: true
+    port: 9100
+    path: "/metrics"
+
+# Upstream Model Clusters & Providers
+providers:
+  - id: "local-vllm-qwen2-vl"
+    type: "vllm"
+    endpoint: "http://10.0.1.10:8000/v1"
+    model: "Qwen/Qwen2-VL-72B-Instruct"
+    health_check_path: "/health"
+    concurrency_limit: 32
+    supports_streaming: true
+    capabilities:
+      - "ocr"
+      - "document_parsing"
+      - "high_res_tiling"
+
+  - id: "local-internvl-defect"
+    type: "sglang"
+    endpoint: "http://10.0.1.11:30000/v1"
+    model: "OpenGVLab/InternVL2-8B-Defect-FineTuned"
+    health_check_path: "/health"
+    concurrency_limit: 64
+    capabilities:
+      - "industrial_inspection"
+      - "defect_localization"
+
+  - id: "cloud-fallback-gpt4o"
+    type: "openai"
+    endpoint: "https://api.openai.com/v1"
+    api_key_env: "OPENAI_API_KEY"
+    model: "gpt-4o"
+    concurrency_limit: 20
+    capabilities:
+      - "general_vlm"
+      - "fallback"
+
+# Specialized Scenario Services Routing Rules
+scenarios:
+  - name: "document_ocr"
+    description: "Intelligent document parsing and tabular extraction"
+    route:
+      primary_provider: "local-vllm-qwen2-vl"
+      fallback_provider: "cloud-fallback-gpt4o"
+      timeout_ms: 15000
+    preprocessing:
+      auto_tiling:
+        enabled: true
+        max_tiles: 12
+        tile_size: 448
+      image_downscale:
+        max_edge: 2048
+        format: "jpeg"
+        quality: 85
+
+  - name: "industrial_inspection"
+    description: "High-speed assembly line defect identification"
+    route:
+      primary_provider: "local-internvl-defect"
+      timeout_ms: 2000
+    preprocessing:
+      phash_dedup:
+        enabled: true
+        distance_threshold: 4 # Skip inference if identical to recent frame
+
+  - name: "ecommerce_multimodal"
+    description: "Product image understanding, tagging and description generation"
+    route:
+      primary_provider: "local-vllm-qwen2-vl"
+      fallback_provider: "cloud-fallback-gpt4o"
+    cache:
+      semantic_cache:
+        enabled: true
+        ttl_seconds: 86400
+        similarity_threshold: 0.95
+
+# Visual Guardrails and Safety Policies
+guardrails:
+  sensitive_content_filter:
+    enabled: true
+    action: "block" # "block" or "mask"
+  privacy_redaction:
+    blur_faces: false
+    blur_license_plates: false
+
+# Observability & Tracing
+observability:
+  tracing:
+    enabled: true
+    exporter: "otlp"
+    endpoint: "otel-collector:4317"
+    sample_rate: 1.0
+  logging:
+    level: "info" # debug, info, warn, error
+    log_image_metadata: true # Log image dimensions, format, hashes (not raw pixels)
