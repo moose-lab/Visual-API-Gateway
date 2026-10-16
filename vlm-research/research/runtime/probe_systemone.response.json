@@ -1,0 +1,21 @@
+{
+  "id": "sysone-ddc212fe2a1840f2b0cab0c62f68e",
+  "model": "qwen/qwen3.5-0.8b",
+  "answers": {
+    "over_ten": {
+      "type": "noul",
+      "noul": 0.5312093733737563
+    }
+  },
+  "usage": {
+    "input_tokens": 105,
+    "output_tokens": 5,
+    "input_tokens_details": {
+      "cached_tokens": 0,
+      "image_tokens": 0,
+      "text_tokens": 105
+    },
+    "reads": 1,
+    "cost": 0.001
+  }
+}

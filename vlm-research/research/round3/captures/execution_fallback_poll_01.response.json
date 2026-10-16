@@ -1,0 +1,24 @@
+{
+  "usage": {
+    "elements_processed": 1,
+    "element_type": null,
+    "credits_used": 2,
+    "steps": 1,
+    "message": null,
+    "duration_seconds": 3,
+    "service_tier": "standard",
+    "mode_multiplier": 1.0,
+    "standard_cost_dollars": 0.006702,
+    "cost_dollars": 0.006702,
+    "savings_dollars": 0.0
+  },
+  "id": "1bf00c9a-c97a-4a48-a20a-c89527ca7961",
+  "name": "fixed-response-return",
+  "response": {
+    "response": "{\"response\":\"ROUND3_HELLO\"}"
+  },
+  "execution_mode": "agent",
+  "status": "completed",
+  "created_at": "2026-10-13T07:51:22.111168Z",
+  "completed_at": "2026-10-13T07:51:25.857345Z"
+}

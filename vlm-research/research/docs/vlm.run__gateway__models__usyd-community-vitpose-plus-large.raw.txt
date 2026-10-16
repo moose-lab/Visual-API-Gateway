@@ -1,0 +1,176 @@
+ViTPose+ Large | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+USYD Community
+ViTPose+ Large
+About
+ViTPose+ Large is a 434M open-weight model from USYD Community. 2D human pose estimation (ViT-L, 434M). It accepts text, images, and video. Released January 12, 2025.
+Parameters
+434M
+Published parameter count.
+License
+Apache-2.0
+License on the weights.
+PricingCompareBenchmarksPerformanceExamplesInputsMethodsEstimate costQuick startResponse
+Model specifications
+ProviderUSYD Community
+Type
+pose
+Endpointusyd-community/vitpose-plus-large
+Parameters434M
+Input price$3.90 / 1M tokens$3.90 (cached) / 1M
+Output price$0 / 1M tokens
+Inputs
+textimage_urlvideo_url
+LicenseApache-2.0
+ReleasedJanuary 12, 2025
+Latency p503,245 ms p50
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Input / 1M$3.90
+Cached input / 1M$3.90
+Output / 1M$0
+Compare
+ViTPose+ Large is the smallest pose model here, at 434M, and the one that accepts video.
+ModelWhat it doesPriceParametersContext
+ViTPose+ Large2D human pose estimation (ViT-L, 434M).$3.90 / 1M input434M—
+HaMeRTransformer-based 3D hand mesh recovery with ViTPose-H detection.$3.90 / 1M input——
+Benchmarks
+Published scores for ViTPose+ Large, from the ViTPose repository.
+Evals
+COCO AP78.6
+COCO AR84.1
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeCOCO AP: 78.6.
+Cost and performanceLower listed rate, mid-pack latency
+Performance
+Latency is the end-to-end round trip. Throughput is completion tokens divided by that time. It is a request rate, not decode speed.
+LatencyMedian, end to end
+3,245 ms
+ThroughputMedian completion tokens per second
+—
+RequestsCompleted, last 7 days
+335
+Examples
+2D pose estimation
+ViTPose-Plus emits 17 keypoints per person, COCO schema.
+{"poses":[{"keypoints":[[x,y,c], 17 of...]}], ...}
+Supported inputs
+textIgnored
+A text part beside the media is accepted and ignored. A request with no media part is a 400.
+image_urlYes
+One per request. A second image_url part is a 400.
+video_urlYes
+One clip. Pose is tracked on every sampled frame; the top-level video_fps sets the detector cadence (default 10).
+document_urlNo
+Not accepted.
+pose is the only method.
+Each detected person returns a person label, a normalized bounding box, and 17 normalized COCO keypoints (kpts_xy).
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+pose (default)One region per detected person, with bbox_xywh, label, and kpts_xy
+Estimate cost
+Estimate. An hour of video is 15 frames a minute at 256 tokens a frame, plus the audio in that request, and 500 output tokens a minute.
+Hours of video
+$1,347.84
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jsCLIcURL
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+response = client.chat.completions.create(
+model="usyd-community/vitpose-plus-large",
+messages=[
+{
+"role": "user",
+"content": [
+{
+"type": "image_url",
+"image_url": {
+"url": "http://images.cocodataset.org/val2017/000000000785.jpg"
+},
+},
+],
+}
+],
+extra_body={"method": "pose"},
+)
+print(response.choices[0].message.content)
+Response
+Text modeJSON modeVideo
+Copy
+A single image returns the json block alone, with no wrapper:
+{
+"object": "img.pose.kpts",
+"items": [
+{
+"bbox_xywh": [0.4387, 0.1035, 0.3395, 0.8176],
+"label": "person",
+"kpts_xy": [[0.573, 0.1872], [0.584, 0.1706], [0.5639, 0.1738], "..."],
+"kpts_score": [0.9638, 0.9702, 0.9541, "..."]
+}
+],
+"kpts_labels": ["nose", "left_eye", "right_eye", "..."]
+}
+kpts_xy lists the 17 COCO keypoints in order, and kpts_labels on the container names them once for every item: nose, the eyes, the ears, the shoulders, elbows, wrists, hips, knees and ankles. Each [x, y] pair is normalized against the frame, and a joint may fall outside 0-1 when the model places it past the edge. kpts_score is the model's raw per-joint confidence, in the same order.
+On a video_url, video_fps at the top level of the request sets the detector cadence (default 10). frames lists every sampled frame, including frames with nobody in them, so a gap in items is distinguishable from a frame that was never read.
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

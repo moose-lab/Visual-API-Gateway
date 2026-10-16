@@ -1,0 +1,30 @@
+{
+  "name": "vlmrun-skills",
+  "owner": {
+    "name": "VLM Run"
+  },
+  "metadata": {
+    "description": "Agent Skills for visual AI tasks including image understanding, video processing, document extraction, and multi-modal generation using VLM Run's Orion agent",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "vlmrun-cli-skill",
+      "source": "./skills/vlmrun-cli-skill",
+      "skills": "./",
+      "description": "Use the VLM Run CLI to interact with Orion visual AI agent. Process images, videos, and documents with natural language. Supports image understanding/generation, object detection, OCR, video summarization, document extraction, and visual AI chat."
+    },
+    {
+      "name": "mm-cli-skill",
+      "source": "./skills/mm-cli-skill",
+      "skills": "./",
+      "description": "Use the mm CLI to index, explore, query, and extract content from multimodal directories containing images, videos, PDFs, code, and other files. Supports file discovery, content extraction, text/semantic search, token counting, and LLM-powered descriptions."
+    },
+    {
+      "name": "vlmrun-gw",
+      "source": "./skills/vlmrun-gw",
+      "skills": "./",
+      "description": "Use the `vlmrun` Python SDK and CLI: `vlmrun gw` for documents, chat, embeddings, transcription, and System One typed decisions on the gateway `/typesafe` route; OpenAI-compatible gateway calls from Python; `typesafe-sdk` pointed at `https://gateway.vlm.run/typesafe`; and the `VLMRun` client for platform predictions and agent executions. One self-contained SKILL.md: commands, models, methods, request knobs, response shapes, cost and errors."
+    }
+  ]
+}

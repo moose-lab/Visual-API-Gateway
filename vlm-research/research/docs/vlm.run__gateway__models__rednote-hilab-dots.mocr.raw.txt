@@ -1,0 +1,176 @@
+dots.mocr | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+rednote-hilab
+dots.mocr
+About
+dots.mocr is a 3B open-weight model from rednote-hilab. Multilingual document layout parsing and markdown OCR. It accepts text, images, and documents. Context window is 32K. Released March 19, 2026.
+Parameters
+3B
+Published parameter count.
+Context window
+32K
+Tokens of context on a request.
+License
+Apache-2.0
+License on the weights.
+PricingCompareBenchmarksPerformanceInputsMethodsEstimate costQuick startResponse
+Model specifications
+Providerrednote-hilab
+Type
+ocrmarkdown
+Endpointrednote-hilab/dots.mocr
+Parameters3B
+Context length32K
+Input price$0.20 / 1M tokens$0.03 (cached) / 1M
+Output price$0.40 / 1M tokens
+Inputs
+textimage_urldocument_url
+LicenseApache-2.0
+ReleasedMarch 19, 2026
+Latency p504,368 ms p50
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Input / 1M$0.20
+Cached input / 1M$0.03
+Output / 1M$0.40
+Compare
+dots.mocr is one of the catalog's OCR models. The table is each model's published price, size, and context.
+ModelWhat it doesPriceParametersContext
+dots.mocrMultilingual document layout parsing and markdown OCR.$0.20 / 1M input3B32K
+OCR AutoRoutes each method to its best OCR engine: ocr to PP-OCRv6, markdown to a fast CPU parser (dots.mocr on error), layout to dots.mocr.$0 / 1M input——
+PP-OCRv6PaddleOCR PP-OCRv6 medium text detection and recognition; scene OCR JSONL on image chat; text returns plain text; document_url fan-out via text.$0.02 / 1M input20M—
+DeepSeek-OCR-2DeepSeek OCR 2 and markdown extraction.$0.25 / 1M input3.4B32K
+Benchmarks
+Published scores for dots.mocr, from the Infinity-Parser2 technical report.
+Evals
+ParseBench55.8
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeParseBench: 55.8.
+Cost and performanceLower listed rate, mid-pack latency
+Performance
+Latency is the end-to-end round trip. Throughput is completion tokens divided by that time. It is a request rate, not decode speed.
+LatencyMedian, end to end
+4,368 ms
+ThroughputMedian completion tokens per second
+—
+RequestsCompleted, last 7 days
+2,417
+Supported inputs
+textIgnored
+A text part beside the media is accepted and ignored. A request with no media part is a 400.
+image_urlYes
+One per request. A second image_url part is a 400.
+video_urlNo
+Not accepted.
+document_urlYes
+One PDF, up to 128 pages, rasterized per page at document_dpi (default 96). See Document Inputs.
+Default method markdown. parse_layout and parse_layout_only emit layout regions; ocr and markdown emit strings.
+Context window 32,768 tokens, with a maximum output of 16,384 tokens.
+Alias: dots.mocr. Weights: rednote-hilab/dots.mocr.
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+markdownReading-order Markdown string (default)
+ocrPlain OCR text
+parse_layoutRegion items with bbox_xywh, label, text
+parse_layout_onlyRegion items with bbox_xywh and label, no text
+The payload kind is the same for an image and for each page of a PDF. Text mode emits the payload alone for one image, and one <document> / <page> block per PDF, each page declaring its kind in format. In JSON mode an image content is the tagged container above, and a document page content is always doc.page.blocks. Coordinates are normalized 0-1 at precision decimals (default 4). See Methods & Response Format.
+Estimate cost
+Estimate. A page is 2,500 input tokens and 1,000 output tokens.
+Pages
+$0.90
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jsCLIcURL
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+response = client.chat.completions.create(
+model="rednote-hilab/dots.mocr",
+messages=[
+{
+"role": "user",
+"content": [
+{
+"type": "document_url",
+"document_url": {
+"url": "https://storage.googleapis.com/vlm-data-public-prod/hub/examples/finance.sec-filings/tsla-8k.pdf"
+},
+},
+],
+}
+],
+extra_body={"method": "markdown"},
+)
+print(response.choices[0].message.content)
+Response
+Text modeJSON modeLayout
+Copy
+One <document> block per PDF, one <page> block per page. A failed page is self-closing, with status="error" and no body:
+tsla-8k.pdf2 pages
+Page 0
+Annual Report 2024
+Overview
+The company reported revenue of $1.2M.
+Page 1 · failed
+This page returned no body.
+With method="parse_layout" each page body is the block container instead, and the page carries format="json".
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

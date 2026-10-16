@@ -1,0 +1,2146 @@
+{
+  "evidence": "STATIC",
+  "source_evidence": "RUNTIME",
+  "audited_at": "2026-10-14T03:41:41.374930+00:00",
+  "captured_at": "2026-10-13",
+  "scope": "Offline audit of six archived execution observations and captures; no network; raw captures unchanged.",
+  "previous_audit": {
+    "path": "execution-audit-initial.json",
+    "sha256": "18d78128e1addb1fef382d997c6a7924a8f3ac8468ad423a425611043312c961"
+  },
+  "material_corrections": [
+    "Initial audit covered five runs; this revision adds reference_replay and deduplicates costs by execution ID.",
+    "Initial status_completed_at_consistent field checked final state only; this revision checks all submit/poll states and separately reports final consistency.",
+    "Timestamp anomalies occur in five runs, not only the initial program run."
+  ],
+  "cases": {
+    "program": {
+      "execution_id": "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+      "expected_file": "execution_program.expected.json",
+      "expected_evidence": "PROPOSAL",
+      "expected": {
+        "marker": "ROUND3_e1782fc9d14245e4862ee826259e1e40",
+        "sum": 42
+      },
+      "submit_status": "enqueued",
+      "poll_count": 8,
+      "polls": [
+        {
+          "file": "execution_program_poll_01.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "file": "execution_program_poll_02.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "file": "execution_program_poll_03.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "file": "execution_program_poll_04.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "file": "execution_program_poll_05.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "file": "execution_program_poll_06.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "file": "execution_program_poll_07.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "file": "execution_program_poll_08.response.json",
+          "usage": {
+            "elements_processed": 1,
+            "element_type": null,
+            "credits_used": 6,
+            "steps": 4,
+            "message": null,
+            "duration_seconds": 74,
+            "service_tier": "standard",
+            "mode_multiplier": 1.0,
+            "standard_cost_dollars": 0.050071,
+            "cost_dollars": 0.050071,
+            "savings_dollars": 0.0
+          },
+          "id": "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+          "name": "arithmetic-pipeline-execution",
+          "response": {
+            "marker": "ROUND3_e1782fc9d14245e4862ee826259e1e40",
+            "sum": 42
+          },
+          "execution_mode": "agent",
+          "status": "completed",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:48:08.696808Z"
+        }
+      ],
+      "observed_status_sequence": [
+        "enqueued",
+        "running",
+        "completed"
+      ],
+      "final_status": "completed",
+      "requested_mode": "program",
+      "observed_execution_mode": "agent",
+      "final_response": {
+        "marker": "ROUND3_e1782fc9d14245e4862ee826259e1e40",
+        "sum": 42
+      },
+      "nested_response_parse": null,
+      "usage_final": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 6,
+        "steps": 4,
+        "message": null,
+        "duration_seconds": 74,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.050071,
+        "cost_dollars": 0.050071,
+        "savings_dollars": 0.0
+      },
+      "result_matches_expected": true,
+      "nested_result_matches_expected": null,
+      "observation_matches_last_poll": true,
+      "all_ids_match": true,
+      "status_completed_at_consistent": false,
+      "final_status_completed_at_consistent": true,
+      "timestamp_anomalies": [
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_program_poll_01.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_program_poll_01.response.json",
+          "seconds": 0.270943
+        },
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_program_poll_02.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_program_poll_02.response.json",
+          "seconds": 0.270943
+        },
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_program_poll_03.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_program_poll_03.response.json",
+          "seconds": 0.270943
+        },
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_program_poll_04.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_program_poll_04.response.json",
+          "seconds": 0.270943
+        },
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_program_poll_05.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_program_poll_05.response.json",
+          "seconds": 0.270943
+        },
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_program_poll_06.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_program_poll_06.response.json",
+          "seconds": 0.270943
+        },
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_program_poll_07.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_program_poll_07.response.json",
+          "seconds": 0.270943
+        }
+      ],
+      "created_at_changed_from_submit": true,
+      "created_at_submit": "2026-10-13T07:46:46.834565Z",
+      "created_at_final": "2026-10-13T07:46:54.214200Z",
+      "created_at_change_seconds": 7.379635,
+      "server_timestamp_duration_seconds": 74.482608,
+      "duration_limit": "Usage duration and timestamp differences are server-reported; no worker timing or cause inferred."
+    },
+    "replay": {
+      "execution_id": "eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+      "expected_file": "execution_replay.expected.json",
+      "expected_evidence": "PROPOSAL",
+      "expected": {
+        "marker": "ROUND3_95fa411f3bd54819a6727e60188cb8f9",
+        "sum": 50
+      },
+      "submit_status": "enqueued",
+      "poll_count": 7,
+      "polls": [
+        {
+          "file": "execution_replay_poll_01.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "file": "execution_replay_poll_02.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "file": "execution_replay_poll_03.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "file": "execution_replay_poll_04.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "file": "execution_replay_poll_05.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "file": "execution_replay_poll_06.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "file": "execution_replay_poll_07.response.json",
+          "usage": {
+            "elements_processed": 1,
+            "element_type": null,
+            "credits_used": 4,
+            "steps": 3,
+            "message": null,
+            "duration_seconds": 65,
+            "service_tier": "standard",
+            "mode_multiplier": 1.0,
+            "standard_cost_dollars": 0.033494,
+            "cost_dollars": 0.033494,
+            "savings_dollars": 0.0
+          },
+          "id": "eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+          "name": "arithmetic-pipeline-execution",
+          "response": {
+            "marker": "ROUND3_95fa411f3bd54819a6727e60188cb8f9",
+            "sum": 50
+          },
+          "execution_mode": "agent",
+          "status": "completed",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:50:16.942237Z"
+        }
+      ],
+      "observed_status_sequence": [
+        "enqueued",
+        "running",
+        "completed"
+      ],
+      "final_status": "completed",
+      "requested_mode": "program",
+      "observed_execution_mode": "agent",
+      "final_response": {
+        "marker": "ROUND3_95fa411f3bd54819a6727e60188cb8f9",
+        "sum": 50
+      },
+      "nested_response_parse": null,
+      "usage_final": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 4,
+        "steps": 3,
+        "message": null,
+        "duration_seconds": 65,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.033494,
+        "cost_dollars": 0.033494,
+        "savings_dollars": 0.0
+      },
+      "result_matches_expected": true,
+      "nested_result_matches_expected": null,
+      "observation_matches_last_poll": true,
+      "all_ids_match": true,
+      "status_completed_at_consistent": false,
+      "final_status_completed_at_consistent": true,
+      "timestamp_anomalies": [
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_replay_poll_01.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_replay_poll_01.response.json",
+          "seconds": 0.844115
+        },
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_replay_poll_02.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_replay_poll_02.response.json",
+          "seconds": 0.844115
+        },
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_replay_poll_03.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_replay_poll_03.response.json",
+          "seconds": 0.844115
+        },
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_replay_poll_04.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_replay_poll_04.response.json",
+          "seconds": 0.844115
+        },
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_replay_poll_05.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_replay_poll_05.response.json",
+          "seconds": 0.844115
+        },
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_replay_poll_06.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_replay_poll_06.response.json",
+          "seconds": 0.844115
+        }
+      ],
+      "created_at_changed_from_submit": true,
+      "created_at_submit": "2026-10-13T07:49:09.820234Z",
+      "created_at_final": "2026-10-13T07:49:11.167793Z",
+      "created_at_change_seconds": 1.347559,
+      "server_timestamp_duration_seconds": 65.774444,
+      "duration_limit": "Usage duration and timestamp differences are server-reported; no worker timing or cause inferred."
+    },
+    "agent": {
+      "execution_id": "8a06a34b-e053-428b-92db-454bfcfbac66",
+      "expected_file": "execution_agent.expected.json",
+      "expected_evidence": "PROPOSAL",
+      "expected": {
+        "marker": "ROUND3_10e52eba442a4464ac80a8c895e87dba",
+        "sum": 42
+      },
+      "submit_status": "enqueued",
+      "poll_count": 5,
+      "polls": [
+        {
+          "file": "execution_agent_poll_01.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "8a06a34b-e053-428b-92db-454bfcfbac66",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:31.450965Z",
+          "completed_at": "2026-10-13T07:49:31.175966Z"
+        },
+        {
+          "file": "execution_agent_poll_02.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "8a06a34b-e053-428b-92db-454bfcfbac66",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:31.450965Z",
+          "completed_at": "2026-10-13T07:49:31.175966Z"
+        },
+        {
+          "file": "execution_agent_poll_03.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "8a06a34b-e053-428b-92db-454bfcfbac66",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:31.450965Z",
+          "completed_at": "2026-10-13T07:49:31.175966Z"
+        },
+        {
+          "file": "execution_agent_poll_04.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "8a06a34b-e053-428b-92db-454bfcfbac66",
+          "name": "arithmetic-pipeline-execution",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:31.450965Z",
+          "completed_at": "2026-10-13T07:49:31.175966Z"
+        },
+        {
+          "file": "execution_agent_poll_05.response.json",
+          "usage": {
+            "elements_processed": 1,
+            "element_type": null,
+            "credits_used": 3,
+            "steps": 2,
+            "message": null,
+            "duration_seconds": 36,
+            "service_tier": "standard",
+            "mode_multiplier": 1.0,
+            "standard_cost_dollars": 0.023251,
+            "cost_dollars": 0.023251,
+            "savings_dollars": 0.0
+          },
+          "id": "8a06a34b-e053-428b-92db-454bfcfbac66",
+          "name": "arithmetic-pipeline-execution",
+          "response": {
+            "marker": "ROUND3_10e52eba442a4464ac80a8c895e87dba",
+            "sum": 42
+          },
+          "execution_mode": "agent",
+          "status": "completed",
+          "created_at": "2026-10-13T07:49:31.450965Z",
+          "completed_at": "2026-10-13T07:50:07.837564Z"
+        }
+      ],
+      "observed_status_sequence": [
+        "enqueued",
+        "running",
+        "completed"
+      ],
+      "final_status": "completed",
+      "requested_mode": "agent",
+      "observed_execution_mode": "agent",
+      "final_response": {
+        "marker": "ROUND3_10e52eba442a4464ac80a8c895e87dba",
+        "sum": 42
+      },
+      "nested_response_parse": null,
+      "usage_final": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 3,
+        "steps": 2,
+        "message": null,
+        "duration_seconds": 36,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.023251,
+        "cost_dollars": 0.023251,
+        "savings_dollars": 0.0
+      },
+      "result_matches_expected": true,
+      "nested_result_matches_expected": null,
+      "observation_matches_last_poll": true,
+      "all_ids_match": true,
+      "status_completed_at_consistent": false,
+      "final_status_completed_at_consistent": true,
+      "timestamp_anomalies": [
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_agent_poll_01.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:31.450965Z",
+          "completed_at": "2026-10-13T07:49:31.175966Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_agent_poll_01.response.json",
+          "seconds": 0.274999
+        },
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_agent_poll_02.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:31.450965Z",
+          "completed_at": "2026-10-13T07:49:31.175966Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_agent_poll_02.response.json",
+          "seconds": 0.274999
+        },
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_agent_poll_03.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:31.450965Z",
+          "completed_at": "2026-10-13T07:49:31.175966Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_agent_poll_03.response.json",
+          "seconds": 0.274999
+        },
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_agent_poll_04.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:31.450965Z",
+          "completed_at": "2026-10-13T07:49:31.175966Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_agent_poll_04.response.json",
+          "seconds": 0.274999
+        }
+      ],
+      "created_at_changed_from_submit": true,
+      "created_at_submit": "2026-10-13T07:49:30.977005Z",
+      "created_at_final": "2026-10-13T07:49:31.450965Z",
+      "created_at_change_seconds": 0.47396,
+      "server_timestamp_duration_seconds": 36.386599,
+      "duration_limit": "Usage duration and timestamp differences are server-reported; no worker timing or cause inferred."
+    },
+    "fallback": {
+      "execution_id": "1bf00c9a-c97a-4a48-a20a-c89527ca7961",
+      "expected_file": "execution_fallback.expected.json",
+      "expected_evidence": "PROPOSAL",
+      "expected": {
+        "response": "ROUND3_HELLO"
+      },
+      "submit_status": "enqueued",
+      "poll_count": 1,
+      "polls": [
+        {
+          "file": "execution_fallback_poll_01.response.json",
+          "usage": {
+            "elements_processed": 1,
+            "element_type": null,
+            "credits_used": 2,
+            "steps": 1,
+            "message": null,
+            "duration_seconds": 3,
+            "service_tier": "standard",
+            "mode_multiplier": 1.0,
+            "standard_cost_dollars": 0.006702,
+            "cost_dollars": 0.006702,
+            "savings_dollars": 0.0
+          },
+          "id": "1bf00c9a-c97a-4a48-a20a-c89527ca7961",
+          "name": "fixed-response-return",
+          "response": {
+            "response": "{\"response\":\"ROUND3_HELLO\"}"
+          },
+          "execution_mode": "agent",
+          "status": "completed",
+          "created_at": "2026-10-13T07:51:22.111168Z",
+          "completed_at": "2026-10-13T07:51:25.857345Z"
+        }
+      ],
+      "observed_status_sequence": [
+        "enqueued",
+        "completed"
+      ],
+      "final_status": "completed",
+      "requested_mode": "program",
+      "observed_execution_mode": "agent",
+      "final_response": {
+        "response": "{\"response\":\"ROUND3_HELLO\"}"
+      },
+      "nested_response_parse": {
+        "response": "ROUND3_HELLO"
+      },
+      "usage_final": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 2,
+        "steps": 1,
+        "message": null,
+        "duration_seconds": 3,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.006702,
+        "cost_dollars": 0.006702,
+        "savings_dollars": 0.0
+      },
+      "result_matches_expected": false,
+      "nested_result_matches_expected": true,
+      "observation_matches_last_poll": true,
+      "all_ids_match": true,
+      "status_completed_at_consistent": true,
+      "final_status_completed_at_consistent": true,
+      "timestamp_anomalies": [],
+      "created_at_changed_from_submit": true,
+      "created_at_submit": "2026-10-13T07:51:16.522788Z",
+      "created_at_final": "2026-10-13T07:51:22.111168Z",
+      "created_at_change_seconds": 5.58838,
+      "server_timestamp_duration_seconds": 3.746177,
+      "duration_limit": "Usage duration and timestamp differences are server-reported; no worker timing or cause inferred."
+    },
+    "reference": {
+      "execution_id": "640e05c7-0ad4-4ee4-b480-5737b3046e1c",
+      "expected_file": "execution_reference.expected.json",
+      "expected_evidence": "PROPOSAL",
+      "expected": null,
+      "submit_status": "enqueued",
+      "poll_count": 2,
+      "polls": [
+        {
+          "file": "execution_reference_poll_01.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "640e05c7-0ad4-4ee4-b480-5737b3046e1c",
+          "name": "grounded-document-extraction",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:53:11.678955Z",
+          "completed_at": "2026-10-13T07:53:11.412940Z"
+        },
+        {
+          "file": "execution_reference_poll_02.response.json",
+          "usage": {
+            "elements_processed": 1,
+            "element_type": null,
+            "credits_used": 2,
+            "steps": 0,
+            "message": null,
+            "duration_seconds": 9,
+            "service_tier": "standard",
+            "mode_multiplier": 1.0,
+            "standard_cost_dollars": 0.002933,
+            "cost_dollars": 0.002933,
+            "savings_dollars": 0.0
+          },
+          "id": "640e05c7-0ad4-4ee4-b480-5737b3046e1c",
+          "name": "grounded-document-extraction",
+          "response": {
+            "type": "referral",
+            "type_metadata": {
+              "confidence": "lo",
+              "annotation_ids": []
+            },
+            "dateOfReferral": null,
+            "dateOfReferral_metadata": {
+              "confidence": "lo",
+              "annotation_ids": []
+            },
+            "reasonForReferral": null,
+            "reasonForReferral_metadata": {
+              "confidence": "lo",
+              "annotation_ids": []
+            },
+            "patient": {
+              "givenName": null,
+              "familyName": null,
+              "givenName_metadata": {
+                "confidence": "lo",
+                "annotation_ids": []
+              },
+              "familyName_metadata": {
+                "confidence": "lo",
+                "annotation_ids": []
+              },
+              "dateOfBirth": null,
+              "dateOfBirth_metadata": {
+                "confidence": "lo",
+                "annotation_ids": []
+              }
+            },
+            "referringProvider": null,
+            "referringProvider_metadata": {
+              "confidence": "lo",
+              "annotation_ids": []
+            },
+            "receivingProvider": null,
+            "receivingProvider_metadata": {
+              "confidence": "lo",
+              "annotation_ids": []
+            },
+            "schedulingPriority": null,
+            "schedulingPriority_metadata": {
+              "confidence": "lo",
+              "annotation_ids": []
+            }
+          },
+          "execution_mode": "program",
+          "status": "completed",
+          "created_at": "2026-10-13T07:53:11.678955Z",
+          "completed_at": "2026-10-13T07:53:21.632750Z"
+        }
+      ],
+      "observed_status_sequence": [
+        "enqueued",
+        "running",
+        "completed"
+      ],
+      "final_status": "completed",
+      "requested_mode": "program",
+      "observed_execution_mode": "program",
+      "final_response": {
+        "type": "referral",
+        "type_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "dateOfReferral": null,
+        "dateOfReferral_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "reasonForReferral": null,
+        "reasonForReferral_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "patient": {
+          "givenName": null,
+          "familyName": null,
+          "givenName_metadata": {
+            "confidence": "lo",
+            "annotation_ids": []
+          },
+          "familyName_metadata": {
+            "confidence": "lo",
+            "annotation_ids": []
+          },
+          "dateOfBirth": null,
+          "dateOfBirth_metadata": {
+            "confidence": "lo",
+            "annotation_ids": []
+          }
+        },
+        "referringProvider": null,
+        "referringProvider_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "receivingProvider": null,
+        "receivingProvider_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "schedulingPriority": null,
+        "schedulingPriority_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        }
+      },
+      "nested_response_parse": null,
+      "usage_final": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 2,
+        "steps": 0,
+        "message": null,
+        "duration_seconds": 9,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.002933,
+        "cost_dollars": 0.002933,
+        "savings_dollars": 0.0
+      },
+      "result_matches_expected": null,
+      "nested_result_matches_expected": null,
+      "observation_matches_last_poll": true,
+      "all_ids_match": true,
+      "status_completed_at_consistent": false,
+      "final_status_completed_at_consistent": true,
+      "timestamp_anomalies": [
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_reference_poll_01.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:53:11.678955Z",
+          "completed_at": "2026-10-13T07:53:11.412940Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_reference_poll_01.response.json",
+          "seconds": 0.266015
+        }
+      ],
+      "created_at_changed_from_submit": true,
+      "created_at_submit": "2026-10-13T07:53:10.854590Z",
+      "created_at_final": "2026-10-13T07:53:11.678955Z",
+      "created_at_change_seconds": 0.824365,
+      "server_timestamp_duration_seconds": 9.953795,
+      "duration_limit": "Usage duration and timestamp differences are server-reported; no worker timing or cause inferred."
+    },
+    "reference_replay": {
+      "execution_id": "5410a132-b564-428a-8d11-f9e7b80e3ef8",
+      "expected_file": "execution_reference_replay.expected.json",
+      "expected_evidence": "PROPOSAL",
+      "expected": null,
+      "submit_status": "enqueued",
+      "poll_count": 2,
+      "polls": [
+        {
+          "file": "execution_reference_replay_poll_01.response.json",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "id": "5410a132-b564-428a-8d11-f9e7b80e3ef8",
+          "name": "grounded-document-extraction",
+          "response": null,
+          "execution_mode": "agent",
+          "status": "running",
+          "created_at": "2026-10-13T07:56:57.551425Z",
+          "completed_at": "2026-10-13T07:56:57.258547Z"
+        },
+        {
+          "file": "execution_reference_replay_poll_02.response.json",
+          "usage": {
+            "elements_processed": 1,
+            "element_type": null,
+            "credits_used": 2,
+            "steps": 0,
+            "message": null,
+            "duration_seconds": 9,
+            "service_tier": "standard",
+            "mode_multiplier": 1.0,
+            "standard_cost_dollars": 0.003031,
+            "cost_dollars": 0.003031,
+            "savings_dollars": 0.0
+          },
+          "id": "5410a132-b564-428a-8d11-f9e7b80e3ef8",
+          "name": "grounded-document-extraction",
+          "response": {
+            "type": "referral",
+            "type_metadata": {
+              "confidence": "hi",
+              "annotation_ids": [
+                "L0"
+              ],
+              "bboxes": [
+                {
+                  "content": "SYNTHETIC TEST REFERRAL",
+                  "bbox": {
+                    "xywh": [
+                      0.0729,
+                      0.0412,
+                      0.371,
+                      0.0212
+                    ]
+                  },
+                  "page": 0,
+                  "confidence": 0.99
+                }
+              ]
+            },
+            "dateOfReferral": "2026-10-13",
+            "dateOfReferral_metadata": {
+              "confidence": "hi",
+              "annotation_ids": [
+                "L3"
+              ],
+              "bboxes": [
+                {
+                  "content": "Date of referral: 2026-10-13",
+                  "bbox": {
+                    "xywh": [
+                      0.0737,
+                      0.1485,
+                      0.3231,
+                      0.02
+                    ]
+                  },
+                  "page": 0,
+                  "confidence": 0.99
+                }
+              ]
+            },
+            "reasonForReferral": "Routine vision evaluation",
+            "reasonForReferral_metadata": {
+              "confidence": "hi",
+              "annotation_ids": [
+                "L4"
+              ],
+              "bboxes": [
+                {
+                  "content": "Reason for referral: Routine vision evaluation",
+                  "bbox": {
+                    "xywh": [
+                      0.0729,
+                      0.1836,
+                      0.5239,
+                      0.0206
+                    ]
+                  },
+                  "page": 0,
+                  "confidence": 0.99
+                }
+              ]
+            },
+            "patient": {
+              "givenName": "Test",
+              "givenName_metadata": {
+                "confidence": "hi",
+                "annotation_ids": [
+                  "L1"
+                ],
+                "bboxes": [
+                  {
+                    "content": "Patient: Test Example",
+                    "bbox": {
+                      "xywh": [
+                        0.0729,
+                        0.077,
+                        0.2573,
+                        0.0224
+                      ]
+                    },
+                    "page": 0,
+                    "confidence": 0.99
+                  }
+                ]
+              },
+              "familyName": "Example",
+              "familyName_metadata": {
+                "confidence": "hi",
+                "annotation_ids": [
+                  "L1"
+                ],
+                "bboxes": [
+                  {
+                    "content": "Patient: Test Example",
+                    "bbox": {
+                      "xywh": [
+                        0.0729,
+                        0.077,
+                        0.2573,
+                        0.0224
+                      ]
+                    },
+                    "page": 0,
+                    "confidence": 0.99
+                  }
+                ]
+              },
+              "dateOfBirth": "2000-01-02",
+              "dateOfBirth_metadata": {
+                "confidence": "hi",
+                "annotation_ids": [
+                  "L2"
+                ],
+                "bboxes": [
+                  {
+                    "content": "Date of birth: 2000-01-02",
+                    "bbox": {
+                      "xywh": [
+                        0.0737,
+                        0.1127,
+                        0.2918,
+                        0.0206
+                      ]
+                    },
+                    "page": 0,
+                    "confidence": 0.99
+                  }
+                ]
+              }
+            },
+            "referringProvider": null,
+            "referringProvider_metadata": {
+              "confidence": "lo",
+              "annotation_ids": []
+            },
+            "receivingProvider": null,
+            "receivingProvider_metadata": {
+              "confidence": "lo",
+              "annotation_ids": []
+            },
+            "schedulingPriority": "Routine",
+            "schedulingPriority_metadata": {
+              "confidence": "hi",
+              "annotation_ids": [
+                "L5"
+              ],
+              "bboxes": [
+                {
+                  "content": "Scheduling priority: Routine",
+                  "bbox": {
+                    "xywh": [
+                      0.0729,
+                      0.2188,
+                      0.3208,
+                      0.023
+                    ]
+                  },
+                  "page": 0,
+                  "confidence": 0.99
+                }
+              ]
+            }
+          },
+          "execution_mode": "program",
+          "status": "completed",
+          "created_at": "2026-10-13T07:56:57.551425Z",
+          "completed_at": "2026-10-13T07:57:07.415927Z"
+        }
+      ],
+      "observed_status_sequence": [
+        "enqueued",
+        "running",
+        "completed"
+      ],
+      "final_status": "completed",
+      "requested_mode": "program",
+      "observed_execution_mode": "program",
+      "final_response": {
+        "type": "referral",
+        "type_metadata": {
+          "confidence": "hi",
+          "annotation_ids": [
+            "L0"
+          ],
+          "bboxes": [
+            {
+              "content": "SYNTHETIC TEST REFERRAL",
+              "bbox": {
+                "xywh": [
+                  0.0729,
+                  0.0412,
+                  0.371,
+                  0.0212
+                ]
+              },
+              "page": 0,
+              "confidence": 0.99
+            }
+          ]
+        },
+        "dateOfReferral": "2026-10-13",
+        "dateOfReferral_metadata": {
+          "confidence": "hi",
+          "annotation_ids": [
+            "L3"
+          ],
+          "bboxes": [
+            {
+              "content": "Date of referral: 2026-10-13",
+              "bbox": {
+                "xywh": [
+                  0.0737,
+                  0.1485,
+                  0.3231,
+                  0.02
+                ]
+              },
+              "page": 0,
+              "confidence": 0.99
+            }
+          ]
+        },
+        "reasonForReferral": "Routine vision evaluation",
+        "reasonForReferral_metadata": {
+          "confidence": "hi",
+          "annotation_ids": [
+            "L4"
+          ],
+          "bboxes": [
+            {
+              "content": "Reason for referral: Routine vision evaluation",
+              "bbox": {
+                "xywh": [
+                  0.0729,
+                  0.1836,
+                  0.5239,
+                  0.0206
+                ]
+              },
+              "page": 0,
+              "confidence": 0.99
+            }
+          ]
+        },
+        "patient": {
+          "givenName": "Test",
+          "givenName_metadata": {
+            "confidence": "hi",
+            "annotation_ids": [
+              "L1"
+            ],
+            "bboxes": [
+              {
+                "content": "Patient: Test Example",
+                "bbox": {
+                  "xywh": [
+                    0.0729,
+                    0.077,
+                    0.2573,
+                    0.0224
+                  ]
+                },
+                "page": 0,
+                "confidence": 0.99
+              }
+            ]
+          },
+          "familyName": "Example",
+          "familyName_metadata": {
+            "confidence": "hi",
+            "annotation_ids": [
+              "L1"
+            ],
+            "bboxes": [
+              {
+                "content": "Patient: Test Example",
+                "bbox": {
+                  "xywh": [
+                    0.0729,
+                    0.077,
+                    0.2573,
+                    0.0224
+                  ]
+                },
+                "page": 0,
+                "confidence": 0.99
+              }
+            ]
+          },
+          "dateOfBirth": "2000-01-02",
+          "dateOfBirth_metadata": {
+            "confidence": "hi",
+            "annotation_ids": [
+              "L2"
+            ],
+            "bboxes": [
+              {
+                "content": "Date of birth: 2000-01-02",
+                "bbox": {
+                  "xywh": [
+                    0.0737,
+                    0.1127,
+                    0.2918,
+                    0.0206
+                  ]
+                },
+                "page": 0,
+                "confidence": 0.99
+              }
+            ]
+          }
+        },
+        "referringProvider": null,
+        "referringProvider_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "receivingProvider": null,
+        "receivingProvider_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "schedulingPriority": "Routine",
+        "schedulingPriority_metadata": {
+          "confidence": "hi",
+          "annotation_ids": [
+            "L5"
+          ],
+          "bboxes": [
+            {
+              "content": "Scheduling priority: Routine",
+              "bbox": {
+                "xywh": [
+                  0.0729,
+                  0.2188,
+                  0.3208,
+                  0.023
+                ]
+              },
+              "page": 0,
+              "confidence": 0.99
+            }
+          ]
+        }
+      },
+      "nested_response_parse": null,
+      "usage_final": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 2,
+        "steps": 0,
+        "message": null,
+        "duration_seconds": 9,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.003031,
+        "cost_dollars": 0.003031,
+        "savings_dollars": 0.0
+      },
+      "result_matches_expected": null,
+      "nested_result_matches_expected": null,
+      "observation_matches_last_poll": true,
+      "all_ids_match": true,
+      "status_completed_at_consistent": false,
+      "final_status_completed_at_consistent": true,
+      "timestamp_anomalies": [
+        {
+          "kind": "nonterminal_completed_at",
+          "file": "execution_reference_replay_poll_01.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:56:57.551425Z",
+          "completed_at": "2026-10-13T07:56:57.258547Z"
+        },
+        {
+          "kind": "completed_before_created",
+          "file": "execution_reference_replay_poll_01.response.json",
+          "seconds": 0.292878
+        }
+      ],
+      "created_at_changed_from_submit": true,
+      "created_at_submit": "2026-10-13T07:56:56.986479Z",
+      "created_at_final": "2026-10-13T07:56:57.551425Z",
+      "created_at_change_seconds": 0.564946,
+      "server_timestamp_duration_seconds": 9.864502,
+      "duration_limit": "Usage duration and timestamp differences are server-reported; no worker timing or cause inferred."
+    }
+  },
+  "artifacts": {
+    "program": {
+      "list_file": "execution_program_artifacts.response.json",
+      "list_status": 200,
+      "list_response": {
+        "namespace_id": "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+        "total": 1,
+        "limit": 10,
+        "offset": 0,
+        "items": [
+          {
+            "object_id": "round3-result",
+            "filename": "round3-result.json",
+            "source": "manifest"
+          }
+        ]
+      },
+      "namespace_matches_execution_id": true,
+      "download_file": "execution_program_artifact_bytes.response.raw",
+      "download_status": 200,
+      "download_response_bytes": 64,
+      "download_response_sha256": "6d71b1c38299f3543d8a1619f55bb9a22cfd23a550738cab40da05d4278a6a58",
+      "download_response": {
+        "marker": "ROUND3_e1782fc9d14245e4862ee826259e1e40",
+        "sum": 42
+      },
+      "download_matches_expected": true,
+      "download_matches_final_response": true,
+      "redirect_status": 307,
+      "redirect_response_bytes": 0
+    },
+    "replay": {
+      "list_file": "execution_replay_artifacts.response.json",
+      "list_status": 200,
+      "list_response": {
+        "namespace_id": "eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+        "total": 1,
+        "limit": 10,
+        "offset": 0,
+        "items": [
+          {
+            "object_id": "round3-result",
+            "filename": "round3-result.json",
+            "source": "manifest"
+          }
+        ]
+      },
+      "namespace_matches_execution_id": true,
+      "download_file": "execution_replay_artifact_bytes.response.raw",
+      "download_status": 200,
+      "download_response_bytes": 64,
+      "download_response_sha256": "0c5e785fd2b6a55f8fc5bfdef8db4d5912197951e3a25d9cc96e8ca1a93ee14e",
+      "download_response": {
+        "marker": "ROUND3_95fa411f3bd54819a6727e60188cb8f9",
+        "sum": 50
+      },
+      "download_matches_expected": true,
+      "download_matches_final_response": true,
+      "redirect_status": 307,
+      "redirect_response_bytes": 0
+    },
+    "agent": {
+      "list_file": "execution_agent_artifacts.response.json",
+      "list_status": 200,
+      "list_response": {
+        "namespace_id": "8a06a34b-e053-428b-92db-454bfcfbac66",
+        "total": 1,
+        "limit": 10,
+        "offset": 0,
+        "items": [
+          {
+            "object_id": "round3-result",
+            "filename": "round3-result.json",
+            "source": "manifest"
+          }
+        ]
+      },
+      "namespace_matches_execution_id": true,
+      "download_file": "execution_agent_artifact_bytes.response.raw",
+      "download_status": 200,
+      "download_response_bytes": 70,
+      "download_response_sha256": "ac12a9ca25fca5251f60182db6f7f3ae333fa3896e698980845a92820b5451be",
+      "download_response": {
+        "sum": 42,
+        "marker": "ROUND3_10e52eba442a4464ac80a8c895e87dba"
+      },
+      "download_matches_expected": true,
+      "download_matches_final_response": true,
+      "redirect_status": 307,
+      "redirect_response_bytes": 0
+    },
+    "reference_replay": {
+      "list_file": "execution_reference_replay_artifacts.response.json",
+      "list_status": 200,
+      "list_response": {
+        "namespace_id": "5410a132-b564-428a-8d11-f9e7b80e3ef8",
+        "total": 1,
+        "limit": 100,
+        "offset": 0,
+        "items": [
+          {
+            "object_id": "doc_25bfd5",
+            "filename": "doc_25bfd5.pdf",
+            "source": "manifest"
+          }
+        ]
+      },
+      "namespace_matches_execution_id": true,
+      "download_observed_in_original_run": false
+    }
+  },
+  "reference_replay_grounding": {
+    "evidence": "STATIC",
+    "source_response": "captures/execution_reference_replay_poll_02.response.json",
+    "input_pdf": "synthetic_referral.pdf",
+    "input_pdf_sha256": "7113a9198c2883372733da93df0116b77633cf5af8257e10a26231f00381e138",
+    "pdf_hash_matches_fixture": true,
+    "request_pdf_matches_local_bytes": true,
+    "pdf_page_count": 1,
+    "pdf_text_lines": [
+      "SYNTHETIC TEST REFERRAL",
+      "Patient: Test Example",
+      "Date of birth: 2000-01-02",
+      "Date of referral: 2026-10-13",
+      "Reason for referral: Routine vision evaluation",
+      "Scheduling priority: Routine"
+    ],
+    "pdf_text_matches_fixture_lines": true,
+    "field_checks": [
+      {
+        "field": "type",
+        "value": "referral",
+        "input_derived_expected_value": "referral",
+        "value_matches_input_comparison": true,
+        "source_pdf_line_index": 0,
+        "source_pdf_line": "SYNTHETIC TEST REFERRAL",
+        "metadata_confidence": "hi",
+        "annotation_ids": [
+          "L0"
+        ],
+        "annotation_id_matches_line_index": true,
+        "bbox_count": 1,
+        "bbox_content": "SYNTHETIC TEST REFERRAL",
+        "bbox_content_matches_pdf_line": true,
+        "bbox_page": 0,
+        "bbox_confidence": 0.99,
+        "xywh": [
+          0.0729,
+          0.0412,
+          0.371,
+          0.0212
+        ],
+        "xywh_within_unit_page": true
+      },
+      {
+        "field": "dateOfReferral",
+        "value": "2026-10-13",
+        "input_derived_expected_value": "2026-10-13",
+        "value_matches_input_comparison": true,
+        "source_pdf_line_index": 3,
+        "source_pdf_line": "Date of referral: 2026-10-13",
+        "metadata_confidence": "hi",
+        "annotation_ids": [
+          "L3"
+        ],
+        "annotation_id_matches_line_index": true,
+        "bbox_count": 1,
+        "bbox_content": "Date of referral: 2026-10-13",
+        "bbox_content_matches_pdf_line": true,
+        "bbox_page": 0,
+        "bbox_confidence": 0.99,
+        "xywh": [
+          0.0737,
+          0.1485,
+          0.3231,
+          0.02
+        ],
+        "xywh_within_unit_page": true
+      },
+      {
+        "field": "reasonForReferral",
+        "value": "Routine vision evaluation",
+        "input_derived_expected_value": "Routine vision evaluation",
+        "value_matches_input_comparison": true,
+        "source_pdf_line_index": 4,
+        "source_pdf_line": "Reason for referral: Routine vision evaluation",
+        "metadata_confidence": "hi",
+        "annotation_ids": [
+          "L4"
+        ],
+        "annotation_id_matches_line_index": true,
+        "bbox_count": 1,
+        "bbox_content": "Reason for referral: Routine vision evaluation",
+        "bbox_content_matches_pdf_line": true,
+        "bbox_page": 0,
+        "bbox_confidence": 0.99,
+        "xywh": [
+          0.0729,
+          0.1836,
+          0.5239,
+          0.0206
+        ],
+        "xywh_within_unit_page": true
+      },
+      {
+        "field": "patient.givenName",
+        "value": "Test",
+        "input_derived_expected_value": "Test",
+        "value_matches_input_comparison": true,
+        "source_pdf_line_index": 1,
+        "source_pdf_line": "Patient: Test Example",
+        "metadata_confidence": "hi",
+        "annotation_ids": [
+          "L1"
+        ],
+        "annotation_id_matches_line_index": true,
+        "bbox_count": 1,
+        "bbox_content": "Patient: Test Example",
+        "bbox_content_matches_pdf_line": true,
+        "bbox_page": 0,
+        "bbox_confidence": 0.99,
+        "xywh": [
+          0.0729,
+          0.077,
+          0.2573,
+          0.0224
+        ],
+        "xywh_within_unit_page": true
+      },
+      {
+        "field": "patient.familyName",
+        "value": "Example",
+        "input_derived_expected_value": "Example",
+        "value_matches_input_comparison": true,
+        "source_pdf_line_index": 1,
+        "source_pdf_line": "Patient: Test Example",
+        "metadata_confidence": "hi",
+        "annotation_ids": [
+          "L1"
+        ],
+        "annotation_id_matches_line_index": true,
+        "bbox_count": 1,
+        "bbox_content": "Patient: Test Example",
+        "bbox_content_matches_pdf_line": true,
+        "bbox_page": 0,
+        "bbox_confidence": 0.99,
+        "xywh": [
+          0.0729,
+          0.077,
+          0.2573,
+          0.0224
+        ],
+        "xywh_within_unit_page": true
+      },
+      {
+        "field": "patient.dateOfBirth",
+        "value": "2000-01-02",
+        "input_derived_expected_value": "2000-01-02",
+        "value_matches_input_comparison": true,
+        "source_pdf_line_index": 2,
+        "source_pdf_line": "Date of birth: 2000-01-02",
+        "metadata_confidence": "hi",
+        "annotation_ids": [
+          "L2"
+        ],
+        "annotation_id_matches_line_index": true,
+        "bbox_count": 1,
+        "bbox_content": "Date of birth: 2000-01-02",
+        "bbox_content_matches_pdf_line": true,
+        "bbox_page": 0,
+        "bbox_confidence": 0.99,
+        "xywh": [
+          0.0737,
+          0.1127,
+          0.2918,
+          0.0206
+        ],
+        "xywh_within_unit_page": true
+      },
+      {
+        "field": "schedulingPriority",
+        "value": "Routine",
+        "input_derived_expected_value": "Routine",
+        "value_matches_input_comparison": true,
+        "source_pdf_line_index": 5,
+        "source_pdf_line": "Scheduling priority: Routine",
+        "metadata_confidence": "hi",
+        "annotation_ids": [
+          "L5"
+        ],
+        "annotation_id_matches_line_index": true,
+        "bbox_count": 1,
+        "bbox_content": "Scheduling priority: Routine",
+        "bbox_content_matches_pdf_line": true,
+        "bbox_page": 0,
+        "bbox_confidence": 0.99,
+        "xywh": [
+          0.0729,
+          0.2188,
+          0.3208,
+          0.023
+        ],
+        "xywh_within_unit_page": true
+      }
+    ],
+    "field_metadata_with_bboxes_count": 7,
+    "unique_line_annotations_count": 6,
+    "absent_provider_fields_are_null": true,
+    "absent_provider_metadata_low_empty": true,
+    "limits": [
+      "Seven populated field metadata objects reuse six unique line annotations; patient names share L1.",
+      "type=referral is also fixed by the downloaded schema const; this run does not establish classifier behavior.",
+      "Bounding box text, page number and normalized range are checked; pixel geometry accuracy and confidence calibration are not established.",
+      "Pre-run expected.json was null; these field checks are explicitly post-run comparisons to the synthetic input."
+    ]
+  },
+  "unique_execution_count": 6,
+  "cost_by_execution_id": {
+    "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51": "0.050071",
+    "eb42f7ca-7a21-46a4-a66d-5fb27374ade9": "0.033494",
+    "8a06a34b-e053-428b-92db-454bfcfbac66": "0.023251",
+    "1bf00c9a-c97a-4a48-a20a-c89527ca7961": "0.006702",
+    "640e05c7-0ad4-4ee4-b480-5737b3046e1c": "0.002933",
+    "5410a132-b564-428a-8d11-f9e7b80e3ef8": "0.003031"
+  },
+  "total_observed_cost_dollars": 0.119482,
+  "total_observed_cost_dollars_exact": "0.119482",
+  "cost_basis": "One final usage.cost_dollars per unique execution ID. Not actual account billing; credits and repeated polls are not added.",
+  "raw_capture_integrity_checks": [
+    {
+      "path": "execution_program_artifact_bytes.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_program_artifact_get.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_program_artifacts.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_program_next_day.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_program_poll_01.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_program_poll_02.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_program_poll_03.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_program_poll_04.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_program_poll_05.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_program_poll_06.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_program_poll_07.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_program_poll_08.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_program_submit.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_replay_artifact_bytes.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_replay_artifact_get.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_replay_artifacts.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_replay_poll_01.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_replay_poll_02.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_replay_poll_03.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_replay_poll_04.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_replay_poll_05.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_replay_poll_06.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_replay_poll_07.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_replay_submit.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_agent_artifact_bytes.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_agent_artifact_get.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_agent_artifacts.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_agent_poll_01.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_agent_poll_02.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_agent_poll_03.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_agent_poll_04.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_agent_poll_05.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_agent_submit.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_fallback_poll_01.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_fallback_submit.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_reference_poll_01.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_reference_poll_02.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_reference_replay_artifacts.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_reference_replay_next_day.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_reference_replay_poll_01.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_reference_replay_poll_02.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_reference_replay_submit.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_reference_submit.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_reference_replay_artifacts.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_reference_replay_next_day.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_reference_replay_poll_01.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_reference_replay_poll_02.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    },
+    {
+      "path": "execution_reference_replay_submit.response.raw",
+      "sha256_matches_meta": true,
+      "bytes_match_meta": true
+    }
+  ],
+  "audit_findings": [
+    "Six unique execution IDs completed; four reported agent and two reported program.",
+    "program/replay requested program but reported agent; correct arithmetic alone does not prove a cached program path.",
+    "reference/reference_replay reported program and steps=0; this field does not imply the document.extract call used no model or no tools.",
+    "reference's non-referral invoice produced schema const referral with null data; not evidence of classification correctness.",
+    "fallback outer response does not match the expected object; response.response parses into that object but extra parsing is required.",
+    "Nineteen running snapshots across five runs have completed_at earlier than created_at; every run's created_at changes between submit and final response. Cause unknown.",
+    "Three downloaded arithmetic artifacts independently match final response and input-derived expected values; they do not establish which unpublished runner code wrote them.",
+    "reference_replay grounding returns seven populated field metadata objects spanning six input lines; all content strings and extracted fields match the synthetic PDF checks."
+  ]
+}

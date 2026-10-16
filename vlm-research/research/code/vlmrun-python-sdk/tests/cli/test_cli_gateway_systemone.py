@@ -1,0 +1,1340 @@
+"""Tests for ``vlmrun gw systemone``.
+
+The command is exercised end to end through the Typer runner with
+:meth:`SystemOne.decide` replaced by a recorder, so the assertions cover the
+CLI's own work: flag parsing, positional resolution and rendering.
+"""
+
+from __future__ import annotations
+
+import base64
+import json
+from pathlib import Path
+
+import pytest
+import typer
+
+from tests.conftest import strip_ansi
+from vlmrun.cli._cli.gateway_systemone import (
+    EXIT_ERROR,
+    EXIT_GATE_FAILED,
+    _aggregate,
+    _answer_row,
+    _bar,
+    _classify,
+    _clock,
+    _downsample,
+    _evaluate_gates_over_frames,
+    _longest_run,
+    _parse_gate,
+    _parse_gate_mode,
+    _questions_from_flags,
+    _resolve_inputs,
+    _runs_of,
+    _sparkline,
+)
+from vlmrun.cli.cli import app
+from vlmrun.client.systemone import FrameDecision
+from vlmrun.client.systemone import SystemOne
+
+PNG_BYTES = base64.b64decode(
+    "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+)
+PDF_BYTES = b"%PDF-1.4\n1 0 obj<</Type/Catalog>>endobj\ntrailer<</Root 1 0 R>>\n"
+
+
+class Answer:
+    """A stand-in for one decoded answer object."""
+
+    def __init__(self, **fields):
+        self.__dict__.update(fields)
+
+
+class Usage:
+    def __init__(self, input_tokens=149, output_tokens=0):
+        self.input_tokens = input_tokens
+        self.output_tokens = output_tokens
+
+
+class Recorded:
+    """A stand-in SystemOneResponse that also records the call that made it."""
+
+    def __init__(self, calls, answers=None):
+        self.calls = calls
+        self.model = "google/diffusiongemma-26b-a4b-it"
+        self.usage = Usage()
+        self.answers = answers or {
+            "is_urgent": Answer(type="noul", noul=0.91),
+            "dept": Answer(
+                type="choice",
+                choice="billing",
+                probabilities={"billing": 0.9, "sales": 0.1},
+                confidence=0.7,
+            ),
+            "mood": Answer(
+                type="score",
+                score=0.9,
+                legend={"0": "calm", "1": "angry"},
+                probabilities={"0": 0.1, "1": 0.9},
+                confidence=0.5,
+            ),
+        }
+
+    @property
+    def raw_http_response(self):
+        raise RuntimeError("no raw response in tests")
+
+    def model_dump_json(self):
+        """Serialize the answers this response actually carries."""
+        return json.dumps(
+            {
+                "model": self.model,
+                "answers": {
+                    name: dict(answer.__dict__) for name, answer in self.answers.items()
+                },
+            }
+        )
+
+
+@pytest.fixture
+def decide(monkeypatch):
+    """Capture the arguments the CLI hands to the SDK."""
+    calls: list = []
+
+    def fake_decide(self, state, questions, **kwargs):
+        calls.append({"state": state, "questions": questions, **kwargs})
+        return Recorded(calls)
+
+    monkeypatch.setattr(SystemOne, "decide", fake_decide)
+    return calls
+
+
+class TestQuestionFlags:
+    def test_noul_with_and_without_instructions(self):
+        questions = _questions_from_flags(["a", 'b="Is it urgent?"'], None, None)
+        assert questions[0] == {"id": "a", "type": "noul"}
+        assert questions[1] == {
+            "id": "b",
+            "type": "noul",
+            "instructions": '"Is it urgent?"',
+        }
+
+    def test_choice_labels_and_descriptions(self):
+        questions = _questions_from_flags(None, ["dept=billing:Charges|sales"], None)
+        assert questions[0]["options"] == [
+            {"name": "billing", "description": "Charges"},
+            "sales",
+        ]
+
+    def test_score_levels(self):
+        questions = _questions_from_flags(None, None, ["mood=calm|angry"])
+        assert questions[0] == {
+            "id": "mood",
+            "type": "score",
+            "levels": ["calm", "angry"],
+        }
+
+    def test_order_is_noul_then_choice_then_score(self):
+        questions = _questions_from_flags(["a"], ["b=x|y"], ["c=l|h"])
+        assert [q["id"] for q in questions] == ["a", "b", "c"]
+
+
+class TestClassifyInputs:
+    def test_plain_text_is_state(self):
+        assert _classify("just some text") == "text"
+
+    def test_image_and_pdf_and_text_file(self, tmp_path):
+        image = tmp_path / "a.png"
+        image.write_bytes(PNG_BYTES)
+        pdf = tmp_path / "a.pdf"
+        pdf.write_bytes(PDF_BYTES)
+        note = tmp_path / "a.txt"
+        note.write_text("hello")
+        assert _classify(str(image)) == "image"
+        assert _classify(str(pdf)) == "document"
+        assert _classify(str(note)) == "state_file"
+
+    def test_remote_urls(self):
+        assert _classify("https://example.com/a.pdf") == "document"
+        assert _classify("https://example.com/a.jpg") == "image"
+
+    def test_data_urls_are_media(self):
+        png = "data:image/png;base64," + base64.b64encode(PNG_BYTES).decode()
+        pdf = "data:application/pdf;base64," + base64.b64encode(PDF_BYTES).decode()
+        assert _classify(png) == "image"
+        assert _classify(pdf) == "document"
+
+    def test_unsupported_data_url_is_an_error(self):
+        with pytest.raises(Exception):
+            _classify("data:video/mp4;base64,AAAA")
+
+    def test_extensionless_url_is_probed(self, monkeypatch):
+        """A signed link or object-store key carries no type; ask the server."""
+        probed = []
+
+        def fake(url, timeout=15.0):
+            probed.append(url)
+            return "image/jpeg"
+
+        monkeypatch.setattr("vlmrun.cli._cli.gateway_systemone.probe_url_mime", fake)
+        assert _classify("https://example.com/object?id=1") == "image"
+        assert probed == ["https://example.com/object?id=1"]
+
+    def test_probe_finds_a_pdf(self, monkeypatch):
+        monkeypatch.setattr(
+            "vlmrun.cli._cli.gateway_systemone.probe_url_mime",
+            lambda u, timeout=15.0: "application/pdf",
+        )
+        assert _classify("https://example.com/download?doc=9") == "document"
+
+    def test_probe_names_what_it_found_when_unsupported(self, monkeypatch):
+        monkeypatch.setattr(
+            "vlmrun.cli._cli.gateway_systemone.probe_url_mime",
+            lambda u, timeout=15.0: "video/mp4",
+        )
+        with pytest.raises(Exception):
+            _classify("https://example.com/clip?id=2")
+
+    def test_url_with_an_extension_is_not_probed(self, monkeypatch):
+        def explode(*a, **k):  # pragma: no cover - must not be reached
+            raise AssertionError("probed a URL whose extension already decided it")
+
+        monkeypatch.setattr("vlmrun.cli._cli.gateway_systemone.probe_url_mime", explode)
+        assert _classify("https://example.com/a.jpg") == "image"
+        assert _classify("https://example.com/a.pdf") == "document"
+
+    def test_json_state_file_is_parsed(self, tmp_path):
+        state_file = tmp_path / "s.json"
+        state_file.write_text('{"message": "hi"}')
+        state_parts, images, document, _ = _resolve_inputs([str(state_file)], False)
+        assert state_parts == [{"message": "hi"}]
+        assert images == [] and document is None
+
+    def test_two_pdfs_are_rejected(self, tmp_path):
+        pdf = tmp_path / "a.pdf"
+        pdf.write_bytes(PDF_BYTES)
+        with pytest.raises(Exception):
+            _resolve_inputs([str(pdf), str(pdf)], False)
+
+
+class TestRenderHelpers:
+    def test_bar_is_monotonic(self):
+        assert _bar(0.0).strip() == ""
+        assert len(_bar(1.0).strip()) == 9
+        assert len(_bar(0.5).strip()) <= 5
+
+    def test_answer_rows(self):
+        shown, value, metric, _ = _answer_row(Answer(type="noul", noul=0.91))
+        assert (shown, value, metric) == ("yes", 0.91, "P(yes)")
+        shown, value, metric, probabilities = _answer_row(
+            Answer(
+                type="choice",
+                choice="billing",
+                probabilities={"billing": 0.9, "sales": 0.1},
+                confidence=0.7,
+            )
+        )
+        assert shown == "billing" and value == 0.7
+        assert probabilities.startswith("billing 0.90")
+        shown, _, _, probabilities = _answer_row(
+            Answer(
+                type="score",
+                score=0.9,
+                legend={"0": "calm", "1": "angry"},
+                probabilities={"0": 0.1, "1": 0.9},
+                confidence=0.5,
+            )
+        )
+        assert shown == "0.9 angry"
+        assert probabilities.startswith("0 calm 0.10")
+
+
+class TestCommand:
+    def test_inline_flags_build_questions(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                "the state",
+                "--noul",
+                "is_urgent",
+                "--choice",
+                "dept=billing|sales",
+            ],
+        )
+        assert result.exit_code == 0, result.stdout
+        call = decide[0]
+        assert call["state"] == "the state"
+        assert call["questions"] == [
+            {"id": "is_urgent", "type": "noul"},
+            {"id": "dept", "type": "choice", "options": ["billing", "sales"]},
+        ]
+        out = strip_ansi(result.stdout)
+        assert "is_urgent" in out and "0.91" in out and "billing" in out
+
+    def test_questions_json_list(self, runner, decide, config_file):
+        spec = '[{"id": "a", "type": "noul"}]'
+        result = runner.invoke(app, ["gw", "systemone", "x", "-Q", spec])
+        assert result.exit_code == 0, result.stdout
+        assert decide[0]["questions"] == [{"id": "a", "type": "noul"}]
+
+    def test_questions_wrapper_and_flag_override(self, runner, decide, config_file):
+        spec = '{"questions": {"a": {"type": "noul"}}}'
+        result = runner.invoke(
+            app, ["gw", "systemone", "x", "-Q", spec, "--choice", "a=x|y"]
+        )
+        assert result.exit_code == 0, result.stdout
+        assert decide[0]["questions"]["a"]["type"] == "choice"
+
+    def test_body_supplies_state_and_questions(self, runner, decide, config_file):
+        body = json.dumps(
+            {
+                "state": "from body",
+                "questions": [{"id": "a", "type": "noul"}],
+                "samples": 4,
+            }
+        )
+        result = runner.invoke(app, ["gw", "systemone", "--body", body])
+        assert result.exit_code == 0, result.stdout
+        assert decide[0]["state"] == "from body"
+        assert decide[0]["extra_body"] == {"samples": 4}
+
+    def test_positional_state_overrides_body(self, runner, decide, config_file):
+        body = json.dumps(
+            {"state": "from body", "questions": [{"id": "a", "type": "noul"}]}
+        )
+        result = runner.invoke(app, ["gw", "systemone", "from the cli", "--body", body])
+        assert result.exit_code == 0, result.stdout
+        assert decide[0]["state"] == "from the cli"
+
+    def test_media_positionals(self, runner, decide, config_file, tmp_path):
+        image = tmp_path / "a.png"
+        image.write_bytes(PNG_BYTES)
+        pdf = tmp_path / "a.pdf"
+        pdf.write_bytes(PDF_BYTES)
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                str(image),
+                str(pdf),
+                "-s",
+                "does it match?",
+                "--detail",
+                "high",
+                "--noul",
+                "matches",
+            ],
+        )
+        assert result.exit_code == 0, result.stdout
+        call = decide[0]
+        assert call["images"] == [str(image)]
+        assert call["document"] == str(pdf)
+        assert call["detail"] == "high"
+        assert call["state"] == "does it match?"
+
+    def test_state_file_is_read(self, runner, decide, config_file, tmp_path):
+        ticket = tmp_path / "ticket.txt"
+        ticket.write_text("charged twice")
+        result = runner.invoke(app, ["gw", "systemone", str(ticket), "--noul", "a"])
+        assert result.exit_code == 0, result.stdout
+        assert decide[0]["state"] == "charged twice"
+
+    def test_steps_and_samples(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            ["gw", "systemone", "x", "--noul", "a", "--steps", "2", "--samples", "4"],
+        )
+        assert result.exit_code == 0, result.stdout
+        assert decide[0]["steps"] == 2 and decide[0]["samples"] == 4
+
+    def test_json_output(self, runner, decide, config_file):
+        result = runner.invoke(app, ["gw", "systemone", "x", "--noul", "a", "--json"])
+        assert result.exit_code == 0, result.stdout
+        assert "0.91" in strip_ansi(result.stdout)
+
+    def test_no_questions_is_an_error(self, runner, decide, config_file):
+        result = runner.invoke(app, ["gw", "systemone", "x"])
+        assert result.exit_code == EXIT_ERROR
+        assert "no questions" in strip_ansi(result.stdout)
+
+    def test_no_state_is_an_error(self, runner, decide, config_file):
+        result = runner.invoke(app, ["gw", "systemone", "--noul", "a"])
+        assert result.exit_code == EXIT_ERROR
+        assert "no state" in strip_ansi(result.stdout)
+
+    def test_bad_detail_is_an_error(self, runner, decide, config_file):
+        result = runner.invoke(
+            app, ["gw", "systemone", "x", "--noul", "a", "--detail", "medium"]
+        )
+        assert result.exit_code == EXIT_ERROR
+        assert "--detail must be" in strip_ansi(result.stdout)
+
+    def test_choice_needs_options(self, runner, decide, config_file):
+        result = runner.invoke(app, ["gw", "systemone", "x", "--choice", "dept"])
+        assert result.exit_code == EXIT_ERROR
+        assert "needs options" in strip_ansi(result.stdout)
+
+    def test_bad_questions_json(self, runner, decide, config_file):
+        result = runner.invoke(app, ["gw", "systemone", "x", "-Q", "{not json"])
+        assert result.exit_code == EXIT_ERROR
+        assert "valid JSON" in strip_ansi(result.stdout)
+
+    def test_s1_is_the_same_command(self, runner, decide, config_file):
+        result = runner.invoke(app, ["gw", "s1", "x", "--noul", "a"])
+        assert result.exit_code == 0, result.stdout
+        assert decide[0]["questions"] == [{"id": "a", "type": "noul"}]
+
+    def test_s1_is_hidden_from_the_group_help(self, runner):
+        result = runner.invoke(app, ["gw", "--help"])
+        out = strip_ansi(result.stdout)
+        assert "systemone" in out
+        assert "\n│ s1 " not in out
+
+    def test_help_documents_both_dialects(self, runner):
+        result = runner.invoke(app, ["gw", "systemone", "--help"])
+        assert result.exit_code == 0
+        out = strip_ansi(result.stdout)
+        assert "List form" in out and "Map form" in out
+        assert "options" in out and "levels" in out
+
+
+class TestGates:
+    def test_parses_each_operator(self):
+        assert _parse_gate("a>0.8") == ("a", ">", 0.8)
+        assert _parse_gate("a.confidence>=0.5") == ("a.confidence", ">=", 0.5)
+        assert _parse_gate("dept==billing") == ("dept", "==", "billing")
+        assert _parse_gate("mood<1.5") == ("mood", "<", 1.5)
+
+    def test_rejects_a_non_comparison(self, runner):
+        with pytest.raises(Exception):
+            _parse_gate("is_urgent")
+
+    def test_passing_gates_exit_zero(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                "x",
+                "--noul",
+                "is_urgent",
+                "--choice",
+                "dept=billing|sales",
+                "--score",
+                "mood=calm|angry",
+                "-g",
+                "is_urgent>0.8",
+                "-g",
+                "dept==billing",
+                "-g",
+                "dept.confidence>=0.5",
+            ],
+        )
+        assert result.exit_code == 0, result.stdout
+        out = strip_ansi(result.stdout)
+        assert "PASS" in out and "FAIL" not in out
+
+    def test_failing_gate_exits_one(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                "x",
+                "--noul",
+                "is_urgent",
+                "--choice",
+                "dept=billing|sales",
+                "--score",
+                "mood=calm|angry",
+                "-g",
+                "is_urgent<0.5",
+            ],
+        )
+        assert result.exit_code == EXIT_GATE_FAILED
+        assert "FAIL" in strip_ansi(result.stdout)
+
+    def test_label_gate_on_choice(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                "x",
+                "--noul",
+                "is_urgent",
+                "--choice",
+                "dept=billing|sales",
+                "--score",
+                "mood=calm|angry",
+                "-g",
+                "dept==sales",
+            ],
+        )
+        assert result.exit_code == EXIT_GATE_FAILED
+
+    def test_probabilities_selector(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                "x",
+                "--noul",
+                "is_urgent",
+                "--choice",
+                "dept=billing|sales",
+                "--score",
+                "mood=calm|angry",
+                "-g",
+                "dept.probabilities.billing>0.8",
+            ],
+        )
+        assert result.exit_code == 0, result.stdout
+
+    def test_unknown_question_is_an_error(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                "x",
+                "--noul",
+                "is_urgent",
+                "--choice",
+                "dept=billing|sales",
+                "--score",
+                "mood=calm|angry",
+                "-g",
+                "nope>0.5",
+            ],
+        )
+        assert result.exit_code == EXIT_ERROR
+        assert "not one of the questions asked" in strip_ansi(result.stdout)
+
+    def test_numeric_operator_on_a_label_is_an_error(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                "x",
+                "--noul",
+                "is_urgent",
+                "--choice",
+                "dept=billing|sales",
+                "--score",
+                "mood=calm|angry",
+                "-g",
+                "dept>billing",
+            ],
+        )
+        assert result.exit_code == EXIT_ERROR
+
+
+class TestGateSelectorValidation:
+    """A selector that cannot apply is a broken gate, not a passing one."""
+
+    def test_choice_selector_on_a_noul_is_rejected(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                "x",
+                "--noul",
+                "is_urgent",
+                "-g",
+                "is_urgent.choice!=yes",
+            ],
+        )
+        assert result.exit_code == EXIT_ERROR
+        out = strip_ansi(result.stdout)
+        assert "not valid for a noul question" in out
+
+    def test_confidence_selector_on_a_noul_is_rejected(
+        self, runner, decide, config_file
+    ):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                "x",
+                "--noul",
+                "is_urgent",
+                "--choice",
+                "dept=billing|sales",
+                "--score",
+                "mood=calm|angry",
+                "-g",
+                "is_urgent.confidence>0.5",
+            ],
+        )
+        assert result.exit_code == EXIT_ERROR
+        assert "not valid for a noul question" in strip_ansi(result.stdout)
+
+    def test_noul_selector_on_a_choice_is_rejected(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                "x",
+                "--noul",
+                "is_urgent",
+                "--choice",
+                "dept=billing|sales",
+                "--score",
+                "mood=calm|angry",
+                "-g",
+                "dept.noul>0.5",
+            ],
+        )
+        assert result.exit_code == EXIT_ERROR
+        assert "not valid for a choice question" in strip_ansi(result.stdout)
+
+    def test_valid_selectors_still_work(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                "x",
+                "--noul",
+                "is_urgent",
+                "--choice",
+                "dept=billing|sales",
+                "--score",
+                "mood=calm|angry",
+                "-g",
+                "is_urgent>0.5",
+                "-g",
+                "dept.confidence>0.5",
+                "-g",
+                "mood.score<2",
+                "-g",
+                "dept==billing",
+            ],
+        )
+        assert result.exit_code == 0, result.stdout
+
+
+class TestGatePreflight:
+    def test_a_broken_gate_costs_no_request(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                "x",
+                "--noul",
+                "approved",
+                "-g",
+                "approved.choice!=yes",
+            ],
+        )
+        assert result.exit_code == EXIT_ERROR
+        assert (
+            decide == []
+        ), "a malformed gate must be caught before the read is paid for"
+
+    def test_unknown_question_is_caught_before_the_read(
+        self, runner, decide, config_file
+    ):
+        result = runner.invoke(
+            app, ["gw", "systemone", "x", "--noul", "a", "-g", "nope>0.5"]
+        )
+        assert result.exit_code == EXIT_ERROR
+        assert decide == []
+
+    def test_dry_run_still_validates_gates(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                "x",
+                "--noul",
+                "a",
+                "-g",
+                "a.confidence>0.5",
+                "--dry-run",
+            ],
+        )
+        assert result.exit_code == EXIT_ERROR
+
+
+class TestBodyPrecedence:
+    """Documented precedence is --body < -Q < flags."""
+
+    def test_samples_flag_beats_body(self, runner, decide, config_file):
+        body = json.dumps(
+            {"state": "x", "questions": [{"id": "a", "type": "noul"}], "samples": 32}
+        )
+        result = runner.invoke(
+            app, ["gw", "systemone", "--body", body, "--samples", "1"]
+        )
+        assert result.exit_code == 0, result.stdout
+        assert decide[0]["samples"] == 1
+        assert "samples" not in (decide[0]["extra_body"] or {})
+
+    def test_steps_flag_beats_body(self, runner, decide, config_file):
+        body = json.dumps(
+            {"state": "x", "questions": [{"id": "a", "type": "noul"}], "steps": 8}
+        )
+        result = runner.invoke(app, ["gw", "systemone", "--body", body, "--steps", "2"])
+        assert result.exit_code == 0, result.stdout
+        assert decide[0]["steps"] == 2
+        assert "steps" not in (decide[0]["extra_body"] or {})
+
+    def test_body_value_survives_without_the_flag(self, runner, decide, config_file):
+        body = json.dumps(
+            {"state": "x", "questions": [{"id": "a", "type": "noul"}], "samples": 32}
+        )
+        result = runner.invoke(app, ["gw", "systemone", "--body", body])
+        assert result.exit_code == 0, result.stdout
+        assert decide[0]["extra_body"]["samples"] == 32
+
+    def test_media_positionals_beat_body_content(
+        self, runner, decide, config_file, tmp_path
+    ):
+        image = tmp_path / "a.png"
+        image.write_bytes(PNG_BYTES)
+        body = json.dumps(
+            {
+                "state": "x",
+                "questions": [{"id": "a", "type": "noul"}],
+                "content": [{"type": "text", "text": "from the body"}],
+            }
+        )
+        result = runner.invoke(app, ["gw", "systemone", str(image), "--body", body])
+        assert result.exit_code == 0, result.stdout
+        assert decide[0]["images"] == [str(image)]
+        assert "content" not in (decide[0]["extra_body"] or {})
+
+
+class TestRepeat:
+    def test_sends_n_requests_and_reports_spread(self, runner, decide, config_file):
+        result = runner.invoke(
+            app, ["gw", "systemone", "x", "--noul", "a", "--repeat", "3"]
+        )
+        assert result.exit_code == 0, result.stdout
+        assert len(decide) == 3
+        out = strip_ansi(result.stdout)
+        assert "3 reads" in out and "±" in out
+
+    def test_json_repeat_is_an_array(self, runner, decide, config_file):
+        result = runner.invoke(
+            app, ["gw", "systemone", "x", "--noul", "a", "--repeat", "2", "--json"]
+        )
+        assert result.exit_code == 0, result.stdout
+        assert strip_ansi(result.stdout).lstrip().startswith("[")
+
+    def test_gates_use_the_mean(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                "x",
+                "--noul",
+                "is_urgent",
+                "--repeat",
+                "3",
+                "-g",
+                "is_urgent>0.9",
+            ],
+        )
+        assert result.exit_code == 0, result.stdout
+
+    def test_aggregate_of_one_run_is_the_answer(self):
+        folded = _aggregate([Recorded([])])
+        assert folded["is_urgent"]["mean"] == 0.91
+        assert folded["is_urgent"]["stdev"] == 0.0
+        assert folded["dept"]["label"] == "billing"
+        assert folded["mood"]["mean"] == 0.9
+
+
+class TestUsageFooter:
+    def test_cost_and_cached_tokens_are_shown(
+        self, runner, decide, config_file, monkeypatch
+    ):
+        monkeypatch.setattr(
+            "vlmrun.cli._cli.gateway_systemone.usage_of",
+            lambda run: {
+                "input_tokens": 368,
+                "input_tokens_details": {"cached_tokens": 256},
+                "reads": 4,
+                "cost": 5.2e-05,
+            },
+        )
+        result = runner.invoke(app, ["gw", "systemone", "x", "--noul", "a"])
+        assert result.exit_code == 0, result.stdout
+        out = strip_ansi(result.stdout)
+        assert "368 tok (256 cached)" in out
+        assert "4 reads" in out
+        assert "$0.000052" in out
+
+
+class TestReasoningEffort:
+    def test_passed_through(self, runner, decide, config_file):
+        result = runner.invoke(
+            app, ["gw", "systemone", "x", "--noul", "a", "--reasoning-effort", "medium"]
+        )
+        assert result.exit_code == 0, result.stdout
+        assert decide[0]["reasoning_effort"] == "medium"
+
+    def test_short_flag(self, runner, decide, config_file):
+        result = runner.invoke(
+            app, ["gw", "systemone", "x", "--noul", "a", "-R", "high"]
+        )
+        assert result.exit_code == 0, result.stdout
+        assert decide[0]["reasoning_effort"] == "high"
+
+    def test_bad_level_is_caught_before_the_request(self, runner, decide, config_file):
+        result = runner.invoke(
+            app, ["gw", "systemone", "x", "--noul", "a", "-R", "ultra"]
+        )
+        assert result.exit_code == EXIT_ERROR
+        assert "must be one of none, minimal, low, medium, high" in strip_ansi(
+            result.stdout
+        )
+        assert decide == []
+
+    def test_flag_beats_body(self, runner, decide, config_file):
+        body = json.dumps(
+            {
+                "state": "x",
+                "questions": [{"id": "a", "type": "noul"}],
+                "reasoning_effort": "high",
+            }
+        )
+        result = runner.invoke(
+            app, ["gw", "systemone", "--body", body, "--reasoning-effort", "low"]
+        )
+        assert result.exit_code == 0, result.stdout
+        assert decide[0]["reasoning_effort"] == "low"
+        assert "reasoning_effort" not in (decide[0]["extra_body"] or {})
+
+
+class TestModelsListing:
+    def test_lists_the_served_models(self, runner, config_file, monkeypatch):
+        class Model:
+            def __init__(self, name):
+                self.name = name
+                self.description = f"about {name}"
+                self.release_date = "2026-09-23"
+
+            def model_dump(self):
+                return {
+                    "name": self.name,
+                    "description": self.description,
+                    "release_date": self.release_date,
+                }
+
+        class Listing:
+            models = (
+                Model("google/diffusiongemma-26b-a4b-it"),
+                Model("qwen/qwen3.5-0.8b"),
+            )
+
+        monkeypatch.setattr(SystemOne, "models", lambda self: Listing())
+        result = runner.invoke(app, ["gw", "s1", "models"])
+        assert result.exit_code == 0, result.stdout
+        out = strip_ansi(result.stdout)
+        assert "google/diffusiongemma-26b-a4b-it" in out and "qwen/qwen3.5-0.8b" in out
+        assert "no catch-all alias" in out
+
+    def test_json_listing(self, runner, config_file, monkeypatch):
+        class Listing:
+            models = ()
+
+        monkeypatch.setattr(SystemOne, "models", lambda self: Listing())
+        result = runner.invoke(app, ["gw", "s1", "models", "--json"])
+        assert result.exit_code == 0, result.stdout
+
+    def test_the_word_models_with_questions_is_still_a_state(
+        self, runner, decide, config_file
+    ):
+        result = runner.invoke(app, ["gw", "systemone", "models", "--noul", "a"])
+        assert result.exit_code == 0, result.stdout
+        assert decide[0]["state"] == "models"
+
+
+class TestDryRun:
+    def test_prints_the_body_and_sends_nothing(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "systemone",
+                "the state",
+                "--noul",
+                "is_urgent",
+                "--choice",
+                "dept=billing|sales",
+                "--samples",
+                "4",
+                "--dry-run",
+            ],
+        )
+        assert result.exit_code == 0, result.stdout
+        assert decide == []
+        body = json.loads(strip_ansi(result.stdout))
+        assert body == {
+            "state": "the state",
+            "model": "google/diffusiongemma-26b-a4b-it",
+            "questions": {
+                "is_urgent": {"type": "noul"},
+                "dept": {
+                    "type": "choice",
+                    "criteria": {"billing": None, "sales": None},
+                },
+            },
+            "samples": 4,
+        }
+
+    def test_bad_questions_still_fail(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            ["gw", "systemone", "x", "-Q", '[{"id":"a","type":"nope"}]', "--dry-run"],
+        )
+        assert result.exit_code == EXIT_ERROR
+
+
+SAMPLE_VIDEO = Path(__file__).parent.parent / "test_data" / "test.mp4"
+"""168 frames at 25 fps — 6.72s, so a 1 fps read is 7 frames."""
+
+
+def _stub_answer(image: str) -> float:
+    """The value :func:`frame_decide` derives from one frame's data URL."""
+    return (len(image) % 900) / 1000.0
+
+
+def expected_series(fps: float) -> list[float]:
+    """The answers a correct run must produce, frame by frame.
+
+    Derived by sampling the video here rather than from the CLI's own output, so
+    it catches a response paired with the wrong frame — which asserting on
+    timestamps alone cannot, since those come from the frame list either way.
+    """
+    from vlmrun.common.image import encode_frame
+    from vlmrun.common.video import VideoReader
+
+    with VideoReader(SAMPLE_VIDEO) as reader:
+        return [
+            _stub_answer(encode_frame(sampled.frame)) for sampled in reader.frames(fps)
+        ]
+
+
+@pytest.fixture
+def frame_decide(monkeypatch):
+    """Answer each frame from its own pixels, recording the images sent.
+
+    The fixture video's frames differ, so a per-frame answer derived from the
+    frame proves the CLI sent distinct images in timeline order rather than the
+    same one N times.
+    """
+    calls: list = []
+
+    def fake_decide(self, state, questions, **kwargs):
+        image = kwargs["images"][0]
+        calls.append({"state": state, "questions": questions, **kwargs})
+        # A stable per-frame number: the encoded length varies with content.
+        value = _stub_answer(image)
+        return Recorded(
+            calls,
+            answers={
+                "moving": Answer(type="noul", noul=value),
+                "scene": Answer(
+                    type="choice",
+                    choice="busy" if value > 0.45 else "calm",
+                    probabilities={"busy": value, "calm": 1 - value},
+                    confidence=0.6,
+                ),
+            },
+        )
+
+    monkeypatch.setattr(SystemOne, "decide", fake_decide)
+    return calls
+
+
+class TestVideoSeries:
+    """Small helpers behind the timeline rendering."""
+
+    def test_sparkline_tracks_the_values(self):
+        assert _sparkline([0.0, 1.0], 0.0, 1.0) == "▁█"
+        assert len(_sparkline([0.1, 0.5, 0.9], 0.0, 1.0)) == 3
+
+    def test_sparkline_of_a_flat_series_is_flat(self):
+        assert _sparkline([0.5, 0.5, 0.5], 0.5, 0.5) == "▁▁▁"
+
+    def test_downsample_condenses_to_the_width(self):
+        assert _downsample([0.0, 1.0, 0.0, 1.0], 2) == [0.5, 0.5]
+        assert len(_downsample(list(range(100)), 10)) == 10
+
+    def test_downsample_leaves_a_short_series_alone(self):
+        values = [0.1, 0.2, 0.3]
+        assert _downsample(values, 10) is values
+
+    def test_runs_of_collapses_repeats(self):
+        assert _runs_of(["a", "a", "b", "a"]) == [("a", 0, 1), ("b", 2, 2), ("a", 3, 3)]
+
+    def test_longest_run(self):
+        assert _longest_run([False, True, True, False, True]) == 2
+        assert _longest_run([]) == 0
+        assert _longest_run([True, True, True]) == 3
+
+    def test_clock_switches_to_minutes(self):
+        assert _clock(4.5) == "4.5s"
+        assert _clock(64.0) == "1:04.0"
+
+
+class TestGateModes:
+    def test_parses_each_mode(self):
+        assert _parse_gate_mode("any") == ("any", 1)
+        assert _parse_gate_mode("all") == ("all", 1)
+        assert _parse_gate_mode("mean") == ("mean", 1)
+        assert _parse_gate_mode("sustained:3") == ("sustained", 3)
+
+    def test_rejects_an_unknown_mode(self, runner):
+        with pytest.raises(typer.Exit):
+            _parse_gate_mode("sometimes")
+
+    def test_sustained_needs_a_count(self, runner):
+        with pytest.raises(typer.Exit):
+            _parse_gate_mode("sustained")
+
+    def test_a_count_on_a_countless_mode_is_rejected(self, runner):
+        with pytest.raises(typer.Exit):
+            _parse_gate_mode("any:3")
+
+    @staticmethod
+    def _timeline(values):
+        """Per-frame aggregates and frames for a noul series."""
+        runs = [
+            Recorded([], answers={"p": Answer(type="noul", noul=value)})
+            for value in values
+        ]
+        frames = [
+            FrameDecision(index=i, timestamp_s=float(i), response=None)
+            for i in range(len(values))
+        ]
+        return [_aggregate([run]) for run in runs], frames
+
+    def test_any_passes_on_a_single_frame(self):
+        per_frame, frames = self._timeline([0.1, 0.9, 0.1])
+        ((passed, _, observed),) = _evaluate_gates_over_frames(
+            [("p", ">", 0.5)], per_frame, frames, "any", 1
+        )
+        assert passed
+        assert "1/3 frames" in observed and "1.0s" in observed
+
+    def test_all_fails_when_one_frame_misses(self):
+        per_frame, frames = self._timeline([0.9, 0.9, 0.1])
+        ((passed, _, observed),) = _evaluate_gates_over_frames(
+            [("p", ">", 0.5)], per_frame, frames, "all", 1
+        )
+        assert not passed
+        assert "2/3 frames" in observed
+
+    def test_sustained_needs_consecutive_frames(self):
+        # Four frames over the line, but never three in a row.
+        per_frame, frames = self._timeline([0.9, 0.9, 0.1, 0.9, 0.9])
+        gate = [("p", ">", 0.5)]
+        ((passed, _, observed),) = _evaluate_gates_over_frames(
+            gate, per_frame, frames, "sustained", 3
+        )
+        assert not passed
+        assert "longest run 2/3" in observed
+        ((passed, _, _),) = _evaluate_gates_over_frames(
+            gate, per_frame, frames, "sustained", 2
+        )
+        assert passed
+
+    def test_sustained_reports_where_the_run_began(self):
+        per_frame, frames = self._timeline([0.1, 0.1, 0.9, 0.9, 0.9])
+        ((passed, _, observed),) = _evaluate_gates_over_frames(
+            [("p", ">", 0.5)], per_frame, frames, "sustained", 3
+        )
+        assert passed
+        assert "from 2.0s" in observed
+
+
+class TestVideoInputs:
+    def test_a_video_path_is_classified_as_video(self):
+        assert _classify(str(SAMPLE_VIDEO)) == "video"
+
+    def test_resolve_inputs_returns_the_video(self):
+        state, images, document, video = _resolve_inputs([str(SAMPLE_VIDEO)], False)
+        assert (state, images, document) == ([], [], None)
+        assert video == str(SAMPLE_VIDEO)
+
+    def test_a_video_url_is_rejected(self, runner):
+        with pytest.raises(typer.Exit):
+            _classify("https://example.com/clip.mp4")
+
+    def test_a_video_data_url_is_rejected(self, runner):
+        with pytest.raises(typer.Exit):
+            _classify("data:video/mp4;base64,AAAA")
+
+    def test_two_videos_are_rejected(self, runner):
+        with pytest.raises(typer.Exit):
+            _resolve_inputs([str(SAMPLE_VIDEO), str(SAMPLE_VIDEO)], False)
+
+    def test_a_video_cannot_be_mixed_with_an_image(self, runner, tmp_path):
+        image = tmp_path / "a.png"
+        image.write_bytes(PNG_BYTES)
+        with pytest.raises(typer.Exit):
+            _resolve_inputs([str(SAMPLE_VIDEO), str(image)], False)
+
+
+class TestVideoCommand:
+    def test_one_read_per_sampled_frame(self, runner, frame_decide, config_file):
+        result = runner.invoke(
+            app, ["gw", "s1", str(SAMPLE_VIDEO), "--noul", "moving", "--fps", "1"]
+        )
+        assert result.exit_code == 0, result.stdout
+        assert len(frame_decide) == 7
+        # Every read carries exactly one image, and no two frames are the same.
+        assert all(len(call["images"]) == 1 for call in frame_decide)
+        assert len({call["images"][0] for call in frame_decide}) == 7
+        # No PDF rides along with a frame.
+        assert all(call.get("document") is None for call in frame_decide)
+
+    def test_frames_are_sent_as_jpeg_data_urls(self, runner, frame_decide, config_file):
+        runner.invoke(
+            app, ["gw", "s1", str(SAMPLE_VIDEO), "--noul", "moving", "--fps", "0.5"]
+        )
+        assert frame_decide
+        for call in frame_decide:
+            assert call["images"][0].startswith("data:image/jpeg;base64,")
+
+    def test_fps_sets_the_read_count(self, runner, frame_decide, config_file):
+        runner.invoke(
+            app, ["gw", "s1", str(SAMPLE_VIDEO), "--noul", "moving", "--fps", "0.5"]
+        )
+        assert len(frame_decide) == 4
+
+    def test_default_rate_is_one_a_second(self, runner, frame_decide, config_file):
+        runner.invoke(app, ["gw", "s1", str(SAMPLE_VIDEO), "--noul", "moving"])
+        assert len(frame_decide) == 7
+
+    def test_the_panel_reports_the_scope(self, runner, frame_decide, config_file):
+        result = runner.invoke(
+            app, ["gw", "s1", str(SAMPLE_VIDEO), "--noul", "moving", "--fps", "1"]
+        )
+        out = strip_ansi(result.stdout)
+        assert "7 frames @ 1 fps" in out
+        assert "moving" in out
+
+    def test_a_choice_renders_as_segments(self, runner, frame_decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "s1",
+                str(SAMPLE_VIDEO),
+                "--choice",
+                "scene=busy|calm",
+                "--fps",
+                "1",
+            ],
+        )
+        out = strip_ansi(result.stdout)
+        # A segmentation carries timestamps, not a mean.
+        assert "0.0s" in out
+        assert "±" not in out
+
+    def test_state_text_applies_to_every_frame(self, runner, frame_decide, config_file):
+        runner.invoke(
+            app,
+            [
+                "gw",
+                "s1",
+                "-s",
+                "Is anything moving?",
+                str(SAMPLE_VIDEO),
+                "--noul",
+                "moving",
+                "--fps",
+                "0.5",
+            ],
+        )
+        assert frame_decide
+        assert all(call["state"] == "Is anything moving?" for call in frame_decide)
+
+    def test_json_carries_a_timestamp_per_read(self, runner, frame_decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "s1",
+                str(SAMPLE_VIDEO),
+                "--noul",
+                "moving",
+                "--fps",
+                "0.5",
+                "--json",
+            ],
+        )
+        assert result.exit_code == 0, result.stdout
+        body, _ = json.JSONDecoder().raw_decode(strip_ansi(result.stdout).lstrip())
+        assert body["video"] == {
+            "fps": 0.5,
+            "frames": 4,
+            "duration_s": 6.72,
+            "native_fps": 25.0,
+        }
+        assert [read["timestamp_s"] for read in body["reads"]] == [0.0, 2.0, 4.0, 6.0]
+        assert [read["frame"] for read in body["reads"]] == [0, 50, 100, 150]
+
+    def test_dry_run_shows_one_frames_body(self, runner, frame_decide, config_file):
+        result = runner.invoke(
+            app,
+            ["gw", "s1", str(SAMPLE_VIDEO), "--noul", "moving", "--dry-run"],
+        )
+        assert result.exit_code == 0, result.stdout
+        assert frame_decide == []
+        body = json.loads(strip_ansi(result.stdout))
+        assert len(body["content"]) == 1
+        assert body["content"][0]["image_url"]["url"].startswith("data:image/jpeg")
+
+    def test_the_frame_ceiling_refuses_before_reading(
+        self, runner, frame_decide, config_file
+    ):
+        result = runner.invoke(
+            app,
+            ["gw", "s1", str(SAMPLE_VIDEO), "--noul", "moving", "--fps", "25"],
+        )
+        assert result.exit_code == EXIT_ERROR
+        assert frame_decide == []
+        assert "--max-frames" in strip_ansi(result.stdout)
+
+    def test_the_ceiling_can_be_raised(self, runner, frame_decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "s1",
+                str(SAMPLE_VIDEO),
+                "--noul",
+                "moving",
+                "--fps",
+                "25",
+                "--max-frames",
+                "200",
+            ],
+        )
+        assert result.exit_code == 0, result.stdout
+        assert len(frame_decide) == 168
+
+    def test_concurrency_preserves_frame_order(self, runner, frame_decide, config_file):
+        """The reads go out concurrently; the series must still be in time order."""
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "s1",
+                str(SAMPLE_VIDEO),
+                "--noul",
+                "moving",
+                "--fps",
+                "1",
+                "--concurrency",
+                "7",
+                "--json",
+            ],
+        )
+        assert result.exit_code == 0, result.stdout
+        body, _ = json.JSONDecoder().raw_decode(strip_ansi(result.stdout).lstrip())
+        assert [read["timestamp_s"] for read in body["reads"]] == [
+            0.0,
+            1.0,
+            2.0,
+            3.0,
+            4.0,
+            5.0,
+            6.0,
+        ]
+        # Each answer has to belong to the frame it is filed under.
+        series = expected_series(1.0)
+        assert len(set(series)) > 1, "the fixture must give a non-uniform series"
+        assert [
+            read["response"]["answers"]["moving"]["noul"] for read in body["reads"]
+        ] == series
+
+    def test_repeat_and_a_video_do_not_combine(self, runner, frame_decide, config_file):
+        result = runner.invoke(
+            app,
+            ["gw", "s1", str(SAMPLE_VIDEO), "--noul", "moving", "--repeat", "3"],
+        )
+        assert result.exit_code == EXIT_ERROR
+        assert frame_decide == []
+        assert "--repeat" in strip_ansi(result.stdout)
+
+    def test_fps_without_a_video_is_an_error(self, runner, decide, config_file):
+        result = runner.invoke(
+            app, ["gw", "s1", "some text", "--noul", "a", "--fps", "2"]
+        )
+        assert result.exit_code == EXIT_ERROR
+        assert decide == []
+
+    def test_a_timeline_gate_mode_needs_a_video(self, runner, decide, config_file):
+        result = runner.invoke(
+            app,
+            [
+                "gw",
+                "s1",
+                "some text",
+                "--noul",
+                "a",
+                "--gate",
+                "a>0.5",
+                "--gate-mode",
+                "sustained:2",
+            ],
+        )
+        assert result.exit_code == EXIT_ERROR
+        assert decide == []
+
+    def test_a_gate_over_frames_sets_the_exit_code(
+        self, runner, frame_decide, config_file
+    ):
+        passing = runner.invoke(
+            app,
+            [
+                "gw",
+                "s1",
+                str(SAMPLE_VIDEO),
+                "--noul",
+                "moving",
+                "--fps",
+                "1",
+                "--gate",
+                "moving>=0.0",
+            ],
+        )
+        assert passing.exit_code == 0, passing.stdout
+        assert "PASS" in strip_ansi(passing.stdout)
+
+        failing = runner.invoke(
+            app,
+            [
+                "gw",
+                "s1",
+                str(SAMPLE_VIDEO),
+                "--noul",
+                "moving",
+                "--fps",
+                "1",
+                "--gate",
+                "moving>1.0",
+            ],
+        )
+        assert failing.exit_code == EXIT_GATE_FAILED
+        assert "FAIL" in strip_ansi(failing.stdout)

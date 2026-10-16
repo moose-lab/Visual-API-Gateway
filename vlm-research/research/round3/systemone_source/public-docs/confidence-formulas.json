@@ -1,0 +1,16 @@
+{
+  "source": "https://docs.typesafe.ai/confidence",
+  "source_file": "research\\round3\\systemone_source\\public-docs\\confidence.html",
+  "classification": "SOURCE: public upstream TypeSafe documentation, not VLM runtime implementation",
+  "latex_formulas": [
+    "\\text{confidence} = |2p - 1|",
+    "\\text{confidence} = \\frac{p_{\\max} - \\frac{1}{n}}{1 - \\frac{1}{n}}",
+    "\\text{confidence} = \\max\\left(0,\\ 1 - \\frac{\\sum_i p_i \\, |i - m|}{\\text{MAD}_{\\text{unif}}}\\right)\n\\qquad\n\\text{MAD}_{\\text{unif}} = \\frac{1}{n} \\sum_i \\left| i - \\frac{n - 1}{2} \\right|",
+    "\\text{MAD}_{\\text{unif}}",
+    "\\text{MAD}_{\\text{unif}}"
+  ],
+  "code_examples": [
+    "def choice_confidence(probabilities: list[float]) -> float:\n    n = len(probabilities)\n    return (max(probabilities) - 1 / n) / (1 - 1 / n)\n\n\nchoice_confidence(list(answer.probabilities.values()))\n",
+    "def score_confidence(probabilities: list[float]) -> float:\n    n = len(probabilities)\n    m = probabilities.index(max(probabilities))\n    spread = sum(p * abs(i - m) for i, p in enumerate(probabilities))\n    even_spread = sum(abs(i - (n - 1) / 2) for i in range(n)) / n\n    return max(0.0, 1 - spread / even_spread)\n\n\nlevels = sorted(answer.probabilities)\nscore_confidence([answer.probabilities[level] for level in levels])\n"
+  ]
+}

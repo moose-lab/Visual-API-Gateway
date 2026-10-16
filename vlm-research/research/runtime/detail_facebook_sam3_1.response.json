@@ -1,0 +1,46 @@
+{
+  "id": "facebook/sam3.1",
+  "hf_model_id": "facebook/sam3.1",
+  "name": "SAM 3.1",
+  "description": "SAM 3.1 Object Multiplex: promptable segmentation and faster multi-object video tracking.",
+  "task": "chat",
+  "context_length": null,
+  "architecture": {
+    "input_modalities": [
+      "image",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "modality": "image+video->text"
+  },
+  "capabilities": {
+    "max_images": 1,
+    "max_videos": 1,
+    "supports_text_only": false,
+    "supports_document_url": false,
+    "supports_json_object": true,
+    "supports_json_schema": false,
+    "supported_input_types": [
+      "text",
+      "image_url",
+      "video_url"
+    ]
+  },
+  "aliases": [],
+  "methods": [
+    "segment",
+    "segment_box",
+    "track"
+  ],
+  "supported_parameters": [],
+  "pricing": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "input_cache_read": 0.0,
+    "input_cache_write": 0.0,
+    "image": 1000.0,
+    "video": 34800.0
+  }
+}

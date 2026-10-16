@@ -1,0 +1,360 @@
+# VLM Run CLI
+
+Visual AI from your terminal. Chat with VLM Run's Orion visual AI agent to process images, videos, and documents with natural language.
+
+## Installation
+
+```bash
+pip install vlmrun
+```
+
+The CLI and OpenAI-compatible gateway work out of the box with the base install.
+
+## Quick Start
+
+1. **Get your API key** at [app.vlm.run](https://app.vlm.run)
+
+2. **Set your API key:**
+   ```bash
+   export VLMRUN_API_KEY="your-api-key-here"
+   ```
+
+3. **Start using VLM Run:**
+   ```bash
+   vlmrun chat "What's in this image?" -i photo.jpg
+   ```
+
+## Commands
+
+### `vlmrun chat` - Visual AI Chat
+
+The main command for interacting with VLM Run's Orion visual AI agent.
+Artifacts are automatically downloaded to `~/.vlmrun/cache/artifacts/<session_id>/`.
+
+**Prompt Sources (in order of precedence):**
+1. Command line argument
+2. -p option (text, file path, or 'stdin')
+3. Auto-detected piped stdin
+
+```bash
+# Basic usage
+vlmrun chat "What's in this image?" -i photo.jpg
+vlmrun chat -p "What's in this image?" -i photo.jpg
+
+# From a file
+vlmrun chat -p long_prompt.txt -i photo.jpg
+
+# Pipe prompt from stdin
+echo "Describe this image" | vlmrun chat - -i photo.jpg
+echo "Describe this image" | vlmrun chat -p stdin -i photo.jpg
+
+# Compare multiple images
+vlmrun chat "Compare these two images" -i img1.jpg -i img2.jpg
+
+# Save to custom directory (by default, artifacts are saved to ~/.vlmrun/cache/artifacts/)
+vlmrun chat "Detect faces and visualize" -i photo.jpg -o ./results/
+
+# Skip artifact download (by default, artifacts are downloaded)
+vlmrun chat "Quick description" -i photo.jpg -nd
+```
+
+**Options:**
+
+| Option | Short | Description |
+|--------|-------|-------------|
+| `--prompt` | `-p` | Prompt text, file path, or 'stdin' for piped input |
+| `--input` | `-i` | Input file(s): images, videos, or documents (repeatable) |
+| `--output` | `-o` | Directory for artifacts (default: ~/.vlmrun/cache/artifacts/) |
+| `--model` | `-m` | Model (default: `vlmrun-orion-1:auto`) |
+| `--json` | `-j` | Output raw JSON response (default: text) |
+| `--no-stream` | `-ns` | Do not stream the response in real-time (default: stream) |
+| `--no-download` | `-nd` | Skip artifact download (default: download artifacts) |
+| `--session-id` | `-s` | Session UUID for stateful conversations (persists chat history) |
+
+**Models:**
+
+| Model | Description |
+|-------|-------------|
+| `vlmrun-orion-1:fast` | Optimized for speed and quick responses |
+| `vlmrun-orion-1:auto` | Automatically selects best approach (default) |
+| `vlmrun-orion-1:pro` | Most capable, for complex multi-step workflows |
+
+
+## Examples
+
+### Image Understanding
+
+```bash
+# Describe an image
+vlmrun chat "Describe everything you see in detail" -i photo.jpg
+
+# Object detection
+vlmrun chat "Detect all objects and list them with their locations" -i scene.jpg
+
+# Face detection with visualization
+vlmrun chat "Detect all faces and draw bounding boxes around them" -i crowd.jpg
+
+# OCR / Text extraction
+vlmrun chat "Extract all text from this image" -i document.png
+
+# Compare images
+vlmrun chat "What are the differences between these two images?" -i before.jpg -i after.jpg
+```
+
+### Image Generation
+
+```bash
+# Text to image
+vlmrun chat "Generate a photorealistic image of a cozy cabin in a snowy forest at night"
+
+# Style-based generation
+vlmrun chat "Generate an artistic watercolor painting of a mountain landscape" -o ./art/
+
+# Image editing
+vlmrun chat "Remove the background from this image" -i product.jpg
+```
+
+### Video Processing
+
+```bash
+# Summarize a video
+vlmrun chat "Summarize this video in 3 bullet points" -i meeting.mp4
+
+# Extract highlights
+# This should generate 3 artifacts (.mp4 clips) in the output directory (default: ~/.vlmrun/cache/artifacts/)
+vlmrun chat "Find the top 3 most interesting moments and create clips" -i sports.mp4
+
+# Transcription
+vlmrun chat "Transcribe this video with timestamps" -i lecture.mp4 --json
+
+# Search within video
+vlmrun chat "Find all moments where someone mentions 'AI'" -i interview.mp4
+```
+
+### Document Processing
+
+```bash
+# Invoice extraction
+vlmrun chat "Extract vendor, items, and total from this invoice" -i invoice.pdf --json
+
+# Medical records
+vlmrun chat "Extract patient info, diagnoses, and medications" -i medical_record.pdf --json
+
+# Contract analysis
+vlmrun chat "Summarize the key terms and obligations" -i contract.pdf
+
+# Multi-page analysis
+vlmrun chat "Analyze this document and classify each page type" -i multi_page.pdf
+```
+
+### Stateful Conversations
+
+Use the `--session-id` flag to continue a previous conversation with persistent context. This enables multi-turn interactions where the AI remembers previous messages.
+
+```bash
+# Start a conversation - the response will display a session ID
+# Response (id=abc123-def456-...)
+vlmrun chat "What objects do you see in this image?" -i photo.jpg
+
+# Continue the conversation using the session ID from the first response
+vlmrun chat "Can you describe the largest object in more detail?" --session-id <session-uuid>
+
+# Ask follow-up questions without re-uploading the image
+vlmrun chat "What colors are present?" --session-id <session-uuid>
+```
+
+## Environment Variables
+
+| Variable | Description |
+|----------|-------------|
+| `VLMRUN_API_KEY` | Your VLM Run API key (required) |
+| `VLMRUN_CACHE_DIR` | Custom cache directory (default: `~/.vlmrun/cache/artifacts`) |
+| `VLMRUN_GATEWAY_BASE_URL` | Override the model gateway base URL (default: `https://gateway.vlm.run/v1`) |
+| `VLMRUN_GATEWAY_URL` | The gateway URL's original variable name; still honoured, after `VLMRUN_GATEWAY_BASE_URL` |
+| `TYPESAFE_BASE_URL` | Override the `/typesafe` root, which the System One HTTP and websocket URLs are derived from |
+
+## How It Works
+
+The CLI uses the official [VLM Run Python SDK](https://pypi.org/project/vlmrun/) to communicate with VLM Run's Orion visual AI agent. Orion is a unified visual agent that can:
+
+- **See**: Process images, videos, and documents
+- **Reason**: Understand context and relationships
+- **Act**: Execute multi-step visual workflows with specialized tools
+
+Unlike basic vision-language models, Orion orchestrates specialized computer vision tools (OCR, detection, segmentation, generation, etc.) to deliver precise, production-ready results.
+
+## Additional Commands
+
+VLM Run CLI also provides additional commands for advanced operations:
+
+### Configuration
+
+```bash
+# Set your API key
+vlmrun config set --api-key YOUR_API_KEY
+
+# View current configuration
+vlmrun config show
+```
+
+### Dataset Management
+
+```bash
+# Create a dataset from a directory of files
+vlmrun datasets create --directory ./images --domain document.invoice --dataset-name "Invoice Dataset" --dataset-type images
+
+# List your datasets
+vlmrun datasets list
+```
+
+### Model Operations
+
+```bash
+# List available models
+vlmrun models list
+
+# Fine-tune a model
+vlmrun fine-tuning create --model base_model --training-file training_file_id
+```
+
+### Gateway (`vlmrun gateway` / `vlmrun gw`) - OpenAI-compatible models
+
+The gateway (`https://gateway.vlm.run/v1`) exposes third-party OCR,
+vision-language, embedding and transcription models (e.g. `zai-org/glm-ocr`,
+`paddleocr/pp-ocrv6`, `qwen/qwen3.5-0.8b`) through an OpenAI-compatible API,
+authenticated with the same `VLMRUN_API_KEY`. `vlmrun gateway` and `vlmrun gw`
+are the same command.
+
+Unlike `vlmrun chat` (which calls the Orion agent), the gateway is a raw
+passthrough to the underlying models: input files are sent inline as base64
+`data:` URLs — documents as `document_url` content parts, images as
+`image_url`, and `file_url` as a fallback for anything else. **Most chat/OCR
+models do not accept text-only input**, so at least one file is required.
+
+Model ids are the full `<org>/<name>` shown by `vlmrun gw models`; the short
+aliases listed there (e.g. `glm-ocr`, `pp-ocrv6`) also work.
+
+```bash
+# Health check
+vlmrun gw health
+
+# List models (task + methods); detail one model's methods, params and examples
+vlmrun gw models
+vlmrun gw models paddleocr/pp-ocrv6
+vlmrun gw models --json
+
+# Parse a document (PDF -> text/markdown)
+vlmrun gw chat document.pdf -m zai-org/glm-ocr
+
+# Multiple documents / OCR an image
+vlmrun gw chat doc1.pdf doc2.pdf -m paddleocr/pp-ocrv6
+vlmrun gw chat scan.jpg -m paddleocr/pp-ocrv6
+
+# Select a model method (see `vlmrun gw models <model>`)
+vlmrun gw chat scan.jpg -m paddleocr/pp-ocrv6 --method detect
+vlmrun gw chat scan.jpg -m paddleocr/pp-ocrv6 --method ocr \
+    --method-params '{"lang": "en", "score_threshold": 0.5}'
+
+# Prompt a model that supports text input
+vlmrun gw chat image.jpg -p "describe this image" -m qwen/qwen3.5-0.8b
+
+# Forward extra completion kwargs as key=value (JSON-parsed)
+vlmrun gw chat document.pdf -m zai-org/glm-ocr -e temperature=0 -e max_tokens=4096
+
+# Embed text, images or video (each input -> one vector; --join for a joint one)
+vlmrun gw embed -t "a blue parrot" -m qwen/qwen3-vl-embedding-2b
+vlmrun gw embed photo.jpg -m qwen/qwen3-vl-embedding-2b
+vlmrun gw embed photo.jpg -t "caption" --join -m qwen/qwen3-vl-embedding-2b
+
+# Transcribe audio, or a video's audio track
+vlmrun gw transcribe clip.mp3 -m nvidia/parakeet-tdt-0.6b-v3
+vlmrun gw transcribe clip.mp4 -m nvidia/parakeet-tdt-0.6b-v3 -f srt
+```
+
+| Command | Description |
+|---------|-------------|
+| `vlmrun gw health` | Check gateway reachability |
+| `vlmrun gw models [MODEL]` | List models (task + methods), or detail one model's methods, params and example commands (`--json` for raw output) |
+| `vlmrun gw chat FILES... -m MODEL` | Run a model over one or more files (`--method`/`--method-params`, `-p` prompt, `-e key=value` extras, `--no-stream`, `--json`) |
+| `vlmrun gw embed [FILES...] -m MODEL` | Embed text (`-t`), images or video (`--join`, `--dimensions`, `--json`) |
+| `vlmrun gw transcribe AUDIO -m MODEL` | Transcribe audio or a video's audio track (`-f` format, `--language`, `--prompt`, `--url`, `--json`) |
+
+### Predictions
+
+```bash
+# Generate predictions from a document
+vlmrun generate document path/to/document.pdf --domain document.invoice
+
+# List predictions
+vlmrun predictions list
+
+# Get prediction details
+vlmrun predictions get PREDICTION_ID
+```
+
+### Hub Operations
+
+```bash
+# List available domains
+vlmrun hub list
+
+# View schema for a domain
+vlmrun hub schema document.invoice
+```
+
+### Skills Management
+
+Manage reusable skills (SKILL.md bundles) for specialized agent behavior.
+
+```bash
+# List skills
+vlmrun skills list
+vlmrun skills list --grouped    # latest version per name
+
+# Get a skill by name or ID
+vlmrun skills get my-skill
+vlmrun skills get my-skill -V 20260312-abc
+vlmrun skills get <uuid>
+
+# Upload a skill folder (name/description parsed from SKILL.md frontmatter)
+vlmrun skills upload ./my-skill
+vlmrun skills upload ./my-skill --name custom-name
+
+# Download a skill
+vlmrun skills download my-skill                 # → ~/.vlmrun/skills/my-skill/
+vlmrun skills download my-skill -V 0.2.0        # specific version
+vlmrun skills download <uuid> -o ./local-dir    # custom output
+
+# Create a skill from prompt or session
+vlmrun skills create --prompt "Extract invoice fields"
+vlmrun skills create --session-id <session-uuid>
+```
+
+### Full Command Reference
+
+Here are the main command groups available:
+
+- `vlmrun chat` - Chat with Orion visual AI agent
+- `vlmrun config` - Manage configuration settings
+- `vlmrun datasets` - Dataset operations
+- `vlmrun files` - File management
+- `vlmrun fine-tuning` - Model fine-tuning operations
+- `vlmrun generate` - Generate predictions
+- `vlmrun hub` - Access domain schemas and information
+- `vlmrun models` - Model operations
+- `vlmrun predictions` - Manage and monitor predictions
+- `vlmrun skills` - Create, list, upload, download, and manage skills
+
+For detailed help on any command, use the `--help` flag:
+
+```bash
+vlmrun --help
+vlmrun <command> --help
+```
+
+## Support
+
+- **Documentation**: [docs.vlm.run](https://docs.vlm.run)
+- **Chat with Orion**: [chat.vlm.run](https://chat.vlm.run)
+- **API Reference**: [docs.vlm.run/agents/api-reference](https://docs.vlm.run/agents/api-reference)
+- **Cookbooks**: [github.com/vlm-run/vlmrun-cookbook](https://github.com/vlm-run/vlmrun-cookbook)

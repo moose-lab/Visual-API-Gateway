@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:52:33.255196+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/meta/muse-spark-1.2",
+  "status": 404,
+  "elapsed_seconds": 0.895,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:52:33 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "70869ecd-3a7c-415b-af1e-41c56b1756fe"
+  },
+  "response_sha256": "636e0d0fa14535acf177072639b0f0253d2c1e7d87916160921c50516d878a5c",
+  "response_bytes": 123
+}

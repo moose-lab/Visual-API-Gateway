@@ -1,0 +1,47 @@
+{
+  "id": "vlm-run/ocr:auto",
+  "hf_model_id": null,
+  "name": "OCR Auto",
+  "description": "Routes each method to its best OCR engine: ocr to PP-OCRv6, markdown to a fast CPU parser (dots.mocr on error), layout to dots.mocr.",
+  "task": "chat",
+  "context_length": null,
+  "architecture": {
+    "input_modalities": [
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "modality": "image->text"
+  },
+  "capabilities": {
+    "max_images": 1,
+    "max_videos": 0,
+    "supports_text_only": false,
+    "supports_document_url": true,
+    "supports_json_object": true,
+    "supports_json_schema": false,
+    "supported_input_types": [
+      "text",
+      "image_url",
+      "document_url",
+      "file_url",
+      "file"
+    ]
+  },
+  "aliases": [],
+  "methods": [
+    "markdown",
+    "ocr",
+    "layout"
+  ],
+  "supported_parameters": [],
+  "pricing": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "input_cache_read": 0.0,
+    "input_cache_write": 0.0,
+    "image": 0.0,
+    "video": 0.0
+  }
+}

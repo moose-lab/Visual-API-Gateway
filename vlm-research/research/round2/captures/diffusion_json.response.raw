@@ -1,0 +1,1 @@
+{"detail":{"error":{"message":"Model 'google/diffusiongemma-26b-a4b-it' does not accept response_format; its engine refuses every structured-output constraint. Omit response_format.","type":"invalid_request_error","code":"capability_violation","param":"response_format"}}}

@@ -1,0 +1,47 @@
+{
+  "id": "paddleocr/pp-ocrv6",
+  "hf_model_id": null,
+  "name": "PP-OCRv6",
+  "description": "PaddleOCR PP-OCRv6 medium text detection and recognition; scene OCR JSONL on image chat; text returns plain text; document_url fan-out via text.",
+  "task": "chat",
+  "context_length": null,
+  "architecture": {
+    "input_modalities": [
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "modality": "image->text"
+  },
+  "capabilities": {
+    "max_images": 1,
+    "max_videos": 0,
+    "supports_text_only": false,
+    "supports_document_url": true,
+    "supports_json_object": true,
+    "supports_json_schema": false,
+    "supported_input_types": [
+      "text",
+      "image_url",
+      "document_url",
+      "file_url",
+      "file"
+    ]
+  },
+  "aliases": [],
+  "methods": [
+    "ocr",
+    "detect",
+    "text"
+  ],
+  "supported_parameters": [],
+  "pricing": {
+    "prompt": 0.02,
+    "completion": 0.4,
+    "input_cache_read": 0.02,
+    "input_cache_write": 0.0,
+    "image": 0.0,
+    "video": 0.0
+  }
+}

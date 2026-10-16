@@ -1,0 +1,9 @@
+{
+  "url": "https://gateway.vlm.run/openapi.json",
+  "status": 200,
+  "bytes": 36381,
+  "sha256": "c8e7981f222aaf908415007b4cfef75525eedf89b6f1c99eba0551098bdde587",
+  "captured_at": "2026-10-11T06:21:22.862473+00:00",
+  "snapshot_sha256": "7f7c5dd7026810ec989a3c478aa072f85a95aaf5fa4221ac2fcb6dde35d86fd6",
+  "transformation": "JSON parsed and pretty-printed after capture; original sha256 records HTTP bytes, original HTTP byte file was not retained. snapshot_sha256 anchors the preserved JSON snapshot."
+}

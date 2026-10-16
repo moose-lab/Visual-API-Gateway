@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:40:56.502638+00:00",
+  "url": "https://api.github.com/repos/rednote-hilab/dots.mocr",
+  "method": "GET",
+  "status": 200,
+  "final_url": "https://api.github.com/repositories/1186460887",
+  "response_sha256": "607869bad9fab5c8fd44d68965666d3759502578a8c9f7b6532fc73972ee2172",
+  "response_bytes": 6568,
+  "headers": {
+    "Date": "Tue, 13 Oct 2026 03:40:59 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Server": "github.com"
+  },
+  "elapsed_seconds": 3.19
+}

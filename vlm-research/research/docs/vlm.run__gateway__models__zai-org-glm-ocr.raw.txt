@@ -1,0 +1,176 @@
+GLM-OCR | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+Zhipu AI
+GLM-OCR
+About
+GLM-OCR is a 0.9B open-weight model from Zhipu AI. Compact multilingual document OCR and markdown extraction. It accepts text, images, and documents. Context window is 8K. Released January 30, 2026.
+Parameters
+0.9B
+Published parameter count.
+Context window
+8K
+Tokens of context on a request.
+License
+MIT
+License on the weights.
+PricingCompareBenchmarksPerformanceInputsMethodsEstimate costQuick startResponse
+Model specifications
+ProviderZhipu AI
+Type
+markdown
+Endpointzai-org/glm-ocr
+Parameters0.9B
+Context length8K
+Input price$0.10 / 1M tokens$0.02 (cached) / 1M
+Output price$0.20 / 1M tokens
+Inputs
+textimage_urldocument_url
+LicenseMIT
+ReleasedJanuary 30, 2026
+Latency p504,069 ms p50
+Output tok/s601
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Input / 1M$0.10
+Cached input / 1M$0.02
+Output / 1M$0.20
+Compare
+GLM-OCR is the smallest of these document models, at 0.9B.
+ModelWhat it doesPriceParametersContext
+GLM-OCRCompact multilingual document OCR and markdown extraction.$0.10 / 1M input0.9B8K
+OCR AutoRoutes each method to its best OCR engine: ocr to PP-OCRv6, markdown to a fast CPU parser (dots.mocr on error), layout to dots.mocr.$0 / 1M input——
+DeepSeek-OCR-2DeepSeek OCR 2 and markdown extraction.$0.25 / 1M input3.4B32K
+dots.mocrMultilingual document layout parsing and markdown OCR.$0.20 / 1M input3B32K
+Benchmarks
+Published scores for GLM-OCR, from the OmniDocBench leaderboard.
+Evals
+OmniDocBench v1.695.22
+Formula CDM97.18
+Table TEDS92.83
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeOmniDocBench v1.6: 95.22.
+Cost and performanceLower listed rate, mid-pack latency
+Performance
+Latency is the end-to-end round trip. Throughput is completion tokens divided by that time. It is a request rate, not decode speed.
+LatencyMedian, end to end
+4,069 ms
+ThroughputMedian completion tokens per second
+601 tok/s
+RequestsCompleted, last 7 days
+309
+Supported inputs
+textIgnored
+A text part beside the media is accepted and ignored. A request with no media part is a 400.
+image_urlYes
+One per request. A second image_url part is a 400.
+video_urlNo
+Not accepted.
+document_urlYes
+One PDF, up to 128 pages, rasterized per page at document_dpi (default 96). See Document Inputs.
+markdown is the only method: a Markdown / HTML string for an image and for each page of a PDF.
+Context window 8,192 tokens, with a maximum output of 8,192 tokens.
+Aliases: glm-ocr, zai-org/GLM-OCR. Weights: zai-org/GLM-OCR.
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+markdown (default)Reading-order Markdown / HTML string
+Text mode emits the string alone for one image, and one <document> / <page> block per PDF, each page carrying format="markdown". In JSON mode an image content is the string, and a document page content is doc.page.blocks. See Methods & Response Format.
+Estimate cost
+Estimate. A page is 2,500 input tokens and 1,000 output tokens.
+Pages
+$0.45
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jsCLIcURL
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+response = client.chat.completions.create(
+model="zai-org/glm-ocr",
+messages=[
+{
+"role": "user",
+"content": [
+{
+"type": "document_url",
+"document_url": {
+"url": "https://storage.googleapis.com/vlm-data-public-prod/hub/examples/finance.sec-filings/tsla-8k.pdf"
+},
+},
+],
+}
+],
+extra_body={"method": "markdown"},
+)
+print(response.choices[0].message.content)
+Response
+Text modeJSON mode
+Copy
+One <document> block per PDF, one <page> block per page. A failed page is self-closing, with status="error" and no body:
+tsla-8k.pdf2 pages
+Page 0
+Annual Report 2024
+Overview
+The company reported revenue of $1.2M.
+Page 1 · failed
+This page returned no body.
+A single image returns the Markdown string alone, with no wrapper.
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

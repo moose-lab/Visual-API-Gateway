@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:53:14.872178+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/baidu/unlimited-ocr",
+  "status": 200,
+  "elapsed_seconds": 2.348,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:53:16 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "a36b6525-369d-4cf0-bba9-97bec49d1251"
+  },
+  "response_sha256": "61d600a713c6744bc2252b449838054f19e7ae8536af176b6209096d7d511b7b",
+  "response_bytes": 750
+}

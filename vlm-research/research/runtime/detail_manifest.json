@@ -1,0 +1,118 @@
+[
+  {
+    "name": "detail_google_gemini_3_5_flash_lite",
+    "url": "https://gateway.vlm.run/v1/models/google/gemini-3.5-flash-lite"
+  },
+  {
+    "name": "detail_google_gemini_3_7_flash",
+    "url": "https://gateway.vlm.run/v1/models/google/gemini-3.7-flash"
+  },
+  {
+    "name": "detail_meta_muse_spark_1_2",
+    "url": "https://gateway.vlm.run/v1/models/meta/muse-spark-1.2"
+  },
+  {
+    "name": "detail_google_gemini_robotics_er_2_preview",
+    "url": "https://gateway.vlm.run/v1/models/google/gemini-robotics-er-2-preview"
+  },
+  {
+    "name": "detail_moonshotai_kimi_k3",
+    "url": "https://gateway.vlm.run/v1/models/moonshotai/kimi-k3"
+  },
+  {
+    "name": "detail_minimax_minimax_m3",
+    "url": "https://gateway.vlm.run/v1/models/minimax/minimax-m3"
+  },
+  {
+    "name": "detail_meta_muse_glimmer_30b",
+    "url": "https://gateway.vlm.run/v1/models/meta/muse-glimmer-30b"
+  },
+  {
+    "name": "detail_microsoft_florence_2_base_ft",
+    "url": "https://gateway.vlm.run/v1/models/microsoft/florence-2-base-ft"
+  },
+  {
+    "name": "detail_geopavlakos_hamer",
+    "url": "https://gateway.vlm.run/v1/models/geopavlakos/hamer"
+  },
+  {
+    "name": "detail_nvidia_parakeet_tdt_0_6b_v3",
+    "url": "https://gateway.vlm.run/v1/models/nvidia/parakeet-tdt-0.6b-v3"
+  },
+  {
+    "name": "detail_paddleocr_pp_ocrv6",
+    "url": "https://gateway.vlm.run/v1/models/paddleocr/pp-ocrv6"
+  },
+  {
+    "name": "detail_facebook_sam3_1",
+    "url": "https://gateway.vlm.run/v1/models/facebook/sam3.1"
+  },
+  {
+    "name": "detail_usyd_community_vitpose_plus_large",
+    "url": "https://gateway.vlm.run/v1/models/usyd-community/vitpose-plus-large"
+  },
+  {
+    "name": "detail_deepseek_ai_deepseek_ocr_2",
+    "url": "https://gateway.vlm.run/v1/models/deepseek-ai/deepseek-ocr-2"
+  },
+  {
+    "name": "detail_google_diffusiongemma_26b_a4b_it",
+    "url": "https://gateway.vlm.run/v1/models/google/diffusiongemma-26b-a4b-it"
+  },
+  {
+    "name": "detail_rednote_hilab_dots_mocr",
+    "url": "https://gateway.vlm.run/v1/models/rednote-hilab/dots.mocr"
+  },
+  {
+    "name": "detail_google_gemma_4_26b_a4b_it",
+    "url": "https://gateway.vlm.run/v1/models/google/gemma-4-26b-a4b-it"
+  },
+  {
+    "name": "detail_zai_org_glm_ocr",
+    "url": "https://gateway.vlm.run/v1/models/zai-org/glm-ocr"
+  },
+  {
+    "name": "detail_paddlepaddle_paddleocr_vl_1_6",
+    "url": "https://gateway.vlm.run/v1/models/paddlepaddle/paddleocr-vl-1.6"
+  },
+  {
+    "name": "detail_qwen_qwen3_5_0_8b",
+    "url": "https://gateway.vlm.run/v1/models/qwen/qwen3.5-0.8b"
+  },
+  {
+    "name": "detail_qwen_qwen3_8_27b",
+    "url": "https://gateway.vlm.run/v1/models/qwen/qwen3.8-27b"
+  },
+  {
+    "name": "detail_qwen_qwen3_vl_embedding_2b",
+    "url": "https://gateway.vlm.run/v1/models/qwen/qwen3-vl-embedding-2b"
+  },
+  {
+    "name": "detail_baidu_unlimited_ocr",
+    "url": "https://gateway.vlm.run/v1/models/baidu/unlimited-ocr"
+  },
+  {
+    "name": "detail_vlm_run_ocr_auto",
+    "url": "https://gateway.vlm.run/v1/models/vlm-run/ocr:auto"
+  },
+  {
+    "name": "detail_orion2",
+    "url": "https://api.vlm.run/v1/openai/models/vlmrun-orion-2"
+  },
+  {
+    "name": "probe_orion2_tool",
+    "url": "https://api.vlm.run/v1/openai/chat/completions",
+    "body": {
+      "model": "vlmrun-orion-2",
+      "messages": [
+        {
+          "role": "user",
+          "content": "For a tiny code-execution connectivity test, use execute_code to calculate sum(i*i for i in range(1, 6)) in Python and print the result. No external data, no files, no media or web tools are needed. Then reply with only the calculated integer."
+        }
+      ],
+      "stream": true,
+      "expose_server_tool_calls": true,
+      "preview": false
+    }
+  }
+]

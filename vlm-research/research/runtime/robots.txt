@@ -1,0 +1,72 @@
+User-Agent: *
+Allow: /
+Disallow: /studio/
+Disallow: /api/
+
+User-Agent: GPTBot
+Allow: /
+Disallow: /studio/
+Disallow: /api/
+
+User-Agent: ChatGPT-User
+Allow: /
+Disallow: /studio/
+Disallow: /api/
+
+User-Agent: OAI-SearchBot
+Allow: /
+Disallow: /studio/
+Disallow: /api/
+
+User-Agent: ClaudeBot
+Allow: /
+Disallow: /studio/
+Disallow: /api/
+
+User-Agent: anthropic-ai
+Allow: /
+Disallow: /studio/
+Disallow: /api/
+
+User-Agent: PerplexityBot
+Allow: /
+Disallow: /studio/
+Disallow: /api/
+
+User-Agent: Google-Extended
+Allow: /
+Disallow: /studio/
+Disallow: /api/
+
+User-Agent: Applebot-Extended
+Allow: /
+Disallow: /studio/
+Disallow: /api/
+
+User-Agent: Bytespider
+Allow: /
+Disallow: /studio/
+Disallow: /api/
+
+User-Agent: CCBot
+Allow: /
+Disallow: /studio/
+Disallow: /api/
+
+User-Agent: cohere-ai
+Allow: /
+Disallow: /studio/
+Disallow: /api/
+
+User-Agent: FacebookBot
+Allow: /
+Disallow: /studio/
+Disallow: /api/
+
+User-Agent: Diffbot
+Allow: /
+Disallow: /studio/
+Disallow: /api/
+
+Host: https://vlm.run
+Sitemap: https://vlm.run/sitemap.xml

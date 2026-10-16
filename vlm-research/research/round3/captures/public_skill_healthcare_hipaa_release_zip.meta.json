@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T07:47:57.426140+00:00",
+  "url": "https://storage.googleapis.com/vlm-userdata-prod/files/e2c62618-e349-45e1-b21d-2af69bd587d3/archive-20260526-2eUEJ0RN5hs-healthcare-hipaa-release.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T074757Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "e2b52d8162a94a9b727de7ad511213e112841141c68ebd80d42ce8d8b70ee8e7",
+  "response_bytes": 5671,
+  "headers": {
+    "Content-Type": "application/zip",
+    "Date": "Tue, 13 Oct 2026 07:47:58 GMT",
+    "Server": "UploadServer"
+  },
+  "elapsed_seconds": 1.101
+}

@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:52:37.866173+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/moonshotai/kimi-k3",
+  "status": 404,
+  "elapsed_seconds": 3.04,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:52:39 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "e394106d-d07b-400b-834f-d00b92051199"
+  },
+  "response_sha256": "6c60b18bb0c9afb46c5e9813cdac24f55eb40da1eb92b04bf1a3cb805c7c3211",
+  "response_bytes": 122
+}

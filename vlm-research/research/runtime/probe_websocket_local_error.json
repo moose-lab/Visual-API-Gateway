@@ -1,0 +1,22 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:54:17.872011+00:00",
+  "url": "wss://gateway.vlm.run/typesafe/ws",
+  "request": {
+    "type": "session.create",
+    "model": "google/diffusiongemma-26b-a4b-it",
+    "state": "Answer about the synthetic document image.",
+    "questions": {
+      "invoice": {
+        "type": "noul",
+        "instructions": "Does this document show an invoice identifier?"
+      }
+    },
+    "detail": "high"
+  },
+  "frame": "synthetic_page_1.png",
+  "frame_sha256": "33d917645e2975fe5b727c88c2c06ae65ed94b734452e814fa51852c3d9fc15c",
+  "events": [],
+  "error": "TypeError: BaseEventLoop.create_connection() got an unexpected keyword argument 'additional_headers'",
+  "elapsed_seconds": 0.306
+}

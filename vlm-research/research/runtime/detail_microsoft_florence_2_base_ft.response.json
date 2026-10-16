@@ -1,0 +1,51 @@
+{
+  "id": "microsoft/florence-2-base-ft",
+  "hf_model_id": "microsoft/Florence-2-base-ft",
+  "name": "Florence-2 Base FT",
+  "description": "Vision foundation model for captioning, OCR, detection, and region tasks.",
+  "task": "chat",
+  "context_length": null,
+  "architecture": {
+    "input_modalities": [
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "modality": "image->text"
+  },
+  "capabilities": {
+    "max_images": 1,
+    "max_videos": 0,
+    "supports_text_only": false,
+    "supports_document_url": false,
+    "supports_json_object": true,
+    "supports_json_schema": false,
+    "supported_input_types": [
+      "text",
+      "image_url"
+    ]
+  },
+  "aliases": [
+    "microsoft/Florence-2-base-ft"
+  ],
+  "methods": [
+    "caption",
+    "detailed_caption",
+    "more_detailed_caption",
+    "ocr",
+    "ocr_with_region",
+    "od",
+    "dense_region_caption",
+    "region_proposal"
+  ],
+  "supported_parameters": [],
+  "pricing": {
+    "prompt": 0.1,
+    "completion": 0.3,
+    "input_cache_read": 0.03,
+    "input_cache_write": 0.0,
+    "image": 0.0,
+    "video": 0.0
+  }
+}

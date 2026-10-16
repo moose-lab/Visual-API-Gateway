@@ -1,0 +1,21 @@
+{
+  "id": "chatcmpl-72a370fa97a4",
+  "object": "chat.completion",
+  "created": 1777834001,
+  "model": "microsoft/florence-2-base-ft",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"<MORE_DETAILED_CAPTION>\": \"A screenshot of a dashboard with a list of things to do with.  The dashboard is titled Dashboard.  There are several graphs and charts on the dashboard.  One is a line of green and red bars.  It is a bar of red and green bars. The other is a blue bar of green bars with red bars on it.  \"\n}"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0
+  }
+}

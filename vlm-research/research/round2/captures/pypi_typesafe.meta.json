@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T02:53:54.018932+00:00",
+  "url": "https://pypi.org/pypi/typesafe-sdk/json",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "10ac9cec82202b3d3e3638e5d68509794a46e02962d4c6c9be3a1cfa57ea85ce",
+  "response_bytes": 17342,
+  "headers": {
+    "content-type": "application/json",
+    "server": "gunicorn",
+    "Date": "Tue, 13 Oct 2026 02:53:54 GMT"
+  },
+  "elapsed_seconds": 0.854
+}

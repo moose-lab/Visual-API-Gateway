@@ -1,0 +1,25 @@
+{
+  "usage": {
+    "elements_processed": 1,
+    "element_type": null,
+    "credits_used": 4,
+    "steps": 3,
+    "message": null,
+    "duration_seconds": 65,
+    "service_tier": "standard",
+    "mode_multiplier": 1.0,
+    "standard_cost_dollars": 0.033494,
+    "cost_dollars": 0.033494,
+    "savings_dollars": 0.0
+  },
+  "id": "eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+  "name": "arithmetic-pipeline-execution",
+  "response": {
+    "marker": "ROUND3_95fa411f3bd54819a6727e60188cb8f9",
+    "sum": 50
+  },
+  "execution_mode": "agent",
+  "status": "completed",
+  "created_at": "2026-10-13T07:49:11.167793Z",
+  "completed_at": "2026-10-13T07:50:16.942237Z"
+}

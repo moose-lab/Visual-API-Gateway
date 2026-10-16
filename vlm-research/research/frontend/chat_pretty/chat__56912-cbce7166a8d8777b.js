@@ -1,0 +1,1185 @@
+try {
+    ! function() {
+        var e = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof globalThis ? globalThis : "undefined" != typeof self ? self : {},
+            t = (new e.Error).stack;
+        t && (e._sentryDebugIds = e._sentryDebugIds || {}, e._sentryDebugIds[t] = "5aeb2003-fce2-4fa0-8900-8b17fd39a9e9", e._sentryDebugIdIdentifier = "sentry-dbid-5aeb2003-fce2-4fa0-8900-8b17fd39a9e9")
+    }()
+} catch (e) {}(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+    [56912], {
+        33596: function() {},
+        92129: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                d: function() {
+                    return u
+                }
+            });
+            var o = r(57437),
+                n = r(2265),
+                l = r(30401),
+                a = r(78867),
+                s = r(14438),
+                i = r(54206),
+                c = r(94508);
+            let d = {
+                'code[class*="language-"]': {
+                    color: "#000000",
+                    background: "none",
+                    fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace',
+                    textAlign: "left",
+                    whiteSpace: "pre",
+                    wordSpacing: "normal",
+                    wordBreak: "normal",
+                    wordWrap: "normal",
+                    lineHeight: "1.5",
+                    tabSize: 2,
+                    hyphens: "none"
+                },
+                'pre[class*="language-"]': {
+                    color: "#000000",
+                    background: "#ffffff",
+                    fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace',
+                    textAlign: "left",
+                    whiteSpace: "pre",
+                    wordSpacing: "normal",
+                    wordBreak: "normal",
+                    wordWrap: "normal",
+                    lineHeight: "1.5",
+                    tabSize: 2,
+                    hyphens: "none",
+                    padding: "1em",
+                    margin: ".5em 0",
+                    overflow: "auto"
+                },
+                comment: {
+                    color: "#008000"
+                },
+                prolog: {
+                    color: "#008000"
+                },
+                doctype: {
+                    color: "#008000"
+                },
+                cdata: {
+                    color: "#008000"
+                },
+                punctuation: {
+                    color: "#319331"
+                },
+                property: {
+                    color: "#a31515"
+                },
+                tag: {
+                    color: "#800000"
+                },
+                boolean: {
+                    color: "#0451a5"
+                },
+                number: {
+                    color: "#098658"
+                },
+                constant: {
+                    color: "#098658"
+                },
+                symbol: {
+                    color: "#098658"
+                },
+                selector: {
+                    color: "#800000"
+                },
+                "attr-name": {
+                    color: "#a31515"
+                },
+                string: {
+                    color: "#0451a5"
+                },
+                char: {
+                    color: "#0451a5"
+                },
+                builtin: {
+                    color: "#0451a5"
+                },
+                operator: {
+                    color: "#446ccf"
+                },
+                entity: {
+                    color: "#0451a5",
+                    cursor: "help"
+                },
+                url: {
+                    color: "#0451a5"
+                },
+                keyword: {
+                    color: "#0000ff"
+                },
+                atrule: {
+                    color: "#0000ff"
+                },
+                "attr-value": {
+                    color: "#0451a5"
+                },
+                function: {
+                    color: "#795e26"
+                },
+                "class-name": {
+                    color: "#267f99"
+                },
+                regex: {
+                    color: "#811f3f"
+                },
+                important: {
+                    fontWeight: "bold"
+                },
+                variable: {
+                    color: "#098658"
+                }
+            };
+
+            function u(e) {
+                var t, r, u, m, f, p;
+                let {
+                    children: h,
+                    bordered: x = !1,
+                    contentTabs: g,
+                    language: b,
+                    selectedTab: v,
+                    onSelectedTabChange: y,
+                    copySubstitutions: w,
+                    tokenPattern: j,
+                    renderInlineToken: N
+                } = e, [k, S] = (0, n.useState)(!1), [F, C] = (0, n.useState)(() => {
+                    var e, t;
+                    return null !== (t = null == g ? void 0 : null === (e = g[0]) || void 0 === e ? void 0 : e.label) && void 0 !== t ? t : ""
+                }), E = (0, n.useRef)(null);
+                (0, n.useEffect)(() => {
+                    let e = E.current;
+                    if (!e || !(null == w ? void 0 : w.length)) return;
+                    let t = e => {
+                        var t, r;
+                        let o = null === (t = window.getSelection()) || void 0 === t ? void 0 : t.toString();
+                        if (!o) return;
+                        let n = o;
+                        for (let {
+                                from: e,
+                                to: t
+                            }
+                            of w) n = n.replaceAll(e, t);
+                        n !== o && (null === (r = e.clipboardData) || void 0 === r || r.setData("text/plain", n), e.preventDefault())
+                    };
+                    return e.addEventListener("copy", t), () => e.removeEventListener("copy", t)
+                }, [w]);
+                let M = null != v ? v : F,
+                    L = e => {
+                        C(e), null == y || y(e)
+                    },
+                    A = e => {
+                        var t;
+                        return "string" == typeof e ? e : Array.isArray(e) ? e.map(A).join("") : (null == e ? void 0 : null === (t = e.props) || void 0 === t ? void 0 : t.children) ? A(e.props.children) : ""
+                    },
+                    H = null != b ? b : "text";
+                if (!b && !g) {
+                    if (Array.isArray(h)) {
+                        let e = h[0],
+                            t = null == e ? void 0 : null === (r = e.props) || void 0 === r ? void 0 : r.className,
+                            o = null == t ? void 0 : t.match(/language-([a-z0-9]+)/i);
+                        (null == o ? void 0 : o[1]) && (H = o[1])
+                    } else if (null == h ? void 0 : null === (t = h.props) || void 0 === t ? void 0 : t.className) {
+                        let e = h.props.className.match(/language-([a-z0-9]+)/i);
+                        (null == e ? void 0 : e[1]) && (H = e[1])
+                    }
+                }
+                H = ({
+                    js: "javascript",
+                    ts: "typescript",
+                    py: "python",
+                    rb: "ruby",
+                    sh: "bash",
+                    yml: "yaml",
+                    md: "markdown",
+                    sql: "sql",
+                    html: "html",
+                    css: "css",
+                    scss: "scss",
+                    less: "less",
+                    json: "json",
+                    xml: "xml",
+                    php: "php",
+                    java: "java",
+                    c: "c",
+                    cpp: "cpp",
+                    csharp: "csharp",
+                    go: "go",
+                    rust: "rust",
+                    swift: "swift",
+                    kotlin: "kotlin",
+                    dart: "dart",
+                    scala: "scala",
+                    r: "r",
+                    matlab: "matlab",
+                    shell: "bash",
+                    powershell: "powershell",
+                    dockerfile: "dockerfile",
+                    makefile: "makefile",
+                    nginx: "nginx",
+                    apache: "apache",
+                    graphql: "graphql",
+                    gql: "graphql",
+                    regex: "regex",
+                    vim: "vim",
+                    diff: "diff",
+                    patch: "patch",
+                    log: "log"
+                })[H] || H;
+                let W = null !== (u = null == g ? void 0 : g.find(e => e.label === M)) && void 0 !== u ? u : null == g ? void 0 : g[0],
+                    z = g ? null !== (m = null == W ? void 0 : W.code) && void 0 !== m ? m : "" : A(h).trim(),
+                    R = g ? null !== (p = null !== (f = null == W ? void 0 : W.copyCode) && void 0 !== f ? f : null == W ? void 0 : W.code) && void 0 !== p ? p : "" : z,
+                    _ = async () => {
+                        try {
+                            await navigator.clipboard.writeText(R), S(!0), s.Am.success("Code copied!"), setTimeout(() => S(!1), 1500)
+                        } catch (e) {}
+                    };
+                return (0, o.jsxs)("div", {
+                    ref: E,
+                    className: (0, c.cn)("my-3 overflow-hidden rounded-2xl bg-[#F0F4FF]", x ? "border border-blue-100" : "border border-blue-100/60"),
+                    style: {
+                        maxWidth: "100%",
+                        overflowX: "auto"
+                    },
+                    children: [(0, o.jsxs)("div", {
+                        className: "flex items-end justify-between px-3",
+                        children: [g ? (0, o.jsx)("div", {
+                            className: "flex items-end",
+                            children: g.map((e, t) => (0, o.jsx)("button", {
+                                type: "button",
+                                onClick: () => L(e.label),
+                                className: (0, c.cn)("py-2.5 pr-3 text-[11px] font-medium transition-colors", 0 === t ? "pl-0" : "pl-3", M === e.label ? "text-slate-700" : "text-slate-400 hover:text-slate-600"),
+                                children: e.label
+                            }, e.label))
+                        }) : (0, o.jsx)("span", {
+                            className: "py-2.5 text-[11px] uppercase tracking-wide text-slate-500",
+                            children: H.toUpperCase()
+                        }), (0, o.jsx)("button", {
+                            type: "button",
+                            onClick: _,
+                            className: "mb-1 rounded-md p-1.5 text-slate-400 transition-colors hover:bg-blue-100/60 hover:text-slate-600",
+                            "aria-label": k ? "Copied" : "Copy code",
+                            children: k ? (0, o.jsx)(l.Z, {
+                                className: "size-4"
+                            }) : (0, o.jsx)(a.Z, {
+                                className: "size-4"
+                            })
+                        })]
+                    }), (0, o.jsx)("div", {
+                        className: "mx-1 mb-1 overflow-hidden rounded-xl bg-white",
+                        children: (0, o.jsx)(n.Suspense, {
+                            fallback: (0, o.jsx)("pre", {
+                                className: "overflow-x-auto px-3 pb-[0.9rem] pt-3 text-[13px] leading-[1.5]",
+                                children: z
+                            }),
+                            children: (0, o.jsx)(i.s, {
+                                language: H,
+                                style: d,
+                                wrapLongLines: !0,
+                                customStyle: {
+                                    margin: 0,
+                                    padding: "0.75rem 0.75rem 0.9rem",
+                                    background: "transparent",
+                                    fontSize: "13px",
+                                    lineHeight: "1.5",
+                                    maxWidth: "100%",
+                                    minWidth: 0,
+                                    overflowX: "auto",
+                                    wordBreak: "break-word"
+                                },
+                                codeTagProps: {
+                                    style: {
+                                        fontSize: "inherit",
+                                        fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace',
+                                        wordBreak: "break-word",
+                                        overflowWrap: "anywhere",
+                                        minWidth: 0
+                                    }
+                                },
+                                renderer: j && N ? e => {
+                                    let {
+                                        rows: t,
+                                        stylesheet: r,
+                                        useInlineStyles: l
+                                    } = e, a = {
+                                        count: 0
+                                    };
+                                    return t.map((e, t) => (function e(t, r, l, a, s, i, c) {
+                                        var d, u, m, f, p;
+                                        if ((null == t ? void 0 : t.type) === "text") return function(e, t, r, l, a) {
+                                            let s;
+                                            let i = [],
+                                                c = new RegExp(t.source, t.flags.includes("g") ? t.flags : t.flags + "g"),
+                                                d = 0,
+                                                u = 0;
+                                            for (; null !== (s = c.exec(e));) {
+                                                s.index > d && i.push(e.slice(d, s.index));
+                                                let t = l.count;
+                                                l.count += 1, i.push((0, o.jsx)(n.Fragment, {
+                                                    children: r(s[0], t)
+                                                }, "".concat(a, "-token-").concat(u++, "-").concat(t))), d = s.index + s[0].length, 0 === s[0].length && (c.lastIndex += 1)
+                                            }
+                                            return d < e.length && i.push(e.slice(d)), i
+                                        }(null !== (d = t.value) && void 0 !== d ? d : "", s, i, c, a);
+                                        if (!(null == t ? void 0 : t.tagName)) return null;
+                                        let h = null !== (u = t.properties) && void 0 !== u ? u : {},
+                                            x = Array.isArray(h.className) ? h.className : [],
+                                            g = {
+                                                key: a
+                                            };
+                                        l ? g.style = (p = null !== (m = h.style) && void 0 !== m ? m : {}, x.reduce((e, t) => {
+                                            var o;
+                                            return "token" === t ? e : {
+                                                ...e,
+                                                ...null !== (o = r[t]) && void 0 !== o ? o : {}
+                                            }
+                                        }, p)) : x.length && (g.className = x.join(" "));
+                                        let b = (null !== (f = t.children) && void 0 !== f ? f : []).map((t, o) => e(t, r, l, "".concat(a, "-").concat(o), s, i, c));
+                                        return n.createElement(t.tagName, g, b.length ? b : void 0)
+                                    })(e, r, l, "row-".concat(t), j, N, a))
+                                } : void 0,
+                                children: z
+                            })
+                        })
+                    })]
+                })
+            }
+        },
+        11790: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                Z: function() {
+                    return c
+                }
+            });
+            var o = r(57437),
+                n = r(2265),
+                l = r(30401),
+                a = r(78867),
+                s = r(94508);
+            let i = e => n.Children.toArray(e).map(e => "string" == typeof e || "number" == typeof e ? e : n.isValidElement(e) && e.props.children ? i(e.props.children) : "").join("");
+
+            function c(e) {
+                let {
+                    children: t,
+                    copyText: r
+                } = e, [c, d] = (0, n.useState)(!1), u = async () => {
+                    try {
+                        await navigator.clipboard.writeText(null != r ? r : i(t).replace(/\s+/g, " ").trim()), d(!0), setTimeout(() => d(!1), 1500)
+                    } catch (e) {}
+                };
+                return (0, o.jsxs)("button", {
+                    type: "button",
+                    onClick: u,
+                    className: (0, s.cn)("group/code relative inline-flex items-center rounded-[10px] border border-blue-100/60 bg-[#F0F4FF] px-1.5 py-px font-mono text-[85%] leading-tight text-foreground transition-colors hover:border-blue-200 hover:bg-[#E8EEFF]"),
+                    children: [(0, o.jsx)("code", {
+                        className: "pointer-events-none",
+                        children: t
+                    }), (0, o.jsx)("span", {
+                        className: "pointer-events-none absolute inset-y-0 right-0 flex items-center rounded-r-[10px] bg-[#E8EEFF] px-1.5 opacity-0 transition-opacity group-hover/code:opacity-100",
+                        children: c ? (0, o.jsx)(l.Z, {
+                            className: "size-3 text-green-500"
+                        }) : (0, o.jsx)(a.Z, {
+                            className: "size-3 text-slate-400"
+                        })
+                    })]
+                })
+            }
+        },
+        78325: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                Ks: function() {
+                    return x
+                },
+                R8: function() {
+                    return p
+                },
+                VT: function() {
+                    return j
+                },
+                d1: function() {
+                    return b
+                },
+                hm: function() {
+                    return g
+                },
+                uk: function() {
+                    return h
+                }
+            });
+            var o = r(57437),
+                n = r(2265),
+                l = r(24670),
+                a = r(6494),
+                s = r(60691),
+                i = r(62997),
+                c = r(80162),
+                d = r(93252),
+                u = r(87191),
+                m = r(14438),
+                f = r(94508);
+            let p = "var(--font-aeonik-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+                h = c.tk.theme({
+                    ".cm-gutters": {
+                        backgroundColor: "transparent",
+                        borderRight: "none",
+                        color: "hsl(0 0% 40%)",
+                        fontSize: "13px",
+                        fontFamily: p,
+                        fontWeight: String(400),
+                        width: "48px"
+                    },
+                    ".cm-gutter.cm-lineNumbers": {
+                        textAlign: "right",
+                        width: "48px"
+                    },
+                    ".cm-lineNumbers .cm-gutterElement": {
+                        paddingRight: "12px",
+                        paddingLeft: "8px"
+                    },
+                    ".cm-activeLineGutter": {
+                        backgroundColor: "transparent"
+                    },
+                    ".cm-activeLine": {
+                        backgroundColor: "transparent"
+                    }
+                }),
+                x = c.tk.theme({
+                    "&": {
+                        fontSize: "13px",
+                        fontFamily: p,
+                        fontWeight: String(400),
+                        height: "100%",
+                        backgroundColor: "transparent",
+                        flex: "1"
+                    },
+                    ".cm-scroller": {
+                        fontFamily: p,
+                        fontWeight: String(400),
+                        lineHeight: "24px",
+                        letterSpacing: "normal",
+                        overflow: "auto",
+                        height: "100%"
+                    },
+                    ".cm-content": {
+                        padding: "8px 0",
+                        fontFamily: p,
+                        fontWeight: String(400)
+                    },
+                    ".cm-line": {
+                        padding: "0 4px 0 8px",
+                        fontFamily: p,
+                        fontWeight: String(400)
+                    }
+                }),
+                g = (0, a.nF)(a.Qf.define([{
+                    tag: d.pJ.propertyName,
+                    color: "#a31515"
+                }, {
+                    tag: d.pJ.string,
+                    color: "#0451a5"
+                }, {
+                    tag: d.pJ.number,
+                    color: "#098658"
+                }, {
+                    tag: d.pJ.bool,
+                    color: "#0451a5"
+                }, {
+                    tag: d.pJ.null,
+                    color: "#0451a5"
+                }, {
+                    tag: d.pJ.punctuation,
+                    color: "#446ccf"
+                }, {
+                    tag: d.pJ.bracket,
+                    color: "#319331"
+                }, {
+                    tag: d.pJ.brace,
+                    color: "#319331"
+                }])),
+                b = c.tk.theme({
+                    ".cm-selectionBackground, ::selection": {
+                        backgroundColor: "rgba(191, 219, 254, 0.5) !important"
+                    },
+                    "&.cm-focused .cm-selectionBackground, &.cm-focused ::selection": {
+                        backgroundColor: "rgba(147, 197, 253, 0.4) !important"
+                    },
+                    "&.cm-focused .cm-cursor": {
+                        borderLeftColor: "#0451a5",
+                        borderLeftWidth: "2px"
+                    }
+                }),
+                v = i.Py.define(),
+                y = i.QQ.define({
+                    create: () => c.p.none,
+                    update(e, t) {
+                        for (let r of (e = e.map(t.changes), t.effects)) r.is(v) && (e = r.value ? c.p.set([c.p.mark({
+                            class: "cm-search-match"
+                        }).range(r.value.from, r.value.to)]) : c.p.none);
+                        return e
+                    },
+                    provide: e => c.tk.decorations.from(e)
+                }),
+                w = new Set(["type", "description", "required", "properties", "$schema", "title", "additionalProperties", "items", "format", "enum", "minimum", "maximum", "minLength", "maxLength", "pattern", "default", "fields", "id"]),
+                j = (0, n.forwardRef)(function(e, t) {
+                    let {
+                        value: r,
+                        onChange: a,
+                        onValidationError: i,
+                        className: d,
+                        readOnly: p = !1,
+                        searchTerm: j,
+                        searchStep: N,
+                        onCursorChange: k
+                    } = e, [S, F] = (0, n.useState)(() => JSON.stringify(r, null, 2)), [C, E] = (0, n.useState)(!1), M = (0, n.useRef)(null), L = (0, n.useRef)(""), A = (0, n.useRef)(0), H = (0, n.useRef)(k);
+                    (0, n.useEffect)(() => {
+                        H.current = k
+                    }, [k]), (0, n.useImperativeHandle)(t, () => ({
+                        scrollToKey(e) {
+                            if (!M.current) return;
+                            let t = M.current,
+                                r = new s.FH(t.state.doc, '"'.concat(e, '":'), 0);
+                            if (r.next(), !r.done) {
+                                let {
+                                    from: e,
+                                    to: o
+                                } = r.value;
+                                t.dispatch({
+                                    selection: {
+                                        anchor: e,
+                                        head: o
+                                    },
+                                    scrollIntoView: !0,
+                                    effects: v.of({
+                                        from: e,
+                                        to: o
+                                    })
+                                }), setTimeout(() => {
+                                    t.dispatch({
+                                        effects: v.of(null)
+                                    })
+                                }, 1500)
+                            }
+                        }
+                    })), (0, n.useEffect)(() => {
+                        try {
+                            let e = JSON.stringify(r, null, 2);
+                            F(e), E(!1)
+                        } catch (e) {
+                            console.error("Error stringifying JSON:", e)
+                        }
+                    }, [r]), (0, n.useEffect)(() => {
+                        if (!M.current) return;
+                        let e = M.current;
+                        if (!j) {
+                            e.dispatch({
+                                effects: v.of(null)
+                            }), L.current = "", A.current = null != N ? N : 0;
+                            return
+                        }
+                        let t = j !== L.current,
+                            r = t ? 0 : (null != N ? N : 0) - A.current;
+                        L.current = j, A.current = null != N ? N : 0;
+                        let o = e => e.toLowerCase(),
+                            n = null,
+                            l = null;
+                        if (t || 0 === r) {
+                            let t = new s.FH(e.state.doc, j, 0, void 0, o);
+                            t.next(), t.done || (n = t.value.from, l = t.value.to)
+                        } else if (r > 0) {
+                            let t = e.state.selection.main.to,
+                                r = new s.FH(e.state.doc, j, t, void 0, o);
+                            if (r.next(), r.done) {
+                                let t = new s.FH(e.state.doc, j, 0, void 0, o);
+                                t.next(), t.done || (n = t.value.from, l = t.value.to)
+                            } else n = r.value.from, l = r.value.to
+                        } else {
+                            let t = e.state.selection.main.from,
+                                r = [],
+                                a = new s.FH(e.state.doc, j, 0, t, o);
+                            for (; a.next(), !a.done;) r.push({
+                                from: a.value.from,
+                                to: a.value.to
+                            });
+                            if (r.length > 0) {
+                                let e = r[r.length - 1];
+                                n = e.from, l = e.to
+                            } else {
+                                let t = [],
+                                    r = new s.FH(e.state.doc, j, 0, void 0, o);
+                                for (; r.next(), !r.done;) t.push({
+                                    from: r.value.from,
+                                    to: r.value.to
+                                });
+                                if (t.length > 0) {
+                                    let e = t[t.length - 1];
+                                    n = e.from, l = e.to
+                                }
+                            }
+                        }
+                        null !== n && null !== l && e.dispatch({
+                            selection: {
+                                anchor: n,
+                                head: l
+                            },
+                            scrollIntoView: !0,
+                            effects: v.of({
+                                from: n,
+                                to: l
+                            })
+                        })
+                    }, [j, N]);
+                    let W = (0, n.useCallback)(e => {
+                            F(e);
+                            try {
+                                let t = JSON.parse(e);
+                                E(!1), a(t)
+                            } catch (e) {
+                                C || m.Am.error("Invalid JSON syntax. Fix the errors to save changes."), E(!0), i && e instanceof Error && i(e.message)
+                            }
+                        }, [a, i]),
+                        z = (0, n.useMemo)(() => c.tk.updateListener.of(e => {
+                            var t;
+                            if (!e.selectionSet) return;
+                            let r = e.view,
+                                o = r.state.selection.main.head,
+                                n = r.state.doc,
+                                l = n.lineAt(o),
+                                a = null,
+                                s = Math.max(1, l.number - 5);
+                            for (let e = l.number; e >= s; e--) {
+                                let t = n.line(e).text,
+                                    r = t.match(/"name"\s*:\s*"([^"]+)"/);
+                                if (r) {
+                                    a = r[1];
+                                    break
+                                }
+                                let o = t.match(/"([^"]+)"\s*:\s*[{[]/);
+                                if (o && !w.has(o[1])) {
+                                    a = o[1];
+                                    break
+                                }
+                            }
+                            null === (t = H.current) || void 0 === t || t.call(H, a)
+                        }), []),
+                        R = (0, n.useMemo)(() => [(0, l.AV)(), y, g, c.tk.lineWrapping, h, x, z, b, c.tk.theme({
+                            ".cm-editor": {
+                                height: "100%",
+                                minHeight: "400px"
+                            },
+                            ".cm-scroller": {
+                                minHeight: "400px"
+                            },
+                            ".cm-search-match": {
+                                backgroundColor: "rgba(251, 191, 36, 0.45)",
+                                borderBottom: "2px solid rgba(245, 158, 11, 0.8)",
+                                borderRadius: "2px"
+                            }
+                        })], [z]);
+                    return (0, o.jsxs)("div", {
+                        className: (0, f.cn)("relative flex flex-col", d),
+                        style: {
+                            minHeight: "400px",
+                            height: "100%",
+                            overflow: "hidden"
+                        },
+                        children: [(0, o.jsx)(u.ZP, {
+                            value: S,
+                            onChange: W,
+                            onCreateEditor: e => {
+                                M.current = e
+                            },
+                            extensions: R,
+                            theme: "light",
+                            height: "100%",
+                            minHeight: "400px",
+                            basicSetup: {
+                                lineNumbers: !0,
+                                highlightActiveLineGutter: !0,
+                                highlightActiveLine: !0,
+                                foldGutter: !1,
+                                dropCursor: !0,
+                                allowMultipleSelections: !0,
+                                indentOnInput: !0,
+                                bracketMatching: !0,
+                                closeBrackets: !0,
+                                autocompletion: !0,
+                                rectangularSelection: !0,
+                                crosshairCursor: !0,
+                                highlightSelectionMatches: !0,
+                                closeBracketsKeymap: !0,
+                                searchKeymap: !1,
+                                foldKeymap: !1,
+                                completionKeymap: !0,
+                                lintKeymap: !0
+                            },
+                            readOnly: p,
+                            editable: !p,
+                            className: "json-code-editor",
+                            style: {
+                                height: "100%",
+                                minHeight: "400px"
+                            }
+                        }), C && (0, o.jsx)("div", {
+                            className: "absolute inset-x-2 bottom-2 z-10 rounded border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-600 shadow-sm",
+                            children: "Invalid JSON syntax. Fix the errors to save changes."
+                        })]
+                    })
+                })
+        },
+        54206: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                s: function() {
+                    return o
+                }
+            });
+            let o = (0, r(2265).lazy)(() => Promise.all([r.e(15913), r.e(99113), r.e(52231), r.e(38256), r.e(20319), r.e(75779), r.e(64365), r.e(54301), r.e(25510), r.e(36062), r.e(6796), r.e(33337), r.e(181)]).then(r.bind(r, 181)).then(e => ({
+                default: e.Prism
+            })))
+        },
+        58239: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                Z: function() {
+                    return h
+                }
+            });
+            var o = r(57437),
+                n = r(2265),
+                l = r(93439),
+                a = r(90224),
+                s = r(35704),
+                i = r(79353),
+                c = r(92129);
+
+            function d(e, t) {
+                if (!e || !t) return e;
+                if (void 0 !== t[e]) return t[e];
+                let r = e;
+                try {
+                    r = decodeURIComponent(e)
+                } catch (e) {}
+                if (r !== e && void 0 !== t[r]) return t[r];
+                let o = e.includes("/") ? e.split("/").pop() : e;
+                return o !== e && void 0 !== t[o] ? t[o] : e
+            }
+            var u = r(11790),
+                m = r(11590);
+
+            function f(e) {
+                let {
+                    children: t
+                } = e, r = n.Children.toArray(t).find(e => n.isValidElement(e) && "code" === e.type);
+                if (r) {
+                    let e = r.props.className || "",
+                        t = /language-(\w+)/.exec(e),
+                        n = null == t ? void 0 : t[1];
+                    return (0, o.jsx)(c.d, {
+                        language: n,
+                        children: r.props.children
+                    })
+                }
+                return (0, o.jsx)(c.d, {
+                    children: t
+                })
+            }
+            let p = {
+                h1: ["mb-3 mt-4 border-b border-border pb-2 text-lg font-semibold text-foreground", "mb-4 mt-6 border-b border-border pb-2 text-2xl font-semibold text-foreground"],
+                h2: ["mb-2 mt-4 border-b border-border pb-2 text-base font-semibold text-foreground", "mb-3 mt-6 border-b border-border pb-2 text-xl font-semibold text-foreground"],
+                h3: ["mb-2 mt-4 text-sm font-semibold text-foreground", "mb-3 mt-6 text-lg font-semibold text-foreground"],
+                h4: ["mb-2 mt-3 text-xs font-semibold text-foreground", "mb-3 mt-6 text-base font-semibold text-foreground"],
+                h5: ["mb-1 mt-3 text-xs font-semibold text-foreground", "mb-3 mt-6 text-sm font-semibold text-foreground"],
+                h6: ["mb-1 mt-3 text-xs font-medium text-muted-foreground", "mb-3 mt-6 text-sm font-semibold text-muted-foreground"],
+                p: ["mb-3 text-xs leading-5 text-foreground", "mb-4 text-sm leading-6 text-foreground"],
+                ul: ["mb-3 list-disc space-y-0.5 pl-5 text-xs text-foreground", "mb-4 list-disc space-y-0.5 pl-6 text-sm text-foreground"],
+                ol: ["mb-3 list-decimal space-y-0.5 pl-5 text-xs text-foreground", "mb-4 list-decimal space-y-0.5 pl-6 text-sm text-foreground"],
+                li: ["text-xs leading-5 text-foreground", "text-sm leading-6 text-foreground"],
+                blockquote: ["my-3 border-l-4 border-border pl-3 text-xs leading-5 text-muted-foreground", "my-4 border-l-4 border-border pl-4 text-sm text-muted-foreground"]
+            };
+            var h = e => {
+                let {
+                    markdownContent: t,
+                    enableSoftBreaks: r = !0,
+                    stripYamlFrontmatter: c = !0,
+                    noPadding: h = !1,
+                    wideTables: x = !1,
+                    compact: g = !1,
+                    fileMap: b
+                } = e, v = (0, n.useMemo)(() => {
+                    if (c) {
+                        let {
+                            content: e
+                        } = (0, i.Hg)(t);
+                        return e
+                    }
+                    return t
+                }, [t, c]), y = e => p[e][g ? 0 : 1], w = {
+                    h1: e => {
+                        let {
+                            children: t
+                        } = e;
+                        return (0, o.jsx)("h1", {
+                            className: y("h1"),
+                            children: t
+                        })
+                    },
+                    h2: e => {
+                        let {
+                            children: t
+                        } = e;
+                        return (0, o.jsx)("h2", {
+                            className: y("h2"),
+                            children: t
+                        })
+                    },
+                    h3: e => {
+                        let {
+                            children: t
+                        } = e;
+                        return (0, o.jsx)("h3", {
+                            className: y("h3"),
+                            children: t
+                        })
+                    },
+                    h4: e => {
+                        let {
+                            children: t
+                        } = e;
+                        return (0, o.jsx)("h4", {
+                            className: y("h4"),
+                            children: t
+                        })
+                    },
+                    h5: e => {
+                        let {
+                            children: t
+                        } = e;
+                        return (0, o.jsx)("h5", {
+                            className: y("h5"),
+                            children: t
+                        })
+                    },
+                    h6: e => {
+                        let {
+                            children: t
+                        } = e;
+                        return (0, o.jsx)("h6", {
+                            className: y("h6"),
+                            children: t
+                        })
+                    },
+                    p: e => {
+                        let {
+                            children: t
+                        } = e;
+                        return (0, o.jsx)("p", {
+                            className: y("p"),
+                            children: t
+                        })
+                    },
+                    ul: e => {
+                        let {
+                            children: t
+                        } = e;
+                        return (0, o.jsx)("ul", {
+                            className: y("ul"),
+                            children: t
+                        })
+                    },
+                    ol: e => {
+                        let {
+                            children: t
+                        } = e;
+                        return (0, o.jsx)("ol", {
+                            className: y("ol"),
+                            children: t
+                        })
+                    },
+                    li: e => {
+                        let {
+                            children: t
+                        } = e;
+                        return (0, o.jsx)("li", {
+                            className: y("li"),
+                            children: t
+                        })
+                    },
+                    table: e => {
+                        let {
+                            children: t
+                        } = e;
+                        return (0, o.jsx)("div", {
+                            className: g ? "my-3 overflow-x-auto" : "my-4 overflow-x-auto",
+                            children: (0, o.jsx)("table", {
+                                className: "border-collapse border border-border ".concat(g ? "text-xs" : "text-sm").concat(x ? " w-max" : " w-full"),
+                                children: t
+                            })
+                        })
+                    },
+                    th: e => {
+                        let {
+                            children: t
+                        } = e;
+                        return (0, o.jsx)("th", {
+                            className: "border border-border bg-muted text-left font-semibold text-foreground ".concat(g ? "px-2 py-1" : "px-3 py-1.5").concat(x ? " whitespace-nowrap" : ""),
+                            children: t
+                        })
+                    },
+                    td: e => {
+                        let {
+                            children: t
+                        } = e;
+                        return (0, o.jsx)("td", {
+                            className: "border border-border text-foreground ".concat(g ? "px-2 py-1" : "px-3 py-1.5").concat(x ? " whitespace-nowrap" : ""),
+                            children: t
+                        })
+                    },
+                    blockquote: e => {
+                        let {
+                            children: t
+                        } = e;
+                        return (0, o.jsx)("blockquote", {
+                            className: y("blockquote"),
+                            children: t
+                        })
+                    },
+                    pre: f,
+                    code: u.Z,
+                    a: e => {
+                        let {
+                            children: t,
+                            href: r
+                        } = e, n = d(r || "", b);
+                        return n !== r && n.startsWith("data:") ? (0, o.jsx)(m._, {
+                            href: n,
+                            children: t
+                        }) : (0, o.jsx)(m._, {
+                            href: r || "",
+                            children: t
+                        })
+                    },
+                    img: e => {
+                        let {
+                            src: t,
+                            alt: r
+                        } = e, n = d(t || "", b);
+                        return n.startsWith("data:image/") ? (0, o.jsx)("span", {
+                            className: "my-4 block",
+                            children: (0, o.jsx)("img", {
+                                src: n,
+                                alt: r || t || "",
+                                loading: "lazy",
+                                className: "h-auto max-w-full rounded-md border border-border"
+                            })
+                        }) : n.startsWith("data:video/") ? (0, o.jsx)("span", {
+                            className: "my-4 block",
+                            children: (0, o.jsx)("video", {
+                                controls: !0,
+                                className: "h-auto max-w-full rounded-md border border-border",
+                                children: (0, o.jsx)("source", {
+                                    src: n
+                                })
+                            })
+                        }) : (0, o.jsx)(m._, {
+                            href: n,
+                            children: r || t
+                        })
+                    },
+                    hr: () => (0, o.jsx)("hr", {
+                        className: "my-4 border-t border-border"
+                    })
+                }, j = r ? [a.Z, s.Z] : [s.Z];
+                return (0, o.jsx)("div", {
+                    className: "w-full font-sans".concat(h ? "" : " p-4"),
+                    children: (0, o.jsx)(l.UG, {
+                        remarkPlugins: j,
+                        components: w,
+                        children: v
+                    })
+                })
+            }
+        },
+        11590: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                _: function() {
+                    return c
+                }
+            });
+            var o = r(57437),
+                n = r(2265),
+                l = r(69658),
+                a = r(91846),
+                s = r.n(a),
+                i = r(94508);
+
+            function c(e) {
+                let {
+                    href: t,
+                    children: r,
+                    className: a
+                } = e, [c, d] = (0, n.useState)(!1);
+                if (!t) return (0, o.jsx)("span", {
+                    className: a || "text-sm",
+                    children: r
+                });
+                let u = (0, i.Nm)(t);
+                if (c) return (0, o.jsx)("a", {
+                    href: u,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    className: a || "text-sm text-primary hover:underline",
+                    children: r
+                });
+                let m = (0, i.Jb)(t);
+                if (!m) return (0, o.jsx)("a", {
+                    href: u,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    className: a || "text-sm text-primary hover:underline",
+                    children: r
+                });
+                let f = "string" == typeof r ? r : "Media";
+                try {
+                    switch (m) {
+                        case "image":
+                            return (0, o.jsx)("span", {
+                                className: "my-4 block",
+                                children: (0, o.jsx)("img", {
+                                    src: u,
+                                    alt: f,
+                                    loading: "lazy",
+                                    className: "h-auto max-w-full rounded-md border border-border",
+                                    onError: () => d(!0)
+                                })
+                            });
+                        case "video":
+                            return (0, o.jsx)("div", {
+                                className: "my-4 aspect-video max-w-3xl",
+                                children: (0, o.jsx)(s(), {
+                                    url: u,
+                                    controls: !0,
+                                    width: "100%",
+                                    height: "100%",
+                                    config: {
+                                        file: {
+                                            attributes: {
+                                                crossOrigin: "anonymous"
+                                            }
+                                        }
+                                    },
+                                    onError: () => d(!0)
+                                })
+                            });
+                        case "audio":
+                            return (0, o.jsx)("div", {
+                                className: "my-4",
+                                children: (0, o.jsx)(s(), {
+                                    url: u,
+                                    controls: !0,
+                                    width: "100%",
+                                    height: "50px",
+                                    config: {
+                                        file: {
+                                            forceAudio: !0,
+                                            attributes: {
+                                                crossOrigin: "anonymous"
+                                            }
+                                        }
+                                    },
+                                    onError: () => d(!0)
+                                })
+                            });
+                        case "pdf":
+                            return (0, o.jsxs)("a", {
+                                href: u,
+                                target: "_blank",
+                                rel: "noopener noreferrer",
+                                className: "my-2 inline-flex items-center gap-2 rounded-md border border-border bg-muted/30 px-3 py-2 text-sm text-foreground transition-colors hover:bg-muted/50",
+                                children: [(0, o.jsx)(l.Z, {
+                                    className: "size-4"
+                                }), (0, o.jsx)("span", {
+                                    children: f
+                                }), (0, o.jsx)("span", {
+                                    className: "text-xs text-muted-foreground",
+                                    children: "(PDF)"
+                                })]
+                            });
+                        default:
+                            return (0, o.jsx)("a", {
+                                href: u,
+                                target: "_blank",
+                                rel: "noopener noreferrer",
+                                className: a || "text-sm text-primary hover:underline",
+                                children: r
+                            })
+                    }
+                } catch (e) {
+                    return console.error("Error rendering media URL:", e), d(!0), (0, o.jsx)("a", {
+                        href: u,
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                        className: a || "text-sm text-primary hover:underline",
+                        children: r
+                    })
+                }
+            }
+        },
+        79353: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                Hg: function() {
+                    return l
+                },
+                K2: function() {
+                    return a
+                }
+            });
+            var o = r(39413),
+                n = r.n(o);
+
+            function l(e) {
+                try {
+                    let t = n()(e);
+                    return {
+                        content: t.content,
+                        data: t.data,
+                        hasFrontmatter: Object.keys(t.data).length > 0,
+                        originalContent: e
+                    }
+                } catch (t) {
+                    return console.warn("Failed to parse frontmatter:", t), {
+                        content: e,
+                        data: {},
+                        hasFrontmatter: !1,
+                        originalContent: e
+                    }
+                }
+            }
+
+            function a(e, t) {
+                var r;
+                if (!e || !t) return e;
+                let {
+                    content: o,
+                    data: a,
+                    hasFrontmatter: s
+                } = l(e), i = o.split(/\r?\n/), c = 0;
+                for (; c < i.length && "" === i[c].trim();) c++;
+                if (c >= i.length) return e;
+                let d = i[c].match(/^#\s+(.+?)\s*$/);
+                if (!d || d[1].trim().toLowerCase() !== t.trim().toLowerCase()) return e;
+                let u = [...i.slice(0, c), ...i.slice(c + 1)];
+                (null === (r = u[c]) || void 0 === r ? void 0 : r.trim()) === "" && u.splice(c, 1);
+                let m = u.join("\n");
+                return s ? n().stringify(m, a) : m
+            }
+        }
+    }
+]);

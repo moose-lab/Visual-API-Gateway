@@ -1,0 +1,14 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-14T03:38:56.309127+00:00",
+  "url": "https://api.vlm.run/v1/artifacts?execution_id=5410a132-b564-428a-8d11-f9e7b80e3ef8&object_id=doc_25bfd5",
+  "method": "GET",
+  "status": 307,
+  "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "response_bytes": 0,
+  "headers": {
+    "Date": "Wed, 14 Oct 2026 03:38:58 GMT",
+    "Location": "https://storage.googleapis.com/vlm-userdata-prod/agents/workspace/cf59c0d0-b8c5-4b56-9555-ba66fcf03fb1/5410a132-b564-428a-8d11-f9e7b80e3ef8/doc_25bfd5.pdf?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261014T033858Z&X-Goog-Expires=3600&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]"
+  },
+  "elapsed_seconds": 1.861
+}

@@ -1,0 +1,51 @@
+[
+  {
+    "url": "https://vlm.run/images/gateway/demos/donuts-segment-sam3/result.json",
+    "status": 200,
+    "file": "demos/donuts-segment-sam3.json",
+    "sha256": "5a4b4cdda501816e62f417c6da751704d70444d477bd828e7ca76ab836c439d5",
+    "bytes": 10634
+  },
+  {
+    "url": "https://vlm.run/images/gateway/demos/cupcakes-detect-rfdetr/result.json",
+    "status": 200,
+    "file": "demos/cupcakes-detect-rfdetr.json",
+    "sha256": "86ec5b390cfe2b1ff9c72ec8afe0d5f893e579403c304d6a2bd0946926618af1",
+    "bytes": 7239
+  },
+  {
+    "url": "https://vlm.run/images/gateway/demos/vegetables-region-florence/result.json",
+    "status": 200,
+    "file": "demos/vegetables-region-florence.json",
+    "sha256": "d8d152040a5006b09f4442b7cecd5fa8c7faa870def13f89f9083568312828fb",
+    "bytes": 1823
+  },
+  {
+    "url": "https://vlm.run/images/gateway/demos/turing-pose-vitpose/result.json",
+    "status": 200,
+    "file": "demos/turing-pose-vitpose.json",
+    "sha256": "1fe8eaa935b1da17a4586d9092c6e51116f0d05b6604e3c16ec0a9be07c7f6d9",
+    "bytes": 10526
+  },
+  {
+    "url": "https://vlm.run/images/gateway/demos/nyt-ocr-paddle/result.json",
+    "status": 200,
+    "file": "demos/nyt-ocr-paddle.json",
+    "sha256": "4c840f397634e70ca6781d3d0a15d1a11d646a0971c98d8ac15e2a6eb9a1a924",
+    "bytes": 6075
+  },
+  {
+    "url": "https://vlm.run/images/gateway/demos/dashboard-caption-florence/result.json",
+    "status": 200,
+    "file": "demos/dashboard-caption-florence.json",
+    "sha256": "cf79f0892c561616acca0ed99c98c655557de13502a16057f2d0f57cfd5a292d",
+    "bytes": 714
+  },
+  {
+    "url": "https://vlm.run/images/gateway/demos/tennis-caption-smolvlm/result.json",
+    "status": 200,
+    "file": "demos/tennis-caption-smolvlm.json",
+    "sha256": "4912b5ebcde5981c354bb3aad5b814ca84c36fc525a5dcf32802e6bd0faba9d0",
+    "bytes": 401
+  }
+]

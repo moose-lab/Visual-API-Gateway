@@ -1,0 +1,24 @@
+{
+  "models": [
+    {
+      "name": "google/diffusiongemma-26b-a4b-it",
+      "description": "Calibrated yes/no, choice and score decisions over text, JSON and up to 8 images, read from DiffusionGemma-26B-A4B in one denoise step.",
+      "release_date": "2026-09-20"
+    },
+    {
+      "name": "qwen/qwen3.5-0.8b",
+      "description": "The same decisions read from Qwen3.5-0.8B in one constrained pass. The smallest engine that serves this route; decisions are less peaked than the default's.",
+      "release_date": "2026-09-23"
+    },
+    {
+      "name": "google/gemma-4-26b-a4b-it",
+      "description": "The same decisions read from Gemma-4-26B-A4B in one constrained pass. The sparse sibling of the default engine: 4B active, so a read costs a fraction of its size.",
+      "release_date": "2026-09-23"
+    },
+    {
+      "name": "qwen/qwen3.8-27b",
+      "description": "The same decisions read from Qwen3.8-27B in one constrained pass, on the chat engine the OpenAI routes already serve.",
+      "release_date": "2026-09-23"
+    }
+  ]
+}

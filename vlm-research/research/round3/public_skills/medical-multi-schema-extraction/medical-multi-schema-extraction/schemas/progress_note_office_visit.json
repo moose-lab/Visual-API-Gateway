@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "patient", "dateOfEvent", "reasonForVisit"],
+  "properties": {
+    "type": {"type": "string", "const": "progress_note_office_visit"},
+    "dateOfEvent": {
+      "type": ["string", "null"],
+      "description": "Date of the encounter, visit, exam, or procedure (not usually date signed or received). Format as YYYY-MM-DD."
+    },
+    "reasonForVisit": {
+      "type": ["string", "null"],
+      "description": "Chief complaint or primary reason for the visit. Concise summary, not the full assessment."
+    },
+    "specialtyFolder": {
+      "type": ["string", "null"],
+      "description": "Clinical specialty or folder for this note (e.g. Cardiology, Ortho, Unclear)."
+    },
+    "patient": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["givenName", "familyName"],
+      "properties": {
+        "givenName": {"type": ["string", "null"]},
+        "familyName": {"type": ["string", "null"]},
+        "middleName": {"type": ["string", "null"]},
+        "dateOfBirth": {
+          "type": ["string", "null"],
+          "description": "Patient date of birth in YYYY-MM-DD format."
+        }
+      }
+    },
+    "location": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": ["string", "null"]},
+        "phoneNumber": {
+          "type": ["string", "null"],
+          "description": "Location phone number, digits and hyphens (e.g. 123-456-7890)."
+        },
+        "faxPhoneNumber": {
+          "type": ["string", "null"],
+          "description": "Location fax number, if labeled as fax."
+        },
+        "address": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "properties": {
+            "line1": {
+              "type": ["string", "null"],
+              "description": "Street address without apartment, unit, or suite."
+            },
+            "line2": {
+              "type": ["string", "null"],
+              "description": "Apartment, unit, suite, floor, or building."
+            },
+            "city": {"type": ["string", "null"]},
+            "state": {"type": ["string", "null"]},
+            "postalCode": {"type": ["string", "null"]},
+            "country": {
+              "type": ["string", "null"],
+              "description": "Country. Default to USA if not found."
+            }
+          }
+        }
+      }
+    },
+    "diagnosisList": {
+      "type": ["array", "null"],
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["diagnosisCode"],
+        "properties": {
+          "diagnosisCode": {
+            "type": ["string", "null"],
+            "description": "Diagnosis code only (e.g. ICD-10 like J45.909), not the description."
+          },
+          "diagnosisCodeType": {"type": ["string", "null"]},
+          "diagnosisText": {"type": ["string", "null"]}
+        }
+      }
+    }
+  }
+}

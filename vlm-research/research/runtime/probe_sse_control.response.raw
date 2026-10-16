@@ -1,0 +1,18 @@
+data: {"id":"chatcmpl-b3d1dda6759a4ca389ecd80f09e","object":"chat.completion.chunk","created":1791700352,"model":"qwen/qwen3.5-0.8b","choices":[{"index":0,"delta":{"role":"assistant","content":""},"logprobs":null,"finish_reason":null}],"prompt_token_ids":null,"prompt_text":null}
+
+data: {"id":"chatcmpl-b3d1dda6759a4ca389ecd80f09e","object":"chat.completion.chunk","created":1791700352,"model":"qwen/qwen3.5-0.8b","choices":[{"index":0,"delta":{"content":"V"},"logprobs":null,"finish_reason":null,"token_ids":null}]}
+
+data: {"id":"chatcmpl-b3d1dda6759a4ca389ecd80f09e","object":"chat.completion.chunk","created":1791700352,"model":"qwen/qwen3.5-0.8b","choices":[{"index":0,"delta":{"content":"LM"},"logprobs":null,"finish_reason":null,"token_ids":null}]}
+
+data: {"id":"chatcmpl-b3d1dda6759a4ca389ecd80f09e","object":"chat.completion.chunk","created":1791700352,"model":"qwen/qwen3.5-0.8b","choices":[{"index":0,"delta":{"content":"_GATE"},"logprobs":null,"finish_reason":null,"token_ids":null}]}
+
+data: {"id":"chatcmpl-b3d1dda6759a4ca389ecd80f09e","object":"chat.completion.chunk","created":1791700352,"model":"qwen/qwen3.5-0.8b","choices":[{"index":0,"delta":{"content":"WAY"},"logprobs":null,"finish_reason":null,"token_ids":null}]}
+
+data: {"id":"chatcmpl-b3d1dda6759a4ca389ecd80f09e","object":"chat.completion.chunk","created":1791700352,"model":"qwen/qwen3.5-0.8b","choices":[{"index":0,"delta":{"content":"_OK"},"logprobs":null,"finish_reason":null,"token_ids":null}]}
+
+data: {"id":"chatcmpl-b3d1dda6759a4ca389ecd80f09e","object":"chat.completion.chunk","created":1791700352,"model":"qwen/qwen3.5-0.8b","choices":[{"index":0,"delta":{"content":""},"logprobs":null,"finish_reason":"stop","stop_reason":null,"token_ids":null}]}
+
+data: {"id":"chatcmpl-b3d1dda6759a4ca389ecd80f09e","object":"chat.completion.chunk","created":1791700352,"model":"qwen/qwen3.5-0.8b","choices":[],"usage":{"prompt_tokens":21,"total_tokens":27,"completion_tokens":6,"cost":0.001,"prompt_tokens_details":{"cached_tokens":0},"completion_tokens_details":null},"system_fingerprint":"vllm-0.30.0-9b65a544","served_model_id":"qwen/qwen3.5-0.8b","backend":"vllm"}
+
+data: [DONE]
+

@@ -1,0 +1,975 @@
+{
+  "sha": "6f64be4132615e62a9b3a8fab18e16562f214e32",
+  "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/6f64be4132615e62a9b3a8fab18e16562f214e32",
+  "tree": [
+    {
+      "path": ".claude",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fc8b32608fad2a180cd5e4bd496e70a2eb97d4f4",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/fc8b32608fad2a180cd5e4bd496e70a2eb97d4f4"
+    },
+    {
+      "path": ".claude/CLAUDE.md",
+      "mode": "120000",
+      "type": "blob",
+      "sha": "be77ac83a1895cfa9e271961ba1e565c273c717c",
+      "size": 12,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/be77ac83a1895cfa9e271961ba1e565c273c717c"
+    },
+    {
+      "path": ".claude/commands",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a1ad38c0e49c6d0f935247c4438ea75b28c41156",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/a1ad38c0e49c6d0f935247c4438ea75b28c41156"
+    },
+    {
+      "path": ".claude/commands/vlmrun-gateway-cli.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab28601b817cb2fbd7162389131f790e93756c0c",
+      "size": 5971,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/ab28601b817cb2fbd7162389131f790e93756c0c"
+    },
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "01688dfe996dafcada01185e3ade48dc94d1e406",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/01688dfe996dafcada01185e3ade48dc94d1e406"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ffaca3b750ff20c1cac947a7f8d41728c5adf37f",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/ffaca3b750ff20c1cac947a7f8d41728c5adf37f"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c853c1810fc421fcc455805257c920d561f7c30",
+      "size": 1366,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/8c853c1810fc421fcc455805257c920d561f7c30"
+    },
+    {
+      "path": ".github/workflows/python-publish.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5596d59629c1662e8a486311ed19ee60ea013f95",
+      "size": 3888,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/5596d59629c1662e8a486311ed19ee60ea013f95"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "82f927558a3dff0ea8c20858856e70779fd02c93",
+      "size": 3139,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/82f927558a3dff0ea8c20858856e70779fd02c93"
+    },
+    {
+      "path": ".pre-commit-config.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d7babffc0584c2bf4eec13330dc4757f1acf2ef3",
+      "size": 819,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/d7babffc0584c2bf4eec13330dc4757f1acf2ef3"
+    },
+    {
+      "path": "AGENTS.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff5eea9f86de4ccb8ce6878a9144d32fef3f9a52",
+      "size": 9911,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/ff5eea9f86de4ccb8ce6878a9144d32fef3f9a52"
+    },
+    {
+      "path": "CLAUDE.md",
+      "mode": "120000",
+      "type": "blob",
+      "sha": "47dc3e3d863cfb5727b87d785d09abf9743c0a72",
+      "size": 9,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/47dc3e3d863cfb5727b87d785d09abf9743c0a72"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff6e5bd522aeb8eb6929c8d08a4d749bf21927d6",
+      "size": 11355,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/ff6e5bd522aeb8eb6929c8d08a4d749bf21927d6"
+    },
+    {
+      "path": "MANIFEST.in",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "Makefile",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1578a50753ca140c8caeef9f302e315c02d1fd6",
+      "size": 1418,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/c1578a50753ca140c8caeef9f302e315c02d1fd6"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1d6911419ce9020c85944e4a66a95c0daa9cfd16",
+      "size": 14023,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/1d6911419ce9020c85944e4a66a95c0daa9cfd16"
+    },
+    {
+      "path": "makefiles",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7698424b7753f3ceafa19cbe510438249d2e697e",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/7698424b7753f3ceafa19cbe510438249d2e697e"
+    },
+    {
+      "path": "makefiles/Makefile.admin.mk",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9d5ea5f064285d6b4d0c6aacfbb00cdea614e71e",
+      "size": 960,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/9d5ea5f064285d6b4d0c6aacfbb00cdea614e71e"
+    },
+    {
+      "path": "pyproject.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "649cd5d9ca085a3cc618d1134f66b004093dcc9a",
+      "size": 2665,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/649cd5d9ca085a3cc618d1134f66b004093dcc9a"
+    },
+    {
+      "path": "tests",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7666ecf4bbafb6d8371d798af433640ce28e18b8",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/7666ecf4bbafb6d8371d798af433640ce28e18b8"
+    },
+    {
+      "path": "tests/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/cli",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8a3c23a02615a1465261519f87ea7d7ac22cc4ec",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/8a3c23a02615a1465261519f87ea7d7ac22cc4ec"
+    },
+    {
+      "path": "tests/cli/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "size": 0,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+    },
+    {
+      "path": "tests/cli/test_cli_artifacts.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d7afb7f8e06053bb11ea327ca3754425b437ba7b",
+      "size": 2673,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/d7afb7f8e06053bb11ea327ca3754425b437ba7b"
+    },
+    {
+      "path": "tests/cli/test_cli_chat.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "377cb06b276d4f67b6ee5177b9b139338e7c4eb2",
+      "size": 16679,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/377cb06b276d4f67b6ee5177b9b139338e7c4eb2"
+    },
+    {
+      "path": "tests/cli/test_cli_config.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4d3402d8439b330f69861e45aeed8c356d3ac15",
+      "size": 3723,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/a4d3402d8439b330f69861e45aeed8c356d3ac15"
+    },
+    {
+      "path": "tests/cli/test_cli_files.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c9a6eec45b1d75dc83ae05b82567ae8ca4d386d3",
+      "size": 1045,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/c9a6eec45b1d75dc83ae05b82567ae8ca4d386d3"
+    },
+    {
+      "path": "tests/cli/test_cli_fine_tuning.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c861aec804700cebaf95c74fbfe537c40db198b0",
+      "size": 1526,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/c861aec804700cebaf95c74fbfe537c40db198b0"
+    },
+    {
+      "path": "tests/cli/test_cli_gateway_systemone.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c0ac761ac887cf3088fe1113dc61daf1823c2788",
+      "size": 46310,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/c0ac761ac887cf3088fe1113dc61daf1823c2788"
+    },
+    {
+      "path": "tests/cli/test_cli_generate.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b6e1b4db95d1366032a868740b4067164d23e48b",
+      "size": 1045,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/b6e1b4db95d1366032a868740b4067164d23e48b"
+    },
+    {
+      "path": "tests/cli/test_cli_hub.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "42ae8fb9dbaa6edf7c84a200a44c49419e258992",
+      "size": 1420,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/42ae8fb9dbaa6edf7c84a200a44c49419e258992"
+    },
+    {
+      "path": "tests/cli/test_cli_models.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e8b72d7bd9cc0f3c8745ef378e1fa18602c6ffad",
+      "size": 1233,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/e8b72d7bd9cc0f3c8745ef378e1fa18602c6ffad"
+    },
+    {
+      "path": "tests/cli/test_cli_predictions.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "91d87477d303313c15a27a0b3af046a21fbafc5d",
+      "size": 4355,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/91d87477d303313c15a27a0b3af046a21fbafc5d"
+    },
+    {
+      "path": "tests/cli/test_cli_skills.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f8f5a5029de112a20142c65d001a54a25c5156ee",
+      "size": 10843,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/f8f5a5029de112a20142c65d001a54a25c5156ee"
+    },
+    {
+      "path": "tests/common",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f3262c1c8fc38c8bf6aaeb07ff02f0db2967fc11",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/f3262c1c8fc38c8bf6aaeb07ff02f0db2967fc11"
+    },
+    {
+      "path": "tests/common/test_dependencies.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb23dc876f6637475c5e1ebdc2b139f715e16c05",
+      "size": 5386,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/cb23dc876f6637475c5e1ebdc2b139f715e16c05"
+    },
+    {
+      "path": "tests/common/test_image.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3490f5ebd47e7ae9f490f696269a2b3666b930d5",
+      "size": 3125,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/3490f5ebd47e7ae9f490f696269a2b3666b930d5"
+    },
+    {
+      "path": "tests/common/test_pdf.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "869a7b671a1871de2f75aad634b560bbc129e618",
+      "size": 915,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/869a7b671a1871de2f75aad634b560bbc129e618"
+    },
+    {
+      "path": "tests/common/test_utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7d93bfe3c4b4503573e6dd203f538df5eefa0d6f",
+      "size": 1008,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/7d93bfe3c4b4503573e6dd203f538df5eefa0d6f"
+    },
+    {
+      "path": "tests/common/test_video.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d5685f427783e682ce71132c445645e1ec081a51",
+      "size": 13187,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/d5685f427783e682ce71132c445645e1ec081a51"
+    },
+    {
+      "path": "tests/common/test_viz.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c74d671ee8826f3aff47d69e4c6725eb8a532e70",
+      "size": 9946,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/c74d671ee8826f3aff47d69e4c6725eb8a532e70"
+    },
+    {
+      "path": "tests/common/test_webhook.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "958102a96d0cbbdc1f88c882072c79f2be45952a",
+      "size": 14432,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/958102a96d0cbbdc1f88c882072c79f2be45952a"
+    },
+    {
+      "path": "tests/conftest.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bab5780dc281f07e41b3afbf90d474b5f8ac6af1",
+      "size": 32158,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/bab5780dc281f07e41b3afbf90d474b5f8ac6af1"
+    },
+    {
+      "path": "tests/test_agent.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "388fa309938f42f0ed491337e9403d8d1e8dbd20",
+      "size": 19458,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/388fa309938f42f0ed491337e9403d8d1e8dbd20"
+    },
+    {
+      "path": "tests/test_artifacts.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "783cb2518cdddae7b6d0ef0621191d977f3a687d",
+      "size": 3168,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/783cb2518cdddae7b6d0ef0621191d977f3a687d"
+    },
+    {
+      "path": "tests/test_client.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "04ac0e9cefed8c9b8381e3e96fb3eb853cd8b33c",
+      "size": 7617,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/04ac0e9cefed8c9b8381e3e96fb3eb853cd8b33c"
+    },
+    {
+      "path": "tests/test_data",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1a9e2e123ae7f9a2c6308337a8cd9d647e69b4a5",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/1a9e2e123ae7f9a2c6308337a8cd9d647e69b4a5"
+    },
+    {
+      "path": "tests/test_data/image_dataset",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6ae601d10784f28a92a92a8737c7ef1d09f6ced4",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/6ae601d10784f28a92a92a8737c7ef1d09f6ced4"
+    },
+    {
+      "path": "tests/test_data/image_dataset/test1.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2e349d01909b0bfceee1ac122ddd5ebb487a2a9d",
+      "size": 109003,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/2e349d01909b0bfceee1ac122ddd5ebb487a2a9d"
+    },
+    {
+      "path": "tests/test_data/image_dataset/test2.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c6c7a24bc6a962eabcd652e4f95edb7c875d5e38",
+      "size": 608078,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/c6c7a24bc6a962eabcd652e4f95edb7c875d5e38"
+    },
+    {
+      "path": "tests/test_data/image_dataset/test3.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "12004847967596de3e569c07f317ff869a8d2f45",
+      "size": 95930,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/12004847967596de3e569c07f317ff869a8d2f45"
+    },
+    {
+      "path": "tests/test_data/test.mp4",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "50db28101cba4b56d2478d03e3e6de71c23f1f24",
+      "size": 300601,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/50db28101cba4b56d2478d03e3e6de71c23f1f24"
+    },
+    {
+      "path": "tests/test_dataset.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "37a547cf795298c14757b0e5fde15c9d2b5f2441",
+      "size": 1388,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/37a547cf795298c14757b0e5fde15c9d2b5f2441"
+    },
+    {
+      "path": "tests/test_exceptions.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "248b82b334eac01d44c0024e52968d7c35a94ec7",
+      "size": 7529,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/248b82b334eac01d44c0024e52968d7c35a94ec7"
+    },
+    {
+      "path": "tests/test_feedback.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ebe8cf5554c7fa4a0edc67c13c0684f40183638f",
+      "size": 968,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/ebe8cf5554c7fa4a0edc67c13c0684f40183638f"
+    },
+    {
+      "path": "tests/test_files.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "19ef5d410777d34a0a668c542a8f2a0875fce0f5",
+      "size": 2095,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/19ef5d410777d34a0a668c542a8f2a0875fce0f5"
+    },
+    {
+      "path": "tests/test_gateway.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8ff3fc0034afc4f5423c5552103865cdfd93d38f",
+      "size": 66329,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/8ff3fc0034afc4f5423c5552103865cdfd93d38f"
+    },
+    {
+      "path": "tests/test_hub.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00c9b92be3e984c8fe3d98bcfd8aad8203c646cd",
+      "size": 1109,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/00c9b92be3e984c8fe3d98bcfd8aad8203c646cd"
+    },
+    {
+      "path": "tests/test_inline_skills.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4b7e9fb7e3e97a2985b52da6117170886d0b89ef",
+      "size": 15396,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/4b7e9fb7e3e97a2985b52da6117170886d0b89ef"
+    },
+    {
+      "path": "tests/test_lazy_imports.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f545a005149755817f38b9f8bd976d51de9c405a",
+      "size": 3738,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/f545a005149755817f38b9f8bd976d51de9c405a"
+    },
+    {
+      "path": "tests/test_models.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "95fa3087e493d087810d250bd2bc531310085459",
+      "size": 512,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/95fa3087e493d087810d250bd2bc531310085459"
+    },
+    {
+      "path": "tests/test_predictions.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e54a42cda0692af9ea3dba3416f26f0ea7602ba",
+      "size": 19705,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/6e54a42cda0692af9ea3dba3416f26f0ea7602ba"
+    },
+    {
+      "path": "tests/test_systemone.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "67d2ac0ef2c76abe1cb16707464e9569f93262c1",
+      "size": 46119,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/67d2ac0ef2c76abe1cb16707464e9569f93262c1"
+    },
+    {
+      "path": "tests/test_systemone_ws.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7fe3d735d58539015ebd618547496b9b507ec640",
+      "size": 33086,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/7fe3d735d58539015ebd618547496b9b507ec640"
+    },
+    {
+      "path": "tests/test_types.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "da21af52482ee56ae4b7d9371207e932b10dfa98",
+      "size": 6367,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/da21af52482ee56ae4b7d9371207e932b10dfa98"
+    },
+    {
+      "path": "vlmrun",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "166739d0bd9d360f321c10b4da0795400ac9e46a",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/166739d0bd9d360f321c10b4da0795400ac9e46a"
+    },
+    {
+      "path": "vlmrun/cli",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b6945f6d3cb53c6554b0486f6d2a7353765e11c8",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/b6945f6d3cb53c6554b0486f6d2a7353765e11c8"
+    },
+    {
+      "path": "vlmrun/cli/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a431c31be99e6c92f13a4bcfa197d05dd067ccf6",
+      "size": 12131,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/a431c31be99e6c92f13a4bcfa197d05dd067ccf6"
+    },
+    {
+      "path": "vlmrun/cli/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe2572436c53751343e42aa8b7348c49da956e4c",
+      "size": 30,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/fe2572436c53751343e42aa8b7348c49da956e4c"
+    },
+    {
+      "path": "vlmrun/cli/_cli",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0c59451ef5132a7edeea84dd0a8b8fde29ad9787",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/0c59451ef5132a7edeea84dd0a8b8fde29ad9787"
+    },
+    {
+      "path": "vlmrun/cli/_cli/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e4617227394a742ce66c9a1747b5ee140aba595e",
+      "size": 42,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/e4617227394a742ce66c9a1747b5ee140aba595e"
+    },
+    {
+      "path": "vlmrun/cli/_cli/artifacts.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "acbf2fd902f3c44f61734fcc59686194a196b4c2",
+      "size": 6810,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/acbf2fd902f3c44f61734fcc59686194a196b4c2"
+    },
+    {
+      "path": "vlmrun/cli/_cli/chat.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7534ce30b7054f4fe1c881380a178a245e229511",
+      "size": 33326,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/7534ce30b7054f4fe1c881380a178a245e229511"
+    },
+    {
+      "path": "vlmrun/cli/_cli/config.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a459e515fc56c6e586fad70293408cf413e8a32e",
+      "size": 6102,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/a459e515fc56c6e586fad70293408cf413e8a32e"
+    },
+    {
+      "path": "vlmrun/cli/_cli/datasets.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b9a527e942a1a38ed5bec9d7de62f7c0062f723",
+      "size": 4623,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/0b9a527e942a1a38ed5bec9d7de62f7c0062f723"
+    },
+    {
+      "path": "vlmrun/cli/_cli/execute.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3a0b1fe1fa79d1c83ae7f0467619246e03b9a17",
+      "size": 15328,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/a3a0b1fe1fa79d1c83ae7f0467619246e03b9a17"
+    },
+    {
+      "path": "vlmrun/cli/_cli/executions.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "babab572225067e946d36e2d27b89113bd6929a5",
+      "size": 8868,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/babab572225067e946d36e2d27b89113bd6929a5"
+    },
+    {
+      "path": "vlmrun/cli/_cli/files.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fc70a073d25cb8b27b713647b73937adf0eaba5d",
+      "size": 2880,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/fc70a073d25cb8b27b713647b73937adf0eaba5d"
+    },
+    {
+      "path": "vlmrun/cli/_cli/fine_tuning.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73736dc1236617241baef0f29831e0d612c68630",
+      "size": 4233,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/73736dc1236617241baef0f29831e0d612c68630"
+    },
+    {
+      "path": "vlmrun/cli/_cli/gateway.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c665b6e1f2479c424262e568effb91d3fc90b277",
+      "size": 55591,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/c665b6e1f2479c424262e568effb91d3fc90b277"
+    },
+    {
+      "path": "vlmrun/cli/_cli/gateway_systemone.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b3a55047d7595d31957fb9fe807558e17e0dafb7",
+      "size": 73555,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/b3a55047d7595d31957fb9fe807558e17e0dafb7"
+    },
+    {
+      "path": "vlmrun/cli/_cli/generate.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3234a8f9989a61cbaa611696e39dde43307a389b",
+      "size": 11010,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/3234a8f9989a61cbaa611696e39dde43307a389b"
+    },
+    {
+      "path": "vlmrun/cli/_cli/hub.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "21cd7fe39b6c1b5a44a7902d1f71a52c565e2974",
+      "size": 3319,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/21cd7fe39b6c1b5a44a7902d1f71a52c565e2974"
+    },
+    {
+      "path": "vlmrun/cli/_cli/models.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a0f9844e9fc86f3d3d4d1d8af4468df051d0d23a",
+      "size": 2129,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/a0f9844e9fc86f3d3d4d1d8af4468df051d0d23a"
+    },
+    {
+      "path": "vlmrun/cli/_cli/predictions.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "077c772a9a5952f19ed1411b6f0aad0c11f2a43f",
+      "size": 6744,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/077c772a9a5952f19ed1411b6f0aad0c11f2a43f"
+    },
+    {
+      "path": "vlmrun/cli/_cli/skills.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fdef6a42cbedbcb8256cee5e1d66a2573a7d34c6",
+      "size": 15486,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/fdef6a42cbedbcb8256cee5e1d66a2573a7d34c6"
+    },
+    {
+      "path": "vlmrun/cli/cli.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1d3c8aa39af62bd74f7c300d73cc6a99a2bbf721",
+      "size": 4959,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/1d3c8aa39af62bd74f7c300d73cc6a99a2bbf721"
+    },
+    {
+      "path": "vlmrun/client",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7f615cde9e37ef9c44b891e17143e9bb83ff0c97",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/7f615cde9e37ef9c44b891e17143e9bb83ff0c97"
+    },
+    {
+      "path": "vlmrun/client/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f69f413e415984038819bb2ba02f2565978a1f33",
+      "size": 41,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/f69f413e415984038819bb2ba02f2565978a1f33"
+    },
+    {
+      "path": "vlmrun/client/agent.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bbdfaf3eda785c404f205b9169d4f1ccc33d2060",
+      "size": 12183,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/bbdfaf3eda785c404f205b9169d4f1ccc33d2060"
+    },
+    {
+      "path": "vlmrun/client/artifacts.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "70c47722415a0ca5e163f86abc89136b6b144321",
+      "size": 8419,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/70c47722415a0ca5e163f86abc89136b6b144321"
+    },
+    {
+      "path": "vlmrun/client/base_requestor.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9158cbb48c9926ad490b4d3547819d231695157c",
+      "size": 9875,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/9158cbb48c9926ad490b4d3547819d231695157c"
+    },
+    {
+      "path": "vlmrun/client/client.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a636b34a925e87a5345f207af70fd9d78f879f69",
+      "size": 7258,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/a636b34a925e87a5345f207af70fd9d78f879f69"
+    },
+    {
+      "path": "vlmrun/client/datasets.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96e26aa94ebe3fa7ef7f3e3ff153879b6627ae6b",
+      "size": 4096,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/96e26aa94ebe3fa7ef7f3e3ff153879b6627ae6b"
+    },
+    {
+      "path": "vlmrun/client/exceptions.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b065eae0b623130a065bb3b6bf6e1dbc42ef5860",
+      "size": 5035,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/b065eae0b623130a065bb3b6bf6e1dbc42ef5860"
+    },
+    {
+      "path": "vlmrun/client/executions.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "04d261092776e504648611e4b702ea06bd75e08b",
+      "size": 2722,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/04d261092776e504648611e4b702ea06bd75e08b"
+    },
+    {
+      "path": "vlmrun/client/feedback.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d132743619274af279c0a53a7f6af4c6dcb07e20",
+      "size": 2395,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/d132743619274af279c0a53a7f6af4c6dcb07e20"
+    },
+    {
+      "path": "vlmrun/client/files.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dd4c9052f54f247c760d2edff7c4856851e44d08",
+      "size": 9670,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/dd4c9052f54f247c760d2edff7c4856851e44d08"
+    },
+    {
+      "path": "vlmrun/client/fine_tuning.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f810d46059a7b17920bc3996d4354785bf18e5c0",
+      "size": 10668,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/f810d46059a7b17920bc3996d4354785bf18e5c0"
+    },
+    {
+      "path": "vlmrun/client/gateway.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a4f9ca74f0ee7613957118f7a19fae617b2bb87c",
+      "size": 9017,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/a4f9ca74f0ee7613957118f7a19fae617b2bb87c"
+    },
+    {
+      "path": "vlmrun/client/hub.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f5e718bfa6a93343e6f79bde45f36b5d55a8f98c",
+      "size": 4774,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/f5e718bfa6a93343e6f79bde45f36b5d55a8f98c"
+    },
+    {
+      "path": "vlmrun/client/models.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eedd20c67684596f410e044652f276ec482189fd",
+      "size": 1032,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/eedd20c67684596f410e044652f276ec482189fd"
+    },
+    {
+      "path": "vlmrun/client/predictions.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0988dacac376d95abe8c19189714db25693215a5",
+      "size": 21976,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/0988dacac376d95abe8c19189714db25693215a5"
+    },
+    {
+      "path": "vlmrun/client/skills.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5255c7403dda5c960dc022011ccf8bcadaa885a4",
+      "size": 10955,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/5255c7403dda5c960dc022011ccf8bcadaa885a4"
+    },
+    {
+      "path": "vlmrun/client/systemone.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b3c248c12fbc7173973720423e66bae7445c6bea",
+      "size": 75849,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/b3c248c12fbc7173973720423e66bae7445c6bea"
+    },
+    {
+      "path": "vlmrun/client/types.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0b804d3fdfe5f2d433b963ecb434b7e62172c5b5",
+      "size": 30493,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/0b804d3fdfe5f2d433b963ecb434b7e62172c5b5"
+    },
+    {
+      "path": "vlmrun/common",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b0a964ac10bee1d12b90cf9484bad67abf961870",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/b0a964ac10bee1d12b90cf9484bad67abf961870"
+    },
+    {
+      "path": "vlmrun/common/dependencies.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3c5042d7d673752d924d88f6866d6e92be9fcd65",
+      "size": 3544,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/3c5042d7d673752d924d88f6866d6e92be9fcd65"
+    },
+    {
+      "path": "vlmrun/common/image.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb0914ea5d2374179f0cfc237df6d4d398b57bd1",
+      "size": 4806,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/cb0914ea5d2374179f0cfc237df6d4d398b57bd1"
+    },
+    {
+      "path": "vlmrun/common/logging.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6023cce18b8ede7bacf2c11a20326bcd28cdae34",
+      "size": 292,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/6023cce18b8ede7bacf2c11a20326bcd28cdae34"
+    },
+    {
+      "path": "vlmrun/common/mime.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "297b86d47d006f6723c3626f0ecd07af3e5a5336",
+      "size": 3389,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/297b86d47d006f6723c3626f0ecd07af3e5a5336"
+    },
+    {
+      "path": "vlmrun/common/pdf.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "33b50fcfdfe2f3de08a70571bcc7170740c3e8b0",
+      "size": 1566,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/33b50fcfdfe2f3de08a70571bcc7170740c3e8b0"
+    },
+    {
+      "path": "vlmrun/common/pydantic.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6f9d634a40a623174be33bb4f79d3f8c9337f43d",
+      "size": 2223,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/6f9d634a40a623174be33bb4f79d3f8c9337f43d"
+    },
+    {
+      "path": "vlmrun/common/utils.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eae77fd61c1bc24cd49d6c6c1877a2e16e8820e2",
+      "size": 5147,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/eae77fd61c1bc24cd49d6c6c1877a2e16e8820e2"
+    },
+    {
+      "path": "vlmrun/common/video.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ecc61786741317197f39670297db96231896ebe",
+      "size": 16914,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/5ecc61786741317197f39670297db96231896ebe"
+    },
+    {
+      "path": "vlmrun/common/viz.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "555b1dc5b9666c8c359536be6013da45caee63e1",
+      "size": 21274,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/555b1dc5b9666c8c359536be6013da45caee63e1"
+    },
+    {
+      "path": "vlmrun/common/webhook.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38e8748c72bde500e27c311cf1d29fe0c2ff0d40",
+      "size": 1910,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/38e8748c72bde500e27c311cf1d29fe0c2ff0d40"
+    },
+    {
+      "path": "vlmrun/constants.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "317c6242ff5fd3aa67e2d3276dd564619d1aa060",
+      "size": 2780,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/317c6242ff5fd3aa67e2d3276dd564619d1aa060"
+    },
+    {
+      "path": "vlmrun/types",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "44e0c6931f8387aeb1a16dededf330398530d7f5",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/trees/44e0c6931f8387aeb1a16dededf330398530d7f5"
+    },
+    {
+      "path": "vlmrun/types/__init__.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "378e36da7c9b0dce9e922a4df75bc771412e29f3",
+      "size": 3044,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/378e36da7c9b0dce9e922a4df75bc771412e29f3"
+    },
+    {
+      "path": "vlmrun/types/abstract.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17da428fcadd56fb3ba96b2ce180964d3aa0c795",
+      "size": 659,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/17da428fcadd56fb3ba96b2ce180964d3aa0c795"
+    },
+    {
+      "path": "vlmrun/types/refs.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a5eb3525a7aa0ff9ff81981718be3001a0df0765",
+      "size": 587,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/a5eb3525a7aa0ff9ff81981718be3001a0df0765"
+    },
+    {
+      "path": "vlmrun/version.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2fecb45768d619f7313a48ee6578f266fc03a16",
+      "size": 22,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-python-sdk/git/blobs/a2fecb45768d619f7313a48ee6578f266fc03a16"
+    }
+  ],
+  "truncated": false
+}

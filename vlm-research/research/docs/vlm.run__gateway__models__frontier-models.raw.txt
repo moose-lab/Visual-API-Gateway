@@ -1,0 +1,155 @@
+Frontier Models | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+Frontier Models
+Frontier models the gateway routes to an upstream provider, so one key and one OpenAI-compatible endpoint cover them as well. Prices are the upstream list prices per million tokens.
+Kimi K3
+moonshotai/kimi-k3
+Context256K
+Input / 1M$3
+Cached / 1M$0.30
+Output / 1M$15
+Moonshot open trillion-scale reasoning model for coding, research, and long agent runs.
+Muse Spark 1.2
+meta/muse-spark-1.2
+Context1M
+Input / 1M$1.25
+Cached / 1M$0.15
+Output / 1M$4.25
+Meta reasoning model for complex agent tasks, with a one million token context.
+Muse Glimmer 30B
+meta/muse-glimmer-30b
+Context128K
+Input / 1M$0.35
+Cached / 1M$0.04
+Output / 1M$1.50
+Compact open Meta model distilled from Muse Spark for agents on local hardware.
+Gemini 3.7 Flash
+google/gemini-3.7-flash
+Context1M
+Input / 1M$0.75
+Cached / 1M$0.075
+Output / 1M$3.75
+Multimodal Google model for quick agent loops, coding, and multi-step reasoning.
+Gemini 3.5 Flash Lite
+google/gemini-3.5-flash-lite
+Context1M
+Input / 1M$0.30
+Cached / 1M$0.03
+Output / 1M$2.50
+Low-cost Google model tuned for focused subagent steps inside larger workflows.
+Gemini Robotics-ER 2 (preview)
+google/gemini-robotics-er-2-preview
+Context1M
+Input / 1M$0.30
+Cached / 1M$0.03
+Output / 1M$2.50
+Google embodied reasoning preview for spatial understanding, planning, and robot control.
+Gemma 4 26B-A4B Instruct
+google/gemma-4-26b-a4b-it
+Context128K
+Input / 1M$0.10
+Cached / 1M$0.05
+Output / 1M$0.30
+Open Google mixture-of-experts model: 26B total weights, about 4B active per token.
+MiniMax M3
+minimax/minimax-m3
+Context1M
+Input / 1M$0.30
+Cached / 1M$0.06
+Output / 1M$1.20
+MiniMax multimodal model for long-horizon agent work, coding, and very long contexts.
+ModelModalityContextInput / 1MCached Input / 1MOutput / 1M
+Kimi K3
+moonshotai/kimi-k3
+TXTIMGVID
+256K$3$0.30$15
+Moonshot open trillion-scale reasoning model for coding, research, and long agent runs.
+Muse Spark 1.2
+meta/muse-spark-1.2
+TXTIMGVID
+1M$1.25$0.15$4.25
+Meta reasoning model for complex agent tasks, with a one million token context.
+Muse Glimmer 30B
+meta/muse-glimmer-30b
+TXTIMGVID
+128K$0.35$0.04$1.50
+Compact open Meta model distilled from Muse Spark for agents on local hardware.
+Gemini 3.7 Flash
+google/gemini-3.7-flash
+TXTIMGVID
+1M$0.75$0.075$3.75
+Multimodal Google model for quick agent loops, coding, and multi-step reasoning.
+Gemini 3.5 Flash Lite
+google/gemini-3.5-flash-lite
+TXTIMGVID
+1M$0.30$0.03$2.50
+Low-cost Google model tuned for focused subagent steps inside larger workflows.
+Gemini Robotics-ER 2 (preview)
+google/gemini-robotics-er-2-preview
+TXTIMGVID
+1M$0.30$0.03$2.50
+Google embodied reasoning preview for spatial understanding, planning, and robot control.
+Gemma 4 26B-A4B Instruct
+google/gemma-4-26b-a4b-it
+TXTIMGVID
+128K$0.10$0.05$0.30
+Open Google mixture-of-experts model: 26B total weights, about 4B active per token.
+MiniMax M3
+minimax/minimax-m3
+TXTIMGVID
+1M$0.30$0.06$1.20
+MiniMax multimodal model for long-horizon agent work, coding, and very long contexts.
+Showing 8 of 8 models
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

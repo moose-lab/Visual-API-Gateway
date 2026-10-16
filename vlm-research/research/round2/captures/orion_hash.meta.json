@@ -1,0 +1,14 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T02:58:52.362120+00:00",
+  "url": "https://api.vlm.run/v1/openai/chat/completions",
+  "method": "POST",
+  "status": 200,
+  "response_sha256": "eb6c789457126633f0602d959723cf9dc555ea457ffb77c537d8a282307f6e53",
+  "response_bytes": 379792,
+  "headers": {
+    "Content-Type": "text/event-stream; charset=utf-8",
+    "Date": "Tue, 13 Oct 2026 02:58:57 GMT"
+  },
+  "elapsed_seconds": 139.96
+}

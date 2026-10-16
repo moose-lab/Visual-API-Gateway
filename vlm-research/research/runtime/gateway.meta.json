@@ -1,0 +1,27 @@
+{
+  "source": "https://vlm.run/gateway",
+  "final_url": "https://vlm.run/gateway",
+  "status": 200,
+  "headers": {
+    "Age": "73",
+    "Cache-Control": "public, max-age=0, must-revalidate",
+    "Content-Length": "493204",
+    "Content-Type": "text/html; charset=utf-8",
+    "Date": "Sun, 11 Oct 2026 00:50:38 GMT",
+    "Etag": "\"vw0yr0mk8sakbt\"",
+    "Link": "</llms.txt>; rel=\"llms-txt\", </llms-full.txt>; rel=\"llms-full-txt\"",
+    "Server": "Vercel",
+    "Strict-Transport-Security": "max-age=63072000",
+    "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "X-Llms-Txt": "/llms.txt",
+    "X-Matched-Path": "/gateway",
+    "X-Nextjs-Prerender": "1",
+    "X-Nextjs-Stale-Time": "300",
+    "X-Powered-By": "Next.js",
+    "X-Vercel-Cache": "HIT",
+    "X-Vercel-Id": "sfo1::iad1::l2nbp-1791699628013-43774882bedb",
+    "Connection": "close"
+  },
+  "bytes": 493204,
+  "captured_at": "2026-10-11T06:20:28.972741+00:00"
+}

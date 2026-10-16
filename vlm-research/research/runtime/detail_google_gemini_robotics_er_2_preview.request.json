@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/google/gemini-robotics-er-2-preview",
+  "auth": "Bearer [REDACTED]",
+  "body": null
+}

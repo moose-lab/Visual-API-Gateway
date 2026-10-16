@@ -1,0 +1,35 @@
+{
+  "evidence": "RUNTIME",
+  "run_at": "2026-10-16T06:52:02.442885+00:00",
+  "scope": "Export copy; offline verification; no model/API requests. Six generated verification reports were restored to original source bytes after the run.",
+  "passed": true,
+  "checks": [
+    {
+      "command": "python tools/verify_delivery.py",
+      "exit_code": 0,
+      "result": {
+        "passed": true,
+        "checks": 16,
+        "failed": []
+      }
+    },
+    {
+      "command": "python tools/verify_round2.py",
+      "exit_code": 0,
+      "result": {
+        "passed": true,
+        "checks": 20,
+        "failed": []
+      }
+    },
+    {
+      "command": "python tools/verify_round3.py",
+      "exit_code": 0,
+      "result": {
+        "passed": true,
+        "checks": 27,
+        "failed": []
+      }
+    }
+  ]
+}

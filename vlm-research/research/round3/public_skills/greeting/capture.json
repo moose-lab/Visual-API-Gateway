@@ -1,0 +1,11 @@
+{
+  "evidence": "RUNTIME",
+  "skill_id": "19efc7aa-8272-456f-ab1f-101c32024458",
+  "skill_version": "20260911-399ea5e3",
+  "archive_sha256": "aac83f7f13e3096103fafb00d703534ed786bf8a091924e559fe183f8c97756c",
+  "members": [
+    "SKILL.md",
+    "schema.json",
+    "vlmrun.yaml"
+  ]
+}

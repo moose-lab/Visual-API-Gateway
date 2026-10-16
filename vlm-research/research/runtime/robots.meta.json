@@ -1,0 +1,27 @@
+{
+  "source": "https://vlm.run/robots.txt",
+  "final_url": "https://vlm.run/robots.txt",
+  "status": 200,
+  "headers": {
+    "Accept-Ranges": "bytes",
+    "Access-Control-Allow-Origin": "*",
+    "Age": "379835",
+    "Cache-Control": "public, max-age=0, must-revalidate",
+    "Content-Disposition": "inline",
+    "Content-Length": "1011",
+    "Content-Type": "text/plain",
+    "Date": "Sun, 11 Oct 2026 06:20:32 GMT",
+    "Etag": "\"61a88a0b102cf79b98c09f5c9be57104\"",
+    "Link": "</llms.txt>; rel=\"llms-txt\", </llms-full.txt>; rel=\"llms-full-txt\"",
+    "Server": "Vercel",
+    "Strict-Transport-Security": "max-age=63072000",
+    "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "X-Llms-Txt": "/llms.txt",
+    "X-Matched-Path": "/robots.txt",
+    "X-Vercel-Cache": "HIT",
+    "X-Vercel-Id": "sfo1::l76cn-1791699632513-fbbaa7b1ce41",
+    "Connection": "close"
+  },
+  "bytes": 1011,
+  "captured_at": "2026-10-11T06:20:32.724866+00:00"
+}

@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:32:33.567487+00:00",
+  "method": "POST",
+  "url": "https://gateway.vlm.run/typesafe/v1/systemone",
+  "status": 200,
+  "elapsed_seconds": 1.351,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:32:34 GMT",
+    "server": "uvicorn",
+    "x-request-id": "e7286091-cf54-4e05-a2f6-aa407ad6da95",
+    "content-type": "application/json"
+  },
+  "response_sha256": "23a52dfaeb3d9bf63b8a85d4963d7be5eef187e347107595a9549167576de539",
+  "response_bytes": 467
+}

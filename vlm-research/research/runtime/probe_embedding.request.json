@@ -1,0 +1,14 @@
+{
+  "method": "POST",
+  "url": "https://gateway.vlm.run/v1/openai/embeddings",
+  "auth": "Bearer [REDACTED]",
+  "body": {
+    "model": "qwen/qwen3-vl-embedding-2b",
+    "input": [
+      "A red square.",
+      "A blue circle."
+    ],
+    "dimensions": 32,
+    "encoding_format": "float"
+  }
+}

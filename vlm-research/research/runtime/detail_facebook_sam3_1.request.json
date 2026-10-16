@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/facebook/sam3.1",
+  "auth": "Bearer [REDACTED]",
+  "body": null
+}

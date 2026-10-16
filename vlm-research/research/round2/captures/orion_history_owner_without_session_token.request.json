@@ -1,0 +1,6 @@
+{
+  "url": "https://api.vlm.run/v1/chat/messages?session_id=505a8b7f-74cc-4e51-bc35-ffce25649587",
+  "method": "GET",
+  "auth": "Bearer [REDACTED]",
+  "body": null
+}

@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:23:43.677158+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/health",
+  "status": 200,
+  "elapsed_seconds": 1.785,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:23:45 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "cfb0d448-f017-423c-9d06-51ea532b36d5"
+  },
+  "response_sha256": "ceb13d7411fb49a5939b8c5d4a2977e22ac0fa96446220f35d33f97c2cc34180",
+  "response_bytes": 111
+}

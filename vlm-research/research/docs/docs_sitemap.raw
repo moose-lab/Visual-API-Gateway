@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+    
+  <url>
+    <loc>https://docs.vlm.run/agents/artifacts</loc>
+    <lastmod>2026-10-07T16:11:43.059Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/agents/chat</loc>
+    <lastmod>2026-10-07T16:11:43.064Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/agents/code-execution</loc>
+    <lastmod>2026-10-07T16:11:43.043Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/agents/inputs</loc>
+    <lastmod>2026-10-07T16:11:43.060Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/agents/integrations/integrations-instructor</loc>
+    <lastmod>2026-10-07T16:11:43.056Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/agents/integrations/integrations-mastra</loc>
+    <lastmod>2026-10-07T16:11:43.046Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/agents/integrations/integrations-openai-compatibility</loc>
+    <lastmod>2026-10-07T16:11:43.048Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/agents/integrations/integrations-pydantic-ai</loc>
+    <lastmod>2026-10-07T16:11:43.043Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/agents/introduction</loc>
+    <lastmod>2026-10-07T16:11:43.059Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/agents/structured-responses</loc>
+    <lastmod>2026-10-07T16:11:43.045Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/agents/toolsets</loc>
+    <lastmod>2026-10-07T16:11:43.057Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/api-reference</loc>
+    <lastmod>2026-10-07T16:11:43.045Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/api-reference/v1/files/delete-file</loc>
+    <lastmod>2026-05-22T20:05:56.983Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/api-reference/v1/files/get-files-by-id</loc>
+    <lastmod>2026-10-07T16:11:43.056Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/api-reference/v1/files/get-files-list</loc>
+    <lastmod>2026-10-07T16:11:43.058Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/api-reference/v1/files/post-file-upload</loc>
+    <lastmod>2026-10-07T16:11:43.054Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/api-reference/v1/get-artifact-by-id</loc>
+    <lastmod>2026-10-07T16:11:41.089Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/api-reference/v1/get-models</loc>
+    <lastmod>2026-10-07T16:11:41.093Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/api-reference/v1/health</loc>
+    <lastmod>2026-10-07T16:11:41.071Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/api-reference/v1/post-audio-generate</loc>
+    <lastmod>2026-10-07T16:11:41.063Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/api-reference/v1/post-document-generate</loc>
+    <lastmod>2026-10-07T16:11:41.099Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/api-reference/v1/post-image-generate</loc>
+    <lastmod>2026-10-07T16:11:41.064Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/api-reference/v1/post-submit-feedback</loc>
+    <lastmod>2026-10-07T16:11:41.085Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/api-reference/v1/post-video-generate</loc>
+    <lastmod>2026-10-07T16:11:41.070Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/api-reference/v1/predictions/get-predictions-by-id</loc>
+    <lastmod>2026-10-07T16:11:41.086Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/api-reference/v1/predictions/get-predictions-list</loc>
+    <lastmod>2026-10-07T16:11:41.073Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/cli/chat</loc>
+    <lastmod>2026-10-07T16:11:36.894Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/cli/config</loc>
+    <lastmod>2026-10-07T16:11:36.890Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/cli/execute</loc>
+    <lastmod>2026-10-07T16:11:36.899Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/cli/executions</loc>
+    <lastmod>2026-10-07T16:11:36.892Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/cli/files</loc>
+    <lastmod>2026-10-07T16:11:36.887Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/cli/gateway</loc>
+    <lastmod>2026-10-07T16:11:36.893Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/cli/gateway/chat</loc>
+    <lastmod>2026-10-07T16:11:36.889Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/cli/gateway/systemone</loc>
+    <lastmod>2026-10-07T16:11:36.891Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/cli/getting-started</loc>
+    <lastmod>2026-10-07T16:11:36.891Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/cli/skills</loc>
+    <lastmod>2026-10-07T16:11:36.902Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/api-reference/get-health</loc>
+    <lastmod>2026-10-07T16:11:36.883Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/api-reference/get-model-by-id</loc>
+    <lastmod>2026-10-07T16:11:36.893Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/api-reference/get-models</loc>
+    <lastmod>2026-10-07T16:11:36.898Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/api-reference/get-typesafe-models</loc>
+    <lastmod>2026-10-07T16:11:36.879Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/api-reference/post-audio-transcriptions</loc>
+    <lastmod>2026-10-07T16:11:36.899Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/api-reference/post-chat-completions</loc>
+    <lastmod>2026-10-07T16:11:36.880Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/api-reference/post-embeddings</loc>
+    <lastmod>2026-10-07T16:11:36.892Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/api-reference/post-systemone</loc>
+    <lastmod>2026-10-07T16:11:36.882Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/authentication</loc>
+    <lastmod>2026-10-07T16:11:36.895Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/changelog</loc>
+    <lastmod>2026-10-07T16:11:36.878Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/error-codes</loc>
+    <lastmod>2026-10-07T16:11:36.881Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/faq</loc>
+    <lastmod>2026-10-07T16:11:36.887Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/guides/document-classification</loc>
+    <lastmod>2026-10-07T16:11:36.884Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/guides/document-ocr</loc>
+    <lastmod>2026-10-07T16:11:36.877Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/introduction</loc>
+    <lastmod>2026-10-07T16:11:36.882Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/jev-compatibility</loc>
+    <lastmod>2026-10-07T16:11:36.883Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/mcp-authentication</loc>
+    <lastmod>2026-10-07T16:11:36.880Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/mcp-clients</loc>
+    <lastmod>2026-10-07T16:11:36.889Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/mcp-reference</loc>
+    <lastmod>2026-10-07T16:11:36.886Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/mcp-server</loc>
+    <lastmod>2026-10-07T16:11:36.888Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/mcp-tools</loc>
+    <lastmod>2026-10-07T16:11:36.902Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/methods</loc>
+    <lastmod>2026-10-07T16:11:36.886Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/models</loc>
+    <lastmod>2026-10-07T16:11:36.878Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/multimodal-inputs</loc>
+    <lastmod>2026-10-07T16:11:25.907Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/openai-compatibility</loc>
+    <lastmod>2026-10-07T16:11:25.918Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/pricing</loc>
+    <lastmod>2026-10-07T16:11:25.921Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/quickstart</loc>
+    <lastmod>2026-10-07T16:11:25.917Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/rate-limits</loc>
+    <lastmod>2026-10-07T16:11:25.900Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/response-formats</loc>
+    <lastmod>2026-10-07T16:11:25.899Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/response-types</loc>
+    <lastmod>2026-10-07T16:11:25.908Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/skills</loc>
+    <lastmod>2026-10-07T16:11:25.921Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/system-one</loc>
+    <lastmod>2026-10-09T17:00:43.735Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/typesafe-models</loc>
+    <lastmod>2026-10-07T16:11:25.905Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/typesafe-streaming</loc>
+    <lastmod>2026-10-07T16:11:25.904Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/gateway/visual-intelligence</loc>
+    <lastmod>2026-10-07T16:11:25.900Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/guides/audio-ai/guide-audio-transcription</loc>
+    <lastmod>2026-10-07T16:11:25.931Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/guides/doc-ai/guide-classifying-documents</loc>
+    <lastmod>2026-10-07T16:11:25.889Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/guides/doc-ai/guide-document-redaction</loc>
+    <lastmod>2026-10-07T16:11:25.890Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/guides/doc-ai/guide-healthcare-parsing-intake-forms</loc>
+    <lastmod>2026-10-07T16:11:25.919Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/guides/doc-ai/guide-parsing-documents</loc>
+    <lastmod>2026-10-07T16:11:25.895Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/guides/doc-ai/guide-parsing-invoices</loc>
+    <lastmod>2026-10-07T16:11:25.901Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/guides/feedback</loc>
+    <lastmod>2026-10-07T16:11:25.913Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/guides/image-ai/guide-cataloging-images</loc>
+    <lastmod>2026-10-07T16:11:25.899Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/guides/image-ai/guide-classifying-images</loc>
+    <lastmod>2026-10-07T16:11:25.923Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/guides/video-ai/guide-video-transcription</loc>
+    <lastmod>2026-10-07T16:11:25.914Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/integrations/integrations-mongodb</loc>
+    <lastmod>2026-10-07T16:11:25.894Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/integrations/integrations-n8n</loc>
+    <lastmod>2026-10-07T16:11:25.906Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/integrations/integrations-voxel51</loc>
+    <lastmod>2026-10-07T16:11:25.922Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/integrations/integrations-zapier</loc>
+    <lastmod>2026-10-07T16:11:25.906Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/platform/chat</loc>
+    <lastmod>2026-10-07T16:11:25.887Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/platform/observe/completions</loc>
+    <lastmod>2026-10-07T16:11:25.902Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/platform/observe/evaluations</loc>
+    <lastmod>2026-10-07T16:11:25.897Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/platform/observe/executions</loc>
+    <lastmod>2026-10-07T16:11:25.888Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/platform/observe/overview</loc>
+    <lastmod>2026-10-07T16:11:25.903Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/platform/observe/requests</loc>
+    <lastmod>2026-10-07T16:11:25.919Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/platform/overview</loc>
+    <lastmod>2026-10-07T16:11:25.901Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/platform/settings</loc>
+    <lastmod>2026-10-07T16:11:25.918Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/pricing</loc>
+    <lastmod>2026-10-07T16:11:22.026Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/components/agent</loc>
+    <lastmod>2026-10-07T16:11:22.028Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/components/client</loc>
+    <lastmod>2026-10-09T17:00:43.736Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/components/files</loc>
+    <lastmod>2026-10-07T16:11:22.031Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/components/gateway</loc>
+    <lastmod>2026-10-09T17:00:43.732Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/components/hub</loc>
+    <lastmod>2026-10-07T16:11:22.029Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/components/models</loc>
+    <lastmod>2026-10-07T16:11:22.016Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/components/overview</loc>
+    <lastmod>2026-10-07T16:11:22.019Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/components/predictions</loc>
+    <lastmod>2026-10-07T16:11:22.006Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/getting-started</loc>
+    <lastmod>2026-10-07T16:11:22.010Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/node/components/agent</loc>
+    <lastmod>2026-10-07T16:11:22.014Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/node/components/client</loc>
+    <lastmod>2026-10-07T16:11:22.016Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/node/components/files</loc>
+    <lastmod>2026-10-07T16:11:22.017Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/node/components/gateway</loc>
+    <lastmod>2026-10-09T17:00:43.736Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/node/components/hub</loc>
+    <lastmod>2026-10-07T16:11:22.012Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/node/components/models</loc>
+    <lastmod>2026-10-07T16:11:22.015Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/node/components/predictions</loc>
+    <lastmod>2026-10-07T16:11:22.014Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/node/getting-started</loc>
+    <lastmod>2026-10-07T16:11:22.013Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/node/predictions/audio</loc>
+    <lastmod>2026-10-07T16:11:22.017Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/node/predictions/document</loc>
+    <lastmod>2026-10-07T16:11:22.010Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/node/predictions/image</loc>
+    <lastmod>2026-10-07T16:11:22.008Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/node/predictions/video</loc>
+    <lastmod>2026-10-07T16:11:22.018Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/predictions/audio</loc>
+    <lastmod>2026-10-07T16:11:22.018Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/predictions/document</loc>
+    <lastmod>2026-10-07T16:11:22.015Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/predictions/image</loc>
+    <lastmod>2026-10-07T16:11:22.012Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/sdk-reference/predictions/video</loc>
+    <lastmod>2026-10-07T16:11:22.009Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/skills/introduction</loc>
+    <lastmod>2026-10-07T16:11:22.007Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/skills/manage/create</loc>
+    <lastmod>2026-10-07T16:11:22.006Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/skills/manage/list-lookup</loc>
+    <lastmod>2026-05-22T20:06:22.047Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/skills/manage/update</loc>
+    <lastmod>2026-10-07T16:11:22.013Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/skills/quickstart</loc>
+    <lastmod>2026-05-22T20:06:22.048Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/skills/reference</loc>
+    <lastmod>2026-10-07T16:11:22.009Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/skills/spec/overview</loc>
+    <lastmod>2026-10-07T16:11:22.005Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/skills/spec/schema-json</loc>
+    <lastmod>2026-10-07T16:11:22.007Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/skills/spec/skill-md</loc>
+    <lastmod>2026-07-07T00:36:48.698Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/skills/spec/vlmrun-yaml</loc>
+    <lastmod>2026-07-07T00:36:48.697Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/skills/usage/agent</loc>
+    <lastmod>2026-10-07T16:11:22.004Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/skills/usage/chat</loc>
+    <lastmod>2026-10-07T16:11:22.008Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/skills/usage/generation</loc>
+    <lastmod>2026-05-22T20:06:22.802Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/skills/usage/version-pinning</loc>
+    <lastmod>2026-05-22T20:06:22.801Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/supported-files</loc>
+    <lastmod>2026-08-19T21:25:47.281Z</lastmod>
+  </url>
+
+  <url>
+    <loc>https://docs.vlm.run/webhooks</loc>
+    <lastmod>2026-10-07T16:11:22.005Z</lastmod>
+  </url>
+</urlset>

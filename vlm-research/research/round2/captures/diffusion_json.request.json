@@ -1,0 +1,19 @@
+{
+  "url": "https://gateway.vlm.run/v1/openai/chat/completions",
+  "method": "POST",
+  "auth": "Bearer [REDACTED]",
+  "body": {
+    "model": "google/diffusiongemma-26b-a4b-it",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Return a JSON object with a single key status and string value ROUND2_OK."
+      }
+    ],
+    "response_format": {
+      "type": "json_object"
+    },
+    "max_tokens": 96,
+    "temperature": 0
+  }
+}

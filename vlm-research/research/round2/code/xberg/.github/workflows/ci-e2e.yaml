@@ -1,0 +1,571 @@
+name: CI E2E
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "crates/**"
+      - "packages/**"
+      - "e2e/**"
+      - "fixtures/**"
+      - "alef.toml"
+      - "Cargo.toml"
+      - "Cargo.lock"
+      - "Taskfile.yml"
+      - "pnpm-workspace.yaml"
+      - "scripts/ci/wasm/**"
+      - ".github/workflows/ci-e2e.yaml"
+  workflow_dispatch:
+
+concurrency:
+  group: ci-e2e-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+  CARGO_INCREMENTAL: 0
+  CARGO_PROFILE_DEV_DEBUG: 0
+  RUST_BACKTRACE: full
+  SWIFT_BACKTRACE: "enable=yes,sanitize=yes,cache=yes"
+  RUST_MIN_STACK: 16777216
+  ORT_VERSION: "1.24.2"
+  MACOSX_DEPLOYMENT_TARGET: "14.0"
+  BUILD_PROFILE: "ci"
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+permissions:
+  contents: read
+
+jobs:
+  build-ffi:
+    name: Build FFI (${{ matrix.target }})
+    if: github.repository == 'xberg-io/xberg' && github.actor != 'dependabot[bot]' && github.event.pull_request.draft != true
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+          - os: ubuntu-24.04-arm
+            target: aarch64-unknown-linux-gnu
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+
+      - name: Compute FFI source hash
+        id: ffi-hash
+        shell: bash
+        run: |
+          hash=$(find \
+            Cargo.toml Cargo.lock rust-toolchain.toml \
+            crates/xberg \
+            crates/xberg-ffi \
+            crates/xberg-cli \
+            crates/xberg-tesseract \
+            crates/xberg-paddle-ocr \
+            -type f \
+            \( -name '*.rs' -o -name 'Cargo.toml' -o -name 'Cargo.lock' \
+               -o -name 'build.rs' -o -name '*.h' -o -name '*.c' \
+               -o -name '*.pc' -o -name 'rust-toolchain.toml' \) \
+            2>/dev/null | LC_ALL=C sort | xargs sha256sum 2>/dev/null | sha256sum | cut -d' ' -f1)
+          echo "value=$hash" >> "$GITHUB_OUTPUT"
+          echo "FFI source hash: $hash"
+
+      - name: Restore FFI artifacts from cache
+        id: ffi-cache
+        uses: actions/cache@v6
+        with:
+          path: |
+            target/release/libxberg_ffi.*
+            target/release/xberg_ffi.*
+            target/release/xberg
+            target/release/xberg.exe
+            crates/xberg-ffi/include/xberg.h
+            crates/xberg-ffi/xberg-ffi.pc
+            crates/xberg-ffi/cmake/
+          key: ffi-${{ matrix.target }}-${{ steps.ffi-hash.outputs.value }}-libheif-v1.23.0-cache-v2
+
+      - name: Setup Rust
+        if: steps.ffi-cache.outputs.cache-hit != 'true'
+        uses: xberg-io/actions/setup-rust@v1
+        with:
+          cache-key-prefix: build-ffi-${{ matrix.target }}
+          target: ${{ matrix.target }}
+
+      - name: Install system dependencies
+        if: steps.ffi-cache.outputs.cache-hit != 'true'
+        uses: ./.github/actions/install-system-deps
+
+      - name: Build FFI library
+        if: steps.ffi-cache.outputs.cache-hit != 'true'
+        uses: xberg-io/actions/build-rust-ffi@v1
+        with:
+          crate-name: xberg-ffi
+
+      - name: Build CLI
+        if: steps.ffi-cache.outputs.cache-hit != 'true'
+        uses: xberg-io/actions/build-rust-cli@v1
+        with:
+          package-name: xberg-cli
+          binary-name: xberg
+          extra-cargo-args: --features all
+
+      - name: Upload FFI artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: ffi-${{ matrix.target }}
+          path: |
+            target/release/libxberg_ffi.*
+            target/release/xberg_ffi.*
+            crates/xberg-ffi/include/xberg.h
+            crates/xberg-ffi/xberg-ffi.pc
+            crates/xberg-ffi/cmake/
+            target/release/xberg
+            target/release/xberg.exe
+          retention-days: 7
+          if-no-files-found: error
+
+  e2e-tests:
+    name: E2E (${{ matrix.lang }})
+    if: github.repository == 'xberg-io/xberg' && github.actor != 'dependabot[bot]' && github.event.pull_request.draft != true
+    needs: [build-ffi]
+    runs-on: ${{ matrix.runs-on }}
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - lang: python
+            python-version: "3.13"
+            runs-on: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+          - lang: node
+            node-version: "24"
+            runs-on: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+          - lang: go
+            go-version: "1.26"
+            runs-on: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+          - lang: ruby
+            ruby-version: "3.4"
+            runs-on: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+          - lang: java
+            java-version: "25"
+            runs-on: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+          - lang: csharp
+            dotnet-version: "10.0.x"
+            runs-on: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+          - lang: php
+            php-version: "8.4"
+            runs-on: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+          - lang: elixir
+            elixir-version: "1.19"
+            otp-version: "28"
+            runs-on: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+          - lang: wasm
+            node-version: "24"
+            runs-on: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+          - lang: rust
+            runs-on: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+          - lang: dart
+            # packages/dart's freezed ^4.0.1 resolves to freezed >=4.0.0, which
+            # needs SDK >=3.13.0; pub version-solving fails before any test runs
+            # otherwise. The floor moves with whichever freezed pub picks. ~keep
+            dart-version: "3.13"
+            runs-on: ubuntu-24.04-arm
+            target: aarch64-unknown-linux-gnu
+          - lang: kotlin-android
+            java-version: "25"
+            runs-on: ubuntu-24.04-arm
+            target: aarch64-unknown-linux-gnu
+          - lang: swift
+            swift-version: "6.0"
+            runs-on: ubuntu-24.04-arm
+            target: aarch64-unknown-linux-gnu
+          - lang: zig
+            zig-version: "0.17.0"
+            runs-on: ubuntu-24.04-arm
+            target: aarch64-unknown-linux-gnu
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          submodules: recursive
+
+      # fixtures/**/*.json `body_file` entries span nearly every top-level corpus
+      # directory across the 14 language e2e suites -- no glob subset is safe here. ~keep
+      - name: Fetch test_documents fixtures
+        uses: xberg-io/actions/fetch-test-documents@v1
+
+      - name: Setup Rust
+        uses: xberg-io/actions/setup-rust@v1
+        with:
+          cache-key-prefix: e2e-${{ matrix.lang }}
+          use-sccache: "true"
+
+      - name: Download FFI artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: ffi-${{ matrix.target }}
+          path: ffi-artifacts
+
+      - name: Stage FFI artifacts
+        shell: bash
+        run: |
+          mkdir -p target/release crates/xberg-ffi/include crates/xberg-ffi/cmake
+          if [ -d ffi-artifacts/target/release ]; then
+            cp -r ffi-artifacts/target/release/. target/release/
+          fi
+          if [ -d ffi-artifacts/crates/xberg-ffi/include ]; then
+            cp -r ffi-artifacts/crates/xberg-ffi/include/. crates/xberg-ffi/include/
+          fi
+          if [ -d ffi-artifacts/crates/xberg-ffi/cmake ]; then
+            cp -r ffi-artifacts/crates/xberg-ffi/cmake/. crates/xberg-ffi/cmake/
+          fi
+          if [ -f ffi-artifacts/crates/xberg-ffi/xberg-ffi.pc ]; then
+            cp ffi-artifacts/crates/xberg-ffi/xberg-ffi.pc crates/xberg-ffi/
+          fi
+          # Every matrix.target here builds the same .so, but this step runs for every
+          # lang leg including ones whose task (python/node/wasm/...) links its own native
+          # artifact and never touches this file -- absence is expected, not a failure. ~keep
+          chmod +x target/release/libxberg_ffi.so 2>/dev/null || true
+          ls -la target/release/
+          if [ -f target/release/libxberg_ffi.so ]; then
+            sudo cp target/release/libxberg_ffi.so /usr/local/lib/
+            sudo ldconfig
+          fi
+
+      - name: Install system dependencies
+        uses: ./.github/actions/install-system-deps
+
+      - name: Verify libheif installation (Linux)
+        if: runner.os == 'Linux'
+        shell: bash
+        env:
+          PKG_CONFIG_PATH: /usr/local/lib/pkgconfig:${PKG_CONFIG_PATH:-}
+          LD_LIBRARY_PATH: /usr/local/lib:${LD_LIBRARY_PATH:-}
+        run: |
+          echo "Checking libheif installation..."
+          if [ -f /usr/local/lib/pkgconfig/libheif.pc ]; then
+            version=$(pkg-config --modversion libheif 2>/dev/null || echo "unknown")
+            echo "✓ Found libheif at /usr/local/lib (version: $version)"
+          elif pkg-config --exists libheif; then
+            version=$(pkg-config --modversion libheif)
+            location=$(pkg-config --variable=libdir libheif)
+            echo "⚠ libheif found at $location (version: $version), not /usr/local/lib"
+            if [ "$(printf '%s\n' "$version" "1.21" | sort -V | head -n1)" = "1.21" ] && [ "$version" != "1.21" ]; then
+              echo "::notice::System libheif version $version >= 1.21, should be compatible"
+            else
+              echo "::warning::System libheif version $version < 1.21, may cause ABI mismatches"
+            fi
+          else
+            echo "::error::libheif not found on system"
+            exit 1
+          fi
+          echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
+          echo "PKG_CONFIG_PATH=$PKG_CONFIG_PATH"
+
+      - name: Setup ONNX Runtime
+        uses: ./.github/actions/setup-onnx-runtime
+        with:
+          ort-version: ${{ env.ORT_VERSION }}
+          strategy: system
+
+      - name: Stage ORT libraries alongside FFI
+        shell: bash
+        run: |
+          if [ -n "${ORT_LIB_LOCATION:-}" ] && [ -d "$ORT_LIB_LOCATION" ]; then
+            mkdir -p target/release
+            # The setup-onnx-runtime action may vendor ORT as a system package instead of
+            # loose .so files at this path, so the glob can legitimately match nothing;
+            # the ls right below reports the outcome instead of failing silently. ~keep
+            cp -f "$ORT_LIB_LOCATION"/libonnxruntime.so* target/release/ || true
+            echo "Staged ORT libraries to target/release:"
+            ls -la target/release/libonnxruntime.so* 2>/dev/null || echo "No ORT libraries found (may be bundled)"
+          fi
+
+      - name: Stage FFI libraries for C# e2e
+        if: matrix.lang == 'csharp'
+        shell: bash
+        run: |
+          mkdir -p e2e/csharp/bin/Debug/net10.0
+          # This job always runs on ubuntu-latest / x86_64-unknown-linux-gnu and needs:
+          # [build-ffi], which uploads with if-no-files-found: error -- by this point
+          # target/release/libxberg_ffi.so is guaranteed present. A copy failure here is a
+          # real problem (e.g. a broken staging step upstream) and must fail loudly instead
+          # of surfacing as a baffling dlopen error once the .NET tests run.
+          cp -f target/release/libxberg_ffi.so e2e/csharp/bin/Debug/net10.0/
+          if [ -f target/release/libonnxruntime.so.1 ]; then
+            cp -f target/release/libonnxruntime.so.1 e2e/csharp/bin/Debug/net10.0/
+          fi
+          ls -la e2e/csharp/bin/Debug/net10.0/lib*.so 2>/dev/null || echo "No native libraries found for C#"
+
+      - name: Setup Tesseract cache
+        uses: ./.github/actions/setup-tesseract-cache
+        with:
+          label: e2e-${{ matrix.lang }}
+
+      - name: Install WASI SDK
+        if: matrix.lang == 'wasm'
+        uses: xberg-io/actions/install-wasi-sdk@v1
+
+      - name: Setup Python
+        if: matrix.python-version
+        uses: xberg-io/actions/setup-python-env@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache-prefix: e2e-py-${{ matrix.python-version }}
+
+      - name: Setup Node
+        if: matrix.node-version
+        uses: xberg-io/actions/setup-node-workspace@v1
+
+      - name: Setup Go
+        if: matrix.go-version
+        uses: actions/setup-go@v7
+        with:
+          go-version: ${{ matrix.go-version }}
+
+      - name: Setup Ruby
+        if: matrix.ruby-version
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: false
+          working-directory: e2e/ruby
+
+      - name: Bundle install
+        if: matrix.ruby-version
+        working-directory: e2e/ruby
+        run: |
+          bundle config set frozen true
+          bundle install --jobs 4
+
+      - name: Setup Java
+        if: matrix.java-version
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java-version }}
+
+      - name: Setup Android SDK
+        if: matrix.lang == 'kotlin-android'
+        uses: android-actions/setup-android@v4
+        with:
+          packages: "platforms;android-35 build-tools;35.0.0"
+          accept-android-sdk-licenses: true
+
+      - name: Setup Gradle
+        if: matrix.lang == 'kotlin-android'
+        uses: xberg-io/actions/setup-gradle@v1
+        with:
+          gradle-version: "9.6.0"
+
+      - name: Setup .NET
+        if: matrix.dotnet-version
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: ${{ matrix.dotnet-version }}
+
+      - name: Setup PHP
+        if: matrix.php-version
+        uses: xberg-io/actions/setup-php@v1
+        with:
+          php-version: ${{ matrix.php-version }}
+          tools: composer
+
+      - name: Setup Elixir
+        if: matrix.elixir-version
+        uses: xberg-io/actions/setup-elixir@v1
+        with:
+          elixir-version: ${{ matrix.elixir-version }}
+          otp-version: ${{ matrix.otp-version }}
+
+      - name: Setup Dart
+        if: matrix.dart-version
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: ${{ matrix.dart-version }}
+
+      - name: Setup Swift
+        if: matrix.swift-version
+        uses: xberg-io/actions/setup-swift@v1
+        with:
+          swift-version: ${{ matrix.swift-version }}
+
+      - name: Setup Zig
+        if: matrix.zig-version
+        uses: xberg-io/actions/setup-zig@v1
+        with:
+          version: ${{ matrix.zig-version }}
+
+      - name: Setup library paths for FFI bindings
+        if: |
+          matrix.lang == 'go' || matrix.lang == 'java' ||
+          matrix.lang == 'csharp' || matrix.lang == 'elixir' ||
+          matrix.lang == 'kotlin-android' ||
+          matrix.lang == 'swift' || matrix.lang == 'zig' ||
+          matrix.lang == 'rust' || matrix.lang == 'python'
+        shell: bash
+        run: |
+          export PKG_CONFIG_PATH="${PWD}/crates/xberg-ffi:${PKG_CONFIG_PATH}"
+          # Ensure /usr/local/lib is on LD_LIBRARY_PATH for source-built system libs
+          # (e.g., libheif 1.23.0 from install-system-deps, not apt's older version)
+          export LD_LIBRARY_PATH="/usr/local/lib:${PWD}/target/release:${ORT_LIB_LOCATION}:${LD_LIBRARY_PATH}"
+          echo "PKG_CONFIG_PATH=${PKG_CONFIG_PATH}" >> "$GITHUB_ENV"
+          echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH}" >> "$GITHUB_ENV"
+
+      - name: Install Task
+        uses: xberg-io/actions/install-task@v1
+
+      - name: Install wasm-pack
+        if: matrix.lang == 'wasm'
+        run: task demo:dev:setup:wasm-pack
+
+      - name: Install alef CLI
+        uses: xberg-io/actions/install-alef@v1
+        # alef is a third-party tool. The job-wide `-D warnings` turns its own
+        # lint warnings into build errors, which has no bearing on this repo. ~keep
+        env:
+          RUSTFLAGS: ""
+
+      # wasm needs this for the same reason go does: e2e/wasm/globalSetup.ts spawns
+      # e2e/rust/target/release/mock-server unconditionally and states it "must be
+      # pre-built", where ruby and elixir cargo-build it themselves when missing. Without
+      # it the leg dies in globalSetup with ENOENT before any test runs. Kept here rather
+      # than in alef.toml's `before` hook because alef.toml is a generation input: editing
+      # it invalidates the crate's inputs hash and fails `alef verify`. ~keep
+      - name: Pre-build mock-server for Go and wasm e2e
+        if: matrix.lang == 'go' || matrix.lang == 'wasm'
+        shell: bash
+        run: |
+          echo "Pre-building mock-server for ${{ matrix.lang }} e2e tests..."
+          cargo build --release --manifest-path e2e/rust/Cargo.toml --bin mock-server
+
+      - name: Compile Ruby native extension
+        if: matrix.lang == 'ruby'
+        working-directory: packages/ruby
+        run: bundle install && bundle exec rake compile
+
+      - name: Run e2e tests
+        if: matrix.lang != 'swift'
+        run: task ${{ matrix.lang }}:e2e
+        shell: bash
+        env:
+          PKG_CONFIG_PATH: ${{ env.PKG_CONFIG_PATH }}
+          LD_LIBRARY_PATH: ${{ env.LD_LIBRARY_PATH }}
+          DYLD_LIBRARY_PATH: ${{ env.DYLD_LIBRARY_PATH || '' }}
+          TESSDATA_PREFIX: "/usr/share/tesseract-ocr/5/tessdata"
+
+      - name: Run in-crate wasm engine tests (Node)
+        if: matrix.lang == 'wasm'
+        shell: bash
+        run: scripts/ci/wasm/run-crate-tests.sh
+
+      - name: Run e2e tests (swift, instrumented)
+        if: matrix.lang == 'swift'
+        shell: bash
+        env:
+          PKG_CONFIG_PATH: ${{ env.PKG_CONFIG_PATH }}
+          LD_LIBRARY_PATH: ${{ env.LD_LIBRARY_PATH }}
+          DYLD_LIBRARY_PATH: ${{ env.DYLD_LIBRARY_PATH || '' }}
+          TESSDATA_PREFIX: "/usr/share/tesseract-ocr/5/tessdata"
+          SWIFT_BACKTRACE: "enable=yes,sanitize=yes,cache=yes,interactive=no,symbolicate=full,threads=all,registers=all,images=all,demangle=yes"
+        run: |
+          mkdir -p /tmp/swift-crash
+          # Enable core dumps for this shell and the swift test process it spawns.
+          ulimit -c unlimited || true
+          sudo sysctl -w kernel.core_pattern="/tmp/swift-crash/core.%e.%p" >/dev/null 2>&1 \
+            || echo "note: could not set core_pattern (SWIFT_BACKTRACE + live lldb still apply)"
+          echo "ulimit -c => $(ulimit -c)"
+          swift --version || true
+          uname -a || true
+          # Tee the FULL output (alef + swiftc + swift runtime) to a file so it survives
+          # even if the console truncates or the crash report lands only on stderr.
+          set -o pipefail
+          task swift:e2e 2>&1 | tee /tmp/swift-crash/e2e-full.log
+
+      - name: Capture swift crash backtrace
+        if: ${{ matrix.lang == 'swift' && failure() }}
+        shell: bash
+        # Diagnostic-only, and it only runs once the job is ALREADY failure() -- the real
+        # test failure was recorded by the "Run e2e tests (swift, instrumented)" step above.
+        # This step's own internal tools (lldb, core files) are best-effort forensics; if the
+        # last command in the script trips a nonzero exit, that must not overwrite the
+        # already-recorded real failure with a second, unrelated one. ~keep
+        continue-on-error: true
+        run: |
+          set +e
+          out=/tmp/swift-crash
+          mkdir -p "$out"
+          {
+            echo "=== toolchain ==="
+            swift --version
+            uname -a
+            echo "lldb: $(command -v lldb || echo '<not found>')"
+          } > "$out/env.txt" 2>&1
+          # Locate the built xctest binary (an ELF executable on Linux).
+          bin="$(find e2e/swift_e2e/.build packages/swift/.build -name '*.xctest' -type f 2>/dev/null | head -1)"
+          echo "test binary: ${bin:-<none — crash was likely at compile time>}" | tee -a "$out/env.txt"
+          if [ -n "$bin" ]; then
+            ldd "$bin" >> "$out/env.txt" 2>&1
+            cp "$bin" "$out/" 2>/dev/null || true
+          fi
+          # 1) Post-mortem lldb over any core file that landed.
+          for core in "$out"/core.*; do
+            [ -f "$core" ] || continue
+            echo "=== lldb core $core ===" | tee -a "$out/lldb-core.txt"
+            lldb --batch ${bin:+-f "$bin"} -c "$core" \
+              -o 'thread backtrace all' -o 'image list' -o 'register read' -o quit \
+              >> "$out/lldb-core.txt" 2>&1
+          done
+          # 2) Live re-run under lldb (most reliable when container cores are restricted):
+          #    drive the crash through the mock-server wrapper and dump a full backtrace.
+          if [ -n "$bin" ] && command -v lldb >/dev/null 2>&1; then
+            echo "=== lldb live run ===" > "$out/lldb-live.txt"
+            scripts/e2e/run-with-mock-server.sh lldb --batch \
+              -o 'settings set target.process.stop-on-sharedlibrary-events false' \
+              -o run \
+              -k 'thread backtrace all' -k 'image list' -k 'register read' -k quit \
+              "$bin" >> "$out/lldb-live.txt" 2>&1
+          fi
+          # 3) Bisect compile-vs-run: does building the tests alone reproduce the crash?
+          echo "=== swift build --build-tests -v ===" > "$out/build-tests.log"
+          ( cd e2e/swift_e2e && swift build --build-tests -v ) >> "$out/build-tests.log" 2>&1
+          echo "build-tests exit: $?" >> "$out/build-tests.log"
+          ls -laR "$out" 2>/dev/null | head -80
+
+      - name: Upload swift crash artifacts
+        if: ${{ matrix.lang == 'swift' && failure() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: swift-crash-${{ matrix.target }}
+          path: |
+            /tmp/swift-crash/**
+            e2e/swift_e2e/**/*.log
+          if-no-files-found: warn
+
+      - name: Upload e2e diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: e2e-diagnostics-${{ matrix.lang }}
+          path: |
+            e2e/**/*.log
+            e2e/**/*.trace
+            e2e/**/TestResults/**
+            e2e/**/test-results/**
+            e2e/**/build/reports/**
+            e2e/**/hs_err_pid*.log
+          if-no-files-found: ignore
+          retention-days: 7

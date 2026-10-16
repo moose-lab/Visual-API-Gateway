@@ -1,0 +1,7 @@
+{
+  "id": "4fb87b73-3bb0-4cf7-aa03-8ff00de5e242",
+  "name": "healthcare-hipaa-release",
+  "skill_version": "20260526-f6e67e57",
+  "download_url": "https://storage.googleapis.com/vlm-userdata-prod/files/e2c62618-e349-45e1-b21d-2af69bd587d3/archive-20260526-2eUEJ0RN5hs-healthcare-hipaa-release.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T074757Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+  "expires_in": 604800
+}

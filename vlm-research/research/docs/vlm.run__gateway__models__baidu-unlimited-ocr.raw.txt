@@ -1,0 +1,206 @@
+Unlimited-OCR | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+Baidu
+Unlimited-OCR
+About
+Unlimited-OCR is a 3B open-weight model from Baidu. Long-horizon document parsing with batched multi-page OCR. It accepts text, images, and documents. Context window is 32K. Released June 19, 2026.
+Parameters
+3B
+Published parameter count.
+Context window
+32K
+Tokens of context on a request.
+License
+MIT
+License on the weights.
+PricingCompareBenchmarksPerformanceInputsMethodsParametersEstimate costQuick startResponse
+Model specifications
+ProviderBaidu
+Type
+ocrmarkdown
+Endpointbaidu/unlimited-ocr
+Parameters3B
+Context length32K
+Input price$0.25 / 1M tokens$0.03 (cached) / 1M
+Output price$0.55 / 1M tokens
+Inputs
+textimage_urldocument_url
+LicenseMIT
+ReleasedJune 19, 2026
+Latency p5013,183 ms p50
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Input / 1M$0.25
+Cached input / 1M$0.03
+Output / 1M$0.55
+Compare
+Unlimited-OCR is one of the catalog's OCR models. The table is each model's published price, size, and context.
+ModelWhat it doesPriceParametersContext
+Unlimited-OCRLong-horizon document parsing with batched multi-page OCR.$0.25 / 1M input3B32K
+OCR AutoRoutes each method to its best OCR engine: ocr to PP-OCRv6, markdown to a fast CPU parser (dots.mocr on error), layout to dots.mocr.$0 / 1M input——
+PP-OCRv6PaddleOCR PP-OCRv6 medium text detection and recognition; scene OCR JSONL on image chat; text returns plain text; document_url fan-out via text.$0.02 / 1M input20M—
+DeepSeek-OCR-2DeepSeek OCR 2 and markdown extraction.$0.25 / 1M input3.4B32K
+Benchmarks
+Published scores for Unlimited-OCR, from the Unlimited-OCR paper.
+Evals
+OmniDocBench v1.693.92
+Formula CDM95.79
+Table TEDS90.16
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeOmniDocBench v1.6: 93.92.
+Cost and performanceLower listed rate, mid-pack latency
+Performance
+Latency is the end-to-end round trip. Throughput is completion tokens divided by that time. It is a request rate, not decode speed.
+LatencyMedian, end to end
+13,183 ms
+ThroughputMedian completion tokens per second
+—
+RequestsCompleted, last 7 days
+272
+Supported inputs
+textIgnored
+A text part beside the media is accepted and ignored. A request with no media part is a 400.
+image_urlYes
+One per request. A second image_url part is a 400.
+video_urlNo
+Not accepted.
+document_urlYes
+One PDF, up to 128 pages, rasterized per page at document_dpi (default 96). See Document Inputs.
+Default method markdown; multi_page reads the document through an 8-page sliding window.
+Context window 32,768 tokens, with a maximum output of 24,576 tokens.
+Aliases: baidu/Unlimited-OCR, unlimited-ocr.
+Weights: baidu/Unlimited-OCR.
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+markdown (default)Reading-order Markdown, one <page> block per page
+multi_pageContinuous plain text from an 8-page sliding window, no <page> blocks
+Both methods return the Markdown-kind payload. multi_page reads an 8-page sliding window per model call by default. Set method_params.window_size to change the window size.
+Text mode emits a bare payload string for one image, and one <document> block for a PDF. With markdown, the document contains one <page> block per page of Markdown. The model's own grounding markup is stripped before the reply, so a page reads like any other markdown-kind method. With multi_page, the <document> block carries continuous plain text with no <page> blocks. In JSON mode the reply is the flat document object, with top-level model and method and one record per page under pages. See Methods & Response Format.
+Method parameters
+ParameterDefaultDescription
+window_size8multi_page only: pages read per model call as a sliding window over the document, up to the engine's ceiling of 40.
+window_overlap1multi_page only: pages of the previous window re-read as context. Their output is dropped, not billed twice.
+window_page_output_tokens1600multi_page only: expected Markdown tokens per page. Raise it for dense pages; the window shrinks to fit.
+window_context_tokens32768multi_page only: the model context the window is sized against. Lower it only to leave headroom.
+Estimate cost
+Estimate. A page is 2,500 input tokens and 1,000 output tokens.
+Pages
+$1.18
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jsCLIcURL
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+response = client.chat.completions.create(
+model="baidu/unlimited-ocr",
+messages=[
+{
+"role": "user",
+"content": [
+{
+"type": "document_url",
+"document_url": {
+"url": "https://storage.googleapis.com/vlm-data-public-prod/hub/examples/finance.sec-filings/tsla-8k.pdf"
+},
+},
+],
+}
+],
+extra_body={"method": "markdown"},
+)
+print(response.choices[0].message.content)
+To read a document in sliding windows, use multi_page and set window_size:
+PythonNode.jsCLIcURL
+response = client.chat.completions.create(
+model="baidu/unlimited-ocr",
+messages=[
+{
+"role": "user",
+"content": [
+{
+"type": "document_url",
+"document_url": {
+"url": "https://storage.googleapis.com/vlm-data-public-prod/hub/examples/finance.sec-filings/tsla-8k.pdf"
+},
+}
+],
+}
+],
+extra_body={
+"method": "multi_page",
+"method_params": {"window_size": 8},
+},
+)
+Response
+Text modeJSON mode
+Copy
+With markdown, a PDF returns one <document> block with one <page> block per page:
+tsla-8k.pdf5 pages
+Page 0
+UNITED STATES SECURITIES AND EXCHANGE COMMISSION
+WASHINGTON, DC 20549
+…
+Title of each classTrading Symbol(s)…
+…
+A single image returns the payload string alone, with no wrapper. With multi_page, the <document> block carries continuous plain text with no <page> blocks.
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

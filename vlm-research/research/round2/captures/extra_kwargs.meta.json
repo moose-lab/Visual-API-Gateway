@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:07:58.249822+00:00",
+  "url": "https://docs.vlm.run/gateway/extra-kwargs.md",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "66aa61d28c5c59879227ddeb7261eec7a0cd0298d0bd92d39b7e60282f9a4f36",
+  "response_bytes": 7999,
+  "headers": {
+    "Content-Type": "text/markdown; charset=utf-8",
+    "Date": "Tue, 13 Oct 2026 03:07:59 GMT",
+    "Server": "Vercel"
+  },
+  "elapsed_seconds": 1.33
+}

@@ -1,0 +1,27 @@
+version: "3"
+internal: true
+
+vars:
+  PYTHON_PKG: "packages/python"
+
+tasks:
+  update:
+    desc: "Update Python dependencies within major versions (uv sync --upgrade-package)"
+    silent: false
+    cmds:
+      - cmd: |
+          cd {{.PYTHON_PKG}} && uv sync --no-install-project --no-install-workspace --all-extras --upgrade-package "*"
+        ignore_error: false
+
+  upgrade:
+    desc: "Upgrade Python dependencies to latest including breaking changes (uv sync --upgrade)"
+    silent: false
+    cmds:
+      - cmd: |
+          cd {{.PYTHON_PKG}} && uv sync --no-install-project --no-install-workspace --all-extras --upgrade
+        ignore_error: false
+      # Generated e2e harness keeps its own uv.lock; refresh it so `task upgrade` covers e2e
+      # and its lock does not drift behind the workspace. ~keep
+      - cmd: |
+          cd e2e/python && uv lock --upgrade
+        ignore_error: true

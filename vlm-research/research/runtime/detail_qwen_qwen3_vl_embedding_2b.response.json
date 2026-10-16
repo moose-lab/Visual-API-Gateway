@@ -1,0 +1,48 @@
+{
+  "id": "qwen/qwen3-vl-embedding-2b",
+  "hf_model_id": "Qwen/Qwen3-VL-Embedding-2B",
+  "name": "Qwen3-VL Embedding 2B",
+  "description": "Multimodal embedding model for text, image, and video inputs.",
+  "task": "embed",
+  "context_length": 8192,
+  "architecture": {
+    "input_modalities": [
+      "text",
+      "image",
+      "video"
+    ],
+    "output_modalities": [
+      "embeddings"
+    ],
+    "modality": "text+image+video->embeddings"
+  },
+  "capabilities": {
+    "max_images": null,
+    "max_videos": null,
+    "supports_text_only": true,
+    "supports_document_url": false,
+    "supports_json_object": true,
+    "supports_json_schema": false,
+    "supported_input_types": [
+      "text",
+      "image_url",
+      "video_url"
+    ]
+  },
+  "aliases": [
+    "Qwen/Qwen3-VL-Embedding-2B"
+  ],
+  "methods": [],
+  "supported_parameters": [
+    "dimensions",
+    "encoding_format"
+  ],
+  "pricing": {
+    "prompt": 0.013,
+    "completion": 0.0,
+    "input_cache_read": 0.013,
+    "input_cache_write": 0.0,
+    "image": 0.225,
+    "video": 0.0
+  }
+}

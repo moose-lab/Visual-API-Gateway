@@ -1,0 +1,8 @@
+{
+  "method": "POST",
+  "url": "https://api.vlm.run/v1/hub/schema",
+  "auth": "none",
+  "body": {
+    "domain": "document.invoice"
+  }
+}

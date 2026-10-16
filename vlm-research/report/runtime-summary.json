@@ -1,0 +1,165 @@
+{
+  "records": [
+    {
+      "name": "hub_invoice_schema",
+      "status": 200,
+      "elapsed_seconds": 2.217,
+      "cost": null,
+      "method": "POST",
+      "source": "hub_invoice_schema.meta.json"
+    },
+    {
+      "name": "mcp_initialize",
+      "status": 200,
+      "elapsed_seconds": 1.267,
+      "cost": null,
+      "method": "POST",
+      "source": "mcp_initialize.meta.json"
+    },
+    {
+      "name": "mcp_initialized",
+      "status": 202,
+      "elapsed_seconds": 0.309,
+      "cost": null,
+      "method": "POST",
+      "source": "mcp_initialized.meta.json"
+    },
+    {
+      "name": "mcp_tools",
+      "status": 200,
+      "elapsed_seconds": 0.493,
+      "cost": null,
+      "method": "POST",
+      "source": "mcp_tools.meta.json"
+    },
+    {
+      "name": "probe_agent",
+      "status": 201,
+      "elapsed_seconds": 4.359,
+      "cost": 0.002883,
+      "method": "POST",
+      "source": "probe_agent.meta.json"
+    },
+    {
+      "name": "probe_capability_error",
+      "status": 400,
+      "elapsed_seconds": 1.725,
+      "cost": null,
+      "method": "POST",
+      "source": "probe_capability_error.meta.json"
+    },
+    {
+      "name": "probe_completion",
+      "status": 200,
+      "elapsed_seconds": 1.735,
+      "cost": 0.001,
+      "method": "GET",
+      "source": "probe_completion.meta.json"
+    },
+    {
+      "name": "probe_embedding",
+      "status": 200,
+      "elapsed_seconds": 1.953,
+      "cost": 0.0,
+      "method": "POST",
+      "source": "probe_embedding.meta.json"
+    },
+    {
+      "name": "probe_ocr",
+      "status": 200,
+      "elapsed_seconds": 2.602,
+      "cost": 0.001,
+      "method": "POST",
+      "source": "probe_ocr.meta.json"
+    },
+    {
+      "name": "probe_ocr_json_sse",
+      "status": 200,
+      "elapsed_seconds": 1.234,
+      "cost": 0.001,
+      "method": "POST",
+      "source": "probe_ocr_json_sse.meta.json"
+    },
+    {
+      "name": "probe_orion2_history",
+      "status": 404,
+      "elapsed_seconds": 2.375,
+      "cost": null,
+      "method": "GET",
+      "source": "probe_orion2_history.meta.json"
+    },
+    {
+      "name": "probe_orion2_tool",
+      "status": 200,
+      "elapsed_seconds": 12.134,
+      "cost": 0.014139,
+      "method": "POST",
+      "source": "probe_orion2_tool.meta.json"
+    },
+    {
+      "name": "probe_pdf",
+      "status": 200,
+      "elapsed_seconds": 4.207,
+      "cost": 0.001,
+      "method": "POST",
+      "source": "probe_pdf.meta.json"
+    },
+    {
+      "name": "probe_provider",
+      "status": 403,
+      "elapsed_seconds": 2.323,
+      "cost": null,
+      "method": "POST",
+      "source": "probe_provider.meta.json"
+    },
+    {
+      "name": "probe_sse",
+      "status": 200,
+      "elapsed_seconds": 2.014,
+      "cost": 0.001,
+      "method": "POST",
+      "source": "probe_sse.meta.json"
+    },
+    {
+      "name": "probe_sse_control",
+      "status": 200,
+      "elapsed_seconds": 1.852,
+      "cost": 0.001,
+      "method": "POST",
+      "source": "probe_sse_control.meta.json"
+    },
+    {
+      "name": "probe_systemone",
+      "status": 200,
+      "elapsed_seconds": 2.544,
+      "cost": 0.001,
+      "method": "POST",
+      "source": "probe_systemone.meta.json"
+    },
+    {
+      "name": "probe_systemone_diffusion",
+      "status": 200,
+      "elapsed_seconds": 1.351,
+      "cost": 0.001,
+      "method": "POST",
+      "source": "probe_systemone_diffusion.meta.json"
+    },
+    {
+      "name": "probe_text",
+      "status": 200,
+      "elapsed_seconds": 2.127,
+      "cost": 0.001,
+      "method": "POST",
+      "source": "probe_text.meta.json"
+    },
+    {
+      "name": "probe_vision_schema",
+      "status": 200,
+      "elapsed_seconds": 1.758,
+      "cost": 0.001,
+      "method": "POST",
+      "source": "probe_vision_schema.meta.json"
+    }
+  ],
+  "reported_post_cost_usd": "0.026022"
+}

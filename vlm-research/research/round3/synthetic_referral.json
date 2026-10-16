@@ -1,0 +1,13 @@
+{
+  "evidence": "PROPOSAL",
+  "scope": "Locally authored synthetic input, no real patient",
+  "text_lines": [
+    "SYNTHETIC TEST REFERRAL",
+    "Patient: Test Example",
+    "Date of birth: 2000-01-02",
+    "Date of referral: 2026-10-13",
+    "Reason for referral: Routine vision evaluation",
+    "Scheduling priority: Routine"
+  ],
+  "sha256": "7113a9198c2883372733da93df0116b77633cf5af8257e10a26231f00381e138"
+}

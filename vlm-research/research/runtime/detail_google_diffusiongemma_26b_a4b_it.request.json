@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/google/diffusiongemma-26b-a4b-it",
+  "auth": "Bearer [REDACTED]",
+  "body": null
+}

@@ -1,0 +1,814 @@
+{
+  "jsonrpc": "2.0",
+  "id": 2,
+  "result": {
+    "tools": [
+      {
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true,
+          "title": "Read a document"
+        },
+        "description": "OCR a document or image into clean Markdown (or structured JSON).\n\nReads a PDF or image and returns its textual content as Markdown —\nheadings, paragraphs, lists, and tables preserved as faithfully as the\nchosen model allows. A PDF (rasterized page by page, see ``dpi``) comes\nback as one ``<document>`` element carrying the file metadata\n(``file_name``, ``mimetype``, ``npages``, ``dpi``), wrapping one\n``<page>`` per page in reading order. Each page is tagged with its\nzero-indexed ``id``, its ``width`` / ``height``, and a ``format`` attribute\nnaming what the method produced — ``markdown`` for a markdown method,\n``json`` for a region method. Set ``json_mode=True`` to get the parsed\nper-page records instead of a string.\n\nUse this for invoices, forms, reports, slide decks, screenshots, scanned\npages — anything whose value is the text on the page. For audio use\n``read_audio``; for video use ``read_video``.\n\n``method`` picks what the model computes per page; ``method_params``\ncarries that method's own keyword arguments. Both are per-model —\n``list_models`` reports the ``methods`` each model advertises, and one it\ndoesn't is refused up front rather than run — and neither is needed for a\nplain read. Left unset, ``method`` is the model's best default:\n``markdown`` for the generative OCR models, and ``ocr`` for\n``paddleocr/pp-ocrv6``, whose ``text`` method is only plain text while\n``ocr`` returns the positioned regions it exists to produce.",
+        "inputSchema": {
+          "properties": {
+            "url": {
+              "description": "A PDF or image as an http(s) URL, a data: URI, or a bare base64 string.",
+              "type": "string"
+            },
+            "model": {
+              "default": "rednote-hilab/dots.mocr",
+              "description": "OCR model to use. Defaults to a general-purpose document model; use `list_models` to see what this gateway serves.",
+              "enum": [
+                "rednote-hilab/dots.mocr",
+                "baidu/unlimited-ocr",
+                "deepseek-ai/deepseek-ocr-2",
+                "paddleocr/pp-ocrv6",
+                "vlm-run/ocr:auto",
+                "zai-org/glm-ocr"
+              ],
+              "type": "string"
+            },
+            "dpi": {
+              "anyOf": [
+                {
+                  "maximum": 400,
+                  "minimum": 72,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": 96,
+              "description": "Rasterization DPI for PDF pages before OCR. Higher = sharper small text but slower and larger. Defaults to 96."
+            },
+            "pages": {
+              "anyOf": [
+                {
+                  "items": {
+                    "anyOf": [
+                      {
+                        "type": "integer"
+                      },
+                      {
+                        "items": {
+                          "type": "integer"
+                        },
+                        "type": "array"
+                      }
+                    ]
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Which PDF pages to read, 0-indexed. Leave unset to read every page. Each entry is a single page index or a [start, stop] range (half-open, like Python/NumPy slicing: start inclusive, stop exclusive). Negative indices count from the end. E.g. [0, 2, 4] reads pages 0/2/4; [[0, 3]] reads pages 0-2; [-1] reads the last page. Only the selected pages are read (saving cost/latency) and re-numbered from 0. Indices past the end are ignored (e.g. [0,1,2,3] on a 2-page PDF reads pages 0-1). One call reads at most 128 pages — for a longer document, call this tool once per range (e.g. [[0, 128]] then [[128, 256]]) and combine the results; the error message tells you the exact ranges to use."
+            },
+            "method": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Which backend method the model runs on each page. Leave unset for the model's best default — `markdown` (clean Markdown) for the generative OCR models, `ocr` for `paddleocr/pp-ocrv6`, whose `text` method is only plain text. Methods are per-model: `ocr` and `detect` typically return positioned text regions (boxes) rather than prose. A method the chosen model does not advertise is rejected before the call, with the ones it does advertise named; `list_models` reports them for every model."
+            },
+            "method_params": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Keyword arguments for `method`, forwarded to the gateway as-is. Method-specific and rarely needed — leave unset unless the model documents parameters for the method you picked (e.g. {\"prompt\": \"Read the table.\"}). A key the method does not recognise is usually ignored rather than refused, so a typo reads as a plain run: check the spelling before trusting the result."
+            },
+            "json_mode": {
+              "default": false,
+              "description": "False (default) returns a string: a `<document>` element carrying the file metadata, wrapping one `<page>` per page tagged with its `id` and a `format` of `markdown` or `json` for what the method produced. True returns parsed JSON instead: the per-page records land in `data`, which is how you get boxes out of a region method.",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "url"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "name": "read_document",
+        "outputSchema": {
+          "properties": {
+            "text": {
+              "default": "",
+              "description": "Extracted text — Markdown (documents), transcript (audio), or description (video). Empty when json_mode=true.",
+              "type": "string"
+            },
+            "data": {
+              "default": null,
+              "description": "Parsed JSON when json_mode=true (the gateway's per-page/record payload or the transcription object); null otherwise, when the result is text/Markdown.",
+              "title": "Data"
+            },
+            "model": {
+              "default": "",
+              "description": "The model that actually produced this result.",
+              "type": "string"
+            },
+            "cost": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Metered cost of this call in US dollars, if the gateway reports it."
+            },
+            "completion_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Completion id for this call (chatcmpl-… or transcription-…). Pass to get_completion for token usage and serving metadata."
+            },
+            "quota": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Free-tier allowance remaining for anonymous callers; null when a key was used."
+            }
+          },
+          "type": "object",
+          "description": "The output of a ``read_*`` tool: extracted text plus provenance.\n\nThe tool's *content* is the clean text (Markdown / transcript / description);\nthis typed object is the parallel structured payload — so an agent can use the\ntext directly, or read ``data`` / ``model`` / ``cost`` / ``completion_id``\nprogrammatically. Token usage and fuller generation metadata live in\n``get_completion``."
+        },
+        "title": "Read a document"
+      },
+      {
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true,
+          "title": "Describe an image"
+        },
+        "description": "Describe a still image, answer a question about it, or run a region model on it.\n\nSends one image to a vision-language model and returns its answer as text.\nUse this for photos, charts, diagrams, product shots, UI screenshots — the\ncases where the value is in what the picture *depicts*. Steer it with\n``prompt`` (\"What is the total on this receipt?\", \"List the objects on the\ntable\", \"Summarize this chart in two sentences\").\n\nFor a document — anything whose value is the text printed on the page —\nuse ``read_document`` instead: it OCRs into Markdown and preserves\nheadings, lists and tables, which a general description cannot. For a\nvideo use ``read_video``.\n\nA region model returns records, not prose: set ``json_mode=True``.\nMethods and parameters: https://docs.vlm.run/gateway/methods",
+        "inputSchema": {
+          "properties": {
+            "url": {
+              "description": "An image as an http(s) URL, a data: URI, or a bare base64 string.",
+              "type": "string"
+            },
+            "model": {
+              "default": "qwen/qwen3.5-0.8b",
+              "description": "Model to run. `list_models` reports what this gateway serves.",
+              "enum": [
+                "qwen/qwen3.5-0.8b",
+                "facebook/sam3.1",
+                "google/diffusiongemma-26b-a4b-it",
+                "google/gemma-4-26b-a4b-it",
+                "microsoft/florence-2-base-ft",
+                "qwen/qwen3.8-27b",
+                "usyd-community/vitpose-plus-large"
+              ],
+              "type": "string"
+            },
+            "prompt": {
+              "default": "Describe this image in detail.",
+              "description": "Question or instruction for the model; the default asks for a detailed description. A region model reads it as its text prompt, if it takes one.",
+              "type": "string"
+            },
+            "method": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Region models only; unset runs the model's default. `list_models` reports each model's methods; an unadvertised one is refused. See https://docs.vlm.run/gateway/methods"
+            },
+            "method_params": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Keyword arguments for `method`, forwarded to the gateway as-is. Per model; see https://docs.vlm.run/gateway/methods"
+            },
+            "json_mode": {
+              "default": false,
+              "description": "False (default) returns a string; True returns parsed JSON in `data` (use it for region models).",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "url"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "name": "read_image",
+        "outputSchema": {
+          "properties": {
+            "text": {
+              "default": "",
+              "description": "Extracted text — Markdown (documents), transcript (audio), or description (video). Empty when json_mode=true.",
+              "type": "string"
+            },
+            "data": {
+              "default": null,
+              "description": "Parsed JSON when json_mode=true (the gateway's per-page/record payload or the transcription object); null otherwise, when the result is text/Markdown.",
+              "title": "Data"
+            },
+            "model": {
+              "default": "",
+              "description": "The model that actually produced this result.",
+              "type": "string"
+            },
+            "cost": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Metered cost of this call in US dollars, if the gateway reports it."
+            },
+            "completion_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Completion id for this call (chatcmpl-… or transcription-…). Pass to get_completion for token usage and serving metadata."
+            },
+            "quota": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Free-tier allowance remaining for anonymous callers; null when a key was used."
+            }
+          },
+          "type": "object",
+          "description": "The output of a ``read_*`` tool: extracted text plus provenance.\n\nThe tool's *content* is the clean text (Markdown / transcript / description);\nthis typed object is the parallel structured payload — so an agent can use the\ntext directly, or read ``data`` / ``model`` / ``cost`` / ``completion_id``\nprogrammatically. Token usage and fuller generation metadata live in\n``get_completion``."
+        },
+        "title": "Describe an image"
+      },
+      {
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true,
+          "title": "Transcribe audio"
+        },
+        "description": "Transcribe an audio file into text (or a structured transcription object).\n\nReads a speech audio file (wav/mp3/m4a/flac/ogg …) and returns the\ntranscript. Supply ``language`` when you already know the spoken language\nto skip auto-detection and improve accuracy. Set ``json_mode=True`` to get\nthe full transcription object instead of a plain string.",
+        "inputSchema": {
+          "properties": {
+            "url": {
+              "description": "An audio file as an http(s) URL, a data: URI, or a bare base64 string.",
+              "type": "string"
+            },
+            "model": {
+              "const": "nvidia/parakeet-tdt-0.6b-v3",
+              "default": "nvidia/parakeet-tdt-0.6b-v3",
+              "description": "Speech-to-text model to use. Use `list_models` to see what this gateway serves.",
+              "type": "string"
+            },
+            "language": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional ISO-639-1 language hint (e.g. 'en', 'es'). Leave unset to let the model auto-detect."
+            },
+            "json_mode": {
+              "default": false,
+              "description": "False (default) returns the plain transcript string; True returns the full transcription object (text plus metadata) as parsed JSON.",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "url"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "name": "read_audio",
+        "outputSchema": {
+          "properties": {
+            "text": {
+              "default": "",
+              "description": "Extracted text — Markdown (documents), transcript (audio), or description (video). Empty when json_mode=true.",
+              "type": "string"
+            },
+            "data": {
+              "default": null,
+              "description": "Parsed JSON when json_mode=true (the gateway's per-page/record payload or the transcription object); null otherwise, when the result is text/Markdown.",
+              "title": "Data"
+            },
+            "model": {
+              "default": "",
+              "description": "The model that actually produced this result.",
+              "type": "string"
+            },
+            "cost": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Metered cost of this call in US dollars, if the gateway reports it."
+            },
+            "completion_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Completion id for this call (chatcmpl-… or transcription-…). Pass to get_completion for token usage and serving metadata."
+            },
+            "quota": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Free-tier allowance remaining for anonymous callers; null when a key was used."
+            }
+          },
+          "type": "object",
+          "description": "The output of a ``read_*`` tool: extracted text plus provenance.\n\nThe tool's *content* is the clean text (Markdown / transcript / description);\nthis typed object is the parallel structured payload — so an agent can use the\ntext directly, or read ``data`` / ``model`` / ``cost`` / ``completion_id``\nprogrammatically. Token usage and fuller generation metadata live in\n``get_completion``."
+        },
+        "title": "Transcribe audio"
+      },
+      {
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": true,
+          "readOnlyHint": true,
+          "title": "Read a video"
+        },
+        "description": "Describe or transcribe a video, or run a region model over its frames.\n\nForwards the video to a model that ingests it natively; a model that does\nnot support video is refused. The model produces text — by default a\ndetailed transcript/description, steerable via ``prompt`` (e.g. \"List the\non-screen text\", \"Summarize what happens in 3 bullets\"). Set\n``json_mode=True`` for parsed JSON instead of a string.\n\nA region model returns one record per sampled frame: set ``json_mode=True``.\nMethods and parameters: https://docs.vlm.run/gateway/methods",
+        "inputSchema": {
+          "properties": {
+            "url": {
+              "description": "A video file as an http(s) URL, a data: URI, or a bare base64 string.",
+              "type": "string"
+            },
+            "model": {
+              "default": "qwen/qwen3.5-0.8b",
+              "description": "Model to run. `list_models` reports what this gateway serves.",
+              "enum": [
+                "qwen/qwen3.5-0.8b",
+                "facebook/sam3.1",
+                "google/gemma-4-26b-a4b-it",
+                "qwen/qwen3.8-27b",
+                "usyd-community/vitpose-plus-large"
+              ],
+              "type": "string"
+            },
+            "prompt": {
+              "default": "Transcribe and describe the content of this video in detail.",
+              "description": "Instruction for the model; the default asks for a detailed transcript/description. A region model reads it as its text prompt, if it takes one.",
+              "type": "string"
+            },
+            "fps": {
+              "anyOf": [
+                {
+                  "exclusiveMinimum": 0,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Sampling rate (frames per second). Leave unset for the model's default."
+            },
+            "max_frames": {
+              "anyOf": [
+                {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Upper bound on the number of frames sampled from the video."
+            },
+            "encoder": {
+              "const": "native",
+              "default": "native",
+              "description": "How the video is delivered. Only 'native' (the model ingests the clip) is supported.",
+              "type": "string"
+            },
+            "encoder_params": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": ""
+            },
+            "method": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Region models only; unset runs the model's default. `list_models` reports each model's methods; an unadvertised one is refused. See https://docs.vlm.run/gateway/methods"
+            },
+            "method_params": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Keyword arguments for `method`, forwarded to the gateway as-is. Per model; see https://docs.vlm.run/gateway/methods"
+            },
+            "json_mode": {
+              "default": false,
+              "description": "False (default) returns a string; True returns parsed JSON in `data` (use it for region models).",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "url"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "name": "read_video",
+        "outputSchema": {
+          "properties": {
+            "text": {
+              "default": "",
+              "description": "Extracted text — Markdown (documents), transcript (audio), or description (video). Empty when json_mode=true.",
+              "type": "string"
+            },
+            "data": {
+              "default": null,
+              "description": "Parsed JSON when json_mode=true (the gateway's per-page/record payload or the transcription object); null otherwise, when the result is text/Markdown.",
+              "title": "Data"
+            },
+            "model": {
+              "default": "",
+              "description": "The model that actually produced this result.",
+              "type": "string"
+            },
+            "cost": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Metered cost of this call in US dollars, if the gateway reports it."
+            },
+            "completion_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Completion id for this call (chatcmpl-… or transcription-…). Pass to get_completion for token usage and serving metadata."
+            },
+            "quota": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Free-tier allowance remaining for anonymous callers; null when a key was used."
+            }
+          },
+          "type": "object",
+          "description": "The output of a ``read_*`` tool: extracted text plus provenance.\n\nThe tool's *content* is the clean text (Markdown / transcript / description);\nthis typed object is the parallel structured payload — so an agent can use the\ntext directly, or read ``data`` / ``model`` / ``cost`` / ``completion_id``\nprogrammatically. Token usage and fuller generation metadata live in\n``get_completion``."
+        },
+        "title": "Read a video"
+      },
+      {
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false,
+          "readOnlyHint": true,
+          "title": "List available models"
+        },
+        "description": "List the models this gateway currently serves, and which read_* tool each fits.\n\nUse this to pick a ``model`` argument that is actually available before calling\n``read_document`` / ``read_image`` / ``read_audio`` / ``read_video`` — a model id\npassed to the wrong tool, or one that isn't served, is rejected. Each entry gives\nthe model ``id`` (pass it verbatim as ``model``), its primary ``modality`` and\n``tool``, every tool that will accept it (``tools`` — a vision model may read both\nstills and video), any short ``aliases``, and the gateway ``methods`` it supports.",
+        "inputSchema": {
+          "properties": {
+            "modality": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "document",
+                    "image",
+                    "audio",
+                    "video"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Restrict to models for one tool: 'document', 'image', 'audio', or 'video'. Omit for all."
+            }
+          },
+          "type": "object",
+          "additionalProperties": false
+        },
+        "name": "list_models",
+        "outputSchema": {
+          "properties": {
+            "result": {
+              "items": {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "result"
+          ],
+          "type": "object",
+          "x-fastmcp-wrap-result": true
+        },
+        "title": "List available models"
+      },
+      {
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false,
+          "readOnlyHint": true,
+          "title": "Get model info"
+        },
+        "description": "Describe one served model: its methods, what each returns, and the JSON schema of each reply.\n\nCall this before relying on the fields of a ``json_mode=true`` read. Each method lists its\ncapabilities and, per input medium (``image``, ``video``, ``document``), the reply's\n``payload`` tag and its JSON ``schema``, in which every field carries a description. A\nmethod whose reply is the model's own output has no schema.",
+        "inputSchema": {
+          "properties": {
+            "model": {
+              "description": "A served model id or alias, as list_models reports it.",
+              "type": "string"
+            }
+          },
+          "required": [
+            "model"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "name": "get_model_info",
+        "outputSchema": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "title": "Get model info"
+      },
+      {
+        "_meta": {
+          "fastmcp": {
+            "tags": []
+          }
+        },
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false,
+          "readOnlyHint": true,
+          "title": "Get completion details"
+        },
+        "description": "Look up cost, token usage, and serving metadata for a prior read_* call.\n\nEvery ``read_*`` tool returns a ``completion_id`` in its structured payload.\nPass that id here to see the cost, tokens usage, and backend.",
+        "inputSchema": {
+          "properties": {
+            "completion_id": {
+              "description": "The completion id returned by a prior read_* tool (e.g. chatcmpl-abc123 or transcription-def456).",
+              "type": "string"
+            }
+          },
+          "required": [
+            "completion_id"
+          ],
+          "type": "object",
+          "additionalProperties": false
+        },
+        "name": "get_completion",
+        "outputSchema": {
+          "properties": {
+            "id": {
+              "description": "The completion id (``chatcmpl-…`` or ``transcription-…``).",
+              "type": "string"
+            },
+            "model": {
+              "description": "The model id echoed on the response.",
+              "type": "string"
+            },
+            "served_model_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Canonical model id."
+            },
+            "backend": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Inference runtime for the request (vllm, paddleocr, …)."
+            },
+            "cost": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Metered cost of the request in US dollars, or null when the request was not priced."
+            },
+            "usage": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Usage block: prompt/completion/total tokens for chat, or input_tokens/output_tokens/input_audio_seconds for transcription."
+            },
+            "status": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Billing status (completed / failed)."
+            },
+            "latency_ms": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "End-to-end latency in milliseconds."
+            }
+          },
+          "required": [
+            "id",
+            "model"
+          ],
+          "type": "object",
+          "description": "Cost, token usage, and serving metadata for one gateway generation."
+        },
+        "title": "Get completion details"
+      }
+    ]
+  }
+}

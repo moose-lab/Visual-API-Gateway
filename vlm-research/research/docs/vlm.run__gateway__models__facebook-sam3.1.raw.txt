@@ -1,0 +1,196 @@
+SAM 3.1 | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+Meta
+SAM 3.1
+About
+SAM 3.1 is a 848M open-weight model from Meta. SAM 3.1 Object Multiplex: promptable segmentation and faster multi-object video tracking. It accepts text, images, and video. Released March 26, 2026.
+Parameters
+848M
+Published parameter count.
+License
+SAM License
+License on the weights.
+PricingCompareBenchmarksPerformanceExamplesInputsMethodsParametersEstimate costQuick startResponse
+Model specifications
+ProviderMeta
+Type
+segmentation
+Endpointfacebook/sam3.1
+Parameters848M
+Per 1K images$1
+Inputs
+textimage_urlvideo_url
+LicenseSAM License
+ReleasedMarch 26, 2026
+Latency p50158 ms p50
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Per 1K images$1
+Compare
+SAM 3.1 is the only segmentation model in the catalog. The other rows take similar inputs and do a different job.
+ModelWhat it doesPriceParametersContext
+SAM 3.1SAM 3.1 Object Multiplex: promptable segmentation and faster multi-object video tracking.$1 / 1K images848M—
+PP-OCRv6PaddleOCR PP-OCRv6 medium text detection and recognition; scene OCR JSONL on image chat; text returns plain text; document_url fan-out via text.$0.02 / 1M input20M—
+Muse Spark 1.2Meta Muse Spark 1.2. Text, multi-image, and native video. Reasoning model.$1.25 / 1M input—1M
+Gemini 3.5 Flash LiteFastest and cheapest Gemini tier. Multimodal chat; emits no reasoning tokens.$0.30 / 1M input—1M
+Benchmarks
+Published scores for SAM 3.1, from the SAM 3.1 release notes.
+Evals
+YT-Temporal-1B cgF152.9
+SA-V cgF130.5
+MOSEv2 J&F62.3
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeYT-Temporal-1B cgF1: 52.9.
+Cost and performanceLower listed rate, mid-pack latency
+Performance
+Latency is the end-to-end round trip. Throughput is completion tokens divided by that time. It is a request rate, not decode speed.
+LatencyMedian, end to end
+158 ms
+ThroughputMedian completion tokens per second
+—
+RequestsCompleted, last 7 days
+989
+Examples
+Donut segmentation
+Promptable masks via SAM 3.1 with the prompt `donut`.
+{"masks":[{"label":"donut","score":0.94,"box_xyxy":[42,210,332,494]}, ...]}
+Supported inputs
+textBeside media
+A text part is the segmentation target when method_params.prompt is absent. A text-only request is a 400.
+image_urlYes
+One per request, for segment and segment_box.
+video_urlYes
+One clip, for track. Sampling is set in method_params (video_fps, video_skip_frames, video_max_frames), not at the top level.
+document_urlNo
+Not accepted.
+Default method segment. segment on an image and track on a video both take method_params.prompt.
+Each instance returns a normalized bounding box, a score, its area, and an instance_id. The pixels are not on the item: every instance shares one label map on the container.
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+segment (default)One item per instance matching method_params.prompt, plus the container's label map
+segment_boxThe same shape, seeded from method_params.bbox_xywh instead of a text prompt. Items carry no label.
+track (video)One item per instance per sampled frame, carrying frame_id and track_id, with a label map on each entry of frames
+Method parameters
+ParameterDefaultDescription
+promptnoneWhat to segment or track, in plain words. Returned verbatim as each item's label.
+bbox_xywhnonesegment_box only: the seed box as [x, y, w, h], normalized 0-1.
+mask_formatpngnone drops the label map and keeps area.
+polygonsfalsetrue adds polys_xy outline rings to each item.
+video_fpsnonetrack only: sample the clip at this rate, in frames per second. Must be greater than 0.
+video_skip_frames1track only: sample every Nth frame. Cannot be combined with video_fps.
+video_max_frames128track only: cap on sampled frames, 1 to 128. Above 128 is a 400; lower video_fps to cover a longer clip.
+Unlike the models that decode a video_url natively, facebook/sam3.1 reads its sampling out of method_params, not from a top-level video_fps.
+Estimate cost
+Images
+$1.00
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jsCLIcURL
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+response = client.chat.completions.create(
+model="facebook/sam3.1",
+messages=[
+{
+"role": "user",
+"content": [
+{
+"type": "image_url",
+"image_url": {
+"url": "http://images.cocodataset.org/val2017/000000000785.jpg"
+},
+},
+],
+}
+],
+extra_body={"method": "segment", "method_params": {"prompt": "person"}},
+)
+print(response.choices[0].message.content)
+Response
+Text modeJSON modeTracking a video
+Copy
+A single image returns the json block alone, with no wrapper:
+{
+"object": "img.segment.masks",
+"items": [
+{
+"bbox_xywh": [0.4391, 0.1035, 0.3344, 0.8118],
+"label": "person",
+"score": 0.9688,
+"area": 0.0992,
+"instance_id": 1
+}
+],
+"mask": {
+"format": "png",
+"height": 425,
+"width": 640,
+"data": "data:image/png;base64,iVBORw0KGgo…"
+}
+}
+bbox_xywh and area are normalized against the source frame. The pixels live in the label map: one 8-bit grayscale PNG where a pixel's value is the item's instance_id on an image, or its track_id on a video.
+0 is background, so ids start at 1 and run to 255, which is also the most instances one map can carry. Test pixel == n to cut out instance n, or pixel != 0 for the whole foreground. One decode gives every instance, and area and score sit on the items so a filter never has to decode at all.
+Where two instances overlap the pixel goes to the higher score, so each item's area, box and outline describe what is actually visible in the map.
+video_fps, video_nframes and video_duration describe the source clip. frames is what was actually sampled, listed in frame_id order and including frames where nothing was found.
+A prompt that matches nothing is not an error. The call succeeds with an empty items array.
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

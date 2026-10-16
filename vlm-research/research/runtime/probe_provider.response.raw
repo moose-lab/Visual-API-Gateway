@@ -1,0 +1,1 @@
+{"detail":{"error":{"message":"Model 'google/gemini-3.5-flash-lite' requires a paid account. Add a payment method to your organization to enable pay-as-you-go billing.","type":"model_not_entitled","code":null,"param":null}}}

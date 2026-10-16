@@ -1,0 +1,284 @@
+{
+  "evidence": "RUNTIME",
+  "scope": "Local offline verification",
+  "review_date": "2026-10-14",
+  "passed": true,
+  "checks": [
+    {
+      "name": "第1轮归档完整性",
+      "passed": true,
+      "detail": {
+        "files": 1063,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "第2轮归档完整性",
+      "passed": true,
+      "detail": {
+        "files": 338,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "第3轮归档完整性",
+      "passed": true,
+      "detail": {
+        "files": 374,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "第三轮HTTP字节/哈希",
+      "passed": true,
+      "detail": {
+        "requests": 59,
+        "mismatches": [],
+        "scope": "Hashes correspond to archived redacted text or original binary"
+      }
+    },
+    {
+      "name": "公开Skill目录完整下载",
+      "passed": true,
+      "detail": {
+        "names": [
+          "greeting",
+          "grounded-document-extraction",
+          "healthcare-hipaa-release",
+          "medical-multi-schema-extraction",
+          "viasocket"
+        ]
+      }
+    },
+    {
+      "name": "公开ZIP与解包逐字节匹配",
+      "passed": true,
+      "detail": {
+        "packages": 5,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "三个公开pipeline入口静态核对",
+      "passed": true,
+      "detail": {
+        "signatures": [
+          {
+            "path": "research/round3/public_skills/grounded-document-extraction/pipeline.py",
+            "args": [
+              "ctx",
+              "doc_path"
+            ]
+          },
+          {
+            "path": "research/round3/public_skills/medical-multi-schema-extraction/medical-multi-schema-extraction/pipeline.py",
+            "args": [
+              "ctx",
+              "doc_path"
+            ]
+          },
+          {
+            "path": "research/round3/public_skills/healthcare-hipaa-release/hipaa-release/pipeline.py",
+            "args": [
+              "ctx",
+              "img"
+            ]
+          }
+        ],
+        "scope": "AST only; downloaded code not executed locally"
+      }
+    },
+    {
+      "name": "六个唯一execution完成",
+      "passed": true,
+      "detail": {
+        "ids": [
+          "1bf00c9a-c97a-4a48-a20a-c89527ca7961",
+          "5410a132-b564-428a-8d11-f9e7b80e3ef8",
+          "640e05c7-0ad4-4ee4-b480-5737b3046e1c",
+          "8a06a34b-e053-428b-92db-454bfcfbac66",
+          "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+          "eb42f7ca-7a21-46a4-a66d-5fb27374ade9"
+        ]
+      }
+    },
+    {
+      "name": "模式与回包对照",
+      "passed": true,
+      "detail": {
+        "program": "agent",
+        "replay": "agent",
+        "agent": "agent",
+        "fallback": "agent",
+        "reference": "program",
+        "reference_replay": "program"
+      }
+    },
+    {
+      "name": "重放与agent使用同一ZIP",
+      "passed": true,
+      "detail": {
+        "sha256": "fe97375358d2b39378798832fbabe64fa9d49b7771db4222c9168d61389273e5"
+      }
+    },
+    {
+      "name": "算术与独立artifact匹配",
+      "passed": true,
+      "detail": {
+        "cases": 3
+      }
+    },
+    {
+      "name": "fallback结构差异保留",
+      "passed": true,
+      "detail": {
+        "observed": {
+          "response": "{\"response\":\"ROUND3_HELLO\"}"
+        },
+        "expected": {
+          "response": "ROUND3_HELLO"
+        },
+        "scope": "Observed mismatch; not a passed task-output conformance test"
+      }
+    },
+    {
+      "name": "program引用steps报告为0",
+      "passed": true,
+      "detail": {
+        "scope": "Does not establish zero downstream model calls"
+      }
+    },
+    {
+      "name": "费用按唯一ID核对",
+      "passed": true,
+      "detail": {
+        "usage_usd": "0.119482",
+        "all_rounds_usage_usd": "0.204511",
+        "billing_verified": false
+      }
+    },
+    {
+      "name": "非终态时间戳异常已保留",
+      "passed": true,
+      "detail": {
+        "snapshots": 19,
+        "scope": "Confirms contradictory fields, not their server-side cause"
+      }
+    },
+    {
+      "name": "本地PDF真实文本与输入一致",
+      "passed": true,
+      "detail": {
+        "lines": [
+          "SYNTHETIC TEST REFERRAL",
+          "Patient: Test Example",
+          "Date of birth: 2000-01-02",
+          "Date of referral: 2026-10-13",
+          "Reason for referral: Routine vision evaluation",
+          "Scheduling priority: Routine"
+        ]
+      }
+    },
+    {
+      "name": "转诊字段核对",
+      "passed": true,
+      "detail": {
+        "scope": "One synthetic document"
+      }
+    },
+    {
+      "name": "Grounding文本/页号/范围",
+      "passed": true,
+      "detail": {
+        "populated_metadata_fields": 7,
+        "boxes": 7,
+        "scope": "Not a pixel alignment or confidence calibration test"
+      }
+    },
+    {
+      "name": "const与metadata扩展区别",
+      "passed": true,
+      "detail": {
+        "scope": "A schema const response is not evidence of correct document classification"
+      }
+    },
+    {
+      "name": "隔日execution回读一致",
+      "passed": true,
+      "detail": {
+        "results": [
+          {
+            "name": "execution_program",
+            "status": 200,
+            "equal": true,
+            "hours_since_reported_completion": 19.844
+          },
+          {
+            "name": "execution_reference_replay",
+            "status": 200,
+            "equal": true,
+            "hours_since_reported_completion": 19.696
+          }
+        ],
+        "scope": "No evidence of intervening restart or maximum TTL"
+      }
+    },
+    {
+      "name": "隔日object_id PDF完整下载",
+      "passed": true,
+      "detail": {
+        "bytes": 822,
+        "sha256": "7113a9198c2883372733da93df0116b77633cf5af8257e10a26231f00381e138",
+        "scope": "Returned artifact matches original input PDF"
+      }
+    },
+    {
+      "name": "SystemOne来源及15项离线结果",
+      "passed": true,
+      "detail": {
+        "checks": 15,
+        "source_mismatches": [],
+        "scope": "Existing offline MockTransport/template tests, not new remote inference"
+      }
+    },
+    {
+      "name": "研究脚本静态语法",
+      "passed": true,
+      "detail": {
+        "scripts": 14,
+        "failed": []
+      }
+    },
+    {
+      "name": "报告与专项本地链接",
+      "passed": true,
+      "detail": {
+        "reports": 19,
+        "missing": []
+      }
+    },
+    {
+      "name": "API Key模式扫描",
+      "passed": true,
+      "detail": {
+        "files": 1819,
+        "candidate_files": [],
+        "scope": "Pattern scan, not proof against every possible secret format"
+      }
+    },
+    {
+      "name": "token与签名URL脱敏",
+      "passed": true,
+      "detail": {
+        "candidate_files": []
+      }
+    },
+    {
+      "name": "对象存储下载无API Bearer",
+      "passed": true,
+      "detail": {
+        "downloads": 9
+      }
+    }
+  ]
+}

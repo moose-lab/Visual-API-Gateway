@@ -1,0 +1,27 @@
+{
+  "source": "https://app.vlm.run/dashboard",
+  "final_url": "https://app.vlm.run/sign-in?redirect_url=%2Fdashboard",
+  "status": 200,
+  "headers": {
+    "Age": "0",
+    "Cache-Control": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "Content-Security-Policy": "frame-ancestors 'self'; script-src 'self' 'nonce-78f803f81ace44baad560baea37ef00f' 'unsafe-inline' 'wasm-unsafe-eval' 'unsafe-eval' https://*.clerk.com https://*.clerk.accounts.dev https://*.clerk.services https://clerk.vlm.run https: data:; frame-src 'self' https://*.clerk.com https://*.clerk.accounts.dev https://*.clerk.services https://clerk.vlm.run https: blob: data:; connect-src 'self' https://*.clerk.com https://*.clerk.accounts.dev https://*.clerk.services https://clerk.vlm.run https: http: wss: ws: data: blob:; worker-src 'self' blob: https: data:; img-src 'self' https: http: data: blob:; style-src 'self' 'unsafe-inline' https: data:; font-src 'self' https: data:",
+    "Content-Type": "text/html; charset=utf-8",
+    "Date": "Sun, 11 Oct 2026 06:20:31 GMT",
+    "Link": "</_next/static/media/0f6d8a9ea9457c5d-s.p.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/25df6fc3fae31ad9-s.p.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/2c0cba033d89f707-s.p.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/43c4253ff97db1bd-s.p.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/4ff48e1acc89a600-s.p.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\"",
+    "Server": "Vercel",
+    "Strict-Transport-Security": "max-age=63072000",
+    "Vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch",
+    "X-Clerk-Auth-Reason": "session-token-and-uat-missing",
+    "X-Clerk-Auth-Status": "signed-out",
+    "X-Matched-Path": "/sign-in/[[...sign-in]]",
+    "X-Nonce": "78f803f81ace44baad560baea37ef00f",
+    "X-Powered-By": "Next.js",
+    "X-Vercel-Cache": "MISS",
+    "X-Vercel-Id": "sfo1::iad1::hfvdb-1791699630865-b16735d97df7",
+    "Connection": "close",
+    "Transfer-Encoding": "chunked"
+  },
+  "bytes": 40209,
+  "captured_at": "2026-10-11T06:20:31.614812+00:00"
+}

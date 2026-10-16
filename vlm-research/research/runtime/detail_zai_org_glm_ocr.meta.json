@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:53:04.167495+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/zai-org/glm-ocr",
+  "status": 200,
+  "elapsed_seconds": 1.459,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:53:04 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "38353629-f423-4bfb-a16d-a768a046cf51"
+  },
+  "response_sha256": "2a9d133da7d73962f2c776cb2fd7f9d573a3e2c7343250ec19c02e259d31c3d3",
+  "response_bytes": 722
+}

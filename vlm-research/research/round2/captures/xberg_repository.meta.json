@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:01:28.593969+00:00",
+  "url": "https://api.github.com/repos/xberg-io/xberg",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "d3ba6edae955c5be5dee579d5ae964c8c2692770e2f5bbb58e35ac473b2c70c8",
+  "response_bytes": 6433,
+  "headers": {
+    "Date": "Tue, 13 Oct 2026 03:01:29 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Server": "github.com"
+  },
+  "elapsed_seconds": 0.995
+}

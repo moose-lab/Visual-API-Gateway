@@ -1,0 +1,14 @@
+{
+  "method": "POST",
+  "url": "https://gateway.vlm.run/v1/openai/chat/completions",
+  "auth": "Bearer [REDACTED]",
+  "body": {
+    "model": "microsoft/florence-2-base-ft",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Describe this image."
+      }
+    ]
+  }
+}

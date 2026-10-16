@@ -1,0 +1,7 @@
+{
+  "method": "GET",
+  "url": "https://storage.googleapis.com/vlm-userdata-prod/files/f108387c-32c1-497a-b137-c1c38746e246/skill_viasocket_2c106acbf326.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T074752Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+  "auth": "none",
+  "body": null,
+  "headers": {}
+}

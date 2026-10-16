@@ -1,0 +1,1263 @@
+try {
+    ! function() {
+        var t = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof globalThis ? globalThis : "undefined" != typeof self ? self : {},
+            e = (new t.Error).stack;
+        e && (t._sentryDebugIds = t._sentryDebugIds || {}, t._sentryDebugIds[e] = "a18c9ca2-95e4-4834-ad5e-4c275f0660e9", t._sentryDebugIdIdentifier = "sentry-dbid-a18c9ca2-95e4-4834-ad5e-4c275f0660e9")
+    }()
+} catch (t) {}
+"use strict";
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+    [86903], {
+        37296: function(t, e, i) {
+            let r;
+            i.d(e, {
+                _Z: function() {
+                    return tR
+                },
+                cP: function() {
+                    return tN
+                },
+                xd: function() {
+                    return tU
+                }
+            });
+            var n = i(2265),
+                s = i(82957).Buffer,
+                o = Object.defineProperty,
+                a = Object.defineProperties,
+                u = Object.getOwnPropertyDescriptors,
+                c = Object.getOwnPropertySymbols,
+                h = Object.prototype.hasOwnProperty,
+                l = Object.prototype.propertyIsEnumerable,
+                d = (t, e, i) => e in t ? o(t, e, {
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                    value: i
+                }) : t[e] = i,
+                p = (t, e) => {
+                    for (var i in e || (e = {})) h.call(e, i) && d(t, i, e[i]);
+                    if (c)
+                        for (var i of c(e)) l.call(e, i) && d(t, i, e[i]);
+                    return t
+                },
+                y = (t, e) => a(t, u(e)),
+                f = "https://api.unifyintent.com/analytics/v1",
+                m = /^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$/,
+                g = ["identify", "page"];
+
+            function _(t) {
+                return !!t && "object" == typeof t && !Array.isArray(t) && g.every(e => e in t)
+            }
+
+            function v(t, e) {
+                var i;
+                return (null != (i = null == e ? void 0 : e.getTime()) ? i : new Date().getTime()) + 6e4 * t
+            }
+            var b = t => ({
+                    path: null != t ? t : window.location.pathname,
+                    query: A(window.location.href),
+                    referrer: document.referrer,
+                    title: document.title,
+                    url: void 0 !== t ? function({
+                        location: t,
+                        pathname: e
+                    }) {
+                        let i = new URL(t.href);
+                        return i.pathname = e, i.toString()
+                    }({
+                        location: window.location,
+                        pathname: t
+                    }) : window.location.href
+                }),
+                w = () => ({
+                    userAgent: window.navigator.userAgent,
+                    userAgentData: void 0 !== navigator.userAgentData ? navigator.userAgentData : void 0
+                }),
+                C = t => {
+                    if (m.test(t)) return t
+                },
+                A = t => {
+                    let e = new URL(t).searchParams,
+                        i = {};
+                    for (let [t, r] of e.entries()) i[t] = r;
+                    return i
+                };
+
+            function E(t) {
+                try {
+                    return new URL(t.startsWith("http") ? t : `https://${t}`).hostname
+                } catch (t) {
+                    return null
+                }
+            }
+
+            function S(t) {
+                var e;
+                return null != (e = t.split("@").at(1)) ? e : null
+            }
+            var I, k = () => {
+                    var t, e, i, r, n;
+                    let s = new URL(location.href),
+                        o = {
+                            source: null != (t = s.searchParams.get("utm_source")) ? t : void 0,
+                            medium: null != (e = s.searchParams.get("utm_medium")) ? e : void 0,
+                            campaign: null != (i = s.searchParams.get("utm_campaign")) ? i : void 0,
+                            term: null != (r = s.searchParams.get("utm_term")) ? r : void 0,
+                            content: null != (n = s.searchParams.get("utm_content")) ? n : void 0
+                        };
+                    return y(p({
+                        locale: navigator.language
+                    }, w()), {
+                        utm: o
+                    })
+                },
+                T = class {
+                    constructor(t) {
+                        this.getBaseActivityPayload = () => ({
+                            type: this.getActivityType(),
+                            visitorId: this._intentContext.identityManager.getOrCreateVisitorId(),
+                            sessionId: this._intentContext.sessionManager.getOrCreateSession().sessionId,
+                            context: k(),
+                            timestamp: new Date().toISOString()
+                        }), this._intentContext = t
+                    }
+                    track() {
+                        this._intentContext.apiClient.post(this.getActivityURL(), this.getTrackPayload())
+                    }
+                    getTrackPayload() {
+                        return p(p({}, this.getBaseActivityPayload()), this.getActivityData())
+                    }
+                },
+                P = `${f}/page`,
+                x = class extends T {
+                    constructor(t, e) {
+                        super(t), this.getActivityData = () => {
+                            var t;
+                            return {
+                                type: "page",
+                                properties: b(null == (t = this._options) ? void 0 : t.pathname)
+                            }
+                        }, this._options = e
+                    }
+                    getActivityType() {
+                        return "page"
+                    }
+                    getActivityURL() {
+                        return P
+                    }
+                },
+                M = `${f}/identify`,
+                O = class extends T {
+                    constructor(t, {
+                        email: e,
+                        person: i,
+                        company: r
+                    }) {
+                        super(t), this.getActivityData = () => {
+                            var t;
+                            let e = this._company && E(null == (t = this._company) ? void 0 : t.domain),
+                                i = S(this._email),
+                                r = e && e === i ? this._company : void 0;
+                            return p({
+                                type: "identify",
+                                person: y(p({}, this._person), {
+                                    email: this._email
+                                })
+                            }, r && {
+                                company: this._company
+                            })
+                        }, this._email = e, this._person = i, this._company = r
+                    }
+                    getActivityType() {
+                        return "identify"
+                    }
+                    getActivityURL() {
+                        return M
+                    }
+                },
+                U = `${f}/track`,
+                D = class extends T {
+                    constructor(t, {
+                        name: e,
+                        properties: i
+                    }) {
+                        super(t), this.getActivityData = () => ({
+                            type: "track",
+                            name: this._name,
+                            properties: p(p({}, b()), this._properties)
+                        }), this._name = e, this._properties = i
+                    }
+                    getActivityType() {
+                        return "track"
+                    }
+                    getActivityURL() {
+                        return U
+                    }
+                },
+                R = new Uint8Array(16),
+                N = [];
+            for (let t = 0; t < 256; ++t) N.push((t + 256).toString(16).slice(1));
+            var L = {
+                    randomUUID: "undefined" != typeof crypto && crypto.randomUUID && crypto.randomUUID.bind(crypto)
+                },
+                K = function(t, e, i) {
+                    if (L.randomUUID && !e && !t) return L.randomUUID();
+                    let r = (t = t || {}).random || (t.rng || function() {
+                        if (!I && !(I = "undefined" != typeof crypto && crypto.getRandomValues && crypto.getRandomValues.bind(crypto))) throw Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
+                        return I(R)
+                    })();
+                    if (r[6] = 15 & r[6] | 64, r[8] = 63 & r[8] | 128, e) {
+                        i = i || 0;
+                        for (let t = 0; t < 16; ++t) e[i + t] = r[t];
+                        return e
+                    }
+                    return function(t, e = 0) {
+                        return N[t[e + 0]] + N[t[e + 1]] + N[t[e + 2]] + N[t[e + 3]] + "-" + N[t[e + 4]] + N[t[e + 5]] + "-" + N[t[e + 6]] + N[t[e + 7]] + "-" + N[t[e + 8]] + N[t[e + 9]] + "-" + N[t[e + 10]] + N[t[e + 11]] + N[t[e + 12]] + N[t[e + 13]] + N[t[e + 14]] + N[t[e + 15]]
+                    }(r)
+                };
+
+            function F(t) {
+                for (var e = 1; e < arguments.length; e++) {
+                    var i = arguments[e];
+                    for (var r in i) t[r] = i[r]
+                }
+                return t
+            }
+            var j = function t(e, i) {
+                    function r(t, r, n) {
+                        if ("undefined" != typeof document) {
+                            "number" == typeof(n = F({}, i, n)).expires && (n.expires = new Date(Date.now() + 864e5 * n.expires)), n.expires && (n.expires = n.expires.toUTCString()), t = encodeURIComponent(t).replace(/%(2[346B]|5E|60|7C)/g, decodeURIComponent).replace(/[()]/g, escape);
+                            var s = "";
+                            for (var o in n) n[o] && (s += "; " + o, !0 !== n[o] && (s += "=" + n[o].split(";")[0]));
+                            return document.cookie = t + "=" + e.write(r, t) + s
+                        }
+                    }
+                    return Object.create({
+                        set: r,
+                        get: function(t) {
+                            if (!("undefined" == typeof document || arguments.length && !t)) {
+                                for (var i = document.cookie ? document.cookie.split("; ") : [], r = {}, n = 0; n < i.length; n++) {
+                                    var s = i[n].split("="),
+                                        o = s.slice(1).join("=");
+                                    try {
+                                        var a = decodeURIComponent(s[0]);
+                                        if (r[a] = e.read(o, a), t === a) break
+                                    } catch (t) {}
+                                }
+                                return t ? r[t] : r
+                            }
+                        },
+                        remove: function(t, e) {
+                            r(t, "", F({}, e, {
+                                expires: -1
+                            }))
+                        },
+                        withAttributes: function(e) {
+                            return t(this.converter, F({}, this.attributes, e))
+                        },
+                        withConverter: function(e) {
+                            return t(F({}, this.converter, e), this.attributes)
+                        }
+                    }, {
+                        attributes: {
+                            value: Object.freeze(i)
+                        },
+                        converter: {
+                            value: Object.freeze(e)
+                        }
+                    })
+                }({
+                    read: function(t) {
+                        return '"' === t[0] && (t = t.slice(1, -1)), t.replace(/(%[\dA-F]{2})+/gi, decodeURIComponent)
+                    },
+                    write: function(t) {
+                        return encodeURIComponent(t).replace(/%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g, decodeURIComponent)
+                    }
+                }, {
+                    path: "/"
+                }),
+                V = "function" == typeof s,
+                B = "function" == typeof TextDecoder ? new TextDecoder : void 0,
+                $ = "function" == typeof TextEncoder ? new TextEncoder : void 0,
+                H = Array.prototype.slice.call("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="),
+                z = (r = {}, H.forEach((t, e) => r[t] = e), r),
+                Y = /^(?:[A-Za-z\d+\/]{4})*?(?:[A-Za-z\d+\/]{2}(?:==)?|[A-Za-z\d+\/]{3}=?)?$/,
+                Z = String.fromCharCode.bind(String),
+                G = "function" == typeof Uint8Array.from ? Uint8Array.from.bind(Uint8Array) : t => new Uint8Array(Array.prototype.slice.call(t, 0)),
+                q = t => t.replace(/=/g, "").replace(/[+\/]/g, t => "+" == t ? "-" : "_"),
+                J = t => t.replace(/[^A-Za-z0-9\+\/]/g, ""),
+                W = "function" == typeof btoa ? t => btoa(t) : V ? t => s.from(t, "binary").toString("base64") : t => {
+                    let e, i, r, n, s = "",
+                        o = t.length % 3;
+                    for (let o = 0; o < t.length;) {
+                        if ((i = t.charCodeAt(o++)) > 255 || (r = t.charCodeAt(o++)) > 255 || (n = t.charCodeAt(o++)) > 255) throw TypeError("invalid character found");
+                        s += H[(e = i << 16 | r << 8 | n) >> 18 & 63] + H[e >> 12 & 63] + H[e >> 6 & 63] + H[63 & e]
+                    }
+                    return o ? s.slice(0, o - 3) + "===".substring(o) : s
+                },
+                X = V ? t => s.from(t).toString("base64") : t => {
+                    let e = [];
+                    for (let i = 0, r = t.length; i < r; i += 4096) e.push(Z.apply(null, t.subarray(i, i + 4096)));
+                    return W(e.join(""))
+                },
+                Q = t => {
+                    if (t.length < 2) {
+                        var e = t.charCodeAt(0);
+                        return e < 128 ? t : e < 2048 ? Z(192 | e >>> 6) + Z(128 | 63 & e) : Z(224 | e >>> 12 & 15) + Z(128 | e >>> 6 & 63) + Z(128 | 63 & e)
+                    }
+                    var e = 65536 + (t.charCodeAt(0) - 55296) * 1024 + (t.charCodeAt(1) - 56320);
+                    return Z(240 | e >>> 18 & 7) + Z(128 | e >>> 12 & 63) + Z(128 | e >>> 6 & 63) + Z(128 | 63 & e)
+                },
+                tt = /[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x00-\x7F]/g,
+                te = t => t.replace(tt, Q),
+                ti = V ? t => s.from(t, "utf8").toString("base64") : $ ? t => X($.encode(t)) : t => W(te(t)),
+                tr = (t, e = !1) => e ? q(ti(t)) : ti(t),
+                tn = /[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3}/g,
+                ts = t => {
+                    switch (t.length) {
+                        case 4:
+                            var e = ((7 & t.charCodeAt(0)) << 18 | (63 & t.charCodeAt(1)) << 12 | (63 & t.charCodeAt(2)) << 6 | 63 & t.charCodeAt(3)) - 65536;
+                            return Z((e >>> 10) + 55296) + Z((1023 & e) + 56320);
+                        case 3:
+                            return Z((15 & t.charCodeAt(0)) << 12 | (63 & t.charCodeAt(1)) << 6 | 63 & t.charCodeAt(2));
+                        default:
+                            return Z((31 & t.charCodeAt(0)) << 6 | 63 & t.charCodeAt(1))
+                    }
+                },
+                to = t => t.replace(tn, ts),
+                ta = "function" == typeof atob ? t => atob(J(t)) : V ? t => s.from(t, "base64").toString("binary") : t => {
+                    if (t = t.replace(/\s+/g, ""), !Y.test(t)) throw TypeError("malformed base64.");
+                    t += "==".slice(2 - (3 & t.length));
+                    let e, i = "",
+                        r, n;
+                    for (let s = 0; s < t.length;) e = z[t.charAt(s++)] << 18 | z[t.charAt(s++)] << 12 | (r = z[t.charAt(s++)]) << 6 | (n = z[t.charAt(s++)]), i += 64 === r ? Z(e >> 16 & 255) : 64 === n ? Z(e >> 16 & 255, e >> 8 & 255) : Z(e >> 16 & 255, e >> 8 & 255, 255 & e);
+                    return i
+                },
+                tu = V ? t => G(s.from(t, "base64")) : t => G(ta(t).split("").map(t => t.charCodeAt(0))),
+                tc = V ? t => s.from(t, "base64").toString("utf8") : B ? t => B.decode(tu(t)) : t => to(ta(t)),
+                th = t => J(t.replace(/[-_]/g, t => "-" == t ? "+" : "/")),
+                tl = t => tc(th(t)),
+                td = "test";
+
+            function tp(t) {
+                try {
+                    return JSON.parse(t)
+                } catch (e) {
+                    return t
+                }
+            }
+
+            function ty(t) {
+                return tr(JSON.stringify(t))
+            }
+            var tf = class {
+                    constructor(t) {
+                        this.get = t => {
+                            let e = this.retrieveValue(t);
+                            return e ? tp(e) : this.legacyGet(t)
+                        }, this.legacyGet = t => {
+                            let e = this.retrieveValue(this.buildKey(t));
+                            return e ? tp(tl(e)) : null
+                        }, this.set = (t, e) => {
+                            this.storeValue(t, "string" == typeof e ? e : JSON.stringify(e)), this.legacySet(t, e)
+                        }, this.legacySet = (t, e) => {
+                            this.storeValue(this.buildKey(t), ty(e))
+                        }, this.buildKey = t => ty(`${this._writeKey}_${t}`), this._writeKey = t
+                    }
+                },
+                tm = class extends tf {
+                    retrieveValue(t) {
+                        var e;
+                        let i = null != (e = j.get(t)) ? e : null;
+                        return i && this.storeValue(t, i), i
+                    }
+                    storeValue(t, e) {
+                        j.set(t, e, {
+                            domain: `.${(0,window.location.hostname).split(".").slice(-2).join(".")}`,
+                            expires: 400
+                        })
+                    }
+                },
+                tg = class extends tf {
+                    constructor(t) {
+                        super(t), this.retrieveValue = t => this._localStorageAvailable ? localStorage.getItem(t) : null, this.storeValue = (t, e) => {
+                            this._localStorageAvailable && localStorage.setItem(t, e)
+                        }, this._localStorageAvailable = function() {
+                            try {
+                                return localStorage.setItem(td, td), localStorage.removeItem(td), !0
+                            } catch (t) {
+                                return !1
+                            }
+                        }()
+                    }
+                },
+                t_ = "unify_visitor_id",
+                tv = class {
+                    constructor(t) {
+                        this.getOrCreateVisitorId = () => {
+                            if (this._visitorId) return this._visitorId;
+                            let t = this.getVisitorId() || this.createVisitorId();
+                            return this._visitorId = t, t
+                        }, this.getVisitorId = () => {
+                            let t = this._storageService.get(t_);
+                            if (t) return t;
+                            let e = this._storageService.get("anonymousUserId");
+                            return e && this._storageService.set(t_, e), e
+                        }, this.createVisitorId = () => {
+                            let t = K();
+                            return this._storageService.set(t_, t), t
+                        }, this._storageService = new tm(t), this._visitorId = null
+                    }
+                },
+                tb = {
+                    durationMinutes: 30
+                },
+                tw = "unify_session",
+                tC = class {
+                    constructor(t, e) {
+                        this.getOrCreateSession = () => this.getAndUpdateSession() || this.createSession(), this.getAndUpdateSession = () => {
+                            let t = this._currentSession || this.getStoredSession();
+                            if (t && t.expiration > new Date().getTime()) return this.updateSessionExpiration(t)
+                        }, this.createSession = () => {
+                            var t;
+                            let e = p({
+                                sessionId: K(),
+                                startTime: new Date,
+                                expiration: v(null != (t = this._options.durationMinutes) ? t : 30),
+                                initial: b()
+                            }, w());
+                            return this._currentSession = e, this.setStoredSession(e), e
+                        }, this.updateSessionExpiration = t => {
+                            var e;
+                            let i = y(p({}, t), {
+                                expiration: v(null != (e = this._options.durationMinutes) ? e : 30)
+                            });
+                            return this._currentSession = i, this.setStoredSession(i), i
+                        }, this.getStoredSession = () => {
+                            let t = this._storageService.get(tw);
+                            if (t) return t;
+                            let e = this._storageService.get("clientSession");
+                            return e && this.setStoredSession(e), e
+                        }, this.setStoredSession = t => {
+                            this._storageService.set(tw, t), this._cookieStorageService.set("unify_session_id", t.sessionId)
+                        }, this._writeKey = t, this._options = null != e ? e : tb, this._storageService = new tg(this._writeKey), this._cookieStorageService = new tm(this._writeKey), this._currentSession = null
+                    }
+                },
+                tA = class {
+                    constructor(t) {
+                        this.post = (t, e) => {
+                            let i = JSON.stringify(e);
+                            if (fetch) fetch(t, {
+                                method: "POST",
+                                body: i,
+                                headers: {
+                                    "Content-type": "application/json; charset=UTF-8",
+                                    "X-Write-Key": this._writeKey
+                                },
+                                keepalive: !0
+                            }).catch(() => {});
+                            else {
+                                let e = new XMLHttpRequest;
+                                e.open("POST", t, !0), e.setRequestHeader("Content-type", "application/json; charset=UTF-8"), e.setRequestHeader("X-Write-Key", this._writeKey), e.send(i)
+                            }
+                        }, this._writeKey = t
+                    }
+                };
+
+            function tE({
+                message: t,
+                error: e,
+                attrs: i,
+                apiClient: r
+            }) {
+                console.debug(`%c[Unify]: %c${t}${e?`: ${e.message}`:""}${i?`, data: ${JSON.stringify(i)}`:""}`, "font-weight: bold;", "");
+                let n = i && Object.entries(i).reduce((t, [e, i]) => y(p({}, t), {
+                    [e]: "string" == typeof i ? i : JSON.stringify(i)
+                }), {});
+                null == r || r.post("https://api.unifyintent.com/analytics/v1/_internal/logs", {
+                    status: "error",
+                    message: t,
+                    attrs: n,
+                    name: null == e ? void 0 : e.name,
+                    stack: null == e ? void 0 : e.stack,
+                    version: "1.5.0"
+                })
+            }
+            var tS = "unifyAttr",
+                tI = ["default.form_completed", "deafult.form_page_submitted", "default.form_page_submitted"];
+
+            function tk(t) {
+                return tI.includes(t.event)
+            }
+
+            function tT(t, e, i) {
+                var r, n;
+                return null != (n = null == (r = i.find(({
+                    object: i,
+                    name: r
+                }) => i === e && r === t)) ? void 0 : r.value) ? n : null
+            }
+
+            function tP(t, e = 80) {
+                if (!t) return null;
+                let i = t.replace(/\s+/g, " ").trim();
+                return i ? i.length > e ? i.slice(0, e - 1) + "..." : i : null
+            }
+
+            function tx(t) {
+                return t.innerText || t.textContent || ""
+            }
+            var tM = class {
+                    constructor(t) {
+                        var e, i;
+                        this._monitoredInputs = new Set, this._submittedEmails = new Set, this._historyMonitored = !1, this._isTrackingClicks = !1, this.startAutoPage = () => {
+                            this._historyMonitored || this.monitorHistory(), this._autoPage = !0
+                        }, this.stopAutoPage = () => {
+                            this._historyMonitored && window.removeEventListener("popstate", this.maybeTrackPage), this._autoPage = !1
+                        }, this.startAutoIdentify = () => {
+                            this._autoIdentify = !0, this.refreshMonitoredInputs(), setInterval(this.refreshMonitoredInputs, 2e3), this.subscribeToThirdPartyMessages()
+                        }, this.stopAutoIdentify = () => {
+                            this._monitoredInputs.forEach(t => {
+                                t.isConnected && (t.removeEventListener("blur", this.handleInputBlur), t.removeEventListener("keydown", this.handleInputKeydown))
+                            }), this._monitoredInputs.clear(), this.unsubscribeFromThirdPartyMessages(), this._autoIdentify = !1
+                        }, this.startAutoTrack = t => {
+                            t && (this._autoTrackOptions = t), this.startTrackingClicks()
+                        }, this.stopAutoTrack = () => {
+                            this.stopTrackingClicks()
+                        }, this.monitorHistory = () => {
+                            try {
+                                let t = history.pushState;
+                                history.pushState = (...e) => {
+                                    t.apply(history, e), this.maybeTrackPage()
+                                };
+                                let e = history.replaceState;
+                                history.replaceState = (...t) => {
+                                    e.apply(history, t), this.maybeTrackPage()
+                                }, window.addEventListener("popstate", this.maybeTrackPage), this._historyMonitored = !0
+                            } catch (t) {
+                                this.logError("Error occurred in monitorHistory", t)
+                            }
+                        }, this.maybeTrackPage = () => {
+                            if (this._autoPage) try {
+                                var t, e;
+                                this._lastLocation && (t = this._lastLocation, e = window.location, t.hostname === e.hostname && t.pathname === e.pathname) || (new x(this._intentContext).track(), this._lastLocation = p({}, window.location))
+                            } catch (t) {
+                                this.logError("Error occurred in maybeTrackPage", t)
+                            }
+                        }, this.startTrackingClicks = () => {
+                            this._isTrackingClicks || (document.addEventListener("click", this.handleDocumentClick), this._isTrackingClicks = !0)
+                        }, this.stopTrackingClicks = () => {
+                            this._isTrackingClicks && (document.removeEventListener("click", this.handleDocumentClick), this._isTrackingClicks = !1)
+                        }, this.handleDocumentClick = t => {
+                            var e;
+                            try {
+                                let i = t.target;
+                                if (!i) return;
+                                let r = ["[data-unify-track-clicks]", ...null != (e = this._autoTrackOptions.clickTrackingSelectors) ? e : []],
+                                    n = i.closest(r.join(", "));
+                                if (!n || !(n instanceof HTMLElement)) return;
+                                this.maybeTrackClick(n)
+                            } catch (t) {
+                                this.logError("Error occurred in handleDocumentClick", t)
+                            }
+                        }, this.refreshMonitoredInputs = () => {
+                            if (this._autoIdentify) try {
+                                this._monitoredInputs.forEach(t => {
+                                    t.isConnected || this._monitoredInputs.delete(t)
+                                }), Array.from(document.getElementsByTagName("input")).filter(t => !this._monitoredInputs.has(t) && ("email" === t.type || "text" === t.type)).forEach(t => {
+                                    t.addEventListener("blur", this.handleInputBlur), t.addEventListener("keydown", this.handleInputKeydown), this._monitoredInputs.add(t)
+                                })
+                            } catch (t) {
+                                this.logError("Error occurred in refreshMonitoredInputs", t)
+                            }
+                        }, this.subscribeToThirdPartyMessages = () => {
+                            window.addEventListener("message", this.handleThirdPartyMessage)
+                        }, this.unsubscribeFromThirdPartyMessages = () => {
+                            window.removeEventListener("message", this.handleThirdPartyMessage)
+                        }, this.handleThirdPartyMessage = t => {
+                            if (this._autoIdentify) try {
+                                switch (t.origin) {
+                                    case "https://forms.default.com":
+                                        this.handleDefaultFormMessage(t);
+                                        break;
+                                    case "https://capture.navattic.com":
+                                        this.handleNavatticDemoMessage(t)
+                                }
+                            } catch (t) {
+                                this.logError("Error occurred in handleThirdPartyMessage", t)
+                            }
+                        }, this.handleDefaultFormMessage = t => {
+                            if (this._autoIdentify) try {
+                                if (tk(t.data)) {
+                                    let e = t.data.payload.email;
+                                    e && this.maybeIdentifyInputEmail(e, function(t, e) {
+                                        if (tk(t)) try {
+                                            let {
+                                                email: e,
+                                                attributes: i
+                                            } = t.payload, r = p({
+                                                email: e
+                                            }, i && p(p(p(p({}, i.first_name && {
+                                                first_name: i.first_name
+                                            }), i.last_name && {
+                                                last_name: i.last_name
+                                            }), i.phone && {
+                                                mobile_phone: i.phone
+                                            }), i.title && {
+                                                title: i.title
+                                            })), n = null != i && i.website ? E(i.website) : null, s;
+                                            if (n && n === S(e)) {
+                                                let t = i && !isNaN(Number(i.head_count)) ? Number(i.head_count) : void 0;
+                                                s = p({
+                                                    domain: n
+                                                }, i && p(p(p({}, i.company && {
+                                                    name: i.company
+                                                }), i.industry_group && {
+                                                    industry: i.industry_group
+                                                }), t && {
+                                                    employee_count: t
+                                                }))
+                                            }
+                                            return p({
+                                                person: r
+                                            }, s && {
+                                                company: s
+                                            })
+                                        } catch (t) {
+                                            tE({
+                                                message: `Error occurred while parsing attributes from Default event payload: ${t}`,
+                                                error: t,
+                                                apiClient: e
+                                            });
+                                            return
+                                        }
+                                    }(t.data, this._intentContext.apiClient))
+                                }
+                            } catch (t) {
+                                this.logError("Error occurred in handleDefaultFormMessage", t)
+                            }
+                        }, this.handleNavatticDemoMessage = t => {
+                            var e, i;
+                            if (this._autoIdentify) try {
+                                let r = (null != (i = null == (e = t.data) ? void 0 : e.properties) ? i : []).find(({
+                                    object: t,
+                                    name: e
+                                }) => "END_USER" === t && "email" === e);
+                                r && this.maybeIdentifyInputEmail(r.value, function(t, e) {
+                                    var i, r, n, s, o;
+                                    try {
+                                        let e = null != (i = t.properties) ? i : [],
+                                            a = tT("email", "END_USER", e);
+                                        if (!a) return;
+                                        let u = tT("fullName", "END_USER", e),
+                                            c = u ? u.split(" ")[0] : tT("firstName", "END_USER", e),
+                                            h = u ? u.split(" ")[1] : tT("lastName", "END_USER", e),
+                                            l = tT("phone", "END_USER", e),
+                                            d = p(p(p({
+                                                email: a
+                                            }, c && {
+                                                first_name: c
+                                            }), h && {
+                                                last_name: h
+                                            }), l && {
+                                                mobile_phone: l
+                                            }),
+                                            y = tT("domain", "COMPANY_ACCOUNT", e),
+                                            f = y ? E(y) : null,
+                                            m;
+                                        if (f && f === S(a)) {
+                                            let t = null != (r = tT("name", "COMPANY_ACCOUNT", e)) ? r : void 0,
+                                                i = null != (n = tT("description", "COMPANY_ACCOUNT", e)) ? n : void 0,
+                                                a = null != (s = tT("linkedin", "COMPANY_ACCOUNT", e)) ? s : void 0,
+                                                u = tT("industry", "COMPANY_ACCOUNT", e),
+                                                c = tT("foundedYear", "COMPANY_ACCOUNT", e),
+                                                h = null != (o = tT("employeeCount", "COMPANY_ACCOUNT", e)) ? o : void 0,
+                                                l = isNaN(Number(h)) ? void 0 : Number(h);
+                                            m = p(p(p(p(p(p({
+                                                domain: f
+                                            }, t && {
+                                                name: t
+                                            }), i && {
+                                                description: i
+                                            }), a && {
+                                                linkedin_url: a
+                                            }), u && {
+                                                industry: u
+                                            }), c && {
+                                                founded: c
+                                            }), l && {
+                                                employee_count: l
+                                            })
+                                        }
+                                        return p({
+                                            person: d
+                                        }, m && {
+                                            company: m
+                                        })
+                                    } catch (t) {
+                                        tE({
+                                            message: `Error occurred while parsing attributes from Navattic event payload: ${t}`,
+                                            error: t,
+                                            apiClient: e
+                                        });
+                                        return
+                                    }
+                                }(t.data, this._intentContext.apiClient))
+                            } catch (t) {
+                                this.logError("Error occurred in handleNavatticDemoMessage", t)
+                            }
+                        }, this.handleInputBlur = t => {
+                            if (this._autoIdentify) try {
+                                t.target instanceof HTMLInputElement && this.maybeIdentifyInputEmail(t.target.value)
+                            } catch (t) {
+                                this.logError("Error occurred in handleInputBlur", t)
+                            }
+                        }, this.handleInputKeydown = t => {
+                            if (this._autoIdentify) try {
+                                "Enter" === t.key && t.target instanceof HTMLInputElement && this.maybeIdentifyInputEmail(t.target.value)
+                            } catch (t) {
+                                this.logError("Error occurred in handleInputKeyDown", t)
+                            }
+                        }, this.maybeIdentifyInputEmail = (t, e) => {
+                            if (this._autoIdentify) try {
+                                if (t) {
+                                    if (!C(t) || this._submittedEmails.has(t)) return;
+                                    new O(this._intentContext, {
+                                        email: t,
+                                        person: null == e ? void 0 : e.person,
+                                        company: null == e ? void 0 : e.company
+                                    }).track(), this._submittedEmails.add(t)
+                                }
+                            } catch (t) {
+                                this.logError("Error occurred in maybeIdentifyInputEmail", t)
+                            }
+                        }, this.maybeTrackClick = t => {
+                            try {
+                                if (!(t instanceof HTMLElement) || function(t) {
+                                        if (!(t instanceof HTMLElement)) return !1;
+                                        if (t.hidden || "true" === t.getAttribute("aria-hidden")) return !0;
+                                        let e = getComputedStyle(t);
+                                        return "none" === e.display || "hidden" === e.visibility
+                                    }(t) || t.matches(":disabled") || "true" === t.getAttribute("aria-disabled") || t.classList.contains("disabled") || function(t, e) {
+                                        if (!(t instanceof HTMLElement)) return !1;
+                                        let {
+                                            dataset: i
+                                        } = t;
+                                        return !!i[e]
+                                    }(t, "unifyExclude")) return;
+                                let e = function(t) {
+                                    let e, i, r = function(t, e) {
+                                        if (!(t instanceof HTMLElement)) return null;
+                                        let {
+                                            dataset: i
+                                        } = t;
+                                        return i[e] ? String(i[e]) : null
+                                    }(t, "unifyLabel");
+                                    if (r) return r;
+                                    let n = tx(t);
+                                    if (n) return tP(n);
+                                    let s = t.getAttribute("aria-label");
+                                    if (s) return tP(s);
+                                    let o = (e = t.getAttribute("aria-labelledby")) ? e.split(/\s+/).map(t => {
+                                        let e = document.getElementById(t);
+                                        return e ? tx(e) : null
+                                    }).filter(t => !!t).join(" ") : null;
+                                    if (o) return tP(o);
+                                    let a = (i = t.querySelector("img[alt]"), (null == i ? void 0 : i.alt) || null);
+                                    return a ? tP(a) : null
+                                }(t);
+                                if (!e) return;
+                                let i = function(t) {
+                                    if (!(t instanceof HTMLElement)) return {};
+                                    let e = {};
+                                    return Object.entries(t.dataset).forEach(([t, i]) => {
+                                        if (t.startsWith(tS) && i) {
+                                            let r = t.slice(tS.length);
+                                            r && (e[`${r.charAt(0).toLowerCase()}${r.slice(1)}`] = i)
+                                        }
+                                    }), e
+                                }(t);
+                                new D(this._intentContext, {
+                                    name: "Element Clicked",
+                                    properties: y(p({}, i), {
+                                        elementName: e,
+                                        wasAutoTracked: !0
+                                    })
+                                }).track()
+                            } catch (t) {
+                                this.logError("Error occurred in maybeTrackClick", t)
+                            }
+                        }, this.logError = (t, e) => {
+                            tE({
+                                message: `UnifyIntentAgent: ${t}`,
+                                error: e,
+                                apiClient: this._intentContext.apiClient
+                            })
+                        }, this.__getMonitoredInputs = () => this._monitoredInputs, this.__getSubmittedEmails = () => this._submittedEmails, this._intentContext = t, this._autoPage = null != (e = t.clientConfig.autoPage) && e, this._autoIdentify = null != (i = t.clientConfig.autoIdentify) && i, this._autoTrackOptions = p({}, t.clientConfig.autoTrackOptions), this._autoPage && (this.startAutoPage(), this.maybeTrackPage()), this._autoIdentify && this.startAutoIdentify(), this.startAutoTrack()
+                    }
+                },
+                tO = {
+                    autoPage: !1,
+                    autoIdentify: !1,
+                    sessionDurationMinutes: 30
+                },
+                tU = class {
+                    constructor(t, e = tO) {
+                        this._mounted = !1, this.mount = () => {
+                            if ("undefined" != typeof window) try {
+                                var t;
+                                if (_(window.unify) || _(window.unifyBrowser)) {
+                                    tE({
+                                        message: "UnifyIntentClient already exists on window, a new one will not be created."
+                                    });
+                                    return
+                                }
+                                let e = new tA(this._writeKey),
+                                    i = new tC(this._writeKey, {
+                                        durationMinutes: this._config.sessionDurationMinutes
+                                    });
+                                i.getOrCreateSession();
+                                let r = new tv(this._writeKey);
+                                r.getOrCreateVisitorId(), this._context = {
+                                    writeKey: this._writeKey,
+                                    clientConfig: this._config,
+                                    apiClient: e,
+                                    sessionManager: i,
+                                    identityManager: r
+                                }, this._intentAgent = new tM(this._context), this._mounted = !0, t = this, (Array.isArray(window.unify) ? [...window.unify] : Array.isArray(window.unifyBrowser) ? [...window.unifyBrowser] : []).forEach(([i, r]) => {
+                                    if ("function" == typeof t[i]) try {
+                                        Array.isArray(r) ? t[i].call(t, ...r) : t[i].call(t)
+                                    } catch (t) {
+                                        tE({
+                                            message: `Error occurred while flushing queue: ${null==t?void 0:t.message}`,
+                                            error: t,
+                                            apiClient: e
+                                        })
+                                    }
+                                }), window.unify = this, window.unifyBrowser = this
+                            } catch (t) {
+                                this.logError("Error occurred in mount", t)
+                            }
+                        }, this.unmount = () => {
+                            if ("undefined" != typeof window) try {
+                                this._config.autoPage && this.stopAutoPage(), this._config.autoIdentify && this.stopAutoIdentify(), this.stopAutoTrack(), this._mounted = !1, window.unify = void 0, window.unifyBrowser = void 0
+                            } catch (t) {
+                                this.logError("Error occurred in unmount", t)
+                            }
+                        }, this.page = t => {
+                            if (this._mounted) try {
+                                new x(this._context, t).track()
+                            } catch (t) {
+                                this.logError("Error occurred in page", t)
+                            }
+                        }, this.getPagePayload = t => {
+                            if (this._mounted) try {
+                                return new x(this._context, t).getTrackPayload()
+                            } catch (t) {
+                                this.logError("Error occurred in getPagePayload", t)
+                            }
+                        }, this.identify = (t, e) => {
+                            if (!this._mounted) return !1;
+                            try {
+                                let i = C(t);
+                                if (i) return new O(this._context, {
+                                    email: i,
+                                    person: null == e ? void 0 : e.person,
+                                    company: null == e ? void 0 : e.company
+                                }).track(), !0
+                            } catch (t) {
+                                this.logError("Error occurred in identify", t)
+                            }
+                            return !1
+                        }, this.getIdentifyPayload = (t, e) => {
+                            if (!this._mounted) return !1;
+                            try {
+                                let i = C(t);
+                                if (i) return new O(this._context, {
+                                    email: i,
+                                    person: null == e ? void 0 : e.person,
+                                    company: null == e ? void 0 : e.company
+                                }).getTrackPayload()
+                            } catch (t) {
+                                this.logError("Error occurred in getIdentifyPayload", t)
+                            }
+                        }, this.track = (t, e) => {
+                            if (this._mounted) try {
+                                new D(this._context, {
+                                    name: t,
+                                    properties: e
+                                }).track()
+                            } catch (t) {
+                                this.logError("Error occurred in track", t)
+                            }
+                        }, this.getTrackPayload = (t, e) => {
+                            if (this._mounted) try {
+                                return new D(this._context, {
+                                    name: t,
+                                    properties: e
+                                }).getTrackPayload()
+                            } catch (t) {
+                                this.logError("Error occurred in getTrackPayload", t)
+                            }
+                        }, this.startAutoPage = () => {
+                            if (this._mounted) try {
+                                this._intentAgent || (this._intentAgent = new tM(this._context)), this._intentAgent.startAutoPage()
+                            } catch (t) {
+                                this.logError("Error occurred in startAutoPage", t)
+                            }
+                        }, this.stopAutoPage = () => {
+                            var t;
+                            if (this._mounted) try {
+                                null == (t = this._intentAgent) || t.stopAutoPage()
+                            } catch (t) {
+                                this.logError("Error occurred in stopAutoPage", t)
+                            }
+                        }, this.startAutoIdentify = () => {
+                            if (this._mounted) try {
+                                this._intentAgent || (this._intentAgent = new tM(this._context)), this._intentAgent.startAutoIdentify()
+                            } catch (t) {
+                                this.logError("Error occurred in startAutoIdentify", t)
+                            }
+                        }, this.stopAutoIdentify = () => {
+                            var t;
+                            if (this._mounted) try {
+                                null == (t = this._intentAgent) || t.stopAutoIdentify()
+                            } catch (t) {
+                                this.logError("Error occurred in stopAutoIdentify", t)
+                            }
+                        }, this.startAutoTrack = t => {
+                            if (this._mounted) try {
+                                t && (this._config.autoTrackOptions = t), this._intentAgent || (this._intentAgent = new tM(this._context)), this._intentAgent.startAutoTrack(t)
+                            } catch (t) {
+                                this.logError("Error occurred in startAutoTrack", t)
+                            }
+                        }, this.stopAutoTrack = () => {
+                            var t;
+                            if (this._mounted) try {
+                                null == (t = this._intentAgent) || t.stopAutoTrack()
+                            } catch (t) {
+                                this.logError("Error occurred in stopAutoTrack", t)
+                            }
+                        }, this.logError = (t, e) => {
+                            tE({
+                                message: `UnifyIntentClient: ${t}`,
+                                error: e,
+                                apiClient: this._context.apiClient
+                            })
+                        }, this._writeKey = t, this._config = e
+                    }
+                },
+                tD = n.createContext({
+                    client: null
+                });
+            tD.displayName = "UnifyIntentContext";
+            var tR = ({
+                    intentClient: t,
+                    children: e
+                }) => {
+                    let [i] = (0, n.useState)(t);
+                    return (0, n.useEffect)(() => (i.mount(), () => {
+                        i.unmount()
+                    }), []), n.createElement(tD.Provider, {
+                        value: {
+                            client: i
+                        }
+                    }, e)
+                },
+                tN = function() {
+                    let {
+                        client: t
+                    } = (0, n.useContext)(tD);
+                    if (null === t) throw Error("useUnifyIntent can only be used within a UnifyIntentProvider.");
+                    return t
+                }
+        },
+        99376: function(t, e, i) {
+            var r = i(35475);
+            i.o(r, "useParams") && i.d(e, {
+                useParams: function() {
+                    return r.useParams
+                }
+            }), i.o(r, "usePathname") && i.d(e, {
+                usePathname: function() {
+                    return r.usePathname
+                }
+            }), i.o(r, "useRouter") && i.d(e, {
+                useRouter: function() {
+                    return r.useRouter
+                }
+            }), i.o(r, "useSearchParams") && i.d(e, {
+                useSearchParams: function() {
+                    return r.useSearchParams
+                }
+            }), i.o(r, "useSelectedLayoutSegments") && i.d(e, {
+                useSelectedLayoutSegments: function() {
+                    return r.useSelectedLayoutSegments
+                }
+            })
+        },
+        2894: function(t, e, i) {
+            i.d(e, {
+                R: function() {
+                    return a
+                },
+                m: function() {
+                    return o
+                }
+            });
+            var r = i(18238),
+                n = i(7989),
+                s = i(11255),
+                o = class extends n.F {
+                    #t;
+                    #e;
+                    #i;
+                    #r;
+                    constructor(t) {
+                        super(), this.#t = t.client, this.mutationId = t.mutationId, this.#i = t.mutationCache, this.#e = [], this.state = t.state || a(), this.setOptions(t.options), this.scheduleGc()
+                    }
+                    setOptions(t) {
+                        this.options = t, this.updateGcTime(this.options.gcTime)
+                    }
+                    get meta() {
+                        return this.options.meta
+                    }
+                    addObserver(t) {
+                        this.#e.includes(t) || (this.#e.push(t), this.clearGcTimeout(), this.#i.notify({
+                            type: "observerAdded",
+                            mutation: this,
+                            observer: t
+                        }))
+                    }
+                    removeObserver(t) {
+                        this.#e = this.#e.filter(e => e !== t), this.scheduleGc(), this.#i.notify({
+                            type: "observerRemoved",
+                            mutation: this,
+                            observer: t
+                        })
+                    }
+                    optionalRemove() {
+                        this.#e.length || ("pending" === this.state.status ? this.scheduleGc() : this.#i.remove(this))
+                    }
+                    continue () {
+                        return this.#r?.continue() ?? this.execute(this.state.variables)
+                    }
+                    async execute(t) {
+                        let e = () => {
+                                this.#n({
+                                    type: "continue"
+                                })
+                            },
+                            i = {
+                                client: this.#t,
+                                meta: this.options.meta,
+                                mutationKey: this.options.mutationKey
+                            };
+                        this.#r = (0, s.Mz)({
+                            fn: () => this.options.mutationFn ? this.options.mutationFn(t, i) : Promise.reject(Error("No mutationFn found")),
+                            onFail: (t, e) => {
+                                this.#n({
+                                    type: "failed",
+                                    failureCount: t,
+                                    error: e
+                                })
+                            },
+                            onPause: () => {
+                                this.#n({
+                                    type: "pause"
+                                })
+                            },
+                            onContinue: e,
+                            retry: this.options.retry ?? 0,
+                            retryDelay: this.options.retryDelay,
+                            networkMode: this.options.networkMode,
+                            canRun: () => this.#i.canRun(this)
+                        });
+                        let r = "pending" === this.state.status,
+                            n = !this.#r.canStart();
+                        try {
+                            if (r) e();
+                            else {
+                                this.#n({
+                                    type: "pending",
+                                    variables: t,
+                                    isPaused: n
+                                }), await this.#i.config.onMutate?.(t, this, i);
+                                let e = await this.options.onMutate?.(t, i);
+                                e !== this.state.context && this.#n({
+                                    type: "pending",
+                                    context: e,
+                                    variables: t,
+                                    isPaused: n
+                                })
+                            }
+                            let s = await this.#r.start();
+                            return await this.#i.config.onSuccess?.(s, t, this.state.context, this, i), await this.options.onSuccess?.(s, t, this.state.context, i), await this.#i.config.onSettled?.(s, null, this.state.variables, this.state.context, this, i), await this.options.onSettled?.(s, null, t, this.state.context, i), this.#n({
+                                type: "success",
+                                data: s
+                            }), s
+                        } catch (e) {
+                            try {
+                                throw await this.#i.config.onError?.(e, t, this.state.context, this, i), await this.options.onError?.(e, t, this.state.context, i), await this.#i.config.onSettled?.(void 0, e, this.state.variables, this.state.context, this, i), await this.options.onSettled?.(void 0, e, t, this.state.context, i), e
+                            } finally {
+                                this.#n({
+                                    type: "error",
+                                    error: e
+                                })
+                            }
+                        } finally {
+                            this.#i.runNext(this)
+                        }
+                    }
+                    #n(t) {
+                        this.state = (e => {
+                            switch (t.type) {
+                                case "failed":
+                                    return {
+                                        ...e, failureCount: t.failureCount, failureReason: t.error
+                                    };
+                                case "pause":
+                                    return {
+                                        ...e, isPaused: !0
+                                    };
+                                case "continue":
+                                    return {
+                                        ...e, isPaused: !1
+                                    };
+                                case "pending":
+                                    return {
+                                        ...e, context: t.context, data: void 0, failureCount: 0, failureReason: null, error: null, isPaused: t.isPaused, status: "pending", variables: t.variables, submittedAt: Date.now()
+                                    };
+                                case "success":
+                                    return {
+                                        ...e, data: t.data, failureCount: 0, failureReason: null, error: null, status: "success", isPaused: !1
+                                    };
+                                case "error":
+                                    return {
+                                        ...e, data: void 0, error: t.error, failureCount: e.failureCount + 1, failureReason: t.error, isPaused: !1, status: "error"
+                                    }
+                            }
+                        })(this.state), r.Vr.batch(() => {
+                            this.#e.forEach(e => {
+                                e.onMutationUpdate(t)
+                            }), this.#i.notify({
+                                mutation: this,
+                                type: "updated",
+                                action: t
+                            })
+                        })
+                    }
+                };
+
+            function a() {
+                return {
+                    context: void 0,
+                    data: void 0,
+                    error: null,
+                    failureCount: 0,
+                    failureReason: null,
+                    isPaused: !1,
+                    status: "idle",
+                    variables: void 0,
+                    submittedAt: 0
+                }
+            }
+        },
+        21770: function(t, e, i) {
+            i.d(e, {
+                D: function() {
+                    return h
+                }
+            });
+            var r = i(2265),
+                n = i(2894),
+                s = i(18238),
+                o = i(24112),
+                a = i(45345),
+                u = class extends o.l {
+                    #t;
+                    #s = void 0;
+                    #o;
+                    #a;
+                    constructor(t, e) {
+                        super(), this.#t = t, this.setOptions(e), this.bindMethods(), this.#u()
+                    }
+                    bindMethods() {
+                        this.mutate = this.mutate.bind(this), this.reset = this.reset.bind(this)
+                    }
+                    setOptions(t) {
+                        let e = this.options;
+                        this.options = this.#t.defaultMutationOptions(t), (0, a.VS)(this.options, e) || this.#t.getMutationCache().notify({
+                            type: "observerOptionsUpdated",
+                            mutation: this.#o,
+                            observer: this
+                        }), e?.mutationKey && this.options.mutationKey && (0, a.Ym)(e.mutationKey) !== (0, a.Ym)(this.options.mutationKey) ? this.reset() : this.#o?.state.status === "pending" && this.#o.setOptions(this.options)
+                    }
+                    onUnsubscribe() {
+                        this.hasListeners() || this.#o?.removeObserver(this)
+                    }
+                    onMutationUpdate(t) {
+                        this.#u(), this.#c(t)
+                    }
+                    getCurrentResult() {
+                        return this.#s
+                    }
+                    reset() {
+                        this.#o?.removeObserver(this), this.#o = void 0, this.#u(), this.#c()
+                    }
+                    mutate(t, e) {
+                        return this.#a = e, this.#o?.removeObserver(this), this.#o = this.#t.getMutationCache().build(this.#t, this.options), this.#o.addObserver(this), this.#o.execute(t)
+                    }
+                    #u() {
+                        let t = this.#o?.state ?? (0, n.R)();
+                        this.#s = {
+                            ...t,
+                            isPending: "pending" === t.status,
+                            isSuccess: "success" === t.status,
+                            isError: "error" === t.status,
+                            isIdle: "idle" === t.status,
+                            mutate: this.mutate,
+                            reset: this.reset
+                        }
+                    }
+                    #c(t) {
+                        s.Vr.batch(() => {
+                            if (this.#a && this.hasListeners()) {
+                                let e = this.#s.variables,
+                                    i = this.#s.context,
+                                    r = {
+                                        client: this.#t,
+                                        meta: this.options.meta,
+                                        mutationKey: this.options.mutationKey
+                                    };
+                                t?.type === "success" ? (this.#a.onSuccess?.(t.data, e, i, r), this.#a.onSettled?.(t.data, null, e, i, r)) : t?.type === "error" && (this.#a.onError?.(t.error, e, i, r), this.#a.onSettled?.(void 0, t.error, e, i, r))
+                            }
+                            this.listeners.forEach(t => {
+                                t(this.#s)
+                            })
+                        })
+                    }
+                },
+                c = i(29827);
+
+            function h(t, e) {
+                let i = (0, c.NL)(e),
+                    [n] = r.useState(() => new u(i, t));
+                r.useEffect(() => {
+                    n.setOptions(t)
+                }, [n, t]);
+                let o = r.useSyncExternalStore(r.useCallback(t => n.subscribe(s.Vr.batchCalls(t)), [n]), () => n.getCurrentResult(), () => n.getCurrentResult()),
+                    h = r.useCallback((t, e) => {
+                        n.mutate(t, e).catch(a.ZT)
+                    }, [n]);
+                if (o.error && (0, a.L3)(n.options.throwOnError, [o.error])) throw o.error;
+                return {
+                    ...o,
+                    mutate: h,
+                    mutateAsync: o.mutate
+                }
+            }
+        }
+    }
+]);

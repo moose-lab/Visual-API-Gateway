@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:38:34.691722+00:00",
+  "url": "https://huggingface.co/api/models/AxionML/Qwen3.5-0.8B-NVFP4",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "91eaff3a63194cadd69934cd3eac49fb2efa73ccbed290ac7f47c487622413e6",
+  "response_bytes": 18302,
+  "headers": {
+    "Content-Type": "application/json; charset=utf-8",
+    "Date": "Tue, 13 Oct 2026 03:38:36 GMT",
+    "X-Request-Id": "Root=1-6acda7bc-1e15041f53eae73d7f7e04b1"
+  },
+  "elapsed_seconds": 1.489
+}

@@ -1,0 +1,1082 @@
+{
+  "evidence": "STATIC",
+  "capture_dates": [
+    "2026-10-13",
+    "2026-10-14"
+  ],
+  "records": [
+    {
+      "name": "agent_models_current",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/openai/models",
+      "status": 200,
+      "elapsed_seconds": 1.714
+    },
+    {
+      "name": "artifacts_invalid_scope",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/artifacts?session_id=round3-nonexistent&limit=5",
+      "status": 404,
+      "elapsed_seconds": 1.413
+    },
+    {
+      "name": "execution_agent_artifact_bytes",
+      "method": "GET",
+      "url": "https://storage.googleapis.com/vlm-userdata-prod/agents/workspace/cf59c0d0-b8c5-4b56-9555-ba66fcf03fb1/8a06a34b-e053-428b-92db-454bfcfbac66/round3-result.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T075017Z&X-Goog-Expires=3600&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+      "status": 200,
+      "elapsed_seconds": 1.091
+    },
+    {
+      "name": "execution_agent_artifact_get",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/artifacts?execution_id=8a06a34b-e053-428b-92db-454bfcfbac66&filename=round3-result.json",
+      "status": 307,
+      "elapsed_seconds": 1.284
+    },
+    {
+      "name": "execution_agent_artifacts",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/artifacts?execution_id=8a06a34b-e053-428b-92db-454bfcfbac66&limit=10",
+      "status": 200,
+      "elapsed_seconds": 2.402
+    },
+    {
+      "name": "execution_agent_poll_01",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/8a06a34b-e053-428b-92db-454bfcfbac66",
+      "status": 200,
+      "elapsed_seconds": 1.526
+    },
+    {
+      "name": "execution_agent_poll_02",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/8a06a34b-e053-428b-92db-454bfcfbac66",
+      "status": 200,
+      "elapsed_seconds": 1.566
+    },
+    {
+      "name": "execution_agent_poll_03",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/8a06a34b-e053-428b-92db-454bfcfbac66",
+      "status": 200,
+      "elapsed_seconds": 1.271
+    },
+    {
+      "name": "execution_agent_poll_04",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/8a06a34b-e053-428b-92db-454bfcfbac66",
+      "status": 200,
+      "elapsed_seconds": 1.228
+    },
+    {
+      "name": "execution_agent_poll_05",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/8a06a34b-e053-428b-92db-454bfcfbac66",
+      "status": 200,
+      "elapsed_seconds": 2.048
+    },
+    {
+      "name": "execution_agent_submit",
+      "method": "POST",
+      "url": "https://api.vlm.run/v1/agent/execute",
+      "status": 200,
+      "elapsed_seconds": 2.712
+    },
+    {
+      "name": "execution_fallback_poll_01",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/1bf00c9a-c97a-4a48-a20a-c89527ca7961",
+      "status": 200,
+      "elapsed_seconds": 1.582
+    },
+    {
+      "name": "execution_fallback_submit",
+      "method": "POST",
+      "url": "https://api.vlm.run/v1/agent/execute",
+      "status": 200,
+      "elapsed_seconds": 8.376
+    },
+    {
+      "name": "execution_program_artifact_bytes",
+      "method": "GET",
+      "url": "https://storage.googleapis.com/vlm-userdata-prod/agents/workspace/cf59c0d0-b8c5-4b56-9555-ba66fcf03fb1/d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51/round3-result.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T074815Z&X-Goog-Expires=3600&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+      "status": 200,
+      "elapsed_seconds": 1.31
+    },
+    {
+      "name": "execution_program_artifact_get",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/artifacts?execution_id=d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51&filename=round3-result.json",
+      "status": 307,
+      "elapsed_seconds": 1.303
+    },
+    {
+      "name": "execution_program_artifacts",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/artifacts?execution_id=d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51&limit=10",
+      "status": 200,
+      "elapsed_seconds": 2.364
+    },
+    {
+      "name": "execution_program_next_day",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+      "status": 200,
+      "elapsed_seconds": 6.512
+    },
+    {
+      "name": "execution_program_poll_01",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+      "status": 200,
+      "elapsed_seconds": 2.346
+    },
+    {
+      "name": "execution_program_poll_02",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+      "status": 200,
+      "elapsed_seconds": 1.948
+    },
+    {
+      "name": "execution_program_poll_03",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+      "status": 200,
+      "elapsed_seconds": 1.347
+    },
+    {
+      "name": "execution_program_poll_04",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+      "status": 200,
+      "elapsed_seconds": 1.302
+    },
+    {
+      "name": "execution_program_poll_05",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+      "status": 200,
+      "elapsed_seconds": 1.471
+    },
+    {
+      "name": "execution_program_poll_06",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+      "status": 200,
+      "elapsed_seconds": 1.465
+    },
+    {
+      "name": "execution_program_poll_07",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+      "status": 200,
+      "elapsed_seconds": 1.213
+    },
+    {
+      "name": "execution_program_poll_08",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+      "status": 200,
+      "elapsed_seconds": 1.617
+    },
+    {
+      "name": "execution_program_submit",
+      "method": "POST",
+      "url": "https://api.vlm.run/v1/agent/execute",
+      "status": 200,
+      "elapsed_seconds": 8.825
+    },
+    {
+      "name": "execution_reference_poll_01",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/640e05c7-0ad4-4ee4-b480-5737b3046e1c",
+      "status": 200,
+      "elapsed_seconds": 1.323
+    },
+    {
+      "name": "execution_reference_poll_02",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/640e05c7-0ad4-4ee4-b480-5737b3046e1c",
+      "status": 200,
+      "elapsed_seconds": 2.339
+    },
+    {
+      "name": "execution_reference_replay_artifacts",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/artifacts?execution_id=5410a132-b564-428a-8d11-f9e7b80e3ef8",
+      "status": 200,
+      "elapsed_seconds": 2.484
+    },
+    {
+      "name": "execution_reference_replay_next_day",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/5410a132-b564-428a-8d11-f9e7b80e3ef8",
+      "status": 200,
+      "elapsed_seconds": 3.019
+    },
+    {
+      "name": "execution_reference_replay_poll_01",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/5410a132-b564-428a-8d11-f9e7b80e3ef8",
+      "status": 200,
+      "elapsed_seconds": 1.913
+    },
+    {
+      "name": "execution_reference_replay_poll_02",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/5410a132-b564-428a-8d11-f9e7b80e3ef8",
+      "status": 200,
+      "elapsed_seconds": 2.247
+    },
+    {
+      "name": "execution_reference_replay_submit",
+      "method": "POST",
+      "url": "https://api.vlm.run/v1/agent/execute",
+      "status": 200,
+      "elapsed_seconds": 1.963
+    },
+    {
+      "name": "execution_reference_submit",
+      "method": "POST",
+      "url": "https://api.vlm.run/v1/agent/execute",
+      "status": 200,
+      "elapsed_seconds": 2.41
+    },
+    {
+      "name": "execution_replay_artifact_bytes",
+      "method": "GET",
+      "url": "https://storage.googleapis.com/vlm-userdata-prod/agents/workspace/cf59c0d0-b8c5-4b56-9555-ba66fcf03fb1/eb42f7ca-7a21-46a4-a66d-5fb27374ade9/round3-result.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T075021Z&X-Goog-Expires=3600&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+      "status": 200,
+      "elapsed_seconds": 1.17
+    },
+    {
+      "name": "execution_replay_artifact_get",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/artifacts?execution_id=eb42f7ca-7a21-46a4-a66d-5fb27374ade9&filename=round3-result.json",
+      "status": 307,
+      "elapsed_seconds": 1.608
+    },
+    {
+      "name": "execution_replay_artifacts",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/artifacts?execution_id=eb42f7ca-7a21-46a4-a66d-5fb27374ade9&limit=10",
+      "status": 200,
+      "elapsed_seconds": 1.49
+    },
+    {
+      "name": "execution_replay_poll_01",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+      "status": 200,
+      "elapsed_seconds": 1.223
+    },
+    {
+      "name": "execution_replay_poll_02",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+      "status": 200,
+      "elapsed_seconds": 2.599
+    },
+    {
+      "name": "execution_replay_poll_03",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+      "status": 200,
+      "elapsed_seconds": 1.932
+    },
+    {
+      "name": "execution_replay_poll_04",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+      "status": 200,
+      "elapsed_seconds": 1.313
+    },
+    {
+      "name": "execution_replay_poll_05",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+      "status": 200,
+      "elapsed_seconds": 1.801
+    },
+    {
+      "name": "execution_replay_poll_06",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+      "status": 200,
+      "elapsed_seconds": 1.512
+    },
+    {
+      "name": "execution_replay_poll_07",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions/eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+      "status": 200,
+      "elapsed_seconds": 1.857
+    },
+    {
+      "name": "execution_replay_submit",
+      "method": "POST",
+      "url": "https://api.vlm.run/v1/agent/execute",
+      "status": 200,
+      "elapsed_seconds": 3.426
+    },
+    {
+      "name": "executions_list_current",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/agent/executions?skip=0&limit=5",
+      "status": 200,
+      "elapsed_seconds": 1.706
+    },
+    {
+      "name": "public_skill_greeting_download",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/skills/19efc7aa-8272-456f-ab1f-101c32024458/download",
+      "status": 200,
+      "elapsed_seconds": 8.794
+    },
+    {
+      "name": "public_skill_greeting_zip",
+      "method": "GET",
+      "url": "https://storage.googleapis.com/vlm-userdata-prod/files/f357b53f-d54f-436b-95e1-77f01c5c2235/skill_greeting_109fabdbde62.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T074323Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+      "status": 200,
+      "elapsed_seconds": 6.281
+    },
+    {
+      "name": "public_skill_grounded_document_extraction_download",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/skills/6c1edfdf-8c8c-4ffa-8ae3-8097110c888f/download",
+      "status": 200,
+      "elapsed_seconds": 9.551
+    },
+    {
+      "name": "public_skill_grounded_document_extraction_zip",
+      "method": "GET",
+      "url": "https://storage.googleapis.com/vlm-userdata-prod/files/13604ef1-4aac-4837-b925-a1dbdbfe397e/archive-20260720-KbvgmhDlvnA-skill-update.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T074338Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+      "status": 200,
+      "elapsed_seconds": 2.028
+    },
+    {
+      "name": "public_skill_healthcare_hipaa_release_download",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/skills/4fb87b73-3bb0-4cf7-aa03-8ff00de5e242/download",
+      "status": 200,
+      "elapsed_seconds": 1.631
+    },
+    {
+      "name": "public_skill_healthcare_hipaa_release_zip",
+      "method": "GET",
+      "url": "https://storage.googleapis.com/vlm-userdata-prod/files/e2c62618-e349-45e1-b21d-2af69bd587d3/archive-20260526-2eUEJ0RN5hs-healthcare-hipaa-release.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T074757Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+      "status": 200,
+      "elapsed_seconds": 1.101
+    },
+    {
+      "name": "public_skill_medical_multi_schema_extraction_download",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/skills/91b90af4-63d4-47f3-b3b5-20a0d7e5bc6a/download",
+      "status": 200,
+      "elapsed_seconds": 1.291
+    },
+    {
+      "name": "public_skill_medical_multi_schema_extraction_zip",
+      "method": "GET",
+      "url": "https://storage.googleapis.com/vlm-userdata-prod/files/13604ef1-4aac-4837-b925-a1dbdbfe397e/archive-20260722-Nrr2k_jV1co-medical-multi-schema-extraction.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T074754Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+      "status": 200,
+      "elapsed_seconds": 1.165
+    },
+    {
+      "name": "public_skill_viasocket_download",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/skills/5133b599-76c4-4c9a-8bfe-5ef32527245e/download",
+      "status": 200,
+      "elapsed_seconds": 1.612
+    },
+    {
+      "name": "public_skill_viasocket_zip",
+      "method": "GET",
+      "url": "https://storage.googleapis.com/vlm-userdata-prod/files/f108387c-32c1-497a-b137-c1c38746e246/skill_viasocket_2c106acbf326.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T074752Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+      "status": 200,
+      "elapsed_seconds": 1.081
+    },
+    {
+      "name": "reference_pdf_object_bytes_next_day",
+      "method": "GET",
+      "url": "https://storage.googleapis.com/vlm-userdata-prod/agents/workspace/cf59c0d0-b8c5-4b56-9555-ba66fcf03fb1/5410a132-b564-428a-8d11-f9e7b80e3ef8/doc_25bfd5.pdf?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261014T033858Z&X-Goog-Expires=3600&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+      "status": 200,
+      "elapsed_seconds": 1.403
+    },
+    {
+      "name": "reference_pdf_object_get_next_day",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/artifacts?execution_id=5410a132-b564-428a-8d11-f9e7b80e3ef8&object_id=doc_25bfd5",
+      "status": 307,
+      "elapsed_seconds": 1.861
+    },
+    {
+      "name": "skills_list_current",
+      "method": "GET",
+      "url": "https://api.vlm.run/v1/skills?limit=5&offset=0&grouped=true",
+      "status": 200,
+      "elapsed_seconds": 3.124
+    }
+  ],
+  "executions": [
+    {
+      "name": "execution_agent",
+      "id": "8a06a34b-e053-428b-92db-454bfcfbac66",
+      "requested_mode": "agent",
+      "reported_execution_mode": "agent",
+      "status": "completed",
+      "observed_status_sequence": [
+        "enqueued",
+        "running",
+        "completed"
+      ],
+      "polls": 5,
+      "usage": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 3,
+        "steps": 2,
+        "message": null,
+        "duration_seconds": 36,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.023251,
+        "cost_dollars": 0.023251,
+        "savings_dollars": 0.0
+      },
+      "expected": {
+        "marker": "ROUND3_10e52eba442a4464ac80a8c895e87dba",
+        "sum": 42
+      },
+      "response": {
+        "marker": "ROUND3_10e52eba442a4464ac80a8c895e87dba",
+        "sum": 42
+      },
+      "exact_expected_match": true,
+      "artifact_matches_response": true,
+      "nonterminal_completed_at": [
+        {
+          "capture": "execution_agent_poll_01.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:31.450965Z",
+          "completed_at": "2026-10-13T07:49:31.175966Z"
+        },
+        {
+          "capture": "execution_agent_poll_02.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:31.450965Z",
+          "completed_at": "2026-10-13T07:49:31.175966Z"
+        },
+        {
+          "capture": "execution_agent_poll_03.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:31.450965Z",
+          "completed_at": "2026-10-13T07:49:31.175966Z"
+        },
+        {
+          "capture": "execution_agent_poll_04.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:31.450965Z",
+          "completed_at": "2026-10-13T07:49:31.175966Z"
+        }
+      ]
+    },
+    {
+      "name": "execution_fallback",
+      "id": "1bf00c9a-c97a-4a48-a20a-c89527ca7961",
+      "requested_mode": "program",
+      "reported_execution_mode": "agent",
+      "status": "completed",
+      "observed_status_sequence": [
+        "enqueued",
+        "completed"
+      ],
+      "polls": 1,
+      "usage": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 2,
+        "steps": 1,
+        "message": null,
+        "duration_seconds": 3,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.006702,
+        "cost_dollars": 0.006702,
+        "savings_dollars": 0.0
+      },
+      "expected": {
+        "response": "ROUND3_HELLO"
+      },
+      "response": {
+        "response": "{\"response\":\"ROUND3_HELLO\"}"
+      },
+      "exact_expected_match": false,
+      "artifact_matches_response": null,
+      "nonterminal_completed_at": []
+    },
+    {
+      "name": "execution_program",
+      "id": "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+      "requested_mode": "program",
+      "reported_execution_mode": "agent",
+      "status": "completed",
+      "observed_status_sequence": [
+        "enqueued",
+        "running",
+        "completed"
+      ],
+      "polls": 8,
+      "usage": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 6,
+        "steps": 4,
+        "message": null,
+        "duration_seconds": 74,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.050071,
+        "cost_dollars": 0.050071,
+        "savings_dollars": 0.0
+      },
+      "expected": {
+        "marker": "ROUND3_e1782fc9d14245e4862ee826259e1e40",
+        "sum": 42
+      },
+      "response": {
+        "marker": "ROUND3_e1782fc9d14245e4862ee826259e1e40",
+        "sum": 42
+      },
+      "exact_expected_match": true,
+      "artifact_matches_response": true,
+      "nonterminal_completed_at": [
+        {
+          "capture": "execution_program_poll_01.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "capture": "execution_program_poll_02.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "capture": "execution_program_poll_03.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "capture": "execution_program_poll_04.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "capture": "execution_program_poll_05.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "capture": "execution_program_poll_06.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        },
+        {
+          "capture": "execution_program_poll_07.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:46:54.214200Z",
+          "completed_at": "2026-10-13T07:46:53.943257Z"
+        }
+      ]
+    },
+    {
+      "name": "execution_reference",
+      "id": "640e05c7-0ad4-4ee4-b480-5737b3046e1c",
+      "requested_mode": "program",
+      "reported_execution_mode": "program",
+      "status": "completed",
+      "observed_status_sequence": [
+        "enqueued",
+        "running",
+        "completed"
+      ],
+      "polls": 2,
+      "usage": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 2,
+        "steps": 0,
+        "message": null,
+        "duration_seconds": 9,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.002933,
+        "cost_dollars": 0.002933,
+        "savings_dollars": 0.0
+      },
+      "expected": null,
+      "response": {
+        "type": "referral",
+        "type_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "dateOfReferral": null,
+        "dateOfReferral_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "reasonForReferral": null,
+        "reasonForReferral_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "patient": {
+          "givenName": null,
+          "familyName": null,
+          "givenName_metadata": {
+            "confidence": "lo",
+            "annotation_ids": []
+          },
+          "familyName_metadata": {
+            "confidence": "lo",
+            "annotation_ids": []
+          },
+          "dateOfBirth": null,
+          "dateOfBirth_metadata": {
+            "confidence": "lo",
+            "annotation_ids": []
+          }
+        },
+        "referringProvider": null,
+        "referringProvider_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "receivingProvider": null,
+        "receivingProvider_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "schedulingPriority": null,
+        "schedulingPriority_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        }
+      },
+      "exact_expected_match": null,
+      "artifact_matches_response": null,
+      "nonterminal_completed_at": [
+        {
+          "capture": "execution_reference_poll_01.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:53:11.678955Z",
+          "completed_at": "2026-10-13T07:53:11.412940Z"
+        }
+      ]
+    },
+    {
+      "name": "execution_reference_replay",
+      "id": "5410a132-b564-428a-8d11-f9e7b80e3ef8",
+      "requested_mode": "program",
+      "reported_execution_mode": "program",
+      "status": "completed",
+      "observed_status_sequence": [
+        "enqueued",
+        "running",
+        "completed"
+      ],
+      "polls": 2,
+      "usage": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 2,
+        "steps": 0,
+        "message": null,
+        "duration_seconds": 9,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.003031,
+        "cost_dollars": 0.003031,
+        "savings_dollars": 0.0
+      },
+      "expected": null,
+      "response": {
+        "type": "referral",
+        "type_metadata": {
+          "confidence": "hi",
+          "annotation_ids": [
+            "L0"
+          ],
+          "bboxes": [
+            {
+              "content": "SYNTHETIC TEST REFERRAL",
+              "bbox": {
+                "xywh": [
+                  0.0729,
+                  0.0412,
+                  0.371,
+                  0.0212
+                ]
+              },
+              "page": 0,
+              "confidence": 0.99
+            }
+          ]
+        },
+        "dateOfReferral": "2026-10-13",
+        "dateOfReferral_metadata": {
+          "confidence": "hi",
+          "annotation_ids": [
+            "L3"
+          ],
+          "bboxes": [
+            {
+              "content": "Date of referral: 2026-10-13",
+              "bbox": {
+                "xywh": [
+                  0.0737,
+                  0.1485,
+                  0.3231,
+                  0.02
+                ]
+              },
+              "page": 0,
+              "confidence": 0.99
+            }
+          ]
+        },
+        "reasonForReferral": "Routine vision evaluation",
+        "reasonForReferral_metadata": {
+          "confidence": "hi",
+          "annotation_ids": [
+            "L4"
+          ],
+          "bboxes": [
+            {
+              "content": "Reason for referral: Routine vision evaluation",
+              "bbox": {
+                "xywh": [
+                  0.0729,
+                  0.1836,
+                  0.5239,
+                  0.0206
+                ]
+              },
+              "page": 0,
+              "confidence": 0.99
+            }
+          ]
+        },
+        "patient": {
+          "givenName": "Test",
+          "givenName_metadata": {
+            "confidence": "hi",
+            "annotation_ids": [
+              "L1"
+            ],
+            "bboxes": [
+              {
+                "content": "Patient: Test Example",
+                "bbox": {
+                  "xywh": [
+                    0.0729,
+                    0.077,
+                    0.2573,
+                    0.0224
+                  ]
+                },
+                "page": 0,
+                "confidence": 0.99
+              }
+            ]
+          },
+          "familyName": "Example",
+          "familyName_metadata": {
+            "confidence": "hi",
+            "annotation_ids": [
+              "L1"
+            ],
+            "bboxes": [
+              {
+                "content": "Patient: Test Example",
+                "bbox": {
+                  "xywh": [
+                    0.0729,
+                    0.077,
+                    0.2573,
+                    0.0224
+                  ]
+                },
+                "page": 0,
+                "confidence": 0.99
+              }
+            ]
+          },
+          "dateOfBirth": "2000-01-02",
+          "dateOfBirth_metadata": {
+            "confidence": "hi",
+            "annotation_ids": [
+              "L2"
+            ],
+            "bboxes": [
+              {
+                "content": "Date of birth: 2000-01-02",
+                "bbox": {
+                  "xywh": [
+                    0.0737,
+                    0.1127,
+                    0.2918,
+                    0.0206
+                  ]
+                },
+                "page": 0,
+                "confidence": 0.99
+              }
+            ]
+          }
+        },
+        "referringProvider": null,
+        "referringProvider_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "receivingProvider": null,
+        "receivingProvider_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "schedulingPriority": "Routine",
+        "schedulingPriority_metadata": {
+          "confidence": "hi",
+          "annotation_ids": [
+            "L5"
+          ],
+          "bboxes": [
+            {
+              "content": "Scheduling priority: Routine",
+              "bbox": {
+                "xywh": [
+                  0.0729,
+                  0.2188,
+                  0.3208,
+                  0.023
+                ]
+              },
+              "page": 0,
+              "confidence": 0.99
+            }
+          ]
+        }
+      },
+      "exact_expected_match": null,
+      "artifact_matches_response": null,
+      "nonterminal_completed_at": [
+        {
+          "capture": "execution_reference_replay_poll_01.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:56:57.551425Z",
+          "completed_at": "2026-10-13T07:56:57.258547Z"
+        }
+      ]
+    },
+    {
+      "name": "execution_replay",
+      "id": "eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+      "requested_mode": "program",
+      "reported_execution_mode": "agent",
+      "status": "completed",
+      "observed_status_sequence": [
+        "enqueued",
+        "running",
+        "completed"
+      ],
+      "polls": 7,
+      "usage": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 4,
+        "steps": 3,
+        "message": null,
+        "duration_seconds": 65,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.033494,
+        "cost_dollars": 0.033494,
+        "savings_dollars": 0.0
+      },
+      "expected": {
+        "marker": "ROUND3_95fa411f3bd54819a6727e60188cb8f9",
+        "sum": 50
+      },
+      "response": {
+        "marker": "ROUND3_95fa411f3bd54819a6727e60188cb8f9",
+        "sum": 50
+      },
+      "exact_expected_match": true,
+      "artifact_matches_response": true,
+      "nonterminal_completed_at": [
+        {
+          "capture": "execution_replay_poll_01.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "capture": "execution_replay_poll_02.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "capture": "execution_replay_poll_03.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "capture": "execution_replay_poll_04.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "capture": "execution_replay_poll_05.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        },
+        {
+          "capture": "execution_replay_poll_06.response.json",
+          "status": "running",
+          "created_at": "2026-10-13T07:49:11.167793Z",
+          "completed_at": "2026-10-13T07:49:10.323678Z"
+        }
+      ]
+    }
+  ],
+  "public_skills": [
+    {
+      "name": "greeting",
+      "evidence": "RUNTIME",
+      "skill_id": "19efc7aa-8272-456f-ab1f-101c32024458",
+      "skill_version": "20260911-399ea5e3",
+      "archive_sha256": "aac83f7f13e3096103fafb00d703534ed786bf8a091924e559fe183f8c97756c",
+      "members": [
+        "SKILL.md",
+        "schema.json",
+        "vlmrun.yaml"
+      ],
+      "files": [
+        "research/round3/public_skills/greeting/schema.json",
+        "research/round3/public_skills/greeting/SKILL.md",
+        "research/round3/public_skills/greeting/vlmrun.yaml"
+      ],
+      "pipelines": []
+    },
+    {
+      "name": "grounded-document-extraction",
+      "evidence": "RUNTIME",
+      "skill_id": "6c1edfdf-8c8c-4ffa-8ae3-8097110c888f",
+      "skill_version": "20260720-b19b53d9",
+      "archive_sha256": "351d182be782812e97525b53ed8b4f53269469084fd1174e454ae33c6069ecd8",
+      "members": [
+        "SKILL.md",
+        "schema.json",
+        "vlmrun.yaml",
+        "pipeline.py"
+      ],
+      "files": [
+        "research/round3/public_skills/grounded-document-extraction/pipeline.py",
+        "research/round3/public_skills/grounded-document-extraction/schema.json",
+        "research/round3/public_skills/grounded-document-extraction/SKILL.md",
+        "research/round3/public_skills/grounded-document-extraction/vlmrun.yaml"
+      ],
+      "pipelines": [
+        "research/round3/public_skills/grounded-document-extraction/pipeline.py"
+      ]
+    },
+    {
+      "name": "healthcare-hipaa-release",
+      "evidence": "RUNTIME",
+      "skill_id": "4fb87b73-3bb0-4cf7-aa03-8ff00de5e242",
+      "skill_version": "20260526-f6e67e57",
+      "archive_sha256": "e2b52d8162a94a9b727de7ad511213e112841141c68ebd80d42ce8d8b70ee8e7",
+      "members": [
+        "hipaa-release/schema.json",
+        "hipaa-release/schema.py",
+        "hipaa-release/SKILL.md",
+        "hipaa-release/vlmrun.yaml",
+        "hipaa-release/pipeline.py"
+      ],
+      "files": [
+        "research/round3/public_skills/healthcare-hipaa-release/hipaa-release/pipeline.py",
+        "research/round3/public_skills/healthcare-hipaa-release/hipaa-release/schema.json",
+        "research/round3/public_skills/healthcare-hipaa-release/hipaa-release/schema.py",
+        "research/round3/public_skills/healthcare-hipaa-release/hipaa-release/SKILL.md",
+        "research/round3/public_skills/healthcare-hipaa-release/hipaa-release/vlmrun.yaml"
+      ],
+      "pipelines": [
+        "research/round3/public_skills/healthcare-hipaa-release/hipaa-release/pipeline.py"
+      ]
+    },
+    {
+      "name": "medical-multi-schema-extraction",
+      "evidence": "RUNTIME",
+      "skill_id": "91b90af4-63d4-47f3-b3b5-20a0d7e5bc6a",
+      "skill_version": "20260722-5d4d2e43",
+      "archive_sha256": "697183e610286d99e47140ce0a4c70e0854281231096bf23ba912d8129286fce",
+      "members": [
+        "medical-multi-schema-extraction/",
+        "medical-multi-schema-extraction/vlmrun.yaml",
+        "medical-multi-schema-extraction/schemas/",
+        "medical-multi-schema-extraction/schemas/progress_note_office_visit.json",
+        "medical-multi-schema-extraction/schemas/referral.json",
+        "medical-multi-schema-extraction/schemas/medical_record_request.json",
+        "medical-multi-schema-extraction/pipeline.py",
+        "medical-multi-schema-extraction/SKILL.md",
+        "medical-multi-schema-extraction/schema.json"
+      ],
+      "files": [
+        "research/round3/public_skills/medical-multi-schema-extraction/medical-multi-schema-extraction/pipeline.py",
+        "research/round3/public_skills/medical-multi-schema-extraction/medical-multi-schema-extraction/schema.json",
+        "research/round3/public_skills/medical-multi-schema-extraction/medical-multi-schema-extraction/SKILL.md",
+        "research/round3/public_skills/medical-multi-schema-extraction/medical-multi-schema-extraction/vlmrun.yaml",
+        "research/round3/public_skills/medical-multi-schema-extraction/medical-multi-schema-extraction/schemas/medical_record_request.json",
+        "research/round3/public_skills/medical-multi-schema-extraction/medical-multi-schema-extraction/schemas/progress_note_office_visit.json",
+        "research/round3/public_skills/medical-multi-schema-extraction/medical-multi-schema-extraction/schemas/referral.json"
+      ],
+      "pipelines": [
+        "research/round3/public_skills/medical-multi-schema-extraction/medical-multi-schema-extraction/pipeline.py"
+      ]
+    },
+    {
+      "name": "viasocket",
+      "evidence": "RUNTIME",
+      "skill_id": "5133b599-76c4-4c9a-8bfe-5ef32527245e",
+      "skill_version": "20260913-86af3f0c",
+      "archive_sha256": "77f9d58e4358cd8f2474d34c0339f2ac8284ab945d594a12bbb61a800c41d77b",
+      "members": [
+        "SKILL.md",
+        "schema.json",
+        "vlmrun.yaml"
+      ],
+      "files": [
+        "research/round3/public_skills/viasocket/schema.json",
+        "research/round3/public_skills/viasocket/SKILL.md",
+        "research/round3/public_skills/viasocket/vlmrun.yaml"
+      ],
+      "pipelines": []
+    }
+  ],
+  "reported_execution_cost_usd": "0.119482",
+  "account_billing_verified": false,
+  "cost_basis": "One final usage.cost_dollars per unique execution ID; submit/poll/credits not added again"
+}

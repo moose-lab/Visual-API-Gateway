@@ -1,0 +1,7 @@
+{
+  "method": "GET",
+  "url": "https://storage.googleapis.com/vlm-userdata-prod/files/e2c62618-e349-45e1-b21d-2af69bd587d3/archive-20260526-2eUEJ0RN5hs-healthcare-hipaa-release.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T074757Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+  "auth": "none",
+  "body": null,
+  "headers": {}
+}

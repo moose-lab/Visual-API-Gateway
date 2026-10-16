@@ -1,0 +1,524 @@
+{
+  "info": {
+    "author": "TypeSafe AI",
+    "author_email": "TypeSafe AI <support@typesafe.ai>",
+    "bugtrack_url": null,
+    "classifiers": [
+      "Development Status :: 5 - Production/Stable",
+      "Intended Audience :: Developers",
+      "License :: OSI Approved :: MIT License",
+      "Operating System :: MacOS",
+      "Operating System :: Microsoft :: Windows",
+      "Operating System :: OS Independent",
+      "Operating System :: POSIX",
+      "Operating System :: POSIX :: Linux",
+      "Programming Language :: Python :: 3 :: Only",
+      "Programming Language :: Python :: 3.10",
+      "Programming Language :: Python :: 3.11",
+      "Programming Language :: Python :: 3.12",
+      "Programming Language :: Python :: 3.13",
+      "Programming Language :: Python :: 3.14",
+      "Topic :: Scientific/Engineering :: Artificial Intelligence",
+      "Topic :: Software Development :: Libraries :: Python Modules",
+      "Typing :: Typed"
+    ],
+    "description": "# TypeSafe AI Python SDK\n\nPython SDK for [TypeSafe AI](https://typesafe.ai).\n\n## Quickstart\n\nInstall the SDK:\n\n```\nuv add typesafe-sdk\n```\n\nAdd the `http2` extra (`typesafe-sdk[http2]`) to enable [HTTP/2 support](https://docs.typesafe.ai/sdk/python/usage/#http2).\n\nSet `TYPESAFE_API_KEY` in your environment, then instantiate and use the client:\n\n```python\nfrom typesafe_sdk import Choice, TypeSafeClient\n\nwith TypeSafeClient() as client:\n    response = client.system_one(\n        state={\"document\": \"I was charged twice. Please fix this ASAP.\"},\n        questions={\n            \"category\": Choice(\n                instructions=\"What is this ticket about?\",\n                criteria={\"billing\": None, \"technical\": None, \"other\": None},\n            ),\n        },\n    )\n\nprint(response.choices[\"category\"].choice)\n```\n\nlearn what TypeSafe is, what it can do, and how to use it in [TypeSafe docs](https://docs.typesafe.ai/).\n\n## Documentation\n\nLearn more in [SDK docs](https://docs.typesafe.ai/sdk/python/).\n",
+    "description_content_type": "text/markdown",
+    "docs_url": null,
+    "download_url": null,
+    "downloads": {
+      "last_day": -1,
+      "last_month": -1,
+      "last_week": -1
+    },
+    "dynamic": null,
+    "home_page": null,
+    "keywords": "typesafe, sdk, api, ai",
+    "license": null,
+    "license_expression": "MIT",
+    "license_files": [
+      "LICENSE"
+    ],
+    "maintainer": "Daniel Gafni",
+    "maintainer_email": "Daniel Gafni <daniel@typesafe.ai>",
+    "name": "typesafe-sdk",
+    "package_url": "https://pypi.org/project/typesafe-sdk/",
+    "platform": null,
+    "project_url": "https://pypi.org/project/typesafe-sdk/",
+    "project_urls": {
+      "Changelog": "https://docs.typesafe.ai/sdk/python/changelog/",
+      "Documentation": "https://docs.typesafe.ai/sdk/python/",
+      "Homepage": "https://typesafe.ai",
+      "Issues": "https://github.com/typesafe-ai/typesafe-sdk-python/issues",
+      "Repository": "https://github.com/typesafe-ai/typesafe-sdk-python"
+    },
+    "provides_extra": [
+      "http2"
+    ],
+    "release_url": "https://pypi.org/project/typesafe-sdk/0.7.4/",
+    "requires_dist": [
+      "httpx2>=2.0.0",
+      "packaging>=24.0",
+      "pydantic>=2.12.0",
+      "pydantic-core>=2.41.1",
+      "tenacity>=9.0.0",
+      "truststore>=0.10.0; sys_platform != \"emscripten\"",
+      "typing-extensions>=4.13.0",
+      "httpx2[http2]>=2.0.0; extra == \"http2\""
+    ],
+    "requires_python": ">=3.10",
+    "summary": "Python SDK for TypeSafe AI API.",
+    "version": "0.7.4",
+    "yanked": false,
+    "yanked_reason": null
+  },
+  "last_serial": 42025162,
+  "ownership": {
+    "organization": null,
+    "roles": [
+      {
+        "role": "Owner",
+        "user": "danielgafni"
+      },
+      {
+        "role": "Maintainer",
+        "user": "alliesafe"
+      }
+    ]
+  },
+  "releases": {
+    "0.0.1a0": [
+      {
+        "comment_text": null,
+        "core-metadata": {
+          "sha256": "fc6bbab0bcac519edc640ad7751f95f8f12981554f83f9fad3d311331b689f64"
+        },
+        "digests": {
+          "blake2b_256": "302ecfe1cc9196e6462874b001da9d32cad2515b4a1141492b5aec611039c612",
+          "md5": "b1ee225422008adf944193d3617437aa",
+          "sha256": "50bdb1447ecb9be50c6155687becf741f762d62c8d7cf784769de51917800de0"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.0.1a0-py3-none-any.whl",
+        "has_sig": false,
+        "md5_digest": "b1ee225422008adf944193d3617437aa",
+        "packagetype": "bdist_wheel",
+        "python_version": "py3",
+        "requires_python": ">=3.10",
+        "size": 3118,
+        "upload_time": "2026-09-09T10:34:07",
+        "upload_time_iso_8601": "2026-09-09T10:34:07.420077Z",
+        "url": "https://files.pythonhosted.org/packages/30/2e/cfe1cc9196e6462874b001da9d32cad2515b4a1141492b5aec611039c612/typesafe_sdk-0.0.1a0-py3-none-any.whl",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      {
+        "comment_text": null,
+        "core-metadata": false,
+        "digests": {
+          "blake2b_256": "2ab3da9256812273b01fe0bb7623f8f5f70ade490ee0588dee4afdfc237d6258",
+          "md5": "5fd3725309d1fe5dc53bd46b422b3b81",
+          "sha256": "9994249658e2275f3fc52c2b3cadbead82639e0d0ac0bdd512af8ca069f8bcf6"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.0.1a0.tar.gz",
+        "has_sig": false,
+        "md5_digest": "5fd3725309d1fe5dc53bd46b422b3b81",
+        "packagetype": "sdist",
+        "python_version": "source",
+        "requires_python": ">=3.10",
+        "size": 2585,
+        "upload_time": "2026-09-09T10:34:08",
+        "upload_time_iso_8601": "2026-09-09T10:34:08.539174Z",
+        "url": "https://files.pythonhosted.org/packages/2a/b3/da9256812273b01fe0bb7623f8f5f70ade490ee0588dee4afdfc237d6258/typesafe_sdk-0.0.1a0.tar.gz",
+        "yanked": false,
+        "yanked_reason": null
+      }
+    ],
+    "0.5.7": [
+      {
+        "comment_text": null,
+        "core-metadata": {
+          "sha256": "7a9fb5c27b32bd3734d57e080618b1f65982c72c9cdaf6ad5afcb3c95accf225"
+        },
+        "digests": {
+          "blake2b_256": "2a910f924e2a447e60e73438dd23a5c619c10bc943176353ab0f7f07c847432d",
+          "md5": "4c490f72e88e15bd8ce9e5d4a888362a",
+          "sha256": "739c8fbd69a372dcf9810154a08fcf77622d9f617cafda57c9825f228a92af03"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.5.7-py3-none-any.whl",
+        "has_sig": false,
+        "md5_digest": "4c490f72e88e15bd8ce9e5d4a888362a",
+        "packagetype": "bdist_wheel",
+        "python_version": "py3",
+        "requires_python": ">=3.10",
+        "size": 31613,
+        "upload_time": "2026-09-11T23:05:50",
+        "upload_time_iso_8601": "2026-09-11T23:05:50.184847Z",
+        "url": "https://files.pythonhosted.org/packages/2a/91/0f924e2a447e60e73438dd23a5c619c10bc943176353ab0f7f07c847432d/typesafe_sdk-0.5.7-py3-none-any.whl",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      {
+        "comment_text": null,
+        "core-metadata": false,
+        "digests": {
+          "blake2b_256": "a8bb595551be8c0786d830b4d115367cefc7ae16542ef4f45de2239abc8a1d92",
+          "md5": "ea652ac7604fdfff099353a81044a467",
+          "sha256": "4293adef6ac1cbfa7dec22e487a303b3862cfd46324a085fcaa3e6978b460c4d"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.5.7.tar.gz",
+        "has_sig": false,
+        "md5_digest": "ea652ac7604fdfff099353a81044a467",
+        "packagetype": "sdist",
+        "python_version": "source",
+        "requires_python": ">=3.10",
+        "size": 19144,
+        "upload_time": "2026-09-11T23:05:51",
+        "upload_time_iso_8601": "2026-09-11T23:05:51.893712Z",
+        "url": "https://files.pythonhosted.org/packages/a8/bb/595551be8c0786d830b4d115367cefc7ae16542ef4f45de2239abc8a1d92/typesafe_sdk-0.5.7.tar.gz",
+        "yanked": false,
+        "yanked_reason": null
+      }
+    ],
+    "0.6.0": [
+      {
+        "comment_text": null,
+        "core-metadata": {
+          "sha256": "efb93f29adf7a493181f31eedf578e7d5bd85561f9898eeb2ef4173bfe39ec8c"
+        },
+        "digests": {
+          "blake2b_256": "2e0de99f9622354aeb7205ee4ffded0ac7b4cc38f0981e463e90940578cc10f6",
+          "md5": "593afbca5edba1d6ae5323f8ce69147a",
+          "sha256": "21559d5558e95a7ee008d0a044a60bb5bb2d3b1ec426fe158a7f37af35ba3232"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.6.0-py3-none-any.whl",
+        "has_sig": false,
+        "md5_digest": "593afbca5edba1d6ae5323f8ce69147a",
+        "packagetype": "bdist_wheel",
+        "python_version": "py3",
+        "requires_python": ">=3.10",
+        "size": 32675,
+        "upload_time": "2026-09-15T10:23:18",
+        "upload_time_iso_8601": "2026-09-15T10:23:18.727668Z",
+        "url": "https://files.pythonhosted.org/packages/2e/0d/e99f9622354aeb7205ee4ffded0ac7b4cc38f0981e463e90940578cc10f6/typesafe_sdk-0.6.0-py3-none-any.whl",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      {
+        "comment_text": null,
+        "core-metadata": false,
+        "digests": {
+          "blake2b_256": "8ac759ba48e1018d8ce6c3a1bf41531f9b13e61f991ef4d7b19029b5fbfb45f4",
+          "md5": "9e18624e461299786d6e15be8820f64a",
+          "sha256": "78540639bde10a56d378f35690264799c00d1ffd7c0fa56b27838d0aa1a4bb34"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.6.0.tar.gz",
+        "has_sig": false,
+        "md5_digest": "9e18624e461299786d6e15be8820f64a",
+        "packagetype": "sdist",
+        "python_version": "source",
+        "requires_python": ">=3.10",
+        "size": 19961,
+        "upload_time": "2026-09-15T10:23:20",
+        "upload_time_iso_8601": "2026-09-15T10:23:20.206508Z",
+        "url": "https://files.pythonhosted.org/packages/8a/c7/59ba48e1018d8ce6c3a1bf41531f9b13e61f991ef4d7b19029b5fbfb45f4/typesafe_sdk-0.6.0.tar.gz",
+        "yanked": false,
+        "yanked_reason": null
+      }
+    ],
+    "0.7.0": [
+      {
+        "comment_text": null,
+        "core-metadata": {
+          "sha256": "27b543676bb4257c77f881edcf57589caefb0b833a3f780a2171b0f6a1c3dab7"
+        },
+        "digests": {
+          "blake2b_256": "d32a16f4163e6d8827ef80b2ed7a400c80688e1ebf571c10f143f792bdafc654",
+          "md5": "bd89bb72cbe1dd8a7a2528fcacb75099",
+          "sha256": "c6d2257c4b04b8d4d81cff2b55489b4188795fd44fb40b9cef26ff243b2d1080"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.7.0-py3-none-any.whl",
+        "has_sig": false,
+        "md5_digest": "bd89bb72cbe1dd8a7a2528fcacb75099",
+        "packagetype": "bdist_wheel",
+        "python_version": "py3",
+        "requires_python": ">=3.10",
+        "size": 35352,
+        "upload_time": "2026-09-18T09:12:29",
+        "upload_time_iso_8601": "2026-09-18T09:12:29.625498Z",
+        "url": "https://files.pythonhosted.org/packages/d3/2a/16f4163e6d8827ef80b2ed7a400c80688e1ebf571c10f143f792bdafc654/typesafe_sdk-0.7.0-py3-none-any.whl",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      {
+        "comment_text": null,
+        "core-metadata": false,
+        "digests": {
+          "blake2b_256": "28e2ac317772d4d5cfabf3cecdeacd83cc838523e240bb4e1cf256837e6005bb",
+          "md5": "00952aaee568d1c4673fd1838cff1d89",
+          "sha256": "930d42fd73cfed6f25bccae488ce0f30f6043eaedd8682ef59734e79ab94a876"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.7.0.tar.gz",
+        "has_sig": false,
+        "md5_digest": "00952aaee568d1c4673fd1838cff1d89",
+        "packagetype": "sdist",
+        "python_version": "source",
+        "requires_python": ">=3.10",
+        "size": 22235,
+        "upload_time": "2026-09-18T09:12:30",
+        "upload_time_iso_8601": "2026-09-18T09:12:30.846881Z",
+        "url": "https://files.pythonhosted.org/packages/28/e2/ac317772d4d5cfabf3cecdeacd83cc838523e240bb4e1cf256837e6005bb/typesafe_sdk-0.7.0.tar.gz",
+        "yanked": false,
+        "yanked_reason": null
+      }
+    ],
+    "0.7.1": [
+      {
+        "comment_text": null,
+        "core-metadata": {
+          "sha256": "6960651f5c19f1ad5b7f6f795b280d36b1d3ec5eb5822b56852082e1172c95fe"
+        },
+        "digests": {
+          "blake2b_256": "75727e57648d27e45260b04762dd2393a81604b516a282fc5efe94cdf90ab971",
+          "md5": "2907ce79bf2a166d770fcba82b1ef705",
+          "sha256": "9d04eee13b5f64bbbe6f8e96cf40e3f39ca4efc934a1f4f39490cb9a43e9d2ad"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.7.1-py3-none-any.whl",
+        "has_sig": false,
+        "md5_digest": "2907ce79bf2a166d770fcba82b1ef705",
+        "packagetype": "bdist_wheel",
+        "python_version": "py3",
+        "requires_python": ">=3.10",
+        "size": 36366,
+        "upload_time": "2026-09-21T15:57:52",
+        "upload_time_iso_8601": "2026-09-21T15:57:52.314861Z",
+        "url": "https://files.pythonhosted.org/packages/75/72/7e57648d27e45260b04762dd2393a81604b516a282fc5efe94cdf90ab971/typesafe_sdk-0.7.1-py3-none-any.whl",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      {
+        "comment_text": null,
+        "core-metadata": false,
+        "digests": {
+          "blake2b_256": "dcd414d9a00c759c126c814f7cfc0b2a760768214cda0708a9af49577b321ee3",
+          "md5": "df47fc57726d5a46b1a848196cd53ca6",
+          "sha256": "495ce9d81733b4f95edcb156e95042a7ec4bfd59972a1150ffa8ce1e11f85a54"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.7.1.tar.gz",
+        "has_sig": false,
+        "md5_digest": "df47fc57726d5a46b1a848196cd53ca6",
+        "packagetype": "sdist",
+        "python_version": "source",
+        "requires_python": ">=3.10",
+        "size": 23062,
+        "upload_time": "2026-09-21T15:57:53",
+        "upload_time_iso_8601": "2026-09-21T15:57:53.579197Z",
+        "url": "https://files.pythonhosted.org/packages/dc/d4/14d9a00c759c126c814f7cfc0b2a760768214cda0708a9af49577b321ee3/typesafe_sdk-0.7.1.tar.gz",
+        "yanked": false,
+        "yanked_reason": null
+      }
+    ],
+    "0.7.2": [
+      {
+        "comment_text": null,
+        "core-metadata": {
+          "sha256": "6cb7f0ee241e340a1edbd5855572480cfb2af93d683385e1f47df7a9c1cce529"
+        },
+        "digests": {
+          "blake2b_256": "995e2b97ba9b0b77612e3a480ddb60c0c0325b4809ef57a7b565341d65ef7bec",
+          "md5": "78f08ca7952eecab05961b56dcf1b71c",
+          "sha256": "0a961148187d52e18276ed7f2d02617cfac48e3b97673cb631a8749397d43d1e"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.7.2-py3-none-any.whl",
+        "has_sig": false,
+        "md5_digest": "78f08ca7952eecab05961b56dcf1b71c",
+        "packagetype": "bdist_wheel",
+        "python_version": "py3",
+        "requires_python": ">=3.10",
+        "size": 36448,
+        "upload_time": "2026-09-26T21:20:23",
+        "upload_time_iso_8601": "2026-09-26T21:20:23.511034Z",
+        "url": "https://files.pythonhosted.org/packages/99/5e/2b97ba9b0b77612e3a480ddb60c0c0325b4809ef57a7b565341d65ef7bec/typesafe_sdk-0.7.2-py3-none-any.whl",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      {
+        "comment_text": null,
+        "core-metadata": false,
+        "digests": {
+          "blake2b_256": "42ac8bad2c02c038b85039cdb198ba106650d54bade0c0c986c68dc6e9cef8c3",
+          "md5": "d2ee998a3abba6aa95e1368646db24e6",
+          "sha256": "2434f4af5cdfc45d6ab5ff27048e8b257207f786b60456e69995e345b32e77e1"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.7.2.tar.gz",
+        "has_sig": false,
+        "md5_digest": "d2ee998a3abba6aa95e1368646db24e6",
+        "packagetype": "sdist",
+        "python_version": "source",
+        "requires_python": ">=3.10",
+        "size": 23169,
+        "upload_time": "2026-09-26T21:20:24",
+        "upload_time_iso_8601": "2026-09-26T21:20:24.988426Z",
+        "url": "https://files.pythonhosted.org/packages/42/ac/8bad2c02c038b85039cdb198ba106650d54bade0c0c986c68dc6e9cef8c3/typesafe_sdk-0.7.2.tar.gz",
+        "yanked": false,
+        "yanked_reason": null
+      }
+    ],
+    "0.7.3": [
+      {
+        "comment_text": null,
+        "core-metadata": {
+          "sha256": "d73a94d56e3f3f3f85e595e2f44da6c289732be2c3cfa332dd85b9f85bba24a0"
+        },
+        "digests": {
+          "blake2b_256": "4cf28c091d0e259fa5e07b25fea1e3baced59e74bd08a4a9965395885a6ffbe3",
+          "md5": "b35ce97f761133bc226bddc05abc42f1",
+          "sha256": "27449bdcfba4a2580a669637e925541e7ba491671d5a52509220546b41c9ea3d"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.7.3-py3-none-any.whl",
+        "has_sig": false,
+        "md5_digest": "b35ce97f761133bc226bddc05abc42f1",
+        "packagetype": "bdist_wheel",
+        "python_version": "py3",
+        "requires_python": ">=3.10",
+        "size": 37633,
+        "upload_time": "2026-10-09T09:43:57",
+        "upload_time_iso_8601": "2026-10-09T09:43:57.155133Z",
+        "url": "https://files.pythonhosted.org/packages/4c/f2/8c091d0e259fa5e07b25fea1e3baced59e74bd08a4a9965395885a6ffbe3/typesafe_sdk-0.7.3-py3-none-any.whl",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      {
+        "comment_text": null,
+        "core-metadata": false,
+        "digests": {
+          "blake2b_256": "15c5f659e9b60d239d88a5e0c0ae6ecdde478aadb9db9b962cac1075b55df5c1",
+          "md5": "c7e25054a18b443b9ff9cbfda2d768a5",
+          "sha256": "7c3efa360bfe34a0017047ddb89ab254b8e1b45f4c5a16c6533059307f925748"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.7.3.tar.gz",
+        "has_sig": false,
+        "md5_digest": "c7e25054a18b443b9ff9cbfda2d768a5",
+        "packagetype": "sdist",
+        "python_version": "source",
+        "requires_python": ">=3.10",
+        "size": 24325,
+        "upload_time": "2026-10-09T09:43:58",
+        "upload_time_iso_8601": "2026-10-09T09:43:58.410821Z",
+        "url": "https://files.pythonhosted.org/packages/15/c5/f659e9b60d239d88a5e0c0ae6ecdde478aadb9db9b962cac1075b55df5c1/typesafe_sdk-0.7.3.tar.gz",
+        "yanked": false,
+        "yanked_reason": null
+      }
+    ],
+    "0.7.4": [
+      {
+        "comment_text": null,
+        "core-metadata": {
+          "sha256": "cd58b7708e522613cda10be95eabfcc84556d8606330c37d12629eb2e2a075e2"
+        },
+        "digests": {
+          "blake2b_256": "a2496cd65684e41e25069f4d12c09cd7e1e3f81477f06acb29bf0d1815e27d1e",
+          "md5": "944489ea83f9c5de05b1f8a098bdadd4",
+          "sha256": "61cf3f2fe9da20b68c3d3fe2fb76bbb2f35f8c4a9a65a6b81c43a535d2a53210"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.7.4-py3-none-any.whl",
+        "has_sig": false,
+        "md5_digest": "944489ea83f9c5de05b1f8a098bdadd4",
+        "packagetype": "bdist_wheel",
+        "python_version": "py3",
+        "requires_python": ">=3.10",
+        "size": 37700,
+        "upload_time": "2026-10-09T15:47:12",
+        "upload_time_iso_8601": "2026-10-09T15:47:12.418515Z",
+        "url": "https://files.pythonhosted.org/packages/a2/49/6cd65684e41e25069f4d12c09cd7e1e3f81477f06acb29bf0d1815e27d1e/typesafe_sdk-0.7.4-py3-none-any.whl",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      {
+        "comment_text": null,
+        "core-metadata": false,
+        "digests": {
+          "blake2b_256": "94123a897e9f424be6f4db0648a955f8fadbe62149d118a03614df897b5a2ec9",
+          "md5": "b3557e4aec9a4698b3be1180d5a5220e",
+          "sha256": "a20dca217a746db1ac5534ac502de16e1f86a400b4ec09f8594e6221c2bc9558"
+        },
+        "downloads": -1,
+        "filename": "typesafe_sdk-0.7.4.tar.gz",
+        "has_sig": false,
+        "md5_digest": "b3557e4aec9a4698b3be1180d5a5220e",
+        "packagetype": "sdist",
+        "python_version": "source",
+        "requires_python": ">=3.10",
+        "size": 24388,
+        "upload_time": "2026-10-09T15:47:14",
+        "upload_time_iso_8601": "2026-10-09T15:47:14.978395Z",
+        "url": "https://files.pythonhosted.org/packages/94/12/3a897e9f424be6f4db0648a955f8fadbe62149d118a03614df897b5a2ec9/typesafe_sdk-0.7.4.tar.gz",
+        "yanked": false,
+        "yanked_reason": null
+      }
+    ]
+  },
+  "urls": [
+    {
+      "comment_text": null,
+      "core-metadata": {
+        "sha256": "cd58b7708e522613cda10be95eabfcc84556d8606330c37d12629eb2e2a075e2"
+      },
+      "digests": {
+        "blake2b_256": "a2496cd65684e41e25069f4d12c09cd7e1e3f81477f06acb29bf0d1815e27d1e",
+        "md5": "944489ea83f9c5de05b1f8a098bdadd4",
+        "sha256": "61cf3f2fe9da20b68c3d3fe2fb76bbb2f35f8c4a9a65a6b81c43a535d2a53210"
+      },
+      "downloads": -1,
+      "filename": "typesafe_sdk-0.7.4-py3-none-any.whl",
+      "has_sig": false,
+      "md5_digest": "944489ea83f9c5de05b1f8a098bdadd4",
+      "packagetype": "bdist_wheel",
+      "python_version": "py3",
+      "requires_python": ">=3.10",
+      "size": 37700,
+      "upload_time": "2026-10-09T15:47:12",
+      "upload_time_iso_8601": "2026-10-09T15:47:12.418515Z",
+      "url": "https://files.pythonhosted.org/packages/a2/49/6cd65684e41e25069f4d12c09cd7e1e3f81477f06acb29bf0d1815e27d1e/typesafe_sdk-0.7.4-py3-none-any.whl",
+      "yanked": false,
+      "yanked_reason": null
+    },
+    {
+      "comment_text": null,
+      "core-metadata": false,
+      "digests": {
+        "blake2b_256": "94123a897e9f424be6f4db0648a955f8fadbe62149d118a03614df897b5a2ec9",
+        "md5": "b3557e4aec9a4698b3be1180d5a5220e",
+        "sha256": "a20dca217a746db1ac5534ac502de16e1f86a400b4ec09f8594e6221c2bc9558"
+      },
+      "downloads": -1,
+      "filename": "typesafe_sdk-0.7.4.tar.gz",
+      "has_sig": false,
+      "md5_digest": "b3557e4aec9a4698b3be1180d5a5220e",
+      "packagetype": "sdist",
+      "python_version": "source",
+      "requires_python": ">=3.10",
+      "size": 24388,
+      "upload_time": "2026-10-09T15:47:14",
+      "upload_time_iso_8601": "2026-10-09T15:47:14.978395Z",
+      "url": "https://files.pythonhosted.org/packages/94/12/3a897e9f424be6f4db0648a955f8fadbe62149d118a03614df897b5a2ec9/typesafe_sdk-0.7.4.tar.gz",
+      "yanked": false,
+      "yanked_reason": null
+    }
+  ],
+  "vulnerabilities": []
+}

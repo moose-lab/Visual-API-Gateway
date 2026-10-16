@@ -1,5 +1,7 @@
 # Visual-API-Gateway 👁️⚡
 
+STATIC：VLM Run Gateway 三轮研究归档见 [vlm-research/README.md](vlm-research/README.md)；导出范围、来源与离线复核限制见 [GitHub 导出说明](vlm-research/GITHUB-EXPORT.md)。
+
 [![Status](https://img.shields.io/badge/Status-Under%20Active%20Development-orange.svg)](https://github.com/moose-lab/Visual-API-Gateway)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/moose-lab/Visual-API-Gateway/pulls)

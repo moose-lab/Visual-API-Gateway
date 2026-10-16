@@ -1,0 +1,468 @@
+{
+  "sha": "bc7abe921c8d04e8d8f3b4fd08858118a74dc162",
+  "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/trees/bc7abe921c8d04e8d8f3b4fd08858118a74dc162",
+  "tree": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "84764a17c6a15722ae71f574d12dee0205ca5759",
+      "size": 3175,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/84764a17c6a15722ae71f574d12dee0205ca5759"
+    },
+    {
+      "path": ".pre-commit-config.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b85a509ff471a7815267f8a077ee22e0064f829",
+      "size": 964,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/6b85a509ff471a7815267f8a077ee22e0064f829"
+    },
+    {
+      "path": "Makefile",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d3f001cdc1cd2292c23281c02755d7f73a89bc43",
+      "size": 70,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/d3f001cdc1cd2292c23281c02755d7f73a89bc43"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f665e2d2f58943278af17676c757b1f0d73ee0ad",
+      "size": 8434,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/f665e2d2f58943278af17676c757b1f0d73ee0ad"
+    },
+    {
+      "path": "assets",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b5ed7e6e70ff57eafe87468edd59ae9e76b7b2df",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/trees/b5ed7e6e70ff57eafe87468edd59ae9e76b7b2df"
+    },
+    {
+      "path": "assets/example-slide.jpeg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9b5dc1d4f48b4a4d623ec94fec5a7731eb322aa",
+      "size": 128458,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/d9b5dc1d4f48b4a4d623ec94fec5a7731eb322aa"
+    },
+    {
+      "path": "assets/financial-presentations",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7ee2ec8473cf82d91f144b6ad32efabbe9d4d395",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/trees/7ee2ec8473cf82d91f144b6ad32efabbe9d4d395"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve001.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "61dc47caf495305883876e396e43b2abe9c02a97",
+      "size": 145579,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/61dc47caf495305883876e396e43b2abe9c02a97"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve002.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "93e0f5f763814d8773e4aaaa3e03fa3326b2bd91",
+      "size": 224974,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/93e0f5f763814d8773e4aaaa3e03fa3326b2bd91"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve003.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "27b4d88ef92eda32fc13ae04329f47a1a5fc780c",
+      "size": 112904,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/27b4d88ef92eda32fc13ae04329f47a1a5fc780c"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve004.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "562f2fd0ccecd3f8516d1304e3c1e1f6041e6dff",
+      "size": 69562,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/562f2fd0ccecd3f8516d1304e3c1e1f6041e6dff"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve005.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1fab4fc958005996228f636c5bf63ac5c6de54f",
+      "size": 94983,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/c1fab4fc958005996228f636c5bf63ac5c6de54f"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve006.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6e1eefca815787f2b0055c475b4000e39376c359",
+      "size": 106290,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/6e1eefca815787f2b0055c475b4000e39376c359"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve007.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d9b5dc1d4f48b4a4d623ec94fec5a7731eb322aa",
+      "size": 128458,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/d9b5dc1d4f48b4a4d623ec94fec5a7731eb322aa"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve008.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "969fb0204618bbc48e61ed929558c57323a562ee",
+      "size": 101037,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/969fb0204618bbc48e61ed929558c57323a562ee"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve009.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f2ba64532d616c567322d681b3b6ccae838f822d",
+      "size": 78714,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/f2ba64532d616c567322d681b3b6ccae838f822d"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve010.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "38bdecaae85e3b5e4b52fe8cff4e3d70fc6f745e",
+      "size": 89263,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/38bdecaae85e3b5e4b52fe8cff4e3d70fc6f745e"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve011.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "81e50cdb97b84e78c70ff64f790ec238a8552a43",
+      "size": 118071,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/81e50cdb97b84e78c70ff64f790ec238a8552a43"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve012.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "503860c5ba79793057f992a7337de953a313d794",
+      "size": 76350,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/503860c5ba79793057f992a7337de953a313d794"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve013.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "387ab4d79ed5e1a120f8debf55375b771152e69b",
+      "size": 93620,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/387ab4d79ed5e1a120f8debf55375b771152e69b"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve014.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8c04376c4fc2cae61a8746a66093ce1831b94dc3",
+      "size": 122453,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/8c04376c4fc2cae61a8746a66093ce1831b94dc3"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve015.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "23d2e9424491f0c034d72d3d5ec1c7d61c444aac",
+      "size": 115662,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/23d2e9424491f0c034d72d3d5ec1c7d61c444aac"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve016.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c8114586c983a56c69e3837c7ecc88d3b93087ba",
+      "size": 105068,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/c8114586c983a56c69e3837c7ecc88d3b93087ba"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve017.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fbdb954acddb6acb32c5bb53866d1c45f70d933b",
+      "size": 105744,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/fbdb954acddb6acb32c5bb53866d1c45f70d933b"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve018.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "34bbffe195c83534c5f2cc4b3270557fbd6dd8d9",
+      "size": 132063,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/34bbffe195c83534c5f2cc4b3270557fbd6dd8d9"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve019.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "429511708613cf76a7d93d18e59a102d9d134777",
+      "size": 77556,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/429511708613cf76a7d93d18e59a102d9d134777"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve020.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bbebecd427ba530afe76bf59b14ed443f97224f4",
+      "size": 121437,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/bbebecd427ba530afe76bf59b14ed443f97224f4"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve021.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "aa6fb9a9e62219fa04fa121402c1f1672d1be841",
+      "size": 99796,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/aa6fb9a9e62219fa04fa121402c1f1672d1be841"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve022.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "724ad1d96ebb123e457ad742f3f9d7ede29a0114",
+      "size": 93876,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/724ad1d96ebb123e457ad742f3f9d7ede29a0114"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve023.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "60bc8d4665d92cdf7af29f10de90c777d643a98d",
+      "size": 104052,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/60bc8d4665d92cdf7af29f10de90c777d643a98d"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve024.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b10eb2bcca9bdc1e4a3167cfca3b27bafe046398",
+      "size": 92847,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/b10eb2bcca9bdc1e4a3167cfca3b27bafe046398"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve025.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53c837ce6cb1be5bc8a839d963aacd0ee5e16020",
+      "size": 87016,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/53c837ce6cb1be5bc8a839d963aacd0ee5e16020"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve026.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "da8f97f2977cf41ce52860afcf6d5067d5691f13",
+      "size": 79755,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/da8f97f2977cf41ce52860afcf6d5067d5691f13"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve027.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "95463b33ad99357d9fa037d44b7867c1dc6adf08",
+      "size": 58113,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/95463b33ad99357d9fa037d44b7867c1dc6adf08"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve028.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f6a68ed340c105bb2a60f05ea4b89ad185545960",
+      "size": 152638,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/f6a68ed340c105bb2a60f05ea4b89ad185545960"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve029.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "18dd87372a45c6bcd22006ccf6386d3bb5def1fe",
+      "size": 142379,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/18dd87372a45c6bcd22006ccf6386d3bb5def1fe"
+    },
+    {
+      "path": "assets/financial-presentations/sigifirstquarter2024inve030.jpg",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f0282de353a738a30f9a98b2f80ee3c02672ce54",
+      "size": 145624,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/f0282de353a738a30f9a98b2f80ee3c02672ce54"
+    },
+    {
+      "path": "notebooks",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "bd4ebcbed534ef1b35c038f02bd59bc8895e0af0",
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/trees/bd4ebcbed534ef1b35c038f02bd59bc8895e0af0"
+    },
+    {
+      "path": "notebooks/00_quickstart.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4d33a1e35b9f8e81bd0f6dfce7ede33551da07ac",
+      "size": 533695,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/4d33a1e35b9f8e81bd0f6dfce7ede33551da07ac"
+    },
+    {
+      "path": "notebooks/01_schema_showcase.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e0142867f1a9a621605d623e54e53baa546025c",
+      "size": 6817594,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/5e0142867f1a9a621605d623e54e53baa546025c"
+    },
+    {
+      "path": "notebooks/02_case_study_drivers_license.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5fe4fe04646bbb66794b360d1b4a8f6f6df75421",
+      "size": 3089056,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/5fe4fe04646bbb66794b360d1b4a8f6f6df75421"
+    },
+    {
+      "path": "notebooks/03_case_study_tv_news.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ffd83f2fc370e58826dda5ab288805ea9c7ffae2",
+      "size": 2106132,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/ffd83f2fc370e58826dda5ab288805ea9c7ffae2"
+    },
+    {
+      "path": "notebooks/04_visual_grounding.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7f834e5137c9caea95be759ddc0668ef1dec728f",
+      "size": 4372778,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/7f834e5137c9caea95be759ddc0668ef1dec728f"
+    },
+    {
+      "path": "notebooks/05_case_study_image_catalogue.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "34d7352a1eb334d64c068d238e6eb599de3c7f23",
+      "size": 67823,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/34d7352a1eb334d64c068d238e6eb599de3c7f23"
+    },
+    {
+      "path": "notebooks/06_fashion_images_hybrid_search.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "64878e9f44ca417a7a90952828f9adb9dee5439a",
+      "size": 262622,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/64878e9f44ca417a7a90952828f9adb9dee5439a"
+    },
+    {
+      "path": "notebooks/07_generate_schema.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8608b642ce7e307dde69bf8204220ca5c2ea06b1",
+      "size": 713098,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/8608b642ce7e307dde69bf8204220ca5c2ea06b1"
+    },
+    {
+      "path": "notebooks/08_document_markdown.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2b505865c9c8198d3c09990512f5d5e679a017e2",
+      "size": 675464,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/2b505865c9c8198d3c09990512f5d5e679a017e2"
+    },
+    {
+      "path": "notebooks/11_video_rag.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "899409ceb56d7eeb473e40252809bb49699766a3",
+      "size": 21938062,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/899409ceb56d7eeb473e40252809bb49699766a3"
+    },
+    {
+      "path": "notebooks/12_orion_image_understanding.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "58cf1b12f74064ec1195fbba05bb3f34f3c61d8b",
+      "size": 1638436,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/58cf1b12f74064ec1195fbba05bb3f34f3c61d8b"
+    },
+    {
+      "path": "notebooks/12_orion_video_understanding.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a1e48ebd22a22e1607ce59e374f524b4ab34eb76",
+      "size": 12082876,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/a1e48ebd22a22e1607ce59e374f524b4ab34eb76"
+    },
+    {
+      "path": "notebooks/13_orion_3d_reconstruction.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3acbebac1dffbdaf184253091a4b1743b59b1566",
+      "size": 20457105,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/3acbebac1dffbdaf184253091a4b1743b59b1566"
+    },
+    {
+      "path": "notebooks/14_orion_document_understanding.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "15939451583a4e783e3bfb3644805e20d26a1e38",
+      "size": 859345,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/15939451583a4e783e3bfb3644805e20d26a1e38"
+    },
+    {
+      "path": "notebooks/15_extracting_handwritten_medical_forms_to_json.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ed8db14ae205210019f7d748f8b354cf73711b3f",
+      "size": 1574017,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/ed8db14ae205210019f7d748f8b354cf73711b3f"
+    },
+    {
+      "path": "notebooks/16_healthcare_multi_document_workflow.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a8abad92dc7e54676a005d7a0c7c7317dcf0e3b",
+      "size": 1852242,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/4a8abad92dc7e54676a005d7a0c7c7317dcf0e3b"
+    },
+    {
+      "path": "notebooks/17_orion2_video_understanding.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2169f02e4c71c905981ce20c4cacdedeb4d7e94a",
+      "size": 45935358,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/2169f02e4c71c905981ce20c4cacdedeb4d7e94a"
+    },
+    {
+      "path": "notebooks/18_orion2_migration_requests_to_executions.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2425d5a15bfccc6edf606ab5976eeae02a02c3f9",
+      "size": 1204806,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/2425d5a15bfccc6edf606ab5976eeae02a02c3f9"
+    },
+    {
+      "path": "notebooks/19_orion2_multi_schema_extraction.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "72bc5f48ea0b6d0cd2242577574927d19bcc9740",
+      "size": 2694159,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/72bc5f48ea0b6d0cd2242577574927d19bcc9740"
+    },
+    {
+      "path": "notebooks/advanced_video_transcription.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "97ffdf83a1155ee25238fb4a53397555cbcc5f55",
+      "size": 42991,
+      "url": "https://api.github.com/repos/vlm-run/vlmrun-cookbook/git/blobs/97ffdf83a1155ee25238fb4a53397555cbcc5f55"
+    }
+  ],
+  "truncated": false
+}

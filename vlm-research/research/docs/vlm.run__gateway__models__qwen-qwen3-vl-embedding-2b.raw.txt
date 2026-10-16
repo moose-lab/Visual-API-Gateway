@@ -1,0 +1,139 @@
+Qwen3-VL Embedding 2B | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+Alibaba
+Qwen3-VL Embedding 2B
+About
+Qwen3-VL Embedding 2B is a 2B open-weight model from Alibaba. Multimodal embedding model for text, image, and video inputs. It accepts text, images, and video. Context window is 8K. Released January 7, 2026.
+Parameters
+2B
+Published parameter count.
+Context window
+8K
+Tokens of context on a request.
+License
+Apache-2.0
+License on the weights.
+PricingCompareBenchmarksMethodsInputsEstimate costQuick start
+Model specifications
+ProviderAlibaba
+Type
+embedding
+Endpointqwen/qwen3-vl-embedding-2b
+Parameters2B
+Context length8K
+Input price$0.013 / 1M tokens$0.013 (cached) / 1M
+Output price$0 / 1M tokens
+Inputs
+textimage_urlvideo_url
+LicenseApache-2.0
+ReleasedJanuary 7, 2026
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Input / 1M$0.013
+Cached input / 1M$0.013
+Output / 1M$0
+Compare
+Qwen3-VL Embedding 2B is the only embedding model in the catalog. The other rows take similar inputs and do a different job.
+ModelWhat it doesPriceParametersContext
+Qwen3-VL Embedding 2BMultimodal embedding model for text, image, and video inputs.$0.013 / 1M input2B8K
+OCR AutoRoutes each method to its best OCR engine: ocr to PP-OCRv6, markdown to a fast CPU parser (dots.mocr on error), layout to dots.mocr.$0 / 1M input——
+PP-OCRv6PaddleOCR PP-OCRv6 medium text detection and recognition; scene OCR JSONL on image chat; text returns plain text; document_url fan-out via text.$0.02 / 1M input20M—
+Qwen3.5 0.8BMultimodal chat model with up to 64 images or one video per request.$0.08 / 1M input0.8B256K
+Benchmarks
+Published scores for Qwen3-VL Embedding 2B, from the Qwen3-VL-Embedding model card.
+Evals
+MMEB image75
+MMEB video61.9
+MMEB visual documents79.2
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeMMEB image: 75.
+Cost and performanceLower listed rate, mid-pack latency
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+embedAn embedding vector
+Supported inputs
+textYes
+A string, an array of strings, or text content parts.
+image_urlYes
+As content parts in input, embedded into the same vector space as text.
+video_urlYes
+As content parts in input; frames are sampled and embedded.
+document_urlNo
+Rasterize the pages and send them as image_url parts.
+Served over POST /v1/openai/embeddings. Only method: embed. Context window 8,192 tokens. dimensions truncates the output vector.
+Weights: Qwen/Qwen3-VL-Embedding-2B.
+Estimate cost
+Estimate. An hour of video is 15 frames a minute at 256 tokens a frame, plus the audio in that request, and 500 output tokens a minute.
+Hours of video
+$4.49
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jsCLIcURL
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+response = client.embeddings.create(
+model="qwen/qwen3-vl-embedding-2b",
+input="Extract a vector representation for this text.",
+)
+print(len(response.data[0].embedding))
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

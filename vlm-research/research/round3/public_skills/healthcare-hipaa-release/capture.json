@@ -1,0 +1,13 @@
+{
+  "evidence": "RUNTIME",
+  "skill_id": "4fb87b73-3bb0-4cf7-aa03-8ff00de5e242",
+  "skill_version": "20260526-f6e67e57",
+  "archive_sha256": "e2b52d8162a94a9b727de7ad511213e112841141c68ebd80d42ce8d8b70ee8e7",
+  "members": [
+    "hipaa-release/schema.json",
+    "hipaa-release/schema.py",
+    "hipaa-release/SKILL.md",
+    "hipaa-release/vlmrun.yaml",
+    "hipaa-release/pipeline.py"
+  ]
+}

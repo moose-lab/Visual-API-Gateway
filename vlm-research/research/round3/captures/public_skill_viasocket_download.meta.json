@@ -1,0 +1,14 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T07:47:50.605632+00:00",
+  "url": "https://api.vlm.run/v1/skills/5133b599-76c4-4c9a-8bfe-5ef32527245e/download",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "4bde595cca8359aaea34289f285167c5682f98606f50a96764c2956afb05ee47",
+  "response_bytes": 430,
+  "headers": {
+    "Content-Type": "application/json",
+    "Date": "Tue, 13 Oct 2026 07:47:52 GMT"
+  },
+  "elapsed_seconds": 1.612
+}

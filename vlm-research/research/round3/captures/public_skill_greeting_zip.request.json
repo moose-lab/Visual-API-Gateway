@@ -1,0 +1,7 @@
+{
+  "method": "GET",
+  "url": "https://storage.googleapis.com/vlm-userdata-prod/files/f357b53f-d54f-436b-95e1-77f01c5c2235/skill_greeting_109fabdbde62.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T074323Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+  "auth": "none",
+  "body": null,
+  "headers": {}
+}

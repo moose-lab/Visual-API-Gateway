@@ -1,0 +1,13 @@
+.prism.log
+node_modules
+yarn-error.log
+codegen.log
+Brewfile.lock.json
+dist
+/*.tgz
+.idea/
+.env
+.env.test
+.vscode/
+.DS_Store
+agent-tools/

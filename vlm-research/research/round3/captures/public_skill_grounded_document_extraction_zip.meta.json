@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T07:43:39.328116+00:00",
+  "url": "https://storage.googleapis.com/vlm-userdata-prod/files/13604ef1-4aac-4837-b925-a1dbdbfe397e/archive-20260720-KbvgmhDlvnA-skill-update.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T074338Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "351d182be782812e97525b53ed8b4f53269469084fd1174e454ae33c6069ecd8",
+  "response_bytes": 3850,
+  "headers": {
+    "Content-Type": "application/zip",
+    "Date": "Tue, 13 Oct 2026 07:43:41 GMT",
+    "Server": "UploadServer"
+  },
+  "elapsed_seconds": 2.028
+}

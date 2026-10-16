@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:38:34.692076+00:00",
+  "url": "https://huggingface.co/api/models/nvidia/diffusiongemma-26B-A4B-it-NVFP4",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "dfdd1d7f2e248f9cbfe29b6a4c82e54ae02b2416f4de0e66b51ae6f80880950e",
+  "response_bytes": 20107,
+  "headers": {
+    "Content-Type": "application/json; charset=utf-8",
+    "Date": "Tue, 13 Oct 2026 03:38:35 GMT",
+    "X-Request-Id": "Root=1-6acda7bb-5fa8fc5a25ba31d35b16c189"
+  },
+  "elapsed_seconds": 1.49
+}

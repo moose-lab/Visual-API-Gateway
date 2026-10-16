@@ -1,0 +1,16 @@
+{
+  "method": "POST",
+  "url": "https://gateway.vlm.run/v1/openai/chat/completions",
+  "auth": "Bearer [REDACTED]",
+  "body": {
+    "model": "google/gemini-3.5-flash-lite",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Reply with exactly PROVIDER_OK"
+      }
+    ],
+    "max_tokens": 32,
+    "temperature": 0
+  }
+}

@@ -1,0 +1,15 @@
+apiVersion: vlm.run/v1alpha
+metadata: {}
+model: vlmrun-orion-1:auto
+toolsets:
+- core
+graph: |
+  stateDiagram-v2
+    ParseInput: Analyze the received prompt input to identify user intent, tone, and any implicit context that should shape the response
+    GenerateResponse: Compose a natural and contextually appropriate response using the core language capabilities, ensuring it matches the conversational tone and intent of the input
+    Output: Aggregate and reason over all analysis results, validate extracted information for consistency, and produce a well-structured output conforming to the target schema
+
+    [*] --> ParseInput
+    ParseInput --> GenerateResponse
+    GenerateResponse --> Output
+    Output --> [*]

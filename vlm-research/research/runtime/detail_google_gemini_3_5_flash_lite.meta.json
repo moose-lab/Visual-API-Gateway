@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:52:26.490712+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/google/gemini-3.5-flash-lite",
+  "status": 404,
+  "elapsed_seconds": 4.276,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:52:29 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "ea7be4f9-79ff-4941-9e53-38d6132ec1d0"
+  },
+  "response_sha256": "43dd27054795f1a71a966b43a1bc05ee89e40bd78604f104cdb8fd0bf73213d3",
+  "response_bytes": 132
+}

@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:00:34.558505+00:00",
+  "url": "https://docs.vlm.run/gateway/changelog.md",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "132648f72ab21f14296d507b56facee547c52ffad8056c6335030da6ff5c9ec6",
+  "response_bytes": 11126,
+  "headers": {
+    "Content-Type": "text/markdown; charset=utf-8",
+    "Date": "Tue, 13 Oct 2026 03:00:35 GMT",
+    "Server": "Vercel"
+  },
+  "elapsed_seconds": 1.423
+}

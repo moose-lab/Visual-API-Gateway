@@ -1,0 +1,1771 @@
+(globalThis.TURBOPACK || (globalThis.TURBOPACK = [])).push(["object" == typeof document ? document.currentScript : void 0, 496775, e => {
+    "use strict";
+    let t = (0, e.i(412872).default)("file-text", [
+        ["path", {
+            d: "M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z",
+            key: "1oefj6"
+        }],
+        ["path", {
+            d: "M14 2v5a1 1 0 0 0 1 1h5",
+            key: "wfsgrz"
+        }],
+        ["path", {
+            d: "M10 9H8",
+            key: "b1mrlr"
+        }],
+        ["path", {
+            d: "M16 13H8",
+            key: "t4e002"
+        }],
+        ["path", {
+            d: "M16 17H8",
+            key: "z1uh3a"
+        }]
+    ]);
+    e.s(["FileText", () => t], 496775)
+}, 438831, 295365, 130807, e => {
+    "use strict";
+    let t;
+    var o = e.i(412872);
+    let a = (0, o.default)("image", [
+        ["rect", {
+            width: "18",
+            height: "18",
+            x: "3",
+            y: "3",
+            rx: "2",
+            ry: "2",
+            key: "1m3agn"
+        }],
+        ["circle", {
+            cx: "9",
+            cy: "9",
+            r: "2",
+            key: "af1f0g"
+        }],
+        ["path", {
+            d: "m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21",
+            key: "1xmnt7"
+        }]
+    ]);
+    e.s(["default", () => a], 438831);
+    let l = (0, o.default)("video", [
+        ["path", {
+            d: "m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5",
+            key: "ftymec"
+        }],
+        ["rect", {
+            x: "2",
+            y: "6",
+            width: "14",
+            height: "12",
+            rx: "2",
+            key: "158x01"
+        }]
+    ]);
+    e.s(["Video", () => l], 295365);
+    var r = e.i(302766),
+        n = e.i(763708);
+    let s = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    function d(e, t) {
+        return e.length === t ? [...e] : 0 === e.length ? Array.from({
+            length: t
+        }, () => 0) : Array.from({
+            length: t
+        }, (o, a) => {
+            let l = a / Math.max(t - 1, 1) * (e.length - 1),
+                r = Math.floor(l),
+                n = Math.min(e.length - 1, r + 1);
+            return (e[r] * (1 - (l - r)) + e[n] * (l - r)) * (1 + .035 * Math.sin(1.4 * a))
+        })
+    }
+    let i = {
+            asOf: "September 22, 2026",
+            weeks: (t = Date.UTC(2026, 8, 22), Array.from({
+                length: 26
+            }, (e, o) => {
+                let a = new Date(t - (25 - o) * 6048e5);
+                return `${s[a.getUTCMonth()]} ${a.getUTCDate()}`
+            })),
+            topModels: {
+                series: [{
+                    modelId: "qwen/qwen3.8-27b",
+                    tokens: [21e8, 24e8, 28e8, 31e8, 34e8, 4e9, 46e8, 52e8]
+                }, {
+                    modelId: "google/gemini-3.7-flash",
+                    tokens: [18e8, 19e8, 22e8, 2e9, 24e8, 26e8, 25e8, 29e8]
+                }, {
+                    modelId: "moonshotai/kimi-k3",
+                    tokens: [4e8, 6e8, 9e8, 12e8, 16e8, 21e8, 24e8, 28e8]
+                }, {
+                    modelId: "paddlepaddle/paddleocr-vl-1.6",
+                    tokens: [12e8, 13e8, 125e7, 14e8, 15e8, 155e7, 17e8, 18e8]
+                }, {
+                    modelId: "meta/muse-spark-1.2",
+                    tokens: [3e8, 5e8, 7e8, 6e8, 9e8, 11e8, 14e8, 16e8]
+                }, {
+                    modelId: "qwen/qwen3.5-0.8b",
+                    tokens: [8e8, 9e8, 1e9, 11e8, 1e9, 12e8, 13e8, 14e8]
+                }],
+                others: [32e8, 31e8, 3e9, 33e8, 31e8, 29e8, 3e9, 28e8]
+            },
+            leaderboard: {
+                today: [{
+                    modelId: "qwen/qwen3.8-27b",
+                    tokens: 78e7,
+                    changePct: 6
+                }, {
+                    modelId: "moonshotai/kimi-k3",
+                    tokens: 41e7,
+                    changePct: 14
+                }, {
+                    modelId: "google/gemini-3.7-flash",
+                    tokens: 39e7,
+                    changePct: -2
+                }, {
+                    modelId: "paddlepaddle/paddleocr-vl-1.6",
+                    tokens: 26e7,
+                    changePct: 3
+                }, {
+                    modelId: "meta/muse-spark-1.2",
+                    tokens: 24e7,
+                    changePct: 9
+                }, {
+                    modelId: "qwen/qwen3.5-0.8b",
+                    tokens: 19e7,
+                    changePct: 1
+                }, {
+                    modelId: "deepseek-ai/deepseek-ocr-2",
+                    tokens: 14e7,
+                    changePct: 8
+                }, {
+                    modelId: "google/gemini-3.5-flash-lite",
+                    tokens: 12e7,
+                    changePct: -4
+                }],
+                week: [{
+                    modelId: "qwen/qwen3.8-27b",
+                    tokens: 52e8,
+                    changePct: 18
+                }, {
+                    modelId: "google/gemini-3.7-flash",
+                    tokens: 29e8,
+                    changePct: 16
+                }, {
+                    modelId: "moonshotai/kimi-k3",
+                    tokens: 28e8,
+                    changePct: 17
+                }, {
+                    modelId: "paddlepaddle/paddleocr-vl-1.6",
+                    tokens: 18e8,
+                    changePct: 6
+                }, {
+                    modelId: "meta/muse-spark-1.2",
+                    tokens: 16e8,
+                    changePct: 14
+                }, {
+                    modelId: "qwen/qwen3.5-0.8b",
+                    tokens: 14e8,
+                    changePct: 8
+                }, {
+                    modelId: "google/gemini-3.5-flash-lite",
+                    tokens: 11e8,
+                    changePct: 4
+                }, {
+                    modelId: "deepseek-ai/deepseek-ocr-2",
+                    tokens: 92e7,
+                    changePct: 11
+                }, {
+                    modelId: "google/gemma-4-26b-a4b-it",
+                    tokens: 84e7,
+                    changePct: -3
+                }, {
+                    modelId: "meta/muse-glimmer-30b",
+                    tokens: 71e7,
+                    changePct: 9
+                }],
+                month: [{
+                    modelId: "qwen/qwen3.8-27b",
+                    tokens: 184e8,
+                    changePct: 41
+                }, {
+                    modelId: "google/gemini-3.7-flash",
+                    tokens: 121e8,
+                    changePct: 12
+                }, {
+                    modelId: "paddlepaddle/paddleocr-vl-1.6",
+                    tokens: 86e8,
+                    changePct: 7
+                }, {
+                    modelId: "moonshotai/kimi-k3",
+                    tokens: 79e8,
+                    changePct: 86
+                }, {
+                    modelId: "qwen/qwen3.5-0.8b",
+                    tokens: 64e8,
+                    changePct: 15
+                }, {
+                    modelId: "meta/muse-spark-1.2",
+                    tokens: 51e8,
+                    changePct: 63
+                }, {
+                    modelId: "google/gemini-3.5-flash-lite",
+                    tokens: 44e8,
+                    changePct: 5
+                }, {
+                    modelId: "baidu/unlimited-ocr",
+                    tokens: 32e8,
+                    changePct: 22
+                }, {
+                    modelId: "google/gemma-4-26b-a4b-it",
+                    tokens: 28e8,
+                    changePct: -6
+                }, {
+                    modelId: "minimax/minimax-m3",
+                    tokens: 21e8,
+                    changePct: 19
+                }],
+                trending: [{
+                    modelId: "moonshotai/kimi-k3",
+                    tokens: 28e8,
+                    changePct: "new"
+                }, {
+                    modelId: "meta/muse-spark-1.2",
+                    tokens: 16e8,
+                    changePct: 64
+                }, {
+                    modelId: "baidu/unlimited-ocr",
+                    tokens: 66e7,
+                    changePct: 48
+                }, {
+                    modelId: "qwen/qwen3.8-27b",
+                    tokens: 52e8,
+                    changePct: 22
+                }, {
+                    modelId: "deepseek-ai/deepseek-ocr-2",
+                    tokens: 92e7,
+                    changePct: 19
+                }, {
+                    modelId: "google/gemini-3.7-flash",
+                    tokens: 29e8,
+                    changePct: 16
+                }, {
+                    modelId: "qwen/qwen3-vl-embedding-2b",
+                    tokens: 41e7,
+                    changePct: 15
+                }, {
+                    modelId: "nvidia/parakeet-tdt-0.6b-v3",
+                    tokens: 28e7,
+                    changePct: 11
+                }]
+            },
+            byTask: [{
+                id: "document",
+                label: "Document",
+                spendShare: 34,
+                rows: [{
+                    modelId: "paddlepaddle/paddleocr-vl-1.6",
+                    sharePct: 28
+                }, {
+                    modelId: "deepseek-ai/deepseek-ocr-2",
+                    sharePct: 18
+                }, {
+                    modelId: "baidu/unlimited-ocr",
+                    sharePct: 16
+                }, {
+                    modelId: "rednote-hilab/dots.mocr",
+                    sharePct: 14
+                }, {
+                    modelId: "zai-org/glm-ocr",
+                    sharePct: 12
+                }, {
+                    modelId: "google/gemini-3.7-flash",
+                    sharePct: 12
+                }]
+            }, {
+                id: "video",
+                label: "Video",
+                spendShare: 28,
+                rows: [{
+                    modelId: "qwen/qwen3.8-27b",
+                    sharePct: 34
+                }, {
+                    modelId: "google/gemini-3.7-flash",
+                    sharePct: 22
+                }, {
+                    modelId: "moonshotai/kimi-k3",
+                    sharePct: 16
+                }, {
+                    modelId: "meta/muse-spark-1.2",
+                    sharePct: 12
+                }, {
+                    modelId: "google/gemini-robotics-er-2-preview",
+                    sharePct: 9
+                }, {
+                    modelId: "qwen/qwen3.5-0.8b",
+                    sharePct: 7
+                }]
+            }, {
+                id: "ocr",
+                label: "OCR",
+                spendShare: 22,
+                rows: [{
+                    modelId: "paddlepaddle/paddleocr-vl-1.6",
+                    sharePct: 31
+                }, {
+                    modelId: "deepseek-ai/deepseek-ocr-2",
+                    sharePct: 22
+                }, {
+                    modelId: "baidu/unlimited-ocr",
+                    sharePct: 18
+                }, {
+                    modelId: "rednote-hilab/dots.mocr",
+                    sharePct: 14
+                }, {
+                    modelId: "paddleocr/pp-ocrv6",
+                    sharePct: 9
+                }, {
+                    modelId: "microsoft/florence-2-base-ft",
+                    sharePct: 6
+                }]
+            }, {
+                id: "chat",
+                label: "Chat",
+                spendShare: 16,
+                rows: [{
+                    modelId: "qwen/qwen3.8-27b",
+                    sharePct: 29
+                }, {
+                    modelId: "google/gemini-3.7-flash",
+                    sharePct: 21
+                }, {
+                    modelId: "moonshotai/kimi-k3",
+                    sharePct: 18
+                }, {
+                    modelId: "meta/muse-spark-1.2",
+                    sharePct: 12
+                }, {
+                    modelId: "google/gemma-4-26b-a4b-it",
+                    sharePct: 11
+                }, {
+                    modelId: "minimax/minimax-m3",
+                    sharePct: 9
+                }]
+            }],
+            costPerSession: {
+                jobs: [{
+                    id: "document",
+                    label: "Document"
+                }, {
+                    id: "video",
+                    label: "Video"
+                }, {
+                    id: "ocr",
+                    label: "OCR"
+                }],
+                rows: [{
+                    modelId: "qwen/qwen3.5-0.8b",
+                    usd: [.06, .22, .04]
+                }, {
+                    modelId: "paddlepaddle/paddleocr-vl-1.6",
+                    usd: [.08, .9, .05]
+                }, {
+                    modelId: "deepseek-ai/deepseek-ocr-2",
+                    usd: [.09, 1.6, .07]
+                }, {
+                    modelId: "google/gemini-3.5-flash-lite",
+                    usd: [.12, .55, .09]
+                }, {
+                    modelId: "qwen/qwen3.8-27b",
+                    usd: [.28, 1.4, .18]
+                }, {
+                    modelId: "meta/muse-spark-1.2",
+                    usd: [.48, 1.9, .32]
+                }, {
+                    modelId: "google/gemini-3.7-flash",
+                    usd: [.62, 2.4, .4]
+                }, {
+                    modelId: "moonshotai/kimi-k3",
+                    usd: [1.1, 4.8, .7]
+                }]
+            },
+            marketShare: [{
+                provider: "Alibaba",
+                tokens: [34e8, 38e8, 44e8, 49e8, 52e8, 6e9, 68e8, 76e8]
+            }, {
+                provider: "Google",
+                tokens: [26e8, 28e8, 31e8, 29e8, 34e8, 37e8, 36e8, 42e8]
+            }, {
+                provider: "Moonshot AI",
+                tokens: [4e8, 6e8, 9e8, 12e8, 16e8, 21e8, 24e8, 28e8]
+            }, {
+                provider: "Meta",
+                tokens: [8e8, 1e9, 12e8, 11e8, 15e8, 18e8, 22e8, 25e8]
+            }, {
+                provider: "PaddlePaddle",
+                tokens: [14e8, 15e8, 145e7, 16e8, 17e8, 175e7, 19e8, 2e9]
+            }, {
+                provider: "Others",
+                tokens: [22e8, 21e8, 2e9, 23e8, 21e8, 19e8, 2e9, 18e8]
+            }],
+            benchmarks: [{
+                modelId: "google/gemini-3.7-flash",
+                score: 76
+            }, {
+                modelId: "moonshotai/kimi-k3",
+                score: 74
+            }, {
+                modelId: "qwen/qwen3.8-27b",
+                score: 71
+            }, {
+                modelId: "meta/muse-spark-1.2",
+                score: 70
+            }, {
+                modelId: "google/gemma-4-26b-a4b-it",
+                score: 68
+            }, {
+                modelId: "minimax/minimax-m3",
+                score: 66
+            }, {
+                modelId: "google/gemini-3.5-flash-lite",
+                score: 64
+            }, {
+                modelId: "paddlepaddle/paddleocr-vl-1.6",
+                score: 62
+            }, {
+                modelId: "deepseek-ai/deepseek-ocr-2",
+                score: 58
+            }, {
+                modelId: "qwen/qwen3.5-0.8b",
+                score: 54
+            }],
+            categories: [{
+                id: "document",
+                label: "Document",
+                unit: "pages",
+                blurb: "Pages sent through document and markdown models.",
+                weekly: [12e5, 14e5, 15e5, 17e5, 18e5, 21e5, 24e5, 26e5],
+                rows: [{
+                    modelId: "paddlepaddle/paddleocr-vl-1.6",
+                    amount: 82e4,
+                    changePct: 9
+                }, {
+                    modelId: "deepseek-ai/deepseek-ocr-2",
+                    amount: 54e4,
+                    changePct: 14
+                }, {
+                    modelId: "baidu/unlimited-ocr",
+                    amount: 41e4,
+                    changePct: 22
+                }, {
+                    modelId: "rednote-hilab/dots.mocr",
+                    amount: 36e4,
+                    changePct: 4
+                }, {
+                    modelId: "zai-org/glm-ocr",
+                    amount: 28e4,
+                    changePct: -3
+                }, {
+                    modelId: "google/gemini-3.7-flash",
+                    amount: 19e4,
+                    changePct: 11
+                }]
+            }, {
+                id: "video",
+                label: "Video",
+                unit: "hours",
+                blurb: "Hours of video processed by models that accept video.",
+                weekly: [4200, 4800, 5100, 5600, 6400, 7200, 8100, 9400],
+                rows: [{
+                    modelId: "qwen/qwen3.8-27b",
+                    amount: 3100,
+                    changePct: 16
+                }, {
+                    modelId: "google/gemini-3.7-flash",
+                    amount: 2100,
+                    changePct: 8
+                }, {
+                    modelId: "moonshotai/kimi-k3",
+                    amount: 1600,
+                    changePct: 21
+                }, {
+                    modelId: "meta/muse-spark-1.2",
+                    amount: 980,
+                    changePct: 18
+                }, {
+                    modelId: "google/gemini-robotics-er-2-preview",
+                    amount: 740,
+                    changePct: 6
+                }, {
+                    modelId: "qwen/qwen3.5-0.8b",
+                    amount: 520,
+                    changePct: 3
+                }]
+            }, {
+                id: "ocr",
+                label: "OCR",
+                unit: "pages",
+                blurb: "Pages read by models whose catalog type is OCR.",
+                weekly: [9e5, 1e6, 11e5, 115e4, 13e5, 14e5, 155e4, 17e5],
+                rows: [{
+                    modelId: "paddlepaddle/paddleocr-vl-1.6",
+                    amount: 61e4,
+                    changePct: 7
+                }, {
+                    modelId: "deepseek-ai/deepseek-ocr-2",
+                    amount: 39e4,
+                    changePct: 12
+                }, {
+                    modelId: "baidu/unlimited-ocr",
+                    amount: 28e4,
+                    changePct: 19
+                }, {
+                    modelId: "rednote-hilab/dots.mocr",
+                    amount: 21e4,
+                    changePct: 2
+                }, {
+                    modelId: "paddleocr/pp-ocrv6",
+                    amount: 12e4,
+                    changePct: -5
+                }, {
+                    modelId: "microsoft/florence-2-base-ft",
+                    amount: 9e4,
+                    changePct: 1
+                }]
+            }, {
+                id: "detection",
+                label: "Detection",
+                unit: "images",
+                blurb: "Images sent to detection models.",
+                weekly: [18e4, 19e4, 21e4, 24e4, 26e4, 3e5, 34e4, 39e4],
+                rows: [{
+                    modelId: "qwen/qwen3.5-0.8b",
+                    amount: 21e4,
+                    changePct: 15
+                }, {
+                    modelId: "microsoft/florence-2-base-ft",
+                    amount: 96e3,
+                    changePct: 4
+                }, {
+                    modelId: "paddleocr/pp-ocrv6",
+                    amount: 54e3,
+                    changePct: -2
+                }]
+            }, {
+                id: "transcription",
+                label: "Transcription",
+                unit: "audio hours",
+                blurb: "Audio hours sent to transcription models.",
+                weekly: [640, 700, 760, 810, 880, 960, 1100, 1280],
+                rows: [{
+                    modelId: "nvidia/parakeet-tdt-0.6b-v3",
+                    amount: 1280,
+                    changePct: 16
+                }]
+            }, {
+                id: "embeddings",
+                label: "Embeddings",
+                unit: "images",
+                blurb: "Images embedded for retrieval.",
+                weekly: [4e4, 48e3, 55e3, 7e4, 88e3, 11e4, 14e4, 18e4],
+                rows: [{
+                    modelId: "qwen/qwen3-vl-embedding-2b",
+                    amount: 18e4,
+                    changePct: 29
+                }]
+            }]
+        },
+        c = ["#6d28d9", "#1d4ed8", "#0f766e", "#c026d3", "#b45309", "#0369a1", "#64748b"];
+
+    function m(e) {
+        return n.gatewayModelsJson.find(t => t.id === e)
+    }
+
+    function u(e) {
+        let t = m(e);
+        return !t || t.comingSoon ? null : {
+            id: t.id,
+            name: t.name,
+            provider: t.provider,
+            logo: t.providerLogo,
+            href: (0, r.gatewayModelCardPath)(t.id)
+        }
+    }
+
+    function p(e) {
+        let t = Math.abs(e);
+        if (t < 1e3) return String(Math.round(e));
+        let o = t >= 1e12 ? [e / 1e12, "T"] : t >= 1e9 ? [e / 1e9, "B"] : t >= 1e6 ? [e / 1e6, "M"] : [e / 1e3, "K"],
+            a = o[0],
+            l = o[1],
+            r = Math.abs(a) >= 10 ? 1 : 2,
+            n = a.toFixed(r).replace(/\.0+$/, "").replace(/(\.\d)0$/, "$1");
+        return `${n}${l}`
+    }
+
+    function h(e) {
+        return "new" === e ? {
+            label: "new",
+            up: !0
+        } : {
+            label: `${e>0?"+":""}${e}%`,
+            up: 0 === e ? null : e > 0
+        }
+    }
+
+    function g(e) {
+        let t = function(e) {
+            if (!e || "object" != typeof e) return null;
+            let t = e.models;
+            if (!Array.isArray(t)) return null;
+            let o = {};
+            for (let e of t) {
+                let t = e?.model,
+                    a = e?.requests;
+                if ("string" != typeof t || !Array.isArray(a)) continue;
+                let l = a.map(e => "number" == typeof e && e > 0 ? e : 0),
+                    r = l.reduce((e, t) => e + t, 0);
+                r <= 0 || (o[t] = {
+                    series: l,
+                    total: r,
+                    label: `${p(r)} requests in the last ${l.length} days`
+                })
+            }
+            return Object.keys(o).length > 0 ? o : null
+        }(e);
+        return t ? {
+            live: !0,
+            byModel: t
+        } : {
+            live: !1,
+            byModel: Object.fromEntries(function(e = i) {
+                let t = new Map,
+                    o = (e, t) => ({
+                        series: e,
+                        total: t,
+                        label: `${p(t)} tokens in the latest of ${e.length} weeks`
+                    }),
+                    a = (e, a, l) => {
+                        t.has(e) || a <= 0 || t.set(e, o(function(e, t, o, a = 8) {
+                            let l = o <= -100 ? 0 : t / (1 + o / 100),
+                                r = function(e) {
+                                    let t = 0x811c9dc5;
+                                    for (let o = 0; o < e.length; o += 1) t = Math.imul(t ^ e.charCodeAt(o), 0x1000193);
+                                    return t >>> 0
+                                }(e);
+                            return Array.from({
+                                length: a
+                            }, (e, o) => {
+                                let n = o / Math.max(a - 1, 1);
+                                return o === a - 1 ? t : (l + (t - l) * n) * (1 + ((r = Math.imul(r, 1664525) + 0x3c6ef35f >>> 0) / 0xffffffff - .5) * .08)
+                            })
+                        }(e, a, l), a))
+                    };
+                for (let a of e.topModels.series) {
+                    let e = a.tokens.slice(-8);
+                    t.set(a.modelId, o(e, e[e.length - 1] ?? 0))
+                }
+                for (let l of e.leaderboard.week) {
+                    let e = t.get(l.modelId);
+                    e ? t.set(l.modelId, o(e.series, l.tokens)) : a(l.modelId, l.tokens, l.changePct)
+                }
+                for (let t of e.leaderboard.trending) a(t.modelId, t.tokens, "new" === t.changePct ? 100 : t.changePct);
+                for (let t of e.leaderboard.month) a(t.modelId, t.tokens / 4.35, t.changePct);
+                let l = new Map;
+                for (let t of e.categories)
+                    if ("pages" === t.unit)
+                        for (let e of t.rows) {
+                            let t = l.get(e.modelId);
+                            l.set(e.modelId, {
+                                amount: (t?.amount ?? 0) + e.amount,
+                                changePct: t?.changePct ?? e.changePct
+                            })
+                        }
+                let r = [...l].flatMap(([e, o]) => {
+                        let a = t.get(e);
+                        return a && o.amount > 0 ? [a.total / o.amount] : []
+                    }).sort((e, t) => e - t),
+                    n = Math.floor(r.length / 2),
+                    s = 0 === r.length ? 0 : r.length % 2 ? r[n] : (r[n - 1] + r[n]) / 2;
+                for (let [e, t] of l) a(e, t.amount * s, t.changePct);
+                return t
+            }())
+        }
+    }
+
+    function x(e, t) {
+        let o = e >= 1e3 ? p(e) : String(Math.round(e));
+        return `${o} ${t}`
+    }
+
+    function b(e = i, t = null) {
+        let o = t ? {
+                ...e,
+                asOf: t.asOf,
+                weeks: t.weeks,
+                topModels: t.topModels,
+                leaderboard: t.leaderboard,
+                marketShare: t.marketShare
+            } : e,
+            a = o.topModels.series.flatMap((e, t) => {
+                let a = u(e.modelId);
+                return a ? [{
+                    id: a.id,
+                    label: a.name,
+                    color: c[t % c.length],
+                    values: d(e.tokens, o.weeks.length)
+                }] : []
+            });
+        a.push({
+            id: "others",
+            label: "Others",
+            color: c[c.length - 1],
+            values: d(o.topModels.others, o.weeks.length)
+        });
+        let l = t && o.weeks.length > 0 ? o.weeks[o.weeks.length - 1] : null,
+            r = ["today", "week", "month", "trending"].map(e => {
+                let t = o.leaderboard[e].flatMap(e => {
+                        let t = u(e.modelId);
+                        return t ? [{
+                            model: t,
+                            tokens: e.tokens,
+                            changePct: e.changePct
+                        }] : []
+                    }),
+                    a = Math.max(...t.map(e => e.tokens));
+                return {
+                    id: e,
+                    label: ({
+                        today: l ?? "Today",
+                        week: "This week",
+                        month: "This month",
+                        trending: "Trending"
+                    })[e],
+                    rows: t.map(e => {
+                        let t = null == e.changePct ? {
+                            label: null,
+                            up: null
+                        } : h(e.changePct);
+                        return {
+                            ...e.model,
+                            primary: `${p(e.tokens)} tokens`,
+                            changeLabel: t.label,
+                            changeUp: t.up,
+                            barPct: a > 0 ? e.tokens / a * 100 : 0
+                        }
+                    })
+                }
+            }),
+            n = e.byTask.map(e => ({
+                id: e.id,
+                label: e.label,
+                spendShare: e.spendShare,
+                rows: e.rows.flatMap(e => {
+                    let t = u(e.modelId);
+                    return t ? [{
+                        ...t,
+                        primary: `${e.sharePct}%`,
+                        changeLabel: null,
+                        changeUp: null,
+                        barPct: e.sharePct
+                    }] : []
+                })
+            })),
+            s = ["#2563eb", "#0f766e", "#ea580c"],
+            g = e.costPerSession.rows.flatMap(e => {
+                let t = u(e.modelId);
+                return t ? [{
+                    ...t,
+                    values: [...e.usd]
+                }] : []
+            });
+        g.sort((e, t) => e.values[0] - t.values[0]);
+        let f = o.marketShare.map((e, t) => ({
+                id: e.provider,
+                label: e.provider,
+                color: c[t % c.length],
+                values: d(e.tokens, o.weeks.length)
+            })),
+            k = e.benchmarks.flatMap(e => {
+                var t;
+                let o, a = u(e.modelId),
+                    l = (t = e.modelId, (o = m(t)?.pricing) && "token" === o.mode ? o.input : null);
+                return a && null != l ? [{
+                    ...a,
+                    score: e.score,
+                    price: l
+                }] : []
+            }),
+            y = (t?.volumes ?? []).map(e => {
+                let t = e.series.length > 0 ? e.series : e.rows.map(e => ({
+                    modelId: e.modelId,
+                    amounts: [e.amount]
+                }));
+                return {
+                    id: e.id,
+                    label: e.label,
+                    unit: e.unit,
+                    blurb: t.some(e => e.amounts.length > 1) ? "Running total over the last 30 days. Each day adds to the day before." : "Counted on gateway requests over the last 7 days.",
+                    sample: !1,
+                    weekly: t.flatMap((e, t) => {
+                        let o = u(e.modelId);
+                        return o ? [{
+                            id: o.id,
+                            label: o.name,
+                            color: c[t % c.length],
+                            values: e.amounts
+                        }] : []
+                    }),
+                    rows: e.rows.flatMap(t => {
+                        let o = u(t.modelId);
+                        if (!o) return [];
+                        let a = Math.max(...e.rows.map(e => e.amount));
+                        return [{
+                            ...o,
+                            primary: x(t.amount, e.unit),
+                            changeLabel: null,
+                            changeUp: null,
+                            barPct: a > 0 ? t.amount / a * 100 : 0
+                        }]
+                    })
+                }
+            }),
+            w = y.length > 0 ? y : e.categories.map(e => ({
+                id: e.id,
+                label: e.label,
+                unit: e.unit,
+                blurb: e.blurb,
+                sample: !0,
+                weekly: e.rows.flatMap((t, a) => {
+                    let l = u(t.modelId);
+                    if (!l) return [];
+                    let r = d(e.weekly, o.weeks.length),
+                        n = r[r.length - 1] || 1;
+                    return [{
+                        id: l.id,
+                        label: l.name,
+                        color: c[a % c.length],
+                        values: r.map(e => t.amount * (e / n))
+                    }]
+                }),
+                rows: e.rows.flatMap(t => {
+                    let o = u(t.modelId);
+                    if (!o) return [];
+                    let a = h(t.changePct),
+                        l = Math.max(...e.rows.map(e => e.amount));
+                    return [{
+                        ...o,
+                        primary: x(t.amount, e.unit),
+                        changeLabel: a.label,
+                        changeUp: a.up,
+                        barPct: l > 0 ? t.amount / l * 100 : 0
+                    }]
+                })
+            }));
+        return {
+            asOf: o.asOf,
+            live: null != t,
+            weeks: [...o.weeks],
+            topModels: a,
+            leaderboard: t ? r.filter(e => e.rows.length > 0) : r,
+            byTask: n,
+            cost: {
+                jobs: e.costPerSession.jobs.map((e, t) => ({
+                    ...e,
+                    color: s[t % s.length]
+                })),
+                rows: g
+            },
+            market: f,
+            benchmarks: k,
+            categories: w
+        }
+    }
+    e.s(["GATEWAY_RANKINGS_COPY", 0, {
+        title: "Gateway rankings",
+        lede: "How visual models on the gateway compare.",
+        sampleNote: "Sample figures through September 22, 2026. Not live traffic. Model names are the catalog. Tokens, shares, costs, and the visual index are stand-ins so we can see what to store.",
+        liveNote: "Token totals are live. Image, document, video, and page counts are live when the cache has them. Cost, task mix, and the visual index stay a sample.",
+        sampleSection: "Sample figures. This section is not live traffic.",
+        topModels: "Running total of tokens for the last 30 days. Each day adds to the day before. Models outside the top six are grouped as Others.",
+        leaderboard: "Tokens in the window, prompt plus completion. Change is versus the previous window.",
+        byTask: "Each job’s leading models, sized by share of sample spend.",
+        cost: "What one document, one video, and one OCR pass cost at the listed rate.",
+        market: "Share of sample tokens by the lab on the model card.",
+        benchmarks: "Sample visual index against the listed input price per million tokens. The index is not a published eval."
+    }, "buildGatewayRankings", () => b, "catalogUsage", () => g, "formatTokens", () => p], 130807)
+}, 862493, e => {
+    "use strict";
+    let t = (0, e.i(412872).default)("type", [
+        ["path", {
+            d: "M12 4v16",
+            key: "1654pz"
+        }],
+        ["path", {
+            d: "M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2",
+            key: "e0r10z"
+        }],
+        ["path", {
+            d: "M9 20h6",
+            key: "s66wpe"
+        }]
+    ]);
+    e.s(["Type", () => t], 862493)
+}, 750153, 303102, e => {
+    "use strict";
+    var t = e.i(205112),
+        o = e.i(796353),
+        a = e.i(903965),
+        l = e.i(520353),
+        r = e.i(412872);
+    let n = (0, r.default)("arrow-down-up", [
+        ["path", {
+            d: "m3 16 4 4 4-4",
+            key: "1co6wj"
+        }],
+        ["path", {
+            d: "M7 20V4",
+            key: "1yoxec"
+        }],
+        ["path", {
+            d: "m21 8-4-4-4 4",
+            key: "1c9v7m"
+        }],
+        ["path", {
+            d: "M17 4v16",
+            key: "7dpous"
+        }]
+    ]);
+    var s = e.i(496775),
+        d = e.i(438831),
+        d = d;
+    let i = (0, r.default)("info", [
+            ["circle", {
+                cx: "12",
+                cy: "12",
+                r: "10",
+                key: "1mglay"
+            }],
+            ["path", {
+                d: "M12 16v-4",
+                key: "1dtifu"
+            }],
+            ["path", {
+                d: "M12 8h.01",
+                key: "e9boi3"
+            }]
+        ]),
+        c = (0, r.default)("lock", [
+            ["rect", {
+                width: "18",
+                height: "11",
+                x: "3",
+                y: "11",
+                rx: "2",
+                ry: "2",
+                key: "1w4ew1"
+            }],
+            ["path", {
+                d: "M7 11V7a5 5 0 0 1 10 0v4",
+                key: "fwvmzm"
+            }]
+        ]);
+    var m = e.i(862493),
+        u = e.i(295365),
+        p = e.i(588634),
+        h = e.i(302766),
+        g = e.i(130807),
+        x = e.i(763708),
+        b = e.i(885076);
+    let f = {
+            capabilities: [],
+            query: "",
+            provider: "all",
+            inputs: [],
+            order: "usage",
+            proprietaryOnly: !1
+        },
+        k = new Set(["ocr", "markdown", "detection", "segmentation", "pose", "chat", "transcription", "embedding"]),
+        y = new Set(["text", "image_url", "document_url", "video_url"]),
+        w = new Set(["usage", "newest", "oldest"]),
+        v = ["capability", "q", "provider", "inputs", "order", "proprietary"];
+
+    function j(e, t) {
+        return Array.from(new Set(e.join(",").split(",").map(e => e.trim().toLowerCase()).filter(e => t.has(e))))
+    }
+
+    function I(e) {
+        let t = e.get("order")?.trim().toLowerCase() ?? "",
+            o = e.get("proprietary")?.trim().toLowerCase();
+        return {
+            capabilities: j(e.getAll("capability"), k),
+            query: e.get("q") ?? "",
+            provider: e.get("provider")?.trim() || "all",
+            inputs: j(e.getAll("inputs"), y),
+            order: w.has(t) ? t : "usage",
+            proprietaryOnly: "1" === o || "true" === o
+        }
+    }
+
+    function P(e, t) {
+        for (let t of v) e.delete(t);
+        let {
+            capabilities: o,
+            inputs: a,
+            order: l,
+            provider: r,
+            proprietaryOnly: n
+        } = t;
+        o.length > 0 && e.set("capability", o.join(","));
+        let s = t.query.trim();
+        s && e.set("q", s), "all" !== r && e.set("provider", r), a.length > 0 && e.set("inputs", a.join(",")), "usage" !== l && e.set("order", l), n && e.set("proprietary", "1")
+    }
+
+    function N(e) {
+        return e.toString().replace(/%2C/g, ",")
+    }
+
+    function M(e) {
+        return 1 === e.length ? e[0] : "all"
+    }
+
+    function C(e) {
+        return "all" === e ? [] : [e]
+    }
+    e.s(["DEFAULT_GATEWAY_MODELS_CATALOG_FILTERS", 0, f, "capabilitiesFromCatalogTab", () => C, "catalogTabFromCapabilities", () => M, "gatewayModelsCatalogSearchString", () => N, "parseGatewayModelsCatalogSearchParams", () => I, "writeGatewayModelsCatalogSearchParams", () => P], 303102);
+    let S = o.useLayoutEffect,
+        q = "shrink-0 whitespace-nowrap rounded-full px-3.5 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.12em] transition-colors";
+
+    function A({
+        tabs: e,
+        value: a,
+        onChange: l
+    }) {
+        let [r, n] = (0, o.useState)(!1), s = (0, o.useRef)(null), d = (0, o.useRef)(null), [i, c] = (0, o.useState)(e.length), [m, u] = (0, o.useState)(!1), h = (0, o.useMemo)(() => e.reduce((e, t) => t.label.length > e.length ? t.label : e, `+${e.length} More`), [e]), g = (0, o.useCallback)(() => {
+            let e = s.current,
+                t = d.current;
+            if (!e || !t) return;
+            let o = e.clientWidth;
+            if (o <= 0 || "undefined" != typeof document && "fonts" in document && "loaded" !== document.fonts.status) return;
+            let a = Array.from(t.querySelectorAll("[data-measure-tab]")),
+                l = t.querySelector("[data-measure-more]")?.offsetWidth ?? 0,
+                r = a.map(e => e.offsetWidth),
+                n = 0;
+            if (r.forEach((e, t) => {
+                    n += e + 6 * (t > 0)
+                }), n <= o) {
+                c(r.length), u(!0);
+                return
+            }
+            let i = 0,
+                m = 0;
+            for (let e = 0; e < r.length; e++) {
+                let t = i + 6 * (e > 0) + r[e];
+                if (t + 6 + l <= o) i = t, m++;
+                else break
+            }
+            c(m), u(!0)
+        }, []);
+        S(() => {
+            g();
+            let e = s.current;
+            if (!e) return;
+            let t = new ResizeObserver(g);
+            t.observe(e);
+            let o = !1;
+            return "undefined" != typeof document && "fonts" in document && document.fonts.ready.then(() => {
+                o || g()
+            }), () => {
+                o = !0, t.disconnect()
+            }
+        }, [g]);
+        let x = e.slice(0, i),
+            b = e.slice(i),
+            f = b.find(e => e.id === a);
+        return (0, t.jsxs)("div", {
+            ref: s,
+            "data-tab-row": "",
+            "aria-hidden": !m || void 0,
+            className: `relative flex min-w-0 items-center gap-1.5 lg:flex-1 ${m?"":"invisible"}`,
+            children: [(0, t.jsx)("div", {
+                "aria-hidden": "true",
+                className: "pointer-events-none absolute left-0 top-0 h-0 w-full overflow-hidden",
+                children: (0, t.jsxs)("div", {
+                    ref: d,
+                    className: "flex w-max items-center gap-1.5",
+                    children: [e.map(e => (0, t.jsx)("span", {
+                        "data-measure-tab": !0,
+                        className: q,
+                        children: e.label
+                    }, e.id)), (0, t.jsxs)("span", {
+                        "data-measure-more": !0,
+                        className: `inline-flex items-center gap-1.5 ${q}`,
+                        children: [h, (0, t.jsx)(p.ChevronIcon, {
+                            open: !1
+                        })]
+                    })]
+                })
+            }), x.length > 0 ? (0, t.jsx)("div", {
+                className: "flex min-w-0 items-center gap-1.5 overflow-x-clip",
+                children: x.map(e => {
+                    let o = a === e.id;
+                    return (0, t.jsx)("button", {
+                        type: "button",
+                        onClick: () => l(e.id),
+                        className: `${q} ${o?"bg-primary-tint text-primary-mid":"text-muted hover:bg-primary/[0.04] hover:text-primary-mid"}`,
+                        children: e.label
+                    }, e.id)
+                })
+            }) : null, b.length > 0 ? (0, t.jsxs)("div", {
+                className: "relative shrink-0",
+                children: [(0, t.jsxs)("button", {
+                    type: "button",
+                    onClick: () => n(e => !e),
+                    "aria-expanded": r,
+                    "aria-haspopup": "listbox",
+                    className: `inline-flex items-center gap-1.5 ${q} ${f?"bg-primary-tint text-primary-mid":"text-muted hover:bg-primary/[0.04] hover:text-primary-mid"}`,
+                    children: [f ? f.label : `+${b.length} More`, (0, t.jsx)(p.ChevronIcon, {
+                        open: r
+                    })]
+                }), r ? (0, t.jsxs)(t.Fragment, {
+                    children: [(0, t.jsx)("button", {
+                        type: "button",
+                        "aria-label": "Close tasks",
+                        className: "fixed inset-0 z-20 cursor-default",
+                        onClick: () => n(!1)
+                    }), (0, t.jsx)("ul", {
+                        role: "listbox",
+                        className: "absolute left-0 z-30 mt-2 max-h-72 w-44 overflow-auto rounded-[10px] border border-border bg-white py-1.5 shadow-[0_12px_40px_rgba(15,23,42,0.08)]",
+                        children: b.map(e => (0, t.jsx)("li", {
+                            children: (0, t.jsx)("button", {
+                                type: "button",
+                                role: "option",
+                                "aria-selected": a === e.id,
+                                onClick: () => {
+                                    l(e.id), n(!1)
+                                },
+                                className: `flex w-full items-center px-3 py-2 text-left font-mono text-[11px] font-medium uppercase tracking-[0.12em] transition-colors hover:bg-surface ${a===e.id?"text-primary-mid":"text-muted"}`,
+                                children: e.label
+                            })
+                        }, e.id))
+                    })]
+                }) : null]
+            }) : null]
+        })
+    }
+    var $ = e.i(647163);
+    let _ = {
+        ocr: "bg-sky-500/10 text-sky-700",
+        markdown: "bg-teal-500/10 text-teal-700",
+        detection: "bg-violet-500/10 text-violet-700",
+        segmentation: "bg-emerald-500/10 text-emerald-700",
+        pose: "bg-amber-500/10 text-amber-700",
+        chat: "bg-primary/10 text-primary-mid",
+        transcription: "bg-indigo-500/10 text-indigo-700",
+        embedding: "bg-slate-500/10 text-slate-700"
+    };
+
+    function T({
+        provider: e,
+        logo: o
+    }) {
+        return o ? (0, t.jsx)(a.default, {
+            src: o,
+            alt: "",
+            width: 20,
+            height: 20,
+            className: "h-5 w-5 object-contain grayscale opacity-60 transition duration-200 group-hover/row:grayscale-0 group-hover/row:opacity-100",
+            unoptimized: !0
+        }) : (0, t.jsx)("span", {
+            "aria-hidden": "true",
+            className: "flex h-5 w-5 items-center justify-center rounded-[4px] bg-primary-tint font-mono text-[10px] font-medium text-primary-mid",
+            children: e.charAt(0).toUpperCase()
+        })
+    }
+
+    function L({
+        label: e
+    }) {
+        return (0, t.jsx)("th", {
+            className: "px-3 py-2.5 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted",
+            children: e
+        })
+    }
+
+    function O({
+        model: e
+    }) {
+        return (0, t.jsx)("td", {
+            className: "px-3 py-3",
+            children: (0, t.jsxs)("div", {
+                className: "flex items-center gap-3",
+                children: [(0, t.jsx)(T, {
+                    provider: e.provider,
+                    logo: e.providerLogo
+                }), (0, t.jsxs)("div", {
+                    className: "min-w-0",
+                    children: [(0, t.jsxs)("div", {
+                        className: "flex items-center gap-2",
+                        children: [(0, t.jsx)(l.default, {
+                            href: (0, h.gatewayModelCardPath)(e.id),
+                            className: "truncate text-body-md font-medium text-navy hover:text-primary-mid hover:underline",
+                            children: e.name
+                        }), e.comingSoon ? (0, t.jsx)("span", {
+                            className: "ml-1 shrink-0 rounded-[5px] border border-border bg-surface px-2.5 py-1 font-mono text-[9px] font-medium uppercase tracking-[0.1em] text-muted",
+                            children: "Coming soon"
+                        }) : null, e.openWeights ? null : (0, t.jsxs)("span", {
+                            className: "group/lock relative ml-1 inline-flex shrink-0",
+                            children: [(0, t.jsx)("span", {
+                                tabIndex: 0,
+                                role: "img",
+                                "aria-label": "Proprietary weights",
+                                className: "inline-flex items-center rounded-[5px] border border-border bg-surface p-1 text-muted outline-none transition-colors hover:border-primary/30 hover:text-primary-mid focus-visible:border-primary/40 focus-visible:text-primary-mid",
+                                children: (0, t.jsx)(c, {
+                                    className: "size-2.5",
+                                    strokeWidth: 2,
+                                    "aria-hidden": "true"
+                                })
+                            }), (0, t.jsx)("span", {
+                                "aria-hidden": "true",
+                                className: "pointer-events-none absolute bottom-full left-0 z-20 mb-1.5 hidden w-52 whitespace-normal rounded-[6px] bg-navy px-2.5 py-2 font-sans text-[11px] normal-case leading-snug tracking-normal text-white shadow-[0_6px_20px_rgba(15,23,42,0.18)] group-hover/lock:block group-focus-within/lock:block",
+                                children: "Proprietary weights. Same endpoint and key, billed at the upstream list price."
+                            })]
+                        })]
+                    }), e.hfModelId ? (0, t.jsx)("a", {
+                        href: `https://huggingface.co/${e.hfModelId}`,
+                        target: "_blank",
+                        rel: "noopener noreferrer",
+                        className: "block truncate font-mono text-[11px] text-muted transition-colors hover:text-primary-mid hover:underline",
+                        children: e.id
+                    }) : (0, t.jsx)("p", {
+                        className: "block truncate font-mono text-[11px] text-muted",
+                        children: e.id
+                    })]
+                })]
+            })
+        })
+    }
+
+    function z({
+        types: e
+    }) {
+        return (0, t.jsx)("div", {
+            className: "flex flex-wrap gap-1",
+            children: e.map(e => (0, t.jsx)("span", {
+                className: `rounded-[4px] px-1.5 py-0.5 font-mono text-[9px] font-medium uppercase tracking-[0.12em] ${_[e]}`,
+                children: e
+            }, e))
+        })
+    }
+
+    function U({
+        types: e
+    }) {
+        return (0, t.jsx)("td", {
+            className: "px-3 py-3",
+            children: 0 === e.length ? (0, t.jsx)("span", {
+                className: "font-mono text-body-sm text-muted",
+                children: "—"
+            }) : (0, t.jsx)(z, {
+                types: e
+            })
+        })
+    }
+
+    function W({
+        children: e
+    }) {
+        return (0, t.jsx)("td", {
+            className: "px-3 py-3 font-mono text-body-sm text-navy",
+            children: e
+        })
+    }
+    let R = {
+            text: {
+                short: "txt",
+                icon: (0, t.jsx)(m.Type, {
+                    className: "size-3.5",
+                    strokeWidth: 1.6
+                }),
+                label: "text"
+            },
+            image_url: {
+                short: "img",
+                icon: (0, t.jsx)(d.default, {
+                    className: "size-3.5",
+                    strokeWidth: 1.6
+                }),
+                label: "image_url"
+            },
+            document_url: {
+                short: "doc",
+                icon: (0, t.jsx)(s.FileText, {
+                    className: "size-3.5",
+                    strokeWidth: 1.6
+                }),
+                label: "document_url"
+            },
+            video_url: {
+                short: "vid",
+                icon: (0, t.jsx)(u.Video, {
+                    className: "size-3.5",
+                    strokeWidth: 1.6
+                }),
+                label: "video_url"
+            }
+        },
+        D = ["text", "image_url", "document_url", "video_url"];
+
+    function E({
+        inputs: e
+    }) {
+        let o = D.filter(t => e.includes(t));
+        return 0 === o.length ? null : (0, t.jsx)("div", {
+            className: "flex items-center gap-2",
+            children: o.map(e => {
+                let o = R[e];
+                return (0, t.jsxs)("span", {
+                    className: "group/input relative inline-flex",
+                    children: [(0, t.jsx)("span", {
+                        tabIndex: 0,
+                        role: "img",
+                        "aria-label": `Supports ${o.label}`,
+                        className: "inline-flex items-center justify-center text-muted/80 outline-none transition-colors hover:text-primary-mid focus-visible:text-primary-mid",
+                        children: o.icon
+                    }), (0, t.jsx)("span", {
+                        "aria-hidden": "true",
+                        className: "pointer-events-none absolute bottom-full left-1/2 z-20 mb-1.5 hidden -translate-x-1/2 whitespace-nowrap rounded-[6px] bg-navy px-2 py-1 font-mono text-[10px] text-white shadow-[0_6px_20px_rgba(15,23,42,0.18)] group-hover/input:block group-focus-within/input:block",
+                        children: o.label
+                    })]
+                }, e)
+            })
+        })
+    }
+
+    function F({
+        inputs: e
+    }) {
+        let o = (0, t.jsx)(E, {
+            inputs: e
+        });
+        return o ? (0, t.jsx)("td", {
+            className: "px-3 py-3",
+            children: o
+        }) : (0, t.jsx)("td", {
+            className: "px-3 py-3 font-mono text-body-sm text-muted",
+            children: "—"
+        })
+    }
+
+    function G({
+        label: e,
+        note: o
+    }) {
+        return (0, t.jsx)("th", {
+            className: "px-3 py-2.5 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted",
+            children: (0, t.jsxs)("span", {
+                className: "group/info relative inline-flex items-center gap-1",
+                children: [e, (0, t.jsx)("span", {
+                    tabIndex: 0,
+                    role: "img",
+                    "aria-label": o,
+                    className: "inline-flex cursor-help items-center text-muted/70 outline-none transition-colors hover:text-primary-mid focus-visible:text-primary-mid",
+                    children: (0, t.jsx)(i, {
+                        className: "size-3",
+                        strokeWidth: 2
+                    })
+                }), (0, t.jsx)("span", {
+                    "aria-hidden": "true",
+                    className: "pointer-events-none absolute left-0 top-full z-20 mt-1.5 hidden w-56 whitespace-normal rounded-[6px] bg-navy px-2.5 py-2 font-sans text-[11px] normal-case leading-snug tracking-normal text-white shadow-[0_6px_20px_rgba(15,23,42,0.18)] group-hover/info:block group-focus-within/info:block",
+                    children: o
+                })]
+            })
+        })
+    }
+
+    function V({
+        usage: e
+    }) {
+        let o = e?.series ?? [],
+            a = Math.max(...o, 0);
+        if (!e || o.length < 2 || a <= 0) return (0, t.jsx)("span", {
+            className: "font-mono text-body-sm text-muted",
+            children: "—"
+        });
+        let l = Math.min(...o),
+            r = a - l || a,
+            n = o.map((e, t) => [t / (o.length - 1) * 104, 25 - (e - l) / r * 22]).map(([e, t], o) => `${0===o?"M":"L"}${e.toFixed(2)} ${t.toFixed(2)}`).join(" "),
+            s = `${n} L104 28 L0 28 Z`,
+            d = e.label;
+        return (0, t.jsxs)("svg", {
+            width: 104,
+            height: 28,
+            viewBox: "0 0 104 28",
+            role: "img",
+            "aria-label": d,
+            className: "block shrink-0 text-primary",
+            children: [(0, t.jsx)("title", {
+                children: d
+            }), (0, t.jsx)("path", {
+                d: s,
+                fill: "currentColor",
+                fillOpacity: .16
+            }), (0, t.jsx)("path", {
+                d: n,
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: 1.5,
+                strokeLinejoin: "round",
+                strokeLinecap: "round"
+            })]
+        })
+    }
+
+    function H({
+        rows: e,
+        usage: o
+    }) {
+        return (0, t.jsxs)(t.Fragment, {
+            children: [(0, t.jsx)("div", {
+                className: "space-y-3 lg:hidden",
+                children: e.map(e => (0, t.jsxs)("article", {
+                    className: "rounded-[10px] border border-navy/15 bg-white p-5 shadow-[0_1px_0_rgba(16,42,86,0.04)]",
+                    children: [(0, t.jsxs)("div", {
+                        className: "flex items-start gap-3",
+                        children: [(0, t.jsx)(T, {
+                            provider: e.provider,
+                            logo: e.providerLogo
+                        }), (0, t.jsxs)("div", {
+                            className: "min-w-0",
+                            children: [(0, t.jsx)("p", {
+                                className: "text-body-md font-medium text-navy",
+                                children: e.name
+                            }), (0, t.jsx)("p", {
+                                className: "break-all font-mono text-[11px] text-muted",
+                                children: e.id
+                            })]
+                        })]
+                    }), (0, t.jsxs)("dl", {
+                        className: "mt-4 grid grid-cols-2 gap-x-3 gap-y-2.5",
+                        children: [(0, t.jsxs)("div", {
+                            className: "col-span-2",
+                            children: [(0, t.jsx)("dt", {
+                                className: "font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted",
+                                children: "Usage"
+                            }), (0, t.jsx)("dd", {
+                                className: "mt-1.5",
+                                children: (0, t.jsx)(V, {
+                                    usage: o.byModel[e.id]
+                                })
+                            })]
+                        }), (0, t.jsxs)("div", {
+                            children: [(0, t.jsx)("dt", {
+                                className: "font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted",
+                                children: "Context"
+                            }), (0, t.jsx)("dd", {
+                                className: "mt-1 font-mono text-body-sm text-navy",
+                                children: e.context
+                            })]
+                        }), (0, t.jsxs)("div", {
+                            children: [(0, t.jsx)("dt", {
+                                className: "font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted",
+                                children: "Input / 1M"
+                            }), (0, t.jsx)("dd", {
+                                className: "mt-1 font-mono text-body-sm text-navy",
+                                children: e.inputPrice
+                            })]
+                        }), (0, t.jsxs)("div", {
+                            children: [(0, t.jsx)("dt", {
+                                className: "font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted",
+                                children: "Cached / 1M"
+                            }), (0, t.jsx)("dd", {
+                                className: "mt-1 font-mono text-body-sm text-navy",
+                                children: e.cachePrice
+                            })]
+                        }), (0, t.jsxs)("div", {
+                            children: [(0, t.jsx)("dt", {
+                                className: "font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-muted",
+                                children: "Output / 1M"
+                            }), (0, t.jsx)("dd", {
+                                className: "mt-1 font-mono text-body-sm text-navy",
+                                children: e.outputPrice
+                            })]
+                        })]
+                    })]
+                }, e.id))
+            }), (0, t.jsx)("div", {
+                className: "hidden overflow-x-auto rounded-[10px] border border-border bg-white lg:block",
+                children: (0, t.jsxs)("table", {
+                    className: "w-full min-w-[980px] border-collapse text-left",
+                    children: [(0, t.jsx)("thead", {
+                        children: (0, t.jsxs)("tr", {
+                            className: "border-b border-border",
+                            children: [(0, t.jsx)(L, {
+                                label: "Model"
+                            }), (0, t.jsx)(L, {
+                                label: "Usage"
+                            }), (0, t.jsx)(L, {
+                                label: "Capabilities"
+                            }), (0, t.jsx)(L, {
+                                label: "Inputs"
+                            }), (0, t.jsx)(L, {
+                                label: "Context"
+                            }), (0, t.jsx)(G, {
+                                label: "Input",
+                                note: "USD per 1M input tokens for token models. Per-image models show USD per 1K images. Audio models show USD per 1M audio seconds."
+                            }), (0, t.jsx)(G, {
+                                label: "Cached",
+                                note: "USD per 1M cached input tokens. A dash means the model does not bill cache separately."
+                            }), (0, t.jsx)(G, {
+                                label: "Output",
+                                note: "USD per 1M output tokens. A dash means the model does not bill output."
+                            })]
+                        })
+                    }), (0, t.jsx)("tbody", {
+                        children: e.map(e => (0, t.jsxs)("tr", {
+                            className: "group/row border-b border-border last:border-b-0 transition-colors hover:bg-surface/80",
+                            children: [(0, t.jsx)(O, {
+                                model: e
+                            }), (0, t.jsx)("td", {
+                                className: "px-3 py-3",
+                                children: (0, t.jsx)(V, {
+                                    usage: o.byModel[e.id]
+                                })
+                            }), (0, t.jsx)(U, {
+                                types: e.types
+                            }), (0, t.jsx)(F, {
+                                inputs: e.inputs
+                            }), (0, t.jsx)(W, {
+                                children: e.context
+                            }), (0, t.jsx)(W, {
+                                children: e.inputPrice
+                            }), (0, t.jsx)(W, {
+                                children: e.cachePrice
+                            }), (0, t.jsx)(W, {
+                                children: e.outputPrice
+                            })]
+                        }, e.id))
+                    })]
+                })
+            })]
+        })
+    }
+
+    function B({
+        headline: e,
+        models: a,
+        headingLevel: l = "h1",
+        compactBottom: r = !1,
+        usage: s,
+        filters: d,
+        onFiltersChange: i
+    }) {
+        let [m, u] = (0, o.useState)(f), h = d ?? m, k = e => {
+            let t = {
+                ...h,
+                ...e
+            };
+            i ? i(t) : u(t)
+        }, {
+            capabilities: y,
+            query: w,
+            provider: v,
+            inputs: j,
+            order: I,
+            proprietaryOnly: P
+        } = h, N = M(y), S = e => k({
+            provider: e
+        }), [q, _] = (0, o.useState)(!1), L = (0, o.useMemo)(() => s ?? (0, g.catalogUsage)(null), [s]), O = (0, o.useRef)(null), z = (0, o.useMemo)(() => Array.from(new Set(a.map(e => e.provider))).sort(), [a]), U = (0, o.useMemo)(() => {
+            let e = w.trim().toLowerCase();
+            return a.filter(t => ("all" === v || t.provider === v) && (!(y.length > 0) || !!y.some(e => t.types.includes(e))) && (!(j.length > 0) || !!j.some(e => t.inputs.includes(e))) && (!P || !t.openWeights) && (!e || t.name.toLowerCase().includes(e) || t.id.toLowerCase().includes(e) || t.provider.toLowerCase().includes(e) || t.task.toLowerCase().includes(e) || t.types.some(t => t.includes(e)) || t.methods.some(t => t.toLowerCase().includes(e))))
+        }, [a, v, y, w, j, P]), W = (0, o.useMemo)(() => [...U].sort((e, t) => {
+            if ("usage" !== I) return (0, x.compareCatalogRows)(e, t, I);
+            let o = +!!e.comingSoon,
+                a = +!!t.comingSoon;
+            if (o !== a) return o - a;
+            let l = (L.byModel[t.id]?.total ?? 0) - (L.byModel[e.id]?.total ?? 0);
+            return 0 !== l ? l : (0, x.compareCatalogRows)(e, t, "newest")
+        }), [U, I, L]);
+        return (0, t.jsx)("section", {
+            className: "bg-surface",
+            children: (0, t.jsx)("div", {
+                style: b.pageGridRailOuterStyle,
+                children: (0, t.jsx)("div", {
+                    className: "border-x border-border bg-surface",
+                    children: (0, t.jsxs)("div", {
+                        className: (0, $.cn)("px-5 pt-28 sm:px-8 sm:pt-24 lg:px-16", r ? "pb-6 sm:pb-8" : "pb-24 sm:pb-24"),
+                        children: [(0, t.jsx)("div", {
+                            className: "mb-6 max-w-2xl lg:mb-10",
+                            children: (0, t.jsx)(l, {
+                                className: "mb-4 text-balance font-serif text-display-lg text-navy antialiased",
+                                children: e
+                            })
+                        }), (0, t.jsxs)("div", {
+                            className: "mb-4 flex flex-col gap-2.5 lg:flex-row lg:items-center lg:justify-between lg:gap-4",
+                            children: [(0, t.jsx)(A, {
+                                tabs: x.GATEWAY_CATALOG_TYPES,
+                                value: N,
+                                onChange: e => k({
+                                    capabilities: C(e)
+                                })
+                            }), (0, t.jsxs)("div", {
+                                className: "flex shrink-0 flex-wrap items-center gap-2",
+                                children: [(0, t.jsxs)("div", {
+                                    role: "group",
+                                    "aria-label": "Filter by supported input",
+                                    className: "flex shrink-0 items-center gap-0.5 rounded-full border border-border bg-white p-0.5",
+                                    children: [D.map(e => {
+                                        let o = R[e],
+                                            a = j.includes(e);
+                                        return (0, t.jsx)("button", {
+                                            type: "button",
+                                            "aria-pressed": a,
+                                            "aria-label": `${o.short}: accepts ${o.label}`,
+                                            title: `Accepts ${o.label}`,
+                                            onClick: () => k({
+                                                inputs: j.includes(e) ? j.filter(t => t !== e) : [...j, e]
+                                            }),
+                                            className: `inline-flex size-[26px] items-center justify-center rounded-full transition-colors ${a?"bg-primary/10 text-primary-mid":"text-navy/55 hover:bg-surface hover:text-navy lg:text-muted"}`,
+                                            children: o.icon
+                                        }, e)
+                                    }), (0, t.jsx)("span", {
+                                        "aria-hidden": "true",
+                                        className: "mx-0.5 h-4 w-px bg-border"
+                                    }), (0, t.jsx)("button", {
+                                        type: "button",
+                                        "aria-pressed": P,
+                                        "aria-label": "Proprietary models only",
+                                        title: "Proprietary models only",
+                                        onClick: () => k({
+                                            proprietaryOnly: !P
+                                        }),
+                                        className: `inline-flex size-[26px] items-center justify-center rounded-full transition-colors ${P?"bg-primary/10 text-primary-mid":"text-navy/55 hover:bg-surface hover:text-navy lg:text-muted"}`,
+                                        children: (0, t.jsx)(c, {
+                                            className: "size-3.5",
+                                            strokeWidth: 1.6
+                                        })
+                                    })]
+                                }), (0, t.jsxs)("label", {
+                                    className: "relative min-w-0 max-lg:basis-[calc(50%-4px)] max-lg:flex-1 lg:w-56 lg:flex-none",
+                                    children: [(0, t.jsx)("span", {
+                                        className: "sr-only",
+                                        children: "Search models"
+                                    }), (0, t.jsx)("span", {
+                                        "aria-hidden": "true",
+                                        className: "pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted",
+                                        children: (0, t.jsx)(K, {})
+                                    }), (0, t.jsx)("input", {
+                                        type: "search",
+                                        value: w,
+                                        onChange: e => k({
+                                            query: e.target.value
+                                        }),
+                                        placeholder: "Search models…",
+                                        className: "h-[30px] w-full rounded-full border border-border bg-white py-0 pl-9 pr-3 font-mono text-[11px] text-navy outline-none transition-colors placeholder:text-muted/70 focus:border-primary/40"
+                                    })]
+                                }), (0, t.jsxs)("button", {
+                                    type: "button",
+                                    onClick: () => k({
+                                        order: "usage" === I ? "newest" : "newest" === I ? "oldest" : "usage"
+                                    }),
+                                    title: "usage" === I ? "Highest usage first. Click for newest first." : "newest" === I ? "Newest models first. Click for oldest first." : "Oldest models first. Click for highest usage.",
+                                    className: "inline-flex h-[30px] shrink-0 items-center gap-1.5 rounded-full border border-border bg-white px-3.5 font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-navy transition-colors hover:border-navy/20",
+                                    children: ["usage" === I ? "Usage" : "newest" === I ? "Newest" : "Oldest", (0, t.jsx)(n, {
+                                        className: "size-3 text-muted",
+                                        strokeWidth: 2,
+                                        "aria-hidden": "true"
+                                    })]
+                                }), (0, t.jsxs)("div", {
+                                    className: "relative min-w-0 max-lg:basis-[calc(50%-4px)] max-lg:flex-1 lg:w-auto lg:flex-none",
+                                    ref: O,
+                                    children: [(0, t.jsxs)("button", {
+                                        type: "button",
+                                        onClick: () => _(e => !e),
+                                        "aria-expanded": q,
+                                        "aria-haspopup": "listbox",
+                                        className: `inline-flex h-[30px] w-full items-center justify-center gap-2 rounded-full border bg-white px-3.5 font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-navy transition-colors lg:w-auto ${q||"all"!==v?"border-navy/30":"border-border hover:border-navy/20"}`,
+                                        children: ["all" === v ? "Providers" : v, (0, t.jsx)(p.ChevronIcon, {
+                                            open: q
+                                        })]
+                                    }), q ? (0, t.jsxs)(t.Fragment, {
+                                        children: [(0, t.jsx)("button", {
+                                            type: "button",
+                                            "aria-label": "Close providers",
+                                            className: "fixed inset-0 z-20 cursor-default",
+                                            onClick: () => _(!1)
+                                        }), (0, t.jsxs)("ul", {
+                                            role: "listbox",
+                                            className: "absolute right-0 z-30 mt-2 max-h-72 w-56 overflow-auto rounded-[10px] border border-border bg-white py-1.5 shadow-[0_12px_40px_rgba(15,23,42,0.08)]",
+                                            children: [(0, t.jsx)("li", {
+                                                children: (0, t.jsx)("button", {
+                                                    type: "button",
+                                                    role: "option",
+                                                    "aria-selected": "all" === v,
+                                                    onClick: () => {
+                                                        S("all"), _(!1)
+                                                    },
+                                                    className: `flex w-full items-center gap-2.5 px-3 py-2 text-left text-body-sm transition-colors hover:bg-surface ${"all"===v?"text-navy":"text-muted"}`,
+                                                    children: "All Providers"
+                                                })
+                                            }), z.map(e => {
+                                                let o = a.find(t => t.provider === e)?.providerLogo;
+                                                return (0, t.jsx)("li", {
+                                                    children: (0, t.jsxs)("button", {
+                                                        type: "button",
+                                                        role: "option",
+                                                        "aria-selected": v === e,
+                                                        onClick: () => {
+                                                            S(e), _(!1)
+                                                        },
+                                                        className: `flex w-full items-center gap-2.5 px-3 py-2 text-left text-body-sm transition-colors hover:bg-surface ${v===e?"text-navy":"text-muted"}`,
+                                                        children: [(0, t.jsx)(T, {
+                                                            provider: e,
+                                                            logo: o
+                                                        }), e]
+                                                    })
+                                                }, e)
+                                            })]
+                                        })]
+                                    }) : null]
+                                })]
+                            })]
+                        }), 0 === U.length ? (0, t.jsx)("div", {
+                            className: "rounded-[10px] border border-border bg-white px-4 py-16 text-center text-body-md text-muted",
+                            children: "No models match these filters."
+                        }) : (0, t.jsx)(H, {
+                            rows: W,
+                            usage: L
+                        }), (0, t.jsxs)("p", {
+                            className: "mt-4 font-mono text-[11px] text-muted",
+                            children: [U.length, " ", 1 === U.length ? "model" : "models"]
+                        })]
+                    })
+                })
+            })
+        })
+    }
+
+    function K() {
+        return (0, t.jsxs)("svg", {
+            width: "16",
+            height: "16",
+            viewBox: "0 0 16 16",
+            fill: "none",
+            "aria-hidden": "true",
+            children: [(0, t.jsx)("circle", {
+                cx: "7",
+                cy: "7",
+                r: "4.5",
+                stroke: "currentColor",
+                strokeWidth: "1.4"
+            }), (0, t.jsx)("path", {
+                d: "M10.5 10.5L14 14",
+                stroke: "currentColor",
+                strokeWidth: "1.4",
+                strokeLinecap: "round"
+            })]
+        })
+    }
+    e.s(["CatalogInputIcons", () => E, "CatalogTypeChips", () => z, "default", () => B], 750153)
+}]);

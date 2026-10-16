@@ -1,0 +1,611 @@
+[
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/52774a7f-fd9477e8a8bd6bf8.js",
+    "status": 200,
+    "file": "assets/chat__52774a7f-fd9477e8a8bd6bf8.js",
+    "sha256": "104d52142cf2e82d7c6a96c7b5e8e0616ab572960251ddb5fdb9ea59c9ec8f0f",
+    "bytes": 116779
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/fd9d1056-9681e33399f01f8b.js",
+    "status": 200,
+    "file": "assets/chat__fd9d1056-9681e33399f01f8b.js",
+    "sha256": "492cd037499bc90e23a39f30886ce00d67d84e11da96431a35d105d28704014a",
+    "bytes": 173221
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/32864-a12f28e4b5e34bc7.js",
+    "status": 200,
+    "file": "assets/chat__32864-a12f28e4b5e34bc7.js",
+    "sha256": "0a12928a25886e4754543af3af33d0bf38a5c9ca45cb8d00b5516ff60ade8301",
+    "bytes": 358091
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/main-app-dbacbbb6ef9a072b.js",
+    "status": 200,
+    "file": "assets/chat__main-app-dbacbbb6ef9a072b.js",
+    "sha256": "4a5d1c10d229dcc5f346b817115478812c13112b4cd7dc102093a53d064bef57",
+    "bytes": 5296
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/0e5ce63c-8c5bd1c3efbbd860.js",
+    "status": 200,
+    "file": "assets/chat__0e5ce63c-8c5bd1c3efbbd860.js",
+    "sha256": "b10bb16e5fc23a607b17dad1648170ecdaf8b543b068993e977344d48926b9b5",
+    "bytes": 17645
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/aaea2bcf-13318dfafdccb601.js",
+    "status": 200,
+    "file": "assets/chat__aaea2bcf-13318dfafdccb601.js",
+    "sha256": "d038e6eee23cd3be20719416fbc6ae44f212494a2e15f18d5cbf3f49db6e51de",
+    "bytes": 325471
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/e58627ac-cf1832a6184937c8.js",
+    "status": 200,
+    "file": "assets/chat__e58627ac-cf1832a6184937c8.js",
+    "sha256": "7b928811122a2b037b5633c41cab44b56335fd1d3ba6b92a40efb702bbddac65",
+    "bytes": 134781
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/363642f4-130abb37355dc750.js",
+    "status": 200,
+    "file": "assets/chat__363642f4-130abb37355dc750.js",
+    "sha256": "b35883c7e12208ff744c554ecad02a40be077bfd95de95ac4b015c0be98dea60",
+    "bytes": 189581
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/7a49ec60-4ca3455d770eb107.js",
+    "status": 200,
+    "file": "assets/chat__7a49ec60-4ca3455d770eb107.js",
+    "sha256": "15c595e00b2fea12b7797685e3958a22a0bcf4d1f392cd3c3d904c640a6068e2",
+    "bytes": 270906
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/d3ac728e-12fc5e1f4e6e95ae.js",
+    "status": 200,
+    "file": "assets/chat__d3ac728e-12fc5e1f4e6e95ae.js",
+    "sha256": "29bbfd731a0313e357f18ceb5d64deffa8dd6a02a21466c7f40b9b75d3155b81",
+    "bytes": 262078
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/36693-fb83ab0d49293526.js",
+    "status": 200,
+    "file": "assets/chat__36693-fb83ab0d49293526.js",
+    "sha256": "82a2527a8ccae6f5bf387e09a7d2506754950c2065d556fa8ff252ee05609b03",
+    "bytes": 20685
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/82957-0b10f6be0d56d6d6.js",
+    "status": 200,
+    "file": "assets/chat__82957-0b10f6be0d56d6d6.js",
+    "sha256": "c6baeac24fbe8e8aa90acfb3313322c2d6b55420afbdb4016389d406d4ae3b63",
+    "bytes": 23206
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/14438-481a86184c084573.js",
+    "status": 200,
+    "file": "assets/chat__14438-481a86184c084573.js",
+    "sha256": "8d130c99777a06d98eaa03efca34f1048353fd18573f73713107c334f8bd8b19",
+    "bytes": 33558
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/92850-011a22bfa185ed0a.js",
+    "status": 200,
+    "file": "assets/chat__92850-011a22bfa185ed0a.js",
+    "sha256": "38151a4765fcbca20c6526c1e75a9532f7d127d1134b3147691398eba3b4f5ef",
+    "bytes": 24568
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/83464-73e0fb9a42d18856.js",
+    "status": 200,
+    "file": "assets/chat__83464-73e0fb9a42d18856.js",
+    "sha256": "207e3f634afbc0dc06e6bb0d3f8dcd39e11b478025dc349fbbbde77271a23410",
+    "bytes": 35534
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/89737-648d16bf30dcdfe5.js",
+    "status": 200,
+    "file": "assets/chat__89737-648d16bf30dcdfe5.js",
+    "sha256": "83c0776564e299b7555e89178ce53ea21198676a0cc5d7dde8f4766629e2eea6",
+    "bytes": 8120
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/90282-67f64e2631f8cd7f.js",
+    "status": 200,
+    "file": "assets/chat__90282-67f64e2631f8cd7f.js",
+    "sha256": "bc7266e1e6639af041100b586300e56ad340a7b77bfece8d7b5a36d0bb8fda5d",
+    "bytes": 21146
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/21107-15df65254db544b9.js",
+    "status": 200,
+    "file": "assets/chat__21107-15df65254db544b9.js",
+    "sha256": "49f29108293bb86750dccd51d773bf39ef5390de19f8b89c02562494cb7cfc8b",
+    "bytes": 30386
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/54353-58d0299fb42b5010.js",
+    "status": 200,
+    "file": "assets/chat__54353-58d0299fb42b5010.js",
+    "sha256": "6ec1fe1130ee47478ffa530b8f4c55786707ef4cb47a9c92fcf1911ad4bcfd0e",
+    "bytes": 109114
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/36227-925c3292b3dc57cc.js",
+    "status": 200,
+    "file": "assets/chat__36227-925c3292b3dc57cc.js",
+    "sha256": "820c26e04e0e70af7ace92b86f9b8733148ae53443ea2ded5151478ae8a3d648",
+    "bytes": 1861
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/85883-af635ba13b15ba35.js",
+    "status": 200,
+    "file": "assets/chat__85883-af635ba13b15ba35.js",
+    "sha256": "99f15f7fa1a55d353778a308569c7e17ff1238df74979d1251a88cb249181ee4",
+    "bytes": 6336
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/72056-cb05496f27152900.js",
+    "status": 200,
+    "file": "assets/chat__72056-cb05496f27152900.js",
+    "sha256": "8ca6ccdc2c2ee3ee712950e386d59e7b09bfb53feaa2f0a74d38dce75e9683b4",
+    "bytes": 13922
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/91351-40ed1db4bb2077f3.js",
+    "status": 200,
+    "file": "assets/chat__91351-40ed1db4bb2077f3.js",
+    "sha256": "69949147ff5f533800e9f450de19387fbf2ce5fba25a642ceced5b4d989cbea7",
+    "bytes": 58642
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/89294-35db1376d2b81197.js",
+    "status": 200,
+    "file": "assets/chat__89294-35db1376d2b81197.js",
+    "sha256": "828ffd8deba349ceeb8186a66f7bada8b2e45232d0752dd4c815dc6a9396e1c5",
+    "bytes": 23919
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/61312-a986a2b83eb6c981.js",
+    "status": 200,
+    "file": "assets/chat__61312-a986a2b83eb6c981.js",
+    "sha256": "9236af28f8cd2e63b795bef4cafe37d4a84b5e8e7e3091749a6df921db69ca8f",
+    "bytes": 8254
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/56873-a889c2ad05a45990.js",
+    "status": 200,
+    "file": "assets/chat__56873-a889c2ad05a45990.js",
+    "sha256": "7c5a3ef57ac73708ed4c5066b1b257dcfcf67b8d26343c2c516b2a62e90c5821",
+    "bytes": 19625
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/74166-63d74ed8b2e98b50.js",
+    "status": 200,
+    "file": "assets/chat__74166-63d74ed8b2e98b50.js",
+    "sha256": "6be14dad7dbc9d4b695ac3ae7a6cd5c5e5bb05bed4353ffa2151578ccfa45a76",
+    "bytes": 9118
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/53491-d96513267e4d7eaa.js",
+    "status": 200,
+    "file": "assets/chat__53491-d96513267e4d7eaa.js",
+    "sha256": "c81b7b472b0d357f8fa1ca91eccda6637325842d1c97d2a58fbfbd7122511e1a",
+    "bytes": 15520
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/33145-f889726815e3725e.js",
+    "status": 200,
+    "file": "assets/chat__33145-f889726815e3725e.js",
+    "sha256": "e907fc16130cb65d0c25e064101d8a2b8c30862d88ddc82eb0fa7b0733fa6521",
+    "bytes": 14427
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/14299-0a52bd88d8ebdbad.js",
+    "status": 200,
+    "file": "assets/chat__14299-0a52bd88d8ebdbad.js",
+    "sha256": "be3b78a60645c479effe9242f072ac0dd17dd5d8241a6a00b05f38e26bf9dc54",
+    "bytes": 179005
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/24443-6107379b2a3d08cd.js",
+    "status": 200,
+    "file": "assets/chat__24443-6107379b2a3d08cd.js",
+    "sha256": "1bb5907ac8d09b3225d077d5fe7d0dc17c2c69ccfa0e89409751927ce922c580",
+    "bytes": 149393
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/84541-921cad4febb5e437.js",
+    "status": 200,
+    "file": "assets/chat__84541-921cad4febb5e437.js",
+    "sha256": "312c7a4d34e3ac31ab78e26fec6025a56b1034d722219c285690da85ef41a85d",
+    "bytes": 45617
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/81655-dd7c367e8fa94fa8.js",
+    "status": 200,
+    "file": "assets/chat__81655-dd7c367e8fa94fa8.js",
+    "sha256": "b6f72977b5a2d6d2e91c50722ba60c41c8d8c91ce165cb6160cf7d6e24ea8c52",
+    "bytes": 51151
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/91846-88b4acd9eb7fea49.js",
+    "status": 200,
+    "file": "assets/chat__91846-88b4acd9eb7fea49.js",
+    "sha256": "e81fef8af769dff15ac1d7b0b74402eb52b46e96e09a77d772d9e859ec77cdfe",
+    "bytes": 26338
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/88102-728294526c4a12ce.js",
+    "status": 200,
+    "file": "assets/chat__88102-728294526c4a12ce.js",
+    "sha256": "bee718d2164ec4e7e9a62fc28ceab31b0cb0e69ab116c78644b776806b90e0ad",
+    "bytes": 73215
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/91426-6e99eb86363f6ebb.js",
+    "status": 200,
+    "file": "assets/chat__91426-6e99eb86363f6ebb.js",
+    "sha256": "112bbfe8514000fc4c182164fdfc1b5161c26381642d5bb073852dc51498b7fc",
+    "bytes": 242557
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/3080-1a7dcedc25837118.js",
+    "status": 200,
+    "file": "assets/chat__3080-1a7dcedc25837118.js",
+    "sha256": "9b46c0179a2934a4ae1eb7b2c1d902c456d2b98b2c28fb012bee3c5db0835193",
+    "bytes": 26343
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/27344-55613ffdaa2c615f.js",
+    "status": 200,
+    "file": "assets/chat__27344-55613ffdaa2c615f.js",
+    "sha256": "6fa8c4c650bc8f1390f9d0b483abe3f7d790f2517d109b7e9ae0b25496d10c62",
+    "bytes": 95882
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/82244-92998fcddbfbdbd1.js",
+    "status": 200,
+    "file": "assets/chat__82244-92998fcddbfbdbd1.js",
+    "sha256": "90365f01cad397abae27fe58b4e05f75e66ddc2a07fd79350090e62a857f94af",
+    "bytes": 82894
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/85266-e43ad618b2ea9f23.js",
+    "status": 200,
+    "file": "assets/chat__85266-e43ad618b2ea9f23.js",
+    "sha256": "7a11a91ae7eefd0789781216067ad9ef1751f536a74af5e35a4af4d883b56723",
+    "bytes": 131197
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/57635-0e83695fa238fca3.js",
+    "status": 200,
+    "file": "assets/chat__57635-0e83695fa238fca3.js",
+    "sha256": "562ac6f8c34f31950822e5250e0afa43ee93cea823f65675feee2a48f25580a4",
+    "bytes": 96532
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/27186-c98c5450f7d8d1cb.js",
+    "status": 200,
+    "file": "assets/chat__27186-c98c5450f7d8d1cb.js",
+    "sha256": "3a32ce468b3dc04f19881ce619afd10a5a10fd9b6b5c21267a28c1b114cd2299",
+    "bytes": 586540
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/84764-ca0ce802c03527a1.js",
+    "status": 200,
+    "file": "assets/chat__84764-ca0ce802c03527a1.js",
+    "sha256": "f32fa943c1ecb395b009c7d9fab3ee353e24ff4c62513e6825195385117fe8cd",
+    "bytes": 32832
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/37094-1a4ceec440d1e43e.js",
+    "status": 200,
+    "file": "assets/chat__37094-1a4ceec440d1e43e.js",
+    "sha256": "c8dc880fc5f71ef450f244dce2b1d86d2314c876ce7c54f5555fde7b7bb6b0c2",
+    "bytes": 52653
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/4216-d8f170eb125b1d8c.js",
+    "status": 200,
+    "file": "assets/chat__4216-d8f170eb125b1d8c.js",
+    "sha256": "f67866686a58c09b70cec0c9eff9bae050a662721a3575ef4c6ceb2882c1ae01",
+    "bytes": 29416
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/29662-7e7ea444806e4d0a.js",
+    "status": 200,
+    "file": "assets/chat__29662-7e7ea444806e4d0a.js",
+    "sha256": "a6fab77f8da19091f3afb09d895f746c5bc8b735799d0e7e0dea507f81dd7a6a",
+    "bytes": 23247
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/6635-ada270c9d4a2acad.js",
+    "status": 200,
+    "file": "assets/chat__6635-ada270c9d4a2acad.js",
+    "sha256": "403a6dd3727a0e1a89f62b82d00fb752c8eba6cfeccdbe1a8da916efc5905ebd",
+    "bytes": 38817
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/43756-a3d37dd574698ec5.js",
+    "status": 200,
+    "file": "assets/chat__43756-a3d37dd574698ec5.js",
+    "sha256": "b86768fd221ed60204f541cfaefa4cccc0d7ac6cb1824828141d88c5a183e9c8",
+    "bytes": 93869
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/16299-628cf6fa168b60f6.js",
+    "status": 200,
+    "file": "assets/chat__16299-628cf6fa168b60f6.js",
+    "sha256": "04c858490bc33c73f32a375b4bca8263563063d645332bb511290632e639d6c4",
+    "bytes": 67966
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/72515-8d6e380a9282317b.js",
+    "status": 200,
+    "file": "assets/chat__72515-8d6e380a9282317b.js",
+    "sha256": "fe1b4f3151166b2ee5a4f4275371bb70c16e6e5453235de482aaf5ddcc9bcb30",
+    "bytes": 241284
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/61926-f6ac3bb354b8f145.js",
+    "status": 200,
+    "file": "assets/chat__61926-f6ac3bb354b8f145.js",
+    "sha256": "c4689fd754ede6310a19a1f33e7878c11d5bc398c00cae81242da02f5c13e7fc",
+    "bytes": 27863
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/77742-beac17cc8d05dd6f.js",
+    "status": 200,
+    "file": "assets/chat__77742-beac17cc8d05dd6f.js",
+    "sha256": "3746211f9e4130a2930d739790480b648d917b39e77816c1c5694efb169b6bd6",
+    "bytes": 19497
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/57878-39677c89067d8f10.js",
+    "status": 200,
+    "file": "assets/chat__57878-39677c89067d8f10.js",
+    "sha256": "679b751bdc00a3774a201ad748224efb65cd3e927dbb6e4387f07dbc1d79436a",
+    "bytes": 27526
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/63864-58c39bb3000d3914.js",
+    "status": 200,
+    "file": "assets/chat__63864-58c39bb3000d3914.js",
+    "sha256": "293c54d70bf593b30a9547cfd8524209b3561cbdf90b634a3f088e78b03ac4d6",
+    "bytes": 64734
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/56912-cbce7166a8d8777b.js",
+    "status": 200,
+    "file": "assets/chat__56912-cbce7166a8d8777b.js",
+    "sha256": "620a3f251bde37dfdbf69d8c542a55ce6628a40eb332fca5374d6c11234a56a8",
+    "bytes": 22043
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/83794-00914422865d54b1.js",
+    "status": 200,
+    "file": "assets/chat__83794-00914422865d54b1.js",
+    "sha256": "1959065ace020863e9247689228ae4a2a85f2292c387c2b463d6d4436b37890e",
+    "bytes": 28977
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/47156-78eb08e3d3098fe8.js",
+    "status": 200,
+    "file": "assets/chat__47156-78eb08e3d3098fe8.js",
+    "sha256": "dc94e57ec45a797d3dba4c9d995c334536f74d0cfc651acca9a2f28ea510bc8a",
+    "bytes": 28917
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/90320-1ae1d5a6e072c8e6.js",
+    "status": 200,
+    "file": "assets/chat__90320-1ae1d5a6e072c8e6.js",
+    "sha256": "fbdded7461ce0e1b49d5256bd3710f0c74798e78fe1fa0252f561c71cf87fd34",
+    "bytes": 20621
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/98301-721d39aa18620665.js",
+    "status": 200,
+    "file": "assets/chat__98301-721d39aa18620665.js",
+    "sha256": "93639158d9a968bf1fc689d8bc5fbbf709c1d1515582135b8717cb8e6ab2643f",
+    "bytes": 28368
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/73164-de106a0c08862275.js",
+    "status": 200,
+    "file": "assets/chat__73164-de106a0c08862275.js",
+    "sha256": "26bd755d8f8c3b20c8f2d8a0cf8f99617afea60646a456fb4ac069268340be75",
+    "bytes": 21647
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/57084-d3f490cd892a9fec.js",
+    "status": 200,
+    "file": "assets/chat__57084-d3f490cd892a9fec.js",
+    "sha256": "fb0cf5484cea28e0b70a2b63cb68310b7d1914b82379719e91e59a84e95089fb",
+    "bytes": 53001
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/56254-9fb77e6ce2b8ea25.js",
+    "status": 200,
+    "file": "assets/chat__56254-9fb77e6ce2b8ea25.js",
+    "sha256": "238f2d866baa0c6c85cbc87febbd71ade0aa4a5cab41fff3dc44ac75fd750a2b",
+    "bytes": 68214
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/41193-fc4300926bb2642e.js",
+    "status": 200,
+    "file": "assets/chat__41193-fc4300926bb2642e.js",
+    "sha256": "3c903b9079b7be85ed60e2d94a426f811d73a01914f5733a10cecc93a0e59796",
+    "bytes": 46208
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/83776-45228402ac38d999.js",
+    "status": 200,
+    "file": "assets/chat__83776-45228402ac38d999.js",
+    "sha256": "b838ea85c2a7ed1865872f140e44f341159e2c2fd7e0358f413287882bec4a0e",
+    "bytes": 19673
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/83964-87b7e73f7f7b7283.js",
+    "status": 200,
+    "file": "assets/chat__83964-87b7e73f7f7b7283.js",
+    "sha256": "8661a0b123826e75e5ee417abb41d947e547e25de1d7322486e854427086a600",
+    "bytes": 17301
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/68904-7d00ae90aad4a163.js",
+    "status": 200,
+    "file": "assets/chat__68904-7d00ae90aad4a163.js",
+    "sha256": "01c232364a46f95cacc18a4a9aed99bcfec8c316b6e35f93acf7a243e4d86d70",
+    "bytes": 51166
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/75448-b0e7e877569eeecc.js",
+    "status": 200,
+    "file": "assets/chat__75448-b0e7e877569eeecc.js",
+    "sha256": "a55c6bc919685b47a9ff75d79ed91465ca8e186e84f27c08a3d8648513e16c09",
+    "bytes": 97026
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/90933-f3eafb2ce748189a.js",
+    "status": 200,
+    "file": "assets/chat__90933-f3eafb2ce748189a.js",
+    "sha256": "ee5ff2bf353339eab26fdffa2689faf6517addcbe1c0b051c4d51622a61723ec",
+    "bytes": 67219
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/74720-951f38767fc2ea11.js",
+    "status": 200,
+    "file": "assets/chat__74720-951f38767fc2ea11.js",
+    "sha256": "edc4d99adeef4d6433bff68842e7b626b0ea111bb14aaac29b299ba7e2c43758",
+    "bytes": 55619
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/84282-b7acce668a65d33d.js",
+    "status": 200,
+    "file": "assets/chat__84282-b7acce668a65d33d.js",
+    "sha256": "904435e3e0a295c923bd573abcef5482a49ff362847cbd1c57f564bb3b344da2",
+    "bytes": 28076
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/6116-f482cec466098f22.js",
+    "status": 200,
+    "file": "assets/chat__6116-f482cec466098f22.js",
+    "sha256": "41ff7d37478b2a8f501aef4d28e79a094fa7ce2e0a5076e20c1f3e197245a9be",
+    "bytes": 319692
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/95990-1b11fc2b00f965e3.js",
+    "status": 200,
+    "file": "assets/chat__95990-1b11fc2b00f965e3.js",
+    "sha256": "9cb470cc380200281a4fc6d1f731f82bc9eb17e495f3025ebaaf0eac9fbf3527",
+    "bytes": 25686
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/87108-7dd9e5f4a6bac497.js",
+    "status": 200,
+    "file": "assets/chat__87108-7dd9e5f4a6bac497.js",
+    "sha256": "960c662dd77e652f1b6b7e8b628d410c757fbb5f0e1d8f5a6a7a3fe9721929f7",
+    "bytes": 44284
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/app/chat/page-1d73000757ba7c7a.js",
+    "status": 200,
+    "file": "assets/chat__page-1d73000757ba7c7a.js",
+    "sha256": "35aff83f495de12c481e510d83f8ce64e1c622ed70ffb4e01ac726d0c0a70ded",
+    "bytes": 55504
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/86903-cdec71af4f3746d2.js",
+    "status": 200,
+    "file": "assets/chat__86903-cdec71af4f3746d2.js",
+    "sha256": "4943af88abcb37b1c4bce275567753dc1e40e6261e8764fa79c19efe69ad4b99",
+    "bytes": 30948
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/27292-c4c05ae0e224d68a.js",
+    "status": 200,
+    "file": "assets/chat__27292-c4c05ae0e224d68a.js",
+    "sha256": "2e00ff2f94b35ca738ca08227b341358ef7c4a38f3a481fa54abbe2b57543e36",
+    "bytes": 10366
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/app/chat/layout-cbce91a448d93d6b.js",
+    "status": 200,
+    "file": "assets/chat__layout-cbce91a448d93d6b.js",
+    "sha256": "50e309eaccfa449b5d8301e09c1cdceae897e988f07f13025ac64cce24b868d0",
+    "bytes": 14412
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/app/global-error-18623e31844a0a57.js",
+    "status": 200,
+    "file": "assets/chat__global-error-18623e31844a0a57.js",
+    "sha256": "2de5d01e6264df5cbdcd5e7b8e5540628818ab8c1efcc1d3a32cc310831558bb",
+    "bytes": 6628
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/9da6db1e-9cce033e3ba2b53e.js",
+    "status": 200,
+    "file": "assets/chat__9da6db1e-9cce033e3ba2b53e.js",
+    "sha256": "5c7d5ab5c4a6d31895656eb9e8dbe536f8f228ae09b2843a68f772726d70934f",
+    "bytes": 182440
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/75031-d6830b9246e1fd86.js",
+    "status": 200,
+    "file": "assets/chat__75031-d6830b9246e1fd86.js",
+    "sha256": "7ba467df060bb74c5a5797b39eb5e5e13242c73c3c603c842d765e58666d4cb0",
+    "bytes": 13714
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/95059-61a5cacbba9a6318.js",
+    "status": 200,
+    "file": "assets/chat__95059-61a5cacbba9a6318.js",
+    "sha256": "7842fd0bd18236eb521ca7616a4a44c87dc15124a331c662f7d96a5606a331cc",
+    "bytes": 55923
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/4388-609d4193d71670a1.js",
+    "status": 200,
+    "file": "assets/chat__4388-609d4193d71670a1.js",
+    "sha256": "81d1ce24ecd70388ca69f24e0cab801b83edc3f7d8c6d5e011a1c0b3413b9d42",
+    "bytes": 11582
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/app/layout-60a5c64292d87762.js",
+    "status": 200,
+    "file": "assets/chat__layout-60a5c64292d87762.js",
+    "sha256": "35eb4d662cf759c207b5aad674191d18232976d7761cd0108f2ed49e838e7f18",
+    "bytes": 22867
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/72972-dafcb74d69ec57b2.js",
+    "status": 200,
+    "file": "assets/chat__72972-dafcb74d69ec57b2.js",
+    "sha256": "0d9ddf4706423c767dc078390410fc4ad8c607382a79862c20bc6f808b853661",
+    "bytes": 5797
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/app/not-found-9604f8694327c6ba.js",
+    "status": 200,
+    "file": "assets/chat__not-found-9604f8694327c6ba.js",
+    "sha256": "1b7ea5a26f9ec73b202eac09a08496155acef81767235de619c83d954b63ea0a",
+    "bytes": 12641
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/polyfills-42372ed130431b0a.js",
+    "status": 200,
+    "file": "assets/chat__polyfills-42372ed130431b0a.js",
+    "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+    "bytes": 112594
+  },
+  {
+    "url": "https://chat.vlm.run/_next/static/chunks/webpack-66532e6c9623162b.js",
+    "status": 200,
+    "file": "assets/chat__webpack-66532e6c9623162b.js",
+    "sha256": "b1db26f480fecd45c418383dd6a62a8b8e440b9488879301511654d4a07e805e",
+    "bytes": 53209
+  }
+]

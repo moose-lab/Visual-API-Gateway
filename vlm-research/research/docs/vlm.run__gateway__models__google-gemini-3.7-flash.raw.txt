@@ -1,0 +1,135 @@
+Gemini 3.7 Flash | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+Google
+Gemini 3.7 Flash
+About
+Gemini 3.7 Flash is a closed-weight model from Google. Newest Gemini Flash tier with extended reasoning. Multimodal chat + native video. It accepts text, images, documents, and video. Context window is 1M. Released August 13, 2026.
+Context window
+1M
+Tokens of context on a request.
+License
+Gemini API Terms
+Terms for the API.
+PricingCompareBenchmarksPerformanceMethodsEstimate costQuick start
+Model specifications
+ProviderGoogle
+Type
+detectionchat
+Endpointgoogle/gemini-3.7-flash
+Context length1M
+Input price$0.75 / 1M tokens$0.075 (cached) / 1M
+Output price$3.75 / 1M tokens
+Inputs
+textimage_urldocument_urlvideo_url
+LicenseGemini API Terms
+ReleasedAugust 13, 2026
+Latency p5014,346 ms p50
+Output tok/s351
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Input / 1M$0.75
+Cached input / 1M$0.075
+Output / 1M$3.75
+Compare
+Gemini 3.7 Flash is one of the catalog's chat models. The table is each model's published price, size, and context.
+ModelWhat it doesPriceParametersContext
+Gemini 3.7 FlashNewest Gemini Flash tier with extended reasoning. Multimodal chat + native video.$0.75 / 1M input—1M
+Qwen3.5 0.8BMultimodal chat model with up to 64 images or one video per request.$0.08 / 1M input0.8B256K
+DiffusionGemma 26B-A4BBlock-diffusion Gemma 4 26B-A4B: chat over text and up to 8 images, and System One typed decisions on POST /typesafe/v1/systemone.$0.35 / 1M input26B16K
+Gemini 3.5 Flash LiteFastest and cheapest Gemini tier. Multimodal chat; emits no reasoning tokens.$0.30 / 1M input—1M
+Benchmarks
+Published scores for Gemini 3.7 Flash, from the Gemini 3.7 Flash model card.
+Evals
+CharXiv, no tools84.5
+LVBench85.4
+Terminal-bench 2.185.8
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeCharXiv, no tools: 84.5.
+Cost and performanceLower listed rate, mid-pack latency
+Performance
+Latency is the end-to-end round trip. Throughput is completion tokens divided by that time. It is a request rate, not decode speed.
+LatencyMedian, end to end
+14,346 ms
+ThroughputMedian completion tokens per second
+351 tok/s
+RequestsCompleted, last 7 days
+63
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+detectionBoxes around objects
+chatThe model's reply
+Estimate cost
+Estimate. A page is 2,500 input tokens and 1,000 output tokens. An hour of video is the whole timeline: 258 tokens a second of picture and 32 a second of audio, plus 500 output tokens a minute.
+PagesHours of video
+$901.13
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jscURLCLI
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+response = client.chat.completions.create(
+model="google/gemini-3.7-flash",
+messages=[{"role": "user", "content": "What is in this image?"}],
+)
+print(response.choices[0].message.content)
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

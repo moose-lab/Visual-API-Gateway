@@ -1,0 +1,1036 @@
+try {
+    ! function() {
+        var e = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof globalThis ? globalThis : "undefined" != typeof self ? self : {},
+            t = (new e.Error).stack;
+        t && (e._sentryDebugIds = e._sentryDebugIds || {}, e._sentryDebugIds[t] = "c64753be-68be-4901-b665-38aa4d7f8e70", e._sentryDebugIdIdentifier = "sentry-dbid-c64753be-68be-4901-b665-38aa4d7f8e70")
+    }()
+} catch (e) {}
+"use strict";
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+    [73164], {
+        73164: function(e, t, r) {
+            var i = r(57437),
+                n = r(2265),
+                l = r(10795),
+                s = r(93662),
+                a = r(59892),
+                o = r(75277),
+                d = r(41217),
+                c = r(38866),
+                u = r(7586),
+                p = r(32883),
+                m = r(31047),
+                f = r(41905),
+                h = r(40875),
+                b = r(10407),
+                x = r(18930),
+                v = r(99397),
+                g = r(45675),
+                y = r(66337),
+                j = r(42208),
+                N = r(94508),
+                w = r(95186),
+                k = r(19378),
+                E = r(53647),
+                F = r(81103),
+                P = r(78325);
+            let A = {
+                    string: {
+                        label: "String",
+                        short: "str",
+                        icon: o.Z
+                    },
+                    number: {
+                        label: "Number",
+                        short: "num",
+                        icon: d.Z
+                    },
+                    integer: {
+                        label: "Integer",
+                        short: "int",
+                        icon: d.Z
+                    },
+                    boolean: {
+                        label: "Boolean",
+                        short: "bool",
+                        icon: c.Z
+                    },
+                    array: {
+                        label: "Array",
+                        short: "arr",
+                        icon: u.Z
+                    },
+                    object: {
+                        label: "Object",
+                        short: "obj",
+                        icon: p.Z
+                    },
+                    date: {
+                        label: "Date",
+                        short: "date",
+                        icon: m.Z
+                    },
+                    datetime: {
+                        label: "Datetime",
+                        short: "dt",
+                        icon: m.Z
+                    }
+                },
+                C = e => {
+                    var t;
+                    return null !== (t = A[null == e ? void 0 : e.toLowerCase()]) && void 0 !== t ? t : {
+                        label: "Unknown",
+                        short: "?",
+                        icon: p.Z
+                    }
+                },
+                D = e => {
+                    let {
+                        type: t,
+                        itemsField: r,
+                        items: n,
+                        editable: l = !1,
+                        onTypeChange: s
+                    } = e;
+                    return l && s ? (0, i.jsxs)(E.Ph, {
+                        value: t,
+                        onValueChange: s,
+                        children: [(0, i.jsx)(E.i4, {
+                            className: "h-6 w-auto min-w-[80px] rounded border border-blue-100/15 bg-blue-50/20 px-1.5 text-xs text-blue-600 hover:bg-blue-50/30 [&>svg]:hidden",
+                            children: (0, i.jsxs)("span", {
+                                children: [t, "array" === t && (r ? "(object)" : n ? "(".concat(n.type, ")") : "")]
+                            })
+                        }), (0, i.jsx)(E.Bw, {
+                            className: "min-w-[120px]",
+                            children: Object.keys(A).map(e => (0, i.jsx)(E.Ql, {
+                                value: e,
+                                children: (0, i.jsx)("span", {
+                                    className: "text-xs",
+                                    children: A[e].label
+                                })
+                            }, e))
+                        })]
+                    }) : (0, i.jsxs)("span", {
+                        className: "rounded border border-blue-100/15 bg-blue-50/20 px-1.5 text-xs text-blue-600",
+                        children: [t, "array" === t && (r ? "(object)" : n ? "(".concat(n.type, ")") : "")]
+                    })
+                },
+                q = e => {
+                    let {
+                        field: t,
+                        isEditable: r,
+                        onUpdate: l
+                    } = e, [s, a] = n.useState(t.name);
+                    return (n.useEffect(() => {
+                        a(t.name)
+                    }, [t.name]), l) ? (0, i.jsx)(w.I, {
+                        value: s,
+                        onChange: e => a(e.target.value),
+                        onBlur: () => {
+                            s !== t.name && (null == l || l({
+                                ...t,
+                                name: s
+                            }))
+                        },
+                        onKeyDown: e => {
+                            "Enter" === e.key && e.currentTarget.blur()
+                        },
+                        onMouseDown: e => e.stopPropagation(),
+                        onDragStart: e => e.preventDefault(),
+                        className: "h-7 border-none bg-transparent p-0 text-sm font-semibold hover:bg-muted/20 focus:rounded focus:border focus:border-[#D2E9FF] focus:bg-white focus:px-2",
+                        draggable: !1
+                    }) : (0, i.jsx)("span", {
+                        className: "text-sm font-semibold",
+                        children: t.name
+                    })
+                },
+                S = e => {
+                    let {
+                        field: t,
+                        onUpdate: r
+                    } = e, [l, s] = n.useState(t.description || "");
+                    return (n.useEffect(() => {
+                        s(t.description || "")
+                    }, [t.description]), r) ? (0, i.jsx)(w.I, {
+                        value: l,
+                        onChange: e => s(e.target.value),
+                        onBlur: () => {
+                            l !== (t.description || "") && (null == r || r({
+                                ...t,
+                                description: l
+                            }))
+                        },
+                        onKeyDown: e => {
+                            "Enter" === e.key && e.currentTarget.blur()
+                        },
+                        onMouseDown: e => e.stopPropagation(),
+                        onDragStart: e => e.preventDefault(),
+                        className: "h-7 border-none bg-transparent p-0 text-xs text-muted-foreground hover:bg-muted/20 focus:rounded focus:border focus:border-[#D2E9FF] focus:bg-white focus:px-2",
+                        placeholder: "Add description...",
+                        draggable: !1
+                    }) : t.description ? (0, i.jsx)("span", {
+                        className: "text-xs text-muted-foreground",
+                        children: t.description
+                    }) : null
+                },
+                L = e => {
+                    let {
+                        isActive: t,
+                        onClick: r,
+                        icon: n
+                    } = e;
+                    return (0, i.jsx)("button", {
+                        type: "button",
+                        onClick: r,
+                        className: (0, N.cn)("inline-flex size-7 items-center justify-center rounded-[7px] text-xs transition-colors", t ? "border border-primary/20 bg-primary/10 text-primary" : "text-muted-foreground hover:text-foreground"),
+                        children: (0, i.jsx)(n, {
+                            className: "size-3.5"
+                        })
+                    })
+                },
+                O = (e, t) => {
+                    var r;
+                    return null !== (r = e.id) && void 0 !== r ? r : "root-".concat(t)
+                },
+                Z = e => {
+                    var t;
+                    let {
+                        field: r,
+                        depth: n,
+                        path: a,
+                        isEditable: o,
+                        onUpdate: d,
+                        expandedPaths: c,
+                        setExpandedPaths: u,
+                        onFieldClick: p,
+                        createFieldId: m,
+                        hasUserEditedRef: f,
+                        setExpandedPathsWithScrollPreservation: h
+                    } = e, b = null !== (t = r.children) && void 0 !== t ? t : [], x = b.map((e, t) => {
+                        var r;
+                        return null !== (r = e.id) && void 0 !== r ? r : "".concat(a, "-child-").concat(t)
+                    }), v = (0, l.Dy)((0, l.VT)(l.we, {
+                        activationConstraint: {
+                            distance: 4
+                        }
+                    }), (0, l.VT)(l.Lg, {
+                        coordinateGetter: s.is
+                    })), g = {
+                        onFieldClick: p,
+                        createFieldId: m,
+                        hasUserEditedRef: f,
+                        setExpandedPathsWithScrollPreservation: h
+                    };
+                    return o ? (0, i.jsx)(l.LB, {
+                        sensors: v,
+                        collisionDetection: l.pE,
+                        onDragEnd: e => {
+                            let {
+                                active: t,
+                                over: i
+                            } = e;
+                            if (!i || t.id === i.id) return;
+                            let n = x.indexOf(t.id),
+                                l = x.indexOf(i.id);
+                            if (n < 0 || l < 0 || n === l) return;
+                            f.current = !0;
+                            let a = (0, s.Rp)([...b], n, l);
+                            null == d || d({
+                                ...r,
+                                children: a
+                            })
+                        },
+                        children: (0, i.jsx)(s.Fo, {
+                            items: x,
+                            strategy: s.qw,
+                            children: b.map((e, t) => {
+                                var l;
+                                return (0, i.jsx)(R, {
+                                    field: e,
+                                    depth: n + 1,
+                                    path: "object" === r.type ? "".concat(a, ".properties.").concat(e.name) : "".concat(a, ".items.").concat(e.name),
+                                    isEditable: o,
+                                    onUpdate: e => {
+                                        let i = [...b];
+                                        i[t] = e, null == d || d({
+                                            ...r,
+                                            children: i
+                                        })
+                                    },
+                                    onRemove: () => {
+                                        f.current = !0;
+                                        let e = b.filter((e, r) => r !== t);
+                                        null == d || d({
+                                            ...r,
+                                            children: e
+                                        })
+                                    },
+                                    expandedPaths: c,
+                                    setExpandedPaths: u,
+                                    index: t,
+                                    ...g
+                                }, null !== (l = e.id) && void 0 !== l ? l : "".concat(a, ".child-").concat(t))
+                            })
+                        })
+                    }) : (0, i.jsx)(i.Fragment, {
+                        children: b.map((e, t) => {
+                            var l;
+                            return (0, i.jsx)(R, {
+                                field: e,
+                                depth: n + 1,
+                                path: "object" === r.type ? "".concat(a, ".properties.").concat(e.name) : "".concat(a, ".items.").concat(e.name),
+                                isEditable: o,
+                                onUpdate: e => {
+                                    let i = [...b];
+                                    i[t] = e, null == d || d({
+                                        ...r,
+                                        children: i
+                                    })
+                                },
+                                expandedPaths: c,
+                                setExpandedPaths: u,
+                                index: t,
+                                ...g
+                            }, null !== (l = e.id) && void 0 !== l ? l : "".concat(a, ".child-").concat(t))
+                        })
+                    })
+                },
+                R = e => {
+                    var t;
+                    let {
+                        field: r,
+                        depth: l,
+                        path: o,
+                        isEditable: d,
+                        onUpdate: c,
+                        onRemove: u,
+                        expandedPaths: p,
+                        setExpandedPaths: m,
+                        index: g,
+                        onFieldClick: y,
+                        createFieldId: j,
+                        hasUserEditedRef: w,
+                        setExpandedPathsWithScrollPreservation: k
+                    } = e, P = "object" === r.type || "array" === r.type, L = p.has(o), V = (0, n.useRef)(null), z = void 0 !== g && d, $ = void 0 !== g ? 0 === l ? O(r, g) : null !== (t = r.id) && void 0 !== t ? t : "".concat(o, "-").concat(g) : "".concat(o, "-nested"), {
+                        attributes: I,
+                        listeners: T,
+                        setNodeRef: M,
+                        transform: _,
+                        transition: U,
+                        isDragging: B
+                    } = (0, s.nB)({
+                        id: $,
+                        disabled: !z
+                    }), J = (0, n.useRef)(null), G = (0, N.cn)("group relative mb-2 rounded-xl border p-2", L ? "border-[#D2E9FF]" : "border-border bg-card/30", B && "bg-white", z && (B ? "cursor-grabbing" : "cursor-grab")), H = {
+                        onFieldClick: y,
+                        createFieldId: j,
+                        hasUserEditedRef: w,
+                        setExpandedPathsWithScrollPreservation: k
+                    };
+                    return (0, i.jsx)("div", {
+                        className: "relative",
+                        children: (0, i.jsxs)("div", {
+                            ref: e => {
+                                M(e), J.current = e
+                            },
+                            "data-schema-row": !0,
+                            "data-field-name": r.name,
+                            className: G,
+                            style: {
+                                marginLeft: l > 0 ? 8 : 0,
+                                transform: a.ux.Transform.toString(_),
+                                transition: U,
+                                zIndex: B ? 10 : void 0
+                            },
+                            children: [(0, i.jsxs)("div", {
+                                className: "flex items-center justify-between gap-2",
+                                children: [z && (0, i.jsx)("div", {
+                                    "data-drag-handle": "true",
+                                    ...I,
+                                    ...T,
+                                    onMouseDown: e => e.stopPropagation(),
+                                    className: "shrink-0 cursor-grab select-none text-muted-foreground/30 hover:text-muted-foreground/60 active:cursor-grabbing",
+                                    children: (0, i.jsx)(f.Z, {
+                                        className: "size-4"
+                                    })
+                                }), (0, i.jsxs)("div", {
+                                    className: (0, N.cn)("flex flex-1 items-center gap-2", !P && !z && "pl-2"),
+                                    onClick: e => {
+                                        e.stopPropagation(), null == y || y(r.name)
+                                    },
+                                    children: [P && (0, i.jsx)("button", {
+                                        type: "button",
+                                        "aria-expanded": L,
+                                        onClick: e => {
+                                            e.preventDefault(), e.stopPropagation(), m(e => {
+                                                let t = new Set(e);
+                                                return t.has(o) ? t.delete(o) : t.add(o), t
+                                            })
+                                        },
+                                        onMouseDown: e => e.stopPropagation(),
+                                        className: "flex size-5 shrink-0 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted/40",
+                                        children: L ? (0, i.jsx)(h.Z, {
+                                            className: "size-3.5"
+                                        }) : (0, i.jsx)(b.Z, {
+                                            className: "size-3.5"
+                                        })
+                                    }), (0, i.jsxs)("div", {
+                                        className: "flex-1 space-y-0.5",
+                                        children: [(0, i.jsxs)("div", {
+                                            className: "flex items-center gap-2",
+                                            children: [(0, i.jsx)(q, {
+                                                field: r,
+                                                isEditable: d,
+                                                onUpdate: d ? c : void 0
+                                            }), !d && (0, i.jsx)("div", {
+                                                onMouseDown: e => e.stopPropagation(),
+                                                children: (0, i.jsx)(D, {
+                                                    type: r.type,
+                                                    itemsField: r.itemsField,
+                                                    items: r.items,
+                                                    editable: !1
+                                                })
+                                            })]
+                                        }), (0, i.jsx)(S, {
+                                            field: r,
+                                            onUpdate: d ? c : void 0
+                                        })]
+                                    })]
+                                }), (0, i.jsx)("div", {
+                                    className: "flex items-center gap-2",
+                                    onMouseDown: e => e.stopPropagation(),
+                                    children: d ? (0, i.jsxs)(i.Fragment, {
+                                        children: [(0, i.jsx)(F.pn, {
+                                            children: (0, i.jsxs)(F.u, {
+                                                children: [(0, i.jsx)(F.aJ, {
+                                                    asChild: !0,
+                                                    children: (0, i.jsx)("button", {
+                                                        type: "button",
+                                                        "aria-pressed": !!r.required,
+                                                        onPointerDown: e => {
+                                                            V.current = {
+                                                                x: e.clientX,
+                                                                y: e.clientY,
+                                                                dragged: !1
+                                                            }
+                                                        },
+                                                        onPointerMove: e => {
+                                                            if (!V.current) return;
+                                                            let t = Math.abs(e.clientX - V.current.x),
+                                                                r = Math.abs(e.clientY - V.current.y);
+                                                            (t > 3 || r > 3) && (V.current.dragged = !0)
+                                                        },
+                                                        onPointerUp: () => {
+                                                            var e;
+                                                            let t = null === (e = V.current) || void 0 === e ? void 0 : e.dragged;
+                                                            V.current = null, t || null == c || c({
+                                                                ...r,
+                                                                required: !r.required
+                                                            })
+                                                        },
+                                                        className: (0, N.cn)("inline-flex h-6 items-center rounded-full px-2 text-xs font-medium transition-colors", r.required ? "border border-primary/20 bg-primary/10 text-primary" : "border border-border/20 bg-white/30 text-muted-foreground"),
+                                                        children: "Req"
+                                                    })
+                                                }), (0, i.jsx)(F._v, {
+                                                    side: "bottom",
+                                                    className: "border border-border/40 bg-background/95 text-foreground shadow-sm",
+                                                    children: r.required ? "Required" : "Optional"
+                                                })]
+                                            })
+                                        }), (0, i.jsxs)(E.Ph, {
+                                            value: r.type,
+                                            onValueChange: e => null == c ? void 0 : c({
+                                                ...r,
+                                                type: e
+                                            }),
+                                            children: [(0, i.jsx)(E.i4, {
+                                                className: "h-7 w-fit justify-start rounded-[10px] border border-border bg-white/50 px-2 py-0.5 text-xs [&>svg]:hidden",
+                                                children: (0, i.jsx)("span", {
+                                                    children: C(r.type).label
+                                                })
+                                            }), (0, i.jsx)(E.Bw, {
+                                                className: "min-w-[120px]",
+                                                children: Object.keys(A).map(e => (0, i.jsx)(E.Ql, {
+                                                    value: e,
+                                                    children: (0, i.jsx)("span", {
+                                                        className: "text-xs",
+                                                        children: A[e].label
+                                                    })
+                                                }, e))
+                                            })]
+                                        }), (0, i.jsx)(F.pn, {
+                                            children: (0, i.jsxs)(F.u, {
+                                                children: [(0, i.jsx)(F.aJ, {
+                                                    asChild: !0,
+                                                    children: (0, i.jsx)("button", {
+                                                        type: "button",
+                                                        onMouseDown: e => e.stopPropagation(),
+                                                        onClick: e => {
+                                                            e.stopPropagation(), null == u || u()
+                                                        },
+                                                        className: "inline-flex h-6 items-center rounded-full px-1.5 text-xs text-muted-foreground/60 transition-colors hover:bg-red-50 hover:text-red-500",
+                                                        children: (0, i.jsx)(x.Z, {
+                                                            className: "size-3.5"
+                                                        })
+                                                    })
+                                                }), (0, i.jsx)(F._v, {
+                                                    side: "bottom",
+                                                    className: "border border-border/40 bg-background/95 text-foreground shadow-sm",
+                                                    children: "Remove field"
+                                                })]
+                                            })
+                                        })]
+                                    }) : null
+                                })]
+                            }), P && L && (0, i.jsxs)("div", {
+                                className: "ml-6 mt-2 space-y-2",
+                                children: [("object" === r.type || "array" === r.type && r.children) && (0, i.jsx)(Z, {
+                                    field: r,
+                                    depth: l,
+                                    path: o,
+                                    isEditable: d,
+                                    onUpdate: c,
+                                    expandedPaths: p,
+                                    setExpandedPaths: m,
+                                    ...H
+                                }), "array" === r.type && r.itemsField && !r.children && (0, i.jsx)(R, {
+                                    field: r.itemsField,
+                                    depth: l + 1,
+                                    path: "".concat(o, ".items"),
+                                    isEditable: d,
+                                    onUpdate: e => null == c ? void 0 : c({
+                                        ...r,
+                                        itemsField: e
+                                    }),
+                                    expandedPaths: p,
+                                    setExpandedPaths: k,
+                                    ...H
+                                }), P && d && (0, i.jsxs)("button", {
+                                    type: "button",
+                                    onMouseDown: e => e.stopPropagation(),
+                                    onClick: e => {
+                                        var t, i, n;
+                                        e.stopPropagation();
+                                        let l = {
+                                            id: j(),
+                                            name: "field".concat((null !== (i = null === (t = r.children) || void 0 === t ? void 0 : t.length) && void 0 !== i ? i : 0) + 1),
+                                            type: "string"
+                                        };
+                                        null == c || c({
+                                            ...r,
+                                            children: [...null !== (n = r.children) && void 0 !== n ? n : [], l],
+                                            items: void 0,
+                                            itemsField: void 0
+                                        })
+                                    },
+                                    className: "flex items-center gap-1 rounded px-1 py-0.5 text-xs text-muted-foreground/60 transition-colors hover:bg-muted/40 hover:text-muted-foreground",
+                                    children: [(0, i.jsx)(v.Z, {
+                                        className: "size-3"
+                                    }), "Add"]
+                                })]
+                            })]
+                        })
+                    })
+                };
+            t.Z = n.forwardRef(function(e, t) {
+                var r, a;
+                let {
+                    schema: o,
+                    mode: d = "readonly",
+                    className: c,
+                    onSchemaUpdate: u,
+                    showModeBadge: m = !0,
+                    showTabSwitch: f = !0,
+                    defaultTab: h = "visual",
+                    onFieldClick: b,
+                    highlightedFieldName: x
+                } = e, N = (0, n.useRef)(0), w = (0, n.useCallback)(() => {
+                    let e = "usf_".concat(N.current);
+                    return N.current += 1, e
+                }, []), E = (0, n.useCallback)(e => e.map(e => {
+                    var t, r;
+                    return {
+                        ...e,
+                        id: null !== (t = e.id) && void 0 !== t ? t : w(),
+                        children: e.children ? E(e.children) : void 0,
+                        itemsField: e.itemsField ? {
+                            ...e.itemsField,
+                            id: null !== (r = e.itemsField.id) && void 0 !== r ? r : w(),
+                            children: e.itemsField.children ? E(e.itemsField.children) : void 0
+                        } : void 0
+                    }
+                }), [w]), A = (0, n.useCallback)(e => {
+                    var t;
+                    let r = function(e) {
+                        if (Array.isArray(null == e ? void 0 : e.fields)) {
+                            var t;
+                            return {
+                                $schema: e.$schema,
+                                title: e.title,
+                                description: e.description,
+                                type: e.type || "object",
+                                additionalProperties: null !== (t = e.additionalProperties) && void 0 !== t && t,
+                                fields: [...e.fields]
+                            }
+                        }
+                        let r = (e, t) => {
+                                if (!e || !e.startsWith("#/")) return null;
+                                let r = e.substring(2).split("/"),
+                                    i = t;
+                                for (let e of r) {
+                                    if (!i || "object" != typeof i || !(e in i)) return null;
+                                    i = i[e]
+                                }
+                                return i
+                            },
+                            i = t => {
+                                if (t.anyOf && Array.isArray(t.anyOf)) {
+                                    for (let i of t.anyOf)
+                                        if ("null" !== i.type) {
+                                            if (i.$ref) {
+                                                let t = r(i.$ref, e);
+                                                if (t) return {
+                                                    type: t.type || "object",
+                                                    actualSchema: t
+                                                }
+                                            }
+                                            if (i.type && "null" !== i.type) return {
+                                                type: i.type,
+                                                actualSchema: i
+                                            }
+                                        }
+                                }
+                                if (t.$ref) {
+                                    let i = r(t.$ref, e);
+                                    if (i) return {
+                                        type: i.type || "object",
+                                        actualSchema: i
+                                    }
+                                }
+                                return {
+                                    type: t.type || "object",
+                                    actualSchema: t
+                                }
+                            },
+                            n = (t, l, s) => {
+                                let a = l,
+                                    o = null == l ? void 0 : l.type;
+                                if (null == l ? void 0 : l.$ref) {
+                                    let t = r(l.$ref, e);
+                                    t && (a = t, o = t.type || "object")
+                                }
+                                if (null == l ? void 0 : l.anyOf) {
+                                    let e = i(l);
+                                    o = e.type, a = e.actualSchema
+                                }
+                                Array.isArray(o) && (o = o.find(e => "null" !== e) || o[0]);
+                                let d = {
+                                    name: t,
+                                    type: o || "object",
+                                    required: s.includes(t),
+                                    description: (null == l ? void 0 : l.description) || (null == a ? void 0 : a.description),
+                                    format: null == a ? void 0 : a.format,
+                                    enum: null == a ? void 0 : a.enum,
+                                    minLength: null == a ? void 0 : a.minLength,
+                                    maxLength: null == a ? void 0 : a.maxLength,
+                                    minimum: null == a ? void 0 : a.minimum,
+                                    maximum: null == a ? void 0 : a.maximum,
+                                    pattern: null == a ? void 0 : a.pattern,
+                                    defaultValue: (null == l ? void 0 : l.default) !== void 0 ? l.default : null == a ? void 0 : a.default
+                                };
+                                if ("object" === d.type) {
+                                    let e = (null == a ? void 0 : a.properties) || {},
+                                        t = Array.isArray(null == a ? void 0 : a.required) ? a.required : [];
+                                    d.children = Object.keys(e).map(r => n(r, e[r], t))
+                                } else if ("array" === d.type) {
+                                    let t = null == a ? void 0 : a.items;
+                                    if (t) {
+                                        if (t.$ref) {
+                                            let i = r(t.$ref, e);
+                                            if (i && "object" === i.type && i.properties) {
+                                                let e = i.properties || {},
+                                                    t = Array.isArray(i.required) ? i.required : [];
+                                                d.children = Object.keys(e).map(r => n(r, e[r], t))
+                                            } else i && (d.itemsField = n("items", i, []))
+                                        } else if ("object" === t.type && t.properties) {
+                                            let e = t.properties || {},
+                                                r = Array.isArray(t.required) ? t.required : [];
+                                            d.children = Object.keys(e).map(t => n(t, e[t], r))
+                                        } else "array" !== t.type && ("object" !== t.type || t.properties) ? d.items = {
+                                            type: t.type || "string",
+                                            description: t.description
+                                        } : d.itemsField = n("items", t, [])
+                                    } else d.items = {
+                                        type: "string"
+                                    }
+                                }
+                                return d
+                            },
+                            l = (null == e ? void 0 : e.properties) && "object" == typeof e.properties,
+                            s = [];
+                        if (l) {
+                            let t = e.properties,
+                                r = Array.isArray(null == e ? void 0 : e.required) ? e.required : [];
+                            s = Object.keys(t).map(e => n(e, t[e], r))
+                        } else {
+                            let t = e => null === e ? "string" : Array.isArray(e) ? "array" : "object" == typeof e ? "object" : "number" == typeof e ? Number.isInteger(e) ? "integer" : "number" : "boolean" == typeof e ? "boolean" : "string",
+                                r = (e, i) => {
+                                    let n = t(i),
+                                        l = {
+                                            name: e,
+                                            type: n,
+                                            defaultValue: i
+                                        };
+                                    if ("object" === n && i && "object" == typeof i) l.children = Object.keys(i).map(e => r(e, i[e]));
+                                    else if ("array" === n && Array.isArray(i) && i.length > 0) {
+                                        let e = t(i[0]);
+                                        l.items = {
+                                            type: e
+                                        }
+                                    }
+                                    return l
+                                };
+                            s = Object.keys(e).filter(e => "$schema" !== e && "type" !== e).map(t => r(t, e[t]))
+                        }
+                        return {
+                            $schema: null == e ? void 0 : e.$schema,
+                            title: null == e ? void 0 : e.title,
+                            description: null == e ? void 0 : e.description,
+                            type: (null == e ? void 0 : e.type) || "object",
+                            additionalProperties: "boolean" == typeof(null == e ? void 0 : e.additionalProperties) && e.additionalProperties,
+                            fields: s
+                        }
+                    }(e);
+                    return {
+                        ...r,
+                        fields: E(null !== (t = r.fields) && void 0 !== t ? t : [])
+                    }
+                }, [E]), [C, D] = (0, n.useState)(o), [q, S] = (0, n.useState)(() => A(o)), Z = (0, n.useRef)("");
+                (0, n.useEffect)(() => {
+                    let e = JSON.stringify(null != o ? o : {});
+                    if (Z.current !== e) {
+                        if (Z.current = e, D(o), G.current) {
+                            G.current = !1;
+                            return
+                        }
+                        J.current = !0, S(A(o))
+                    }
+                }, [o, A]);
+                let V = "editable" === d,
+                    [z, $] = (0, n.useState)(h),
+                    [I, T] = (0, n.useState)(new Set(["root"])),
+                    M = (0, n.useRef)(null),
+                    _ = (0, n.useRef)(null),
+                    U = (0, n.useRef)(null != x ? x : null),
+                    B = (0, n.useCallback)(e => {
+                        U.current = e;
+                        let t = _.current;
+                        t && t.querySelectorAll("[data-field-name]").forEach(t => {
+                            t.getAttribute("data-field-name") === e ? (t.style.borderColor = "#D2E9FF", t.style.backgroundColor = "#F5FAFF") : (t.style.borderColor = "", t.style.backgroundColor = "")
+                        })
+                    }, []);
+                (0, n.useEffect)(() => {
+                    B(null != x ? x : null)
+                }, [x, B]), (0, n.useImperativeHandle)(t, () => ({
+                    setHighlightedField: B
+                }), [B]);
+                let J = (0, n.useRef)(!1),
+                    G = (0, n.useRef)(!1),
+                    H = (0, l.Dy)((0, l.VT)(l.we, {
+                        activationConstraint: {
+                            distance: 4
+                        }
+                    }), (0, l.VT)(l.Lg, {
+                        coordinateGetter: s.is
+                    }));
+                (0, n.useEffect)(() => {
+                    if (J.current) {
+                        J.current = !1;
+                        return
+                    }
+                    if (!G.current) return;
+                    let e = setTimeout(() => {
+                        if (u) {
+                            let e = Array.isArray(null == C ? void 0 : C.fields),
+                                t = (null == C ? void 0 : C.properties) && "object" == typeof C.properties;
+                            if (e) {
+                                let e = t => {
+                                        let r = {};
+                                        return t.type && (r.type = t.type), t.description && (r.description = t.description), t.format && (r.format = t.format), t.enum && (r.enum = t.enum), void 0 !== t.minLength && (r.minLength = t.minLength), void 0 !== t.maxLength && (r.maxLength = t.maxLength), void 0 !== t.minimum && (r.minimum = t.minimum), void 0 !== t.maximum && (r.maximum = t.maximum), t.pattern && (r.pattern = t.pattern), void 0 !== t.defaultValue && (r.default = t.defaultValue), t.children && t.children.length > 0 && (r.properties = {}, t.children.forEach(t => {
+                                            r.properties[t.name] = e(t)
+                                        }), t.required && (r.required = [t.name])), t.items ? r.items = t.items : t.itemsField && (r.items = e(t.itemsField)), r
+                                    },
+                                    t = {
+                                        fields: []
+                                    };
+                                q.fields.forEach(r => {
+                                    t.fields.push(e(r))
+                                }), Z.current = JSON.stringify(t), u(t)
+                            } else if (t) {
+                                let e = X();
+                                Z.current = JSON.stringify(e), u(e)
+                            } else {
+                                let e = t => {
+                                        if (void 0 !== t.defaultValue) return t.defaultValue;
+                                        switch (t.type) {
+                                            case "string":
+                                                return "";
+                                            case "number":
+                                            case "integer":
+                                                return 0;
+                                            case "boolean":
+                                                return !1;
+                                            case "array":
+                                                return [];
+                                            case "object":
+                                                if (t.children && t.children.length > 0) {
+                                                    let r = {};
+                                                    return t.children.forEach(t => {
+                                                        r[t.name] = e(t)
+                                                    }), r
+                                                }
+                                                return {};
+                                            default:
+                                                return null
+                                        }
+                                    },
+                                    t = {};
+                                q.fields.forEach(r => {
+                                    t[r.name] = e(r)
+                                }), Z.current = JSON.stringify(t), u(t)
+                            }
+                        }
+                    }, 300);
+                    return () => clearTimeout(e)
+                }, [q, u, V]);
+                let K = (0, n.useCallback)(e => {
+                        var t, r;
+                        let i = (null === (r = M.current) || void 0 === r ? void 0 : null === (t = r.querySelector("[data-radix-scroll-area-viewport]")) || void 0 === t ? void 0 : t.scrollTop) || 0;
+                        T(e), requestAnimationFrame(() => {
+                            var e;
+                            let t = null === (e = M.current) || void 0 === e ? void 0 : e.querySelector("[data-radix-scroll-area-viewport]");
+                            t && (t.scrollTop = i)
+                        })
+                    }, []),
+                    Q = (e, t) => {
+                        G.current = !0, S(r => ({
+                            ...r,
+                            fields: r.fields.map((r, i) => i === e ? t : r)
+                        }))
+                    },
+                    W = (0, n.useCallback)(e => {
+                        let {
+                            active: t,
+                            over: r
+                        } = e;
+                        if (!r || t.id === r.id) return;
+                        let i = q.fields.findIndex((e, r) => O(e, r) === t.id),
+                            n = q.fields.findIndex((e, t) => O(e, t) === r.id);
+                        i < 0 || n < 0 || i === n || (G.current = !0, S(e => ({
+                            ...e,
+                            fields: (0, s.Rp)(e.fields, i, n)
+                        })))
+                    }, [q.fields]),
+                    X = (0, n.useCallback)(() => {
+                        var e, t;
+                        let r = e => {
+                                var t, i;
+                                let n = {
+                                    type: e.type,
+                                    ...e.description && {
+                                        description: e.description
+                                    },
+                                    ...e.format && {
+                                        format: e.format
+                                    },
+                                    ...e.enum && {
+                                        enum: e.enum
+                                    },
+                                    ...e.minLength && {
+                                        minLength: e.minLength
+                                    },
+                                    ...e.maxLength && {
+                                        maxLength: e.maxLength
+                                    },
+                                    ...void 0 !== e.minimum && {
+                                        minimum: e.minimum
+                                    },
+                                    ...void 0 !== e.maximum && {
+                                        maximum: e.maximum
+                                    },
+                                    ...e.pattern && {
+                                        pattern: e.pattern
+                                    },
+                                    ...void 0 !== e.defaultValue && {
+                                        default: e.defaultValue
+                                    }
+                                };
+                                if ("object" === e.type && (null === (t = e.children) || void 0 === t ? void 0 : t.length)) {
+                                    let t = {},
+                                        i = [];
+                                    e.children.forEach(e => {
+                                        t[e.name] = r(e), e.required && i.push(e.name)
+                                    }), n.properties = t, i.length && (n.required = i)
+                                }
+                                if ("array" === e.type) {
+                                    if (null === (i = e.children) || void 0 === i ? void 0 : i.length) {
+                                        let t = {},
+                                            i = [];
+                                        e.children.forEach(e => {
+                                            t[e.name] = r(e), e.required && i.push(e.name)
+                                        }), n.items = {
+                                            type: "object",
+                                            properties: t,
+                                            ...i.length && {
+                                                required: i
+                                            }
+                                        }
+                                    } else n.items = e.itemsField ? r(e.itemsField) : e.items ? {
+                                        type: e.items.type,
+                                        ...e.items.description && {
+                                            description: e.items.description
+                                        }
+                                    } : {
+                                        type: "string"
+                                    }
+                                }
+                                return n
+                            },
+                            i = {},
+                            n = [];
+                        return null === (e = q.fields) || void 0 === e || e.forEach(e => {
+                            i[e.name] = r(e), e.required && n.push(e.name)
+                        }), {
+                            $schema: q.$schema || "http://json-schema.org/draft-07/schema#",
+                            type: q.type || "object",
+                            ...q.title && {
+                                title: q.title
+                            },
+                            ...q.description && {
+                                description: q.description
+                            },
+                            properties: i,
+                            ...n.length && {
+                                required: n
+                            },
+                            additionalProperties: null !== (t = q.additionalProperties) && void 0 !== t && t
+                        }
+                    }, [q]),
+                    Y = e => Array.isArray(null == e ? void 0 : e.fields),
+                    ee = (0, n.useMemo)(() => Y(C) ? X() : C, [C, X]),
+                    et = e => {
+                        V && (G.current = !0, S(t => ({
+                            ...t,
+                            fields: t.fields.filter((t, r) => r !== e)
+                        })))
+                    };
+                return (0, i.jsxs)("div", {
+                    ref: _,
+                    className: "flex size-full flex-col ".concat(null != c ? c : ""),
+                    children: [m && (0, i.jsx)("div", {
+                        className: "mb-3 flex items-center",
+                        children: (0, i.jsxs)("span", {
+                            className: "inline-flex items-center gap-1.5 rounded-full border border-border/40 bg-background/60 px-2.5 py-0.5 text-[11px] text-muted-foreground",
+                            children: [V ? (0, i.jsx)(g.Z, {
+                                className: "size-3.5"
+                            }) : (0, i.jsx)(y.Z, {
+                                className: "size-3.5"
+                            }), V ? "Editing" : "View only"]
+                        })
+                    }), (0, i.jsxs)("div", {
+                        className: "relative flex-1 overflow-hidden",
+                        children: [f && (0, i.jsxs)("div", {
+                            className: "absolute right-2 top-2 z-10 flex items-center rounded-[10px] border border-border/40 bg-background/80 p-0.5 backdrop-blur-sm",
+                            children: [(0, i.jsx)(L, {
+                                isActive: "visual" === z,
+                                onClick: () => $("visual"),
+                                icon: j.Z
+                            }), (0, i.jsx)(L, {
+                                isActive: "json" === z,
+                                onClick: () => $("json"),
+                                icon: p.Z
+                            })]
+                        }), "visual" === z ? (0, i.jsx)(k.x, {
+                            ref: M,
+                            className: "relative h-full rounded-md",
+                            children: (0, i.jsx)(l.LB, {
+                                sensors: H,
+                                collisionDetection: l.pE,
+                                onDragEnd: W,
+                                children: (0, i.jsxs)("div", {
+                                    className: "p-3 pb-14",
+                                    children: [(0, i.jsx)(s.Fo, {
+                                        items: (null !== (r = q.fields) && void 0 !== r ? r : []).map((e, t) => O(e, t)),
+                                        strategy: s.qw,
+                                        children: (null !== (a = q.fields) && void 0 !== a ? a : []).map((e, t) => {
+                                            var r;
+                                            return (0, i.jsx)(R, {
+                                                field: e,
+                                                depth: 0,
+                                                path: "root.".concat(t),
+                                                isEditable: V,
+                                                onUpdate: e => {
+                                                    Q(t, e)
+                                                },
+                                                onRemove: () => et(t),
+                                                expandedPaths: I,
+                                                setExpandedPaths: K,
+                                                index: t,
+                                                onFieldClick: b,
+                                                createFieldId: w,
+                                                hasUserEditedRef: G,
+                                                setExpandedPathsWithScrollPreservation: K
+                                            }, null !== (r = e.id) && void 0 !== r ? r : "root-".concat(t))
+                                        })
+                                    }), V && (0, i.jsx)("div", {
+                                        className: "absolute bottom-3 right-4 z-10",
+                                        children: (0, i.jsx)(F.pn, {
+                                            children: (0, i.jsxs)(F.u, {
+                                                children: [(0, i.jsx)(F.aJ, {
+                                                    asChild: !0,
+                                                    children: (0, i.jsxs)("button", {
+                                                        onClick: () => {
+                                                            if (!V) return;
+                                                            G.current = !0;
+                                                            let e = {
+                                                                id: w(),
+                                                                name: "field".concat(q.fields.length + 1),
+                                                                type: "string",
+                                                                required: !1,
+                                                                description: ""
+                                                            };
+                                                            S(t => ({
+                                                                ...t,
+                                                                fields: [...t.fields, e]
+                                                            }))
+                                                        },
+                                                        className: "inline-flex h-8 items-center gap-2 rounded-full border border-border/40 bg-background/90 px-3 text-xs shadow-sm backdrop-blur transition-colors hover:border-border/60 supports-[backdrop-filter]:bg-background/70",
+                                                        children: [(0, i.jsx)(v.Z, {
+                                                            className: "size-3.5"
+                                                        }), "Add field"]
+                                                    })
+                                                }), (0, i.jsx)(F._v, {
+                                                    side: "top",
+                                                    className: "border border-border/40 bg-background/95 text-foreground shadow-sm",
+                                                    children: "Add a new top-level field"
+                                                })]
+                                            })
+                                        })
+                                    })]
+                                })
+                            })
+                        }) : (0, i.jsx)("div", {
+                            className: "absolute inset-0 overflow-hidden rounded-md",
+                            children: (0, i.jsx)(P.VT, {
+                                value: ee,
+                                onChange: () => {},
+                                readOnly: !0,
+                                className: "-ml-3 h-full"
+                            })
+                        })]
+                    })]
+                })
+            })
+        }
+    }
+]);

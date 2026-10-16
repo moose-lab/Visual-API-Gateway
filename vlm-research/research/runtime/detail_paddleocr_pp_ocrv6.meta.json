@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:52:52.565331+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/paddleocr/pp-ocrv6",
+  "status": 200,
+  "elapsed_seconds": 3.063,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:52:54 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "4511551f-5812-4cee-97d9-cfe783b88de8"
+  },
+  "response_sha256": "e8220251a317fafc1205dc8c9fcddd6f3391a6e4c19fbbac9c30ce2542203b4b",
+  "response_bytes": 787
+}

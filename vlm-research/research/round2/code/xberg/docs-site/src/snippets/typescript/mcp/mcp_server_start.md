@@ -1,0 +1,18 @@
+```typescript title="TypeScript"
+/// <reference types="node" />
+import { spawn } from "node:child_process";
+
+const mcpProcess = spawn("xberg", ["mcp"]);
+
+mcpProcess.stdout.on("data", (data) => {
+  console.log(`MCP Server: ${data}`);
+});
+
+mcpProcess.stderr.on("data", (data) => {
+  console.error(`MCP Error: ${data}`);
+});
+
+mcpProcess.on("error", (err) => {
+  console.error(`Failed to start MCP server: ${err.message}`);
+});
+```

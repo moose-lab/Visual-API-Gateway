@@ -1,0 +1,19 @@
+{
+  "evidence": "STATIC",
+  "source": "probe_sse.response.txt",
+  "event_count": 36,
+  "content": "Wait, I'm seeing you. This might be a dependency on your headset. There's likely some disconnect happening during a headphone connection. The system might be struggling.",
+  "usage": {
+    "prompt_tokens": 18,
+    "total_tokens": 52,
+    "completion_tokens": 34,
+    "cost": 0.001,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": null
+  },
+  "model_ids": [
+    "qwen/qwen3.5-0.8b"
+  ]
+}

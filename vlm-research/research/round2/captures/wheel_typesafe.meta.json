@@ -1,0 +1,14 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T02:58:30.875634+00:00",
+  "url": "https://files.pythonhosted.org/packages/a2/49/6cd65684e41e25069f4d12c09cd7e1e3f81477f06acb29bf0d1815e27d1e/typesafe_sdk-0.7.4-py3-none-any.whl",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "61cf3f2fe9da20b68c3d3fe2fb76bbb2f35f8c4a9a65a6b81c43a535d2a53210",
+  "response_bytes": 37700,
+  "headers": {
+    "Content-Type": "application/octet-stream",
+    "Date": "Tue, 13 Oct 2026 02:58:32 GMT"
+  },
+  "elapsed_seconds": 2.22
+}

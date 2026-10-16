@@ -1,0 +1,171 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.vlm.run/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Extra Kwargs
+
+> Every Gateway request field that is not part of the OpenAI chat schema
+
+The Gateway adds request fields on top of the OpenAI chat completions schema. They select a model entrypoint, control how inputs are prepared, and tune the output.
+
+| Where you call from | How to pass a Gateway kwarg |
+| - | - |
+| OpenAI Python SDK | `extra_body={"method": "ocr"}` |
+| OpenAI Node.js SDK | Top-level property: `method: "ocr"` |
+| REST, cURL | Top-level key in the JSON body |
+| `vlmrun gw chat` | Flags such as `--method` and `--method-params` |
+
+An unknown key inside `method_params` is a `400`. A model that does not support a field returns `400 capability_violation`. See [Error Codes](/gateway/error-codes).
+
+## Standard OpenAI fields
+
+These keep their OpenAI meaning. Pass them as normal arguments.
+
+| Field | Notes |
+| - | - |
+| `model`, `messages` | Content parts are `text`, `image_url`, `document_url`, and `video_url`. See [Supported Inputs](/gateway/multimodal-inputs). |
+| `response_format` | Omit for text mode. `{"type": "json_object"}` for JSON mode, or `{"type": "json_schema", ...}` for JSON schema mode on chat and provider models. See [Response Formats](/gateway/response-formats). |
+| `stream` | Honored in text mode. JSON mode is buffered. |
+| `temperature`, `max_tokens`, `top_p`, `frequency_penalty`, `presence_penalty`, `stop`, `n` | Only the fields in the model's `supported_parameters` on [`GET /v1/openai/models`](/gateway/api-reference/get-models). |
+
+## Gateway kwargs
+
+### Method and output
+
+| Kwarg | Type | Default | Description |
+| - | - | - | - |
+| `method` | `string` | model `default_method` | The model entrypoint, such as `ocr`, `parse_layout`, or `segment`. See [Methods](/gateway/methods). |
+| `method_params` | `object` | `null` | Arguments for the selected `method`. See [`method_params` by model](#method-params-by-model). |
+| `precision` | `integer` | `4` | Decimal places, 1 to 8, on normalized `bbox_xywh`, `poly_xy`, `point_xy`, and `score`. No effect on markdown. |
+| `llm` | `string` | `null` | An LLM that post-processes structured model output. |
+
+### Documents
+
+| Kwarg | Type | Default | Description |
+| - | - | - | - |
+| `document_dpi` | `integer` | `96` | Rasterization DPI for each PDF page. |
+| `document_max_pages` | `integer` | `128` | Pages one request may read. A longer PDF is a `400` that names the page ranges that cover it. |
+| `document_pages` | `array` | all pages | Zero-indexed page indices and `[start, stop]` half-open ranges. Selected pages are renumbered from 0. |
+
+### Images
+
+| Kwarg | Type | Default | Description |
+| - | - | - | - |
+| `image_resolution` | `string` | `null` | Square resize preset, `224x224` to `768x768`, applied before inference. |
+
+`image_url.detail` (`auto`, `low`, `high`) is part of the OpenAI content part. It is accepted for SDK compatibility.
+
+### Video
+
+| Kwarg | Type | Default | Description |
+| - | - | - | - |
+| `video_fps` | `number` | `null` | Target frames per second to sample from a `video_url`. |
+| `video_max_frames` | `integer` | `null` | Cap on sampled frames. |
+| `video_resolution` | `string` | `null` | Resize preset for sampled frames, `256x192` to `640x480`. |
+| `video_encoder` | `string` | `null` | Reserved. `native` is the only accepted value. |
+| `video_encoder_params` | `object` | `null` | Reserved. No keys are defined. |
+
+Video kwargs apply to a `video_url` part on a video-capable model. See [Video inputs](/gateway/multimodal-inputs#video-inputs).
+
+<h2 id="method-params-by-model">
+  `method_params` by model
+</h2>
+
+Keys sit inside `method_params`. Values below are examples from [`GET /v1/openai/models`](/gateway/api-reference/get-models) (`extra_body_help`), not defaults.
+
+| Model | Method | Keys |
+| - | - | - |
+| [paddleocr/pp-ocrv6](https://vlm.run/gateway/models/paddleocr-pp-ocrv6) | `ocr` | `lang` (`"en"`), `score_threshold` (`0.5`) |
+| [facebook/sam3.1](https://vlm.run/gateway/models/facebook-sam3.1) | `segment` | `prompt` (`"cat"`), `mask_format` (`"png"` or `"none"`), `polygons` (`true`) |
+| [facebook/sam3.1](https://vlm.run/gateway/models/facebook-sam3.1) | `segment_box` | `bbox_xywh` (`[0.1, 0.1, 0.4, 0.5]`, normalized) |
+| [facebook/sam3.1](https://vlm.run/gateway/models/facebook-sam3.1) | `track` | `prompt`, `video_fps` (`1`), `video_max_frames` (`128`) |
+| [geopavlakos/hamer](https://vlm.run/gateway/models/geopavlakos-hamer) | `pose` | `body_conf` (`0.5`), `hand_conf` (`0.5`), `rescale_factor` (`2.0`), `include_mesh` (`false`) |
+| [deepseek-ai/deepseek-ocr-2](https://vlm.run/gateway/models/deepseek-ai-deepseek-ocr-2) | `grounding_ocr` | `prompt` |
+| [baidu/unlimited-ocr](https://vlm.run/gateway/models/baidu-unlimited-ocr) | `multi_page` | `window_size` (`8`, pages per sliding window) |
+
+For [usyd-community/vitpose-plus-large](https://vlm.run/gateway/models/usyd-community-vitpose-plus-large), `video_fps` sets the detector cadence on a video. Models not listed take no `method_params`.
+
+## Example
+
+<CodeGroup>
+  ```python Python theme={"theme":{"light":"github-light","dark":"dark-plus"}}
+  from openai import OpenAI
+
+  client = OpenAI(
+      base_url="https://gateway.vlm.run/v1/openai",
+      api_key="<VLMRUN_API_KEY>",
+  )
+  response = client.chat.completions.create(
+      model="paddlepaddle/paddleocr-vl-1.6",
+      messages=[{"role": "user", "content": [
+          {"type": "document_url", "document_url": {"url": "https://storage.googleapis.com/vlm-data-public-prod/hub/examples/finance.sec-filings/tsla-8k.pdf"}},
+      ]}],
+      response_format={"type": "json_object"},
+      extra_body={
+          "method": "ocr",
+          "document_pages": [0, [2, 4]],
+          "document_dpi": 150,
+          "precision": 3,
+      },
+  )
+  ```
+
+  ```typescript Node.js theme={"theme":{"light":"github-light","dark":"dark-plus"}}
+  import OpenAI from "openai";
+
+  const client = new OpenAI({
+    baseURL: "https://gateway.vlm.run/v1/openai",
+    apiKey: process.env.VLMRUN_API_KEY,
+  });
+  const response = await client.chat.completions.create({
+    model: "paddlepaddle/paddleocr-vl-1.6",
+    messages: [{ role: "user", content: [
+      { type: "document_url", document_url: { url: "https://storage.googleapis.com/vlm-data-public-prod/hub/examples/finance.sec-filings/tsla-8k.pdf" } },
+    ] }],
+    response_format: { type: "json_object" },
+    method: "ocr",
+    document_pages: [0, [2, 4]],
+    document_dpi: 150,
+    precision: 3,
+  });
+  ```
+
+  ```bash cURL theme={"theme":{"light":"github-light","dark":"dark-plus"}}
+  curl https://gateway.vlm.run/v1/openai/chat/completions \
+    -X POST \
+    -H "Authorization: Bearer $VLMRUN_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "model": "paddlepaddle/paddleocr-vl-1.6",
+      "method": "ocr",
+      "document_pages": [0, [2, 4]],
+      "document_dpi": 150,
+      "precision": 3,
+      "response_format": {"type": "json_object"},
+      "messages": [{"role": "user", "content": [{"type": "document_url", "document_url": {"url": "https://storage.googleapis.com/vlm-data-public-prod/hub/examples/finance.sec-filings/tsla-8k.pdf"}}]}]
+    }'
+  ```
+</CodeGroup>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Methods" icon="list-check" href="/gateway/methods">
+    Why `method` exists and how to pick one.
+  </Card>
+
+  <Card title="Response Formats" icon="brackets-curly" href="/gateway/response-formats">
+    JSON mode for code, text mode for agents.
+  </Card>
+
+  <Card title="Supported Inputs" icon="images" href="/gateway/multimodal-inputs">
+    Content parts and per-modality limits.
+  </Card>
+
+  <Card title="Chat Completions" icon="comments" href="/gateway/api-reference/post-chat-completions">
+    Full request and response schema.
+  </Card>
+</CardGroup>
+
+
+This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.

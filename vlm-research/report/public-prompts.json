@@ -1,0 +1,82 @@
+{
+  "ocr": "Extract all visible text from this document and return clean Markdown. Preserve reading order, headings, paragraphs, lists, tables, formulas, and page boundaries. Do not summarize, explain, or omit content. Return only the extracted document.",
+  "judge": "You compare OCR transcriptions of one document. The document pages are attached as images in reading order. Score every model from 0 to 100 for overall quality, completeness, accuracy, and formatting. Scores are independent and do not need to sum to 100. Prefer fidelity to the source: missing text, invented text, reading order, tables, and headings. Return only JSON with this shape: {\"scores\":[{\"model_id\":\"\",\"overall\":0,\"completeness\":0,\"accuracy\":0,\"formatting\":0,\"note\":\"\"}]}. Include each model id exactly once. Each note is one sentence.",
+  "copilot_source_expression": "content: 'You are an AI copilot helping edit files in skill \"'.concat(s, '\".\\n\\nThe skill contains the following files:\\n\\n').concat(t, '\\n\\nThe user is currently viewing \"').concat(a, '\" but may ask you to edit any file. When asked to make edits, return the complete updated content in a code block where the language specifier is exactly the target filename (e.g. ```schema.json or ```SKILL.md), along with a brief plain-text explanation of what you changed. The code block will be applied to the correct file automatically. When asked a question, answer concisely without a code block.')",
+  "hub": [
+    {
+      "domain": "document.bank-statement",
+      "line": 6,
+      "prompt": "You are a diligent bank statement analyzer. Extract all the relevant information from the statement as accurately as possible."
+    },
+    {
+      "domain": "document.invoice",
+      "line": 15,
+      "prompt": "You are a detail-oriented invoice analyst. Extract all the relevant information from the candidate's invoice as accurately as possible."
+    },
+    {
+      "domain": "document.receipt",
+      "line": 24,
+      "prompt": "You are a detail-oriented receipt analyst. Extract all the relevant information from the receipt as accurately as possible."
+    },
+    {
+      "domain": "document.resume",
+      "line": 33,
+      "prompt": "You are a detail-oriented technical resume analyst. Extract all the relevant information from the candidate's resume as accurately as possible."
+    },
+    {
+      "domain": "document.us-drivers-license",
+      "line": 42,
+      "prompt": "You are a detail-oriented document analyst. Extract all the relevant information from the candidate's driver's license as accurately as possible."
+    },
+    {
+      "domain": "document.utility-bill",
+      "line": 51,
+      "prompt": "You are a detail-oriented utility bill analyst. Extract all the relevant information from the utility bill as accurately as possible."
+    },
+    {
+      "domain": "accounting.form-w2",
+      "line": 60,
+      "prompt": "You are a detail-oriented tax document analyst. Extract all the relevant information from the W-2 form as accurately as possible."
+    },
+    {
+      "domain": "aerospace.remote-sensing",
+      "line": 70,
+      "prompt": "You are a detail-oriented remote sensing analyst. Analyze this satellite image to identify and categorize land features, infrastructure, and environmental elements. Note any significant objects and assess visibility conditions as accurately as possible."
+    },
+    {
+      "domain": "healthcare.medical-insurance-card",
+      "line": 80,
+      "prompt": "You are a detail-oriented document analyst. Extract all the relevant information from the candidate's medical insurance card as accurately as possible."
+    },
+    {
+      "domain": "healthcare.hipaa-release",
+      "line": 89,
+      "prompt": "You are a detail-oriented healthcare document analyst. Extract all the relevant information from the HIPAA release form as accurately as possible."
+    },
+    {
+      "domain": "retail.ecommerce-product-caption",
+      "line": 99,
+      "prompt": "You are a detail-oriented product analyst. Extract all the relevant product information from the image as accurately as possible."
+    },
+    {
+      "domain": "media.tv-news",
+      "line": 109,
+      "prompt": "You are a detail-oriented TV news analyst. Extract relevant news broadcast information as accurately as possible."
+    },
+    {
+      "domain": "document.us-passport",
+      "line": 119,
+      "prompt": "You are a detail-oriented passport document analyst. Extract all the relevant information from the US passport as accurately as possible."
+    },
+    {
+      "domain": "retail.product-catalog",
+      "line": 128,
+      "prompt": "You are a detail-oriented product catalog agent. Extract all the relevant fields in this image as accurately as possible."
+    }
+  ],
+  "mcp_instructions": "VLM Run turns media into text through this gateway's tools. Each tool handles\none modality, so the input decides which one fits:\n\n- read_document — for a PDF or a page-like image, to OCR its text into Markdown.\n- read_image — for a photo, chart, diagram or screenshot, to describe it or\n  answer a question about what it shows. Use read_document instead when what you\n  need is the text printed on it. Pick a region model (see list_models) to get\n  masks, keypoints, boxes or 3D geometry instead of text.\n- read_audio — for an audio file, to transcribe it into text.\n- read_video — for a video, to describe or transcribe it into text, or with a\n  region model to get per-frame records.\n- list_models — the models this gateway currently serves and which tool each\n  fits; call it first if unsure which model is available.\n- get_model_info — one model's methods and the JSON schema of each json_mode\n  reply, with every field described; call it before relying on those fields.\n- get_completion — cost, token usage, and serving metadata for a prior read_*\n  call; pass the completion_id the read tool returned.\n\nA read tool that is not listed has no served model on this gateway.\n\nEach url is an http(s) URL, a data: URI, or a bare base64 string — never a\nlocal file path (the server cannot see the caller's disk). Each model argument\nis a menu of the models that fit that tool; pick one or accept the default.\nOutput is plain text/Markdown, trimmed with a note if very large; set json_mode\nto get parsed JSON instead. For structured extraction, use your framework's\ntyped-output feature on the returned text.\n\nlist_models tags every method with what it can give you. Pick the method by what\nyou need out of the input.\n\ndocument:\n- document_markdown — text with structure kept: headings, lists, tables\n- layout_regions — labelled areas: title, table, figure\n- reading_order — regions in the order a person would read them\n- text_citations — each piece of text with the box it came from\n- text_extraction — the text, as a string\n- text_highlighting — boxes to draw over the page\n\nimage: the same tags apply to a page-like image read with read_document.\nread_image describes what a picture depicts and needs no tag.\n\nvideo: no tags — read_video returns a description or transcript.\n\nregion models: records, not text — set json_mode=true. Methods and parameters:\nhttps://docs.vlm.run/gateway/methods\n\nOnly text_extraction and document_markdown return a string; the rest need\njson_mode=true and arrive parsed under `data`.\n",
+  "mcp_default_prompts": {
+    "read_image": "Describe this image in detail.",
+    "read_video": "Transcribe and describe the content of this video in detail."
+  }
+}

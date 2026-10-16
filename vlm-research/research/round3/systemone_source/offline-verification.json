@@ -1,0 +1,298 @@
+{
+  "evidence": "RUNTIME",
+  "scope": "local offline execution only; no VLM/TypeSafe requests",
+  "captured_at": "2026-10-13T07:50:05.460259+00:00",
+  "sdk_commit": "e70bf99a89f27102247613bcd5d1aa8923a1cda9",
+  "synthetic_fixture_notice": "wire_calls and Jinja fixtures are synthetic local inputs; returned JSON is replayed archived VLM data",
+  "packages": {
+    "httpx2": "2.13.1",
+    "pydantic": "2.14.1",
+    "pydantic-core": "2.50.1",
+    "jinja2": "3.1.6",
+    "tenacity": "9.2.1"
+  },
+  "script_sha256": "816f3f8abb183789018ec3395df7992f6e444e53920a80d0a1d03ed31912e61a",
+  "template_sha256": "b16d3228a775c549ba97af41233a54e9de8dd2b65250f78346661d18b936a8b5",
+  "checks": [
+    {
+      "name": "base URL and route concatenation",
+      "passed": true
+    },
+    {
+      "name": "typed questions serialize, preserving labels and question IDs",
+      "passed": true
+    },
+    {
+      "name": "extensions passed as top-level fields",
+      "passed": true
+    },
+    {
+      "name": "typed usage discards Gateway extensions",
+      "passed": true,
+      "typed_usage": {
+        "input_tokens": 135,
+        "output_tokens": 0
+      }
+    },
+    {
+      "name": "raw response retains Gateway usage and ID",
+      "passed": true
+    },
+    {
+      "name": "extra_body uses shallow last-write-wins",
+      "passed": true
+    },
+    {
+      "name": "raw SDK inputs can reach transport despite stricter Gateway contract",
+      "passed": true
+    },
+    {
+      "name": "archived confidence agrees with entropy formula",
+      "passed": true,
+      "question": "document_type",
+      "probability_sum": 0.9999999999999999,
+      "computed_confidence": 0.9997378591522463,
+      "archived_confidence": 0.9997378591522463,
+      "tolerance": 1e-12
+    },
+    {
+      "name": "upstream Choice formula differs from archived VLM confidence",
+      "passed": true,
+      "question": "document_type",
+      "upstream_formula": "(max(p)-1/K)/(1-1/K)",
+      "upstream_computed": 0.9999699837228304,
+      "archived_vlm_confidence": 0.9997378591522463,
+      "absolute_difference": 0.0002321245705840802,
+      "source": "https://docs.typesafe.ai/confidence#choice",
+      "vlm_capture_date": "2026-10-11",
+      "upstream_docs_capture_date": "2026-10-13"
+    },
+    {
+      "name": "upstream plain template contains no fixed instruction",
+      "passed": true
+    },
+    {
+      "name": "upstream supplied system content emitted",
+      "passed": true
+    },
+    {
+      "name": "upstream thinking flag adds token",
+      "passed": true
+    },
+    {
+      "name": "upstream template sees processor image type",
+      "passed": true
+    },
+    {
+      "name": "upstream template does not directly render OpenAI image_url type",
+      "passed": true
+    },
+    {
+      "name": "SDK commit source matches archived wheel Python source",
+      "passed": true,
+      "same_python_files": 27,
+      "different_python_files": []
+    }
+  ],
+  "passed": 15,
+  "total": 15,
+  "wire_calls": [
+    {
+      "method": "POST",
+      "url": "https://gateway.vlm.run/typesafe/v1/systemone",
+      "body": {
+        "state": {
+          "synthetic_fixture": true,
+          "items": [
+            "a",
+            "b"
+          ]
+        },
+        "model": "google/diffusiongemma-26b-a4b-it",
+        "questions": {
+          "yes": {
+            "type": "noul",
+            "instructions": "Synthetic yes/no question"
+          },
+          "category": {
+            "type": "choice",
+            "criteria": {
+              "a": null,
+              "b": "Synthetic description"
+            }
+          },
+          "rating": {
+            "type": "score",
+            "criteria": [
+              "low",
+              "high"
+            ]
+          }
+        },
+        "steps": 1,
+        "samples": 2,
+        "content": [
+          {
+            "type": "text",
+            "text": "SYNTHETIC"
+          }
+        ]
+      },
+      "header_names": [
+        "accept",
+        "accept-encoding",
+        "authorization",
+        "connection",
+        "content-length",
+        "content-type",
+        "host",
+        "user-agent",
+        "x-typesafe-runtime",
+        "x-typesafe-sdk"
+      ],
+      "auth_is_dummy": true
+    },
+    {
+      "method": "POST",
+      "url": "https://gateway.vlm.run/typesafe/v1/systemone",
+      "body": {
+        "state": "overridden",
+        "model": "google/diffusiongemma-26b-a4b-it",
+        "questions": {
+          "overridden": {
+            "type": "noul",
+            "instructions": "OVERRIDE"
+          }
+        }
+      },
+      "header_names": [
+        "accept",
+        "accept-encoding",
+        "authorization",
+        "connection",
+        "content-length",
+        "content-type",
+        "host",
+        "user-agent",
+        "x-typesafe-runtime",
+        "x-typesafe-sdk"
+      ],
+      "auth_is_dummy": true
+    },
+    {
+      "method": "POST",
+      "url": "https://gateway.vlm.run/typesafe/v1/systemone",
+      "body": {
+        "state": "fixture",
+        "model": "google/diffusiongemma-26b-a4b-it",
+        "questions": {
+          "single": {
+            "type": "choice",
+            "criteria": {
+              "only": null
+            }
+          },
+          "raw_extra": {
+            "type": "noul",
+            "instructions": "?",
+            "fixture_extension": true
+          }
+        }
+      },
+      "header_names": [
+        "accept",
+        "accept-encoding",
+        "authorization",
+        "connection",
+        "content-length",
+        "content-type",
+        "host",
+        "user-agent",
+        "x-typesafe-runtime",
+        "x-typesafe-sdk"
+      ],
+      "auth_is_dummy": true
+    }
+  ],
+  "template_renders": {
+    "plain_chat": {
+      "fixture": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "SYNTHETIC_USER"
+          }
+        ]
+      },
+      "rendered": "<bos><|turn>user\nSYNTHETIC_USER<turn|>\n<|turn>model\n"
+    },
+    "explicit_system": {
+      "fixture": {
+        "messages": [
+          {
+            "role": "system",
+            "content": "SYNTHETIC_SYSTEM"
+          },
+          {
+            "role": "user",
+            "content": "SYNTHETIC_USER"
+          }
+        ]
+      },
+      "rendered": "<bos><|turn>system\nSYNTHETIC_SYSTEM<turn|>\n<|turn>user\nSYNTHETIC_USER<turn|>\n<|turn>model\n"
+    },
+    "thinking_enabled": {
+      "fixture": {
+        "messages": [
+          {
+            "role": "user",
+            "content": "SYNTHETIC_USER"
+          }
+        ],
+        "enable_thinking": true
+      },
+      "rendered": "<bos><|turn>system\n<|think|>\n<turn|>\n<|turn>user\nSYNTHETIC_USER<turn|>\n<|turn>model\n"
+    },
+    "processor_image_shape": {
+      "fixture": {
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "image"
+              },
+              {
+                "type": "text",
+                "text": "SYNTHETIC_USER"
+              }
+            ]
+          }
+        ]
+      },
+      "rendered": "<bos><|turn>user\n<|image|>SYNTHETIC_USER<turn|>\n<|turn>model\n"
+    },
+    "unadapted_openai_image_url": {
+      "fixture": {
+        "messages": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "https://example.invalid/SYNTHETIC.png"
+                }
+              },
+              {
+                "type": "text",
+                "text": "SYNTHETIC_USER"
+              }
+            ]
+          }
+        ]
+      },
+      "rendered": "<bos><|turn>user\nSYNTHETIC_USER<turn|>\n<|turn>model\n"
+    }
+  }
+}

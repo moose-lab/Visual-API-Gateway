@@ -1,0 +1,9 @@
+{
+  "url": "https://gateway.vlm.run/mcp",
+  "method": "POST",
+  "body": {
+    "jsonrpc": "2.0",
+    "method": "notifications/initialized"
+  },
+  "auth": "Bearer [REDACTED]"
+}

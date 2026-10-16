@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:32:41.005127+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/completions/chatcmpl-d899e8e8c18943e29389df2af99",
+  "status": 200,
+  "elapsed_seconds": 1.735,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:32:41 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "fd8316f8-ffe2-403a-ad8e-80dedce1ae71"
+  },
+  "response_sha256": "a709b1ceba11077a7cfb626b7e266c16b36758a4f72c6f9f00f2ba05e547212a",
+  "response_bytes": 285
+}

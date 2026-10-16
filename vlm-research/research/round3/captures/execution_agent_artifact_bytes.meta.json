@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T07:50:17.758772+00:00",
+  "url": "https://storage.googleapis.com/vlm-userdata-prod/agents/workspace/cf59c0d0-b8c5-4b56-9555-ba66fcf03fb1/8a06a34b-e053-428b-92db-454bfcfbac66/round3-result.json?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T075017Z&X-Goog-Expires=3600&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "ac12a9ca25fca5251f60182db6f7f3ae333fa3896e698980845a92820b5451be",
+  "response_bytes": 70,
+  "headers": {
+    "Content-Type": "application/json",
+    "Date": "Tue, 13 Oct 2026 07:50:18 GMT",
+    "Server": "UploadServer"
+  },
+  "elapsed_seconds": 1.091
+}

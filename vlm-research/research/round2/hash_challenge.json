@@ -1,0 +1,7 @@
+{
+  "input": "VLM_ROUND2_4226ac6ae57d6db4ec656ffceeb77dbf3438314f891dc2d376f1530381a114c6",
+  "encoding": "UTF-8",
+  "expected_sha256": "ec6a04e7c59801341034db49a3b38526a81f93f769e55af8bbc118b092df0287",
+  "session_id": "505a8b7f-74cc-4e51-bc35-ffce25649587",
+  "purpose": "A computational output check, not proof of sandbox isolation or internal deployment."
+}

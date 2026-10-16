@@ -1,0 +1,48 @@
+{
+  "id": "zai-org/glm-ocr",
+  "hf_model_id": "zai-org/GLM-OCR",
+  "name": "GLM-OCR",
+  "description": "Compact multilingual document OCR and markdown extraction.",
+  "task": "chat",
+  "context_length": 8192,
+  "architecture": {
+    "input_modalities": [
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "modality": "image->text"
+  },
+  "capabilities": {
+    "max_images": 1,
+    "max_videos": 0,
+    "supports_text_only": false,
+    "supports_document_url": true,
+    "supports_json_object": true,
+    "supports_json_schema": false,
+    "supported_input_types": [
+      "text",
+      "image_url",
+      "document_url",
+      "file_url",
+      "file"
+    ]
+  },
+  "aliases": [
+    "zai-org/GLM-OCR"
+  ],
+  "methods": [
+    "ocr",
+    "markdown"
+  ],
+  "supported_parameters": [],
+  "pricing": {
+    "prompt": 0.1,
+    "completion": 0.2,
+    "input_cache_read": 0.02,
+    "input_cache_write": 0.0,
+    "image": 30.0,
+    "video": 0.0
+  }
+}

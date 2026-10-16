@@ -1,0 +1,6 @@
+{
+  "url": "https://api.github.com/search/repositories?q=xberg+ocr",
+  "method": "GET",
+  "auth": "none",
+  "body": null
+}

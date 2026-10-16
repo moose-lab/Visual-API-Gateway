@@ -1,0 +1,20 @@
+{
+  "url": "https://api.vlm.run/v1/openai/chat/completions",
+  "method": "POST",
+  "auth": "Bearer [REDACTED]",
+  "body": {
+    "model": "vlmrun-orion-2",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Run the following tiny Python computation with execute_code, then return its computed SHA-256. Use no network, media, or filesystem access. Do not guess a hash. If execution fails, report that failure.\n```python\nimport hashlib\nasync def process(ctx):\n    vlmrun = ctx.import_lib('vlmrun')\n    digest = hashlib.sha256('VLM_ROUND2_4226ac6ae57d6db4ec656ffceeb77dbf3438314f891dc2d376f1530381a114c6'.encode('utf-8')).hexdigest()\n    vlmrun.log.print('ROUND2_SHA256=' + digest)\n    return {'sha256': digest}\n```"
+      }
+    ],
+    "session_id": "505a8b7f-74cc-4e51-bc35-ffce25649587",
+    "session_token": "[REDACTED]",
+    "stream": true,
+    "preview": true,
+    "expose_server_tool_calls": true,
+    "max_tokens": 2048
+  }
+}

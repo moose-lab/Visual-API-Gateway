@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T02:53:54.875633+00:00",
+  "url": "https://docs.vlm.run/llms.txt",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "c51fa377744bcb1a742c862a28a94321c8500b8e17ad13fa799fc305dc979e99",
+  "response_bytes": 16625,
+  "headers": {
+    "Content-Type": "text/plain; charset=utf-8",
+    "Date": "Tue, 13 Oct 2026 02:53:56 GMT",
+    "Server": "Vercel"
+  },
+  "elapsed_seconds": 2.24
+}

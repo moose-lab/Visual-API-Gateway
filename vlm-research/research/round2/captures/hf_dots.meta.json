@@ -1,0 +1,14 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:38:34.692228+00:00",
+  "url": "https://huggingface.co/api/models/rednote-hilab/dots.mocr",
+  "method": "GET",
+  "status": 307,
+  "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "response_bytes": 0,
+  "headers": {
+    "Date": "Tue, 13 Oct 2026 03:38:40 GMT",
+    "X-Request-Id": "Root=1-6acda7c0-79ad9dc71509dedc312a0037"
+  },
+  "elapsed_seconds": 5.522
+}

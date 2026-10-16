@@ -1,0 +1,14 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:01:12.324579+00:00",
+  "url": "https://api.vlm.run/v1/chat/messages?session_id=505a8b7f-74cc-4e51-bc35-ffce25649587",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "32649c5f351c62a7d0e2f6abeb2c71dc56b6730106612eb873537bae755c8f79",
+  "response_bytes": 8891,
+  "headers": {
+    "Content-Type": "application/json",
+    "Date": "Tue, 13 Oct 2026 03:01:14 GMT"
+  },
+  "elapsed_seconds": 1.961
+}

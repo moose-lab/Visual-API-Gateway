@@ -1,0 +1,30 @@
+{
+  "method": "POST",
+  "url": "https://api.vlm.run/v1/agent/execute",
+  "auth": "Bearer [REDACTED]",
+  "body": {
+    "name": "round3-reference-test",
+    "model": "vlmrun-orion-2:auto",
+    "batch": true,
+    "inputs": {
+      "doc_path": {
+        "type": "file_url",
+        "file_url": {
+          "url": "data:application/pdf;base64,JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA2MTIgNzkyXSAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA0IDAgUiA+PiA+PiAvQ29udGVudHMgNSAwIFIgPj4KZW5kb2JqCjQgMCBvYmoKPDwgL1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhID4+CmVuZG9iago1IDAgb2JqCjw8IC9MZW5ndGggODYgPj4Kc3RyZWFtCkJUIC9GMSAxOCBUZiA1MCA3NDAgVGQgKFJPVU5EMiBJTlZPSUNFIE5BVElWRS0wMTMpIFRqIDAgLTMwIFRkIChUb3RhbCBVU0QgMTcuMjUpIFRqIEVUCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDExNSAwMDAwMCBuIAowMDAwMDAwMjQxIDAwMDAwIG4gCjAwMDAwMDAzMTEgMDAwMDAgbiAKdHJhaWxlcgo8PCAvU2l6ZSA2IC9Sb290IDEgMCBSID4+CnN0YXJ0eHJlZgo0NDcKJSVFT0YK"
+        }
+      }
+    },
+    "config": {
+      "mode": "program",
+      "prompt": "Apply the supplied skill to the synthetic test document. Return null for absent fields.",
+      "skills": [
+        {
+          "type": "skill_reference",
+          "skill_id": "6c1edfdf-8c8c-4ffa-8ae3-8097110c888f",
+          "skill_version": "20260720-b19b53d9"
+        }
+      ]
+    }
+  },
+  "headers": {}
+}

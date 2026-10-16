@@ -1,0 +1,11 @@
+{
+  "url": "https://gateway.vlm.run/mcp",
+  "method": "POST",
+  "auth": "Bearer [REDACTED]",
+  "body": {
+    "jsonrpc": "2.0",
+    "id": 4,
+    "method": "resources/templates/list",
+    "params": {}
+  }
+}

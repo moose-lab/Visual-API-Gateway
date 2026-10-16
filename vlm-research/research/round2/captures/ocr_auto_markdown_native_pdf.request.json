@@ -1,0 +1,22 @@
+{
+  "url": "https://gateway.vlm.run/v1/openai/chat/completions",
+  "method": "POST",
+  "auth": "Bearer [REDACTED]",
+  "body": {
+    "model": "vlm-run/ocr:auto",
+    "method": "markdown",
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "document_url",
+            "document_url": {
+              "url": "data:application/pdf;base64,JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA2MTIgNzkyXSAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA0IDAgUiA+PiA+PiAvQ29udGVudHMgNSAwIFIgPj4KZW5kb2JqCjQgMCBvYmoKPDwgL1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhID4+CmVuZG9iago1IDAgb2JqCjw8IC9MZW5ndGggODYgPj4Kc3RyZWFtCkJUIC9GMSAxOCBUZiA1MCA3NDAgVGQgKFJPVU5EMiBJTlZPSUNFIE5BVElWRS0wMTMpIFRqIDAgLTMwIFRkIChUb3RhbCBVU0QgMTcuMjUpIFRqIEVUCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDYKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDExNSAwMDAwMCBuIAowMDAwMDAwMjQxIDAwMDAwIG4gCjAwMDAwMDAzMTEgMDAwMDAgbiAKdHJhaWxlcgo8PCAvU2l6ZSA2IC9Sb290IDEgMCBSID4+CnN0YXJ0eHJlZgo0NDcKJSVFT0YK"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

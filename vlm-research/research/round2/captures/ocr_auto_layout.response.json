@@ -1,0 +1,29 @@
+{
+  "id": "chatcmpl-c0d145fafa6b474c827362816b0",
+  "object": "chat.completion",
+  "created": 1791860696,
+  "model": "rednote-hilab/dots.mocr",
+  "served_model_id": "rednote-hilab/dots.mocr",
+  "backend": "vllm",
+  "provider": null,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\"object\": \"doc.page.blocks\", \"items\": [{\"block_id\": 0, \"bbox_xywh\": [0.0306, 0.1091, 0.4833, 0.15], \"label\": \"text\", \"text\": \"VLM RESEARCH TEST\"}, {\"block_id\": 1, \"bbox_xywh\": [0.0319, 0.3955, 0.3764, 0.1364], \"label\": \"text\", \"text\": \"Invoice: TEST-042\"}, {\"block_id\": 2, \"bbox_xywh\": [0.0319, 0.6727, 0.3472, 0.1318], \"label\": \"text\", \"text\": \"Total: USD 12.50\"}]}"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 424,
+    "completion_tokens": 120,
+    "total_tokens": 544,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": null,
+    "cost": 0.001
+  }
+}

@@ -1,0 +1,665 @@
+try {
+    ! function() {
+        var e = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof globalThis ? globalThis : "undefined" != typeof self ? self : {},
+            t = (new e.Error).stack;
+        t && (e._sentryDebugIds = e._sentryDebugIds || {}, e._sentryDebugIds[t] = "f8947fb1-0f11-4967-bfac-d88428be4923", e._sentryDebugIdIdentifier = "sentry-dbid-f8947fb1-0f11-4967-bfac-d88428be4923")
+    }()
+} catch (e) {}
+"use strict";
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+    [5005], {
+        14274: function(e, t, r) {
+            r.d(t, {
+                I: function() {
+                    return o
+                },
+                o: function() {
+                    return s
+                }
+            });
+            var n = r(57437),
+                i = r(33145),
+                a = r(94508);
+
+            function s(e) {
+                let {
+                    children: t,
+                    headline: r = "The Unified Gateway for Visual AI",
+                    description: s = "Confidently integrate visual AI into your apps with our simple, unified API. No prompt engineering required.",
+                    scrollable: o = !1
+                } = e;
+                return (0, n.jsxs)("div", {
+                    className: "relative grid h-dvh max-h-dvh w-full overflow-hidden bg-background lg:grid-cols-3",
+                    children: [(0, n.jsxs)("div", {
+                        className: "relative hidden h-full min-h-0 flex-col overflow-hidden bg-muted p-10 text-white dark:border-r lg:flex",
+                        children: [(0, n.jsx)("div", {
+                            className: "relative z-20 flex items-center text-lg font-medium",
+                            children: (0, n.jsx)(i.default, {
+                                src: "/vlm-white.svg",
+                                alt: "VLM Run",
+                                width: 40,
+                                height: 40,
+                                className: "size-10"
+                            })
+                        }), (0, n.jsx)("div", {
+                            className: "absolute inset-0 bg-blue-900 bg-cover bg-center",
+                            style: {
+                                backgroundImage: 'url("/auth-bg.png")'
+                            }
+                        }), (0, n.jsx)("div", {
+                            className: "relative z-20 mt-auto",
+                            children: (0, n.jsxs)("blockquote", {
+                                className: "space-y-6",
+                                children: [(0, n.jsx)("p", {
+                                    className: "text-7xl",
+                                    children: r
+                                }), (0, n.jsx)("p", {
+                                    className: "text-lg text-gray-50/70",
+                                    children: s
+                                })]
+                            })
+                        })]
+                    }), (0, n.jsx)("div", {
+                        className: "flex h-full min-h-0 flex-col overflow-hidden lg:col-span-2",
+                        children: (0, n.jsx)("div", {
+                            className: (0, a.cn)("flex min-h-0 flex-1 items-center justify-center px-4 py-4 font-mono sm:px-6", o ? "overflow-y-auto" : "overflow-hidden"),
+                            style: {
+                                paddingTop: "max(1rem, env(safe-area-inset-top, 0px))",
+                                paddingBottom: "max(1rem, env(safe-area-inset-bottom, 0px))"
+                            },
+                            children: t
+                        })
+                    })]
+                })
+            }
+
+            function o(e) {
+                let {
+                    children: t,
+                    className: r
+                } = e;
+                return (0, n.jsx)("div", {
+                    className: (0, a.cn)("mx-auto grid w-full max-w-sm gap-4 rounded-3xl bg-card/95 p-5 backdrop-blur-lg sm:max-w-md sm:gap-5 sm:p-6", r),
+                    children: t
+                })
+            }
+        },
+        62869: function(e, t, r) {
+            r.d(t, {
+                d: function() {
+                    return l
+                },
+                z: function() {
+                    return c
+                }
+            });
+            var n = r(57437),
+                i = r(2265),
+                a = r(37053),
+                s = r(77712),
+                o = r(94508);
+            let l = (0, s.j)("inline-flex items-center justify-center whitespace-nowrap rounded-[10px] text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50", {
+                    variants: {
+                        variant: {
+                            default: "bg-primary text-primary-foreground hover:bg-primary/90",
+                            destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+                            outline: "border border-border bg-background hover:bg-accent hover:text-accent-foreground",
+                            secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+                            ghost: "hover:bg-accent hover:text-accent-foreground",
+                            link: "text-primary underline-offset-4 hover:underline"
+                        },
+                        size: {
+                            default: "h-9 px-4 py-2",
+                            sm: "h-8 rounded-[10px] px-3 text-xs",
+                            lg: "h-10 rounded-[10px] px-8",
+                            icon: "h-9 w-9",
+                            "icon-sm": "h-8 w-8"
+                        }
+                    },
+                    defaultVariants: {
+                        variant: "default",
+                        size: "default"
+                    }
+                }),
+                c = i.forwardRef((e, t) => {
+                    let {
+                        className: r,
+                        variant: i,
+                        size: s,
+                        asChild: c = !1,
+                        ...d
+                    } = e, u = c ? a.g7 : "button";
+                    return (0, n.jsx)(u, {
+                        className: (0, o.cn)(l({
+                            variant: i,
+                            size: s,
+                            className: r
+                        })),
+                        ref: t,
+                        ...d
+                    })
+                });
+            c.displayName = "Button"
+        },
+        95186: function(e, t, r) {
+            r.d(t, {
+                I: function() {
+                    return s
+                }
+            });
+            var n = r(57437),
+                i = r(2265),
+                a = r(94508);
+            let s = i.forwardRef((e, t) => {
+                let {
+                    className: r,
+                    type: i,
+                    ...s
+                } = e;
+                return (0, n.jsx)("input", {
+                    type: i,
+                    className: (0, a.cn)("flex h-9 w-full rounded-[10px] border border-border bg-transparent px-3 py-1.5 text-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50", r),
+                    ref: t,
+                    ...s
+                })
+            });
+            s.displayName = "Input"
+        },
+        26815: function(e, t, r) {
+            r.d(t, {
+                _: function() {
+                    return c
+                }
+            });
+            var n = r(57437),
+                i = r(2265),
+                a = r(6394),
+                s = r(77712),
+                o = r(94508);
+            let l = (0, s.j)("text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"),
+                c = i.forwardRef((e, t) => {
+                    let {
+                        className: r,
+                        ...i
+                    } = e;
+                    return (0, n.jsx)(a.f, {
+                        ref: t,
+                        className: (0, o.cn)(l(), r),
+                        ...i
+                    })
+                });
+            c.displayName = a.f.displayName
+        },
+        21803: function(e, t, r) {
+            r.d(t, {
+                x: function() {
+                    return m
+                }
+            });
+            var n = r(57437),
+                i = r(2265),
+                a = r(54001),
+                s = r(92934),
+                o = r(82431),
+                l = r(91723),
+                c = r(49322),
+                d = r(94508),
+                u = r(62869);
+            let f = i.forwardRef((e, t) => {
+                let {
+                    length: r = 6,
+                    value: a,
+                    onChange: s,
+                    disabled: o = !1,
+                    className: l,
+                    autoFocus: c = !1,
+                    placeholder: u = "–",
+                    error: f = !1,
+                    success: m = !1
+                } = e, p = i.useRef([]), [g, x] = i.useState(c ? 0 : null);
+                i.useEffect(() => {
+                    p.current = p.current.slice(0, r)
+                }, [r]), i.useEffect(() => {
+                    c && p.current[0] && p.current[0].focus()
+                }, [c]), i.useEffect(() => {
+                    !f && "" === a && p.current[0] && p.current[0].focus()
+                }, [f, a]);
+                let h = (e, t) => {
+                        var n, i;
+                        if (!o) {
+                            if (t.length > 1) {
+                                let i = t.slice(0, r),
+                                    o = a.split("");
+                                for (let t = 0; t < i.length && e + t < r; t++) o[e + t] = i[t];
+                                s(o.join(""));
+                                let l = Math.min(e + i.length, r - 1);
+                                null === (n = p.current[l]) || void 0 === n || n.focus();
+                                return
+                            }
+                            if (/^[0-9]$/.test(t) || "" === t) {
+                                let n = a.split("");
+                                n[e] = t, s(n.join("")), t && e < r - 1 && (null === (i = p.current[e + 1]) || void 0 === i || i.focus())
+                            }
+                        }
+                    },
+                    v = (e, t) => {
+                        var n, i, l;
+                        if (!o) {
+                            if ("Backspace" === t.key) {
+                                t.preventDefault();
+                                let r = a.split("");
+                                r[e] ? (r[e] = "", s(r.join(""))) : e > 0 && (r[e - 1] = "", s(r.join("")), null === (n = p.current[e - 1]) || void 0 === n || n.focus())
+                            } else if ("ArrowLeft" === t.key && e > 0) t.preventDefault(), null === (i = p.current[e - 1]) || void 0 === i || i.focus();
+                            else if ("ArrowRight" === t.key && e < r - 1) t.preventDefault(), null === (l = p.current[e + 1]) || void 0 === l || l.focus();
+                            else if ("Delete" === t.key) {
+                                t.preventDefault();
+                                let r = a.split("");
+                                r[e] = "", s(r.join(""))
+                            }
+                        }
+                    },
+                    b = e => {
+                        var t;
+                        x(e), null === (t = p.current[e]) || void 0 === t || t.select()
+                    },
+                    y = () => {
+                        x(null)
+                    },
+                    j = e => {
+                        var t;
+                        null === (t = p.current[e]) || void 0 === t || t.focus()
+                    };
+                return (0, n.jsx)("div", {
+                    ref: t,
+                    className: (0, d.cn)("flex items-center justify-center gap-2 sm:gap-3", l),
+                    role: "group",
+                    "aria-label": "One-time password input",
+                    children: Array.from({
+                        length: r
+                    }, (e, t) => {
+                        let i = a[t] || "",
+                            s = g === t,
+                            l = !!i;
+                        return a.length === r && a.split("").every(e => "" !== e), (0, n.jsx)("div", {
+                            className: "relative",
+                            children: (0, n.jsx)("input", {
+                                ref: e => {
+                                    p.current[t] = e
+                                },
+                                type: "text",
+                                inputMode: "numeric",
+                                pattern: "[0-9]*",
+                                maxLength: r,
+                                value: i,
+                                onChange: e => h(t, e.target.value),
+                                onKeyDown: e => v(t, e),
+                                onFocus: () => b(t),
+                                onBlur: y,
+                                onClick: () => j(t),
+                                disabled: o,
+                                className: (0, d.cn)("size-12 text-center font-mono text-lg font-medium tabular-nums tracking-widest sm:size-14 sm:text-xl", "rounded-md border border-border bg-background transition-colors duration-200", "focus:outline-none focus:ring-0", f && "border-red-500 text-red-600 dark:text-red-400", m && !f && !o && "border-green-500 text-green-600 dark:text-green-400", !f && !m && [l ? "border-primary text-foreground" : "text-muted-foreground", s && "border-primary", !o && !s && "hover:border-primary/60"], o && "cursor-not-allowed opacity-50"),
+                                placeholder: l ? "" : u,
+                                "aria-label": "Digit ".concat(t + 1, " of ").concat(r),
+                                "aria-describedby": "otp-input-".concat(t),
+                                "aria-invalid": f
+                            })
+                        }, t)
+                    })
+                })
+            });
+
+            function m(e) {
+                let {
+                    email: t,
+                    onVerify: r,
+                    onResend: m,
+                    onBack: p,
+                    isLoading: g = !1,
+                    isResending: x = !1,
+                    title: h = "Verify your email",
+                    description: v,
+                    codeLength: b = 6,
+                    className: y,
+                    backLabel: j = "← Back"
+                } = e, [w, N] = (0, i.useState)(""), [k, T] = (0, i.useState)(60), [E, z] = (0, i.useState)(!1), [I, C] = (0, i.useState)(""), [L, R] = (0, i.useState)(0), [_, A] = (0, i.useState)(!1), [S, M] = (0, i.useState)(!1);
+                (0, i.useEffect)(() => {
+                    if (k > 0 && !E) {
+                        let e = setTimeout(() => T(k - 1), 1e3);
+                        return () => clearTimeout(e)
+                    }
+                    0 === k && z(!0)
+                }, [k, E]);
+                let D = (e, t) => {
+                        let r = e.toLowerCase();
+                        return r.includes("invalid") || r.includes("incorrect") ? t >= 3 ? "Multiple incorrect attempts. Please check your email for a new code or try resending." : t >= 2 ? "Code is incorrect. Please double-check the code in your email." : "The verification code is incorrect. Please try again." : r.includes("expired") ? "This verification code has expired. Please request a new one." : r.includes("used") || r.includes("already") ? "This code has already been used. Please request a new verification code." : r.includes("network") || r.includes("connection") ? "Network error. Please check your connection and try again." : r.includes("rate") || r.includes("limit") ? "Too many attempts. Please wait a moment before trying again." : t >= 2 ? "Verification failed. Please check the code in your email or request a new one." : "Invalid verification code. Please try again."
+                    },
+                    F = (0, i.useCallback)(async () => {
+                        if (w.length === b && !_ && !S) {
+                            A(!0), C("");
+                            try {
+                                await r(w), M(!0)
+                            } catch (n) {
+                                var e, t;
+                                let r = L + 1;
+                                R(r), C(D(n.message || (null === (t = n.errors) || void 0 === t ? void 0 : null === (e = t[0]) || void 0 === e ? void 0 : e.message) || "Verification failed", r)), N(""), r >= 3 && (z(!0), T(0))
+                            } finally {
+                                A(!1)
+                            }
+                        }
+                    }, [w, b, _, S, L, r]);
+                (0, i.useEffect)(() => {
+                    w.length !== b || g || I || _ || S || F()
+                }, [w, b, g, _, I, S, F]);
+                let H = async () => {
+                    try {
+                        C(""), R(0), await m(), T(60), z(!1), N("")
+                    } catch (e) {
+                        C("Failed to resend verification code. Please try again.")
+                    }
+                }, P = t.replace(/(.{2})(.*)(@.*)/, "$1***$3");
+                w.length;
+                let V = g || _ || S;
+                return (0, n.jsxs)("div", {
+                    className: (0, d.cn)("space-y-5", y),
+                    children: [(0, n.jsxs)("div", {
+                        className: "space-y-3 text-center",
+                        children: [(0, n.jsx)("div", {
+                            className: (0, d.cn)("mx-auto flex size-12 items-center justify-center rounded-full border border-border", I ? "bg-red-50 dark:bg-red-950/20" : S ? "bg-green-50 dark:bg-green-950/20" : "bg-primary/5"),
+                            children: I ? (0, n.jsx)("span", {
+                                className: "text-2xl font-semibold text-red-600 dark:text-red-400",
+                                children: "✕"
+                            }) : S ? (0, n.jsx)("span", {
+                                className: "text-2xl font-semibold text-green-600 dark:text-green-400",
+                                children: "✓"
+                            }) : (0, n.jsx)(a.Z, {
+                                className: "size-6 text-primary"
+                            })
+                        }), (0, n.jsxs)("div", {
+                            className: "space-y-2",
+                            children: [(0, n.jsx)("h1", {
+                                className: "text-2xl font-semibold text-foreground",
+                                children: h
+                            }), (0, n.jsx)("p", {
+                                className: "mx-auto max-w-sm text-sm text-muted-foreground",
+                                children: v || "We sent a ".concat(b, "-digit verification code to")
+                            }), (0, n.jsx)("p", {
+                                className: "text-sm font-medium text-foreground",
+                                children: P
+                            })]
+                        })]
+                    }), (0, n.jsxs)("div", {
+                        className: "space-y-4",
+                        children: [(0, n.jsxs)("div", {
+                            className: "space-y-3",
+                            children: [(0, n.jsx)("div", {
+                                children: (0, n.jsx)(f, {
+                                    length: b,
+                                    value: w,
+                                    onChange: e => {
+                                        N(e), I && e.length > 0 && e !== w && C("")
+                                    },
+                                    disabled: V,
+                                    autoFocus: !0,
+                                    className: "justify-center",
+                                    error: !!I,
+                                    success: !1
+                                })
+                            }), I && (0, n.jsx)("div", {
+                                className: "text-center",
+                                children: (0, n.jsx)("p", {
+                                    className: "text-sm text-red-600 dark:text-red-400",
+                                    children: I
+                                })
+                            })]
+                        }), V && (0, n.jsx)("div", {
+                            className: "text-center",
+                            children: (0, n.jsx)("div", {
+                                className: "inline-flex items-center gap-2 text-sm text-muted-foreground",
+                                children: S ? (0, n.jsxs)(n.Fragment, {
+                                    children: [(0, n.jsx)(s.Z, {
+                                        className: "size-4 text-green-500"
+                                    }), (0, n.jsx)("span", {
+                                        children: "Verification successful!"
+                                    })]
+                                }) : (0, n.jsxs)(n.Fragment, {
+                                    children: [(0, n.jsx)("div", {
+                                        className: "size-4 animate-spin rounded-full border-2 border-primary border-t-transparent"
+                                    }), (0, n.jsx)("span", {
+                                        children: "Verifying code..."
+                                    })]
+                                })
+                            })
+                        })]
+                    }), (0, n.jsxs)("div", {
+                        className: "space-y-3",
+                        children: [(0, n.jsxs)("div", {
+                            className: "space-y-2 text-center",
+                            children: [(0, n.jsx)("p", {
+                                className: "text-sm text-muted-foreground",
+                                children: "Didn't receive the code?"
+                            }), !S && (0, n.jsx)(n.Fragment, {
+                                children: E ? (0, n.jsx)(u.z, {
+                                    variant: "outline",
+                                    onClick: H,
+                                    disabled: x,
+                                    className: "gap-2",
+                                    children: x ? (0, n.jsxs)(n.Fragment, {
+                                        children: [(0, n.jsx)("div", {
+                                            className: "size-4 animate-spin rounded-full border-2 border-current border-t-transparent"
+                                        }), "Sending..."]
+                                    }) : (0, n.jsxs)(n.Fragment, {
+                                        children: [(0, n.jsx)(o.Z, {
+                                            className: "size-4"
+                                        }), "Resend code"]
+                                    })
+                                }) : (0, n.jsxs)("div", {
+                                    className: "flex items-center justify-center gap-2 text-sm text-muted-foreground",
+                                    children: [(0, n.jsx)(l.Z, {
+                                        className: "size-4"
+                                    }), (0, n.jsxs)("span", {
+                                        children: ["Resend in ", "".concat(Math.floor(k / 60), ":").concat((k % 60).toString().padStart(2, "0"))]
+                                    })]
+                                })
+                            }), L >= 3 && (0, n.jsxs)("div", {
+                                className: "inline-flex items-center gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-700 shadow-sm dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-300",
+                                children: [(0, n.jsx)(c.Z, {
+                                    className: "size-4 text-amber-500"
+                                }), (0, n.jsx)("span", {
+                                    className: "font-medium",
+                                    children: "Multiple failed attempts detected. Resend is now available."
+                                })]
+                            })]
+                        }), p && !S && (0, n.jsx)("div", {
+                            className: "text-center",
+                            children: (0, n.jsx)(u.z, {
+                                variant: "ghost",
+                                onClick: p,
+                                disabled: V,
+                                className: "text-sm",
+                                children: j
+                            })
+                        })]
+                    }), (0, n.jsx)("div", {
+                        className: "text-center",
+                        children: (0, n.jsx)("p", {
+                            className: "mx-auto max-w-md text-xs text-muted-foreground",
+                            children: "Check your spam folder if you don't see the email."
+                        })
+                    })]
+                })
+            }
+            f.displayName = "OTPInput"
+        },
+        94508: function(e, t, r) {
+            r.d(t, {
+                BM: function() {
+                    return c
+                },
+                CB: function() {
+                    return u
+                },
+                F5: function() {
+                    return g
+                },
+                Jb: function() {
+                    return l
+                },
+                Nm: function() {
+                    return f
+                },
+                cn: function() {
+                    return a
+                },
+                hL: function() {
+                    return m
+                },
+                lV: function() {
+                    return s
+                },
+                p6: function() {
+                    return d
+                },
+                tS: function() {
+                    return o
+                },
+                vR: function() {
+                    return p
+                }
+            });
+            var n = r(54365),
+                i = r(71407);
+
+            function a() {
+                for (var e = arguments.length, t = Array(e), r = 0; r < e; r++) t[r] = arguments[r];
+                return (0, i.m)((0, n.W)(t))
+            }
+
+            function s(e) {
+                return e.toString().toLowerCase().trim().replace(/\s+/g, "-").replace(/&/g, "-and-").replace(/[^\w\-\.]+/g, "").replace(/\-\-+/g, "-").replace(/^-+/, "").replace(/-+$/, "")
+            }
+
+            function o(e, t) {
+                var r;
+                if (!e) return "unknown";
+                let n = e && (null === (r = e.split("?")[0].split(".").pop()) || void 0 === r ? void 0 : r.toLowerCase()) || "";
+                if (["jpg", "jpeg", "png", "gif", "webp", "svg", "bmp"].includes(n)) return "image";
+                if (["mp4", "webm", "ogg", "mov", "avi", "mkv"].includes(n)) return "video";
+                if (["mp3", "wav", "ogg", "aac", "flac", "m4a", "wma", "mpeg"].includes(n)) return "audio";
+                if ("pdf" === n) return "pdf";
+                if (["doc", "docx", "ppt", "pptx", "xls", "xlsx", "txt"].includes(n)) return "file";
+                if (t && t.length > 0) {
+                    if (t.includes("image")) return "image";
+                    if (t.includes("video")) return "video";
+                    if (t.includes("audio")) return "audio";
+                    if (t.includes("document")) return "file"
+                }
+                return "unknown"
+            }
+
+            function l(e) {
+                if (!e) return null;
+                let t = o(e);
+                if ("image" === t || "video" === t || "audio" === t || "pdf" === t) return t;
+                try {
+                    let t = new URL(e).hostname.toLowerCase();
+                    if (["postimg.cc", "i.imgur.com", "imgur.com", "i.redd.it", "preview.redd.it", "pbs.twimg.com", "media.giphy.com", "i.ytimg.com", "storage.googleapis.com", "files.vlm.run", "s3.amazonaws.com", "cloudinary.com", "imagekit.io", "cdn.discordapp.com", "media.discordapp.net"].some(e => t === e || t.endsWith("." + e))) {
+                        if (t.includes("postimg.cc") || t.includes("imgur.com")) return "image";
+                        return t.includes("storage.googleapis.com") || t.includes("files.vlm.run"), "image"
+                    }
+                    if (["youtube.com", "youtu.be", "vimeo.com", "dailymotion.com", "twitch.tv"].some(e => t === e || t.endsWith("." + e))) return "video"
+                } catch (e) {}
+                return null
+            }
+
+            function c(e) {
+                if (e.name.toLowerCase().endsWith(".zip")) return !0;
+                let t = e.type.toLowerCase();
+                return "application/zip" === t || "application/x-zip-compressed" === t || "application/x-zip" === t
+            }
+
+            function d(e) {
+                return new Date(e).toLocaleDateString(void 0, {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit"
+                })
+            }
+
+            function u(e) {
+                if (!e || "string" != typeof e) return !1;
+                try {
+                    return new URL(e), !0
+                } catch (e) {
+                    return !1
+                }
+            }
+
+            function f(e) {
+                return e ? ! function(e) {
+                    if (!e || "string" != typeof e) return !1;
+                    try {
+                        let t = new URL(e);
+                        return ["http:", "https:", "mailto:", "tel:"].includes(t.protocol)
+                    } catch (t) {
+                        return e.startsWith("/")
+                    }
+                }(e) ? "#" : e : "#"
+            }
+
+            function m(e) {
+                let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 40;
+                if (!e || !u(e) || e.length <= t) return {
+                    truncated: e,
+                    isTruncated: !1
+                };
+                try {
+                    let r = new URL(e),
+                        n = r.pathname,
+                        i = n.split("/").pop() || "";
+                    if (n.substring(0, n.lastIndexOf("/")), r.hostname.includes("storage.googleapis.com")) {
+                        let e = n.split("/").filter(Boolean);
+                        if (e.length >= 2) {
+                            let t = e[e.length - 1];
+                            return {
+                                truncated: "https://storage.../".concat(t),
+                                isTruncated: !0,
+                                filename: t
+                            }
+                        }
+                    }
+                    let a = Math.floor((t - 3) / 2),
+                        s = t - 3 - a;
+                    return {
+                        truncated: e.substring(0, a) + "..." + e.substring(e.length - s),
+                        isTruncated: !0,
+                        filename: i
+                    }
+                } catch (r) {
+                    return {
+                        truncated: e.substring(0, t - 3) + "...",
+                        isTruncated: !0
+                    }
+                }
+            }
+            let p = {
+                SLASH_MENU: {
+                    FLYOUT_CLOSE_DELAY: 120,
+                    MENU_HEIGHT: 240,
+                    CARET_LINE_OFFSET: 24
+                },
+                TEXTAREA: {
+                    MIN_HEIGHT: 24,
+                    MAX_HEIGHT: 384
+                }
+            };
+
+            function g(e) {
+                e.style.height = "auto";
+                let t = Math.max(Math.min(e.scrollHeight, p.TEXTAREA.MAX_HEIGHT), p.TEXTAREA.MIN_HEIGHT);
+                e.style.height = "".concat(t, "px")
+            }
+        }
+    }
+]);

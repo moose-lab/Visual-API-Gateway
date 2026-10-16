@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:39:27.990832+00:00",
+  "url": "https://huggingface.co/api/models/rednote-hilab/dots.mocr",
+  "method": "GET",
+  "status": 200,
+  "final_url": "https://huggingface.co/api/models/dots-studio/dots.mocr",
+  "response_sha256": "5736a2a472074338fb6569697b2b7d1ae3d72672f7753b331912527754e67aed",
+  "response_bytes": 4488,
+  "headers": {
+    "Content-Type": "application/json; charset=utf-8",
+    "Date": "Tue, 13 Oct 2026 03:39:31 GMT",
+    "X-Request-Id": "Root=1-6acda7f3-3f61918f020188f6219c58d8"
+  },
+  "elapsed_seconds": 3.604
+}

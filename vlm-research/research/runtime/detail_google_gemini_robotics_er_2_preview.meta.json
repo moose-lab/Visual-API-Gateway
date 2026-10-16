@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:52:34.151695+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/google/gemini-robotics-er-2-preview",
+  "status": 404,
+  "elapsed_seconds": 3.713,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:52:36 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "ad8dac14-5618-4a71-84a0-395916c92b57"
+  },
+  "response_sha256": "e44805339e07db1e5bc6f4c6f2e556d601a0022375900820b9a75d081baaa8ea",
+  "response_bytes": 139
+}

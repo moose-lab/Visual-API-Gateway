@@ -1,0 +1,7 @@
+{
+  "method": "GET",
+  "url": "https://api.vlm.run/v1/artifacts?execution_id=d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51&filename=round3-result.json",
+  "auth": "Bearer [REDACTED]",
+  "body": null,
+  "headers": {}
+}

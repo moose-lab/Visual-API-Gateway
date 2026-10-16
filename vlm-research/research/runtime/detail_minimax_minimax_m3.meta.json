@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:52:40.909417+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/minimax/minimax-m3",
+  "status": 404,
+  "elapsed_seconds": 3.458,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:52:43 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "40608db2-4307-4a08-9197-273b0ba156d2"
+  },
+  "response_sha256": "6b908acdf70cb83ae147403018998dd90d7b038ae947026e93531a100333f5c3",
+  "response_bytes": 122
+}

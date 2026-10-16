@@ -1,0 +1,177 @@
+Florence-2 | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+Microsoft
+Florence-2
+About
+Florence-2 is a 232M open-weight model from Microsoft. Vision foundation model for captioning, OCR, detection, and region tasks. It accepts text and images. Released June 15, 2024.
+Parameters
+232M
+Published parameter count.
+License
+MIT
+License on the weights.
+PricingCompareBenchmarksPerformanceExamplesInputsMethodsEstimate costQuick startResponse
+Model specifications
+ProviderMicrosoft
+Type
+ocrdetection
+Endpointmicrosoft/florence-2-base-ft
+Parameters232M
+Input price$0.10 / 1M tokens$0.03 (cached) / 1M
+Output price$0.30 / 1M tokens
+Inputs
+textimage_url
+LicenseMIT
+ReleasedJune 15, 2024
+Latency p50233 ms p50
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Input / 1M$0.10
+Cached input / 1M$0.03
+Output / 1M$0.30
+Compare
+Florence-2 is one of the catalog's detection models. The table is each model's published price, size, and context.
+ModelWhat it doesPriceParametersContext
+Florence-2Vision foundation model for captioning, OCR, detection, and region tasks.$0.10 / 1M input232M—
+PP-OCRv6PaddleOCR PP-OCRv6 medium text detection and recognition; scene OCR JSONL on image chat; text returns plain text; document_url fan-out via text.$0.02 / 1M input20M—
+DiffusionGemma 26B-A4BBlock-diffusion Gemma 4 26B-A4B: chat over text and up to 8 images, and System One typed decisions on POST /typesafe/v1/systemone.$0.35 / 1M input26B16K
+Gemini 3.5 Flash LiteFastest and cheapest Gemini tier. Multimodal chat; emits no reasoning tokens.$0.30 / 1M input—1M
+Benchmarks
+Published scores for Florence-2, from the Florence-2 model card.
+Evals
+COCO caption CIDEr140
+TextVQA63.6
+COCO detection mAP41.4
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeCOCO caption CIDEr: 140.
+Cost and performanceLower listed rate, mid-pack latency
+Performance
+Latency is the end-to-end round trip. Throughput is completion tokens divided by that time. It is a request rate, not decode speed.
+LatencyMedian, end to end
+233 ms
+ThroughputMedian completion tokens per second
+—
+RequestsCompleted, last 7 days
+918
+Examples
+Dense region captions
+Florence-2 names every region in a vegetables-on-counter shot.
+{"regions":[{"label":"a tomato","box_xyxy":[58,140,224,396]}, ...]}
+Dashboard caption
+`more_detailed_caption` describes a shadcn dashboard screenshot.
+{"caption":"A modern analytics dashboard with KPI cards, ..."}
+Supported inputs
+textIgnored
+A text part beside the media is accepted and ignored. A request with no media part is a 400.
+image_urlYes
+One per request. A second image_url part is a 400.
+video_urlNo
+Not accepted.
+document_urlNo
+Not accepted.
+Default method caption. The caption and ocr methods emit a Markdown string; the region methods emit a region container.
+Alias: microsoft/Florence-2-base-ft. Weights: microsoft/Florence-2-base-ft.
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+caption (default)Short image caption
+detailed_captionLonger caption
+more_detailed_captionLongest caption
+ocrAll text on the image
+odRegion items with bbox_xywh and label
+dense_region_captionRegion items with bbox_xywh and label
+region_proposalRegion items with bbox_xywh, no label
+ocr_with_regionRegion items with bbox_xywh and text
+Each method maps to one Florence-2 task token. The task token itself (<CAPTION>, <OD>, ...) is an implementation detail and is not part of the reply: a caption is the string, and a region method is the container.
+Boxes are normalized 0-1 against the image at precision decimals (default 4), and a region method with no hits returns "items": [].
+Estimate cost
+Input tokensOutput tokens
+$0.40
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jsCLIcURL
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+response = client.chat.completions.create(
+model="microsoft/florence-2-base-ft",
+messages=[
+{
+"role": "user",
+"content": [
+{
+"type": "image_url",
+"image_url": {
+"url": "https://storage.googleapis.com/vlm-data-public-prod/hub/examples/image.caption/car.jpg"
+},
+},
+],
+}
+],
+extra_body={"method": "caption"},
+)
+print(response.choices[0].message.content)
+Response
+Text mode (caption)JSON mode (caption)JSON mode (od)
+Copy
+The caption string alone, with no wrapper:
+A cat sitting on a windowsill.
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

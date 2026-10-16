@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/google/gemini-3.7-flash",
+  "auth": "Bearer [REDACTED]",
+  "body": null
+}

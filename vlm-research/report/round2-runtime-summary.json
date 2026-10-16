@@ -1,0 +1,513 @@
+{
+  "evidence": "STATIC",
+  "capture_date": "2026-10-13",
+  "records": [
+    {
+      "name": "agent_openapi",
+      "url": "https://api.vlm.run/openapi.json",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 2.711,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "diffusion_detail",
+      "url": "https://gateway.vlm.run/v1/models/google/diffusiongemma-26b-a4b-it",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 0.828,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "diffusion_json",
+      "url": "https://gateway.vlm.run/v1/openai/chat/completions",
+      "method": "POST",
+      "status": 400,
+      "elapsed_seconds": 0.876,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "docs_index",
+      "url": "https://docs.vlm.run/llms.txt",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 2.24,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "dots_commit",
+      "url": "https://api.github.com/repos/studio-dots-ai/dots.mocr/commits/main",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.417,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "dots_dots_mocr_model_inference_py",
+      "url": "https://raw.githubusercontent.com/studio-dots-ai/dots.mocr/23f3e5612fb8066d4034d5ecfc8f33a9243533eb/dots_mocr/model/inference.py",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.098,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "dots_dots_mocr_utils_prompts_py",
+      "url": "https://raw.githubusercontent.com/studio-dots-ai/dots.mocr/23f3e5612fb8066d4034d5ecfc8f33a9243533eb/dots_mocr/utils/prompts.py",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 0.98,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "dots_repository",
+      "url": "https://api.github.com/repos/rednote-hilab/dots.mocr",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 3.19,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "dots_tools_elo_score_prompt_py",
+      "url": "https://raw.githubusercontent.com/studio-dots-ai/dots.mocr/23f3e5612fb8066d4034d5ecfc8f33a9243533eb/tools/elo_score_prompt.py",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 0.909,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "extra_kwargs",
+      "url": "https://docs.vlm.run/gateway/extra-kwargs.md",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.33,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "gateway_changelog_current",
+      "url": "https://docs.vlm.run/gateway/changelog.md",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.423,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "gateway_health",
+      "url": "https://gateway.vlm.run/health",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 0.882,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "gateway_models",
+      "url": "https://gateway.vlm.run/v1/openai/models",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 0.832,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "gateway_openapi",
+      "url": "https://gateway.vlm.run/openapi.json",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.825,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "github_repositories",
+      "url": "https://api.github.com/orgs/vlm-run/repos?per_page=100&type=public",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.441,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "github_vlmrt_search",
+      "url": "https://api.github.com/search/repositories?q=vlmrt",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 3.069,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "github_xberg_search",
+      "url": "https://api.github.com/search/repositories?q=xberg+ocr",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.404,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_diffusion",
+      "url": "https://huggingface.co/api/models/nvidia/diffusiongemma-26B-A4B-it-NVFP4",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.49,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_diffusion_chat_template_jinja",
+      "url": "https://huggingface.co/nvidia/diffusiongemma-26B-A4B-it-NVFP4/resolve/ec4ff3df205028f4e81c954c2227f9312b3ec2ea/chat_template.jinja",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.708,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_diffusion_config_json",
+      "url": "https://huggingface.co/nvidia/diffusiongemma-26B-A4B-it-NVFP4/resolve/ec4ff3df205028f4e81c954c2227f9312b3ec2ea/config.json",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.611,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_diffusion_README_md",
+      "url": "https://huggingface.co/nvidia/diffusiongemma-26B-A4B-it-NVFP4/resolve/ec4ff3df205028f4e81c954c2227f9312b3ec2ea/README.md",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.76,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_diffusion_tokenizer_config_json",
+      "url": "https://huggingface.co/nvidia/diffusiongemma-26B-A4B-it-NVFP4/resolve/ec4ff3df205028f4e81c954c2227f9312b3ec2ea/tokenizer_config.json",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.091,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_dots",
+      "url": "https://huggingface.co/api/models/rednote-hilab/dots.mocr",
+      "method": "GET",
+      "status": 307,
+      "elapsed_seconds": 5.522,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_dots_resolved",
+      "url": "https://huggingface.co/api/models/rednote-hilab/dots.mocr",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 3.604,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_dots_resolved_config_json",
+      "url": "https://huggingface.co/dots-studio/dots.mocr/resolve/e539fbb52280393adc081b289ec597430a0f9031/config.json",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.1,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_dots_resolved_configuration_dots_py",
+      "url": "https://huggingface.co/dots-studio/dots.mocr/resolve/e539fbb52280393adc081b289ec597430a0f9031/configuration_dots.py",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.111,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_dots_resolved_modeling_dots_ocr_py",
+      "url": "https://huggingface.co/dots-studio/dots.mocr/resolve/e539fbb52280393adc081b289ec597430a0f9031/modeling_dots_ocr.py",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.734,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_dots_resolved_modeling_dots_vision_py",
+      "url": "https://huggingface.co/dots-studio/dots.mocr/resolve/e539fbb52280393adc081b289ec597430a0f9031/modeling_dots_vision.py",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 3.54,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_dots_resolved_README_md",
+      "url": "https://huggingface.co/dots-studio/dots.mocr/resolve/e539fbb52280393adc081b289ec597430a0f9031/README.md",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.549,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_dots_resolved_tokenizer_config_json",
+      "url": "https://huggingface.co/dots-studio/dots.mocr/resolve/e539fbb52280393adc081b289ec597430a0f9031/tokenizer_config.json",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.128,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_qwen",
+      "url": "https://huggingface.co/api/models/AxionML/Qwen3.5-0.8B-NVFP4",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.489,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_qwen_chat_template_jinja",
+      "url": "https://huggingface.co/AxionML/Qwen3.5-0.8B-NVFP4/resolve/2ac1e750cda67cc8538d731f6216f77b9c3a6f72/chat_template.jinja",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 3.089,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_qwen_config_json",
+      "url": "https://huggingface.co/AxionML/Qwen3.5-0.8B-NVFP4/resolve/2ac1e750cda67cc8538d731f6216f77b9c3a6f72/config.json",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.682,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_qwen_README_md",
+      "url": "https://huggingface.co/AxionML/Qwen3.5-0.8B-NVFP4/resolve/2ac1e750cda67cc8538d731f6216f77b9c3a6f72/README.md",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 2.491,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "hf_qwen_tokenizer_config_json",
+      "url": "https://huggingface.co/AxionML/Qwen3.5-0.8B-NVFP4/resolve/2ac1e750cda67cc8538d731f6216f77b9c3a6f72/tokenizer_config.json",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.66,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "mcp_initialize",
+      "url": "https://gateway.vlm.run/mcp",
+      "method": "POST",
+      "status": 200,
+      "elapsed_seconds": 0.906,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "mcp_initialized",
+      "url": "https://gateway.vlm.run/mcp",
+      "method": "POST",
+      "status": 202,
+      "elapsed_seconds": 0.258,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "mcp_prompts_list",
+      "url": "https://gateway.vlm.run/mcp",
+      "method": "POST",
+      "status": 200,
+      "elapsed_seconds": 0.247,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "mcp_resources_list",
+      "url": "https://gateway.vlm.run/mcp",
+      "method": "POST",
+      "status": 200,
+      "elapsed_seconds": 0.248,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "mcp_resources_templates_list",
+      "url": "https://gateway.vlm.run/mcp",
+      "method": "POST",
+      "status": 200,
+      "elapsed_seconds": 0.249,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "oauth_resource",
+      "url": "https://gateway.vlm.run/.well-known/oauth-protected-resource/mcp",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 3.468,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "oauth_server",
+      "url": "https://gateway.vlm.run/.well-known/oauth-authorization-server/mcp",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 2.161,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "ocr_auto_layout",
+      "url": "https://gateway.vlm.run/v1/openai/chat/completions",
+      "method": "POST",
+      "status": 200,
+      "elapsed_seconds": 1.69,
+      "reported_cost_usd": 0.001
+    },
+    {
+      "name": "ocr_auto_markdown_image",
+      "url": "https://gateway.vlm.run/v1/openai/chat/completions",
+      "method": "POST",
+      "status": 200,
+      "elapsed_seconds": 1.2,
+      "reported_cost_usd": 0.001
+    },
+    {
+      "name": "ocr_auto_markdown_native_pdf",
+      "url": "https://gateway.vlm.run/v1/openai/chat/completions",
+      "method": "POST",
+      "status": 200,
+      "elapsed_seconds": 1.003,
+      "reported_cost_usd": 0.0
+    },
+    {
+      "name": "ocr_auto_ocr",
+      "url": "https://gateway.vlm.run/v1/openai/chat/completions",
+      "method": "POST",
+      "status": 200,
+      "elapsed_seconds": 1.182,
+      "reported_cost_usd": 0.001
+    },
+    {
+      "name": "orion_code_execution_current",
+      "url": "https://docs.vlm.run/agents/code-execution.md",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.468,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "orion_hash",
+      "url": "https://api.vlm.run/v1/openai/chat/completions",
+      "method": "POST",
+      "status": 200,
+      "elapsed_seconds": 139.96,
+      "reported_cost_usd": 0.055007
+    },
+    {
+      "name": "orion_hash_history",
+      "url": "https://api.vlm.run/v1/chat/messages?session_id=505a8b7f-74cc-4e51-bc35-ffce25649587",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.961,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "orion_history_owner_without_session_token",
+      "url": "https://api.vlm.run/v1/chat/messages?session_id=505a8b7f-74cc-4e51-bc35-ffce25649587",
+      "method": "GET",
+      "status": 403,
+      "elapsed_seconds": 2.55,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "pypi_typesafe",
+      "url": "https://pypi.org/pypi/typesafe-sdk/json",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 0.854,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "pypi_vlmrt",
+      "url": "https://pypi.org/pypi/vlmrt/json",
+      "method": "GET",
+      "status": 404,
+      "elapsed_seconds": 1.025,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "pypi_vlmrun",
+      "url": "https://pypi.org/pypi/vlmrun/json",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.709,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "pypi_xberg",
+      "url": "https://pypi.org/pypi/xberg/json",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.199,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "wheel_typesafe",
+      "url": "https://files.pythonhosted.org/packages/a2/49/6cd65684e41e25069f4d12c09cd7e1e3f81477f06acb29bf0d1815e27d1e/typesafe_sdk-0.7.4-py3-none-any.whl",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 2.22,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "wheel_vlmrun",
+      "url": "https://files.pythonhosted.org/packages/91/ba/90758c36b9205d6625c585c7e6e96a9ba57f3eea87d5e5e8921860270a0b/vlmrun-0.9.2-py3-none-any.whl",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 1.568,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "xberg_repository",
+      "url": "https://api.github.com/repos/xberg-io/xberg",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 0.995,
+      "reported_cost_usd": null
+    },
+    {
+      "name": "xberg_sdist",
+      "url": "https://files.pythonhosted.org/packages/d5/db/bc5434fe9f6dce2af8dd9ea1466a21de767aa6b1b7b3ac079bb61fd4f954/xberg-1.3.8.tar.gz",
+      "method": "GET",
+      "status": 200,
+      "elapsed_seconds": 3.309,
+      "reported_cost_usd": null
+    }
+  ],
+  "reported_post_cost_usd": "0.058007",
+  "reported_websocket_cost_usd": "0.001",
+  "reported_total_cost_usd": "0.059007",
+  "account_billing_verified": false,
+  "model_count": 26,
+  "added_model_ids": [
+    "google/embeddinggemma-2",
+    "lightonai/lightonocr-3-4b"
+  ],
+  "removed_model_ids": [],
+  "orion": {
+    "tool_invocation_starts": 3,
+    "retry_feedback": [
+      "import: import of 'hashlib' is not allowed in the sandbox; permitted modules: ['asyncio', 'datetime', 'json', 'math', 'pathlib', 're', 'sys', 'typing']. Use ctx.import_lib() for libraries like cv2, numpy, matplotlib, vlmrun, ffmpeg — e.g. cv2 = ctx.import_lib(\"cv2\"); np = ctx.import_lib(\"numpy\")",
+      "execute: CodeExecutionRuntimeError: NameError: unknown function 'bytearray'; only methods on the ctx / cv2 / vlmrun / ffmpeg / NumpyImageRef proxies are available"
+    ],
+    "computed_digest_matches_local": true,
+    "history_roles": [
+      "user",
+      "assistant",
+      "assistant",
+      "assistant",
+      "assistant"
+    ],
+    "history_has_tool_result_role": false,
+    "usage": {
+      "completion_tokens": 8620,
+      "prompt_tokens": 111524,
+      "total_tokens": 120144,
+      "credits_used": 6,
+      "service_tier": "standard",
+      "mode_multiplier": 1.0,
+      "standard_cost_dollars": 0.055007,
+      "cost_dollars": 0.055007,
+      "savings_dollars": 0.0,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 3488
+      }
+    }
+  }
+}

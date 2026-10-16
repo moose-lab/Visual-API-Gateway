@@ -1,0 +1,18 @@
+{
+  "method": "POST",
+  "url": "https://gateway.vlm.run/typesafe/v1/systemone",
+  "auth": "Bearer [REDACTED]",
+  "body": {
+    "model": "qwen/qwen3.5-0.8b",
+    "state": {
+      "invoice_id": "TEST-042",
+      "total": 12.5
+    },
+    "questions": {
+      "over_ten": {
+        "type": "noul",
+        "instructions": "Is the invoice total greater than 10?"
+      }
+    }
+  }
+}

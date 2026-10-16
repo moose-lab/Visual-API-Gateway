@@ -1,0 +1,18 @@
+apiVersion: vlm.run/v1alpha
+metadata: {}
+model: vlmrun-orion-2:auto
+toolsets:
+- core
+- document
+graph: |
+  stateDiagram-v2
+    ClassifyDocument: Classify document type with vlmrun.document.extract
+    LoadMatchingSchema: read_file exactly one schemas/<documentType>.json
+    ExtractWithGrounding: vlmrun.document.extract with grounding and confidence
+    Output: Return schemaUsed documentType classificationRationale and data
+
+    [*] --> ClassifyDocument
+    ClassifyDocument --> LoadMatchingSchema
+    LoadMatchingSchema --> ExtractWithGrounding
+    ExtractWithGrounding --> Output
+    Output --> [*]

@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T07:14:36.701034+00:00",
+  "url": "https://api.vlm.run/v1/skills?limit=5&offset=0&grouped=true",
+  "method": "GET",
+  "status": 200,
+  "final_url": "https://api.vlm.run/v1/skills?limit=5&offset=0&grouped=true",
+  "response_sha256": "90caf7c5aa7e2c828043c9bdd21611b55b52314c35d519146f3fd059d1603148",
+  "response_bytes": 2605,
+  "headers": {
+    "Content-Type": "application/json",
+    "Date": "Tue, 13 Oct 2026 07:14:39 GMT"
+  },
+  "elapsed_seconds": 3.124
+}

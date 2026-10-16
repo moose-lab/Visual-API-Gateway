@@ -1,0 +1,26 @@
+{
+  "evidence": "STATIC",
+  "expected_hash_in_response_content": true,
+  "tool_call_events": 12,
+  "event_count": 1263,
+  "usage": [
+    {
+      "completion_tokens": 8620,
+      "prompt_tokens": 111524,
+      "total_tokens": 120144,
+      "credits_used": 6,
+      "service_tier": "standard",
+      "mode_multiplier": 1.0,
+      "standard_cost_dollars": 0.055007,
+      "cost_dollars": 0.055007,
+      "savings_dollars": 0.0,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 3488
+      }
+    }
+  ],
+  "scope": "Checks output against a local calculation; does not attest the remote implementation."
+}

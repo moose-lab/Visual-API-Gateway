@@ -1,0 +1,1697 @@
+[
+  {
+    "file": "dashboard__0e5ce63c-8c5bd1c3efbbd860.js",
+    "offset": 1295,
+    "text": "http://www.w3.org/2000/svg"
+  },
+  {
+    "file": "dashboard__14438-481a86184c084573.js",
+    "offset": 1043,
+    "text": "http://www.w3.org/2000/svg"
+  },
+  {
+    "file": "dashboard__27292-764f9b0d804e5d84.js",
+    "offset": 1831,
+    "text": "https://docs.vlm.run/"
+  },
+  {
+    "file": "dashboard__27292-764f9b0d804e5d84.js",
+    "offset": 1857,
+    "text": "https://chat.vlm.run"
+  },
+  {
+    "file": "dashboard__27292-764f9b0d804e5d84.js",
+    "offset": 4995,
+    "text": "https://prod-vlm-cloud-nfsnfpr33q-uc.a.run.app"
+  },
+  {
+    "file": "dashboard__27292-764f9b0d804e5d84.js",
+    "offset": 4513,
+    "text": "r(8481),l=r(12655),u=r(9715);let i=()=>\"\".concat(Date.now(),\"-\").concat(Math.random().toString(16).slice(2,8)),s=e=>{if(!e)return\"\";let t=e.baseURL||\"\",r=e.url||\"\";return\"\".concat(t).concat(r)},d=function(e,t){var r,a;let o=arguments.length>2&&void 0!==arguments[2]?arguments[2]:\"info\",l=\"[axios:\".concat(e,\"] \").concat(null!==(r=t.method)&&void 0!==r?r:\"\",\" \").concat(null!==(a=t.url)&&void 0!==a"
+  },
+  {
+    "file": "dashboard__27292-764f9b0d804e5d84.js",
+    "offset": 4910,
+    "text": "?a:\"\");n.n({category:\"http\",message:l,data:t,level:o})},c=a.default.create({baseURL:\"https://prod-vlm-cloud-nfsnfpr33q-uc.a.run.app\",paramsSerializer:e=>{let t=new URLSearchParams;return Object.entries(e).forEach(e=>{let[r,n]=e;Array.isArray(n)?r.endsWith(\"__in\")?n.length>0&&t.append(r,n.join(\",\")):n.forEach(e=>t.append(r,String(e)"
+  },
+  {
+    "file": "dashboard__27292-764f9b0d804e5d84.js",
+    "offset": 5328,
+    "text": "r t;let r=localStorage.getItem(\"access_token\"),n=[\"/login/clerk-user\",\"/refresh-token\"].some(t=>e.url&&e.url.includes(t));r&&!n&&(e.headers.Authorization=\"Bearer \".concat(r)),(0,l.Wh)()&&(e.headers[\"X-Demo-Analytics\"]=\"1\");let a=i();return e.metadata={requestId:a,startTime:Date.now()},d(\"request\",{requestId:a,url:s(e),method:null===(t=e.method)||void 0===t?void 0:t.toUpperCase(),hasAuthHeader:!!e.hea"
+  },
+  {
+    "file": "dashboard__27292-764f9b0d804e5d84.js",
+    "offset": 5731,
+    "text": "ders.Authorization,isNoAuthEndpoint:n}),e},e=>Promise.reject(e)),c.interceptors.response.use(e=>{var t,r,n,a;let o=e.config,l=o.metadata?Date.now()-o.metadata.startTime:void 0;return d(\"response\",{requestId:null===(t=o.metadata)||void 0===t?void 0:t.requestId,url:s(o)"
+  },
+  {
+    "file": "dashboard__27292-764f9b0d804e5d84.js",
+    "offset": 6963,
+    "text": "name,errorMessage:e.message,responseMessage:k,responseRequestId:S,hasAuthHeader:!!(null==_?void 0:null===(g=_.headers)||void 0===g?void 0:g.Authorization)},\"error\"),(null===(m=e.response)||void 0===m?void 0:m.status)===498&&!_._retry&&localStorage.getItem(\"refresh_token\")){_._retry=!0;let e=await (0,u.refreshToken)();if(null==e?void 0:e.access_token)return _.headers=_.headers||{},_.headers.Authorizat"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 12400,
+    "text": "http://n"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 29982,
+    "text": "https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 38397,
+    "text": "https://nextjs.org/docs/messages/next-dynamic-api-wrong-context"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 83574,
+    "text": "httpEquiv:"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 83585,
+    "text": "http-equiv"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 95496,
+    "text": "https://nextjs.org/docs/messages/next-router-not-mounted"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 102558,
+    "text": "httpOnly&&(u+="
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 114994,
+    "text": "https://nextjs.org/docs/messages/public-next-folder-conflict"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 115427,
+    "text": "https://nextjs.org/docs/messages/404-get-initial-props"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 115559,
+    "text": "https://nextjs.org/docs/messages/gssp-export"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 116003,
+    "text": "https://nextjs.org/docs/messages/gssp-component-member"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 116217,
+    "text": "https://nextjs.org/docs/messages/non-standard-node-env"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 116367,
+    "text": "https://nextjs.org/docs/messages/ssg-fallback-true-export"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 118351,
+    "text": "https?:"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 119685,
+    "text": "https://nextjs.org/docs/app/building-your-application/rendering/static-and-dynamic#dynamic-rendering"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 119994,
+    "text": "https://nextjs.org/docs/messages/dynamic-server-error"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 120522,
+    "text": "https://nextjs.org/docs/app/api-reference/functions/unstable_cache"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 121551,
+    "text": "https://nextjs.org/docs/messages/ppr-caught-error"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 142669,
+    "text": "https://nextjs.org/docs/messages/"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 161947,
+    "text": "https?|ftp|gopher|file/;function"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 172435,
+    "text": "https://nextjs.org/docs/messages/invalid-multi-match"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 235852,
+    "text": "http.request.redirect_start"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 235902,
+    "text": "http.request.redirect_end"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 235948,
+    "text": "http.request.worker_start"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 235994,
+    "text": "http.request.fetch_start"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 236038,
+    "text": "http.request.domain_lookup_start"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 236097,
+    "text": "http.request.domain_lookup_end"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 236152,
+    "text": "http.request.connect_start"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 236200,
+    "text": "http.request.secure_connection_start"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 236267,
+    "text": "http.request.connection_end"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 236314,
+    "text": "http.request.request_start"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 236362,
+    "text": "http.request.response_start"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 236412,
+    "text": "http.request.response_end"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 236458,
+    "text": "http.request.time_to_first_byte"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 236896,
+    "text": "http.redirect_count"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 237828,
+    "text": "http.browser.inp"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 240767,
+    "text": "httprequest"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 244668,
+    "text": "http.response.status_code"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 244713,
+    "text": "http.response_transfer_size"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 244763,
+    "text": "http.response_content_length"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 244814,
+    "text": "http.decoded_response_content_length"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 244929,
+    "text": "http.response_delivery_type"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 248009,
+    "text": "http.browser.lcp"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 249123,
+    "text": "http.browser.cls"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 256582,
+    "text": "http.client"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 257278,
+    "text": "http.browser"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 257507,
+    "text": "http.method"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 257581,
+    "text": "http.url"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 257641,
+    "text": "http.query"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 257676,
+    "text": "http.fragment"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 286006,
+    "text": "https"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 308151,
+    "text": "http://www.example.com"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 348519,
+    "text": "http.request.prefetch"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 351672,
+    "text": "https://docs.sentry.io/platforms/javascript/best-practices/browser-extensions/"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 355983,
+    "text": "http://example.com/"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 46314,
+    "text": "\",p[r.NEXT_ROUTER_STATE_TREE],p[r.NEXT_URL]].join(\",\"));try{var m;let t=new URL(e);t.searchParams.set(r.NEXT_RSC_UNION_QUERY,h);let n=await fetch(t,{credentials:\"same-origin\",headers:p}),a=(0,i.urlToUrlWithoutFlightMarker)(n.url),s=n.redirected?a:void 0,u=n.headers.get(\"content-type\")||\"\",d=!!n.headers.get(r.NEXT_DID_POSTPONE_HEADER),g=!!(null==(m=n.headers.get(\"vary\"))?void 0:m.includes(r.NEXT_URL));if(u!==r.RSC_CONTENT_TYPE_HEADER||!n.ok)return e.hash&&(a.hash=e.hash),c(a.toString());let[_"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 69413,
+    "text": "(50232),g=n(91311),{createFromFetch:_,encodeReply:y}=n(6671);async function v(e,t,n){let a,{actionId:s,actionArgs:u}=n,l=await y(u),c=await fetch(\"\",{method:\"POST\",headers:{Accept:i.RSC_CONTENT_TYPE_HEADER,[i.ACTION]:s,[i.NEXT_ROUTER_STATE_TREE]:(0,g.prepareFlightRouterStateForRequest)(e.tree),...t?{[i.NEXT_URL]:t}:{}},body:l}),f=c.headers.get(\"x-action-redirect\");try{let e=JSON.parse(c.headers.get(\"x-action-revalidated\")||\"[[],0,0]\");a={paths:e[0]||[],tag:!!e[1],cookie:e[2]}}catch(e){a={pat"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 91764,
+    "text": "d to load script: \"+e))),t.crossOrigin=void 0,t.src=e,document.body.appendChild(t)})),r))}}function l(e){let t=r.get(e);return t||r.set(e,t=fetch(e,{credentials:\"same-origin\"}).then(t=>{if(!t.ok)throw Error(\"Failed to load stylesheet: \"+e);return t.text().then(t=>({href:e,content:t}))}).catch(e=>{throw u(e)})),t}return{whenEntrypoint:e=>a(e,t),onEntrypoint(e,n){(n?Promise.resolve().then(()=>n()).then(e=>({component:e&&e.default||e,exports:e}),e=>({error:e})):Promise.resolve(void 0)).then(n=>"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 92685,
+    "text": "s:n}=e,r=Object.assign({styles:n},t);return\"error\"in t?t:r}).catch(e=>{if(r)throw e;return{error:e}}).finally(()=>null==i?void 0:i())})},prefetch(t){let n;return(n=navigator.connection)&&(n.saveData||/2g/.test(n.effectiveType))?Promise.resolve():h(e,t).then(e=>Promise.all(c?e.scripts.map(e=>{var t,n,r;return t=e.toString(),n=\"script\",new Promise((e,i)=>{if(document.querySelector('\\n      link[rel=\"prefetch\"][href^=\"'+t+'\"],\\n      link[rel=\"preload\"][href^=\"'+t+'\"],\\n      script[src^=\"'+t+'"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 136644,
+    "text": "stCache:u,isBackground:l,unstable_skipClientCache:c}=e,{href:f}=new URL(t,window.location.href),d=e=>{var l;return(function e(t,n,r){return fetch(t,{credentials:\"same-origin\",method:r.method||\"GET\",headers:Object.assign({},r.headers,{\"x-nextjs-data\":\"1\"})}).then(i=>!i.ok&&n>1&&i.status>=500?e(t,n-1,r):i)})(t,o?3:1,{headers:Object.assign({},r?{purpose:\"prefetch\"}:{},r&&i?{\"x-middleware-prefetch\":\"1\"}:{}),method:null!=(l=null==e?void 0:e.method)?l:\"GET\"}).then(n=>n.ok&&(null==e?void 0:e.method"
+  },
+  {
+    "file": "dashboard__32864-a12f28e4b5e34bc7.js",
+    "offset": 150299,
+    "text": "cument.getElementsByName(e)[0];r&&r.scrollIntoView()},{onlyHashChange:this.onlyAHashChange(e)})}urlIsNew(e){return this.asPath!==e}async prefetch(e,t,n){if(void 0===t&&(t=e),void 0===n&&(n={}),\"undefined\"!=typeof window&&(0,C.isBot)(window.navigator.userAgent))return;let r=(0,h.parseRelativeUrl)(e),i=r.pathname,{pathname:s,query:u}=r,l=s,c=await this.pageLoader.getPageList(),f=t,d=void 0!==n.locale?n.locale||void 0:this.locale,R=await k({asPath:t,locale:d,router:this});if(t.startsWith(\"/\")){"
+  },
+  {
+    "file": "dashboard__33145-f889726815e3725e.js",
+    "offset": 5536,
+    "text": "https://nextjs.org/docs/messages/invalid-images-config"
+  },
+  {
+    "file": "dashboard__33145-f889726815e3725e.js",
+    "offset": 5777,
+    "text": "https://nextjs.org/docs/messages/next-image-missing-loader"
+  },
+  {
+    "file": "dashboard__33145-f889726815e3725e.js",
+    "offset": 9238,
+    "text": "httpEquiv"
+  },
+  {
+    "file": "dashboard__33145-f889726815e3725e.js",
+    "offset": 9950,
+    "text": "https://fonts.googleapis.com/css"
+  },
+  {
+    "file": "dashboard__33145-f889726815e3725e.js",
+    "offset": 9985,
+    "text": "https://use.typekit.net/"
+  },
+  {
+    "file": "dashboard__33145-f889726815e3725e.js",
+    "offset": 10854,
+    "text": "http://www.w3.org/2000/svg"
+  },
+  {
+    "file": "dashboard__4388-609d4193d71670a1.js",
+    "offset": 5410,
+    "text": "http:"
+  },
+  {
+    "file": "dashboard__4388-609d4193d71670a1.js",
+    "offset": 5418,
+    "text": "https:"
+  },
+  {
+    "file": "dashboard__4388-609d4193d71670a1.js",
+    "offset": 5885,
+    "text": "https://storage.../"
+  },
+  {
+    "file": "dashboard__5005-2e9d02b4c406f904.js",
+    "offset": 14889,
+    "text": "http:"
+  },
+  {
+    "file": "dashboard__5005-2e9d02b4c406f904.js",
+    "offset": 14897,
+    "text": "https:"
+  },
+  {
+    "file": "dashboard__5005-2e9d02b4c406f904.js",
+    "offset": 15364,
+    "text": "https://storage.../"
+  },
+  {
+    "file": "dashboard__52774a7f-fd9477e8a8bd6bf8.js",
+    "offset": 14596,
+    "text": "http-equiv"
+  },
+  {
+    "file": "dashboard__52774a7f-fd9477e8a8bd6bf8.js",
+    "offset": 67371,
+    "text": "httprequest"
+  },
+  {
+    "file": "dashboard__52774a7f-fd9477e8a8bd6bf8.js",
+    "offset": 77278,
+    "text": "http://"
+  },
+  {
+    "file": "dashboard__52774a7f-fd9477e8a8bd6bf8.js",
+    "offset": 77303,
+    "text": "https://"
+  },
+  {
+    "file": "dashboard__54353-37fb4b1196377504.js",
+    "offset": 4344,
+    "text": "https://clerk.com/docs"
+  },
+  {
+    "file": "dashboard__54353-37fb4b1196377504.js",
+    "offset": 6570,
+    "text": "https://clerk.com/support"
+  },
+  {
+    "file": "dashboard__54353-37fb4b1196377504.js",
+    "offset": 67935,
+    "text": "https://api.lclclerk.com"
+  },
+  {
+    "file": "dashboard__54353-37fb4b1196377504.js",
+    "offset": 67964,
+    "text": "https://api.clerkstage.dev"
+  },
+  {
+    "file": "dashboard__54353-37fb4b1196377504.js",
+    "offset": 67995,
+    "text": "https://api.clerk.com"
+  },
+  {
+    "file": "dashboard__54353-37fb4b1196377504.js",
+    "offset": 70350,
+    "text": "https://dashboard.clerk.com/last-active?path=api-keys."
+  },
+  {
+    "file": "dashboard__54353-37fb4b1196377504.js",
+    "offset": 70790,
+    "text": "https://clerk.com/docs/components/clerk-provider"
+  },
+  {
+    "file": "dashboard__54353-37fb4b1196377504.js",
+    "offset": 72534,
+    "text": "https://dashboard.clerk.com/last-active?path=api-keys"
+  },
+  {
+    "file": "dashboard__54353-37fb4b1196377504.js",
+    "offset": 76734,
+    "text": "http(s)?:"
+  },
+  {
+    "file": "dashboard__54353-37fb4b1196377504.js",
+    "offset": 77153,
+    "text": "https://${a}/npm/@clerk/clerk-js@${u}/dist/clerk.${l}browser.js"
+  },
+  {
+    "file": "dashboard__72972-dafcb74d69ec57b2.js",
+    "offset": 1278,
+    "text": "ssPrefetchedCheck){let r=t+\"%\"+n+\"%\"+(void 0!==o.locale?o.locale:\"locale\"in e?e.locale:void 0);if(g.has(r))return;g.add(r)}(async()=>l?e.prefetch(t,r):e.prefetch(t,n,o))().catch(e=>{})}}function _(e){return\"string\"==typeof e?e:(0,a.formatUrl)(e)}let j=l.default.forwardRef(function(e,t){let n,o;let{href:a,as:g,children:j,prefetch:k=null,passHref:C,replace:m,shallow:M,scroll:P,locale:w,onClick:O,onMouseEnter:E,onTouchStart:I,legacyBehavior:L=!1,...x}=e;n=j,L&&(\"string\"==typeof n||\"number\"==typ"
+  },
+  {
+    "file": "dashboard__75031-d6830b9246e1fd86.js",
+    "offset": 994,
+    "text": "http://www.w3.org/2000/svg"
+  },
+  {
+    "file": "dashboard__75031-d6830b9246e1fd86.js",
+    "offset": 13161,
+    "text": "https://radix-ui.com/primitives/docs/components/"
+  },
+  {
+    "file": "dashboard__82530-51e6c63b69eaf84b.js",
+    "offset": 1000,
+    "text": "http://www.w3.org/2000/svg"
+  },
+  {
+    "file": "dashboard__83464-73e0fb9a42d18856.js",
+    "offset": 10955,
+    "text": "http://localhost"
+  },
+  {
+    "file": "dashboard__83464-73e0fb9a42d18856.js",
+    "offset": 11067,
+    "text": "https"
+  },
+  {
+    "file": "dashboard__83464-73e0fb9a42d18856.js",
+    "offset": 20516,
+    "text": "httpAgent:s,httpsAgent:s,cancelToken:s,socketPath:s,responseEncoding:s,validateStatus:a,headers:(e,t,r)="
+  },
+  {
+    "file": "dashboard__83464-73e0fb9a42d18856.js",
+    "offset": 27768,
+    "text": "http:null,xhr:e$,fetch:{get:e8}};Q.forEach(e7,(e,t)="
+  },
+  {
+    "file": "dashboard__83464-73e0fb9a42d18856.js",
+    "offset": 20071,
+    "text": "isUndefined(e)?void 0:n(void 0,e):n(void 0,t)}function a(r,o,i){return i in t?n(r,o):i in e?n(void 0,r):void 0}let l={url:i,method:i,data:i,baseURL:s,transformRequest:s,transformResponse:s,paramsSerializer:s,timeout:s,timeoutMessage:s,withCredentials:s,withXSRFToken:s,adapter:s,responseType:s,xsrfCookieName:s,xsrfHeaderName:s,onUploadProgress:s,onDownloadProgress:s,decompress:s,maxContentLength"
+  },
+  {
+    "file": "dashboard__83464-73e0fb9a42d18856.js",
+    "offset": 20769,
+    "text": "eV=e=>{let t=eK({},e),{data:r,withXSRFToken:n,xsrfHeaderName:o,xsrfCookieName:i,headers:s,auth:a}=t;if(t.headers=s=eU.from(s),t.url=ef(eH(t.baseURL,t.url,t.allowAbsoluteUrls),e.params,e.paramsSerializer),a&&s.set(\"Authorization\",\"Basic \"+btoa((a.username||\"\")+\":\"+(a.password?unescape(encodeURIComponent(a.password)):\"\"))),Q.isFormData(r)){if(eR.hasStandardBrowserEnv||eR.hasStandardBrowserWebWork"
+  },
+  {
+    "file": "dashboard__83464-73e0fb9a42d18856.js",
+    "offset": 31125,
+    "text": "ults.allowAbsoluteUrls?t.allowAbsoluteUrls=this.defaults.allowAbsoluteUrls:t.allowAbsoluteUrls=!0),ta.assertOptions(t,{baseUrl:tl.spelling(\"baseURL\"),withXsrfToken:tl.spelling(\"withXSRFToken\")},!0),t.method=(t.method||this.defaults.method||\"get\").toLowerCase();let a=s&&Q.merge(s.common,s[t.method]);s&&Q.forEach([\"delete\",\"get\",\"head\",\"post\",\"put\",\"patch\",\"common\"],e=>{delete s[e]}),t.headers=eU"
+  },
+  {
+    "file": "dashboard__83464-73e0fb9a42d18856.js",
+    "offset": 32053,
+    "text": ")}catch(e){return Promise.reject(e)}for(f=0,n=c.length;f<n;)r=r.then(c[f++],c[f++]);return r}getUri(e){return ef(eH((e=eK(this.defaults,e)).baseURL,e.url,e.allowAbsoluteUrls),e.params,e.paramsSerializer)}}Q.forEach([\"delete\",\"get\",\"head\",\"options\"],function(e){tu.prototype[e]=function(t,r){return this.request(eK(r||{},{method:e,url:t,data:(r||{}).data}))}}),Q.forEach([\"post\",\"put\",\"patch\"],func"
+  },
+  {
+    "file": "dashboard__83464-73e0fb9a42d18856.js",
+    "offset": 17588,
+    "text": "E][Math.floor(r.status/100)-4],r.config,r.request,r))}eU.accessor([\"Content-Type\",\"Content-Length\",\"Accept\",\"Accept-Encoding\",\"User-Agent\",\"Authorization\"]),Q.reduceDescriptors(eU.prototype,({value:e},t)=>{let r=t[0].toUpperCase()+t.slice(1);return{get:()=>e,set(e){this[r]=e}}}),Q.freezeMethods(eU),Q.inherits(eF,Z,{__CANCEL__:!0});var eB=function(e,t){let r;let n=Array(e=e||10),o=Array(e),i=0,s=0;ret"
+  },
+  {
+    "file": "dashboard__83464-73e0fb9a42d18856.js",
+    "offset": 20843,
+    "text": "ame:i,headers:s,auth:a}=t;if(t.headers=s=eU.from(s),t.url=ef(eH(t.baseURL,t.url,t.allowAbsoluteUrls),e.params,e.paramsSerializer),a&&s.set(\"Authorization\",\"Basic \"+btoa((a.username||\"\")+\":\"+(a.password?unescape(encodeURIComponent(a.password)):\"\"))),Q.isFormData(r)){if(eR.hasStandardBrowserEnv||eR.hasStandardBrowserWebWorkerEnv)s.setContentType(void 0);else if(Q.isFunction(r.getHeaders)){let e=r.getHe"
+  },
+  {
+    "file": "dashboard__85883-af635ba13b15ba35.js",
+    "offset": 2422,
+    "text": "https://github.com/pmndrs/zustand/discussions/1937"
+  },
+  {
+    "file": "dashboard__86903-cdec71af4f3746d2.js",
+    "offset": 1017,
+    "text": "https://api.unifyintent.com/analytics/v1"
+  },
+  {
+    "file": "dashboard__86903-cdec71af4f3746d2.js",
+    "offset": 1903,
+    "text": "https://${t}"
+  },
+  {
+    "file": "dashboard__86903-cdec71af4f3746d2.js",
+    "offset": 4308,
+    "text": "https://github.com/uuidjs/uuid#getrandomvalues-not-supported"
+  },
+  {
+    "file": "dashboard__86903-cdec71af4f3746d2.js",
+    "offset": 12134,
+    "text": "https://api.unifyintent.com/analytics/v1/_internal/logs"
+  },
+  {
+    "file": "dashboard__86903-cdec71af4f3746d2.js",
+    "offset": 15756,
+    "text": "https://forms.default.com"
+  },
+  {
+    "file": "dashboard__86903-cdec71af4f3746d2.js",
+    "offset": 15827,
+    "text": "https://capture.navattic.com"
+  },
+  {
+    "file": "dashboard__86903-cdec71af4f3746d2.js",
+    "offset": 11352,
+    "text": "torageService=new tm(this._writeKey),this._currentSession=null}},tA=class{constructor(t){this.post=(t,e)=>{let i=JSON.stringify(e);if(fetch)fetch(t,{method:\"POST\",body:i,headers:{\"Content-type\":\"application/json; charset=UTF-8\",\"X-Write-Key\":this._writeKey},keepalive:!0}).catch(()=>{});else{let e=new XMLHttpRequest;e.open(\"POST\",t,!0),e.setRequestHeader(\"Content-type\",\"application/json; charset=UTF-8\"),e.setRequestHeader(\"X-Write-Key\",this._writeKey),e.send(i)}},this._writeKey=t}};function t"
+  },
+  {
+    "file": "dashboard__92850-011a22bfa185ed0a.js",
+    "offset": 4164,
+    "text": "!this.state.isInvalidated||!(0,i.Kp)(this.state.dataUpdatedAt,t))}onFocus(){let t=this.observers.find(t=>t.shouldFetchOnWindowFocus());t?.refetch({cancelRefetch:!1}),this.#a?.continue()}onOnline(){let t=this.observers.find(t=>t.shouldFetchOnReconnect());t?.refetch({cancelRefetch:!1}),this.#a?.continue()}addObserver(t){this.observers.includes(t)||(this.observers.push(t),this.clearGcTimeout(),this.#u.notify({type:\"observerAdded\",query:this,observer:t}))}removeObserver(t){this.observers.include"
+  },
+  {
+    "file": "dashboard__92850-011a22bfa185ed0a.js",
+    "offset": 4873,
+    "text": "is,observer:t}))}getObserversCount(){return this.observers.length}invalidate(){this.state.isInvalidated||this.#l({type:\"invalidate\"})}async fetch(t,e){if(\"idle\"!==this.state.fetchStatus&&this.#a?.status()!==\"rejected\"){if(void 0!==this.state.data&&e?.cancelRefetch)this.cancel({silent:!0});else if(this.#a)return this.#a.continueRetry(),this.#a.promise}if(t&&this.setOptions(t),!this.options.queryFn){let t=this.observers.find(t=>t.options.queryFn);t&&this.setOptions(t.options)}let r=new AbortCo"
+  },
+  {
+    "file": "dashboard__92850-011a22bfa185ed0a.js",
+    "offset": 10670,
+    "text": "rimental_prefetchInRender feature flag is not enabled\")),Reflect.get(t,r))})}trackProp(t){this.#T.add(t)}getCurrentQuery(){return this.#p}refetch({...t}={}){return this.fetch({...t})}fetchOptimistic(t){let e=this.#o.defaultQueryOptions(t),r=this.#o.getQueryCache().build(this.#o,e);return r.fetch().then(()=>this.createResult(r,e))}fetch(t){return this.#Q({...t,cancelRefetch:t.cancelRefetch??!0}).then(()=>(this.updateResult(),this.#v))}#Q(t){this.#k();let e=this.#p.fetch(this.options,t);return"
+  },
+  {
+    "file": "dashboard__95059-8a64da28bf95a1cf.js",
+    "offset": 10354,
+    "text": "https://clerk.com/docs/reference/nextjs/clerk-middleware#create-route-matcher"
+  },
+  {
+    "file": "dashboard__95059-8a64da28bf95a1cf.js",
+    "offset": 33323,
+    "text": "https://va.vercel-scripts.com/v1/script.debug.js"
+  },
+  {
+    "file": "dashboard__95059-8a64da28bf95a1cf.js",
+    "offset": 34033,
+    "text": "https://vercel.com/docs/analytics/quickstart"
+  },
+  {
+    "file": "dashboard__95059-8a64da28bf95a1cf.js",
+    "offset": 47902,
+    "text": "https://github.com/vercel/next.js/issues"
+  },
+  {
+    "file": "dashboard__95059-8a64da28bf95a1cf.js",
+    "offset": 47956,
+    "text": "https://nextjs.org"
+  },
+  {
+    "file": "dashboard__95059-8a64da28bf95a1cf.js",
+    "offset": 52358,
+    "text": "https://gitpkg-fork.vercel.sh/vercel/turbo/crates/turbopack-ecmascript-runtime/js?turbopack-240417.2"
+  },
+  {
+    "file": "dashboard__95059-8a64da28bf95a1cf.js",
+    "offset": 53401,
+    "text": "http-proxy"
+  },
+  {
+    "file": "dashboard__95059-8a64da28bf95a1cf.js",
+    "offset": 53423,
+    "text": "http-proxy-agent"
+  },
+  {
+    "file": "dashboard__95059-8a64da28bf95a1cf.js",
+    "offset": 53450,
+    "text": "https-browserify"
+  },
+  {
+    "file": "dashboard__95059-8a64da28bf95a1cf.js",
+    "offset": 53477,
+    "text": "https-proxy-agent"
+  },
+  {
+    "file": "dashboard__95059-8a64da28bf95a1cf.js",
+    "offset": 10506,
+    "text": ".current++,!(l.current>1)){try{let r=`${window.location.origin}${window.location.pathname}/${e}_clerk_catchall_check_${Date.now()}`;t=await fetch(r,{signal:n.signal})}catch{}(null==t?void 0:t.status)===404&&i()}})(),()=>{l.current>1&&n.abort()}},[d])},u=()=>{let e=i.useRef(),{pagesRouter:t}=(0,o.j)();if(t)return e.current||(e.current=t.pathname.replace(/\\/\\[\\[\\.\\.\\..*/,\"\")),e.current;let n=r(99376).usePathname,a=r(99376).useParams,s=(n()||\"\").split(\"/\").filter(Boolean),l=Object.values(a()||{"
+  },
+  {
+    "file": "dashboard__95059-8a64da28bf95a1cf.js",
+    "offset": 30363,
+    "text": "Refetch:t.cancelRefetch??!0};return Promise.all(a.Vr.batch(()=>this.#i.findAll(e).filter(e=>!e.isDisabled()&&!e.isStatic()).map(e=>{let t=e.fetch(void 0,r);return r.throwOnError||(t=t.catch(n.ZT)),\"paused\"===e.state.fetchStatus?Promise.resolve():t}))).then(n.ZT)}fetchQuery(e){let t=this.defaultQueryOptions(e);void 0===t.retry&&(t.retry=!1);let r=this.#i.build(this,t);return r.isStaleByTime((0,n.KC)(t.staleTime,r))?r.fetch(t):Promise.resolve(r.state.data)}prefetchQuery(e){return this.fetchQue"
+  },
+  {
+    "file": "dashboard__9da6db1e-9cce033e3ba2b53e.js",
+    "offset": 14963,
+    "text": "https://app.posthog.com/home#panel=support%3Asupport%3A."
+  },
+  {
+    "file": "dashboard__9da6db1e-9cce033e3ba2b53e.js",
+    "offset": 41254,
+    "text": "httprequest"
+  },
+  {
+    "file": "dashboard__9da6db1e-9cce033e3ba2b53e.js",
+    "offset": 74518,
+    "text": "https://sentry.io/organizations/"
+  },
+  {
+    "file": "dashboard__9da6db1e-9cce033e3ba2b53e.js",
+    "offset": 80706,
+    "text": "http:"
+  },
+  {
+    "file": "dashboard__9da6db1e-9cce033e3ba2b53e.js",
+    "offset": 80719,
+    "text": "https:"
+  },
+  {
+    "file": "dashboard__9da6db1e-9cce033e3ba2b53e.js",
+    "offset": 80778,
+    "text": "http/https"
+  },
+  {
+    "file": "dashboard__9da6db1e-9cce033e3ba2b53e.js",
+    "offset": 94691,
+    "text": "https?://(.*)"
+  },
+  {
+    "file": "dashboard__9da6db1e-9cce033e3ba2b53e.js",
+    "offset": 100739,
+    "text": "https://posthog.com/docs/billing/limits-alerts"
+  },
+  {
+    "file": "dashboard__9da6db1e-9cce033e3ba2b53e.js",
+    "offset": 138314,
+    "text": "http://yandex.com/bots"
+  },
+  {
+    "file": "dashboard__9da6db1e-9cce033e3ba2b53e.js",
+    "offset": 139771,
+    "text": "https://app.posthog.com"
+  },
+  {
+    "file": "dashboard__9da6db1e-9cce033e3ba2b53e.js",
+    "offset": 139801,
+    "text": "https://us.i.posthog.com"
+  },
+  {
+    "file": "dashboard__9da6db1e-9cce033e3ba2b53e.js",
+    "offset": 140005,
+    "text": "https://us.posthog.com"
+  },
+  {
+    "file": "dashboard__9da6db1e-9cce033e3ba2b53e.js",
+    "offset": 140509,
+    "text": "https://"
+  },
+  {
+    "file": "dashboard__9da6db1e-9cce033e3ba2b53e.js",
+    "offset": 158792,
+    "text": "https://posthog.com/tutorials/web-redact-properties#hiding-customer-ip-address"
+  },
+  {
+    "file": "dashboard__fd9d1056-9681e33399f01f8b.js",
+    "offset": 598,
+    "text": "https://react.dev/errors/"
+  },
+  {
+    "file": "dashboard__fd9d1056-9681e33399f01f8b.js",
+    "offset": 12506,
+    "text": "http://www.w3.org/2000/svg"
+  },
+  {
+    "file": "dashboard__fd9d1056-9681e33399f01f8b.js",
+    "offset": 14953,
+    "text": "httpEquiv"
+  },
+  {
+    "file": "dashboard__fd9d1056-9681e33399f01f8b.js",
+    "offset": 14965,
+    "text": "http-equiv"
+  },
+  {
+    "file": "dashboard__fd9d1056-9681e33399f01f8b.js",
+    "offset": 80429,
+    "text": "httpEquiv?null:r.httpEquiv)&&l.getAttribute("
+  },
+  {
+    "file": "dashboard__fd9d1056-9681e33399f01f8b.js",
+    "offset": 99969,
+    "text": "http://www.w3.org/1998/Math/MathML"
+  },
+  {
+    "file": "dashboard__fd9d1056-9681e33399f01f8b.js",
+    "offset": 149222,
+    "text": "http://www.w3.org/1999/xlink"
+  },
+  {
+    "file": "dashboard__fd9d1056-9681e33399f01f8b.js",
+    "offset": 150911,
+    "text": "http://www.w3.org/XML/1998/namespace"
+  },
+  {
+    "file": "dashboard__global-error-18623e31844a0a57.js",
+    "offset": 4182,
+    "text": "httpEquiv"
+  },
+  {
+    "file": "dashboard__global-error-18623e31844a0a57.js",
+    "offset": 4894,
+    "text": "https://fonts.googleapis.com/css"
+  },
+  {
+    "file": "dashboard__global-error-18623e31844a0a57.js",
+    "offset": 4929,
+    "text": "https://use.typekit.net/"
+  },
+  {
+    "file": "dashboard__layout-60a5c64292d87762.js",
+    "offset": 5277,
+    "text": "https://us.i.posthog.com"
+  },
+  {
+    "file": "dashboard__layout-60a5c64292d87762.js",
+    "offset": 2710,
+    "text": "chunk_probe_attempted\",\"true\");try{let e=await p();if(!e.size)return;let t=[];await Promise.all(Array.from(e).map(async e=>{try{let r=await fetch(e,{cache:\"no-store\"});t.push({url:e,ok:r.ok,status:r.status}),r.ok||i.uT(\"chunk_probe_failure\",{level:\"error\",extra:{url:e,status:r.status}})}catch(r){t.push({url:e,ok:!1,status:0}),i.Tb(r,{extra:{url:e,note:\"chunk_probe_error\"}})}})),l.n({category:\"chunk_probe\",level:\"info\",message:\"Probed chunk URLs\",data:{count:e.size,results:t}})}catch(e){}}},x"
+  },
+  {
+    "file": "dashboard__layout-60a5c64292d87762.js",
+    "offset": 3604,
+    "text": "\"undefined\"!=typeof fetch&&(e.startsWith(\"http\")||e.startsWith(\"/\")))try{let t=new AbortController,r=setTimeout(()=>t.abort(),1500),n=await fetch(e,{cache:\"no-store\",signal:t.signal});clearTimeout(r);let a=(await n.text()).slice(0,400);l.n({category:\"chunk_error\",level:\"error\",message:\"Fetched failing chunk response snippet\",data:{url:e,status:n.status,snippet:a}})}catch(e){}},b=(e,t,r)=>{var n,a,s,o,u;if(!x(e)&&!(t&&x(t)))return!1;let c=\"true\"===sessionStorage.getItem(d);if(c)return!1;let h"
+  },
+  {
+    "file": "dashboard__main-app-dbacbbb6ef9a072b.js",
+    "offset": 4621,
+    "text": "https://3c6224e67f6ae6b58da599c0e43ca6b1@o4504121578487808.ingest.us.sentry.io/4510166588981248"
+  },
+  {
+    "file": "dashboard__not-found-9604f8694327c6ba.js",
+    "offset": 6421,
+    "text": "http:"
+  },
+  {
+    "file": "dashboard__not-found-9604f8694327c6ba.js",
+    "offset": 6429,
+    "text": "https:"
+  },
+  {
+    "file": "dashboard__not-found-9604f8694327c6ba.js",
+    "offset": 6896,
+    "text": "https://storage.../"
+  },
+  {
+    "file": "dashboard__not-found-9604f8694327c6ba.js",
+    "offset": 7971,
+    "text": "http://www.w3.org/2000/svg"
+  },
+  {
+    "file": "dashboard__page-3f34e826d49c0aab.js",
+    "offset": 12173,
+    "text": "http://www.w3.org/2000/svg"
+  },
+  {
+    "file": "dashboard__page-3f34e826d49c0aab.js",
+    "offset": 36637,
+    "text": "isBackendAuthenticated:d,isInitializing:u}=(0,o.a)(),m=(0,s.useRef)(!1),h=!!(c&&r&&d&&!u);return(0,s.useEffect)(()=>{let r=(0,l.Yw)(e);t.prefetch(r),t.prefetch((0,a.yJ)(r)),t.prefetch(\"/onboarding\")},[e,t]),(0,s.useEffect)(()=>{h&&!m.current&&(m.current=!0,t.replace((0,a.Yh)(e)))},[h,e,t]),{isReady:h,isSignedIn:!!(c&&r)}}},8102:function(e,t,r){\"use strict\";r.d(t,{L:function(){return n}});var s=r(59625),i=r(89134),o=r(12655);let n=(0,s.Ue)((0,i.tJ)(e=>({id:null,email:null,inspecting:null,isSu"
+  },
+  {
+    "file": "dashboard__polyfills-42372ed130431b0a.js",
+    "offset": 2928,
+    "text": "https://github.com/zloirock/core-js/blob/v3.38.1/LICENSE"
+  },
+  {
+    "file": "dashboard__polyfills-42372ed130431b0a.js",
+    "offset": 2994,
+    "text": "https://github.com/zloirock/core-js"
+  },
+  {
+    "file": "dashboard__polyfills-42372ed130431b0a.js",
+    "offset": 70709,
+    "text": "https://a"
+  },
+  {
+    "file": "dashboard__polyfills-42372ed130431b0a.js",
+    "offset": 70913,
+    "text": "https://a/c%20d?a=1&c=3"
+  },
+  {
+    "file": "dashboard__polyfills-42372ed130431b0a.js",
+    "offset": 71034,
+    "text": "https://a@b"
+  },
+  {
+    "file": "dashboard__polyfills-42372ed130431b0a.js",
+    "offset": 71146,
+    "text": "https://тест"
+  },
+  {
+    "file": "dashboard__polyfills-42372ed130431b0a.js",
+    "offset": 71188,
+    "text": "https://a#б"
+  },
+  {
+    "file": "dashboard__polyfills-42372ed130431b0a.js",
+    "offset": 71235,
+    "text": "https://x"
+  },
+  {
+    "file": "dashboard__polyfills-42372ed130431b0a.js",
+    "offset": 81099,
+    "text": "http:80,https:443,ws:80,wss:443},tg=function(t,e){var"
+  },
+  {
+    "file": "dashboard__webpack-0e8fb6525efc6906.js",
+    "offset": 52931,
+    "text": "https://vercel.live/_next-live/feedback/feedback.js"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 24502,
+    "text": "https://huggingface.co/${e.hfModelId}"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 1486,
+    "text": "ay.from({length:26},(e,o)=>{let a=new Date(t-(25-o)*6048e5);return`${s[a.getUTCMonth()]} ${a.getUTCDate()}`})),topModels:{series:[{modelId:\"qwen/qwen3.8-27b\",tokens:[21e8,24e8,28e8,31e8,34e8,4e9,46e8,52e8]},{modelId:\"google/gemini-3.7-flash\",tokens:[18e8,19e8,22e8,2e9,24e8,26e8,25e8,29e8]},{modelId:\"moonshotai/kimi-k3\",tokens:[4e8,6e8,9e8,12e8"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 1893,
+    "text": "\",tokens:[12e8,13e8,125e7,14e8,15e8,155e7,17e8,18e8]},{modelId:\"meta/muse-spark-1.2\",tokens:[3e8,5e8,7e8,6e8,9e8,11e8,14e8,16e8]},{modelId:\"qwen/qwen3.5-0.8b\",tokens:[8e8,9e8,1e9,11e8,1e9,12e8,13e8,14e8]}],others:[32e8,31e8,3e9,33e8,31e8,29e8,3e9,28e8]},leaderboard:{today:[{modelId:\"qwen/qwen3.8-27b\",tokens:78e7,changePct:6},{modelId:\"moonshot"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 2329,
+    "text": "Pct:-2},{modelId:\"paddlepaddle/paddleocr-vl-1.6\",tokens:26e7,changePct:3},{modelId:\"meta/muse-spark-1.2\",tokens:24e7,changePct:9},{modelId:\"qwen/qwen3.5-0.8b\",tokens:19e7,changePct:1},{modelId:\"deepseek-ai/deepseek-ocr-2\",tokens:14e7,changePct:8},{modelId:\"google/gemini-3.5-flash-lite\",tokens:12e7,changePct:-4}],week:[{modelId:\"qwen/qwen3.8-27"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 2813,
+    "text": "ct:17},{modelId:\"paddlepaddle/paddleocr-vl-1.6\",tokens:18e8,changePct:6},{modelId:\"meta/muse-spark-1.2\",tokens:16e8,changePct:14},{modelId:\"qwen/qwen3.5-0.8b\",tokens:14e8,changePct:8},{modelId:\"google/gemini-3.5-flash-lite\",tokens:11e8,changePct:4},{modelId:\"deepseek-ai/deepseek-ocr-2\",tokens:92e7,changePct:11},{modelId:\"google/gemma-4-26b-a4b"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 3158,
+    "text": "-it\",tokens:84e7,changePct:-3},{modelId:\"meta/muse-glimmer-30b\",tokens:71e7,changePct:9}],month:[{modelId:\"qwen/qwen3.8-27b\",tokens:184e8,changePct:41},{modelId:\"google/gemini-3.7-flash\",tokens:121e8,changePct:12},{modelId:\"paddlepaddle/paddleocr-vl-1.6\",tokens:86e8,changePct:7},{modelId:\"moonshotai/kimi-k3\",to"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 3470,
+    "text": "kens:79e8,changePct:86},{modelId:\"qwen/qwen3.5-0.8b\",tokens:64e8,changePct:15},{modelId:\"meta/muse-spark-1.2\",tokens:51e8,changePct:63},{modelId:\"google/gemini-3.5-flash-lite\",tokens:44e8,changePct:5},{modelId:\"baidu/unlimited-ocr\",tokens:"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 3901,
+    "text": "hangePct:\"new\"},{modelId:\"meta/muse-spark-1.2\",tokens:16e8,changePct:64},{modelId:\"baidu/unlimited-ocr\",tokens:66e7,changePct:48},{modelId:\"qwen/qwen3.8-27b\",tokens:52e8,changePct:22},{modelId:\"deepseek-ai/deepseek-ocr-2\",tokens:92e7,changePct:19},{modelId:\"google/gemini-3.7-flash\",tokens:29e8,changePct:16},{modelId:\"qwen/qwen3-vl-embedding-2b"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 4604,
+    "text": "Id:\"zai-org/glm-ocr\",sharePct:12},{modelId:\"google/gemini-3.7-flash\",sharePct:12}]},{id:\"video\",label:\"Video\",spendShare:28,rows:[{modelId:\"qwen/qwen3.8-27b\",sharePct:34},{modelId:\"google/gemini-3.7-flash\",sharePct:22},{modelId:\"moonshotai/kimi-k3\",sharePct:16},{modelId:\"meta/muse-spark-1.2\",sharePct:12},{modelId:\"google/gemini-robotics-er-2-p"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 4949,
+    "text": "review\",sharePct:9},{modelId:\"qwen/qwen3.5-0.8b\",sharePct:7}]},{id:\"ocr\",label:\"OCR\",spendShare:22,rows:[{modelId:\"paddlepaddle/paddleocr-vl-1.6\",sharePct:31},{modelId:\"deepseek-ai/deepseek-ocr-2\",sharePct:22},{modelId:\"baidu/unlimited"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 5261,
+    "text": "paddleocr/pp-ocrv6\",sharePct:9},{modelId:\"microsoft/florence-2-base-ft\",sharePct:6}]},{id:\"chat\",label:\"Chat\",spendShare:16,rows:[{modelId:\"qwen/qwen3.8-27b\",sharePct:29},{modelId:\"google/gemini-3.7-flash\",sharePct:21},{modelId:\"moonshotai/kimi-k3\",sharePct:18},{modelId:\"meta/muse-spark-1.2\",sharePct:12},{modelId:\"google/gemma-4-26b-a4b-it\",sh"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 5644,
+    "text": "3\",sharePct:9}]}],costPerSession:{jobs:[{id:\"document\",label:\"Document\"},{id:\"video\",label:\"Video\"},{id:\"ocr\",label:\"OCR\"}],rows:[{modelId:\"qwen/qwen3.5-0.8b\",usd:[.06,.22,.04]},{modelId:\"paddlepaddle/paddleocr-vl-1.6\",usd:[.08,.9,.05]},{modelId:\"deepseek-ai/deepseek-ocr-2\",usd:[.09,1.6,.07]},{modelId:\"google/gemini-3.5-flash-lite\",usd:[.12,.5"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 5989,
+    "text": "5,.09]},{modelId:\"qwen/qwen3.8-27b\",usd:[.28,1.4,.18]},{modelId:\"meta/muse-spark-1.2\",usd:[.48,1.9,.32]},{modelId:\"google/gemini-3.7-flash\",usd:[.62,2.4,.4]},{modelId:\"moonshotai/kimi-k3\",usd:[1.1,4.8,.7]}]},marketShare:[{p"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 6595,
+    "text": "8,2e9,23e8,21e8,19e8,2e9,18e8]}],benchmarks:[{modelId:\"google/gemini-3.7-flash\",score:76},{modelId:\"moonshotai/kimi-k3\",score:74},{modelId:\"qwen/qwen3.8-27b\",score:71},{modelId:\"meta/muse-spark-1.2\",score:70},{modelId:\"google/gemma-4-26b-a4b-it\",score:68},{modelId:\"minimax/minimax-m3\",score:66},{modelId:\"google/gemini-3.5-flash-lite\",score:64}"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 6940,
+    "text": ",{modelId:\"paddlepaddle/paddleocr-vl-1.6\",score:62},{modelId:\"deepseek-ai/deepseek-ocr-2\",score:58},{modelId:\"qwen/qwen3.5-0.8b\",score:54}],categories:[{id:\"document\",label:\"Document\",unit:\"pages\",blurb:\"Pages sent through document and markdown models.\",weekly:[12e5,14e5,15e5,17e5,18e5,21e5,24e5,26e5],rows:[{model"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 7638,
+    "text": "unit:\"hours\",blurb:\"Hours of video processed by models that accept video.\",weekly:[4200,4800,5100,5600,6400,7200,8100,9400],rows:[{modelId:\"qwen/qwen3.8-27b\",amount:3100,changePct:16},{modelId:\"google/gemini-3.7-flash\",amount:2100,changePct:8},{modelId:\"moonshotai/kimi-k3\",amount:1600,changePct:21},{modelId:\"meta/muse-spark-1.2\",amount:980,cha"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 7983,
+    "text": "ngePct:18},{modelId:\"google/gemini-robotics-er-2-preview\",amount:740,changePct:6},{modelId:\"qwen/qwen3.5-0.8b\",amount:520,changePct:3}]},{id:\"ocr\",label:\"OCR\",unit:\"pages\",blurb:\"Pages read by models whose catalog type is OCR.\",weekly:[9e5,1e6,11e5,115e4,13e5,14e5,155e4,17e5],rows:[{modelId:\"padd"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 8648,
+    "text": "n\",label:\"Detection\",unit:\"images\",blurb:\"Images sent to detection models.\",weekly:[18e4,19e4,21e4,24e4,26e4,3e5,34e4,39e4],rows:[{modelId:\"qwen/qwen3.5-0.8b\",amount:21e4,changePct:15},{modelId:\"microsoft/florence-2-base-ft\",amount:96e3,changePct:4},{modelId:\"paddleocr/pp-ocrv6\",amount:54e3,changePct:-2}]},{id:\"transcription\",label:\"Transcript"
+  },
+  {
+    "file": "gateway__007c35a18659a37e.js",
+    "offset": 9195,
+    "text": "ngs\",label:\"Embeddings\",unit:\"images\",blurb:\"Images embedded for retrieval.\",weekly:[4e4,48e3,55e3,7e4,88e3,11e4,14e4,18e4],rows:[{modelId:\"qwen/qwen3-vl-embedding-2b\",amount:18e4,changePct:29}]}]},c=[\"#6d28d9\",\"#1d4ed8\",\"#0f766e\",\"#c026d3\",\"#b45309\",\"#0369a1\",\"#64748b\"];function m(e){return n.gatewayModelsJson.find(t=>t.id===e)}function u(e){"
+  },
+  {
+    "file": "gateway__1c16513460985c1f.js",
+    "offset": 14381,
+    "text": "https://nextjs.org/docs/app/building-your-application/rendering/static-and-dynamic#dynamic-rendering"
+  },
+  {
+    "file": "gateway__1c16513460985c1f.js",
+    "offset": 14938,
+    "text": "https://nextjs.org/docs/messages/next-request-in-use-cache"
+  },
+  {
+    "file": "gateway__1c16513460985c1f.js",
+    "offset": 19920,
+    "text": "https://nextjs.org/docs/messages/sync-dynamic-apis"
+  },
+  {
+    "file": "gateway__2b247885c6725624.js",
+    "offset": 1250,
+    "text": "http://www.w3.org/2000/svg"
+  },
+  {
+    "file": "gateway__2b247885c6725624.js",
+    "offset": 3917,
+    "text": "https://nextjs.org/docs/messages/invalid-images-config"
+  },
+  {
+    "file": "gateway__2b247885c6725624.js",
+    "offset": 4244,
+    "text": "https://nextjs.org/docs/messages/next-image-missing-loader"
+  },
+  {
+    "file": "gateway__2b247885c6725624.js",
+    "offset": 8793,
+    "text": "httpEquiv"
+  },
+  {
+    "file": "gateway__2b247885c6725624.js",
+    "offset": 11106,
+    "text": "https://nextjs.org/docs/messages/next-image-unconfigured-localpatterns"
+  },
+  {
+    "file": "gateway__2b247885c6725624.js",
+    "offset": 16006,
+    "text": "https?|ftp|gopher|file/;function"
+  },
+  {
+    "file": "gateway__2b247885c6725624.js",
+    "offset": 24444,
+    "text": "https://chat.vlm.run"
+  },
+  {
+    "file": "gateway__2b247885c6725624.js",
+    "offset": 26338,
+    "text": "eturn!!e&&!v(t,r)}function S(e,t,r){let n=d(t),a=f(t),i=p(t),o=!!(r&&r.length>0)||!!a||h(t);return{reuse:P(e,t,r),stageOnly:o,autoSubmit:!o,prompt:n,skillId:a,skillSessionId:i}}function E(e){let t=Array.isArray(e.files)?e.files.filter(e=>\"undefined\"!=typeof File&&e instanceof File):[];return t.length>0?t:Array.isArray(e.filePayloads)?e.filePayloads.filter(e=>e&&e.buffer instanceof ArrayBuffer&&"
+  },
+  {
+    "file": "gateway__2b247885c6725624.js",
+    "offset": 29043,
+    "text": ">{if(!w.enabled)return;let n=r&&r.length>0?r:null,i=S(N.current,e,n);i.reuse?(h(i.prompt),b(n)):(d(i.stageOnly?_(e):e),b(n),h(i.stageOnly?i.prompt:null)),v(i.skillId),E(i.skillSessionId),R(i.autoSubmit),u(e),p(t),a(!0)},[]),F=(0,r.useCallback)(()=>a(!1),[]),B=(0,r.useCallback)(()=>{w.enabled&&i&&a(!0)},[i]),G=(0,r.useCallback)(()=>{w.enabled&&I(!0)},[]),H=(0,r.useCallback)(()=>h(null),[]),q=(0,"
+  },
+  {
+    "file": "gateway__6cf9bde149128a0a.js",
+    "offset": 11300,
+    "text": "https://react.dev/errors/"
+  },
+  {
+    "file": "gateway__6cf9bde149128a0a.js",
+    "offset": 18172,
+    "text": "httpEquiv:"
+  },
+  {
+    "file": "gateway__6cf9bde149128a0a.js",
+    "offset": 18183,
+    "text": "http-equiv"
+  },
+  {
+    "file": "gateway__6de8f6b2eb2a8ddb.js",
+    "offset": 3758,
+    "text": "https://react.dev/errors/"
+  },
+  {
+    "file": "gateway__6de8f6b2eb2a8ddb.js",
+    "offset": 19820,
+    "text": "httpEquiv"
+  },
+  {
+    "file": "gateway__6de8f6b2eb2a8ddb.js",
+    "offset": 19832,
+    "text": "http-equiv"
+  },
+  {
+    "file": "gateway__6de8f6b2eb2a8ddb.js",
+    "offset": 111819,
+    "text": "http://www.w3.org/2000/svg"
+  },
+  {
+    "file": "gateway__6de8f6b2eb2a8ddb.js",
+    "offset": 112747,
+    "text": "httpEquiv?null:n.httpEquiv)&&l.getAttribute("
+  },
+  {
+    "file": "gateway__6de8f6b2eb2a8ddb.js",
+    "offset": 135007,
+    "text": "http://www.w3.org/1998/Math/MathML"
+  },
+  {
+    "file": "gateway__6de8f6b2eb2a8ddb.js",
+    "offset": 164254,
+    "text": "http://www.w3.org/1999/xlink"
+  },
+  {
+    "file": "gateway__6de8f6b2eb2a8ddb.js",
+    "offset": 166026,
+    "text": "http://www.w3.org/XML/1998/namespace"
+  },
+  {
+    "file": "gateway__86efa6b2201fba9a.js",
+    "offset": 42965,
+    "text": "n m(e,t,r,u,o){var a,c;t[\"x-deployment-id\"]=\"dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\";let f=new URL(e);(0,p.setCacheBustingSearchParam)(f,t);let d=fetch(f,{credentials:\"same-origin\",headers:t,priority:r||void 0,signal:o}),h=u?(a=d,c=t,_(a,{callServer:i.callServer,findSourceMapURL:s.findSourceMapURL,debugChannel:n&&n(c)})):null,v=await d,y=v.redirected,b=new URL(v.url,f);return b.searchParams.delete(l.NEXT_RSC_UNION_QUERY),{url:b.href,redirected:y,ok:v.ok,headers:v.headers,body:v.body,status:v.statu"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 31592,
+    "text": "https://gateway.vlm.run/v1/openai"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 31677,
+    "text": "https://docs.vlm.run/gateway/introduction"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 31775,
+    "text": "https://gateway.vlm.run"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 38375,
+    "text": "https://huggingface.co/Qwen/Qwen3.8-27B"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 38419,
+    "text": "https://github.com/opendatalab/OmniDocBench"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 38467,
+    "text": "https://deepmind.google/models/model-cards/gemini-3-7-flash/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 38532,
+    "text": "https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 38679,
+    "text": "https://arxiv.org/abs/2606.13108"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 39038,
+    "text": "https://huggingface.co/datasets/xai-org/RealworldQA"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 39107,
+    "text": "https://charxiv.github.io/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 39196,
+    "text": "https://parsebench.ai"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 39225,
+    "text": "https://mmmu-benchmark.github.io/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 39380,
+    "text": "https://video-mme.github.io/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 39425,
+    "text": "https://mathvision-cuhk.github.io/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 39478,
+    "text": "https://medxpertqa.github.io/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 39531,
+    "text": "https://cocodataset.org/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 39769,
+    "text": "https://textvqa.org/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 39814,
+    "text": "https://github.com/facebookresearch/sam3"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 39869,
+    "text": "https://ai.meta.com/datasets/segment-anything-video/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 39937,
+    "text": "https://mose.video"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 39977,
+    "text": "https://rf100-vl.org"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 40017,
+    "text": "https://lmb.informatik.uni-freiburg.de/projects/freihand/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 40179,
+    "text": "https://huggingface.co/spaces/hf-audio/open_asr_leaderboard"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 40251,
+    "text": "https://groups.inf.ed.ac.uk/ami/corpus/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 40317,
+    "text": "https://www.openslr.org/12"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 40354,
+    "text": "https://lvbench.github.io/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 40404,
+    "text": "https://www.tbench.ai/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 40448,
+    "text": "https://os-world.github.io/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 40493,
+    "text": "https://deepswe.datacurve.ai/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 40535,
+    "text": "https://surgehq.ai/benchmarks/gdp-pdf"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 40638,
+    "text": "https://www.swebench.com/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 40681,
+    "text": "https://github.com/idavidrein/gpqa"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 40729,
+    "text": "https://github.com/TIGER-AI-Lab/MMLU-Pro"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 40784,
+    "text": "https://artofproblemsolving.com/wiki/index.php/AIME_Problems_and_Solutions"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 40866,
+    "text": "https://github.com/embodiedreasoning/ERQA"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 40923,
+    "text": "https://github.com/TIGER-AI-Lab/MMEB"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 41172,
+    "text": "https://huggingface.co/datasets/allenai/olmOCR-bench"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 42856,
+    "text": "https://huggingface.co/infly/Infinity-Parser2-Flash"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 43097,
+    "text": "https://arxiv.org/abs/2607.07836"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 43289,
+    "text": "https://huggingface.co/Qwen/Qwen3.5-0.8B"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 43575,
+    "text": "https://ai.google.dev/gemma/docs/core/model_card_4"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 43845,
+    "text": "https://huggingface.co/microsoft/Florence-2-base-ft"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 44113,
+    "text": "https://github.com/facebookresearch/sam3/blob/main/RELEASE_SAM3p1.md"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 44409,
+    "text": "https://github.com/ViTAE-Transformer/ViTPose"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 44607,
+    "text": "https://rfdetr.roboflow.com/latest/learn/run/detection/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 44866,
+    "text": "https://arxiv.org/abs/2312.05251"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 45093,
+    "text": "https://arxiv.org/abs/2509.14128"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 45722,
+    "text": "https://deepmind.google/models/model-cards/gemini-3-5-flash-lite/"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 46481,
+    "text": "https://huggingface.co/moonshotai/Kimi-K3"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 46769,
+    "text": "https://huggingface.co/FlagRelease/MiniMax-M3-nvidia-FlagOS"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 47051,
+    "text": "https://huggingface.co/Qwen/Qwen3-VL-Embedding-2B"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 47563,
+    "text": "https://arxiv.org/abs/2606.23050"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 47838,
+    "text": "https://huggingface.co/nvidia/diffusiongemma-26B-A4B-it-NVFP4"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 48154,
+    "text": "https://huggingface.co/blog/lightonai/lightonocr"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 35058,
+    "text": "  baseURL: \"${o.GATEWAY_BASE_URL}\","
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 37253,
+    "text": "`},{label:\"cURL\",language:\"bash\",code:`curl ${o.GATEWAY_BASE_URL}/chat/completions \\\\"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 35356,
+    "text": "  -H \"Authorization: Bearer $VLMRUN_API_KEY\" \\\\"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 3275,
+    "text": "\":\"markdown\"} | document_url PDF (markdown per page; uses OCR prompt)',capabilities:{max_images:1,max_videos:0,supports_text_only:!1}},{id:\"qwen/qwen3-vl-embedding-2b\",object:\"model\",created:0x6aabd0e5,owned_by:\"vlm-run\",memory_mb:16e3,aliases:[],methods:[\"embed\"],extra_body_help:\"\",capabilities:{max_images:null,max_videos:null,supports_text_o"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 3620,
+    "text": "nly:!0}},{id:\"qwen/qwen3.5-0.8b\",object:\"model\",created:0x6aabd0e5,owned_by:\"vlm-run\",memory_mb:24576,aliases:[],methods:[\"chat\"],extra_body_help:\"Multimodal chat (text + up to 64 images or 1 base64 video). No document_"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 3839,
+    "text": "url — replies pass through verbatim.\",capabilities:{max_images:64,max_videos:1,supports_text_only:!0}},{id:\"qwen/qwen3.8-27b\",object:\"model\",created:0x6aabd0e5,owned_by:\"vlm-run\",memory_mb:57344,aliases:[\"Qwen/Qwen3.8-27B\"],methods:[\"chat\"],extra_body_help:\"\",capabilities:{max_images:64,max_videos:1,supports_tex"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 12105,
+    "text": "erved\":true,\"routed\":false,\"openWeights\":true,\"pricing\":{\"mode\":\"token\",\"input\":0.15,\"output\":0.35,\"cache\":0.15},\"comingSoon\":false},{\"id\":\"qwen/qwen3.5-0.8b\",\"name\":\"Qwen3.5 0.8B\",\"provider\":\"Alibaba\",\"providerLogo\":\"/images/gateway/providers/qwen.svg\",\"task\":\"Multimodal chat model with up to 64 images or one video per request.\",\"params\":\"0.8"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 12724,
+    "text": "erved\":true,\"routed\":false,\"openWeights\":true,\"pricing\":{\"mode\":\"token\",\"input\":0.08,\"output\":0.15,\"cache\":0.02},\"comingSoon\":false},{\"id\":\"qwen/qwen3.8-27b\",\"name\":\"Qwen3.8 27B\",\"provider\":\"Alibaba\",\"providerLogo\":\"/images/gateway/providers/qwen.svg\",\"task\":\"Reasoning VLM (image + video + text)\",\"params\":\"27B\",\"context\":\"164K\",\"types\":[\"detec"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 13257,
+    "text": "erved\":true,\"routed\":false,\"openWeights\":true,\"pricing\":{\"mode\":\"token\",\"input\":0.35,\"output\":2.55,\"cache\":0.05},\"comingSoon\":false},{\"id\":\"qwen/qwen3-vl-embedding-2b\",\"name\":\"Qwen3-VL Embedding 2B\",\"provider\":\"Alibaba\",\"providerLogo\":\"/images/gateway/providers/qwen.svg\",\"task\":\"Multimodal embedding model for text, image, and video inputs.\",\"p"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 28002,
+    "text": "},{id:\"tennis-caption-smolvlm\",title:\"Counting tennis balls\",caption:\"Qwen3-VL 0.8B answers a counting question on a court photo.\",modelId:\"qwen/qwen3.5-0.8b\",method:null,prompt:\"How many tennis balls are visible? Answer with a single integer.\",taskLabel:\"chat\",inputSrc:`${u}/tennis-caption-smolvlm/input.jpg`,inputAlt:\"Tennis court with multip"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 41244,
+    "text": "v\":\"https://huggingface.co/datasets/allenai/olmOCR-bench\",\"olmOCR-Bench tables\":\"https://huggingface.co/datasets/allenai/olmOCR-bench\"},L={\"qwen/qwen3.8-27b\":{sourceLabel:\"Qwen3.8 model card\",sourceUrl:M,baselineName:\"Opus 4.6 Max\",rows:[{evalName:\"OmniDocBench 1.5\",score:91.1,baseline:86.6,max:100},{evalName:\"RealWorldQA\",score:85.9,baseline:"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 43080,
+    "text": "port\",sourceUrl:\"https://arxiv.org/abs/2607.07836\",baselineName:\"GPT-5.5\",rows:[{evalName:\"ParseBench\",score:55.8,baseline:67.8,max:100}]},\"qwen/qwen3.5-0.8b\":{sourceLabel:\"Qwen3.5-0.8B model card\",sourceUrl:\"https://huggingface.co/Qwen/Qwen3.5-0.8B\",note:\"Thinking-mode scores.\",rows:[{evalName:\"MMMU\",score:49,max:100},{evalName:\"RealWorldQA\","
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 46827,
+    "text": "S\",rows:[{evalName:\"SWE-Bench Pro\",score:59,max:100},{evalName:\"GPQA Diamond\",score:86.36,max:100},{evalName:\"ERQA\",score:52.25,max:100}]},\"qwen/qwen3-vl-embedding-2b\":{sourceLabel:\"Qwen3-VL-Embedding model card\",sourceUrl:\"https://huggingface.co/Qwen/Qwen3-VL-Embedding-2B\",rows:[{evalName:\"MMEB image\",score:75,max:100},{evalName:\"MMEB video\","
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 24804,
+    "text": "onut segmentation\",caption:\"Promptable masks via SAM 3.1 with the prompt `donut`.\",modelId:\"facebook/sam3.1\",method:\"segment\",methodParams:{prompt:\"donut\"},taskLabel:\"segment\",inputSrc:`${u}/donuts-segment-sam3/input.jpg`,inputAlt:\"Box of glazed donuts overlaid with SAM 3.1 segmentation masks\",resultPath:`${u}/donuts-segment-sam3/result.json`,overlayPath:`${u}/donuts-segment-sam3/overlay.svg`,o"
+  },
+  {
+    "file": "gateway__9b6dc91b04fc3a63.js",
+    "offset": 28033,
+    "text": "title:\"Counting tennis balls\",caption:\"Qwen3-VL 0.8B answers a counting question on a court photo.\",modelId:\"qwen/qwen3.5-0.8b\",method:null,prompt:\"How many tennis balls are visible? Answer with a single integer.\",taskLabel:\"chat\",inputSrc:`${u}/tennis-caption-smolvlm/input.jpg`,inputAlt:\"Tennis court with multiple yellow tennis balls scattered across the surface\",resultPath:`${u}/tennis-captio"
+  },
+  {
+    "file": "gateway__a6dad97d9634a72d.js",
+    "offset": 2928,
+    "text": "https://github.com/zloirock/core-js/blob/v3.38.1/LICENSE"
+  },
+  {
+    "file": "gateway__a6dad97d9634a72d.js",
+    "offset": 2994,
+    "text": "https://github.com/zloirock/core-js"
+  },
+  {
+    "file": "gateway__a6dad97d9634a72d.js",
+    "offset": 70709,
+    "text": "https://a"
+  },
+  {
+    "file": "gateway__a6dad97d9634a72d.js",
+    "offset": 70913,
+    "text": "https://a/c%20d?a=1&c=3"
+  },
+  {
+    "file": "gateway__a6dad97d9634a72d.js",
+    "offset": 71034,
+    "text": "https://a@b"
+  },
+  {
+    "file": "gateway__a6dad97d9634a72d.js",
+    "offset": 71146,
+    "text": "https://тест"
+  },
+  {
+    "file": "gateway__a6dad97d9634a72d.js",
+    "offset": 71188,
+    "text": "https://a#б"
+  },
+  {
+    "file": "gateway__a6dad97d9634a72d.js",
+    "offset": 71235,
+    "text": "https://x"
+  },
+  {
+    "file": "gateway__a6dad97d9634a72d.js",
+    "offset": 81099,
+    "text": "http:80,https:443,ws:80,wss:443},tg=function(t,e){var"
+  },
+  {
+    "file": "gateway__b076810d0fd38179.js",
+    "offset": 5529,
+    "text": "https://www.googletagmanager.com/gtm.js"
+  },
+  {
+    "file": "gateway__b076810d0fd38179.js",
+    "offset": 7172,
+    "text": "https://www.googletagmanager.com/gtag/js?id=${t}"
+  },
+  {
+    "file": "gateway__b076810d0fd38179.js",
+    "offset": 7835,
+    "text": "http://"
+  },
+  {
+    "file": "gateway__b076810d0fd38179.js",
+    "offset": 7860,
+    "text": "https://"
+  },
+  {
+    "file": "gateway__b076810d0fd38179.js",
+    "offset": 8831,
+    "text": "https://va.vercel-scripts.com/v1/script.debug.js"
+  },
+  {
+    "file": "gateway__b076810d0fd38179.js",
+    "offset": 9445,
+    "text": "https://vercel.com/docs/analytics/quickstart"
+  },
+  {
+    "file": "gateway__c7e5deab826c6e88.js",
+    "offset": 45761,
+    "text": "https://www.llm-prices.com/current-v1.json"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 5241,
+    "text": "http://www.w3.org/2000/svg"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 6353,
+    "text": "https://app.vlm.run"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 6385,
+    "text": "https://app.vlm.run/sign-in"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 6420,
+    "text": "https://chat.vlm.run"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 6448,
+    "text": "https://docs.vlm.run"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 6481,
+    "text": "https://docs.vlm.run/introduction"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 6529,
+    "text": "https://docs.vlm.run/llms.txt"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 6575,
+    "text": "https://docs.vlm.run/ways-to-use-vlm-run"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 6634,
+    "text": "https://docs.vlm.run/agents/introduction"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 6694,
+    "text": "https://docs.vlm.run/guides/doc-ai/guide-parsing-invoices"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 6761,
+    "text": "https://vlm-run.github.io/mm"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 6804,
+    "text": "https://docs.vlm.run/pricing"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 6844,
+    "text": "https://calendar.app.google/fSpmZfSCUk6mmrzx5"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 11746,
+    "text": "https://storage.googleapis.com/vlm-data-public-prod/web/assets/vlmrun-orion-whitepaper-latest.pdf"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 13985,
+    "text": "https?:/.test(e.href),o="
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 34593,
+    "text": "(0,r.useState)(\"idle\"),[s,l]=(0,r.useState)(\"\");async function d(t){if(t.preventDefault(),\"loading\"!==a){o(\"loading\"),l(\"\");try{let t=await fetch(\"/api/newsletter\",{method:\"POST\",headers:{\"Content-Type\":\"application/json\"},body:JSON.stringify({email:e})}),r=await t.json().catch(()=>null);if(!t.ok){o(\"error\"),l(r?.message??\"Something went wrong. Please try again.\");return}o(\"success\"),l(r?.message??\"You're subscribed. Thanks for joining.\"),i(\"\")}catch{o(\"error\"),l(\"Something went wrong. Pleas"
+  },
+  {
+    "file": "gateway__f214a4e47049aa46.js",
+    "offset": 27750,
+    "text": ",r.useEffect)(()=>{if(!A||!s&&!p?.length&&!x)return;let e=O.current?.contentWindow;if(!e)return;let t={type:c.CHAT_EMBED_SET_PROMPT_MESSAGE,prompt:s??\"\",autoSubmit:b,skillId:x??void 0,skillSessionId:f??void 0,files:p??void 0};e.postMessage(t,P),h(),g(),v()},[s,p,x,f,b,A,P,h,g,v]),!a)return null;let D=e=>{O.current&&(O.current.style.pointerEvents=e?\"none\":\"\"),R.current&&(R.current.style.pointerE"
+  },
+  {
+    "file": "gateway__f994a685467df38a.js",
+    "offset": 7132,
+    "text": "https://nextjs.org/docs/messages/next-dynamic-api-wrong-context"
+  },
+  {
+    "file": "gateway__f994a685467df38a.js",
+    "offset": 11445,
+    "text": "https://nextjs.org/docs/app/api-reference/functions/use-search-params#updating-searchparams"
+  },
+  {
+    "file": "gateway__f994a685467df38a.js",
+    "offset": 24907,
+    "text": "https://nextjs.org/docs/app/building-your-application/rendering/static-and-dynamic#dynamic-rendering"
+  },
+  {
+    "file": "gateway__f994a685467df38a.js",
+    "offset": 25337,
+    "text": "https://nextjs.org/docs/messages/dynamic-server-error"
+  },
+  {
+    "file": "gateway__f994a685467df38a.js",
+    "offset": 27443,
+    "text": "https://nextjs.org/docs/messages/ppr-caught-error"
+  },
+  {
+    "file": "gateway__f994a685467df38a.js",
+    "offset": 32499,
+    "text": "https://nextjs.org/docs/messages/blocking-route"
+  },
+  {
+    "file": "gateway__f994a685467df38a.js",
+    "offset": 33932,
+    "text": "https://nextjs.org/docs/messages/next-prerender-dynamic-viewport"
+  },
+  {
+    "file": "gateway__f994a685467df38a.js",
+    "offset": 34492,
+    "text": "https://nextjs.org/docs/messages/next-prerender-dynamic-metadata"
+  },
+  {
+    "file": "gateway__f994a685467df38a.js",
+    "offset": 33697,
+    "text": "sole.error(`Route \"${e.route}\" has a \\`generateViewport\\` that depends on Request data (\\`cookies()\\`, etc...) or uncached external data (\\`fetch(...)\\`, etc...) without explicitly allowing fully dynamic rendering. See more info here: https://nextjs.org/docs/messages/next-prerender-dynamic-viewport`),new s.StaticGenBailoutError;if(1===t)throw console.error(`Route \"${e.route}\" did not produce a static shell and Next.js was unable to determine a reason. This is a bug in Next.js.`),new s.Static"
+  },
+  {
+    "file": "gateway__f994a685467df38a.js",
+    "offset": 34273,
+    "text": "sole.error(`Route \"${e.route}\" has a \\`generateMetadata\\` that depends on Request data (\\`cookies()\\`, etc...) or uncached external data (\\`fetch(...)\\`, etc...) when the rest of the route does not. See more info here: https://nextjs.org/docs/messages/next-prerender-dynamic-metadata`),new s.StaticGenBailoutError}function ee(e,t){return e.runtimeStagePromise?e.runtimeStagePromise.then(()=>t):t}},109570,(e,t,r)=>{\"use strict\";Object.defineProperty(r,\"__esModule\",{value:!0}),Object.defineProper"
+  },
+  {
+    "file": "gateway__fe8320f917146d4d.js",
+    "offset": 65645,
+    "text": "http://n"
+  },
+  {
+    "file": "gateway__fe8320f917146d4d.js",
+    "offset": 77069,
+    "text": "https://nextjs.org/docs/messages/failed-to-find-server-action"
+  },
+  {
+    "file": "gateway__fe8320f917146d4d.js",
+    "offset": 76698,
+    "text": ":(0,v.prepareFlightRouterStateForRequest)(e.tree)};_[\"x-deployment-id\"]=\"dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",t&&(_[u.NEXT_URL]=t);let m=await fetch(e.canonicalUrl,{method:\"POST\",headers:_,body:P});if(\"1\"===m.headers.get(u.NEXT_ACTION_NOT_FOUND_HEADER))throw Object.defineProperty(new o.UnrecognizedActionError(`Server Action \"${r}\" was not found on the server. "
+  },
+  {
+    "file": "gateway__turbopack-adbda38a0faaefe8.js",
+    "offset": 10166,
+    "text": "https://vercel.live/_next-live/feedback/feedback.js"
+  },
+  {
+    "file": "gateway__turbopack-adbda38a0faaefe8.js",
+    "offset": 9580,
+    "text": "e throw Error(`can't infer type of chunk from URL ${t}`)}return r.loadingStarted=!0,r.promise})(e,t),async loadWebAssembly(e,t,r,n,o){let l=fetch(E(r)),{instance:i}=await WebAssembly.instantiateStreaming(l,o);return i.exports},async loadWebAssemblyModule(e,t,r,n){let o=fetch(E(r));return await WebAssembly.compileStreaming(o)}};let I=globalThis.TURBOPACK;globalThis.TURBOPACK={push:q},I.forEach(q)})();"
+  }
+]

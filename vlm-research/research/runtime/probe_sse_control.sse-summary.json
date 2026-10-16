@@ -1,0 +1,19 @@
+{
+  "evidence": "STATIC",
+  "source": "probe_sse_control.response.txt",
+  "event_count": 8,
+  "content": "VLM_GATEWAY_OK",
+  "usage": {
+    "prompt_tokens": 21,
+    "total_tokens": 27,
+    "completion_tokens": 6,
+    "cost": 0.001,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": null
+  },
+  "model_ids": [
+    "qwen/qwen3.5-0.8b"
+  ]
+}

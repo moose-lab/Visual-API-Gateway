@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/qwen/qwen3-vl-embedding-2b",
+  "auth": "Bearer [REDACTED]",
+  "body": null
+}

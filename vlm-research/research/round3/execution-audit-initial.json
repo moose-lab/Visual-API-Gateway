@@ -1,0 +1,816 @@
+{
+  "evidence": "RUNTIME/STATIC",
+  "captured_at": "2026-10-13",
+  "scope": "Offline audit of archived round3 execution observations and captures; raw captures unchanged. No service-side cause inferred.",
+  "cases": {
+    "program": {
+      "expected_file": "execution_program.expected.json",
+      "expected_evidence": "PROPOSAL",
+      "expected": {
+        "marker": "ROUND3_e1782fc9d14245e4862ee826259e1e40",
+        "sum": 42
+      },
+      "submit_status": "enqueued",
+      "poll_count": 8,
+      "polls": [
+        {
+          "file": "execution_program_poll_01.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:46:53.943257Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_program_poll_02.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:46:53.943257Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_program_poll_03.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:46:53.943257Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_program_poll_04.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:46:53.943257Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_program_poll_05.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:46:53.943257Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_program_poll_06.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:46:53.943257Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_program_poll_07.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:46:53.943257Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_program_poll_08.response.json",
+          "status": "completed",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:48:08.696808Z",
+          "usage": {
+            "elements_processed": 1,
+            "element_type": null,
+            "credits_used": 6,
+            "steps": 4,
+            "message": null,
+            "duration_seconds": 74,
+            "service_tier": "standard",
+            "mode_multiplier": 1.0,
+            "standard_cost_dollars": 0.050071,
+            "cost_dollars": 0.050071,
+            "savings_dollars": 0.0
+          },
+          "response": {
+            "marker": "ROUND3_e1782fc9d14245e4862ee826259e1e40",
+            "sum": 42
+          }
+        }
+      ],
+      "final_status": "completed",
+      "requested_mode": "program",
+      "observed_execution_mode": "agent",
+      "final_response": {
+        "marker": "ROUND3_e1782fc9d14245e4862ee826259e1e40",
+        "sum": 42
+      },
+      "nested_response_parse": null,
+      "usage_final": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 6,
+        "steps": 4,
+        "message": null,
+        "duration_seconds": 74,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.050071,
+        "cost_dollars": 0.050071,
+        "savings_dollars": 0.0
+      },
+      "result_matches_expected": true,
+      "status_completed_at_consistent": true
+    },
+    "replay": {
+      "expected_file": "execution_replay.expected.json",
+      "expected_evidence": "PROPOSAL",
+      "expected": {
+        "marker": "ROUND3_95fa411f3bd54819a6727e60188cb8f9",
+        "sum": 50
+      },
+      "submit_status": "enqueued",
+      "poll_count": 7,
+      "polls": [
+        {
+          "file": "execution_replay_poll_01.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:49:10.323678Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_replay_poll_02.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:49:10.323678Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_replay_poll_03.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:49:10.323678Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_replay_poll_04.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:49:10.323678Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_replay_poll_05.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:49:10.323678Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_replay_poll_06.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:49:10.323678Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_replay_poll_07.response.json",
+          "status": "completed",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:50:16.942237Z",
+          "usage": {
+            "elements_processed": 1,
+            "element_type": null,
+            "credits_used": 4,
+            "steps": 3,
+            "message": null,
+            "duration_seconds": 65,
+            "service_tier": "standard",
+            "mode_multiplier": 1.0,
+            "standard_cost_dollars": 0.033494,
+            "cost_dollars": 0.033494,
+            "savings_dollars": 0.0
+          },
+          "response": {
+            "marker": "ROUND3_95fa411f3bd54819a6727e60188cb8f9",
+            "sum": 50
+          }
+        }
+      ],
+      "final_status": "completed",
+      "requested_mode": "program",
+      "observed_execution_mode": "agent",
+      "final_response": {
+        "marker": "ROUND3_95fa411f3bd54819a6727e60188cb8f9",
+        "sum": 50
+      },
+      "nested_response_parse": null,
+      "usage_final": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 4,
+        "steps": 3,
+        "message": null,
+        "duration_seconds": 65,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.033494,
+        "cost_dollars": 0.033494,
+        "savings_dollars": 0.0
+      },
+      "result_matches_expected": true,
+      "status_completed_at_consistent": true
+    },
+    "agent": {
+      "expected_file": "execution_agent.expected.json",
+      "expected_evidence": "PROPOSAL",
+      "expected": {
+        "marker": "ROUND3_10e52eba442a4464ac80a8c895e87dba",
+        "sum": 42
+      },
+      "submit_status": "enqueued",
+      "poll_count": 5,
+      "polls": [
+        {
+          "file": "execution_agent_poll_01.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:49:31.175966Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_agent_poll_02.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:49:31.175966Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_agent_poll_03.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:49:31.175966Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_agent_poll_04.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:49:31.175966Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_agent_poll_05.response.json",
+          "status": "completed",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:50:07.837564Z",
+          "usage": {
+            "elements_processed": 1,
+            "element_type": null,
+            "credits_used": 3,
+            "steps": 2,
+            "message": null,
+            "duration_seconds": 36,
+            "service_tier": "standard",
+            "mode_multiplier": 1.0,
+            "standard_cost_dollars": 0.023251,
+            "cost_dollars": 0.023251,
+            "savings_dollars": 0.0
+          },
+          "response": {
+            "marker": "ROUND3_10e52eba442a4464ac80a8c895e87dba",
+            "sum": 42
+          }
+        }
+      ],
+      "final_status": "completed",
+      "requested_mode": "agent",
+      "observed_execution_mode": "agent",
+      "final_response": {
+        "marker": "ROUND3_10e52eba442a4464ac80a8c895e87dba",
+        "sum": 42
+      },
+      "nested_response_parse": null,
+      "usage_final": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 3,
+        "steps": 2,
+        "message": null,
+        "duration_seconds": 36,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.023251,
+        "cost_dollars": 0.023251,
+        "savings_dollars": 0.0
+      },
+      "result_matches_expected": true,
+      "status_completed_at_consistent": true
+    },
+    "fallback": {
+      "expected_file": "execution_fallback.expected.json",
+      "expected_evidence": "PROPOSAL",
+      "expected": {
+        "response": "ROUND3_HELLO"
+      },
+      "submit_status": "enqueued",
+      "poll_count": 1,
+      "polls": [
+        {
+          "file": "execution_fallback_poll_01.response.json",
+          "status": "completed",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:51:25.857345Z",
+          "usage": {
+            "elements_processed": 1,
+            "element_type": null,
+            "credits_used": 2,
+            "steps": 1,
+            "message": null,
+            "duration_seconds": 3,
+            "service_tier": "standard",
+            "mode_multiplier": 1.0,
+            "standard_cost_dollars": 0.006702,
+            "cost_dollars": 0.006702,
+            "savings_dollars": 0.0
+          },
+          "response": {
+            "response": "{\"response\":\"ROUND3_HELLO\"}"
+          }
+        }
+      ],
+      "final_status": "completed",
+      "requested_mode": "program",
+      "observed_execution_mode": "agent",
+      "final_response": {
+        "response": "{\"response\":\"ROUND3_HELLO\"}"
+      },
+      "nested_response_parse": {
+        "response": "ROUND3_HELLO"
+      },
+      "usage_final": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 2,
+        "steps": 1,
+        "message": null,
+        "duration_seconds": 3,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.006702,
+        "cost_dollars": 0.006702,
+        "savings_dollars": 0.0
+      },
+      "result_matches_expected": true,
+      "status_completed_at_consistent": true
+    },
+    "reference": {
+      "expected_file": "execution_reference.expected.json",
+      "expected_evidence": "PROPOSAL",
+      "expected": null,
+      "submit_status": "enqueued",
+      "poll_count": 2,
+      "polls": [
+        {
+          "file": "execution_reference_poll_01.response.json",
+          "status": "running",
+          "execution_mode": "agent",
+          "completed_at": "2026-10-13T07:53:11.412940Z",
+          "usage": {
+            "elements_processed": null,
+            "element_type": null,
+            "credits_used": null,
+            "steps": null,
+            "message": null,
+            "duration_seconds": 0,
+            "service_tier": null,
+            "mode_multiplier": null,
+            "standard_cost_dollars": null,
+            "cost_dollars": null,
+            "savings_dollars": null
+          },
+          "response": null
+        },
+        {
+          "file": "execution_reference_poll_02.response.json",
+          "status": "completed",
+          "execution_mode": "program",
+          "completed_at": "2026-10-13T07:53:21.632750Z",
+          "usage": {
+            "elements_processed": 1,
+            "element_type": null,
+            "credits_used": 2,
+            "steps": 0,
+            "message": null,
+            "duration_seconds": 9,
+            "service_tier": "standard",
+            "mode_multiplier": 1.0,
+            "standard_cost_dollars": 0.002933,
+            "cost_dollars": 0.002933,
+            "savings_dollars": 0.0
+          },
+          "response": {
+            "type": "referral",
+            "type_metadata": {
+              "confidence": "lo",
+              "annotation_ids": []
+            },
+            "dateOfReferral": null,
+            "dateOfReferral_metadata": {
+              "confidence": "lo",
+              "annotation_ids": []
+            },
+            "reasonForReferral": null,
+            "reasonForReferral_metadata": {
+              "confidence": "lo",
+              "annotation_ids": []
+            },
+            "patient": {
+              "givenName": null,
+              "familyName": null,
+              "givenName_metadata": {
+                "confidence": "lo",
+                "annotation_ids": []
+              },
+              "familyName_metadata": {
+                "confidence": "lo",
+                "annotation_ids": []
+              },
+              "dateOfBirth": null,
+              "dateOfBirth_metadata": {
+                "confidence": "lo",
+                "annotation_ids": []
+              }
+            },
+            "referringProvider": null,
+            "referringProvider_metadata": {
+              "confidence": "lo",
+              "annotation_ids": []
+            },
+            "receivingProvider": null,
+            "receivingProvider_metadata": {
+              "confidence": "lo",
+              "annotation_ids": []
+            },
+            "schedulingPriority": null,
+            "schedulingPriority_metadata": {
+              "confidence": "lo",
+              "annotation_ids": []
+            }
+          }
+        }
+      ],
+      "final_status": "completed",
+      "requested_mode": "program",
+      "observed_execution_mode": "program",
+      "final_response": {
+        "type": "referral",
+        "type_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "dateOfReferral": null,
+        "dateOfReferral_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "reasonForReferral": null,
+        "reasonForReferral_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "patient": {
+          "givenName": null,
+          "familyName": null,
+          "givenName_metadata": {
+            "confidence": "lo",
+            "annotation_ids": []
+          },
+          "familyName_metadata": {
+            "confidence": "lo",
+            "annotation_ids": []
+          },
+          "dateOfBirth": null,
+          "dateOfBirth_metadata": {
+            "confidence": "lo",
+            "annotation_ids": []
+          }
+        },
+        "referringProvider": null,
+        "referringProvider_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "receivingProvider": null,
+        "receivingProvider_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        },
+        "schedulingPriority": null,
+        "schedulingPriority_metadata": {
+          "confidence": "lo",
+          "annotation_ids": []
+        }
+      },
+      "nested_response_parse": null,
+      "usage_final": {
+        "elements_processed": 1,
+        "element_type": null,
+        "credits_used": 2,
+        "steps": 0,
+        "message": null,
+        "duration_seconds": 9,
+        "service_tier": "standard",
+        "mode_multiplier": 1.0,
+        "standard_cost_dollars": 0.002933,
+        "cost_dollars": 0.002933,
+        "savings_dollars": 0.0
+      },
+      "result_matches_expected": null,
+      "status_completed_at_consistent": true
+    }
+  },
+  "artifacts": {
+    "program": {
+      "list_status": 200,
+      "list_response": {
+        "namespace_id": "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+        "total": 1,
+        "limit": 10,
+        "offset": 0,
+        "items": [
+          {
+            "object_id": "round3-result",
+            "filename": "round3-result.json",
+            "source": "manifest"
+          }
+        ]
+      },
+      "download_status": 200,
+      "download_response_bytes": 64,
+      "download_response_sha256": "6d71b1c38299f3543d8a1619f55bb9a22cfd23a550738cab40da05d4278a6a58",
+      "redirect_status": 307,
+      "redirect_response_bytes": 0
+    },
+    "replay": {
+      "list_status": 200,
+      "list_response": {
+        "namespace_id": "eb42f7ca-7a21-46a4-a66d-5fb27374ade9",
+        "total": 1,
+        "limit": 10,
+        "offset": 0,
+        "items": [
+          {
+            "object_id": "round3-result",
+            "filename": "round3-result.json",
+            "source": "manifest"
+          }
+        ]
+      },
+      "download_status": 200,
+      "download_response_bytes": 64,
+      "download_response_sha256": "0c5e785fd2b6a55f8fc5bfdef8db4d5912197951e3a25d9cc96e8ca1a93ee14e",
+      "redirect_status": 307,
+      "redirect_response_bytes": 0
+    },
+    "agent": {
+      "list_status": 200,
+      "list_response": {
+        "namespace_id": "8a06a34b-e053-428b-92db-454bfcfbac66",
+        "total": 1,
+        "limit": 10,
+        "offset": 0,
+        "items": [
+          {
+            "object_id": "round3-result",
+            "filename": "round3-result.json",
+            "source": "manifest"
+          }
+        ]
+      },
+      "download_status": 200,
+      "download_response_bytes": 70,
+      "download_response_sha256": "ac12a9ca25fca5251f60182db6f7f3ae333fa3896e698980845a92820b5451be",
+      "redirect_status": 307,
+      "redirect_response_bytes": 0
+    }
+  },
+  "total_observed_cost_dollars": 0.116451,
+  "audit_findings": [
+    "program and replay had requested_mode=program but final execution_mode=agent; output matched locally authored arithmetic expectation, so arithmetic correctness does not prove program execution.",
+    "reference skill execution ended execution_mode=program with steps=0; returned referral constant and null fields on synthetic non-referral invoice, which does not establish classification correctness.",
+    "fallback response contains a JSON object encoded as the value of response.response; an additional JSON parse is required for semantic comparison.",
+    "first program running poll reports completed_at earlier than created_at; this timestamp anomaly is recorded as observed and no cause is inferred.",
+    "artifact list for program/replay/agent returned one manifest round3-result.json; archived metadata records redirect/download statuses where available."
+  ]
+}

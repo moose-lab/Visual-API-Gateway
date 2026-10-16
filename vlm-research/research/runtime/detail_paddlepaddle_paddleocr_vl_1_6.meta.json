@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:53:05.627545+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/paddlepaddle/paddleocr-vl-1.6",
+  "status": 200,
+  "elapsed_seconds": 2.974,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:53:07 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "14135221-15a0-4741-994d-e9486f143bf6"
+  },
+  "response_sha256": "2958ab1a98d8571fa91b3cc3c8067a79627898ff65a2946152dd65617d18d0e5",
+  "response_bytes": 859
+}

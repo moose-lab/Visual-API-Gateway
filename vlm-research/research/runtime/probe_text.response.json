@@ -1,0 +1,36 @@
+{
+  "id": "chatcmpl-270d276bb18e42898b6b6b19183",
+  "object": "chat.completion",
+  "created": 1791700213,
+  "model": "qwen/qwen3.5-0.8b",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "VLM_GATEWAY_OK",
+        "refusal": null,
+        "annotations": null,
+        "audio": null,
+        "function_call": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop"
+    }
+  ],
+  "service_tier": null,
+  "system_fingerprint": "vllm-0.30.0-9b65a544",
+  "usage": {
+    "prompt_tokens": 21,
+    "total_tokens": 27,
+    "completion_tokens": 6,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": null,
+    "cost": 0.001
+  },
+  "ec_transfer_params": null,
+  "served_model_id": "qwen/qwen3.5-0.8b",
+  "backend": "vllm"
+}

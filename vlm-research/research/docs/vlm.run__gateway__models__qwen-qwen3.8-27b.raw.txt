@@ -1,0 +1,169 @@
+Qwen3.8 27B | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+Alibaba
+Qwen3.8 27B
+About
+Qwen3.8 27B is a 27B open-weight model from Alibaba. Reasoning VLM (image + video + text). It accepts text, images, and video. Context window is 164K. Released August 13, 2026.
+Parameters
+27B
+Published parameter count.
+Context window
+164K
+Tokens of context on a request.
+License
+Apache-2.0
+License on the weights.
+PricingCompareBenchmarksPerformanceInputsMethodsEstimate costQuick startResponse
+Model specifications
+ProviderAlibaba
+Type
+detectionchat
+Endpointqwen/qwen3.8-27b
+Parameters27B
+Context length164K
+Input price$0.35 / 1M tokens$0.05 (cached) / 1M
+Output price$2.55 / 1M tokens
+Inputs
+textimage_urlvideo_url
+LicenseApache-2.0
+ReleasedAugust 13, 2026
+Latency p508,462 ms p50
+Output tok/s230
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Input / 1M$0.35
+Cached input / 1M$0.05
+Output / 1M$2.55
+Compare
+Qwen3.8 27B is one of the catalog's chat models. The table is each model's published price, size, and context.
+ModelWhat it doesPriceParametersContext
+Qwen3.8 27BReasoning VLM (image + video + text)$0.35 / 1M input27B164K
+Qwen3.5 0.8BMultimodal chat model with up to 64 images or one video per request.$0.08 / 1M input0.8B256K
+Gemini 3.5 Flash LiteFastest and cheapest Gemini tier. Multimodal chat; emits no reasoning tokens.$0.30 / 1M input—1M
+Gemini 3.7 FlashNewest Gemini Flash tier with extended reasoning. Multimodal chat + native video.$0.75 / 1M input—1M
+Benchmarks
+Published scores for Qwen3.8 27B, from the Qwen3.8 model card.
+Evals
+OmniDocBench 1.591.1
+RealWorldQA85.9
+CharXiv (RQ)83.7
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeOmniDocBench 1.5: 91.1.
+Cost and performanceLower listed rate, mid-pack latency
+Performance
+Latency is the end-to-end round trip. Throughput is completion tokens divided by that time. It is a request rate, not decode speed.
+LatencyMedian, end to end
+8,462 ms
+ThroughputMedian completion tokens per second
+230 tok/s
+RequestsCompleted, last 7 days
+69,453
+Supported inputs
+textYes
+Text-only prompts are accepted.
+image_urlYes
+Up to 64 per request, read together as one prompt. See Image Inputs.
+video_urlYes
+One clip. Tune sampling with video_fps, video_max_frames, and video_resolution at the top level. See Video Inputs.
+document_urlNo
+A document_url part is a 400 capability error. Use an OCR model such as paddleocr/pp-ocrv6 for PDFs.
+Default and only method: free-form chat (no method or method_params). response_format={"type":"json_schema"} is supported.
+Context window 256K tokens. On the catalog it reports provider: "vlm-run".
+Weights: Inferact/Qwen3.8-27B-NVFP4, based on upstream Qwen/Qwen3.8-27B. Alias: Qwen/Qwen3.8-27B.
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+chat (default)The model's reply, verbatim
+A chat VLM is pass-through. Text mode returns the reply with no wrapper, even with several images: the model reads them together and produces one reply. JSON mode returns the model's own JSON, with no data envelope. See Methods & Response Format.
+Estimate cost
+Estimate. An hour of video is 15 frames a minute at 256 tokens a frame, plus the audio in that request, and 500 output tokens a minute.
+Hours of video
+$197.46
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jsCLIcURL
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+response = client.chat.completions.create(
+model="qwen/qwen3.8-27b",
+messages=[
+{
+"role": "user",
+"content": [
+{"type": "text", "text": "What is happening in this image?"},
+{
+"type": "image_url",
+"image_url": {
+"url": "https://storage.googleapis.com/vlm-data-public-prod/hub/examples/image.caption/car.jpg"
+},
+},
+],
+}
+],
+)
+print(response.choices[0].message.content)
+Response
+Text modeJSON mode
+Copy
+A silver sedan is parked on a sunlit street beside a row of trees.
+For video, pass a video_url part and tune sampling with video_fps / video_max_frames. See Video Inputs.
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

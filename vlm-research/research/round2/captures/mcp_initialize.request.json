@@ -1,0 +1,18 @@
+{
+  "url": "https://gateway.vlm.run/mcp",
+  "method": "POST",
+  "auth": "Bearer [REDACTED]",
+  "body": {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "initialize",
+    "params": {
+      "protocolVersion": "2025-03-26",
+      "capabilities": {},
+      "clientInfo": {
+        "name": "vlm-catalog-research",
+        "version": "2.0"
+      }
+    }
+  }
+}

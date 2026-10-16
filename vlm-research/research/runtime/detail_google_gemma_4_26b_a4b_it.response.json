@@ -1,0 +1,65 @@
+{
+  "id": "google/gemma-4-26b-a4b-it",
+  "hf_model_id": "nvidia/Gemma-4-26B-A4B-NVFP4",
+  "name": "Gemma 4 26B-A4B Instruct",
+  "description": "Google Gemma 4 26B MoE (4B active), instruction-tuned. Text, up to 64 images, or one video per request.",
+  "task": "chat",
+  "context_length": 81920,
+  "architecture": {
+    "input_modalities": [
+      "text",
+      "image",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "modality": "text+image+video->text"
+  },
+  "capabilities": {
+    "max_images": 64,
+    "max_videos": 1,
+    "supports_text_only": true,
+    "supports_document_url": false,
+    "supports_json_object": true,
+    "supports_json_schema": true,
+    "supported_input_types": [
+      "text",
+      "image_url",
+      "video_url"
+    ]
+  },
+  "aliases": [
+    "google/gemma-4-26B-A4B-it",
+    "nvidia/Gemma-4-26B-A4B-NVFP4"
+  ],
+  "methods": [
+    "chat"
+  ],
+  "supported_parameters": [
+    "temperature",
+    "top_p",
+    "top_k",
+    "min_p",
+    "seed",
+    "max_tokens",
+    "max_completion_tokens",
+    "stop",
+    "presence_penalty",
+    "frequency_penalty",
+    "repetition_penalty",
+    "logprobs",
+    "top_logprobs",
+    "response_format",
+    "stream",
+    "stream_options"
+  ],
+  "pricing": {
+    "prompt": 0.1,
+    "completion": 0.3,
+    "input_cache_read": 0.05,
+    "input_cache_write": 0.0,
+    "image": 0.0,
+    "video": 0.0
+  }
+}

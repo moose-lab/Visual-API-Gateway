@@ -1,0 +1,29 @@
+{
+  "method": "POST",
+  "url": "https://api.vlm.run/v1/agent/execute",
+  "auth": "Bearer [REDACTED]",
+  "body": {
+    "name": "round3-fallback-test",
+    "model": "vlmrun-orion-2:auto",
+    "batch": true,
+    "inputs": {
+      "text": "Return the greeting ROUND3_HELLO."
+    },
+    "config": {
+      "mode": "program",
+      "prompt": "Return exactly {\"response\":\"ROUND3_HELLO\"} using the supplied skill.",
+      "skills": [
+        {
+          "type": "inline",
+          "name": "round3-greeting-test",
+          "source": {
+            "type": "base64",
+            "media_type": "application/zip",
+            "data": "UEsDBBQAAAAIAGZ+TV0sD/QxYgAAAIYAAAALAAAAc2NoZW1hLmpzb26r5lJQUCqpLEhVslJQyk/KSk0uUdIBiRUU5RekFpVkphYDZaqVilKLC/LzilPBHJj64pKizLx0pdpasI6i1MLSzKLUFKBMNEJ9LFguMSUlsyQzPy8xJwDZ3LTEnOJUrlouAFBLAwQUAAAACABmfk1dWMLhra8AAADqAAAACAAAAFNLSUxMLm1kNY4xCwIxDIX3/opws3Vxu1nBQRREZ6lt7ixem5LmRBH/uyniFl4e3/estSa7hD0wzTms7MiIEvNoBauYgNVzLBIp93BEmTlXcDDEJwb4V2Eg1rAwjeySTRQQBjdNV+fvgM+CHBNmWRqrMnO6xQqxUSby2nqBm+VGrMCmbGzV4AIyiZYYPT2wfZUfZt+mtDMVBf4WqcN5UdC7Y6yFcsWu746H8369umw3u92h+yzNF1BLAwQUAAAACABmfk1dwwbQnE8AAABVAAAACwAAAHZsbXJ1bi55YW1sHcsxDoAgDADAva/gA2h07EPcG2miSaGkFBbj3yXud1Tvg63dWjAMyYv1so6NpF4EmZ0SOWF4XsiaWH4zSVSbI+5I3RVcVRp7Q4jhVGP4AFBLAQIUABQAAAAIAGZ+TV0sD/QxYgAAAIYAAAALAAAAAAAAAAAAAACAAQAAAABzY2hlbWEuanNvblBLAQIUABQAAAAIAGZ+TV1YwuGtrwAAAOoAAAAIAAAAAAAAAAAAAACAAYsAAABTS0lMTC5tZFBLAQIUABQAAAAIAGZ+TV3DBtCcTwAAAFUAAAALAAAAAAAAAAAAAACAAWABAAB2bG1ydW4ueWFtbFBLBQYAAAAAAwADAKgAAADYAQAAAAA="
+          }
+        }
+      ]
+    }
+  },
+  "headers": {}
+}

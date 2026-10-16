@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:52:45.357550+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/microsoft/florence-2-base-ft",
+  "status": 200,
+  "elapsed_seconds": 3.329,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:52:47 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "3decd1c5-0a6e-4a51-98c1-c0e99183d897"
+  },
+  "response_sha256": "123ba85858721112f7890fedda413b47beff98ae653e5b30529cda604df2dae1",
+  "response_bytes": 860
+}

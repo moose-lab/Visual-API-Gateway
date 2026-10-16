@@ -1,0 +1,147 @@
+# VLM Run
+
+> One API key for every visual model. Send a document or an image, get JSON back.
+
+- [Introduction](https://docs.vlm.run/gateway/introduction.md): The open-weight visual intelligence platform you can own, behind one OpenAI-compatible API.
+- [Quickstart](https://docs.vlm.run/gateway/quickstart.md): Prerequisites and first requests for VQA, video Q&A, and document OCR
+- [Authentication](https://docs.vlm.run/gateway/authentication.md): Authenticate requests to the VLM Run Gateway API
+- [Pricing](https://docs.vlm.run/gateway/pricing.md): How the Gateway bills a request. Live rates are on the model catalog.
+- [Rate Limits](https://docs.vlm.run/gateway/rate-limits.md): Shared per-user budgets on public routes
+- [Error Codes](https://docs.vlm.run/gateway/error-codes.md): HTTP errors from the Gateway API.
+- [Visual Intelligence](https://docs.vlm.run/gateway/visual-intelligence.md): VQA, detection, segmentation, pose, and document OCR through the OpenAI chat route
+- [Models](https://docs.vlm.run/gateway/models.md): Gateway models live on the catalog.
+- [Methods](https://docs.vlm.run/gateway/methods.md): Select what the model computes with method and method_params
+- [Response Formats](https://docs.vlm.run/gateway/response-formats.md): Text mode for agents, JSON mode and JSON schema mode for programmatic APIs
+- [Supported Inputs](https://docs.vlm.run/gateway/multimodal-inputs.md): Content part types, per-modality limits, and format tradeoffs
+- [Response Types](https://docs.vlm.run/gateway/response-types.md): Every payload type the Gateway returns for OCR, detection, segmentation, and keypoints
+- [OpenAI SDK Compatibility](https://docs.vlm.run/gateway/openai-compatibility.md): Point an existing OpenAI SDK client at the VLM Run Gateway
+- [System One](https://docs.vlm.run/gateway/system-one.md): Typed, calibrated decisions over text, JSON, and images in a single read
+- [Models](https://docs.vlm.run/gateway/typesafe-models.md): The engines that answer typed, calibrated decisions
+- [Streaming](https://docs.vlm.run/gateway/typesafe-streaming.md): Typed decisions per frame, over one WebSocket
+- [TypeSafe SDK Compatibility](https://docs.vlm.run/gateway/jev-compatibility.md): Point an existing TypeSafe SDK client at the VLM Run Gateway
+- [MCP Server](https://docs.vlm.run/gateway/mcp-server.md): Connect any MCP-aware agent to the VLM Run Gateway over Streamable HTTP
+- [MCP Authentication](https://docs.vlm.run/gateway/mcp-authentication.md): Bearer tokens, OAuth, and discovery for the Gateway MCP server
+- [Connect an Agent](https://docs.vlm.run/gateway/mcp-clients.md): Client configs for Claude Code, Claude Desktop, Cursor, and agent frameworks
+- [MCP Tools](https://docs.vlm.run/gateway/mcp-tools.md): read_document, read_image, read_audio, and read_video
+- [MCP Reference](https://docs.vlm.run/gateway/mcp-reference.md): list_models, get_model_info, get_completion, the return shape, and errors
+- [FAQ](https://docs.vlm.run/gateway/faq.md): Auth, inputs, cost, limits, platforms, and data handling
+- [Skills](https://docs.vlm.run/gateway/skills.md): Install the vlmrun-gw skill so coding agents call the Gateway
+- [Changelog](https://docs.vlm.run/gateway/changelog.md): Monthly Gateway highlights: models, features, billing, and limits.
+- [Introduction](https://docs.vlm.run/agents/introduction.md): Orion is a visual agent: it plans, runs vision tools, and returns the result.
+- [Chat with Orion](https://docs.vlm.run/agents/chat.md): Upload images, documents, video, or audio and ask in natural language.
+- [Pricing](https://docs.vlm.run/pricing.md): Dollar and token based pricing for VLM Run Orion agents.
+- [Toolsets](https://docs.vlm.run/agents/toolsets.md): The vision tools Orion runs, grouped by the media you send.
+- [Code Execution](https://docs.vlm.run/agents/code-execution.md): Orion-2 sandbox for composable visual pipelines
+- [Multi-modal Inputs](https://docs.vlm.run/agents/inputs.md): Encode text, images, video, audio, and files as MessageContent.
+- [Structured Responses](https://docs.vlm.run/agents/structured-responses.md): Agents return JSON via chat completions, with schema validation.
+- [Multi-modal Artifacts](https://docs.vlm.run/agents/artifacts.md): Retrieve generated images, videos, audio, and documents from agent responses
+- [Supported Files](https://docs.vlm.run/supported-files.md): File formats supported by VLM Run for document, image, video, and audio processing.
+- [Orion Skills](https://docs.vlm.run/skills/introduction.md): Modular, reusable capabilities for visual extraction and agent workflows
+- [Quickstart](https://docs.vlm.run/skills/quickstart.md): Use a skill to extract structured data in under 2 minutes
+- [Reference](https://docs.vlm.run/skills/reference.md): AgentSkill object and skill specification reference
+- [Model Request](https://docs.vlm.run/skills/usage/generation.md): Use skills with model requests
+- [Agent Execution](https://docs.vlm.run/skills/usage/agent.md): Use skills with the agent execution endpoint
+- [Chat Completions](https://docs.vlm.run/skills/usage/chat.md): Use skills with the chat completions endpoint
+- [Version Pinning](https://docs.vlm.run/skills/usage/version-pinning.md): Pin skill versions for reproducible results
+- [Create Skills](https://docs.vlm.run/skills/manage/create.md): From a skill folder, a prompt, or a chat session
+- [List & Lookup](https://docs.vlm.run/skills/manage/list-lookup.md): List and search for available skills
+- [Update Skills](https://docs.vlm.run/skills/manage/update.md): Create new versions of existing skills
+- [Skill Structure](https://docs.vlm.run/skills/spec/overview.md): How a skill directory is organized
+- [SKILL.md](https://docs.vlm.run/skills/spec/skill-md.md): Skill metadata and instructions format
+- [vlmrun.yaml](https://docs.vlm.run/skills/spec/vlmrun-yaml.md): Execution configuration for agent-powered skills
+- [schema.json](https://docs.vlm.run/skills/spec/schema-json.md): JSON Schema for validating skill output
+- [Platform](https://docs.vlm.run/platform/overview.md): Chat with visual agents, build skills, and observe every request.
+- [Chat](https://docs.vlm.run/platform/chat.md): Upload files, pick a skill, and stream replies from Orion
+- [Settings](https://docs.vlm.run/platform/settings.md): API keys, team members, and billing.
+- [Webhooks](https://docs.vlm.run/webhooks.md): Receive real-time notifications when your async processing jobs complete
+- [Observe](https://docs.vlm.run/platform/observe/overview.md): Requests, executions, completions, and usage metrics.
+- [Requests](https://docs.vlm.run/platform/observe/requests.md): View, filter, and inspect API requests
+- [Executions](https://docs.vlm.run/platform/observe/executions.md): Status, duration, credits, and feedback for agent and skill runs
+- [Completions](https://docs.vlm.run/platform/observe/completions.md): Review model, tokens, status, latency, and credits
+- [Evaluations](https://docs.vlm.run/platform/observe/evaluations.md): Measure skill, agent, and request-domain accuracy using feedback as ground truth.
+- [OpenAI Compatibility](https://docs.vlm.run/agents/integrations/integrations-openai-compatibility.md): Run VLM Run Agents with the OpenAI Python SDK.
+- [Instructor Compatibility](https://docs.vlm.run/agents/integrations/integrations-instructor.md): Use the Instructor Python SDK with the OpenAI-compatible API.
+- [Mastra Compatibility](https://docs.vlm.run/agents/integrations/integrations-mastra.md): Use Orion-2 with Mastra and hybrid client tools.
+- [Pydantic AI Compatibility](https://docs.vlm.run/agents/integrations/integrations-pydantic-ai.md): Orion-2 document, image, audio, and video work with hybrid client tools.
+- [Zapier](https://docs.vlm.run/integrations/integrations-zapier.md)
+- [n8n](https://docs.vlm.run/integrations/integrations-n8n.md)
+- [Voxel51 FiftyOne](https://docs.vlm.run/integrations/integrations-voxel51.md)
+- [MongoDB](https://docs.vlm.run/integrations/integrations-mongodb.md)
+- [Document OCR](https://docs.vlm.run/gateway/guides/document-ocr.md): Send a PDF, choose a method, and read each page
+- [Document Classification](https://docs.vlm.run/gateway/guides/document-classification.md): Route documents by kind, with calibrated probabilities you can threshold on
+- [Parsing Documents](https://docs.vlm.run/guides/doc-ai/guide-parsing-documents.md): Extract structured data from long documents and reports.
+- [Classifying Documents](https://docs.vlm.run/guides/doc-ai/guide-classifying-documents.md): Classify invoices, bank statements, and utility bills.
+- [Document Redaction & Edit](https://docs.vlm.run/guides/doc-ai/guide-document-redaction.md): Blur or replace sensitive fields with /document/generate.
+- [Parsing Invoices](https://docs.vlm.run/guides/doc-ai/guide-parsing-invoices.md): Extract structured data from invoices.
+- [Parsing Intake Forms](https://docs.vlm.run/guides/doc-ai/guide-healthcare-parsing-intake-forms.md): Extract structured data from patient referrals, intake forms, and insurance cards.
+- [Providing Feedback](https://docs.vlm.run/guides/feedback.md): Improve model performance through feedback collection and fine-tuning.
+- [Classifying Images](https://docs.vlm.run/guides/image-ai/guide-classifying-images.md): Classify an image into custom categories with vlm-1.
+- [Cataloging Images](https://docs.vlm.run/guides/image-ai/guide-cataloging-images.md): Generate captions, tags, and descriptions from images.
+- [Transcribing Video](https://docs.vlm.run/guides/video-ai/guide-video-transcription.md): Transcribe hours-long video into timed segments with speech and scene descriptions.
+- [Transcribing Audio](https://docs.vlm.run/guides/audio-ai/guide-audio-transcription.md): Transcribe long-form audio into timestamped segments.
+- [Health](https://docs.vlm.run/gateway/api-reference/get-health.md): VLM Run Gateway liveness check
+- [Chat Completions](https://docs.vlm.run/gateway/api-reference/post-chat-completions.md): OpenAI-compatible OCR, VQA, and document inference
+- [List Models](https://docs.vlm.run/gateway/api-reference/get-models.md): Available Gateway models and their capabilities
+- [Get Model](https://docs.vlm.run/gateway/api-reference/get-model-by-id.md): One gateway model and its capabilities
+- [Embeddings](https://docs.vlm.run/gateway/api-reference/post-embeddings.md): OpenAI-compatible text and image inputs
+- [Audio Transcriptions](https://docs.vlm.run/gateway/api-reference/post-audio-transcriptions.md): OpenAI-compatible speech-to-text
+- [System One](https://docs.vlm.run/gateway/api-reference/post-systemone.md): Typed, calibrated decisions over text, JSON, and images
+- [List Models](https://docs.vlm.run/gateway/api-reference/get-typesafe-models.md): Current TypeSafe-compatible models on the /typesafe route
+- [Overview](https://docs.vlm.run/api-reference/index.md)
+- [Health](https://docs.vlm.run/api-reference/v1/health.md): Health check endpoint.
+- [List models](https://docs.vlm.run/api-reference/v1/get-models.md): Get the list of supported models.
+- [Image → JSON](https://docs.vlm.run/api-reference/v1/post-image-generate.md): Generate structured prediction for the given image.
+- [Doc → JSON](https://docs.vlm.run/api-reference/v1/post-document-generate.md): Generate structured prediction for the given document.
+- [Audio → JSON](https://docs.vlm.run/api-reference/v1/post-audio-generate.md): Generate structured prediction for the given audio file.
+- [Video → JSON](https://docs.vlm.run/api-reference/v1/post-video-generate.md): Generate structured prediction for the given video file.
+- [Get Prediction by ID](https://docs.vlm.run/api-reference/v1/predictions/get-predictions-by-id.md): Get prediction JSON by request ID.
+- [Get Predictions](https://docs.vlm.run/api-reference/v1/predictions/get-predictions-list.md): Get all predictions uploaded by the user with pagination.
+- [Upload File](https://docs.vlm.run/api-reference/v1/files/post-file-upload.md): Upload a file.
+- [Get File by ID](https://docs.vlm.run/api-reference/v1/files/get-files-by-id.md): Get a file by ID.
+- [List Files](https://docs.vlm.run/api-reference/v1/files/get-files-list.md): Get all files uploaded by the user with pagination.
+- [Delete File](https://docs.vlm.run/api-reference/v1/files/delete-file.md): Delete a file by ID. Only available for Pro and Enterprise users.
+- [Get Artifact](https://docs.vlm.run/api-reference/v1/get-artifact-by-id.md): Retrieve an artifact by session ID or execution ID.
+- [Submit Feedback](https://docs.vlm.run/api-reference/v1/post-submit-feedback.md): Submit feedback for a request, execution, or chat by its ID.
+- [Getting Started](https://docs.vlm.run/sdk-reference/getting-started.md): Install the Python SDK and call the API.
+- [SDK Overview](https://docs.vlm.run/sdk-reference/components/overview.md): Domains, predictions, and schemas in the Python SDK
+- [Client Reference](https://docs.vlm.run/sdk-reference/components/client.md): Configure and call the Python SDK client.
+- [client.agent](https://docs.vlm.run/sdk-reference/components/agent.md): Agent Chat Completions
+- [client.files](https://docs.vlm.run/sdk-reference/components/files.md): Manage files with the VLM Run Python SDK
+- [client.models](https://docs.vlm.run/sdk-reference/components/models.md): Models API Reference
+- [client.hub](https://docs.vlm.run/sdk-reference/components/hub.md): Hub API Reference
+- [client.image](https://docs.vlm.run/sdk-reference/predictions/image.md): Image Processing API
+- [client.document](https://docs.vlm.run/sdk-reference/predictions/document.md): Document Processing API
+- [client.audio](https://docs.vlm.run/sdk-reference/predictions/audio.md): Audio Processing API
+- [client.video](https://docs.vlm.run/sdk-reference/predictions/video.md): Video Processing API
+- [client.predictions](https://docs.vlm.run/sdk-reference/components/predictions.md): Manage predictions with the VLM Run Python SDK
+- [client.gateway](https://docs.vlm.run/sdk-reference/components/gateway.md): OpenAI-compatible OCR / VLM model gateway
+- [Getting Started](https://docs.vlm.run/sdk-reference/node/getting-started.md): Install the Node.js SDK and call the API.
+- [client](https://docs.vlm.run/sdk-reference/node/components/client.md): Node.js SDK options and typed errors
+- [client.agent](https://docs.vlm.run/sdk-reference/node/components/agent.md): Chat completions and named-agent execution.
+- [client.files](https://docs.vlm.run/sdk-reference/node/components/files.md): Upload and manage files.
+- [client.models](https://docs.vlm.run/sdk-reference/node/components/models.md): List available models
+- [client.hub](https://docs.vlm.run/sdk-reference/node/components/hub.md): Version, domains, and schemas.
+- [client.image](https://docs.vlm.run/sdk-reference/node/predictions/image.md): Generate image predictions from URLs, local files, or a Zod schema.
+- [client.document](https://docs.vlm.run/sdk-reference/node/predictions/document.md): Process documents from a file ID or URL.
+- [client.audio](https://docs.vlm.run/sdk-reference/node/predictions/audio.md): Audio predictions from a file ID or URL.
+- [client.video](https://docs.vlm.run/sdk-reference/node/predictions/video.md): Process a video file or URL.
+- [client.predictions](https://docs.vlm.run/sdk-reference/node/components/predictions.md): Get, list, wait, and record feedback.
+- [client.gateway](https://docs.vlm.run/sdk-reference/node/components/gateway.md): OpenAI-compatible OCR and VLM model gateway
+- [Getting Started](https://docs.vlm.run/cli/getting-started.md): Install and configure the VLM Run CLI
+- [config](https://docs.vlm.run/cli/config.md): Manage CLI configuration
+- [files](https://docs.vlm.run/cli/files.md): Upload, list, retrieve, and delete files
+- [skills](https://docs.vlm.run/cli/skills.md): Create, list, lookup, update, and download skills
+- [gateway](https://docs.vlm.run/cli/gateway.md): Run OpenAI-compatible OCR / VLM models
+- [chat](https://docs.vlm.run/cli/gateway/chat.md): Run OCR and VLM models on the VLM Run Gateway
+- [systemone](https://docs.vlm.run/cli/gateway/systemone.md): Typed, calibrated decisions from the CLI
+- [chat](https://docs.vlm.run/cli/chat.md): Process images, videos, and documents with Orion
+- [execute](https://docs.vlm.run/cli/execute.md): Execute agents with files, skills, and structured output
+- [executions](https://docs.vlm.run/cli/executions.md): List and retrieve agent execution results
+
+## OpenAPI Specs
+
+- [openapi](https://api.vlm.run/openapi.json)
+- [openapi](https://gateway.vlm.run/openapi.json)
+
+
+This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.

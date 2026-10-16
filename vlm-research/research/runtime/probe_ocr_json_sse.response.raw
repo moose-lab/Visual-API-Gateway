@@ -1,0 +1,18 @@
+data: {"id": "chatcmpl-5d3249ebca634380bb71181e6df", "object": "chat.completion.chunk", "created": 1791700353, "model": "paddleocr/pp-ocrv6", "choices": [{"index": 0, "delta": {"role": "assistant"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-5d3249ebca634380bb71181e6df", "object": "chat.completion.chunk", "created": 1791700353, "model": "paddleocr/pp-ocrv6", "choices": [{"index": 0, "delta": {"content": "{\"model\":\"paddleocr/pp-ocrv6\",\"method\":\"ocr\",\"image_hash\":\"sha256:33d917645e2975fe5b727c88c2c06ae65ed94b734452e814fa51852c3d9fc15c\",\"image_width\":720,\"image_height\":220,\"content\":{\"object\":\"doc.ocr.lines\",\"items\":[{\"bbox_xywh\":[0.0306,0.1182,0.4764,0.15],\"text\":\"VLM"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-5d3249ebca634380bb71181e6df", "object": "chat.completion.chunk", "created": 1791700353, "model": "paddleocr/pp-ocrv6", "choices": [{"index": 0, "delta": {"content": " RESEARCH"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-5d3249ebca634380bb71181e6df", "object": "chat.completion.chunk", "created": 1791700353, "model": "paddleocr/pp-ocrv6", "choices": [{"index": 0, "delta": {"content": " TEST\",\"poly_xy\":[[0.0306,0.1182],[0.5069,0.1182],[0.5069,0.2682],[0.0306,0.2682]],\"score\":0.9989},{\"bbox_xywh\":[0.0306,0.3909,0.3736,0.1545],\"text\":\"Invoice:"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-5d3249ebca634380bb71181e6df", "object": "chat.completion.chunk", "created": 1791700353, "model": "paddleocr/pp-ocrv6", "choices": [{"index": 0, "delta": {"content": " TEST-042\",\"poly_xy\":[[0.0306,0.3909],[0.4042,0.3909],[0.4042,0.5455],[0.0306,0.5455]],\"score\":0.9859},{\"bbox_xywh\":[0.0278,0.6636,0.3486,0.1545],\"text\":\"Total:"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-5d3249ebca634380bb71181e6df", "object": "chat.completion.chunk", "created": 1791700353, "model": "paddleocr/pp-ocrv6", "choices": [{"index": 0, "delta": {"content": " USD"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-5d3249ebca634380bb71181e6df", "object": "chat.completion.chunk", "created": 1791700353, "model": "paddleocr/pp-ocrv6", "choices": [{"index": 0, "delta": {"content": " 12.50\",\"poly_xy\":[[0.0278,0.6636],[0.3764,0.6636],[0.3764,0.8182],[0.0278,0.8182]],\"score\":0.9997}]}}"}, "finish_reason": null}]}
+
+data: {"id": "chatcmpl-5d3249ebca634380bb71181e6df", "object": "chat.completion.chunk", "created": 1791700353, "model": "paddleocr/pp-ocrv6", "choices": [{"index": 0, "delta": {}, "finish_reason": "stop"}], "usage": {"prompt_tokens": 256, "completion_tokens": 13, "total_tokens": 269, "prompt_tokens_details": {"cached_tokens": 0}, "cost": 0.001}}
+
+data: [DONE]
+

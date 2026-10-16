@@ -1,0 +1,6 @@
+{
+  "url": "https://api.vlm.run/v1/artifacts?session_id=round3-nonexistent&limit=5",
+  "method": "GET",
+  "auth": "Bearer [REDACTED]",
+  "body": null
+}

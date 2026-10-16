@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/microsoft/florence-2-base-ft",
+  "auth": "Bearer [REDACTED]",
+  "body": null
+}

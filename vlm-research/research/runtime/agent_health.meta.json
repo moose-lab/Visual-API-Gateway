@@ -1,0 +1,14 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:23:45.463569+00:00",
+  "method": "GET",
+  "url": "https://api.vlm.run/v1/openai/health",
+  "status": 200,
+  "elapsed_seconds": 1.278,
+  "headers": {
+    "Content-Type": "application/json",
+    "Date": "Sun, 11 Oct 2026 06:23:46 GMT"
+  },
+  "response_sha256": "a29ee2b15c494311c52521766e44af56a3ad2248e7a8ab465e5206463c13d288",
+  "response_bytes": 15
+}

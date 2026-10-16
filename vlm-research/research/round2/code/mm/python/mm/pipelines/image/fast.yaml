@@ -1,0 +1,23 @@
+kind: image
+mode: fast
+
+encode:
+  strategy: resize
+  strategy_opts:
+    max_width: 512
+
+generate:
+  prompt: >-
+    Describe this image in 10 words or less.
+    Then list exactly 5 keyword tags.
+
+    ## FORMAT
+    --description--
+
+    Tags: Up to 5 keyword tags
+
+    Example:
+    A cat sitting on a windowsill.
+
+    Tags: cat, windowsill, sunlight, pet, animal
+  max_tokens: 256

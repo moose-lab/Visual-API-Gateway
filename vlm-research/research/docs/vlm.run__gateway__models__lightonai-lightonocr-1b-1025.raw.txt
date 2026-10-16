@@ -1,0 +1,116 @@
+LightOnOCR | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+LightOn
+LightOnOCR
+About
+LightOnOCR is a 1B open-weight model from LightOn. Compact document VLM. It accepts text and images. Context window is 8K. Released October 20, 2025.
+Parameters
+1B
+Published parameter count.
+Context window
+8K
+Tokens of context on a request.
+License
+Apache-2.0
+License on the weights.
+PricingBenchmarksMethodsQuick start
+Model specifications
+ProviderLightOn
+Type
+markdown
+Endpointlightonai/lightonocr-1b-1025
+Parameters1B
+Context length8K
+Input / 1M—
+Output / 1M—
+Inputs
+textimage_url
+LicenseApache-2.0
+ReleasedOctober 20, 2025
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Input / 1M—
+Output / 1M—
+Benchmarks
+Published scores for LightOnOCR, from the LightOnOCR post.
+Evals
+olmOCR-Bench overall76.1
+olmOCR-Bench arXiv81.4
+olmOCR-Bench tables76.4
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeolmOCR-Bench overall: 76.1.
+Cost and performanceLower listed rate, mid-pack latency
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+markdownThe page as Markdown
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jscURLCLI
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+response = client.chat.completions.create(
+model="lightonai/lightonocr-1b-1025",
+messages=[{"role": "user", "content": "What is in this image?"}],
+)
+print(response.choices[0].message.content)
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:40:05.039865+00:00",
+  "url": "https://huggingface.co/AxionML/Qwen3.5-0.8B-NVFP4/resolve/2ac1e750cda67cc8538d731f6216f77b9c3a6f72/README.md",
+  "method": "GET",
+  "status": 200,
+  "final_url": "https://huggingface.co/api/resolve-cache/models/AxionML/Qwen3.5-0.8B-NVFP4/2ac1e750cda67cc8538d731f6216f77b9c3a6f72/README.md?%2FAxionML%2FQwen3.5-0.8B-NVFP4%2Fresolve%2F2ac1e750cda67cc8538d731f6216f77b9c3a6f72%2FREADME.md=&etag=%22483a1f0b94a48ee1a0cc743e4a6b5055c13b62f0%22",
+  "response_sha256": "68e551493f7e54c54e91686aee396dd323cfad1ab44d16c7373838cd6c964ce1",
+  "response_bytes": 33481,
+  "headers": {
+    "Content-Type": "text/plain; charset=utf-8",
+    "Date": "Mon, 12 Oct 2026 20:51:45 GMT",
+    "X-Request-Id": "Root=1-6acd4861-285e507241fb212d1441cdef"
+  },
+  "elapsed_seconds": 2.491
+}

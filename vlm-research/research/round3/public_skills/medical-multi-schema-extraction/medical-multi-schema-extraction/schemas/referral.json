@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "patient", "reasonForReferral"],
+  "properties": {
+    "type": {"type": "string", "const": "referral"},
+    "dateOfReferral": {
+      "type": ["string", "null"],
+      "description": "Referral date in YYYY-MM-DD format."
+    },
+    "reasonForReferral": {
+      "type": ["string", "null"],
+      "description": "Clinical reason or specialty requested for the referral."
+    },
+    "patient": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["givenName", "familyName"],
+      "properties": {
+        "givenName": {"type": ["string", "null"]},
+        "familyName": {"type": ["string", "null"]},
+        "dateOfBirth": {
+          "type": ["string", "null"],
+          "description": "Patient date of birth in YYYY-MM-DD format."
+        }
+      }
+    },
+    "referringProvider": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "givenName": {"type": ["string", "null"]},
+        "familyName": {"type": ["string", "null"]}
+      }
+    },
+    "receivingProvider": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "givenName": {"type": ["string", "null"]},
+        "familyName": {"type": ["string", "null"]},
+        "specialty": {"type": ["string", "null"]}
+      }
+    },
+    "schedulingPriority": {
+      "type": ["string", "null"],
+      "description": "Urgency: Routine, Urgent, or STAT/Emergent."
+    }
+  }
+}

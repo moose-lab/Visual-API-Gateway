@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-14T03:38:58.171507+00:00",
+  "url": "https://storage.googleapis.com/vlm-userdata-prod/agents/workspace/cf59c0d0-b8c5-4b56-9555-ba66fcf03fb1/5410a132-b564-428a-8d11-f9e7b80e3ef8/doc_25bfd5.pdf?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261014T033858Z&X-Goog-Expires=3600&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "7113a9198c2883372733da93df0116b77633cf5af8257e10a26231f00381e138",
+  "response_bytes": 822,
+  "headers": {
+    "Content-Type": "application/pdf",
+    "Date": "Wed, 14 Oct 2026 03:38:59 GMT",
+    "Server": "UploadServer"
+  },
+  "elapsed_seconds": 1.403
+}

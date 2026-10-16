@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T07:47:54.605969+00:00",
+  "url": "https://storage.googleapis.com/vlm-userdata-prod/files/13604ef1-4aac-4837-b925-a1dbdbfe397e/archive-20260722-Nrr2k_jV1co-medical-multi-schema-extraction.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T074754Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "697183e610286d99e47140ce0a4c70e0854281231096bf23ba912d8129286fce",
+  "response_bytes": 5520,
+  "headers": {
+    "Content-Type": "application/zip",
+    "Date": "Tue, 13 Oct 2026 07:47:55 GMT",
+    "Server": "UploadServer"
+  },
+  "elapsed_seconds": 1.165
+}

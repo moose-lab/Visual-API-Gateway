@@ -1,0 +1,587 @@
+[
+  {
+    "file": "chat__14299-0a52bd88d8ebdbad.js",
+    "hits": [
+      {
+        "offset": 178246,
+        "needle": "https://api",
+        "context": "ented\")}},nt=class{constructor(e){var t;this.client={apiKey:e.apiKey,baseURL:null!=(t=e.baseURL)?t:\"https://api.vlm.run/v1\",timeout:e.timeout,maxRetries:e.maxRetries},this.requestor=new rL(this.client),this.models=new rI(this.client),this.files=new r$({...this.client,timeout:0}),this.predictions=new rF(this.cl"
+      }
+    ]
+  },
+  {
+    "file": "chat__27292-c4c05ae0e224d68a.js",
+    "hits": [
+      {
+        "offset": 5003,
+        "needle": "prod-vlm",
+        "context": "d 0!==a?a:\"\");n.n({category:\"http\",message:l,data:t,level:o})},c=a.default.create({baseURL:\"https://prod-vlm-cloud-nfsnfpr33q-uc.a.run.app\",paramsSerializer:e=>{let t=new URLSearchParams;return Object.entries(e).forEach(e=>{let[r,n]=e;Array.isArray(n)?r.endsWith(\"__in\")?n.length>0&&t.append(r,n.join(\",\")):n"
+      },
+      {
+        "offset": 9874,
+        "needle": "prod-vlm",
+        "context": "return await i}finally{i=null}},d=async e=>{try{let{data:t}=await o.default.post(\"\".concat(\"https://prod-vlm-cloud-nfsnfpr33q-uc.a.run.app\",\"/api/v1/refresh-token\"),{refresh_token:e});return n.n({category:\"auth\",message:\"[auth] Token refresh succeeded\"}),(0,u.l9)(t),t}catch(e){return console.error(\"[auth] T"
+      },
+      {
+        "offset": 3615,
+        "needle": "/api/v1",
+        "context": "d(t,{w:function(){return a}});var n=r(31125);let a={getCurrentUserFeatures:async()=>(await n.Z.get(\"/api/v1/features/me\")).data,getFeatures:async e=>(await n.Z.get(\"/api/v1/features/\".concat(e))).data,updateFeatures:async(e,t)=>(await n.Z.patch(\"/api/v1/features/\".concat(e),t)).data}},36147:function(e,t,r)"
+      },
+      {
+        "offset": 3680,
+        "needle": "/api/v1",
+        "context": "rFeatures:async()=>(await n.Z.get(\"/api/v1/features/me\")).data,getFeatures:async e=>(await n.Z.get(\"/api/v1/features/\".concat(e))).data,updateFeatures:async(e,t)=>(await n.Z.patch(\"/api/v1/features/\".concat(e),t)).data}},36147:function(e,t,r){r.d(t,{Lq:function(){return i},Zd:function(){return u},eO:functi"
+      },
+      {
+        "offset": 3761,
+        "needle": "/api/v1",
+        "context": "e=>(await n.Z.get(\"/api/v1/features/\".concat(e))).data,updateFeatures:async(e,t)=>(await n.Z.patch(\"/api/v1/features/\".concat(e),t)).data}},36147:function(e,t,r){r.d(t,{Lq:function(){return i},Zd:function(){return u},eO:function(){return s}});var n=r(92850),a=r(29827),o=r(21770),l=r(18302);let u=function()"
+      },
+      {
+        "offset": 9915,
+        "needle": "/api/v1",
+        "context": "=>{try{let{data:t}=await o.default.post(\"\".concat(\"https://prod-vlm-cloud-nfsnfpr33q-uc.a.run.app\",\"/api/v1/refresh-token\"),{refresh_token:e});return n.n({category:\"auth\",message:\"[auth] Token refresh succeeded\"}),(0,u.l9)(t),t}catch(e){return console.error(\"[auth] Token refresh failed\",e),a.uT(\"token_refr"
+      }
+    ]
+  },
+  {
+    "file": "chat__4388-609d4193d71670a1.js",
+    "hits": [
+      {
+        "offset": 7868,
+        "needle": "/api/v1",
+        "context": "ole.error(o,\"POST /api/login unexpected error\",e);throw e}},s=async e=>{let{data:t}=await r.Z.post(\"/api/v1/login/account-exists\",{email:e});return!!(null==t?void 0:t.exists)}},58549:function(e,t,n){n.d(t,{f:function(){return o}});var r=n(21770),i=n(14856);let o=()=>(0,r.D)({mutationFn:e=>(0,i.x4)(e)})},49"
+      }
+    ]
+  },
+  {
+    "file": "chat__47156-78eb08e3d3098fe8.js",
+    "hits": [
+      {
+        "offset": 22100,
+        "needle": "/api/chat",
+        "context": "!==(n=null==t?void 0:t.useCache)&&void 0!==n?n:!o)?Z(e,o,i):B(e,o,i)}async function Z(e,t,n){let i=\"/api/chat-messages/\".concat(e),r=(0,o.YW)(e),a=await fetch(i,{method:\"GET\",headers:{\"Content-Type\":\"application/json\",...t?{Authorization:\"Bearer \".concat(t)}:{},...n?{\"X-Browser-Fingerprint\":n}:{},...r?{\"X-Se"
+      },
+      {
+        "offset": 12385,
+        "needle": "/api/agent",
+        "context": "wser_fingerprint\",t),t};var m=n(20061),g=n(70166),v=n(42783);async function h(e){let t=await fetch(\"/api/agent/playground-ticket\",{method:\"POST\",signal:e});if(!t.ok){let e=await t.text();throw Error(\"Failed to mint playground ticket (\".concat(t.status,\"): \").concat(e))}let n=await t.json();return\"string\"==typ"
+      },
+      {
+        "offset": 16601,
+        "needle": "chat/completions",
+        "context": "ll===(c=s.gatewayBearerToken)||void 0===c?void 0:c.trim())||\"vlmrun\",O=await b(\"\".concat(E,\"/openai/chat/completions\"),{method:\"POST\",headers:L?{\"Content-Type\":\"application/json\",Authorization:\"Bearer \".concat(F)}:{\"Content-Type\":\"application/json\",...i?{Authorization:\"Bearer \".concat(i),\"X-API-Base-URL\":E}:{},...D"
+      },
+      {
+        "offset": 20299,
+        "needle": "/api/v1",
+        "context": "arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},{skip:t=0,limit:n=20}=e,o=(await s.Z.get(\"/api/v1/chat-history\",{params:{skip:t,limit:n}})).data.map(e=>({...e,messages_count:e.messages_count||0,status:e.status})),i=o.filter(e=>!e.is_pinned);return{chats:o,total:o.length,hasMore:i.length===n}}asyn"
+      },
+      {
+        "offset": 20566,
+        "needle": "/api/v1",
+        "context": "otal:o.length,hasMore:i.length===n}}async function R(e){try{var t,n,o,i,r,a,l;let c=(await s.Z.get(\"/api/v1/chat-history/\".concat(e))).data;return{credit_cost:null!==(t=c.credit_cost)&&void 0!==t?t:null,cost_dollars:null!==(n=c.cost_dollars)&&void 0!==n?n:null,model_id:null!==(o=c.model_id)&&void 0!==o?o:n"
+      },
+      {
+        "offset": 21218,
+        "needle": "/api/v1",
+        "context": "o fetch metadata for session \".concat(e,\":\"),t),null}}async function j(e,t){let n=(await s.Z.patch(\"/api/v1/chat-history/\".concat(e,\"/pin\"),{is_pinned:t})).data;return{...n,messages_count:n.messages_count||0}}async function T(e,t){let n=(await s.Z.patch(\"/api/v1/chat-history/\".concat(e,\"/rename\"),{title:t}"
+      },
+      {
+        "offset": 21373,
+        "needle": "/api/v1",
+        "context": ".data;return{...n,messages_count:n.messages_count||0}}async function T(e,t){let n=(await s.Z.patch(\"/api/v1/chat-history/\".concat(e,\"/rename\"),{title:t})).data;return{...n,messages_count:n.messages_count||0}}async function C(e,t){let n=(await s.Z.patch(\"/api/v1/chat-history/\".concat(e,\"/share\"),{is_public:"
+      },
+      {
+        "offset": 21527,
+        "needle": "/api/v1",
+        "context": ".data;return{...n,messages_count:n.messages_count||0}}async function C(e,t){let n=(await s.Z.patch(\"/api/v1/chat-history/\".concat(e,\"/share\"),{is_public:t})).data;return t||E(e).catch(()=>{}),{...n,messages_count:n.messages_count||0}}async function E(e){try{await fetch(\"/api/purge-cache\",{method:\"POST\",hea"
+      },
+      {
+        "offset": 21861,
+        "needle": "/api/v1",
+        "context": "cation/json\"},body:JSON.stringify({sessionId:e})})}catch(e){}}async function L(e){await s.Z.delete(\"/api/v1/chat-history/\".concat(e))}async function M(e,t){var n;let o=localStorage.getItem(\"access_token\")||\"\",i=o?null:await p();return(null!==(n=null==t?void 0:t.useCache)&&void 0!==n?n:!o)?Z(e,o,i):B(e,o,i)"
+      },
+      {
+        "offset": 24482,
+        "needle": "/api/v1",
+        "context": ";return Array.isArray(null==t?void 0:t.data)?t.data:[]}async function U(e){try{let t=await s.Z.get(\"/api/v1/chat-history/\".concat(e));return{is_public:t.data.is_public,user_id:t.data.user_id}}catch(n){var t;let e=null==n?void 0:null===(t=n.response)||void 0===t?void 0:t.status;if(403===e||404===e)return{un"
+      }
+    ]
+  },
+  {
+    "file": "chat__54353-58d0299fb42b5010.js",
+    "hits": [
+      {
+        "offset": 67935,
+        "needle": "https://api",
+        "context": ",o=[\".lcl.dev\",\"lclstage.dev\",\".lclclerk.com\",\".accounts.lclclerk.com\"],s=[\".accountsstage.dev\"],a=\"https://api.lclclerk.com\",l=\"https://api.clerkstage.dev\",u=\"https://api.clerk.com\"},3323:function(e,t,r){function n(e){return function(t){let r=t??this;if(!r)throw TypeError(`${e.kind||e.name} type guard require"
+      },
+      {
+        "offset": 67964,
+        "needle": "https://api",
+        "context": ",\".lclclerk.com\",\".accounts.lclclerk.com\"],s=[\".accountsstage.dev\"],a=\"https://api.lclclerk.com\",l=\"https://api.clerkstage.dev\",u=\"https://api.clerk.com\"},3323:function(e,t,r){function n(e){return function(t){let r=t??this;if(!r)throw TypeError(`${e.kind||e.name} type guard requires an error object`);return!!e"
+      },
+      {
+        "offset": 67995,
+        "needle": "https://api",
+        "context": "clerk.com\"],s=[\".accountsstage.dev\"],a=\"https://api.lclclerk.com\",l=\"https://api.clerkstage.dev\",u=\"https://api.clerk.com\"},3323:function(e,t,r){function n(e){return function(t){let r=t??this;if(!r)throw TypeError(`${e.kind||e.name} type guard requires an error object`);return!!e.kind&&\"object\"==typeof r&&null"
+      }
+    ]
+  },
+  {
+    "file": "chat__56254-9fb77e6ce2b8ea25.js",
+    "hits": [
+      {
+        "offset": 64118,
+        "needle": "/api/v1",
+        "context": "n,s,a,l)=>{let i={limit:e,offset:t,order_by:n,descending:s,agent_id:a,...l},{data:o}=await r.Z.get(\"/api/v1/agent-executions\",{params:i});return o},a=async e=>{let{data:t}=await r.Z.get(\"/api/v1/agent-executions/\".concat(e));return t},l=async e=>{try{let{data:t}=await r.Z.get(\"/api/v1/agent-executions/\".co"
+      },
+      {
+        "offset": 64205,
+        "needle": "/api/v1",
+        "context": "ait r.Z.get(\"/api/v1/agent-executions\",{params:i});return o},a=async e=>{let{data:t}=await r.Z.get(\"/api/v1/agent-executions/\".concat(e));return t},l=async e=>{try{let{data:t}=await r.Z.get(\"/api/v1/agent-executions/\".concat(e,\"/run-cost\"));return t}catch(e){if(\"object\"==typeof e&&null!==e&&\"response\"in e)"
+      },
+      {
+        "offset": 64296,
+        "needle": "/api/v1",
+        "context": "r.Z.get(\"/api/v1/agent-executions/\".concat(e));return t},l=async e=>{try{let{data:t}=await r.Z.get(\"/api/v1/agent-executions/\".concat(e,\"/run-cost\"));return t}catch(e){if(\"object\"==typeof e&&null!==e&&\"response\"in e){let t=e.response;if((null==t?void 0:t.status)===404)return null}throw e}},i=async function"
+      },
+      {
+        "offset": 64595,
+        "needle": "/api/v1",
+        "context": "function(e){let t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:90,{data:n}=await r.Z.get(\"/api/v1/agent-executions/by-agent/\".concat(e,\"/summary\"),{params:{days:t}});return n},o=async(e,t,n)=>{let{data:s}=await r.Z.post(\"/api/v1/agent-executions/\".concat(e,\"/feedback\"),{response:t,notes:n});retur"
+      },
+      {
+        "offset": 64726,
+        "needle": "/api/v1",
+        "context": "nt/\".concat(e,\"/summary\"),{params:{days:t}});return n},o=async(e,t,n)=>{let{data:s}=await r.Z.post(\"/api/v1/agent-executions/\".concat(e,\"/feedback\"),{response:t,notes:n});return s},d=async e=>{let{data:t}=await r.Z.get(\"/api/v1/agent-executions/\".concat(e,\"/feedback\"));return t},c=async(e,t)=>{let{data:n}="
+      },
+      {
+        "offset": 64846,
+        "needle": "/api/v1",
+        "context": "ions/\".concat(e,\"/feedback\"),{response:t,notes:n});return s},d=async e=>{let{data:t}=await r.Z.get(\"/api/v1/agent-executions/\".concat(e,\"/feedback\"));return t},c=async(e,t)=>{let{data:n}=await r.Z.patch(\"/api/v1/agent-executions/\".concat(e),t);return n},u=async e=>{await r.Z.delete(\"/api/v1/agent-execution"
+      },
+      {
+        "offset": 64950,
+        "needle": "/api/v1",
+        "context": "/v1/agent-executions/\".concat(e,\"/feedback\"));return t},c=async(e,t)=>{let{data:n}=await r.Z.patch(\"/api/v1/agent-executions/\".concat(e),t);return n},u=async e=>{await r.Z.delete(\"/api/v1/agent-executions/\".concat(e))}},49913:function(e,t,n){n.d(t,{Q:function(){return i},T:function(){return l}});var r=n(92"
+      },
+      {
+        "offset": 65030,
+        "needle": "/api/v1",
+        "context": "n}=await r.Z.patch(\"/api/v1/agent-executions/\".concat(e),t);return n},u=async e=>{await r.Z.delete(\"/api/v1/agent-executions/\".concat(e))}},49913:function(e,t,n){n.d(t,{Q:function(){return i},T:function(){return l}});var r=n(92850),s=n(94061),a=n(10264);let l=e=>[\"agent-execution-run-cost\",e];function i(e)"
+      }
+    ]
+  },
+  {
+    "file": "chat__57084-d3f490cd892a9fec.js",
+    "hits": [
+      {
+        "offset": 43270,
+        "needle": "https://api",
+        "context": "t e=localStorage.getItem(\"access_token\");return r&&s===e||(r=new a.QX({apiKey:null!=e?e:\"\",baseURL:\"https://api.vlm.run/v1\",maxRetries:0}),s=e),r}function u(){let e=localStorage.getItem(\"access_token\"),t=(0,n.r6)()||\"https://agent.vlm.run/v1\";return l&&o===e&&c===t||(l=new a.QX({apiKey:null!=e?e:\"\",baseURL:t})"
+      },
+      {
+        "offset": 44625,
+        "needle": "/api/v1",
+        "context": "ng(),only_public:l.toString(),all_skills:c.toString()});return o&&d.set(\"search\",o),(await a.Z.get(\"/api/v1/skills?\".concat(d))).data}async function c(e){return(await a.Z.get(\"/api/v1/skills/by-name/\".concat(encodeURIComponent(e),\"/versions\"))).data}async function d(e,t){let i=t?\"/api/v1/skills/\".concat(e,"
+      },
+      {
+        "offset": 44701,
+        "needle": "/api/v1",
+        "context": "rch\",o),(await a.Z.get(\"/api/v1/skills?\".concat(d))).data}async function c(e){return(await a.Z.get(\"/api/v1/skills/by-name/\".concat(encodeURIComponent(e),\"/versions\"))).data}async function d(e,t){let i=t?\"/api/v1/skills/\".concat(e,\"?session_id=\").concat(t):\"/api/v1/skills/\".concat(e);return(await a.Z.get(i"
+      },
+      {
+        "offset": 44806,
+        "needle": "/api/v1",
+        "context": "v1/skills/by-name/\".concat(encodeURIComponent(e),\"/versions\"))).data}async function d(e,t){let i=t?\"/api/v1/skills/\".concat(e,\"?session_id=\").concat(t):\"/api/v1/skills/\".concat(e);return(await a.Z.get(i)).data}async function u(e,t){let i=t?\"/api/v1/skills/\".concat(e,\"/download?session_id=\").concat(t):\"/api"
+      },
+      {
+        "offset": 44859,
+        "needle": "/api/v1",
+        "context": "rsions\"))).data}async function d(e,t){let i=t?\"/api/v1/skills/\".concat(e,\"?session_id=\").concat(t):\"/api/v1/skills/\".concat(e);return(await a.Z.get(i)).data}async function u(e,t){let i=t?\"/api/v1/skills/\".concat(e,\"/download?session_id=\").concat(t):\"/api/v1/skills/\".concat(e,\"/download\");return(await a.Z.g"
+      },
+      {
+        "offset": 44947,
+        "needle": "/api/v1",
+        "context": ".concat(t):\"/api/v1/skills/\".concat(e);return(await a.Z.get(i)).data}async function u(e,t){let i=t?\"/api/v1/skills/\".concat(e,\"/download?session_id=\").concat(t):\"/api/v1/skills/\".concat(e,\"/download\");return(await a.Z.get(i)).data}let p=[\"image/\",\"video/\",\"audio/\",\"application/pdf\",\"application/octet-strea"
+      },
+      {
+        "offset": 45009,
+        "needle": "/api/v1",
+        "context": ").data}async function u(e,t){let i=t?\"/api/v1/skills/\".concat(e,\"/download?session_id=\").concat(t):\"/api/v1/skills/\".concat(e,\"/download\");return(await a.Z.get(i)).data}let p=[\"image/\",\"video/\",\"audio/\",\"application/pdf\",\"application/octet-stream\"];async function f(e,t){let{download_url:i}=await u(e,t),a=a"
+      },
+      {
+        "offset": 48262,
+        "needle": "/api/v1",
+        "context": ".concat(e,\"/update\"),i);return d((await a.json()).id)}async function g(e,t){return(await a.Z.patch(\"/api/v1/skills/\".concat(e),t)).data}async function v(e){await a.Z.delete(\"/api/v1/skills/\".concat(e))}},91141:function(e,t,i){\"use strict\";i.d(t,{I7:function(){return c},K:function(){return m},Oj:function(){"
+      },
+      {
+        "offset": 48336,
+        "needle": "/api/v1",
+        "context": "){return(await a.Z.patch(\"/api/v1/skills/\".concat(e),t)).data}async function v(e){await a.Z.delete(\"/api/v1/skills/\".concat(e))}},91141:function(e,t,i){\"use strict\";i.d(t,{I7:function(){return c},K:function(){return m},Oj:function(){return x},U$:function(){return f},_c:function(){return u},ah:function(){re"
+      }
+    ]
+  },
+  {
+    "file": "chat__6116-f482cec466098f22.js",
+    "hits": [
+      {
+        "offset": 55818,
+        "needle": "/api/chat",
+        "context": "ild(e)}catch(e){}}let l=n.pathname.split(\"/\").filter(Boolean).pop();if(l){let t=\"\".concat(n.origin,\"/api/chat-messages/\").concat(l);if(!e.current.has(t)){e.current.add(t);try{fetch(t,{mode:\"no-cors\",credentials:\"omit\"}).catch(()=>{})}catch(e){}}}},[]),a=(0,r.useCallback)(e=>{l(e),i(e.sharedUrl)},[l,i]);retur"
+      },
+      {
+        "offset": 206795,
+        "needle": "/api/v1",
+        "context": " function s(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};return(await i.Z.get(\"/api/v1/use-case-templates\",{params:e})).data.data.map(a)}let o=[\"pdf\",\"image\",\"video\"];async function d(){var e;let t=await i.Z.get(\"/api/v1/use-case-templates/metadata\"),n={pdf:[],image:[],video:[]},l={pdf"
+      },
+      {
+        "offset": 206929,
+        "needle": "/api/v1",
+        "context": "s:e})).data.data.map(a)}let o=[\"pdf\",\"image\",\"video\"];async function d(){var e;let t=await i.Z.get(\"/api/v1/use-case-templates/metadata\"),n={pdf:[],image:[],video:[]},l={pdf:[],image:[],video:[]};return o.forEach(e=>{var r,i;let a=null===(r=t.data.samplePromptOptions)||void 0===r?void 0:r[e];a&&(n[e]=a);le"
+      }
+    ]
+  },
+  {
+    "file": "chat__74720-951f38767fc2ea11.js",
+    "hits": [
+      {
+        "offset": 37799,
+        "needle": "/api/v1",
+        "context": "saving\");try{ti.current.size&&await Promise.all([...ti.current]);let t=e8.current,n=await i.Z.post(\"/api/v1/ocr-comparisons\",{document:{name:tb.name,kind:tb.kind,url:e},results:t_.map(Q),judgments:t.length?t.map(ef):null});td(!1),e2(\"\".concat(window.location.origin,\"/compare/\").concat(n.data.id)),e0(null),"
+      }
+    ]
+  },
+  {
+    "file": "chat__75448-b0e7e877569eeecc.js",
+    "hits": [
+      {
+        "offset": 92440,
+        "needle": "/api/v1",
+        "context": "ies({queryKey:[\"organization\"],exact:!0})}var p=n(31125);let g=async()=>{let{data:e}=await p.Z.get(\"/api/v1/organization/\");return e},h=async()=>{let{data:e}=await p.Z.get(\"/api/v1/organization/memberships\");return e},x=async e=>{let{data:t}=await p.Z.post(\"/api/v1/organization/switch\",{organization_id:e})"
+      },
+      {
+        "offset": 92513,
+        "needle": "/api/v1",
+        "context": "let{data:e}=await p.Z.get(\"/api/v1/organization/\");return e},h=async()=>{let{data:e}=await p.Z.get(\"/api/v1/organization/memberships\");return e},x=async e=>{let{data:t}=await p.Z.post(\"/api/v1/organization/switch\",{organization_id:e});return t},v=async e=>{let{data:t}=await p.Z.delete(\"/api/v1/organization"
+      },
+      {
+        "offset": 92598,
+        "needle": "/api/v1",
+        "context": "await p.Z.get(\"/api/v1/organization/memberships\");return e},x=async e=>{let{data:t}=await p.Z.post(\"/api/v1/organization/switch\",{organization_id:e});return t},v=async e=>{let{data:t}=await p.Z.delete(\"/api/v1/organization/\".concat(e,\"/leave\"));return t},b=async(e,t)=>{let{data:n}=await p.Z.patch(\"/api/v1/"
+      },
+      {
+        "offset": 92700,
+        "needle": "/api/v1",
+        "context": "pi/v1/organization/switch\",{organization_id:e});return t},v=async e=>{let{data:t}=await p.Z.delete(\"/api/v1/organization/\".concat(e,\"/leave\"));return t},b=async(e,t)=>{let{data:n}=await p.Z.patch(\"/api/v1/organization/\".concat(e),t);return n},y=async e=>{let{data:t}=await p.Z.get(\"/api/v1/organization/\".co"
+      },
+      {
+        "offset": 92797,
+        "needle": "/api/v1",
+        "context": "e(\"/api/v1/organization/\".concat(e,\"/leave\"));return t},b=async(e,t)=>{let{data:n}=await p.Z.patch(\"/api/v1/organization/\".concat(e),t);return n},y=async e=>{let{data:t}=await p.Z.get(\"/api/v1/organization/\".concat(e,\"/members/\"));return t},j=async(e,t)=>{let{data:n}=await p.Z.post(\"/api/v1/organization/\"."
+      },
+      {
+        "offset": 92882,
+        "needle": "/api/v1",
+        "context": "ait p.Z.patch(\"/api/v1/organization/\".concat(e),t);return n},y=async e=>{let{data:t}=await p.Z.get(\"/api/v1/organization/\".concat(e,\"/members/\"));return t},j=async(e,t)=>{let{data:n}=await p.Z.post(\"/api/v1/organization/\".concat(e,\"/invite/\"),t);return n},w=async e=>{let{data:t}=await p.Z.get(\"/api/v1/orga"
+      },
+      {
+        "offset": 92981,
+        "needle": "/api/v1",
+        "context": "\"/api/v1/organization/\".concat(e,\"/members/\"));return t},j=async(e,t)=>{let{data:n}=await p.Z.post(\"/api/v1/organization/\".concat(e,\"/invite/\"),t);return n},w=async e=>{let{data:t}=await p.Z.get(\"/api/v1/organization/\".concat(e,\"/invitations/\"));return t},N=async e=>{let{data:t}=await p.Z.get(\"/api/v1/orga"
+      },
+      {
+        "offset": 93077,
+        "needle": "/api/v1",
+        "context": "st(\"/api/v1/organization/\".concat(e,\"/invite/\"),t);return n},w=async e=>{let{data:t}=await p.Z.get(\"/api/v1/organization/\".concat(e,\"/invitations/\"));return t},N=async e=>{let{data:t}=await p.Z.get(\"/api/v1/organization/invitation/\".concat(e));return t},k=async()=>{let{data:e}=await p.Z.get(\"/api/v1/organi"
+      },
+      {
+        "offset": 93176,
+        "needle": "/api/v1",
+        "context": "\"/api/v1/organization/\".concat(e,\"/invitations/\"));return t},N=async e=>{let{data:t}=await p.Z.get(\"/api/v1/organization/invitation/\".concat(e));return t},k=async()=>{let{data:e}=await p.Z.get(\"/api/v1/organization/invitations/mine\");return e},_=async e=>{let{data:t}=await p.Z.post(\"/api/v1/organization/in"
+      },
+      {
+        "offset": 93270,
+        "needle": "/api/v1",
+        "context": ".get(\"/api/v1/organization/invitation/\".concat(e));return t},k=async()=>{let{data:e}=await p.Z.get(\"/api/v1/organization/invitations/mine\");return e},_=async e=>{let{data:t}=await p.Z.post(\"/api/v1/organization/invitations/\".concat(e,\"/accept\"));return t},C=async e=>{let{data:t}=await p.Z.post(\"/api/v1/org"
+      },
+      {
+        "offset": 93360,
+        "needle": "/api/v1",
+        "context": " p.Z.get(\"/api/v1/organization/invitations/mine\");return e},_=async e=>{let{data:t}=await p.Z.post(\"/api/v1/organization/invitations/\".concat(e,\"/accept\"));return t},C=async e=>{let{data:t}=await p.Z.post(\"/api/v1/organization/invitations/\".concat(e,\"/reject\"));return t},S=async e=>{let{data:t}=await p.Z.p"
+      },
+      {
+        "offset": 93466,
+        "needle": "/api/v1",
+        "context": "1/organization/invitations/\".concat(e,\"/accept\"));return t},C=async e=>{let{data:t}=await p.Z.post(\"/api/v1/organization/invitations/\".concat(e,\"/reject\"));return t},S=async e=>{let{data:t}=await p.Z.post(\"/api/v1/organization/invitations/\".concat(e,\"/reinvite\"));return t},I=async e=>{let{data:t}=await p.Z"
+      },
+      {
+        "offset": 93572,
+        "needle": "/api/v1",
+        "context": "1/organization/invitations/\".concat(e,\"/reject\"));return t},S=async e=>{let{data:t}=await p.Z.post(\"/api/v1/organization/invitations/\".concat(e,\"/reinvite\"));return t},I=async e=>{let{data:t}=await p.Z.delete(\"/api/v1/organization/invitations/\".concat(e,\"/revoke\"));return t},z=async(e,t)=>{let{data:n}=awai"
+      },
+      {
+        "offset": 93682,
+        "needle": "/api/v1",
+        "context": "ganization/invitations/\".concat(e,\"/reinvite\"));return t},I=async e=>{let{data:t}=await p.Z.delete(\"/api/v1/organization/invitations/\".concat(e,\"/revoke\"));return t},z=async(e,t)=>{let{data:n}=await p.Z.delete(\"/api/v1/organization/\".concat(e,\"/members/\").concat(t));return n},T=async(e,t,n)=>{let i=new URL"
+      },
+      {
+        "offset": 93793,
+        "needle": "/api/v1",
+        "context": "anization/invitations/\".concat(e,\"/revoke\"));return t},z=async(e,t)=>{let{data:n}=await p.Z.delete(\"/api/v1/organization/\".concat(e,\"/members/\").concat(t));return n},T=async(e,t,n)=>{let i=new URLSearchParams({skip:e.toString(),limit:t.toString()});n&&i.append(\"search\",n);let{data:r}=await p.Z.get(\"/api/v1"
+      },
+      {
+        "offset": 93993,
+        "needle": "/api/v1",
+        "context": "chParams({skip:e.toString(),limit:t.toString()});n&&i.append(\"search\",n);let{data:r}=await p.Z.get(\"/api/v1/organization/all/with-admin?\".concat(i.toString()));return r},E=async function(e,t,n){let i=arguments.length>3&&void 0!==arguments[3]?arguments[3]:\"manual_adjustment\",{data:r}=await p.Z.post(\"/api/v1"
+      },
+      {
+        "offset": 94193,
+        "needle": "/api/v1",
+        "context": "arguments.length>3&&void 0!==arguments[3]?arguments[3]:\"manual_adjustment\",{data:r}=await p.Z.post(\"/api/v1/organization/\".concat(e,\"/credits\"),{amount:t,comment:n,reason:i});return r},M=e=>Math.min(1e3*2**e,3e4),A=function(){let e=!(arguments.length>0)||void 0===arguments[0]||arguments[0];return(0,i.a)({q"
+      }
+    ]
+  },
+  {
+    "file": "chat__83776-45228402ac38d999.js",
+    "hits": [
+      {
+        "offset": 12885,
+        "needle": "https://api",
+        "context": "url&&(g.url=e.url),void 0!==e.batch&&(g.batch=e.batch));let{data:v}=await a.default.post(\"\".concat(\"https://api.vlm.run/v1\",\"/\").concat(e.type,\"/generate\"),g,{headers:{Authorization:\"Bearer \".concat(f)}});if((null==v?void 0:v.id)&&e.skill_id){console.debug(\"[createSkillRequest] patching skill_id\",{requestId:v."
+      },
+      {
+        "offset": 13142,
+        "needle": "/api/v1",
+        "context": "\"[createSkillRequest] patching skill_id\",{requestId:v.id,skill_id:e.skill_id});try{await r.Z.patch(\"/api/v1/requests/\".concat(v.id),{skill_id:e.skill_id})}catch(e){console.warn(\"[createSkillRequest] failed to patch skill_id\",e)}}return v},b=async(e,t,n,i,a)=>{let s={limit:e,offset:t,order_by:n,descending:i"
+      },
+      {
+        "offset": 13436,
+        "needle": "/api/v1",
+        "context": ",descending:i};a&&Object.entries(a).forEach(e=>{let[t,n]=e;n&&(s[t]=n)});let{data:l}=await r.Z.get(\"/api/v1/requests/org/\",{params:s});return l},y=async e=>{let{data:t}=await r.Z.get(\"/api/v1/requests/\".concat(e));return t},j=async(e,t)=>{let{data:n}=await r.Z.patch(\"/api/v1/requests/\".concat(e),t);return "
+      },
+      {
+        "offset": 13520,
+        "needle": "/api/v1",
+        "context": "=await r.Z.get(\"/api/v1/requests/org/\",{params:s});return l},y=async e=>{let{data:t}=await r.Z.get(\"/api/v1/requests/\".concat(e));return t},j=async(e,t)=>{let{data:n}=await r.Z.patch(\"/api/v1/requests/\".concat(e),t);return n},w=async e=>{await r.Z.delete(\"/api/v1/requests/\".concat(e))}},81907:function(e,t,"
+      },
+      {
+        "offset": 13604,
+        "needle": "/api/v1",
+        "context": "=await r.Z.get(\"/api/v1/requests/\".concat(e));return t},j=async(e,t)=>{let{data:n}=await r.Z.patch(\"/api/v1/requests/\".concat(e),t);return n},w=async e=>{await r.Z.delete(\"/api/v1/requests/\".concat(e))}},81907:function(e,t,n){n.d(t,{$C:function(){return _},$J:function(){return y},C5:function(){return w},It"
+      },
+      {
+        "offset": 13676,
+        "needle": "/api/v1",
+        "context": "et{data:n}=await r.Z.patch(\"/api/v1/requests/\".concat(e),t);return n},w=async e=>{await r.Z.delete(\"/api/v1/requests/\".concat(e))}},81907:function(e,t,n){n.d(t,{$C:function(){return _},$J:function(){return y},C5:function(){return w},It:function(){return N},Rr:function(){return q},TK:function(){return c},Vb"
+      }
+    ]
+  },
+  {
+    "file": "chat__83964-87b7e73f7f7b7283.js",
+    "hits": [
+      {
+        "offset": 15652,
+        "needle": "/api/v1",
+        "context": "{requestId:e,response:null!=s?s:null,notes:null!=n?n:null})),u=async e=>{let{data:s}=await a.Z.get(\"/api/v1/requests/\".concat(e,\"/feedback\"));return s},x=async function(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:10,s=arguments.length>1&&void 0!==arguments[1]?arguments[1]:0,n=arguments.l"
+      },
+      {
+        "offset": 16170,
+        "needle": "/api/v1",
+        "context": "offset:s,order_by:n,descending:r,...null!=l?l:{}};t&&(i.feedback_type=t);let{data:o}=await a.Z.get(\"/api/v1/feedback/\",{params:i});return o},f=()=>{let e=(0,r.NL)();return(0,t.D)({mutationFn:e=>{let{requestId:s,response:n,notes:r}=e;return c(s,n,r)},onSuccess:(s,n)=>{let{requestId:r}=n;e.invalidateQueries("
+      }
+    ]
+  },
+  {
+    "file": "chat__86903-cdec71af4f3746d2.js",
+    "hits": [
+      {
+        "offset": 1017,
+        "needle": "https://api",
+        "context": "l(e,i)&&d(t,i,e[i]);if(c)for(var i of c(e))l.call(e,i)&&d(t,i,e[i]);return t},y=(t,e)=>a(t,u(e)),f=\"https://api.unifyintent.com/analytics/v1\",m=/^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$/,g=[\"identify\",\"page\"];function _(t){return!!t&&\"object\"==typeof t&&!Array.isArray(t)&&g.every(e=>e in t)}function v(t,"
+      },
+      {
+        "offset": 12134,
+        "needle": "https://api",
+        "context": "s(i).reduce((t,[e,i])=>y(p({},t),{[e]:\"string\"==typeof i?i:JSON.stringify(i)}),{});null==r||r.post(\"https://api.unifyintent.com/analytics/v1/_internal/logs\",{status:\"error\",message:t,attrs:n,name:null==e?void 0:e.name,stack:null==e?void 0:e.stack,version:\"1.5.0\"})}var tS=\"unifyAttr\",tI=[\"default.form_completed"
+      }
+    ]
+  },
+  {
+    "file": "chat__90933-f3eafb2ce748189a.js",
+    "hits": [
+      {
+        "offset": 16694,
+        "needle": "https://api",
+        "context": "\\n  -H \".concat(i,\" \\\\\\n  -H \").concat(r,\" \\\\\\n  -d \").concat(s)},{label:\"Image\",code:\"curl -X POST https://api.vlm.run/v1/image/generate \\\\\\n  -H \".concat(i,\" \\\\\\n  -H \").concat(r,\" \\\\\\n  -d \").concat(o)},{label:\"Document\",code:\"curl -X POST https://api.vlm.run/v1/document/generate \\\\\\n  -H \".concat(i,\" \\\\\\n "
+      },
+      {
+        "offset": 16837,
+        "needle": "https://api",
+        "context": " -H \".concat(i,\" \\\\\\n  -H \").concat(r,\" \\\\\\n  -d \").concat(o)},{label:\"Document\",code:\"curl -X POST https://api.vlm.run/v1/document/generate \\\\\\n  -H \".concat(i,\" \\\\\\n  -H \").concat(r,\" \\\\\\n  -d \").concat(c)},{label:\"Video\",code:\"curl -X POST https://api.vlm.run/v1/video/generate \\\\\\n  -H \".concat(i,\" \\\\\\n  -H"
+      },
+      {
+        "offset": 16980,
+        "needle": "https://api",
+        "context": "\\n  -H \".concat(i,\" \\\\\\n  -H \").concat(r,\" \\\\\\n  -d \").concat(c)},{label:\"Video\",code:\"curl -X POST https://api.vlm.run/v1/video/generate \\\\\\n  -H \".concat(i,\" \\\\\\n  -H \").concat(r,\" \\\\\\n  -d \").concat(d)},{label:\"Completions\",code:\"curl -X POST https://agent.vlm.run/v1/openai/chat/completions \\\\\\n  -H \".conca"
+      },
+      {
+        "offset": 63771,
+        "needle": "/api/chat",
+        "context": "async(e,n,t,i,r)=>{let s={limit:e,offset:n,order_by:t,descending:i,...a(r)},{data:o}=await l.Z.get(\"/api/chat-completions/org\",{params:s,baseURL:\"\"});return o},r=async function(e){let n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:100,{data:t}=await l.Z.get(\"/api/v1/chat-completions/org/by-session/"
+      },
+      {
+        "offset": 17158,
+        "needle": "chat/completions",
+        "context": "(r,\" \\\\\\n  -d \").concat(d)},{label:\"Completions\",code:\"curl -X POST https://agent.vlm.run/v1/openai/chat/completions \\\\\\n  -H \".concat(i,\" \\\\\\n  -H \").concat(r,\" \\\\\\n  -d \").concat(m)}]}function C(e){let{open:n,onOpenChange:t,skillName:f=\"<skill-name>\",skillVersion:p=\"latest\"}=e,h=\"<VLMRUN_API_KEY>\",y=v(h),[j,C]=(0"
+      },
+      {
+        "offset": 59387,
+        "needle": "/api/v1",
+        "context": "oid 0!==arguments[5]&&arguments[5],s=arguments.length>6?arguments[6]:void 0,{data:o}=await l.Z.get(\"/api/v1/agents\",{params:{limit:e,offset:n,order_by:t,descending:a,grouped:i,hide_inactive:r,name:s}});return o},m=async e=>{let{data:n}=await l.Z.get(\"/api/v1/agents/\".concat(e));return n},f=async e=>{var n,"
+      },
+      {
+        "offset": 59538,
+        "needle": "/api/v1",
+        "context": "t,descending:a,grouped:i,hide_inactive:r,name:s}});return o},m=async e=>{let{data:n}=await l.Z.get(\"/api/v1/agents/\".concat(e));return n},f=async e=>{var n,t,l,a,i,r,o;console.log(\"[create-agent] received\",{name:e.name,hasPrompt:!!e.prompt,chatHistoryKeys:e.chatHistoryContext?Object.keys(e.chatHistoryConte"
+      },
+      {
+        "offset": 63300,
+        "needle": "/api/v1",
+        "context": "ization\",\"Bearer \".concat(t)),r.send(s)})},g=async(e,n)=>await h(e,n),x=async e=>{await l.Z.delete(\"/api/v1/agents/\".concat(e))}},45767:function(e,n,t){t.d(n,{As:function(){return m},GI:function(){return u},Lo:function(){return d},S$:function(){return s},XM:function(){return r},Xj:function(){return o},bO:f"
+      },
+      {
+        "offset": 63940,
+        "needle": "/api/v1",
+        "context": "unction(e){let n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:100,{data:t}=await l.Z.get(\"/api/v1/chat-completions/org/by-session/\".concat(e),{params:{limit:n}});return t},s=async e=>{let{data:n}=await l.Z.get(\"/api/v1/chat-completions/org/\".concat(e,\"/messages\"));return n},o=async e=>{let{data:n"
+      },
+      {
+        "offset": 64061,
+        "needle": "/api/v1",
+        "context": "ons/org/by-session/\".concat(e),{params:{limit:n}});return t},s=async e=>{let{data:n}=await l.Z.get(\"/api/v1/chat-completions/org/\".concat(e,\"/messages\"));return n},o=async e=>{let{data:n}=await l.Z.get(\"/api/v1/chat-completions/org/\".concat(e,\"/logs\"));return n},c=async e=>{try{let{data:n}=await l.Z.get(\"/"
+      },
+      {
+        "offset": 64164,
+        "needle": "/api/v1",
+        "context": "i/v1/chat-completions/org/\".concat(e,\"/messages\"));return n},o=async e=>{let{data:n}=await l.Z.get(\"/api/v1/chat-completions/org/\".concat(e,\"/logs\"));return n},c=async e=>{try{let{data:n}=await l.Z.get(\"/api/v1/chat-completions/org/\".concat(e,\"/run-cost\"));return n}catch(e){if(\"object\"==typeof e&&null!==e&"
+      },
+      {
+        "offset": 64267,
+        "needle": "/api/v1",
+        "context": "i/v1/chat-completions/org/\".concat(e,\"/logs\"));return n},c=async e=>{try{let{data:n}=await l.Z.get(\"/api/v1/chat-completions/org/\".concat(e,\"/run-cost\"));return n}catch(e){if(\"object\"==typeof e&&null!==e&&\"response\"in e){let n=e.response;if((null==n?void 0:n.status)===404)return null}throw e}},d=async e=>{"
+      },
+      {
+        "offset": 64501,
+        "needle": "/api/v1",
+        "context": "nse;if((null==n?void 0:n.status)===404)return null}throw e}},d=async e=>{let{data:n}=await l.Z.get(\"/api/v1/metrics/chat-completion-model-distribution\",{params:a(e)});return n},u=async e=>{let{data:n}=await l.Z.get(\"/api/v1/metrics/chat-completion-token-breakdown\",{params:a(e)});return n},m=async(e,n,t)=>{"
+      },
+      {
+        "offset": 64617,
+        "needle": "/api/v1",
+        "context": "chat-completion-model-distribution\",{params:a(e)});return n},u=async e=>{let{data:n}=await l.Z.get(\"/api/v1/metrics/chat-completion-token-breakdown\",{params:a(e)});return n},m=async(e,n,t)=>{let{data:a}=await l.Z.post(\"/api/v1/chat-completions/complete\",{messages:e,session_id:n},{signal:t});return a.conten"
+      },
+      {
+        "offset": 64736,
+        "needle": "/api/v1",
+        "context": "t-completion-token-breakdown\",{params:a(e)});return n},m=async(e,n,t)=>{let{data:a}=await l.Z.post(\"/api/v1/chat-completions/complete\",{messages:e,session_id:n},{signal:t});return a.content}},3311:function(e,n,t){t.d(n,{Eo:function(){return o},W:function(){return f},X5:function(){return d},_B:function(){re"
+      }
+    ]
+  },
+  {
+    "file": "chat__95990-1b11fc2b00f965e3.js",
+    "hits": [
+      {
+        "offset": 24435,
+        "needle": "/api/v1",
+        "context": "id 0!==arguments[0]&&arguments[0],s=arguments.length>1?arguments[1]:void 0,{data:t}=await r.Z.post(\"/api/v1/billings/checkout-session\",{success_url:\"\".concat(\"https://chat.vlm.run\",\"/dashboard\"),cancel_url:\"\".concat(\"https://chat.vlm.run\",\"/dashboard\"),price_id:s,allow_promotion_codes:e});return t},l=async"
+      },
+      {
+        "offset": 24741,
+        "needle": "/api/v1",
+        "context": "c function(){let e=arguments.length>0&&void 0!==arguments[0]&&arguments[0],{data:s}=await r.Z.post(\"/api/v1/billings/create-portal-session\",{return_url:\"\".concat(\"https://chat.vlm.run\",\"/dashboard/settings/billing\"),prefer_pricing_table:e});return s},d=async()=>{let{data:e}=await r.Z.get(\"/api/v1/billings/"
+      },
+      {
+        "offset": 24931,
+        "needle": "/api/v1",
+        "context": "hboard/settings/billing\"),prefer_pricing_table:e});return s},d=async()=>{let{data:e}=await r.Z.get(\"/api/v1/billings/get-details\");return e},o=async()=>{let{data:e}=await r.Z.get(\"/api/v1/billings/price-ids\");return e},c=async e=>{let{data:s}=await r.Z.post(\"/api/v1/billings/upgrade-to-pro\",null,{params:e?"
+      },
+      {
+        "offset": 25011,
+        "needle": "/api/v1",
+        "context": "a:e}=await r.Z.get(\"/api/v1/billings/get-details\");return e},o=async()=>{let{data:e}=await r.Z.get(\"/api/v1/billings/price-ids\");return e},c=async e=>{let{data:s}=await r.Z.post(\"/api/v1/billings/upgrade-to-pro\",null,{params:e?{price_id:e}:void 0});return s},x=async()=>{let{data:e}=await r.Z.get(\"/api/v1/b"
+      },
+      {
+        "offset": 25090,
+        "needle": "/api/v1",
+        "context": "ta:e}=await r.Z.get(\"/api/v1/billings/price-ids\");return e},c=async e=>{let{data:s}=await r.Z.post(\"/api/v1/billings/upgrade-to-pro\",null,{params:e?{price_id:e}:void 0});return s},x=async()=>{let{data:e}=await r.Z.get(\"/api/v1/billings/credits-breakdown\");return e},m=()=>(0,n.D)({mutationFn:e=>{let{allowPr"
+      },
+      {
+        "offset": 25209,
+        "needle": "/api/v1",
+        "context": "grade-to-pro\",null,{params:e?{price_id:e}:void 0});return s},x=async()=>{let{data:e}=await r.Z.get(\"/api/v1/billings/credits-breakdown\");return e},m=()=>(0,n.D)({mutationFn:e=>{let{allowPromotionCodes:s,priceId:t}=e;return i(s,t)}}),u=()=>(0,n.D)({mutationFn:e=>l(e)}),p=()=>(0,a.a)({queryKey:[\"billingDetai"
+      }
+    ]
+  },
+  {
+    "file": "chat__layout-cbce91a448d93d6b.js",
+    "hits": [
+      {
+        "offset": 10518,
+        "needle": "/api/v1",
+        "context": "ole.error(a,\"POST /api/login unexpected error\",e);throw e}},l=async e=>{let{data:t}=await s.Z.post(\"/api/v1/login/account-exists\",{email:e});return!!(null==t?void 0:t.exists)}},58549:function(e,t,i){\"use strict\";i.d(t,{f:function(){return a}});var s=i(21770),n=i(14856);let a=()=>(0,s.D)({mutationFn:e=>(0,n"
+      }
+    ]
+  },
+  {
+    "file": "chat__page-1d73000757ba7c7a.js",
+    "hits": [
+      {
+        "offset": 8838,
+        "needle": "https://api",
+        "context": "l(e,r)&&h(t,r,e[r]);if(l)for(var r of l(e))d.call(e,r)&&h(t,r,e[r]);return t},p=(t,e)=>a(t,u(e)),m=\"https://api.unifyintent.com/analytics/v1\",g=/^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$/,y=[\"identify\",\"page\"];function v(t){return!!t&&\"object\"==typeof t&&!Array.isArray(t)&&y.every(e=>e in t)}function _(t,"
+      },
+      {
+        "offset": 19955,
+        "needle": "https://api",
+        "context": "s(r).reduce((t,[e,r])=>p(f({},t),{[e]:\"string\"==typeof r?r:JSON.stringify(r)}),{});null==n||n.post(\"https://api.unifyintent.com/analytics/v1/_internal/logs\",{status:\"error\",message:t,attrs:i,name:null==e?void 0:e.name,stack:null==e?void 0:e.stack,version:\"1.5.0\"})}var tE=\"unifyAttr\",tx=[\"default.form_completed"
+      },
+      {
+        "offset": 40654,
+        "needle": "prod-vlm",
+        "context": "d 0!==i?i:\"\");n.n({category:\"http\",message:o,data:e,level:s})},d=i.default.create({baseURL:\"https://prod-vlm-cloud-nfsnfpr33q-uc.a.run.app\",paramsSerializer:t=>{let e=new URLSearchParams;return Object.entries(t).forEach(t=>{let[r,n]=t;Array.isArray(n)?r.endsWith(\"__in\")?n.length>0&&e.append(r,n.join(\",\")):n"
+      },
+      {
+        "offset": 49083,
+        "needle": "prod-vlm",
+        "context": "return await u}finally{u=null}},c=async t=>{try{let{data:e}=await s.default.post(\"\".concat(\"https://prod-vlm-cloud-nfsnfpr33q-uc.a.run.app\",\"/api/v1/refresh-token\"),{refresh_token:t});return n.n({category:\"auth\",message:\"[auth] Token refresh succeeded\"}),(0,a.l9)(e),e}catch(t){return console.error(\"[auth] T"
+      },
+      {
+        "offset": 38885,
+        "needle": "/api/v1",
+        "context": "ole.error(s,\"POST /api/login unexpected error\",t);throw t}},a=async t=>{let{data:e}=await n.Z.post(\"/api/v1/login/account-exists\",{email:t});return!!(null==e?void 0:e.exists)}},18302:function(t,e,r){\"use strict\";r.d(e,{w:function(){return i}});var n=r(31125);let i={getCurrentUserFeatures:async()=>(await n."
+      },
+      {
+        "offset": 39099,
+        "needle": "/api/v1",
+        "context": "d(e,{w:function(){return i}});var n=r(31125);let i={getCurrentUserFeatures:async()=>(await n.Z.get(\"/api/v1/features/me\")).data,getFeatures:async t=>(await n.Z.get(\"/api/v1/features/\".concat(t))).data,updateFeatures:async(t,e)=>(await n.Z.patch(\"/api/v1/features/\".concat(t),e)).data}},58549:function(t,e,r)"
+      },
+      {
+        "offset": 39164,
+        "needle": "/api/v1",
+        "context": "rFeatures:async()=>(await n.Z.get(\"/api/v1/features/me\")).data,getFeatures:async t=>(await n.Z.get(\"/api/v1/features/\".concat(t))).data,updateFeatures:async(t,e)=>(await n.Z.patch(\"/api/v1/features/\".concat(t),e)).data}},58549:function(t,e,r){\"use strict\";r.d(e,{f:function(){return s}});var n=r(21770),i=r("
+      },
+      {
+        "offset": 39245,
+        "needle": "/api/v1",
+        "context": "t=>(await n.Z.get(\"/api/v1/features/\".concat(t))).data,updateFeatures:async(t,e)=>(await n.Z.patch(\"/api/v1/features/\".concat(t),e)).data}},58549:function(t,e,r){\"use strict\";r.d(e,{f:function(){return s}});var n=r(21770),i=r(14856);let s=()=>(0,n.D)({mutationFn:t=>(0,i.x4)(t)})},36147:function(t,e,r){\"use"
+      },
+      {
+        "offset": 49124,
+        "needle": "/api/v1",
+        "context": "=>{try{let{data:e}=await s.default.post(\"\".concat(\"https://prod-vlm-cloud-nfsnfpr33q-uc.a.run.app\",\"/api/v1/refresh-token\"),{refresh_token:t});return n.n({category:\"auth\",message:\"[auth] Token refresh succeeded\"}),(0,a.l9)(e),e}catch(t){return console.error(\"[auth] Token refresh failed\",t),i.uT(\"token_refr"
+      }
+    ]
+  }
+]

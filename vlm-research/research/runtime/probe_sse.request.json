@@ -1,0 +1,19 @@
+{
+  "method": "POST",
+  "url": "https://gateway.vlm.run/v1/openai/chat/completions",
+  "auth": "Bearer [REDACTED]",
+  "body": {
+    "model": "qwen/qwen3.5-0.8b",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Reply with exactly: STREAM_OK"
+      }
+    ],
+    "max_tokens": 64,
+    "stream": true,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  }
+}

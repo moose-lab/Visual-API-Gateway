@@ -1,0 +1,897 @@
+//! Comprehensive plugin system integration tests.
+//!
+//! Tests plugin registration, discovery, error handling, concurrent access,
+//! and cross-registry interactions for all 4 plugin types.
+
+use async_trait::async_trait;
+use std::borrow::Cow;
+use std::sync::Arc;
+use xberg::core::config::{ExtractInput, ExtractionConfig};
+use xberg::plugins::registry::{
+    DocumentExtractorRegistry, OcrBackendRegistry, PostProcessorRegistry, ValidatorRegistry,
+};
+use xberg::plugins::{DocumentExtractor, Plugin, PostProcessor, ProcessingStage, Validator};
+use xberg::types::ExtractedDocument;
+use xberg::{Result, XbergError};
+
+fn extracted_text_document(content: impl Into<String>, mime_type: Cow<'static, str>) -> ExtractedDocument {
+    let mut document = ExtractedDocument::default();
+    document.content = content.into();
+    document.mime_type = mime_type;
+    document
+}
+
+struct FailingExtractor {
+    name: String,
+    should_fail_init: bool,
+    should_fail_extract: bool,
+}
+
+impl Plugin for FailingExtractor {
+    fn name(&self) -> &str {
+        &self.name
+    }
+    fn version(&self) -> String {
+        "1.0.0".to_string()
+    }
+    fn initialize(&self) -> Result<()> {
+        if self.should_fail_init {
+            Err(XbergError::Plugin {
+                message: "Initialization failed".to_string(),
+                plugin_name: self.name.clone(),
+            })
+        } else {
+            Ok(())
+        }
+    }
+    fn shutdown(&self) -> Result<()> {
+        Ok(())
+    }
+}
+
+#[async_trait]
+impl DocumentExtractor for FailingExtractor {
+    async fn extract(&self, input: ExtractInput, _: &ExtractionConfig) -> Result<ExtractedDocument> {
+        if self.should_fail_extract {
+            Err(XbergError::Parsing {
+                message: "Extraction failed".to_string(),
+                source: None,
+            })
+        } else {
+            Ok(extracted_text_document(
+                "success",
+                input.mime_type.map(Cow::Owned).unwrap_or(Cow::Borrowed("text/plain")),
+            ))
+        }
+    }
+
+    fn supported_mime_types(&self) -> &[&str] {
+        &["text/plain"]
+    }
+
+    fn priority(&self) -> i32 {
+        50
+    }
+}
+
+struct MetadataModifyingProcessor {
+    name: String,
+    stage: ProcessingStage,
+    priority: i32,
+}
+
+impl MetadataModifyingProcessor {
+    fn new(name: impl Into<String>, stage: ProcessingStage) -> Self {
+        Self {
+            name: name.into(),
+            stage,
+            priority: 50,
+        }
+    }
+
+    fn with_priority(name: impl Into<String>, stage: ProcessingStage, priority: i32) -> Self {
+        Self {
+            name: name.into(),
+            stage,
+            priority,
+        }
+    }
+}
+
+impl Plugin for MetadataModifyingProcessor {
+    fn name(&self) -> &str {
+        &self.name
+    }
+    fn version(&self) -> String {
+        "1.0.0".to_string()
+    }
+    fn initialize(&self) -> Result<()> {
+        Ok(())
+    }
+    fn shutdown(&self) -> Result<()> {
+        Ok(())
+    }
+}
+
+#[async_trait]
+impl PostProcessor for MetadataModifyingProcessor {
+    async fn process(&self, result: &mut ExtractedDocument, _: &ExtractionConfig) -> Result<()> {
+        result.content.push_str(&format!(" [{}]", self.name));
+        Ok(())
+    }
+
+    fn processing_stage(&self) -> ProcessingStage {
+        self.stage
+    }
+
+    fn priority(&self) -> i32 {
+        self.priority
+    }
+}
+
+struct FailingProcessor {
+    name: String,
+}
+
+impl Plugin for FailingProcessor {
+    fn name(&self) -> &str {
+        &self.name
+    }
+    fn version(&self) -> String {
+        "1.0.0".to_string()
+    }
+    fn initialize(&self) -> Result<()> {
+        Ok(())
+    }
+    fn shutdown(&self) -> Result<()> {
+        Ok(())
+    }
+}
+
+#[async_trait]
+impl PostProcessor for FailingProcessor {
+    async fn process(&self, _: &mut ExtractedDocument, _: &ExtractionConfig) -> Result<()> {
+        Err(XbergError::Plugin {
+            message: "Processing failed".to_string(),
+            plugin_name: self.name.clone(),
+        })
+    }
+
+    fn processing_stage(&self) -> ProcessingStage {
+        ProcessingStage::Early
+    }
+}
+
+struct StrictValidator {
+    name: String,
+    min_length: usize,
+}
+
+impl Plugin for StrictValidator {
+    fn name(&self) -> &str {
+        &self.name
+    }
+    fn version(&self) -> String {
+        "1.0.0".to_string()
+    }
+    fn initialize(&self) -> Result<()> {
+        Ok(())
+    }
+    fn shutdown(&self) -> Result<()> {
+        Ok(())
+    }
+}
+
+#[async_trait]
+impl Validator for StrictValidator {
+    async fn validate(&self, result: &ExtractedDocument, _: &ExtractionConfig) -> Result<()> {
+        if result.content.len() < self.min_length {
+            Err(XbergError::validation(format!(
+                "Content too short: {} < {}",
+                result.content.len(),
+                self.min_length
+            )))
+        } else {
+            Ok(())
+        }
+    }
+
+    fn priority(&self) -> i32 {
+        50
+    }
+}
+
+/// Extractor test double with a caller-chosen priority.
+///
+/// The registry keys extractors by `(MIME type, priority)` and only one extractor can
+/// occupy a slot, so tests that register several extractors for the same MIME type must
+/// give each one a distinct priority to keep them all reachable.
+struct PriorityExtractor {
+    name: String,
+    priority: i32,
+}
+
+impl Plugin for PriorityExtractor {
+    fn name(&self) -> &str {
+        &self.name
+    }
+    fn version(&self) -> String {
+        "1.0.0".to_string()
+    }
+    fn initialize(&self) -> Result<()> {
+        Ok(())
+    }
+    fn shutdown(&self) -> Result<()> {
+        Ok(())
+    }
+}
+
+#[async_trait]
+impl DocumentExtractor for PriorityExtractor {
+    async fn extract(&self, input: ExtractInput, _: &ExtractionConfig) -> Result<ExtractedDocument> {
+        Ok(extracted_text_document(
+            "test",
+            input.mime_type.map(Cow::Owned).unwrap_or(Cow::Borrowed("text/plain")),
+        ))
+    }
+    fn supported_mime_types(&self) -> &[&str] {
+        &["text/plain"]
+    }
+    fn priority(&self) -> i32 {
+        self.priority
+    }
+}
+
+#[test]
+fn test_extractor_registration_failure() {
+    let mut registry = DocumentExtractorRegistry::new();
+
+    let failing_extractor = Arc::new(FailingExtractor {
+        name: "failing-extractor".to_string(),
+        should_fail_init: true,
+        should_fail_extract: false,
+    });
+
+    let result = registry.register(failing_extractor);
+    assert!(matches!(result, Err(XbergError::Plugin { .. })));
+}
+
+#[tokio::test]
+async fn test_extractor_extraction_failure() {
+    let mut registry = DocumentExtractorRegistry::new();
+
+    let failing_extractor = Arc::new(FailingExtractor {
+        name: "failing-extractor".to_string(),
+        should_fail_init: false,
+        should_fail_extract: true,
+    });
+
+    registry.register(failing_extractor).expect("Operation failed");
+
+    let extractor = registry.get("text/plain").expect("Value not found");
+    let config = ExtractionConfig::default();
+    let input = ExtractInput::from_bytes(b"test".to_vec(), "text/plain", None);
+    let result = extractor.extract(input, &config).await;
+
+    assert!(matches!(result, Err(XbergError::Parsing { .. })));
+}
+
+#[test]
+fn test_extractor_duplicate_registration() {
+    let mut registry = DocumentExtractorRegistry::new();
+
+    let extractor1 = Arc::new(FailingExtractor {
+        name: "same-name".to_string(),
+        should_fail_init: false,
+        should_fail_extract: false,
+    });
+
+    let extractor2 = Arc::new(FailingExtractor {
+        name: "same-name".to_string(),
+        should_fail_init: false,
+        should_fail_extract: false,
+    });
+
+    registry.register(extractor1).expect("Operation failed");
+    registry.register(extractor2).expect("Operation failed");
+
+    let names = registry.list();
+    assert_eq!(names.len(), 1);
+    assert!(names.contains(&"same-name".to_string()));
+}
+
+#[test]
+fn test_extractor_concurrent_registration() {
+    use std::sync::{Arc as StdArc, RwLock};
+    use std::thread;
+
+    let registry = StdArc::new(RwLock::new(DocumentExtractorRegistry::new()));
+    let mut handles = vec![];
+
+    for i in 0..10 {
+        let registry_clone = StdArc::clone(&registry);
+        let handle = thread::spawn(move || {
+            // Distinct priorities so the ten extractors occupy ten distinct
+            // (MIME type, priority) slots instead of colliding on one.
+            let extractor = Arc::new(PriorityExtractor {
+                name: format!("extractor-{}", i),
+                priority: i,
+            });
+
+            let mut reg = registry_clone
+                .write()
+                .expect("Failed to acquire write lock on registry in test");
+            reg.register(extractor).expect("Operation failed");
+        });
+        handles.push(handle);
+    }
+
+    for handle in handles {
+        handle.join().expect("Operation failed");
+    }
+
+    let reg = registry
+        .read()
+        .expect("Failed to acquire read lock on registry in test");
+    assert_eq!(reg.list().len(), 10);
+}
+
+#[test]
+fn test_extractor_priority_ordering_complex() {
+    let mut registry = DocumentExtractorRegistry::new();
+
+    for priority in [10, 50, 100, 25, 75] {
+        let extractor = Arc::new(PriorityExtractor {
+            name: format!("priority-{}", priority),
+            priority,
+        });
+        registry.register(extractor).expect("Operation failed");
+    }
+
+    let selected = registry.get("text/plain").expect("Value not found");
+    assert_eq!(selected.name(), "priority-100");
+    assert_eq!(selected.priority(), 100);
+}
+
+#[test]
+fn test_extractor_wildcard_vs_exact_priority() {
+    let mut registry = DocumentExtractorRegistry::new();
+
+    let _wildcard = Arc::new(FailingExtractor {
+        name: "wildcard-high".to_string(),
+        should_fail_init: false,
+        should_fail_extract: false,
+    });
+
+    struct WildcardExtractor(FailingExtractor);
+    impl Plugin for WildcardExtractor {
+        fn name(&self) -> &str {
+            self.0.name()
+        }
+        fn version(&self) -> String {
+            self.0.version()
+        }
+        fn initialize(&self) -> Result<()> {
+            Ok(())
+        }
+        fn shutdown(&self) -> Result<()> {
+            Ok(())
+        }
+    }
+
+    #[async_trait]
+    impl DocumentExtractor for WildcardExtractor {
+        async fn extract(&self, input: ExtractInput, cfg: &ExtractionConfig) -> Result<ExtractedDocument> {
+            self.0.extract(input, cfg).await
+        }
+        fn supported_mime_types(&self) -> &[&str] {
+            &["text/*"]
+        }
+        fn priority(&self) -> i32 {
+            100
+        }
+    }
+
+    let wildcard_arc = Arc::new(WildcardExtractor(FailingExtractor {
+        name: "wildcard-high".to_string(),
+        should_fail_init: false,
+        should_fail_extract: false,
+    }));
+
+    let exact = Arc::new(FailingExtractor {
+        name: "exact-low".to_string(),
+        should_fail_init: false,
+        should_fail_extract: false,
+    });
+
+    registry.register(wildcard_arc).expect("Operation failed");
+    registry.register(exact).expect("Operation failed");
+
+    let selected = registry.get("text/plain").expect("Value not found");
+    assert_eq!(selected.name(), "exact-low");
+}
+
+#[test]
+fn test_extractor_empty_mime_type() {
+    let registry = DocumentExtractorRegistry::new();
+    let result = registry.get("");
+    assert!(matches!(result, Err(XbergError::UnsupportedFormat(_))));
+}
+
+#[test]
+fn test_extractor_special_characters_mime() {
+    let registry = DocumentExtractorRegistry::new();
+    let result = registry.get("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+    assert!(matches!(result, Err(XbergError::UnsupportedFormat(_))));
+}
+
+#[test]
+fn test_extractor_remove_nonexistent() {
+    let mut registry = DocumentExtractorRegistry::new();
+    let result = registry.remove("nonexistent");
+    assert!(result.is_ok());
+}
+
+#[test]
+fn test_extractor_list_after_partial_removal() {
+    let mut registry = DocumentExtractorRegistry::new();
+
+    for i in 0..5 {
+        // Distinct priorities so all five stay reachable rather than displacing
+        // one another from a shared (MIME type, priority) slot.
+        let extractor = Arc::new(PriorityExtractor {
+            name: format!("extractor-{}", i),
+            priority: i,
+        });
+        registry.register(extractor).expect("Operation failed");
+    }
+
+    registry.remove("extractor-2").expect("Operation failed");
+    registry.remove("extractor-3").expect("Operation failed");
+
+    let names = registry.list();
+    assert_eq!(names.len(), 3);
+    assert!(names.contains(&"extractor-0".to_string()));
+    assert!(names.contains(&"extractor-1".to_string()));
+    assert!(names.contains(&"extractor-4".to_string()));
+}
+
+#[tokio::test]
+async fn test_processor_execution_order_within_stage() {
+    let mut registry = PostProcessorRegistry::new();
+
+    let high = Arc::new(MetadataModifyingProcessor::with_priority(
+        "high",
+        ProcessingStage::Early,
+        100,
+    ));
+
+    let medium = Arc::new(MetadataModifyingProcessor::with_priority(
+        "medium",
+        ProcessingStage::Early,
+        50,
+    ));
+
+    let low = Arc::new(MetadataModifyingProcessor::with_priority(
+        "low",
+        ProcessingStage::Early,
+        10,
+    ));
+
+    registry.register(low).expect("Operation failed");
+    registry.register(high).expect("Operation failed");
+    registry.register(medium).expect("Operation failed");
+
+    let processors = registry.get_for_stage(ProcessingStage::Early);
+    assert_eq!(processors.len(), 3);
+
+    let mut result = extracted_text_document("start", Cow::Borrowed("text/plain"));
+
+    let config = ExtractionConfig::default();
+    for processor in processors {
+        processor
+            .process(&mut result, &config)
+            .await
+            .expect("Async operation failed");
+    }
+
+    assert_eq!(result.content, "start [high] [medium] [low]");
+}
+
+#[tokio::test]
+async fn test_processor_error_propagation() {
+    let mut registry = PostProcessorRegistry::new();
+
+    let failing = Arc::new(FailingProcessor {
+        name: "failing".to_string(),
+    });
+
+    registry.register(failing).expect("Operation failed");
+
+    let processors = registry.get_for_stage(ProcessingStage::Early);
+    assert_eq!(processors.len(), 1);
+
+    let mut result = extracted_text_document("test", Cow::Borrowed("text/plain"));
+
+    let config = ExtractionConfig::default();
+    let process_result = processors[0].process(&mut result, &config).await;
+
+    assert!(matches!(process_result, Err(XbergError::Plugin { .. })));
+}
+
+#[test]
+fn test_processor_multiple_stages() {
+    let mut registry = PostProcessorRegistry::new();
+
+    let early = Arc::new(MetadataModifyingProcessor::new("early", ProcessingStage::Early));
+    let middle = Arc::new(MetadataModifyingProcessor::new("middle", ProcessingStage::Middle));
+    let late = Arc::new(MetadataModifyingProcessor::new("late", ProcessingStage::Late));
+
+    registry.register(early).expect("Operation failed");
+    registry.register(middle).expect("Operation failed");
+    registry.register(late).expect("Operation failed");
+
+    assert_eq!(registry.get_for_stage(ProcessingStage::Early).len(), 1);
+    assert_eq!(registry.get_for_stage(ProcessingStage::Middle).len(), 1);
+    assert_eq!(registry.get_for_stage(ProcessingStage::Late).len(), 1);
+}
+
+#[test]
+fn test_processor_registration_failure() {
+    struct FailingInitProcessor;
+
+    impl Plugin for FailingInitProcessor {
+        fn name(&self) -> &str {
+            "failing-init"
+        }
+        fn version(&self) -> String {
+            "1.0.0".to_string()
+        }
+        fn initialize(&self) -> Result<()> {
+            Err(XbergError::Plugin {
+                message: "Init failed".to_string(),
+                plugin_name: "failing-init".to_string(),
+            })
+        }
+        fn shutdown(&self) -> Result<()> {
+            Ok(())
+        }
+    }
+
+    #[async_trait]
+    impl PostProcessor for FailingInitProcessor {
+        async fn process(&self, _: &mut ExtractedDocument, _: &ExtractionConfig) -> Result<()> {
+            Ok(())
+        }
+        fn processing_stage(&self) -> ProcessingStage {
+            ProcessingStage::Early
+        }
+    }
+
+    let mut registry = PostProcessorRegistry::new();
+    let processor = Arc::new(FailingInitProcessor);
+
+    let result = registry.register(processor);
+    assert!(matches!(result, Err(XbergError::Plugin { .. })));
+}
+
+#[test]
+fn test_processor_same_priority_same_stage() {
+    let mut registry = PostProcessorRegistry::new();
+
+    let proc1 = Arc::new(MetadataModifyingProcessor::new("processor1", ProcessingStage::Early));
+    let proc2 = Arc::new(MetadataModifyingProcessor::new("processor2", ProcessingStage::Early));
+
+    registry.register(proc1).expect("Operation failed");
+    registry.register(proc2).expect("Operation failed");
+
+    let processors = registry.get_for_stage(ProcessingStage::Early);
+    assert_eq!(processors.len(), 2);
+}
+
+#[test]
+fn test_processor_remove_from_specific_stage() {
+    let mut registry = PostProcessorRegistry::new();
+
+    let early = Arc::new(MetadataModifyingProcessor::new("processor", ProcessingStage::Early));
+
+    registry.register(early).expect("Operation failed");
+    assert_eq!(registry.get_for_stage(ProcessingStage::Early).len(), 1);
+
+    registry.remove("processor").expect("Operation failed");
+    assert_eq!(registry.get_for_stage(ProcessingStage::Early).len(), 0);
+}
+
+#[test]
+fn test_processor_list_across_stages() {
+    let mut registry = PostProcessorRegistry::new();
+
+    for stage in [ProcessingStage::Early, ProcessingStage::Middle, ProcessingStage::Late] {
+        let processor = Arc::new(MetadataModifyingProcessor::new(format!("{:?}-processor", stage), stage));
+        registry.register(processor).expect("Operation failed");
+    }
+
+    let names = registry.list();
+    assert_eq!(names.len(), 3);
+}
+
+#[test]
+fn test_processor_shutdown_clears_all_stages() {
+    let mut registry = PostProcessorRegistry::new();
+
+    for stage in [ProcessingStage::Early, ProcessingStage::Middle, ProcessingStage::Late] {
+        let processor = Arc::new(MetadataModifyingProcessor::new(format!("{:?}-processor", stage), stage));
+        registry.register(processor).expect("Operation failed");
+    }
+
+    registry.shutdown_all().expect("Operation failed");
+
+    assert_eq!(registry.get_for_stage(ProcessingStage::Early).len(), 0);
+    assert_eq!(registry.get_for_stage(ProcessingStage::Middle).len(), 0);
+    assert_eq!(registry.get_for_stage(ProcessingStage::Late).len(), 0);
+}
+
+#[tokio::test]
+async fn test_validator_content_validation() {
+    let mut registry = ValidatorRegistry::new();
+
+    let strict = Arc::new(StrictValidator {
+        name: "strict".to_string(),
+        min_length: 10,
+    });
+
+    registry.register(strict).expect("Operation failed");
+
+    let validators = registry.get_all();
+    assert_eq!(validators.len(), 1);
+
+    let config = ExtractionConfig::default();
+
+    let short_result = extracted_text_document("short", Cow::Borrowed("text/plain"));
+
+    let validation = validators[0].validate(&short_result, &config).await;
+    assert!(matches!(validation, Err(XbergError::Validation { .. })));
+
+    let long_result = extracted_text_document("this is long enough content", Cow::Borrowed("text/plain"));
+
+    let validation = validators[0].validate(&long_result, &config).await;
+    assert!(validation.is_ok());
+}
+
+#[test]
+fn test_validator_priority_ordering() {
+    let mut registry = ValidatorRegistry::new();
+
+    let _high = Arc::new(StrictValidator {
+        name: "high-priority".to_string(),
+        min_length: 5,
+    });
+
+    struct MediumPriorityValidator;
+    impl Plugin for MediumPriorityValidator {
+        fn name(&self) -> &str {
+            "medium-priority"
+        }
+        fn version(&self) -> String {
+            "1.0.0".to_string()
+        }
+        fn initialize(&self) -> Result<()> {
+            Ok(())
+        }
+        fn shutdown(&self) -> Result<()> {
+            Ok(())
+        }
+    }
+
+    #[async_trait]
+    impl Validator for MediumPriorityValidator {
+        async fn validate(&self, _: &ExtractedDocument, _: &ExtractionConfig) -> Result<()> {
+            Ok(())
+        }
+        fn priority(&self) -> i32 {
+            50
+        }
+    }
+
+    struct LowPriorityValidator;
+    impl Plugin for LowPriorityValidator {
+        fn name(&self) -> &str {
+            "low-priority"
+        }
+        fn version(&self) -> String {
+            "1.0.0".to_string()
+        }
+        fn initialize(&self) -> Result<()> {
+            Ok(())
+        }
+        fn shutdown(&self) -> Result<()> {
+            Ok(())
+        }
+    }
+
+    #[async_trait]
+    impl Validator for LowPriorityValidator {
+        async fn validate(&self, _: &ExtractedDocument, _: &ExtractionConfig) -> Result<()> {
+            Ok(())
+        }
+        fn priority(&self) -> i32 {
+            10
+        }
+    }
+
+    struct HighPriorityValidator;
+    impl Plugin for HighPriorityValidator {
+        fn name(&self) -> &str {
+            "high-priority"
+        }
+        fn version(&self) -> String {
+            "1.0.0".to_string()
+        }
+        fn initialize(&self) -> Result<()> {
+            Ok(())
+        }
+        fn shutdown(&self) -> Result<()> {
+            Ok(())
+        }
+    }
+
+    #[async_trait]
+    impl Validator for HighPriorityValidator {
+        async fn validate(&self, _: &ExtractedDocument, _: &ExtractionConfig) -> Result<()> {
+            Ok(())
+        }
+        fn priority(&self) -> i32 {
+            100
+        }
+    }
+
+    let medium = Arc::new(MediumPriorityValidator);
+    let low = Arc::new(LowPriorityValidator);
+    let high_priority = Arc::new(HighPriorityValidator);
+
+    registry.register(medium).expect("Operation failed");
+    registry.register(low).expect("Operation failed");
+    registry.register(high_priority).expect("Operation failed");
+
+    let validators = registry.get_all();
+    assert_eq!(validators.len(), 3);
+    assert_eq!(validators[0].name(), "high-priority");
+    assert_eq!(validators[1].name(), "medium-priority");
+    assert_eq!(validators[2].name(), "low-priority");
+}
+
+#[test]
+fn test_validator_registration_failure() {
+    struct FailingInitValidator;
+
+    impl Plugin for FailingInitValidator {
+        fn name(&self) -> &str {
+            "failing"
+        }
+        fn version(&self) -> String {
+            "1.0.0".to_string()
+        }
+        fn initialize(&self) -> Result<()> {
+            Err(XbergError::Plugin {
+                message: "Init failed".to_string(),
+                plugin_name: "failing".to_string(),
+            })
+        }
+        fn shutdown(&self) -> Result<()> {
+            Ok(())
+        }
+    }
+
+    #[async_trait]
+    impl Validator for FailingInitValidator {
+        async fn validate(&self, _: &ExtractedDocument, _: &ExtractionConfig) -> Result<()> {
+            Ok(())
+        }
+        fn priority(&self) -> i32 {
+            50
+        }
+    }
+
+    let mut registry = ValidatorRegistry::new();
+    let validator = Arc::new(FailingInitValidator);
+
+    let result = registry.register(validator);
+    assert!(matches!(result, Err(XbergError::Plugin { .. })));
+}
+
+#[test]
+fn test_validator_empty_registry() {
+    let registry = ValidatorRegistry::new();
+    let validators = registry.get_all();
+    assert_eq!(validators.len(), 0);
+}
+
+#[test]
+fn test_validator_remove_and_reregister() {
+    let mut registry = ValidatorRegistry::new();
+
+    let validator: Arc<dyn Validator> = Arc::new(StrictValidator {
+        name: "validator".to_string(),
+        min_length: 5,
+    });
+
+    registry.register(Arc::clone(&validator)).expect("Operation failed");
+    assert_eq!(registry.get_all().len(), 1);
+
+    registry.remove("validator").expect("Operation failed");
+    assert_eq!(registry.get_all().len(), 0);
+
+    registry.register(validator).expect("Operation failed");
+    assert_eq!(registry.get_all().len(), 1);
+}
+
+#[test]
+fn test_multiple_registries_independence() {
+    let ocr_registry = OcrBackendRegistry::new_empty();
+    let mut extractor_registry = DocumentExtractorRegistry::new();
+    let mut processor_registry = PostProcessorRegistry::new();
+    let mut validator_registry = ValidatorRegistry::new();
+
+    let extractor = Arc::new(FailingExtractor {
+        name: "test-extractor".to_string(),
+        should_fail_init: false,
+        should_fail_extract: false,
+    });
+
+    let processor = Arc::new(MetadataModifyingProcessor::new(
+        "test-processor",
+        ProcessingStage::Early,
+    ));
+
+    let validator = Arc::new(StrictValidator {
+        name: "test-validator".to_string(),
+        min_length: 5,
+    });
+
+    extractor_registry.register(extractor).expect("Operation failed");
+    processor_registry.register(processor).expect("Operation failed");
+    validator_registry.register(validator).expect("Operation failed");
+
+    assert_eq!(ocr_registry.list().len(), 0);
+    assert_eq!(extractor_registry.list().len(), 1);
+    assert_eq!(processor_registry.list().len(), 1);
+    assert_eq!(validator_registry.get_all().len(), 1);
+}
+
+#[test]
+fn test_shutdown_all_registries() {
+    let mut ocr_registry = OcrBackendRegistry::new_empty();
+    let mut extractor_registry = DocumentExtractorRegistry::new();
+    let mut processor_registry = PostProcessorRegistry::new();
+    let mut validator_registry = ValidatorRegistry::new();
+
+    let extractor = Arc::new(FailingExtractor {
+        name: "test-extractor".to_string(),
+        should_fail_init: false,
+        should_fail_extract: false,
+    });
+
+    let processor = Arc::new(MetadataModifyingProcessor::new(
+        "test-processor",
+        ProcessingStage::Early,
+    ));
+
+    let validator = Arc::new(StrictValidator {
+        name: "test-validator".to_string(),
+        min_length: 5,
+    });
+
+    extractor_registry.register(extractor).expect("Operation failed");
+    processor_registry.register(processor).expect("Operation failed");
+    validator_registry.register(validator).expect("Operation failed");
+
+    ocr_registry.shutdown_all().expect("Operation failed");
+    extractor_registry.shutdown_all().expect("Operation failed");
+    processor_registry.shutdown_all().expect("Operation failed");
+    validator_registry.shutdown_all().expect("Operation failed");
+
+    assert_eq!(ocr_registry.list().len(), 0);
+    assert_eq!(extractor_registry.list().len(), 0);
+    assert_eq!(processor_registry.list().len(), 0);
+    assert_eq!(validator_registry.get_all().len(), 0);
+}

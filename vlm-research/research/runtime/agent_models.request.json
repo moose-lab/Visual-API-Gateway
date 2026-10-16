@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "url": "https://api.vlm.run/v1/openai/models",
+  "auth": "Bearer [REDACTED]",
+  "body": null
+}

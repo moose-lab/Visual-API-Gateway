@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:52:55.629024+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/facebook/sam3.1",
+  "status": 200,
+  "elapsed_seconds": 1.631,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:52:56 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "bae6527f-9d0f-47ec-86ed-bdc1402ee994"
+  },
+  "response_sha256": "ef151f9f8cacd1cadfe6f1d7e2bc1fce8bace047e5895764020be6b52fc7555d",
+  "response_bytes": 750
+}

@@ -1,0 +1,7 @@
+{
+  "method": "GET",
+  "url": "https://storage.googleapis.com/vlm-userdata-prod/agents/workspace/cf59c0d0-b8c5-4b56-9555-ba66fcf03fb1/5410a132-b564-428a-8d11-f9e7b80e3ef8/doc_25bfd5.pdf?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261014T033858Z&X-Goog-Expires=3600&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+  "auth": "none",
+  "body": null,
+  "headers": {}
+}

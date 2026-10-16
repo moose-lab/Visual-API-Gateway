@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:53:03.252161+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/google/gemma-4-26b-a4b-it",
+  "status": 200,
+  "elapsed_seconds": 0.914,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:53:03 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "d1231045-68dd-4681-9eef-0a65391c13c5"
+  },
+  "response_sha256": "d9a12c0ac93ead3695b99ca041100834a758375713a08e590a9ad5bce8b62461",
+  "response_bytes": 1061
+}

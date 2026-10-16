@@ -1,0 +1,6 @@
+{
+  "url": "https://api.github.com/orgs/vlm-run/repos?per_page=100&type=public",
+  "method": "GET",
+  "auth": "none",
+  "body": null
+}

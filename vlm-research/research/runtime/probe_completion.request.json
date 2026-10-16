@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/completions/chatcmpl-d899e8e8c18943e29389df2af99",
+  "auth": "Bearer [REDACTED]",
+  "body": null
+}

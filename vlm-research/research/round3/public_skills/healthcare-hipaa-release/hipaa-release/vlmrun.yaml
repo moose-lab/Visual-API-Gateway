@@ -1,0 +1,9 @@
+apiVersion: vlm.run/v1alpha
+metadata: {}
+model: vlmrun-orion-1:auto
+toolsets:
+  - core
+  - document
+  - image
+  - viz
+graph: ""

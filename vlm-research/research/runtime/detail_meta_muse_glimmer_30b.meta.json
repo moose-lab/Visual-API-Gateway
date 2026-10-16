@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:52:44.369940+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/meta/muse-glimmer-30b",
+  "status": 404,
+  "elapsed_seconds": 0.986,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:52:44 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "d36115c1-6589-4c38-b859-1ff1e625c97a"
+  },
+  "response_sha256": "61a6da3b1833ccd5db5bc68f9c680a5dd16b062baacfc637bf9da9c312d8a00e",
+  "response_bytes": 125
+}

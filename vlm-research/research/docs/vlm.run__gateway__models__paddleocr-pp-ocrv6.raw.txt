@@ -1,0 +1,176 @@
+PP-OCRv6 | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+PaddlePaddle
+PP-OCRv6
+About
+PP-OCRv6 is a 20M open-weight model from PaddlePaddle. PaddleOCR PP-OCRv6 medium text detection and recognition; scene OCR JSONL on image chat; text returns plain text; document_url fan-out via text. It accepts images and documents. Released June 11, 2026.
+Parameters
+20M
+Published parameter count.
+License
+Apache-2.0
+License on the weights.
+PricingCompareBenchmarksPerformanceExamplesInputsMethodsParametersEstimate costQuick startResponse
+Model specifications
+ProviderPaddlePaddle
+Type
+ocrdetection
+Endpointpaddleocr/pp-ocrv6
+Parameters20M
+Input price$0.02 / 1M tokens$0.02 (cached) / 1M
+Output price$0.40 / 1M tokens
+Inputs
+image_urldocument_url
+LicenseApache-2.0
+ReleasedJune 11, 2026
+Latency p5031 ms p50
+Output tok/s536
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Input / 1M$0.02
+Cached input / 1M$0.02
+Output / 1M$0.40
+Compare
+PP-OCRv6 is the smallest of these detection models, at 20M, and its published input rate is the lowest, $0.02 / 1M input.
+ModelWhat it doesPriceParametersContext
+PP-OCRv6PaddleOCR PP-OCRv6 medium text detection and recognition; scene OCR JSONL on image chat; text returns plain text; document_url fan-out via text.$0.02 / 1M input20M—
+Gemini 3.5 Flash LiteFastest and cheapest Gemini tier. Multimodal chat; emits no reasoning tokens.$0.30 / 1M input—1M
+Gemini 3.7 FlashNewest Gemini Flash tier with extended reasoning. Multimodal chat + native video.$0.75 / 1M input—1M
+Gemini Robotics-ER 2 (preview)Embodied-reasoning VLM for robotics. Text, multi-image, and native video.$0.30 / 1M input—1M
+Benchmarks
+Published scores for PP-OCRv6, from the PP-OCRv6 paper. Medium tier.
+Evals
+Detection Hmean86.2
+Recognition accuracy83.2
+Hallucination accuracy93.2
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeDetection Hmean: 86.2.
+Cost and performanceLower listed rate, mid-pack latency
+Performance
+Latency is the end-to-end round trip. Throughput is completion tokens divided by that time. It is a request rate, not decode speed.
+LatencyMedian, end to end
+31 ms
+ThroughputMedian completion tokens per second
+536 tok/s
+RequestsCompleted, last 7 days
+68,883
+Examples
+Scene-text OCR
+PP-OCRv6 reads a New York Times newsstand in 120 ms.
+{"lines":[{"text":"The New York Times","score":0.99,"box_xyxy":[..]}, ...]}
+Supported inputs
+textNo
+A request with no media part is a 400.
+image_urlYes
+One per request. A second image_url part is a 400.
+video_urlNo
+Not accepted.
+document_urlYes
+One PDF, up to 128 pages, rasterized per page at document_dpi (default 96). See Document Inputs.
+Default method ocr.
+Alias: pp-ocrv6.
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+ocrRegion items with bbox_xywh, optional poly_xy, text, score
+detectRegion items with bbox_xywh and optional poly_xy, geometry only
+textRecognized text stitched in reading order
+The payload kind is the same for an image and for each page of a PDF. Text mode emits the payload alone for one image, and one <document> / <page> block for a PDF. In JSON mode an image content is the tagged container above, and a document page content is always doc.page.blocks. See Methods & Response Format.
+Coordinates are normalized 0-1 against the image or rasterized page, at precision decimals (default 4). text is plain scene text stitched in reading order, not generative Markdown.
+Method parameters
+ParameterDefaultDescription
+langenRecognition language (en, ch, japan, ...), on every method.
+score_threshold0.5ocr and text: drop text regions below this recognition confidence (0.0-1.0). detect returns every region.
+Estimate cost
+Estimate. A page is 2,500 input tokens and 1,000 output tokens.
+Pages
+$0.45
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jsCLIcURL
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+response = client.chat.completions.create(
+model="paddleocr/pp-ocrv6",
+messages=[
+{
+"role": "user",
+"content": [
+{
+"type": "image_url",
+"image_url": {
+"url": "https://storage.googleapis.com/vlm-data-public-prod/hub/examples/document.receipt/playground/2.jpg"
+},
+},
+],
+}
+],
+extra_body={"method": "ocr"},
+)
+print(response.choices[0].message.content)
+Response
+Text modeJSON mode
+Copy
+A single image returns the region container alone, with no wrapper:
+{"object": "doc.ocr.lines", "items": [{"bbox_xywh": [0.0332, 0.0138, 0.1719, 0.0331], "poly_xy": [[0.0332, 0.0138], [0.2051, 0.0138], [0.2051, 0.047], [0.0332, 0.047]], "text": "Invoice", "score": 0.998}, {"bbox_xywh": [0.0332, 0.0829, 0.2598, 0.0331], "text": "Total: $99.00", "score": 0.987}]}
+For PDFs, each page's content is doc.page.blocks, and every region becomes one block with the same geometry under a zero-based block_id. See the Document OCR guide.
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

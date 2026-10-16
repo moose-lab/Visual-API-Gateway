@@ -1,0 +1,194 @@
+{
+  "evidence": "RUNTIME",
+  "execution_id": "5410a132-b564-428a-8d11-f9e7b80e3ef8",
+  "requested_mode": "program",
+  "final": {
+    "usage": {
+      "elements_processed": 1,
+      "element_type": null,
+      "credits_used": 2,
+      "steps": 0,
+      "message": null,
+      "duration_seconds": 9,
+      "service_tier": "standard",
+      "mode_multiplier": 1.0,
+      "standard_cost_dollars": 0.003031,
+      "cost_dollars": 0.003031,
+      "savings_dollars": 0.0
+    },
+    "id": "5410a132-b564-428a-8d11-f9e7b80e3ef8",
+    "name": "grounded-document-extraction",
+    "response": {
+      "type": "referral",
+      "type_metadata": {
+        "confidence": "hi",
+        "annotation_ids": [
+          "L0"
+        ],
+        "bboxes": [
+          {
+            "content": "SYNTHETIC TEST REFERRAL",
+            "bbox": {
+              "xywh": [
+                0.0729,
+                0.0412,
+                0.371,
+                0.0212
+              ]
+            },
+            "page": 0,
+            "confidence": 0.99
+          }
+        ]
+      },
+      "dateOfReferral": "2026-10-13",
+      "dateOfReferral_metadata": {
+        "confidence": "hi",
+        "annotation_ids": [
+          "L3"
+        ],
+        "bboxes": [
+          {
+            "content": "Date of referral: 2026-10-13",
+            "bbox": {
+              "xywh": [
+                0.0737,
+                0.1485,
+                0.3231,
+                0.02
+              ]
+            },
+            "page": 0,
+            "confidence": 0.99
+          }
+        ]
+      },
+      "reasonForReferral": "Routine vision evaluation",
+      "reasonForReferral_metadata": {
+        "confidence": "hi",
+        "annotation_ids": [
+          "L4"
+        ],
+        "bboxes": [
+          {
+            "content": "Reason for referral: Routine vision evaluation",
+            "bbox": {
+              "xywh": [
+                0.0729,
+                0.1836,
+                0.5239,
+                0.0206
+              ]
+            },
+            "page": 0,
+            "confidence": 0.99
+          }
+        ]
+      },
+      "patient": {
+        "givenName": "Test",
+        "givenName_metadata": {
+          "confidence": "hi",
+          "annotation_ids": [
+            "L1"
+          ],
+          "bboxes": [
+            {
+              "content": "Patient: Test Example",
+              "bbox": {
+                "xywh": [
+                  0.0729,
+                  0.077,
+                  0.2573,
+                  0.0224
+                ]
+              },
+              "page": 0,
+              "confidence": 0.99
+            }
+          ]
+        },
+        "familyName": "Example",
+        "familyName_metadata": {
+          "confidence": "hi",
+          "annotation_ids": [
+            "L1"
+          ],
+          "bboxes": [
+            {
+              "content": "Patient: Test Example",
+              "bbox": {
+                "xywh": [
+                  0.0729,
+                  0.077,
+                  0.2573,
+                  0.0224
+                ]
+              },
+              "page": 0,
+              "confidence": 0.99
+            }
+          ]
+        },
+        "dateOfBirth": "2000-01-02",
+        "dateOfBirth_metadata": {
+          "confidence": "hi",
+          "annotation_ids": [
+            "L2"
+          ],
+          "bboxes": [
+            {
+              "content": "Date of birth: 2000-01-02",
+              "bbox": {
+                "xywh": [
+                  0.0737,
+                  0.1127,
+                  0.2918,
+                  0.0206
+                ]
+              },
+              "page": 0,
+              "confidence": 0.99
+            }
+          ]
+        }
+      },
+      "referringProvider": null,
+      "referringProvider_metadata": {
+        "confidence": "lo",
+        "annotation_ids": []
+      },
+      "receivingProvider": null,
+      "receivingProvider_metadata": {
+        "confidence": "lo",
+        "annotation_ids": []
+      },
+      "schedulingPriority": "Routine",
+      "schedulingPriority_metadata": {
+        "confidence": "hi",
+        "annotation_ids": [
+          "L5"
+        ],
+        "bboxes": [
+          {
+            "content": "Scheduling priority: Routine",
+            "bbox": {
+              "xywh": [
+                0.0729,
+                0.2188,
+                0.3208,
+                0.023
+              ]
+            },
+            "page": 0,
+            "confidence": 0.99
+          }
+        ]
+      }
+    },
+    "execution_mode": "program",
+    "status": "completed",
+    "created_at": "2026-10-13T07:56:57.551425Z",
+    "completed_at": "2026-10-13T07:57:07.415927Z"
+  }
+}

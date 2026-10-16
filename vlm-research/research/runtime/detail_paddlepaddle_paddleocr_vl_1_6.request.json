@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/paddlepaddle/paddleocr-vl-1.6",
+  "auth": "Bearer [REDACTED]",
+  "body": null
+}

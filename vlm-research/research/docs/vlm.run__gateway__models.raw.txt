@@ -1,0 +1,417 @@
+Gateway Models | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+Models
+AllChatOCRMarkdownDetectionSegmentationPoseTranscriptionEmbeddingTranscription
+AllChatOCRMarkdownDetectionSegmentationPoseTranscriptionEmbedding
+Search modelsUsage
+Providers
+Qwen3.8 27B
+qwen/qwen3.8-27b
+Usage171.1K requests in the last 31 days
+Context164K
+Input / 1M$0.35
+Cached / 1M$0.05
+Output / 1M$2.55
+PP-OCRv6
+paddleocr/pp-ocrv6
+Usage84.2K requests in the last 31 days
+Context—
+Input / 1M$0.02
+Cached / 1M$0.02
+Output / 1M$0.40
+SAM 3.1
+facebook/sam3.1
+Usage11.6K requests in the last 31 days
+Context—
+Input / 1M$1/1K
+Cached / 1M—
+Output / 1M—
+ViTPose+ Large
+usyd-community/vitpose-plus-large
+Usage8.91K requests in the last 31 days
+Context—
+Input / 1M$3.90
+Cached / 1M$3.90
+Output / 1M—
+Qwen3.5 0.8B
+qwen/qwen3.5-0.8b
+Usage7.93K requests in the last 31 days
+Context256K
+Input / 1M$0.08
+Cached / 1M$0.02
+Output / 1M$0.15
+HaMeR
+geopavlakos/hamer
+Usage7.15K requests in the last 31 days
+Context—
+Input / 1M$3.90
+Cached / 1M$3.90
+Output / 1M—
+dots.mocr
+rednote-hilab/dots.mocr
+Usage4.42K requests in the last 31 days
+Context32K
+Input / 1M$0.20
+Cached / 1M$0.03
+Output / 1M$0.40
+PaddleOCR-VL 1.6
+paddlepaddle/paddleocr-vl-1.6
+Usage3.69K requests in the last 31 days
+Context16K
+Input / 1M$0.15
+Cached / 1M$0.15
+Output / 1M$0.35
+Florence-2
+microsoft/florence-2-base-ft
+Usage3.05K requests in the last 31 days
+Context—
+Input / 1M$0.10
+Cached / 1M$0.03
+Output / 1M$0.30
+GLM-OCR
+zai-org/glm-ocr
+Usage1.54K requests in the last 31 days
+Context8K
+Input / 1M$0.10
+Cached / 1M$0.02
+Output / 1M$0.20
+Gemini Robotics-ER 2 (preview)
+google/gemini-robotics-er-2-preview
+Usage1.28K requests in the last 31 days
+Context1M
+Input / 1M$0.30
+Cached / 1M$0.03
+Output / 1M$2.50
+DeepSeek-OCR-2
+deepseek-ai/deepseek-ocr-2
+Usage1.13K requests in the last 31 days
+Context32K
+Input / 1M$0.25
+Cached / 1M$0.25
+Output / 1M$0.80
+Unlimited-OCR
+baidu/unlimited-ocr
+Usage513 requests in the last 31 days
+Context32K
+Input / 1M$0.25
+Cached / 1M$0.03
+Output / 1M$0.55
+Gemma 4 26B-A4B Instruct
+google/gemma-4-26b-a4b-it
+Usage469 requests in the last 31 days
+Context80K
+Input / 1M$0.10
+Cached / 1M$0.05
+Output / 1M$0.30
+DiffusionGemma 26B-A4B
+google/diffusiongemma-26b-a4b-it
+Usage323 requests in the last 31 days
+Context16K
+Input / 1M$0.35
+Cached / 1M$0.05
+Output / 1M$1.50
+Gemini 3.5 Flash Lite
+google/gemini-3.5-flash-lite
+Usage311 requests in the last 31 days
+Context1M
+Input / 1M$0.30
+Cached / 1M$0.03
+Output / 1M$2.50
+Gemini 3.7 Flash
+google/gemini-3.7-flash
+Usage298 requests in the last 31 days
+Context1M
+Input / 1M$0.75
+Cached / 1M$0.075
+Output / 1M$3.75
+MiniMax M3
+minimax/minimax-m3
+Usage223 requests in the last 31 days
+Context1M
+Input / 1M$0.30
+Cached / 1M$0.06
+Output / 1M$1.20
+Muse Spark 1.2
+meta/muse-spark-1.2
+Usage208 requests in the last 31 days
+Context1M
+Input / 1M$1.25
+Cached / 1M$0.15
+Output / 1M$4.25
+Kimi K3
+moonshotai/kimi-k3
+Usage201 requests in the last 31 days
+Context256K
+Input / 1M$3
+Cached / 1M$0.30
+Output / 1M$15
+Muse Glimmer 30B
+meta/muse-glimmer-30b
+Usage135 requests in the last 31 days
+Context128K
+Input / 1M$0.35
+Cached / 1M$0.04
+Output / 1M$1.50
+OCR Auto
+vlm-run/ocr:auto
+Usage114 requests in the last 31 days
+Context—
+Input / 1M$0
+Cached / 1M—
+Output / 1M—
+Parakeet TDT 0.6B v3
+nvidia/parakeet-tdt-0.6b-v3
+Usage27 requests in the last 31 days
+Context—
+Input / 1M$16.67/1M s
+Cached / 1M—
+Output / 1M—
+Qwen3-VL Embedding 2B
+qwen/qwen3-vl-embedding-2b
+Usage11 requests in the last 31 days
+Context8K
+Input / 1M$0.013
+Cached / 1M$0.013
+Output / 1M—
+RF-DETR Large
+roboflow/rf-detr-large
+Usage—
+Context—
+Input / 1M—
+Cached / 1M—
+Output / 1M—
+LightOnOCR
+lightonai/lightonocr-1b-1025
+Usage—
+Context8K
+Input / 1M—
+Cached / 1M—
+Output / 1M—
+ModelUsageCapabilitiesInputsContextInputUSD per 1M input tokens for token models. Per-image models show USD per 1K images. Audio models show USD per 1M audio seconds.CachedUSD per 1M cached input tokens. A dash means the model does not bill cache separately.OutputUSD per 1M output tokens. A dash means the model does not bill output.
+Qwen3.8 27B
+qwen/qwen3.8-27b
+171.1K requests in the last 31 days
+detectionchat
+textimage_urlvideo_url
+164K$0.35$0.05$2.55
+PP-OCRv6
+paddleocr/pp-ocrv6
+84.2K requests in the last 31 days
+ocrdetection
+image_urldocument_url
+—$0.02$0.02$0.40
+SAM 3.1
+facebook/sam3.1
+11.6K requests in the last 31 days
+segmentation
+textimage_urlvideo_url
+—$1/1K——
+ViTPose+ Large
+usyd-community/vitpose-plus-large
+8.91K requests in the last 31 days
+pose
+textimage_urlvideo_url
+—$3.90$3.90—
+Qwen3.5 0.8B
+qwen/qwen3.5-0.8b
+7.93K requests in the last 31 days
+detectionchat
+textimage_urlvideo_url
+256K$0.08$0.02$0.15
+HaMeR
+geopavlakos/hamer
+7.15K requests in the last 31 days
+pose
+textimage_url
+—$3.90$3.90—
+dots.mocr
+rednote-hilab/dots.mocr
+4.42K requests in the last 31 days
+ocrmarkdown
+textimage_urldocument_url
+32K$0.20$0.03$0.40
+PaddleOCR-VL 1.6
+paddlepaddle/paddleocr-vl-1.6
+3.69K requests in the last 31 days
+ocr
+textimage_urldocument_url
+16K$0.15$0.15$0.35
+Florence-2
+microsoft/florence-2-base-ft
+3.05K requests in the last 31 days
+ocrdetection
+textimage_url
+—$0.10$0.03$0.30
+GLM-OCR
+zai-org/glm-ocr
+1.54K requests in the last 31 days
+markdown
+textimage_urldocument_url
+8K$0.10$0.02$0.20
+Gemini Robotics-ER 2 (preview)Proprietary weights. Same endpoint and key, billed at the upstream list price.
+google/gemini-robotics-er-2-preview
+1.28K requests in the last 31 days
+detectionchat
+textimage_urldocument_urlvideo_url
+1M$0.30$0.03$2.50
+DeepSeek-OCR-2
+deepseek-ai/deepseek-ocr-2
+1.13K requests in the last 31 days
+ocrmarkdown
+textimage_urldocument_url
+32K$0.25$0.25$0.80
+Unlimited-OCR
+baidu/unlimited-ocr
+513 requests in the last 31 days
+ocrmarkdown
+textimage_urldocument_url
+32K$0.25$0.03$0.55
+Gemma 4 26B-A4B Instruct
+google/gemma-4-26b-a4b-it
+469 requests in the last 31 days
+detectionchat
+textimage_urlvideo_url
+80K$0.10$0.05$0.30
+DiffusionGemma 26B-A4B
+google/diffusiongemma-26b-a4b-it
+323 requests in the last 31 days
+detectionchat
+textimage_url
+16K$0.35$0.05$1.50
+Gemini 3.5 Flash LiteProprietary weights. Same endpoint and key, billed at the upstream list price.
+google/gemini-3.5-flash-lite
+311 requests in the last 31 days
+detectionchat
+textimage_urldocument_urlvideo_url
+1M$0.30$0.03$2.50
+Gemini 3.7 FlashProprietary weights. Same endpoint and key, billed at the upstream list price.
+google/gemini-3.7-flash
+298 requests in the last 31 days
+detectionchat
+textimage_urldocument_urlvideo_url
+1M$0.75$0.075$3.75
+MiniMax M3
+minimax/minimax-m3
+223 requests in the last 31 days
+detectionchat
+textimage_urlvideo_url
+1M$0.30$0.06$1.20
+Muse Spark 1.2Proprietary weights. Same endpoint and key, billed at the upstream list price.
+meta/muse-spark-1.2
+208 requests in the last 31 days
+detectionchat
+textimage_urlvideo_url
+1M$1.25$0.15$4.25
+Kimi K3
+moonshotai/kimi-k3
+201 requests in the last 31 days
+detectionchat
+textimage_urlvideo_url
+256K$3$0.30$15
+Muse Glimmer 30B
+meta/muse-glimmer-30b
+135 requests in the last 31 days
+detectionchat
+textimage_urlvideo_url
+128K$0.35$0.04$1.50
+OCR Auto
+vlm-run/ocr:auto
+114 requests in the last 31 days
+ocrmarkdown
+textimage_urldocument_url
+—$0——
+Parakeet TDT 0.6B v3
+nvidia/parakeet-tdt-0.6b-v3
+27 requests in the last 31 days
+transcription
+textimage_urlvideo_url
+—$16.67/1M s——
+Qwen3-VL Embedding 2B
+qwen/qwen3-vl-embedding-2b
+11 requests in the last 31 days
+embedding
+textimage_urlvideo_url
+8K$0.013$0.013—
+RF-DETR LargeComing soon
+roboflow/rf-detr-large
+—
+detection
+textimage_url
+————
+LightOnOCRComing soon
+lightonai/lightonocr-1b-1025
+—
+markdown
+textimage_url
+8K———
+26 models
+Model Capabilities
+OCR
+Boxes, text, and scores on every line.
+We offer it all
+OCR through chat: every vision method, one OpenAI-compatible gateway.
+Detect
+Geometry first. Recognition when you need it.
+Segmentation
+Pixel masks that follow the object.
+Pose
+Joints, boxes, and confidence per person.
+Markdown
+Reading-order pages for RAG and review.
+Chat and VQA
+Open questions across images and video.
+Embeddings
+One vector space for text, images, and video.
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

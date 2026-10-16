@@ -1,0 +1,1054 @@
+try {
+    ! function() {
+        var e = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof globalThis ? globalThis : "undefined" != typeof self ? self : {},
+            t = (new e.Error).stack;
+        t && (e._sentryDebugIds = e._sentryDebugIds || {}, e._sentryDebugIds[t] = "7f0bf27a-2f7b-4f6d-aadb-3620ca0d72e3", e._sentryDebugIdIdentifier = "sentry-dbid-7f0bf27a-2f7b-4f6d-aadb-3620ca0d72e3")
+    }()
+} catch (e) {}(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+    [63185], {
+        18402: function(e, t, r) {
+            Promise.resolve().then(r.bind(r, 42166)), Promise.resolve().then(r.bind(r, 2353)), Promise.resolve().then(r.bind(r, 55686)), Promise.resolve().then(r.bind(r, 82798)), Promise.resolve().then(r.bind(r, 33606)), Promise.resolve().then(r.bind(r, 61970)), Promise.resolve().then(r.bind(r, 85574)), Promise.resolve().then(r.bind(r, 1381)), Promise.resolve().then(r.bind(r, 67679)), Promise.resolve().then(r.bind(r, 91265)), Promise.resolve().then(r.bind(r, 82711)), Promise.resolve().then(r.bind(r, 26430)), Promise.resolve().then(r.bind(r, 88291)), Promise.resolve().then(r.t.bind(r, 44742, 23)), Promise.resolve().then(r.t.bind(r, 2446, 23)), Promise.resolve().then(r.t.bind(r, 56050, 23)), Promise.resolve().then(r.t.bind(r, 32597, 23)), Promise.resolve().then(r.t.bind(r, 47763, 23)), Promise.resolve().then(r.t.bind(r, 24355, 23)), Promise.resolve().then(r.bind(r, 49842)), Promise.resolve().then(r.bind(r, 23883)), Promise.resolve().then(r.bind(r, 79409))
+        },
+        42166: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                PostHogProvider: function() {
+                    return w
+                }
+            });
+            var n = r(57437),
+                a = r(2265),
+                s = r(46214),
+                o = r(23664),
+                i = r(22048),
+                l = r(83688);
+            let d = "__vlm_chunk_reload_attempted",
+                u = !1,
+                c = !1,
+                m = async () => {
+                    if ("undefined" != typeof caches) try {
+                        let e = await caches.keys();
+                        await Promise.all(e.map(e => caches.delete(e)))
+                    } catch (e) {}
+                    if ("undefined" != typeof navigator && navigator.serviceWorker) try {
+                        let e = await navigator.serviceWorker.getRegistrations();
+                        await Promise.all(e.map(e => e.unregister()))
+                    } catch (e) {}
+                }, f = () => {
+                    let e = new URL(window.location.href);
+                    e.searchParams.set("_chunk_bust", Date.now().toString()), window.location.replace(e.toString())
+                }, h = () => {
+                    let e = window,
+                        t = null == e ? void 0 : e.__NEXT_DATA__;
+                    return (null == e ? void 0 : e.__next_asset_prefix) || (null == t ? void 0 : t.assetPrefix) || ""
+                }, p = async () => {
+                    let e = new Set;
+                    if ("undefined" == typeof fetch) return e;
+                    let t = h(),
+                        r = window,
+                        n = null == r ? void 0 : r.__BUILD_MANIFEST,
+                        a = r => {
+                            "string" == typeof r && r.endsWith(".js") && e.add(r.startsWith("http") ? r : "".concat(t).concat(r))
+                        };
+                    return n && Object.values(n).forEach(e => {
+                        Array.isArray(e) ? e.forEach(a) : "string" == typeof e && a(e)
+                    }), Array.from(document.querySelectorAll("script[src], link[rel='preload'][as='script'][href]")).map(e => "SCRIPT" === e.tagName ? e.src : e.href).filter(e => e.includes("_next/static")).forEach(e => a(e)), e
+                }, g = async () => {
+                    if (!c) {
+                        c = !0, sessionStorage.setItem("__vlm_chunk_probe_attempted", "true");
+                        try {
+                            let e = await p();
+                            if (!e.size) return;
+                            let t = [];
+                            await Promise.all(Array.from(e).map(async e => {
+                                try {
+                                    let r = await fetch(e, {
+                                        cache: "no-store"
+                                    });
+                                    t.push({
+                                        url: e,
+                                        ok: r.ok,
+                                        status: r.status
+                                    }), r.ok || i.uT("chunk_probe_failure", {
+                                        level: "error",
+                                        extra: {
+                                            url: e,
+                                            status: r.status
+                                        }
+                                    })
+                                } catch (r) {
+                                    t.push({
+                                        url: e,
+                                        ok: !1,
+                                        status: 0
+                                    }), i.Tb(r, {
+                                        extra: {
+                                            url: e,
+                                            note: "chunk_probe_error"
+                                        }
+                                    })
+                                }
+                            })), l.n({
+                                category: "chunk_probe",
+                                level: "info",
+                                message: "Probed chunk URLs",
+                                data: {
+                                    count: e.size,
+                                    results: t
+                                }
+                            })
+                        } catch (e) {}
+                    }
+                }, x = e => {
+                    var t, r;
+                    if (!e) return !1;
+                    let n = "object" == typeof e && null !== (t = e.name) && void 0 !== t ? t : "",
+                        a = "string" == typeof e ? e : "object" == typeof e && null !== (r = e.message) && void 0 !== r ? r : "";
+                    return !!("ChunkLoadError" === n || /ChunkLoadError/.test(a) || /Loading chunk \d+ failed/.test(a) || /chunk.*failed|failed.*chunk|chunk.*error|error.*chunk/i.test(a) && /webpack|_next\/static|chunk|\.js\?/i.test(a))
+                }, v = async (e, t) => {
+                    if (e && "undefined" != typeof fetch && (e.startsWith("http") || e.startsWith("/"))) try {
+                        let t = new AbortController,
+                            r = setTimeout(() => t.abort(), 1500),
+                            n = await fetch(e, {
+                                cache: "no-store",
+                                signal: t.signal
+                            });
+                        clearTimeout(r);
+                        let a = (await n.text()).slice(0, 400);
+                        l.n({
+                            category: "chunk_error",
+                            level: "error",
+                            message: "Fetched failing chunk response snippet",
+                            data: {
+                                url: e,
+                                status: n.status,
+                                snippet: a
+                            }
+                        })
+                    } catch (e) {}
+                }, b = (e, t, r) => {
+                    var n, a, s, o, u;
+                    if (!x(e) && !(t && x(t))) return !1;
+                    let c = "true" === sessionStorage.getItem(d);
+                    if (c) return !1;
+                    let h = t || ("string" == typeof e ? e : "object" == typeof e && null !== (a = e.message) && void 0 !== a ? a : ""),
+                        p = "object" == typeof e && null !== (s = e.name) && void 0 !== s ? s : "",
+                        b = {
+                            name: p,
+                            message: h,
+                            currentUrl: null === (n = window.location) || void 0 === n ? void 0 : n.href,
+                            reloadAlreadyAttempted: c,
+                            isOnline: "undefined" != typeof navigator ? navigator.onLine : void 0,
+                            filename: r
+                        };
+                    try {
+                        l.n({
+                            category: "chunk_error",
+                            level: "error",
+                            message: "Chunk load error detected",
+                            data: b
+                        }), i.uT("chunk_load_error_detected", {
+                            level: "warning",
+                            extra: b
+                        })
+                    } catch (e) {}
+                    r && v(r, b), g();
+                    try {
+                        null === (u = window.posthog) || void 0 === u || null === (o = u.capture) || void 0 === o || o.call(u, "chunk_load_error", {
+                            name: p,
+                            message: h
+                        })
+                    } catch (e) {}
+                    return sessionStorage.setItem(d, "true"), m().finally(f), !0
+                }, y = () => {
+                    u || (u = !0, "true" === sessionStorage.getItem(d) && sessionStorage.removeItem(d), window.addEventListener("unhandledrejection", e => {
+                        if (b(e.reason)) {
+                            var t;
+                            null === (t = e.preventDefault) || void 0 === t || t.call(e)
+                        }
+                    }), window.addEventListener("error", e => {
+                        if (b(e.error, e.message || "", e.filename)) {
+                            var t;
+                            null === (t = e.preventDefault) || void 0 === t || t.call(e)
+                        }
+                    }), g())
+                };
+
+            function w(e) {
+                let {
+                    children: t
+                } = e;
+                return (0, a.useEffect)(() => {
+                    y(), s.ZP.init("phc_6KUaJEbpUCMyIJuxAdDPFwDU72zt3ZPjd2dohb8lkep", {
+                        api_host: "https://us.i.posthog.com",
+                        person_profiles: "identified_only",
+                        defaults: "2025-05-24"
+                    })
+                }, []), (0, n.jsx)(o.zf, {
+                    client: s.ZP,
+                    children: t
+                })
+            }
+        },
+        2353: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                AttributionCapture: function() {
+                    return s
+                }
+            });
+            var n = r(2265),
+                a = r(21531);
+
+            function s() {
+                return (0, n.useEffect)(() => {
+                    (0, a.n)()
+                }, []), null
+            }
+        },
+        55686: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                GlobalAssumeRoleBadge: function() {
+                    return g
+                }
+            });
+            var n = r(57437),
+                a = r(2265),
+                s = r(47071),
+                o = r(58549),
+                i = r(8481),
+                l = r(54353),
+                d = r(29827),
+                u = r(83578),
+                c = r(51817),
+                m = r(32489),
+                f = r(8102),
+                h = r(94508),
+                p = r(62869);
+
+            function g() {
+                let {
+                    user: e
+                } = (0, l.aF)(), {
+                    mutate: t,
+                    isPending: r
+                } = (0, o.f)(), [g, x] = (0, a.useState)(!1), v = (0, d.NL)(), {
+                    inspecting: b,
+                    setInspecting: y,
+                    originalClerkId: w,
+                    setOriginalClerkId: k
+                } = (0, f.L)(), [_, N] = (0, a.useState)({
+                    x: 0,
+                    y: 0
+                }), [j, P] = (0, a.useState)(!1), E = (0, a.useRef)(null), S = (0, a.useRef)({
+                    x: 0,
+                    y: 0
+                }), C = (0, a.useRef)(!1), z = (0, a.useCallback)(e => {
+                    var t;
+                    if (e.target.closest("button")) return;
+                    let r = null === (t = E.current) || void 0 === t ? void 0 : t.getBoundingClientRect();
+                    r && (S.current = {
+                        x: e.clientX - r.left,
+                        y: e.clientY - r.top
+                    }, C.current = !1, P(!0), e.target.setPointerCapture(e.pointerId))
+                }, []), A = (0, a.useCallback)((e, t) => {
+                    var r, n;
+                    let a = E.current,
+                        s = null !== (r = null == a ? void 0 : a.offsetWidth) && void 0 !== r ? r : 0,
+                        o = null !== (n = null == a ? void 0 : a.offsetHeight) && void 0 !== n ? n : 0;
+                    return {
+                        x: Math.max(0, Math.min(e, window.innerWidth - s)),
+                        y: Math.max(0, Math.min(t, window.innerHeight - o))
+                    }
+                }, []), Z = (0, a.useCallback)(e => {
+                    j && (C.current = !0, N(A(e.clientX - S.current.x, e.clientY - S.current.y)))
+                }, [j, A]), R = (0, a.useCallback)(() => {
+                    P(!1)
+                }, []);
+                (0, a.useEffect)(() => {
+                    b && !C.current && requestAnimationFrame(() => {
+                        var e, t;
+                        let r = null !== (t = null === (e = E.current) || void 0 === e ? void 0 : e.offsetWidth) && void 0 !== t ? t : 200;
+                        N({
+                            x: window.innerWidth - r - 12,
+                            y: 12
+                        })
+                    })
+                }, [b]), (0, a.useEffect)(() => {
+                    let e = () => {
+                        N(e => A(e.x, e.y))
+                    };
+                    return window.addEventListener("resize", e), () => window.removeEventListener("resize", e)
+                }, [A]);
+                let I = () => {
+                    let e = (0, s.Cd)();
+                    v.removeQueries({
+                        predicate: t => !e.some(e => e.every((e, r) => t.queryKey[r] === e))
+                    })
+                };
+                return b || g ? (0, n.jsxs)(n.Fragment, {
+                    children: [g && (0, n.jsx)("div", {
+                        className: "fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-background/80 backdrop-blur-md duration-300 animate-in fade-in",
+                        children: (0, n.jsxs)("div", {
+                            className: "flex flex-col items-center gap-4",
+                            children: [(0, n.jsxs)("div", {
+                                className: "relative",
+                                children: [(0, n.jsx)("div", {
+                                    className: "size-12 animate-spin rounded-full border-t-2 border-primary"
+                                }), (0, n.jsx)("div", {
+                                    className: "absolute inset-0 flex items-center justify-center",
+                                    children: (0, n.jsx)(u.Z, {
+                                        className: "size-5 text-primary/50"
+                                    })
+                                })]
+                            }), (0, n.jsxs)("div", {
+                                className: "flex flex-col items-center gap-1",
+                                children: [(0, n.jsx)("p", {
+                                    className: "text-sm font-medium",
+                                    children: "Restoring your session"
+                                }), (0, n.jsx)("p", {
+                                    className: "text-xs text-muted-foreground",
+                                    children: "Returning to your organization..."
+                                })]
+                            })]
+                        })
+                    }), !g && b && (0, n.jsx)("div", {
+                        ref: E,
+                        className: (0, h.cn)("fixed z-[100] select-none", j ? "cursor-grabbing" : "cursor-grab"),
+                        style: {
+                            left: _.x,
+                            top: _.y
+                        },
+                        onPointerDown: z,
+                        onPointerMove: Z,
+                        onPointerUp: R,
+                        children: (0, n.jsxs)("div", {
+                            className: "flex h-6 items-center gap-1 rounded-full border border-blue-200 bg-blue-50/90 pl-2 pr-0.5 text-[10px] font-medium text-blue-700 shadow-sm backdrop-blur-sm",
+                            children: [(0, n.jsxs)("span", {
+                                className: "max-w-[200px] truncate",
+                                children: ["Inspecting ", (0, n.jsx)("span", {
+                                    className: "font-bold",
+                                    children: b
+                                })]
+                            }), (0, n.jsx)(p.z, {
+                                variant: "ghost",
+                                size: "icon",
+                                className: "size-5 rounded-full text-blue-600 hover:bg-blue-100 hover:text-blue-800",
+                                onClick: () => {
+                                    if (r || g) return;
+                                    let n = w || (null == e ? void 0 : e.id);
+                                    n && (x(!0), t(n, {
+                                        onSuccess: () => {
+                                            (0, i.wH)(), y(null), k(null), I(), w && (localStorage.setItem("assume_role_cancelled", w), setTimeout(() => localStorage.removeItem("assume_role_cancelled"), 100)), window.location.href = "/dashboard"
+                                        },
+                                        onError: () => {
+                                            x(!1), console.error("Failed to exit assume role")
+                                        }
+                                    }))
+                                },
+                                disabled: r,
+                                children: r ? (0, n.jsx)(c.Z, {
+                                    className: "size-2.5 animate-spin"
+                                }) : (0, n.jsx)(m.Z, {
+                                    className: "size-2.5"
+                                })
+                            })]
+                        })
+                    })]
+                }) : null
+            }
+        },
+        82798: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                ThemeProvider: function() {
+                    return s
+                }
+            });
+            var n = r(57437);
+            r(2265);
+            var a = r(78298);
+
+            function s(e) {
+                let {
+                    children: t,
+                    ...r
+                } = e;
+                return (0, n.jsx)(a.f, {
+                    ...r,
+                    children: t
+                })
+            }
+        },
+        23518: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                di: function() {
+                    return g
+                },
+                e8: function() {
+                    return m
+                },
+                fu: function() {
+                    return h
+                },
+                m5: function() {
+                    return u
+                },
+                mY: function() {
+                    return d
+                },
+                rb: function() {
+                    return f
+                },
+                sZ: function() {
+                    return c
+                },
+                zz: function() {
+                    return p
+                }
+            });
+            var n = r(57437),
+                a = r(2265),
+                s = r(20653),
+                o = r(46343),
+                i = r(94508),
+                l = r(26110);
+            let d = a.forwardRef((e, t) => {
+                let {
+                    className: r,
+                    ...a
+                } = e;
+                return (0, n.jsx)(o.mY, {
+                    ref: t,
+                    className: (0, i.cn)("flex size-full flex-col overflow-hidden rounded-[10px] bg-popover text-popover-foreground", r),
+                    ...a
+                })
+            });
+            d.displayName = o.mY.displayName;
+            let u = e => {
+                    let {
+                        children: t,
+                        ...r
+                    } = e;
+                    return (0, n.jsx)(l.Vq, {
+                        ...r,
+                        children: (0, n.jsx)(l.cZ, {
+                            className: "overflow-hidden p-0",
+                            children: (0, n.jsx)(d, {
+                                className: "[&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2 [&_[cmdk-input-wrapper]_svg]:size-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2 [&_[cmdk-item]]:py-3 [&_[cmdk-item]_svg]:size-5",
+                                children: t
+                            })
+                        })
+                    })
+                },
+                c = a.forwardRef((e, t) => {
+                    let {
+                        className: r,
+                        ...a
+                    } = e;
+                    return (0, n.jsxs)("div", {
+                        className: "flex items-center border-b px-3",
+                        "cmdk-input-wrapper": "",
+                        children: [(0, n.jsx)(s._Ve, {
+                            className: "mr-2 size-4 shrink-0 opacity-50"
+                        }), (0, n.jsx)(o.mY.Input, {
+                            ref: t,
+                            className: (0, i.cn)("flex h-10 w-full rounded-[10px] bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50", r),
+                            ...a
+                        })]
+                    })
+                });
+            c.displayName = o.mY.Input.displayName;
+            let m = a.forwardRef((e, t) => {
+                let {
+                    className: r,
+                    ...a
+                } = e;
+                return (0, n.jsx)(o.mY.List, {
+                    ref: t,
+                    className: (0, i.cn)("max-h-[300px] overflow-y-auto overflow-x-hidden", r),
+                    ...a
+                })
+            });
+            m.displayName = o.mY.List.displayName;
+            let f = a.forwardRef((e, t) => (0, n.jsx)(o.mY.Empty, {
+                ref: t,
+                className: "py-6 text-center text-sm",
+                ...e
+            }));
+            f.displayName = o.mY.Empty.displayName;
+            let h = a.forwardRef((e, t) => {
+                let {
+                    className: r,
+                    ...a
+                } = e;
+                return (0, n.jsx)(o.mY.Group, {
+                    ref: t,
+                    className: (0, i.cn)("overflow-hidden p-1 text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground", r),
+                    ...a
+                })
+            });
+            h.displayName = o.mY.Group.displayName;
+            let p = a.forwardRef((e, t) => {
+                let {
+                    className: r,
+                    ...a
+                } = e;
+                return (0, n.jsx)(o.mY.Separator, {
+                    ref: t,
+                    className: (0, i.cn)("-mx-1 h-px bg-border", r),
+                    ...a
+                })
+            });
+            p.displayName = o.mY.Separator.displayName;
+            let g = a.forwardRef((e, t) => {
+                let {
+                    className: r,
+                    ...a
+                } = e;
+                return (0, n.jsx)(o.mY.Item, {
+                    ref: t,
+                    className: (0, i.cn)("relative flex cursor-default select-none items-center rounded-[6px] px-3 py-1.5 text-sm outline-none data-[disabled=true]:pointer-events-none data-[selected=true]:bg-[#F7F7F7] data-[selected=true]:text-accent-foreground data-[disabled=true]:opacity-50", r),
+                    ...a
+                })
+            });
+            g.displayName = o.mY.Item.displayName
+        },
+        26110: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                $N: function() {
+                    return g
+                },
+                Be: function() {
+                    return x
+                },
+                GG: function() {
+                    return c
+                },
+                Vq: function() {
+                    return l
+                },
+                cN: function() {
+                    return p
+                },
+                cZ: function() {
+                    return f
+                },
+                fK: function() {
+                    return h
+                },
+                hg: function() {
+                    return d
+                }
+            });
+            var n = r(57437),
+                a = r(2265),
+                s = r(49027),
+                o = r(20653),
+                i = r(94508);
+            let l = s.fC,
+                d = s.xz,
+                u = s.h_,
+                c = s.x8,
+                m = a.forwardRef((e, t) => {
+                    let {
+                        className: r,
+                        ...a
+                    } = e;
+                    return (0, n.jsx)(s.aV, {
+                        ref: t,
+                        className: (0, i.cn)("fixed inset-0 z-[10000] bg-black/20 backdrop-blur-[2px] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0", r),
+                        ...a
+                    })
+                });
+            m.displayName = s.aV.displayName;
+            let f = a.forwardRef((e, t) => {
+                let {
+                    className: r,
+                    children: a,
+                    hideCloseButton: l = !0,
+                    overlayClassName: d,
+                    ...c
+                } = e;
+                return (0, n.jsxs)(u, {
+                    children: [(0, n.jsx)(m, {
+                        className: d
+                    }), (0, n.jsxs)(s.VY, {
+                        ref: t,
+                        className: (0, i.cn)("fixed left-1/2 top-1/2 z-[10000] grid h-auto w-full max-h-[min(90dvh,40rem)] max-w-lg -translate-x-1/2 -translate-y-1/2 content-start gap-4 overflow-y-auto overscroll-contain rounded-2xl border bg-background p-6 shadow-lg outline-none duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%]", r),
+                        ...c,
+                        children: [a, !l && (0, n.jsxs)(s.x8, {
+                            className: "absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground",
+                            children: [(0, n.jsx)(o.Pxu, {
+                                className: "size-4"
+                            }), (0, n.jsx)("span", {
+                                className: "sr-only",
+                                children: "Close"
+                            })]
+                        })]
+                    })]
+                })
+            });
+            f.displayName = s.VY.displayName;
+            let h = e => {
+                let {
+                    className: t,
+                    ...r
+                } = e;
+                return (0, n.jsx)("div", {
+                    className: (0, i.cn)("flex flex-col space-y-1.5 text-center sm:text-left", t),
+                    ...r
+                })
+            };
+            h.displayName = "DialogHeader";
+            let p = e => {
+                let {
+                    className: t,
+                    ...r
+                } = e;
+                return (0, n.jsx)("div", {
+                    className: (0, i.cn)("flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2", t),
+                    ...r
+                })
+            };
+            p.displayName = "DialogFooter";
+            let g = a.forwardRef((e, t) => {
+                let {
+                    className: r,
+                    ...a
+                } = e;
+                return (0, n.jsx)(s.Dx, {
+                    ref: t,
+                    className: (0, i.cn)("text-lg font-semibold leading-none tracking-tight", r),
+                    ...a
+                })
+            });
+            g.displayName = s.Dx.displayName;
+            let x = a.forwardRef((e, t) => {
+                let {
+                    className: r,
+                    ...a
+                } = e;
+                return (0, n.jsx)(s.dk, {
+                    ref: t,
+                    className: (0, i.cn)("text-sm text-muted-foreground", r),
+                    ...a
+                })
+            });
+            x.displayName = s.dk.displayName
+        },
+        33606: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                Toaster: function() {
+                    return o
+                }
+            });
+            var n = r(57437),
+                a = r(78298),
+                s = r(14438);
+            let o = e => {
+                let {
+                    ...t
+                } = e, {
+                    theme: r = "system"
+                } = (0, a.F)();
+                return (0, n.jsx)(s.x7, {
+                    theme: r,
+                    className: "toaster group",
+                    toastOptions: {
+                        classNames: {
+                            toast: "group toast group-[.toaster]:bg-background group-[.toaster]:text-foreground group-[.toaster]:border-border group-[.toaster]:shadow-lg",
+                            description: "group-[.toast]:text-muted-foreground",
+                            actionButton: "group-[.toast]:bg-primary group-[.toast]:text-primary-foreground",
+                            cancelButton: "group-[.toast]:bg-muted group-[.toast]:text-muted-foreground"
+                        }
+                    },
+                    ...t
+                })
+            }
+        },
+        61970: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                UnifyIntentProvider: function() {
+                    return o
+                }
+            });
+            var n = r(57437),
+                a = r(37296);
+            let s = new a.xd("wk_jmZRryRw_E2pTA3dkRhWbxa1ckZfYapmsh1gwrkMM", {
+                autoPage: !0,
+                autoIdentify: !1
+            });
+
+            function o(e) {
+                let {
+                    children: t
+                } = e;
+                return (0, n.jsx)(a._Z, {
+                    intentClient: s,
+                    children: t
+                })
+            }
+        },
+        38662: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                ZL: function() {
+                    return i
+                },
+                xC: function() {
+                    return u
+                },
+                y1: function() {
+                    return d
+                },
+                z7: function() {
+                    return l
+                }
+            });
+            var n = r(2265),
+                a = r(54353);
+            let s = {
+                    preventDefault: !0,
+                    stopPropagation: !1,
+                    repeat: !1,
+                    scopes: ["global"],
+                    requireAuth: !1,
+                    disabled: !1
+                },
+                o = new Set(["global"]);
+
+            function i(e) {
+                e.forEach(e => o.add(e))
+            }
+
+            function l(e) {
+                e.forEach(e => {
+                    "global" !== e && o.delete(e)
+                })
+            }
+
+            function d(e, t) {
+                let r = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {},
+                    {
+                        isSignedIn: i
+                    } = (0, a.kP)(),
+                    l = (0, n.useRef)(t),
+                    d = (0, n.useMemo)(() => Array.isArray(e) ? e : [e], [e]),
+                    u = (0, n.useMemo)(() => ({
+                        ...s,
+                        ...r
+                    }), [r]);
+                (0, n.useEffect)(() => {
+                    l.current = t
+                }, [t]);
+                let c = (0, n.useCallback)(e => {
+                    var t;
+                    if (u.requireAuth && !i || u.disabled) return;
+                    let r = e.target;
+                    "INPUT" !== r.tagName && "TEXTAREA" !== r.tagName && "SELECT" !== r.tagName && !r.isContentEditable && (null === (t = u.scopes) || void 0 === t ? void 0 : t.some(e => o.has(e))) && d.find(t => (function(e, t) {
+                        let {
+                            key: r,
+                            alt: n,
+                            ctrl: a,
+                            meta: s,
+                            shift: o
+                        } = function(e) {
+                            let t = e.toLowerCase().split("+");
+                            return {
+                                key: t.pop(),
+                                alt: t.includes("alt"),
+                                ctrl: t.includes("ctrl") || t.includes("control"),
+                                meta: t.includes("meta") || t.includes("cmd") || t.includes("command"),
+                                shift: t.includes("shift")
+                            }
+                        }(t);
+                        return (e.key.toLowerCase() === r || n && 1 === r.length && e.code.toLowerCase() === "key".concat(r)) && e.altKey === n && e.ctrlKey === a && e.metaKey === s && e.shiftKey === o
+                    })(e, t)) && (u.repeat || !e.repeat) && (u.preventDefault && e.preventDefault(), u.stopPropagation && e.stopPropagation(), l.current(e))
+                }, [d, u, i]);
+                (0, n.useEffect)(() => {
+                    var e;
+                    return document.addEventListener("keydown", c, null !== (e = u.capture) && void 0 !== e && e), () => {
+                        var e;
+                        document.removeEventListener("keydown", c, null !== (e = u.capture) && void 0 !== e && e)
+                    }
+                }, [c, u.capture])
+            }
+
+            function u(e) {
+                let t = (0, n.useMemo)(() => Array.isArray(e) ? e : [e], [e]);
+                (0, n.useEffect)(() => (i(t), () => {
+                    l(t)
+                }), [t])
+            }
+        },
+        6607: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                A: function() {
+                    return _
+                }
+            });
+            var n = r(6818),
+                a = r(81596),
+                s = r(54001),
+                o = r(69317),
+                i = r(33073),
+                l = r(48736),
+                d = r(33276),
+                u = r(82023),
+                c = r(45575),
+                m = r(95805),
+                f = r(88226),
+                h = r(51884),
+                p = r(91804),
+                g = r(95080),
+                x = r(70525),
+                v = r(98728),
+                b = r(11),
+                y = r(71769),
+                w = r(25066);
+
+            function k(e, t, r, n, a) {
+                let s = (null == a ? void 0 : a.match) || "exact",
+                    o = !1;
+                return "exact" === s ? o = n === e : "includes" === s ? o = n.includes(e) : "startsWith" === s && (o = n.startsWith(e)), {
+                    href: e,
+                    label: t,
+                    icon: r,
+                    active: o,
+                    pill: null == a ? void 0 : a.pill,
+                    tooltip: null == a ? void 0 : a.tooltip
+                }
+            }
+
+            function _(e, t, r) {
+                arguments.length > 3 && void 0 !== arguments[3] && arguments[3], arguments.length > 4 && void 0 !== arguments[4] && arguments[4];
+                let _ = arguments.length > 5 && void 0 !== arguments[5] && arguments[5],
+                    N = [k(w.$d, "Overview", n.Z, e), k(w.R0, "Logs", a.Z, e, {
+                        match: "startsWith"
+                    }), k(w.ft, "API Keys", s.Z, e, {
+                        match: "includes"
+                    })];
+                N[0].active = e === w.$d || e === w.vP;
+                let j = [k(w.Js, "Explore", o.Z, e), k("/dashboard/skills", "Skills", i.Z, e, {
+                        match: "startsWith"
+                    }), k("/dashboard/requests", "Requests", l.Z, e), k("/dashboard/agents/executions", "Executions", d.Z, e, {
+                        match: "includes"
+                    }), k("/dashboard/chat-completions", "Completions", u.Z, e), k("/dashboard/evaluations", "Evaluations", c.Z, e, {
+                        match: "startsWith"
+                    })],
+                    P = [k("/dashboard/settings/organization", "Team", m.Z, e, {
+                        match: "includes"
+                    })];
+                r && P.push(k("/dashboard/settings/billing", "Billing", f.Z, e, {
+                    match: "includes"
+                }));
+                let E = [];
+                t && _ && E.push(k("/dashboard/admin/user-management", "User Management", h.Z, e, {
+                    match: "includes"
+                }), k("/dashboard/admin/organizations-report", "Org Report", n.Z, e, {
+                    match: "includes"
+                }), k("/dashboard/admin/add-credit", "Credit Management", p.Z, e, {
+                    match: "includes"
+                }), k("/dashboard/admin/signup-codes", "Signup Codes", g.Z, e, {
+                    match: "includes"
+                }), k("/dashboard/admin/signup-attribution", "Signup Attribution", x.Z, e, {
+                    match: "includes"
+                }), k("/dashboard/admin/feature-flags", "Feature Flags", v.Z, e), k("/dashboard/admin/chat-templates", "Chat Templates", b.Z, e, {
+                    match: "startsWith"
+                }), k("/dashboard/admin/skills", "Skills Admin", i.Z, e, {
+                    match: "startsWith"
+                }));
+                let S = [{
+                    label: "",
+                    items: N
+                }, {
+                    label: "Workspace",
+                    items: j
+                }, {
+                    label: "Settings",
+                    items: P
+                }];
+                return E.length > 0 && S.push({
+                    label: "Admin",
+                    items: E
+                }), S.push({
+                    label: "",
+                    items: [k(w.ld, "Docs", y.Z, e)]
+                }), S
+            }
+        },
+        21531: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                X: function() {
+                    return s
+                },
+                n: function() {
+                    return a
+                }
+            });
+            let n = "signup_attribution",
+                a = () => {
+                    if (localStorage.getItem(n)) return;
+                    let e = new URLSearchParams(window.location.search),
+                        t = {},
+                        r = e.get("utm_source"),
+                        a = e.get("utm_medium"),
+                        s = e.get("utm_campaign");
+                    r && (t.utmSource = r), a && (t.utmMedium = a), s && (t.utmCampaign = s), document.referrer && new URL(document.referrer).hostname !== window.location.hostname && (t.referrer = document.referrer), Object.keys(t).length > 0 && localStorage.setItem(n, JSON.stringify(t))
+                },
+                s = () => {
+                    let e = localStorage.getItem(n);
+                    if (!e) return {};
+                    try {
+                        return JSON.parse(e)
+                    } catch (e) {
+                        return {}
+                    }
+                }
+        },
+        23883: function(e, t, r) {
+            "use strict";
+            r.d(t, {
+                default: function() {
+                    return h
+                }
+            });
+            var n = r(57437),
+                a = r(2265),
+                s = r(99376),
+                o = r(54353),
+                i = r(38662),
+                l = r(54001),
+                d = r(25066),
+                u = r(6607),
+                c = r(8102),
+                m = r(23518);
+
+            function f(e) {
+                let {
+                    children: t
+                } = e, [r, f] = (0, a.useState)(!1), h = (0, s.useRouter)(), p = (0, s.usePathname)(), {
+                    isSignedIn: g
+                } = (0, o.kP)(), {
+                    isSuperUser: x,
+                    isOrgAdmin: v,
+                    showAdminControls: b
+                } = (0, c.L)(e => ({
+                    isSuperUser: e.isSuperUser,
+                    isOrgAdmin: e.isOrgAdmin,
+                    showAdminControls: e.showAdminControls
+                }));
+                (0, i.y1)(["ctrl+k", "meta+k"], () => {
+                    f(e => !e)
+                }, {
+                    disabled: !g
+                }), (0, a.useEffect)(() => {
+                    if (!r) return;
+                    let e = e => {
+                        "Escape" === e.key && r && (e.preventDefault(), f(!1))
+                    };
+                    return document.addEventListener("keydown", e), () => document.removeEventListener("keydown", e)
+                }, [r]);
+                let y = e => {
+                    f(!1), e()
+                };
+                if (!g) return null;
+                let w = (0, u.A)(p || "", x, v, !1, !1, b);
+                return (0, n.jsxs)(n.Fragment, {
+                    children: [t && (0, n.jsx)("div", {
+                        onClick: () => f(!0),
+                        children: t
+                    }), (0, n.jsxs)(m.m5, {
+                        open: r,
+                        onOpenChange: f,
+                        children: [(0, n.jsx)(m.sZ, {
+                            placeholder: "Search for pages, features, or actions..."
+                        }), (0, n.jsxs)(m.e8, {
+                            children: [(0, n.jsx)(m.rb, {
+                                children: "No results found."
+                            }), (0, n.jsx)(m.fu, {
+                                heading: "Actions",
+                                children: (0, n.jsxs)(m.di, {
+                                    onSelect: () => y(() => h.push((0, d.jN)())),
+                                    children: [(0, n.jsx)(l.Z, {
+                                        className: "mr-2 size-4"
+                                    }), (0, n.jsx)("span", {
+                                        children: "Create API key"
+                                    })]
+                                })
+                            }), w.map((e, t) => {
+                                var r, a, s;
+                                let o = (r = e.label, a = e.items.map(e => e.href), s = e.items.map(e => e.label), r || (a.some(e => e.includes("docs")) ? "Help" : s.includes("Chat") ? "Chat" : 0 === t ? "Navigation" : "More"));
+                                return (0, n.jsxs)("div", {
+                                    children: [(0, n.jsx)(m.zz, {}), (0, n.jsx)(m.fu, {
+                                        heading: o,
+                                        children: e.items.map(e => {
+                                            let t = e.icon;
+                                            return (0, n.jsxs)(m.di, {
+                                                onSelect: () => y(() => {
+                                                    e.href.startsWith("http") ? window.open(e.href, "_blank") : h.push(e.href)
+                                                }),
+                                                children: [(0, n.jsx)(t, {
+                                                    className: "mr-2 size-4"
+                                                }), (0, n.jsx)("span", {
+                                                    children: e.label
+                                                })]
+                                            }, e.href)
+                                        })
+                                    })]
+                                }, "".concat(o, "-").concat(t))
+                            })]
+                        })]
+                    })]
+                })
+            }
+
+            function h(e) {
+                let {
+                    children: t
+                } = e, r = (0, s.usePathname)(), {
+                    isSignedIn: l
+                } = (0, o.kP)();
+                return (0, a.useEffect)(() => {
+                    let e = ["global"];
+                    return (null == r ? void 0 : r.startsWith("/dashboard")) && e.push("dashboard"), l && e.push("authenticated"), (0, i.ZL)(e), () => {
+                        (0, i.z7)(e.filter(e => "global" !== e))
+                    }
+                }, [r, l]), (0, n.jsxs)(n.Fragment, {
+                    children: [(0, n.jsx)(f, {}), t]
+                })
+            }
+        },
+        79409: function(e, t, r) {
+            "use strict";
+            var n = r(57437),
+                a = r(2265),
+                s = r(21623),
+                o = r(29827);
+            t.default = e => {
+                let {
+                    children: t
+                } = e, [r] = (0, a.useState)(() => new s.S);
+                return (0, n.jsx)(o.aH, {
+                    client: r,
+                    children: t
+                })
+            }
+        },
+        56050: function() {},
+        32597: function() {}
+    },
+    function(e) {
+        e.O(0, [85090, 54387, 77253, 8310, 35878, 36693, 82957, 14438, 92850, 83464, 89737, 90282, 54353, 85883, 86903, 75031, 95059, 27292, 4388, 60991, 92971, 32864, 1744], function() {
+            return e(e.s = 18402)
+        }), _N_E = e.O()
+    }
+]);

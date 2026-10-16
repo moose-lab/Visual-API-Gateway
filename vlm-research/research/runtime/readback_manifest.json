@@ -1,0 +1,14 @@
+[
+  {
+    "name": "probe_orion2_history",
+    "url": "https://api.vlm.run/v1/chat/messages?session_id=7820bcb3-743d-4548-9097-9cbcd7a24229"
+  },
+  {
+    "name": "hub_invoice_schema",
+    "url": "https://api.vlm.run/v1/hub/schema",
+    "body": {
+      "domain": "document.invoice"
+    },
+    "public": true
+  }
+]

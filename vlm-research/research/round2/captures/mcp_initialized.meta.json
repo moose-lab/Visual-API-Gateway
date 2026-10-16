@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T02:55:01.625860+00:00",
+  "url": "https://gateway.vlm.run/mcp",
+  "method": "POST",
+  "status": 202,
+  "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "response_bytes": 0,
+  "headers": {
+    "date": "Tue, 13 Oct 2026 02:55:01 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "b642bb8b-1b6c-487f-b8bb-548ccfb8ed94, b642bb8b-1b6c-487f-b8bb-548ccfb8ed94"
+  },
+  "elapsed_seconds": 0.258
+}

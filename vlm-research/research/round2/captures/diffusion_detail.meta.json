@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:04:33.939616+00:00",
+  "url": "https://gateway.vlm.run/v1/models/google/diffusiongemma-26b-a4b-it",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "199b8943835d324a02dfdf38c6a1019a8487633510c3512f1b7e048934f8baa4",
+  "response_bytes": 918,
+  "headers": {
+    "date": "Tue, 13 Oct 2026 03:04:34 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "73153a5d-3f60-49aa-a5a0-65938a1e7f47, 73153a5d-3f60-49aa-a5a0-65938a1e7f47"
+  },
+  "elapsed_seconds": 0.828
+}

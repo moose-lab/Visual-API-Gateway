@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:53:01.980763+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/rednote-hilab/dots.mocr",
+  "status": 200,
+  "elapsed_seconds": 1.269,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:53:03 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "d7edc2b0-8c81-458f-8732-56a662543dac"
+  },
+  "response_sha256": "d346f3bbc20409b8d404ee3e31d7d38d1e7d5c325e613ecb9e68f5c5a0dc43cd",
+  "response_bytes": 754
+}

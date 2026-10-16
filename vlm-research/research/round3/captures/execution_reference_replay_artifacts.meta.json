@@ -1,0 +1,14 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T07:57:11.676077+00:00",
+  "url": "https://api.vlm.run/v1/artifacts?execution_id=5410a132-b564-428a-8d11-f9e7b80e3ef8",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "1e36c4f8998b10b53b609d3588622d6b6f888a6e4a33e52fba355bebee3e402a",
+  "response_bytes": 173,
+  "headers": {
+    "Content-Type": "application/json",
+    "Date": "Tue, 13 Oct 2026 07:57:14 GMT"
+  },
+  "elapsed_seconds": 2.484
+}

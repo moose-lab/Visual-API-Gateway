@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:52:48.688392+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/geopavlakos/hamer",
+  "status": 200,
+  "elapsed_seconds": 2.035,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:52:49 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "4ee4a5a3-3f3f-440b-9fc8-0b882c67f98b"
+  },
+  "response_sha256": "e5b9a392a196aa71dd881bdd05acf115c9674379f4c5d2717125aacb77a75ece",
+  "response_bytes": 670
+}

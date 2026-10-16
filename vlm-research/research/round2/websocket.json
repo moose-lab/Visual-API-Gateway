@@ -1,0 +1,89 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T02:59:14.041588+00:00",
+  "url": "wss://gateway.vlm.run/typesafe/ws",
+  "request": {
+    "type": "session.create",
+    "model": "google/diffusiongemma-26b-a4b-it",
+    "state": "Answer about the synthetic invoice image.",
+    "questions": {
+      "invoice": {
+        "type": "noul",
+        "instructions": "Does this document show an invoice identifier?"
+      }
+    },
+    "detail": "low",
+    "max_inflight": 1
+  },
+  "client": "websocket-client",
+  "frame_sha256": "33d917645e2975fe5b727c88c2c06ae65ed94b734452e814fa51852c3d9fc15c",
+  "events": [
+    {
+      "elapsed_s": 1.131,
+      "message": {
+        "type": "session.created",
+        "session_id": "0e90908c19c6",
+        "model": "google/diffusiongemma-26b-a4b-it",
+        "questions": [
+          "invoice"
+        ],
+        "groups": 1,
+        "canvas_widths": [
+          16
+        ],
+        "window": 1,
+        "stride": 1,
+        "max_inflight": 1,
+        "max_frame_bytes": 2097152,
+        "max_cost": 5.0,
+        "expires_in": 600.0
+      }
+    },
+    {
+      "elapsed_s": 1.475,
+      "message": {
+        "type": "decision",
+        "frame": 1,
+        "answers": {
+          "invoice": {
+            "type": "noul",
+            "noul": 0.9323294820420261
+          }
+        },
+        "usage": {
+          "input_tokens": 150,
+          "output_tokens": 0,
+          "input_tokens_details": {
+            "cached_tokens": 32,
+            "image_tokens": 70,
+            "text_tokens": 80
+          },
+          "reads": 1,
+          "cost": 0.001
+        },
+        "latency_ms": 73.2836090028286,
+        "id": null
+      }
+    },
+    {
+      "elapsed_s": 1.707,
+      "message": {
+        "type": "session.stats",
+        "session_id": "0e90908c19c6",
+        "frames": 1,
+        "decisions": 1,
+        "dropped": 0,
+        "errors": 0,
+        "reads": 1,
+        "input_tokens": 150,
+        "cached_tokens": 32,
+        "cost": 0.001,
+        "p50_ms": 73.2836090028286,
+        "p95_ms": 73.2836090028286,
+        "fps": 1.7075716012982969
+      }
+    }
+  ],
+  "uses_configured_proxy": true,
+  "elapsed_seconds": 1.968
+}

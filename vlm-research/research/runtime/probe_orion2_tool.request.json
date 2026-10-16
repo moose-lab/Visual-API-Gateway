@@ -1,0 +1,17 @@
+{
+  "method": "POST",
+  "url": "https://api.vlm.run/v1/openai/chat/completions",
+  "auth": "Bearer [REDACTED]",
+  "body": {
+    "model": "vlmrun-orion-2",
+    "messages": [
+      {
+        "role": "user",
+        "content": "For a tiny code-execution connectivity test, use execute_code to calculate sum(i*i for i in range(1, 6)) in Python and print the result. No external data, no files, no media or web tools are needed. Then reply with only the calculated integer."
+      }
+    ],
+    "stream": true,
+    "expose_server_tool_calls": true,
+    "preview": false
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "method": "GET",
+  "url": "https://storage.googleapis.com/vlm-userdata-prod/files/13604ef1-4aac-4837-b925-a1dbdbfe397e/archive-20260722-Nrr2k_jV1co-medical-multi-schema-extraction.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T074754Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+  "auth": "none",
+  "body": null,
+  "headers": {}
+}

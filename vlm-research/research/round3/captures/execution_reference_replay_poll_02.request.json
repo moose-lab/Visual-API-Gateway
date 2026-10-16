@@ -1,0 +1,7 @@
+{
+  "method": "GET",
+  "url": "https://api.vlm.run/v1/agent/executions/5410a132-b564-428a-8d11-f9e7b80e3ef8",
+  "auth": "Bearer [REDACTED]",
+  "body": null,
+  "headers": {}
+}

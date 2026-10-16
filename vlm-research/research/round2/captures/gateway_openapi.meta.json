@@ -1,0 +1,17 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:42:51.586305+00:00",
+  "url": "https://gateway.vlm.run/openapi.json",
+  "method": "GET",
+  "status": 200,
+  "final_url": "https://gateway.vlm.run/openapi.json",
+  "response_sha256": "d1af9a7df400141b50611ce4d69caa9257bea41de9f7bb504f49a7043c9ef5e9",
+  "response_bytes": 37582,
+  "headers": {
+    "date": "Tue, 13 Oct 2026 03:42:52 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "4f3a57d0-9718-4fc8-b884-fc47363b33d0, 4f3a57d0-9718-4fc8-b884-fc47363b33d0"
+  },
+  "elapsed_seconds": 1.825
+}

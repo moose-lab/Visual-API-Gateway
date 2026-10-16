@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+set -eux
+
+npm config set '//registry.npmjs.org/:_authToken' "$NPM_TOKEN"
+
+# Build the project
+yarn build
+
+node -e "
+  const fs = require('fs');
+  const p = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+  const rewrite = (s) => s.replace(/^(\.\/)?dist\//, './');
+  for (const k of ['main', 'module', 'types']) {
+    if (typeof p[k] === 'string') p[k] = rewrite(p[k]);
+  }
+  const rewriteMap = (o) => {
+    for (const k in o) {
+      if (typeof o[k] === 'string') o[k] = rewrite(o[k]);
+      else rewriteMap(o[k]);
+    }
+  };
+  if (p.exports) rewriteMap(p.exports);
+  fs.writeFileSync('dist/package.json', JSON.stringify(p, null, 2) + '\n');
+"
+if [ -e README.md ]; then cp README.md dist/; fi
+if [ -e LICENSE ]; then cp LICENSE dist/; fi
+
+# Navigate to the dist directory
+cd dist
+
+# Get the version from package.json
+VERSION="$(node -p "require('./package.json').version")"
+
+# Extract the pre-release tag if it exists
+if [[ "$VERSION" =~ -([a-zA-Z]+) ]]; then
+  # Extract the part before any dot in the pre-release identifier
+  TAG="${BASH_REMATCH[1]}"
+else
+  TAG="latest"
+fi
+
+# Publish with the appropriate tag
+npm publish --access public --tag "$TAG"

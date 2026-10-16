@@ -1,0 +1,29 @@
+{
+  "id": "chatcmpl-7e8574ffa8774b47ad321e3766f",
+  "object": "chat.completion",
+  "created": 1791700224,
+  "model": "paddleocr/pp-ocrv6",
+  "served_model_id": "paddleocr/pp-ocrv6",
+  "backend": "paddleocr",
+  "provider": null,
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "<document mimetype=\"application/pdf\" npages=\"2\" dpi=\"96\">\n<page id=\"0\" format=\"markdown\" width=\"720\" height=\"220\">\nVLM RESEARCH TEST\nInvoice: TEST-042\nTotal: USD 12.50\n</page>\n<page id=\"1\" format=\"markdown\" width=\"720\" height=\"220\">\nVLM RESEARCH TEST PAGE TWO\nReference: PAGE-002\nTotal: USD 7.25\n</page>\n</document>"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 512,
+    "completion_tokens": 28,
+    "total_tokens": 540,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": null,
+    "cost": 0.001
+  }
+}

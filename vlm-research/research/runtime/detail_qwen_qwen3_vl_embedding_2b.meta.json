@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:53:13.693123+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/qwen/qwen3-vl-embedding-2b",
+  "status": 200,
+  "elapsed_seconds": 1.178,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:53:14 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "5bd9f776-bea8-434e-831c-1ff5c98bb91e"
+  },
+  "response_sha256": "ad99874bf85e61f8b910e3f78bfd753536446a73154d427178420bc1ee2f2657",
+  "response_bytes": 814
+}

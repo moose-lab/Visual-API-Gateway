@@ -1,0 +1,14 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:53:20.092709+00:00",
+  "method": "GET",
+  "url": "https://api.vlm.run/v1/openai/models/vlmrun-orion-2",
+  "status": 200,
+  "elapsed_seconds": 2.718,
+  "headers": {
+    "Content-Type": "application/json",
+    "Date": "Sun, 11 Oct 2026 06:53:22 GMT"
+  },
+  "response_sha256": "7b498a179095e7f51639e873c8dd924e1748e689d1e6264d230461279b6159c0",
+  "response_bytes": 82
+}

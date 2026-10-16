@@ -1,0 +1,44 @@
+[
+  {
+    "name": "ai-primer",
+    "url": "https://docs.typesafe.ai/introduction/machine-learning-primer",
+    "status": 200,
+    "bytes": 361461
+  },
+  {
+    "name": "concept-state",
+    "url": "https://docs.typesafe.ai/concepts/state",
+    "status": 200,
+    "bytes": 328897
+  },
+  {
+    "name": "concept-system-one",
+    "url": "https://docs.typesafe.ai/concepts/system-one",
+    "status": 200,
+    "bytes": 316486
+  },
+  {
+    "name": "confidence",
+    "url": "https://docs.typesafe.ai/confidence",
+    "status": 200,
+    "bytes": 591561
+  },
+  {
+    "name": "primitive-choice",
+    "url": "https://docs.typesafe.ai/primitives/choice",
+    "status": 200,
+    "bytes": 573139
+  },
+  {
+    "name": "primitive-noul",
+    "url": "https://docs.typesafe.ai/primitives/noul",
+    "status": 200,
+    "bytes": 526495
+  },
+  {
+    "name": "primitive-score",
+    "url": "https://docs.typesafe.ai/primitives/score",
+    "status": 200,
+    "bytes": 572249
+  }
+]

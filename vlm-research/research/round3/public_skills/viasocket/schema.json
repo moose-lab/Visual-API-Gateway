@@ -1,0 +1,14 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "caption": {
+      "title": "Caption",
+      "type": "string"
+    }
+  },
+  "required": [
+    "caption"
+  ],
+  "title": "JSONSchemaModel0fc9c1d7f8af503e2bca10d98d287c44",
+  "type": "object"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "object",
+  "properties": {"marker": {"type": "string"}, "sum": {"type": "integer"}},
+  "required": ["marker", "sum"],
+  "additionalProperties": false
+}

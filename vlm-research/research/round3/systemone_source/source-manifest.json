@@ -1,0 +1,392 @@
+{
+  "classification": "SOURCE/STATIC source provenance; not deployment attestation",
+  "repository": "https://github.com/typesafe-ai/typesafe-sdk-python",
+  "commit": "e70bf99a89f27102247613bcd5d1aa8923a1cda9",
+  "captured_date": "2026-10-13",
+  "files": [
+    {
+      "path": "fetch_public_docs.py",
+      "sha256": "d97059c10999723fbbc130273d6ebc693076d8d3dba547dfc99f44c211c5f46c"
+    },
+    {
+      "path": "findings.md",
+      "sha256": "1fa407a06fddde7c5f80ea1a86cdfb1df69aeb4e94e40f0f7432a070cfe89995"
+    },
+    {
+      "path": "offline-verification.json",
+      "sha256": "d14fe60deee4e24313432d28787e76d21652cab257f911bdae7cd2ff174f861e"
+    },
+    {
+      "path": "public-docs/ai-primer.html",
+      "sha256": "0c3811d7d74b0c3f9d83c53560d349eced0f6500f279c88ee803194dad13c315"
+    },
+    {
+      "path": "public-docs/ai-primer.meta.json",
+      "sha256": "ea64d439114aa139b240760ced8669116db561d28c8f96955abcc2efecdaa0bc"
+    },
+    {
+      "path": "public-docs/ai-primer.txt",
+      "sha256": "ffdd91954591c83e05dda1798473b88fc0e082d9d33a2beb51ad511b6b4e908d"
+    },
+    {
+      "path": "public-docs/concept-state.html",
+      "sha256": "1f8b54cc17862b1f5bb7a64a36bcbb41670324a73d6e3c54e863c4d5afb84c26"
+    },
+    {
+      "path": "public-docs/concept-state.meta.json",
+      "sha256": "c697af3ec79e7caa856df6ba7d98c3a7d4d0e5682f204daf9edca871b93e6c05"
+    },
+    {
+      "path": "public-docs/concept-state.txt",
+      "sha256": "dc43beb326264717ae7c144671169d6f21e01ea92fc83692ad239f639b2a8845"
+    },
+    {
+      "path": "public-docs/concept-system-one.html",
+      "sha256": "06670dd7f68ebe4418f199499df4a44c8486d3400db32c7a48bab53618a324cb"
+    },
+    {
+      "path": "public-docs/concept-system-one.meta.json",
+      "sha256": "e24f36a84bae746493f3fddaa7e14719d5ef7c179a7ea14ecaebfe14b08eb7f3"
+    },
+    {
+      "path": "public-docs/concept-system-one.txt",
+      "sha256": "69948a40457c6fcbe03e1fdfe7752f2d78b11b9c55703bd6d6eb3f273bbe596c"
+    },
+    {
+      "path": "public-docs/confidence-formulas.json",
+      "sha256": "bef9b793a43dd7ce52d74c5d335aa0f071c7d5c026fe5049ef964700b0fb1ee3"
+    },
+    {
+      "path": "public-docs/confidence.html",
+      "sha256": "37a170671fae8d21c2b6fdcd9f07268e37db3934681e448f7c3321900f4b35a7"
+    },
+    {
+      "path": "public-docs/confidence.meta.json",
+      "sha256": "108fcaa226bb6bd430f9f922e98bfb143891f9899ddf3586c9527f352c97d16d"
+    },
+    {
+      "path": "public-docs/confidence.txt",
+      "sha256": "347a40df32518ff56d315729cb8877b305d54239fd31922551d0e91f370863ec"
+    },
+    {
+      "path": "public-docs/fetch-summary.json",
+      "sha256": "a82461417764286a6e661e2ea9783ac4dec3800a847ec77aee952b3b9f88b628"
+    },
+    {
+      "path": "public-docs/primitive-choice.html",
+      "sha256": "35979c118ab6786fb0ecbae14d460224ec40618c27befcc350f6069e243e9a40"
+    },
+    {
+      "path": "public-docs/primitive-choice.meta.json",
+      "sha256": "dbbf7d5475e590dadea96e5305fc18e8d77c2b27438285799df306788ea40af4"
+    },
+    {
+      "path": "public-docs/primitive-choice.txt",
+      "sha256": "5892573d7ba2ceea4181e1f3fdc59c4beddd738477034e7982780a49d9621547"
+    },
+    {
+      "path": "public-docs/primitive-noul.html",
+      "sha256": "d80c18afd7b309fab849f90819a0bf722d31ab9a7b75084cd6bdb97a06da2255"
+    },
+    {
+      "path": "public-docs/primitive-noul.meta.json",
+      "sha256": "f8d775b241da9940a4ac8ddae11a86ddc28de2c37f320850affba4bdb3774249"
+    },
+    {
+      "path": "public-docs/primitive-noul.txt",
+      "sha256": "e9cee31ccc7fb2132bb5cd836e357f69452cbb3589e729ee5a1987df0e500c47"
+    },
+    {
+      "path": "public-docs/primitive-score.html",
+      "sha256": "3d71558673823b6079c6e5709e8e01e5f1f52ba067030474ed51d75bae13b387"
+    },
+    {
+      "path": "public-docs/primitive-score.meta.json",
+      "sha256": "41b47e79566869a410b4a328f28bbb8183e194ec86165d66fb4d98011b42e758"
+    },
+    {
+      "path": "public-docs/primitive-score.txt",
+      "sha256": "de7469886f7081e20f615838150b7234ecd86c524ecb2a4138a6ba4d3484e1d8"
+    },
+    {
+      "path": "typesafe-sdk-python/.github/scripts/check_distributions.py",
+      "sha256": "8707e176a4b21360d0a1451124044d01ec0bd93c565cd604117d48f99a18c58f"
+    },
+    {
+      "path": "typesafe-sdk-python/.github/scripts/check_installed_distribution.py",
+      "sha256": "4f5c84d1703bde4f11d1a4a1c08779ae04c60afb67b7e8ef9f8fd389f4bc1ddc"
+    },
+    {
+      "path": "typesafe-sdk-python/.github/scripts/release_notes.py",
+      "sha256": "0459b4b6f906e168e722884344d28f7f3a81bfb7f63285e5b637103aa18e16a5"
+    },
+    {
+      "path": "typesafe-sdk-python/.github/workflows/publish.yml",
+      "sha256": "9157174c7ef1a7dfee5895c910d203a039a0b10b8d061f9ee4bd096f78ff5837"
+    },
+    {
+      "path": "typesafe-sdk-python/.gitignore",
+      "sha256": "fbb564a93a2862c2e8f5bd91a8f924b736f3ec71b41da95bc95a7ce738a59145"
+    },
+    {
+      "path": "typesafe-sdk-python/.python-version",
+      "sha256": "73880611a18bf211ab229c2a2d93ec11a622693e79532c0b797b91fd056704dc"
+    },
+    {
+      "path": "typesafe-sdk-python/CONTRIBUTING.md",
+      "sha256": "c9556244c9f3b226da6c660435ff1a66e4694604ad023b417b88b9ca5b15dfaf"
+    },
+    {
+      "path": "typesafe-sdk-python/docs/changelog.md",
+      "sha256": "6542b7a6d39bb5ef7609e176d249cd01c823da603f3dbe40d421dab4bd425d6d"
+    },
+    {
+      "path": "typesafe-sdk-python/LICENSE",
+      "sha256": "19200a6a9407e592065a5a504c0eefe58adf102c9ac5aa2151bd6f257faa7a9c"
+    },
+    {
+      "path": "typesafe-sdk-python/pyproject.toml",
+      "sha256": "92d0e88cb2b43fc3f8171b55cb92258657cd6d1a7954578b2e2c105ae57ed0eb"
+    },
+    {
+      "path": "typesafe-sdk-python/pyrefly.toml",
+      "sha256": "93f4bf64c90897dd8a0f02896d940c21f49e6fc5d5d029eb879bd1f0e94cb7bb"
+    },
+    {
+      "path": "typesafe-sdk-python/README.md",
+      "sha256": "fd7d16a09efd201d8a8a978163383b75f861a14a15785f42e0212bca97ec0f22"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/__init__.py",
+      "sha256": "1b0774325a2a139c038b4f7c0b90dc935bcd4315c01096440cdd34b114f97785"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/__init__.py",
+      "sha256": "8d3ec7bd21fd5cc72431f79ef2fe7125b53aeda947d7062fe2666ba48a0a6b53"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/client/__init__.py",
+      "sha256": "0c7f66693d372b17078b9b5c477d6ef0f886ccd6fd77783a56a00e33afe4cb7c"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/client/aio/__init__.py",
+      "sha256": "0267c981765800c13b214630113efeced38e74211806f45b8074bc82528488fc"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/client/aio/client.py",
+      "sha256": "e71c8baec5318889bbdac217f1359a6f920617e1d04d006a0bce79631daedf71"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/client/aio/models.py",
+      "sha256": "972180a2fe2aa3c1d1ded2c632d1256c3a2ec82057775e02702c9d9f6b293751"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/client/sync/__init__.py",
+      "sha256": "fdc4a4e5c35a3ff28bb75e90edef05a1dc7ab96e145389653f37b602024240a2"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/client/sync/client.py",
+      "sha256": "062b23747d5968f670d692031c7581b65347967e6d0c0503c03c240c89426987"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/client/sync/models.py",
+      "sha256": "5c7ecbf55c0c75215a4ef1cf864e2f8b21b8e9830649fa891458409da14974ea"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/config.py",
+      "sha256": "0f83c45967fd6e6446cb4871d3cd66b2be34f65a6fd63df78a3531d9c7ba8237"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/constants.py",
+      "sha256": "7c2d69b61e396f5a4ae1d7afa43c49a0bec1abe2c655b961f3252a9f5ccaae03"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/endpoints.py",
+      "sha256": "3ccd653e02f7760fc512951a40e0db4cf017344ee532caec5a0f0b3d92d976b1"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/errors.py",
+      "sha256": "cf37f11ffc66cdeb2e3a45a2f10a805cf0aba008e44eae05920e21c9d7187830"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/json.py",
+      "sha256": "114386c084c19c2eca58c680b081a2a274032d8f34d9c9dbc9303d5b7574a0fb"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/json_types.py",
+      "sha256": "b38df44d48c2d97b90987da78d2785820554b031849751fd681ca8cf47481890"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/logging.py",
+      "sha256": "99801423c63d11ddaad9dee5c5cbecdc0d3955d59180ff15866bea4e2de26e80"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/question_types.py",
+      "sha256": "c9f2b336c892040c92f11fbe5301c49642bdd07f74777131c6e98e72e9b665ec"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/questions.py",
+      "sha256": "7d7feacbe455117c4a5124dc1e762f5d15fa27294e579f57275e7f9533151917"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/response_types.py",
+      "sha256": "0d51a5aefed37acb6fba586eb1fd487f95eba7d96ac2ac35f79fb8ee1ebf7c97"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/retry.py",
+      "sha256": "0c7f094632e5455ed22e3e3ea2692d3c4fc0d10e70d1a60a8217d8e0b31212d0"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/schemas/__init__.py",
+      "sha256": "607d2d3f91de1d2d9d9ae60e76bf933432664cd7e16bccebfdfd15d54678c4c3"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/schemas/base.py",
+      "sha256": "d15a2136d4361f45fc5aff2e4329e3c4e00ce73d8878579da2dfc70e4d0880d9"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_core/transport.py",
+      "sha256": "3da3a95b9e5ad430251eb3c732534c48cf64d2ba79f9a3ed6c9261529fba2ae3"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_schemas/__init__.py",
+      "sha256": "d5b78857589749aeb00424b41e548d9982a2afbb06644bc7fa93c6789d9ccbc3"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_schemas/models.py",
+      "sha256": "c5519958ae00b37354b47494b692dd974652b26d39381668a32669f7a4f348ab"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/_version.py",
+      "sha256": "aa407dc28885744a2deeca9326b32f4da8d5f22fc90156e2a5be54e1e484b1af"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/constants.py",
+      "sha256": "9b25a6657dfc840cf5704f8f042c0b053fcd02dbf5c382d556fbbde7bf43ccb8"
+    },
+    {
+      "path": "typesafe-sdk-python/src/typesafe_sdk/py.typed",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/__snapshots__/test_public_api_surface.ambr",
+      "sha256": "18a6807ba039a7949d104336697d788bf60ae41db66b91467e3f0bc44145deda"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/conftest.py",
+      "sha256": "ce2509f489ee56126e588fea97d69dddffa703d636ff969cebc6599d147ad851"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/helpers.py",
+      "sha256": "f466172972fe3cfaaa027b732b5030dbdb820b2077aa0721cdfc14f6cf9b7471"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_clients.py",
+      "sha256": "3a8f1333a1fbef98c1408ef04f8675c1c5a5cbaddb89144ff3747f9ba0882d9a"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_config.py",
+      "sha256": "6b59eea9bdd3514fe2724cc0a62dd9d40e91bfca668963129cb6eab2dc6d233c"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_docs.py",
+      "sha256": "6b0eb8173a7928808bf06955ddab98a43458cbdc8770016dfef9d45db5c84d42"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_errors.py",
+      "sha256": "afd6edd0de3da28b7be202c62ca07c9aa87996253516f6e7c190a3d7e26ab372"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_integration.py",
+      "sha256": "b2152ef2b6220b3b149c26b9921b3f76525d6928450beef53d3d749f5b844b33"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_logging.py",
+      "sha256": "e65e154888be82558579821209de72400252e0d4bd12103bd765a7b59872e1b2"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_public_api_surface.py",
+      "sha256": "34cc068107919ded760609b3edf87ab147f65ea8fb61178cd9d7d1ea056c6aa6"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_public_sync.py",
+      "sha256": "b0cc4869e9512b1b2c1c9568d3832274e2d66ecc8878adc1034070a7549bfee5"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_pydantic_response_models.py",
+      "sha256": "39492739d666dcba4f3a2b5ee6fecdfa70fc5721a6e33cf56a82a090eec9f4cf"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_questions.py",
+      "sha256": "48057f3cef02879ab0395765af6c1953bf011e360e7211118cfa254b797dac27"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_release_notes.py",
+      "sha256": "1d804b85242668316da2711f79dc8729d1d2fbe7e986af2cc6068bfb3735c757"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_responses.py",
+      "sha256": "a5493455d1bf017cd13a9cf23fd7ceed8aeb623692548d362f9409f4e1bd5f78"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_retry.py",
+      "sha256": "f2db3ea788c6b156b6c5a14979ebe3d3a44ed1520e42702584c5c1dcabe0525d"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_tls.py",
+      "sha256": "67a6926dbc400e5a0e7d524db4283fb2e310a19058a1f9194141180276163ee3"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_types.py",
+      "sha256": "c6376b31ebc76f995cc0be52a7d77a858d7686152d4cdd488c9de2ba8451c6f0"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/test_typing.py",
+      "sha256": "7c86cd8845165af64846526b308ffc4899bd2e4d6db24b77a81c8bef4c74eebd"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/typing/negative/async_client.py",
+      "sha256": "36e930f3d7f6d3e1d59b69868e2168ae38ae93f5fbd49e8a13de2e2b4fb61815"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/typing/negative/noul.py",
+      "sha256": "a076c06c602478e404016d3395179cca773775f1a1d4e5937eed8b02c5cd8be7"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/typing/negative/questions.py",
+      "sha256": "6e8cb44a059b7a397d7b6f06817105c324a3dd4eb4b5fe6f3e28c4a8f06ff1e4"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/typing/negative/sync_client.py",
+      "sha256": "9e8d7128203e332f4e2b6da684fb42d0bef7994f0771ffa19378ee488c685afe"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/typing/negative/transport.py",
+      "sha256": "6284706570d10f49f28df20865949be66463d13a7e1aa944ac7f42818345a19d"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/typing/pydantic_response_models.py",
+      "sha256": "7db8955129cdc8a2d0dc399e903a4669079462980549cb8b036667867241aade"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/typing/transport.py",
+      "sha256": "ef1bf68d329e386caa909bd0c76f0a112dcbcda142b68cb0b11616c0b0de4c98"
+    },
+    {
+      "path": "typesafe-sdk-python/tests/typing/valid.py",
+      "sha256": "35313199918b6563ce13dfa803a7e897c9ed61f2f9196f6d24ac5148280fb2c3"
+    },
+    {
+      "path": "typesafe-sdk-python/uv.lock",
+      "sha256": "d9e0e7f190c24d3ac3aabc1ac2345e9f87a0bfec97a0026535918ac5b4b4aa61"
+    },
+    {
+      "path": "verify_offline.py",
+      "sha256": "816f3f8abb183789018ec3395df7992f6e444e53920a80d0a1d03ed31912e61a"
+    }
+  ]
+}

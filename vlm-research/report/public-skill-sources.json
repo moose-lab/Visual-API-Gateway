@@ -1,0 +1,106 @@
+[
+  {
+    "evidence": "SOURCE",
+    "scope": "Downloaded public skill; not Orion private global prompt",
+    "skill": "greeting",
+    "path": "research/round3/public_skills/greeting/SKILL.md",
+    "sha256": "5921d81b5d7a08b8e78f0b706db6e55dc39d3911e637ff460e3b675ad325f20a",
+    "text": "---\nname: greeting\ndescription: Outputs a simple greeting message. Use when a basic greeting or acknowledgement is requested.\n---\n\nhello"
+  },
+  {
+    "evidence": "SOURCE",
+    "scope": "Downloaded public skill; not Orion private global prompt",
+    "skill": "greeting",
+    "path": "research/round3/public_skills/greeting/vlmrun.yaml",
+    "sha256": "2fd30503cd362223b3aac7381463ef4bdb60a86e6452aaefc71e9efb0a86dac9",
+    "text": "apiVersion: vlm.run/v1alpha\nmetadata: {}\nmodel: vlmrun-orion-1:auto\ntoolsets:\n- core\ngraph: |\n  stateDiagram-v2\n    ParseInput: Analyze the received prompt input to identify user intent, tone, and any implicit context that should shape the response\n    GenerateResponse: Compose a natural and contextually appropriate response using the core language capabilities, ensuring it matches the conversational tone and intent of the input\n    Output: Aggregate and reason over all analysis results, validate extracted information for consistency, and produce a well-structured output conforming to the target schema\n\n    [*] --> ParseInput\n    ParseInput --> GenerateResponse\n    GenerateResponse --> Output\n    Output --> [*]\n"
+  },
+  {
+    "evidence": "CODE",
+    "scope": "Downloaded public skill; not Orion private global prompt",
+    "skill": "grounded-document-extraction",
+    "path": "research/round3/public_skills/grounded-document-extraction/pipeline.py",
+    "sha256": "e8680b1b1c4f03e34df0a412633d53054a97191570dd7f5994382c6269e4bfc1",
+    "text": "import json\n\n\nasync def process(ctx, doc_path):\n    vlmrun = ctx.import_lib(\"vlmrun\")\n    schema = json.loads(vlmrun.io.read_file(\"skills/grounded-document-extraction/schema.json\"))\n    data = await vlmrun.document.extract(\n        doc_path, json_schema=schema, grounding=True, confidence=True\n    )\n    return data\n"
+  },
+  {
+    "evidence": "SOURCE",
+    "scope": "Downloaded public skill; not Orion private global prompt",
+    "skill": "grounded-document-extraction",
+    "path": "research/round3/public_skills/grounded-document-extraction/SKILL.md",
+    "sha256": "425bfc1bd37100da2f21b8b4be59b14a30a8333c8e8f5f6bf6d55f5ba075483b",
+    "text": "---\nname: grounded-document-extraction\ndescription: Extract structured data from a document with grounding via vlmrun.document.extract.\n---\n\n# Grounded Document Extraction\nUse `vlmrun.document.extract` to extract structured information from the provided document. The objective is to extract every field defined in the target schema as accurately and completely as possible, basing every extracted value solely on information present in the document.\n\n## Guidelines\n- Populate all schema fields whenever the information is available.\n- Do not infer, fabricate, or guess missing values.\n- Preserve the original meaning of the document when extracting text.\n- Return values in the format required by the schema.\n- If a field cannot be found, return `null` (or the schema's designated empty value) rather than inventing a value.\n- If multiple candidate values exist, choose the one best supported by the document. If the schema supports confidence or evidence, include the relevant supporting text or location.\n- Normalize values (such as dates, numbers, and addresses) only when required by the schema. Otherwise, preserve the original formatting.\n- Ensure all extracted values are grounded in the document content.\n\n## Success Criteria\n- Every schema field is evaluated.\n- All extracted values are supported by the document.\n- No unsupported assumptions or hallucinated values are introduced.\n- The output conforms exactly to the required schema."
+  },
+  {
+    "evidence": "SOURCE",
+    "scope": "Downloaded public skill; not Orion private global prompt",
+    "skill": "grounded-document-extraction",
+    "path": "research/round3/public_skills/grounded-document-extraction/vlmrun.yaml",
+    "sha256": "16b9c23bd456b4eee8b93e02d37233fa39ca44136ceb22ce30ac2eb87efbf61c",
+    "text": "apiVersion: vlm.run/v1alpha\nmetadata: {}\nmodel: vlmrun-orion-2:auto\ntoolsets:\n- core\n- document\n"
+  },
+  {
+    "evidence": "CODE",
+    "scope": "Downloaded public skill; not Orion private global prompt",
+    "skill": "healthcare-hipaa-release",
+    "path": "research/round3/public_skills/healthcare-hipaa-release/hipaa-release/pipeline.py",
+    "sha256": "81058125b9cf4c2a62886f196b25d8cbe78ff03311a7726f6931f751d2d13abd",
+    "text": "async def process(ctx, img):\n    vlmrun = ctx.import_lib(\"vlmrun\")\n    \n    caption = await vlmrun.image.caption(img, \"Describe what this image shows in detail. Is this a medical or legal document, or something else?\")\n    ocr = await vlmrun.image.ocr(img)\n    \n    return {\"caption\": caption, \"ocr_count\": len(ocr.get(\"detections\", [])), \"ocr_sample\": [d.get(\"content\", \"\") for d in ocr.get(\"detections\", [])[:5]]}"
+  },
+  {
+    "evidence": "SOURCE",
+    "scope": "Downloaded public skill; not Orion private global prompt",
+    "skill": "healthcare-hipaa-release",
+    "path": "research/round3/public_skills/healthcare-hipaa-release/hipaa-release/SKILL.md",
+    "sha256": "c770f54b2ee9cd51f0baf13f7a9883d13fb49a606663342767883e765a13457a",
+    "text": "---\nname: healthcare-hipaa-release\ndescription: \"Extracts HIPAA release / authorization details: patient identity, the authorized receiver of the PHI, the disclosing party, scope of records, purpose, signatures, and effective/expiration dates.\"\n---\n\n# Healthcare HIPAA Release / Authorization Extraction\n\nExtract structured authorization details from HIPAA Release / Authorization to Disclose Protected Health Information forms.\n\nDistinguish four parties: (1) the **subject** -- the patient whose records are released, (2) the **receiver** -- whoever is authorized to receive the records (often labelled \"To:\", \"Recipient:\", \"Authorized to Disclose To:\"), (3) the **disclosing_party** -- the provider or facility releasing the records (often labelled \"From:\" or shown as letterhead), and (4) the **authorized_representative** -- a parent / guardian / power-of-attorney signing on behalf of the patient.\n\nFor the receiver and disclosing party, capture both an individual name (`first_name`, `last_name`) and an `organization` when both are present (e.g. an attorney at a law firm). Also extract the `purpose` of disclosure, the categories of `information_disclosed` (any checked items such as \"complete medical record\", \"lab results\", \"mental health records\", etc.), the `record_period_start` / `record_period_end` covered by the records themselves, and the `effective_period_start` / `effective_period_end` during which the authorization is valid. If the form lists an event-based expiration (e.g. \"one year from signing\", \"upon revocation\") rather than a specific date, capture that text in `expiration_event`. Capture signature dates, witness information, redisclosure permission, and acknowledgement of right to revoke when present.\n\n**Always extract on first contact.** When the user attaches a relevant document, immediately extract every available field that maps onto the schema in [`./schema.json`](./schema.json) -- do not ask the user what they want, do not offer a menu of options, do not just acknowledge that the document was loaded. Begin extraction.\n\nUse `null` for fields that are absent or illegible; never invent values. Preserve the schema's nested structure exactly -- do not flatten nested objects into top-level keys, and do not invent fields that are not in the schema. When the schema declares an enum, use the exact enum values (case-sensitive).\n\nWhen a JSON response format is requested, respond with a single JSON object that strictly conforms to the schema and contains no surrounding prose, headings, or markdown fences. Otherwise, you may answer in natural language or markdown -- a short summary followed by a fenced JSON block is the preferred shape.\n\n## Output JSON Schema\n\nSee [`./schema.json`](./schema.json).\n\n## Example Output\n\n```json\n{\n  \"subject\": {\n    \"first_name\": \"Angela\",\n    \"last_name\": \"Mitchell\",\n    \"middle_name\": null,\n    \"date_of_birth\": \"1979-04-22\",\n    \"gender\": null,\n    \"race\": null,\n    \"ethnicity\": null,\n    \"language\": null,\n    \"address\": {\n      \"line1\": \"891 Magnolia Boulevard\",\n      \"line2\": null,\n      \"city\": \"Savannah\",\n      \"state\": \"GA\",\n      \"zip_code\": \"31401\",\n      \"country\": null\n    },\n    \"contact\": [\n      {\n        \"system\": \"phone\",\n        \"value\": \"(912) 555-0134\",\n        \"use\": \"mobile\"\n      }\n    ]\n  },\n  \"authorized_representative\": null,\n  \"receiver\": {\n    \"first_name\": \"Thomas\",\n    \"last_name\": \"Bradley\",\n    \"middle_name\": null,\n    \"credentials\": \"Esq.\",\n    \"organization\": \"Bradley & Associates Law Firm\",\n    \"address\": {\n      \"line1\": \"100 Bull Street\",\n      \"line2\": \"Suite 500\",\n      \"city\": \"Savannah\",\n      \"state\": \"GA\",\n      \"zip_code\": \"31401\",\n      \"country\": null\n    },\n    \"contact\": [\n      {\n        \"system\": \"fax\",\n        \"value\": \"(912) 555-0299\",\n        \"use\": null\n      }\n    ],\n    \"relationship\": \"attorney\"\n  },\n  \"disclosing_party\": {\n    \"first_name\": null,\n    \"last_name\": null,\n    \"middle_name\": null,\n    \"credentials\": null,\n    \"organization\": \"Savannah Regional Medical Center\",\n    \"address\": {\n      \"line1\": \"4700 Waters Avenue\",\n      \"line2\": null,\n      \"city\": \"Savannah\",\n      \"state\": \"GA\",\n      \"zip_code\": \"31404\",\n      \"country\": null\n    },\n    \"contact\": [\n      {\n        \"system\": \"phone\",\n        \"value\": \"(912) 555-0600\",\n        \"use\": null\n      },\n      {\n        \"system\": \"fax\",\n        \"value\": \"(912) 555-0601\",\n        \"use\": null\n      }\n    ],\n    \"relationship\": null\n  },\n  \"purpose\": \"legal proceedings related to personal injury claim\",\n  \"information_disclosed\": [\n    \"complete medical record\",\n    \"lab results\",\n    \"imaging studies\",\n    \"discharge summary\",\n    \"operative reports\",\n    \"physical therapy notes\"\n  ],\n  \"record_period_start\": \"2024-06-01\",\n  \"record_period_end\": \"2025-03-31\",\n  \"effective_period_start\": \"2025-04-05\",\n  \"effective_period_end\": null,\n  \"expiration_event\": \"completion of the legal case or one year from signing, whichever comes first\",\n  \"redisclosure_permitted\": false,\n  \"right_to_revoke_acknowledged\": true,\n  \"signature_date\": \"2025-04-05\",\n  \"signed_by_name\": \"Angela Mitchell\",\n  \"witness_name\": \"Linda Ortiz\",\n  \"witness_signature_date\": \"2025-04-05\"\n}\n```\n"
+  },
+  {
+    "evidence": "SOURCE",
+    "scope": "Downloaded public skill; not Orion private global prompt",
+    "skill": "healthcare-hipaa-release",
+    "path": "research/round3/public_skills/healthcare-hipaa-release/hipaa-release/vlmrun.yaml",
+    "sha256": "3e78bdbef18fbc4af5acda7e04b2d4642a1a639d0fc2c85627835013ef2c9267",
+    "text": "apiVersion: vlm.run/v1alpha\nmetadata: {}\nmodel: vlmrun-orion-1:auto\ntoolsets:\n  - core\n  - document\n  - image\n  - viz\ngraph: \"\"\n"
+  },
+  {
+    "evidence": "CODE",
+    "scope": "Downloaded public skill; not Orion private global prompt",
+    "skill": "medical-multi-schema-extraction",
+    "path": "research/round3/public_skills/medical-multi-schema-extraction/medical-multi-schema-extraction/pipeline.py",
+    "sha256": "40f491ddff508effcaf60287e63585a318664464eae50af661bdfcd82c049605",
+    "text": "import json\n\n\nasync def process(ctx, doc_path):\n    vlmrun = ctx.import_lib(\"vlmrun\")\n    skill_dir = \"skills/medical-multi-schema-extraction\"\n    # Step 1: Classify document\n    classification = await vlmrun.document.extract(\n        doc_path,\n        json_schema={\n            \"type\": \"object\",\n            \"required\": [\"documentType\", \"classificationRationale\"],\n            \"properties\": {\n                \"documentType\": {\n                    \"type\": \"string\",\n                    \"enum\": [\n                        \"referral\",\n                        \"medical_record_request\",\n                        \"progress_note_office_visit\",\n                    ],\n                },\n                \"classificationRationale\": {\"type\": \"string\"},\n            },\n        },\n    )\n    document_type = classification[\"documentType\"]\n    rationale = classification[\"classificationRationale\"]\n    # Step 2: Load the schema corresponding to classified documentType\n    schema_path = f\"{skill_dir}/schemas/{document_type}.json\"\n    schema = json.loads(vlmrun.io.read_file(schema_path))\n    # Step 3: Extract with grounding and confidence\n    extracted = await vlmrun.document.extract(\n        doc_path, json_schema=schema, grounding=True, confidence=True\n    )\n    return {\n        \"schemaUsed\": document_type,\n        \"documentType\": document_type,\n        \"classificationRationale\": rationale,\n        \"data\": {\"pages\": [extracted]},\n    }\n"
+  },
+  {
+    "evidence": "SOURCE",
+    "scope": "Downloaded public skill; not Orion private global prompt",
+    "skill": "medical-multi-schema-extraction",
+    "path": "research/round3/public_skills/medical-multi-schema-extraction/medical-multi-schema-extraction/SKILL.md",
+    "sha256": "f076edab867e7db780d2b55c32def728dd3f68d9c3f767ce02adcec31ce67649",
+    "text": "---\nname: medical-multi-schema-extraction\ndescription: Classifies a medical document as referral, medical_record_request, or progress_note_office_visit, selects the matching schema, then extracts structured data with grounding and confidence.\n---\n\n# Medical Multi-Schema Extraction\n\nClassify a medical document as one of the supported types, load the matching schema under `schemas/`, then extract with grounding. Prefer the cached pipeline:\n\n```\nexecute_code(path=\"skills/medical-multi-schema-extraction/pipeline.py\", inputs={\"doc_path\": <doc_ref>})\n```\n\nSupported `documentType` values (each maps onto a schema under `schemas/`):\n\n- `referral`\n- `medical_record_request`\n- `progress_note_office_visit`\n\nFlow (implemented in `pipeline.py`):\n\n1. Call `vlmrun.document.extract` on `doc_path` with a small classification schema (`documentType`, `classificationRationale`).\n2. Read `documentType` and `classificationRationale` from the classification result.\n3. Load exactly one schema: `schemas/<documentType>.json` from this skill directory.\n4. Call `vlmrun.document.extract` again with that schema and `grounding=True, confidence=True`.\n5. Return `{schemaUsed, documentType, classificationRationale, data}` where:\n- `schemaUsed` identifies which schema was loaded for extraction (currently the same as `documentType`, but can be distinct depending on the schema names)\n- `documentType` is the classified document type\n- `classificationRationale` is a short explanation of why that type was chosen\n- `data` is `{\"pages\": [<extract result>]}`\n\n## Notes\n\n- Pass schemas with `json_schema=` (a bare second positional binds to `prompt`).\n- Do **not** put hand-written `*_metadata` / `bounding_boxes` in schemas. With `grounding=True`, the runtime instruments fields and fills `*_metadata.annotation_ids` + server-side `bboxes`.\n- Return the `process()` result as the final answer.\n- Never download URLs, load all schemas at once, or `write_file`.\n"
+  },
+  {
+    "evidence": "SOURCE",
+    "scope": "Downloaded public skill; not Orion private global prompt",
+    "skill": "medical-multi-schema-extraction",
+    "path": "research/round3/public_skills/medical-multi-schema-extraction/medical-multi-schema-extraction/vlmrun.yaml",
+    "sha256": "35ee1dc5a6b81047f780b5c1d0b8a9463764be57de4af0e2985a9890eab3667a",
+    "text": "apiVersion: vlm.run/v1alpha\nmetadata: {}\nmodel: vlmrun-orion-2:auto\ntoolsets:\n- core\n- document\ngraph: |\n  stateDiagram-v2\n    ClassifyDocument: Classify document type with vlmrun.document.extract\n    LoadMatchingSchema: read_file exactly one schemas/<documentType>.json\n    ExtractWithGrounding: vlmrun.document.extract with grounding and confidence\n    Output: Return schemaUsed documentType classificationRationale and data\n\n    [*] --> ClassifyDocument\n    ClassifyDocument --> LoadMatchingSchema\n    LoadMatchingSchema --> ExtractWithGrounding\n    ExtractWithGrounding --> Output\n    Output --> [*]\n"
+  },
+  {
+    "evidence": "SOURCE",
+    "scope": "Downloaded public skill; not Orion private global prompt",
+    "skill": "viasocket",
+    "path": "research/round3/public_skills/viasocket/SKILL.md",
+    "sha256": "da723e389cd7d77f3dbeed87452149b224c6a4228df5ea908423c41051434ca2",
+    "text": "---\nname: viasocket\ndescription: Analyze an input image and generate a concise, factual caption describing its visible contents, including main subjects, objects, actions, and scene. Use this skill when an image needs to be described objectively without speculation or invented details.\n---\n\nAnalyze an input image and generate a concise, factual caption describing its visible contents. Identify the main subjects, objects, actions, and scene when clearly visible. Do not infer or invent information that cannot be determined from the image. Return the result as valid JSON with exactly one field: caption."
+  },
+  {
+    "evidence": "SOURCE",
+    "scope": "Downloaded public skill; not Orion private global prompt",
+    "skill": "viasocket",
+    "path": "research/round3/public_skills/viasocket/vlmrun.yaml",
+    "sha256": "78d0c3b80920d44deee7972c7c9df5de4e032b0061538615d39b5d390af735c8",
+    "text": "apiVersion: vlm.run/v1alpha\nmetadata: {}\nmodel: vlmrun-orion-1:auto\ntoolsets:\n- core\n- image\n- video\ngraph: |\n  stateDiagram-v2\n    AnalyzeVisualContent: Inspect the input image using image tools to identify the main subjects, prominent objects, any visible actions, and the overall scene while strictly avoiding inferences about content that is not clearly visible\n    DraftCaption: Compose a concise and factual caption from the identified visual elements, ensuring every claim is grounded only in what is directly observable in the image without adding invented details\n    FormatOutput: Structure the drafted caption into a valid JSON object containing exactly one field named caption with the string value, and verify it matches the required schema without any additional properties\n    Output: Aggregate and reason over all analysis results, validate extracted information for consistency, and produce a well-structured output conforming to the target schema\n\n    [*] --> AnalyzeVisualContent\n    AnalyzeVisualContent --> DraftCaption\n    DraftCaption --> FormatOutput\n    FormatOutput --> Output\n    Output --> [*]\n"
+  }
+]

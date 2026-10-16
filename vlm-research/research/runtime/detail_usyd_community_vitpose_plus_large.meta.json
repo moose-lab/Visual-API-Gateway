@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:52:57.261030+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/usyd-community/vitpose-plus-large",
+  "status": 200,
+  "elapsed_seconds": 1.491,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:52:58 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "9a6659c8-6e67-4603-8e8d-e2d938b3e20a"
+  },
+  "response_sha256": "99e1b4dcd72e31d19998d0737c352d16add64a94c1bf79ea0b904794a1963145",
+  "response_bytes": 715
+}

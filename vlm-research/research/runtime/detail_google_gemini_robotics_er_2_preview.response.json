@@ -1,0 +1,10 @@
+{
+  "detail": {
+    "error": {
+      "message": "Model 'google/gemini-robotics-er-2-preview' not found.",
+      "type": "model_not_found",
+      "code": null,
+      "param": null
+    }
+  }
+}

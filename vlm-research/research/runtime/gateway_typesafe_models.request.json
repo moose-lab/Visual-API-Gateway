@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "url": "https://gateway.vlm.run/typesafe/v1/models",
+  "auth": "Bearer [REDACTED]",
+  "body": null
+}

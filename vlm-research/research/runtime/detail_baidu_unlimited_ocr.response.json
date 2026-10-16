@@ -1,0 +1,48 @@
+{
+  "id": "baidu/unlimited-ocr",
+  "hf_model_id": "baidu/Unlimited-OCR",
+  "name": "Unlimited-OCR",
+  "description": "Long-horizon document parsing with batched multi-page OCR.",
+  "task": "chat",
+  "context_length": 32768,
+  "architecture": {
+    "input_modalities": [
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "modality": "image->text"
+  },
+  "capabilities": {
+    "max_images": 32,
+    "max_videos": 0,
+    "supports_text_only": false,
+    "supports_document_url": true,
+    "supports_json_object": true,
+    "supports_json_schema": false,
+    "supported_input_types": [
+      "text",
+      "image_url",
+      "document_url",
+      "file_url",
+      "file"
+    ]
+  },
+  "aliases": [
+    "baidu/Unlimited-OCR"
+  ],
+  "methods": [
+    "markdown",
+    "multi_page"
+  ],
+  "supported_parameters": [],
+  "pricing": {
+    "prompt": 0.25,
+    "completion": 0.55,
+    "input_cache_read": 0.03,
+    "input_cache_write": 0.0,
+    "image": 0.0,
+    "video": 0.0
+  }
+}

@@ -1,0 +1,19 @@
+apiVersion: vlm.run/v1alpha
+metadata: {}
+model: vlmrun-orion-1:auto
+toolsets:
+- core
+- image
+- video
+graph: |
+  stateDiagram-v2
+    AnalyzeVisualContent: Inspect the input image using image tools to identify the main subjects, prominent objects, any visible actions, and the overall scene while strictly avoiding inferences about content that is not clearly visible
+    DraftCaption: Compose a concise and factual caption from the identified visual elements, ensuring every claim is grounded only in what is directly observable in the image without adding invented details
+    FormatOutput: Structure the drafted caption into a valid JSON object containing exactly one field named caption with the string value, and verify it matches the required schema without any additional properties
+    Output: Aggregate and reason over all analysis results, validate extracted information for consistency, and produce a well-structured output conforming to the target schema
+
+    [*] --> AnalyzeVisualContent
+    AnalyzeVisualContent --> DraftCaption
+    DraftCaption --> FormatOutput
+    FormatOutput --> Output
+    Output --> [*]

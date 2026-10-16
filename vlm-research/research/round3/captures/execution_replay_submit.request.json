@@ -1,0 +1,31 @@
+{
+  "method": "POST",
+  "url": "https://api.vlm.run/v1/agent/execute",
+  "auth": "Bearer [REDACTED]",
+  "body": {
+    "name": "round3-replay-test",
+    "model": "vlmrun-orion-2:auto",
+    "batch": true,
+    "inputs": {
+      "left": 31,
+      "right": 19,
+      "marker": "ROUND3_95fa411f3bd54819a6727e60188cb8f9"
+    },
+    "config": {
+      "mode": "program",
+      "prompt": "Use the supplied arithmetic skill. Execute its pipeline once with the provided inputs, write round3-result.json as described in the skill, and return the resulting JSON object.",
+      "skills": [
+        {
+          "type": "inline",
+          "name": "round3-arithmetic-test",
+          "source": {
+            "type": "base64",
+            "media_type": "application/zip",
+            "data": "UEsDBBQAAAAIANZ9TV2tIeMVrgAAAAUBAAALAAAAcGlwZWxpbmUucHlNT7sOwjAM3PMVVqZEhCxsSPwFO4LWhUAelZ0AFeLfSVOQ8GJbd747uzAmynDlFIUQR55iBz0OMFLqkFl1+WnA45ANkDtfagtHuiHprYBadx+oRNhB5VnXtA7enZRcAKkbi5CLz5X1ksu13H5lDEguoa4uZjXbaFi1uZnp95+Jdck+yGU8DM6jkpRK7DfrRdvOD0jT/rB9CSOrBTDAc6YbTrzbU0H9S5QLxW8w8QFQSwMEFAAAAAgA1n1NXVKBlEJwAAAApQAAAAsAAABzY2hlbWEuanNvblWNSw7DIAxE95wCeZ0T5BTdV1nQMo2cDxDjLKqIu5eiRkp3I78348NYS/pOoN5SfEx4KnXfW5KYIMrIlRy0OpkhLZ52VuEwUulq3Nc/xEExVr2UtiXYdhb4iu7n0q81NMF5z8oxuOV2fftyS4Yp5gNQSwMEFAAAAAgA1n1NXeJjb+oVAQAAuQEAAAgAAABTS0lMTC5tZFWQO3LDMAxEe50CpT1jqUnnLmVSOEWSAzDkyqJNERwQ8uf2AW2lSIchFw9vtu/7LrsZexJecnjpnUSdZmj0vaJqF1C9xKKR855eQ6ikV6Y6u5QoZsURUsnlQPATw0aqSykpItDs5AyhkcUCj7CMzoNwK5A4I+vQ9Xa/+5pipdh2E3sD38ktOrEYoznQGG+6CHaUWS0k8HxB+y3CYfHNrY1zMeBbLosaSkAJo9JmldzuSOJx+vfQtFfJTVWJ+bgduu8KKrEgxYyh3EmZXAhPWFt4UHZ2DxVywR8AN+c13Xd0tQJBOsE8zTojdO+fHwfinxO8NtzatAGWpMOpcn6qPPO26nRND3RgYmMJqavn1lEGAsLQ/QJQSwMEFAAAAAgA1n1NXcMG0JxPAAAAVQAAAAsAAAB2bG1ydW4ueWFtbB3LMQ6AIAwAwL2v4ANodOxD3BtpokmhpBQW498l7ndU74Ot3VowDMmL9bKOjaReBJmdEjlheF7Imlh+M0lUmyPuSN0VXFUae0OI4VRj+ABQSwECFAAUAAAACADWfU1drSHjFa4AAAAFAQAACwAAAAAAAAAAAAAAgAEAAAAAcGlwZWxpbmUucHlQSwECFAAUAAAACADWfU1dUoGUQnAAAAClAAAACwAAAAAAAAAAAAAAgAHXAAAAc2NoZW1hLmpzb25QSwECFAAUAAAACADWfU1d4mNv6hUBAAC5AQAACAAAAAAAAAAAAAAAgAFwAQAAU0tJTEwubWRQSwECFAAUAAAACADWfU1dwwbQnE8AAABVAAAACwAAAAAAAAAAAAAAgAGrAgAAdmxtcnVuLnlhbWxQSwUGAAAAAAQABADhAAAAIwMAAAAA"
+          }
+        }
+      ]
+    }
+  },
+  "headers": {}
+}

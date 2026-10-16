@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:53:08.602735+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/qwen/qwen3.5-0.8b",
+  "status": 200,
+  "elapsed_seconds": 2.867,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:53:10 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "f0a686f7-d59a-4f35-a59e-3093ca85408b"
+  },
+  "response_sha256": "eac4eedc63f7585d59418255e2525ce8d329ed0432762698ac2efdf7dcd41fb6",
+  "response_bytes": 968
+}

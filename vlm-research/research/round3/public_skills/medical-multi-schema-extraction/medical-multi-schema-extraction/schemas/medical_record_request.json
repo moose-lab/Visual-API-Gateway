@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "patient", "dateReceived"],
+  "properties": {
+    "type": {"type": "string", "const": "medical_record_request"},
+    "dateReceived": {
+      "type": ["string", "null"],
+      "description": "Date the document was received (e.g. Received, Received Date). Format as YYYY-MM-DD."
+    },
+    "dmeCompanyName": {
+      "type": ["string", "null"],
+      "description": "DME or medical supply company name on the request, if present."
+    },
+    "patient": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["givenName", "familyName"],
+      "properties": {
+        "givenName": {"type": ["string", "null"]},
+        "familyName": {"type": ["string", "null"]},
+        "middleName": {"type": ["string", "null"]},
+        "dateOfBirth": {
+          "type": ["string", "null"],
+          "description": "Patient date of birth in YYYY-MM-DD format."
+        }
+      }
+    },
+    "provider": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "givenName": {"type": ["string", "null"]},
+        "familyName": {"type": ["string", "null"]},
+        "middleName": {"type": ["string", "null"]},
+        "npiNumber": {
+          "type": ["string", "null"],
+          "description": "Provider NPI number (10 digits)."
+        },
+        "specialty": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

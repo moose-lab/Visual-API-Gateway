@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/zai-org/glm-ocr",
+  "auth": "Bearer [REDACTED]",
+  "body": null
+}

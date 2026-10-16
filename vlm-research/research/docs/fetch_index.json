@@ -1,0 +1,44 @@
+{
+  "gateway": {
+    "url": "https://vlm.run/gateway",
+    "final_url": "https://vlm.run/gateway",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "sha256": "556fecb3fa2efc8221da58cc1c6c269282f663f68551cb55bda3372cd8bf72da"
+  },
+  "site_llms": {
+    "url": "https://vlm.run/llms.txt",
+    "final_url": "https://vlm.run/llms.txt",
+    "status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "sha256": "bfc4c5f9b4371e9d85e325f9e8d2ecc545e6ecafd6024165678cf8fdfacd6032"
+  },
+  "site_sitemap": {
+    "url": "https://vlm.run/sitemap.xml",
+    "final_url": "https://vlm.run/sitemap.xml",
+    "status": 200,
+    "content_type": "application/xml",
+    "sha256": "b60686283d55166b77db5c9f0cdd301b772d64f6254474f30dd9f58ce0a9a270"
+  },
+  "docs_index": {
+    "url": "https://docs.vlm.run/",
+    "final_url": "https://docs.vlm.run/gateway/introduction",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "sha256": "ad950c2498758926ccc29f1d1014a1df6a475876696d1d306adb6ef270de4139"
+  },
+  "docs_llms": {
+    "url": "https://docs.vlm.run/llms.txt",
+    "final_url": "https://docs.vlm.run/llms.txt",
+    "status": 200,
+    "content_type": "text/plain; charset=utf-8",
+    "sha256": "c51fa377744bcb1a742c862a28a94321c8500b8e17ad13fa799fc305dc979e99"
+  },
+  "docs_sitemap": {
+    "url": "https://docs.vlm.run/sitemap.xml",
+    "final_url": "https://docs.vlm.run/sitemap.xml",
+    "status": 200,
+    "content_type": "text/xml",
+    "sha256": "45bed09625481e18f6e47735ea21b0178cd5a6390489a1a2538a424c02af1f65"
+  }
+}

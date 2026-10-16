@@ -1,0 +1,7 @@
+{
+  "method": "GET",
+  "url": "https://api.vlm.run/v1/skills/91b90af4-63d4-47f3-b3b5-20a0d7e5bc6a/download",
+  "auth": "Bearer [REDACTED]",
+  "body": null,
+  "headers": {}
+}

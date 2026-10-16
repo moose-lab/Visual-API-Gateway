@@ -1,0 +1,116 @@
+RF-DETR Large | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+Roboflow
+RF-DETR Large
+About
+RF-DETR Large is a 33.9M open-weight model from Roboflow. Open-vocab detection. It accepts text and images. Released May 11, 2026.
+Parameters
+33.9M
+Published parameter count.
+License
+Apache-2.0
+License on the weights.
+PricingBenchmarksExamplesMethodsQuick start
+Model specifications
+ProviderRoboflow
+Type
+detection
+Endpointroboflow/rf-detr-large
+Parameters33.9M
+Input / 1M—
+Output / 1M—
+Inputs
+textimage_url
+LicenseApache-2.0
+ReleasedMay 11, 2026
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Input / 1M—
+Output / 1M—
+Benchmarks
+Published scores for RF-DETR Large, from the RF-DETR docs.
+Evals
+COCO AP5075.1
+COCO AP50:9556.5
+RF100-VL AP50:9562.2
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeCOCO AP50: 75.1.
+Cost and performanceLower listed rate, mid-pack latency
+Examples
+Cupcake detection
+RF-DETR nano draws boxes around every cupcake in 40 ms.
+{"detections":[{"label":"cupcake","score":0.91,"box_xyxy":[114,236,302,418]}, ...]}
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+detectionBoxes around objects
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jscURLCLI
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+response = client.chat.completions.create(
+model="roboflow/rf-detr-large",
+messages=[{"role": "user", "content": "What is in this image?"}],
+)
+print(response.choices[0].message.content)
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

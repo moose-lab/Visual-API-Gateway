@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T02:53:54.703402+00:00",
+  "url": "https://gateway.vlm.run/.well-known/oauth-authorization-server/mcp",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "125d45d7966fe07c5f4620703407a43220b787ff69e33d2f207c9c6d5485fb30",
+  "response_bytes": 595,
+  "headers": {
+    "date": "Tue, 13 Oct 2026 02:53:55 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "df8425f5-03c0-4d15-8bb9-e0f2297ef7f3, df8425f5-03c0-4d15-8bb9-e0f2297ef7f3"
+  },
+  "elapsed_seconds": 2.161
+}

@@ -1,0 +1,188 @@
+[
+  {
+    "url": "https://vlm.run/gateway/models/baidu-unlimited-ocr",
+    "final_url": "https://vlm.run/gateway/models/baidu-unlimited-ocr",
+    "status": 200,
+    "sha256": "b5a1e411b18a09ed7672cee32f44788c163d017631a7af8df06b1399ae508fa7",
+    "path": "vlm.run__gateway__models__baidu-unlimited-ocr.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/deepseek-ai-deepseek-ocr-2",
+    "final_url": "https://vlm.run/gateway/models/deepseek-ai-deepseek-ocr-2",
+    "status": 200,
+    "sha256": "47f33841a7fcdd05c49a92b348f5617854ed481c77632fea477ae6f731412b00",
+    "path": "vlm.run__gateway__models__deepseek-ai-deepseek-ocr-2.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/facebook-sam3.1",
+    "final_url": "https://vlm.run/gateway/models/facebook-sam3.1",
+    "status": 200,
+    "sha256": "63dfe59745fc19126d4f18e144c99ac54f6c361b86a899896a9701be3089d165",
+    "path": "vlm.run__gateway__models__facebook-sam3.1.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/geopavlakos-hamer",
+    "final_url": "https://vlm.run/gateway/models/geopavlakos-hamer",
+    "status": 200,
+    "sha256": "2292878e9e94b615cee18bd28b0611fdd6f1d5796e161fb3fa65805623dbf815",
+    "path": "vlm.run__gateway__models__geopavlakos-hamer.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/google-diffusiongemma-26b-a4b-it",
+    "final_url": "https://vlm.run/gateway/models/google-diffusiongemma-26b-a4b-it",
+    "status": 200,
+    "sha256": "a8ce89dc3a46fbce8b86346c7a87beb0c1a2c17d4b90cc894490e524036891ab",
+    "path": "vlm.run__gateway__models__google-diffusiongemma-26b-a4b-it.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/google-gemini-3.5-flash-lite",
+    "final_url": "https://vlm.run/gateway/models/google-gemini-3.5-flash-lite",
+    "status": 200,
+    "sha256": "8af6b656215c6b7d63945006d0ed92f80e5526afe7bfe32463a1a2cdc2a12446",
+    "path": "vlm.run__gateway__models__google-gemini-3.5-flash-lite.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/google-gemini-3.7-flash",
+    "final_url": "https://vlm.run/gateway/models/google-gemini-3.7-flash",
+    "status": 200,
+    "sha256": "3dd0d2963b07950a323a346e5414df3092ff2d70d215e54eb55c336c6d09a5a1",
+    "path": "vlm.run__gateway__models__google-gemini-3.7-flash.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/google-gemini-robotics-er-2-preview",
+    "final_url": "https://vlm.run/gateway/models/google-gemini-robotics-er-2-preview",
+    "status": 200,
+    "sha256": "833e40845e2091149bad6706973f5ffc80dfd21451401bd8437e96e663d0e5e9",
+    "path": "vlm.run__gateway__models__google-gemini-robotics-er-2-preview.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/google-gemma-4-26b-a4b-it",
+    "final_url": "https://vlm.run/gateway/models/google-gemma-4-26b-a4b-it",
+    "status": 200,
+    "sha256": "a6481ab3a91dbb7946287b38d07c7289104d8268aeae1c6be7b89f07eb08febc",
+    "path": "vlm.run__gateway__models__google-gemma-4-26b-a4b-it.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/lightonai-lightonocr-1b-1025",
+    "final_url": "https://vlm.run/gateway/models/lightonai-lightonocr-1b-1025",
+    "status": 200,
+    "sha256": "1e4510ec5994a827c244c3c8f5abd195fc6440e4b42b97a69a1f5653f3aa875f",
+    "path": "vlm.run__gateway__models__lightonai-lightonocr-1b-1025.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/meta-muse-glimmer-30b",
+    "final_url": "https://vlm.run/gateway/models/meta-muse-glimmer-30b",
+    "status": 200,
+    "sha256": "b7864bebdfa22f95612bf551c8d62d639df57eedf8bbe91208b877c404e63003",
+    "path": "vlm.run__gateway__models__meta-muse-glimmer-30b.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/meta-muse-spark-1.2",
+    "final_url": "https://vlm.run/gateway/models/meta-muse-spark-1.2",
+    "status": 200,
+    "sha256": "14ed883c411c9381a460b760ddd1eb67689deed26991d390368935161e390f11",
+    "path": "vlm.run__gateway__models__meta-muse-spark-1.2.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/microsoft-florence-2-base-ft",
+    "final_url": "https://vlm.run/gateway/models/microsoft-florence-2-base-ft",
+    "status": 200,
+    "sha256": "33fac9e47d928281ddb801e94ec45946b907c5d39e05fdb907be54891ec907c4",
+    "path": "vlm.run__gateway__models__microsoft-florence-2-base-ft.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/minimax-minimax-m3",
+    "final_url": "https://vlm.run/gateway/models/minimax-minimax-m3",
+    "status": 200,
+    "sha256": "5f2ab0c02d230a520c7d5a7090aef1e5becc2b872b350a84d0f3be147462b4f2",
+    "path": "vlm.run__gateway__models__minimax-minimax-m3.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/moonshotai-kimi-k3",
+    "final_url": "https://vlm.run/gateway/models/moonshotai-kimi-k3",
+    "status": 200,
+    "sha256": "914db151cf21b25c7690d2e9db2c3b7e1f0af3b89b9b88d24137049bbf569d0f",
+    "path": "vlm.run__gateway__models__moonshotai-kimi-k3.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/nvidia-parakeet-tdt-0.6b-v3",
+    "final_url": "https://vlm.run/gateway/models/nvidia-parakeet-tdt-0.6b-v3",
+    "status": 200,
+    "sha256": "e70b369b556a45d88d3a3336d8a9d4e1b0048f430121d81a829e31dfa8ef66cb",
+    "path": "vlm.run__gateway__models__nvidia-parakeet-tdt-0.6b-v3.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/paddleocr-pp-ocrv6",
+    "final_url": "https://vlm.run/gateway/models/paddleocr-pp-ocrv6",
+    "status": 200,
+    "sha256": "705d09a0f0660c1df5e364849d067fa60c7483bc5c9d9493cd4925647310adb8",
+    "path": "vlm.run__gateway__models__paddleocr-pp-ocrv6.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/paddlepaddle-paddleocr-vl-1.6",
+    "final_url": "https://vlm.run/gateway/models/paddlepaddle-paddleocr-vl-1.6",
+    "status": 200,
+    "sha256": "0e2c2e12c66751c584dfbcd4b8f0dcc8de7e4e686f270a8e0cb784e5cd13b4c7",
+    "path": "vlm.run__gateway__models__paddlepaddle-paddleocr-vl-1.6.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/qwen-qwen3-vl-embedding-2b",
+    "final_url": "https://vlm.run/gateway/models/qwen-qwen3-vl-embedding-2b",
+    "status": 200,
+    "sha256": "aa5b3ec8da5aa6cd192b5df997db8ee110ef41dd6a5be1e6b58a7e0e8829a97e",
+    "path": "vlm.run__gateway__models__qwen-qwen3-vl-embedding-2b.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/qwen-qwen3.5-0.8b",
+    "final_url": "https://vlm.run/gateway/models/qwen-qwen3.5-0.8b",
+    "status": 200,
+    "sha256": "64df9e5cbb7ee5cd1eeefba9961b2b98fcd277abdf68ef62536d17cccbed4dc2",
+    "path": "vlm.run__gateway__models__qwen-qwen3.5-0.8b.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/qwen-qwen3.8-27b",
+    "final_url": "https://vlm.run/gateway/models/qwen-qwen3.8-27b",
+    "status": 200,
+    "sha256": "cb8cbe384cbaa247b1a8ac2ee7e1b68ae487eebd2501ad45f345a675d5b97612",
+    "path": "vlm.run__gateway__models__qwen-qwen3.8-27b.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/rednote-hilab-dots.mocr",
+    "final_url": "https://vlm.run/gateway/models/rednote-hilab-dots.mocr",
+    "status": 200,
+    "sha256": "8b14391d365be203a4b14b615ad022829e1cc6e4adc42de430c81f61e95cf3e1",
+    "path": "vlm.run__gateway__models__rednote-hilab-dots.mocr.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/roboflow-rf-detr-large",
+    "final_url": "https://vlm.run/gateway/models/roboflow-rf-detr-large",
+    "status": 200,
+    "sha256": "888eee4867507e7ce96fcbcaca074be9029c3397022f025b1f3b7a3e8909221c",
+    "path": "vlm.run__gateway__models__roboflow-rf-detr-large.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/usyd-community-vitpose-plus-large",
+    "final_url": "https://vlm.run/gateway/models/usyd-community-vitpose-plus-large",
+    "status": 200,
+    "sha256": "4f7db0ce59a18f23bc9b8675ee402e98d4385c26f98c7fcd33abc3e805973c77",
+    "path": "vlm.run__gateway__models__usyd-community-vitpose-plus-large.raw"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/vlm-run-ocr:auto",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "url": "https://vlm.run/gateway/models/zai-org-glm-ocr",
+    "final_url": "https://vlm.run/gateway/models/zai-org-glm-ocr",
+    "status": 200,
+    "sha256": "65434aa20d63c7be44fe9f1b97cac4bb58967de1f6483d634ad19a9cae72d767",
+    "path": "vlm.run__gateway__models__zai-org-glm-ocr.raw"
+  },
+  {
+    "url": "https://docs.vlm.run/gateway/extra-kwargs.md",
+    "final_url": "https://docs.vlm.run/gateway/extra-kwargs.md",
+    "status": 200,
+    "sha256": "66aa61d28c5c59879227ddeb7261eec7a0cd0298d0bd92d39b7e60282f9a4f36",
+    "path": "docs.vlm.run__gateway__extra-kwargs.md"
+  }
+]

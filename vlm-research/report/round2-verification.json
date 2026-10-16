@@ -1,0 +1,182 @@
+{
+  "review_date": "2026-10-14",
+  "mode": "offline",
+  "passed": true,
+  "checks": [
+    {
+      "check": "第一轮历史证据完整性",
+      "passed": true,
+      "detail": {
+        "files": 1063,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "第二轮证据完整性",
+      "passed": true,
+      "detail": {
+        "files": 338,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "HTTP原始回包与采集hash",
+      "passed": true,
+      "detail": {
+        "responses": 58,
+        "mismatches": []
+      }
+    },
+    {
+      "check": "目录变化",
+      "passed": true,
+      "detail": {
+        "count": 26,
+        "added": [
+          "google/embeddinggemma-2",
+          "lightonai/lightonocr-3-4b"
+        ]
+      }
+    },
+    {
+      "check": "四个OCR Auto路由观察",
+      "passed": true,
+      "detail": {
+        "ocr_auto_ocr": [
+          "paddleocr/pp-ocrv6",
+          "paddleocr"
+        ],
+        "ocr_auto_markdown_native_pdf": [
+          "vlm-run/ocr:auto",
+          "xberg"
+        ],
+        "ocr_auto_layout": [
+          "rednote-hilab/dots.mocr",
+          "vllm"
+        ],
+        "ocr_auto_markdown_image": [
+          "rednote-hilab/dots.mocr",
+          "vllm"
+        ]
+      }
+    },
+    {
+      "check": "原生PDF内容",
+      "passed": true,
+      "detail": {
+        "scope": "单样本提取；不验证内部parser版本"
+      }
+    },
+    {
+      "check": "Diffusion JSON实际拒绝",
+      "passed": true,
+      "detail": {
+        "scope": "请求明确给json_object"
+      }
+    },
+    {
+      "check": "MCP prompts",
+      "passed": true,
+      "detail": {
+        "prompts": []
+      }
+    },
+    {
+      "check": "MCP resources",
+      "passed": true,
+      "detail": {
+        "resources": []
+      }
+    },
+    {
+      "check": "MCP resourceTemplates",
+      "passed": true,
+      "detail": {
+        "resourceTemplates": []
+      }
+    },
+    {
+      "check": "WebSocket单帧完整会话",
+      "passed": true,
+      "detail": {
+        "events": [
+          "session.created",
+          "decision",
+          "session.stats"
+        ],
+        "scope": "不是并发或性能基准"
+      }
+    },
+    {
+      "check": "随机SHA256输出核对",
+      "passed": true,
+      "detail": {
+        "scope": "验证最终计算值，不证明沙箱进程隔离或完整内部实现"
+      }
+    },
+    {
+      "check": "三次调用与两条重试反馈",
+      "passed": true,
+      "detail": {
+        "calls": 3,
+        "retries": 2
+      }
+    },
+    {
+      "check": "同一会话token差异",
+      "passed": true,
+      "detail": {
+        "with_token": 200,
+        "without_token": 403,
+        "scope": "不归因旧404"
+      }
+    },
+    {
+      "check": "成本加总",
+      "passed": true,
+      "detail": {
+        "USD": "0.059007",
+        "scope": "回包报告，未核账单"
+      }
+    },
+    {
+      "check": "上游提示词和模板归档",
+      "passed": true,
+      "detail": {
+        "method_prompts": 8,
+        "templates": 3
+      }
+    },
+    {
+      "check": "研究脚本静态语法",
+      "passed": true,
+      "detail": {
+        "files": 13,
+        "failed": []
+      }
+    },
+    {
+      "check": "全部报告本地链接",
+      "passed": true,
+      "detail": {
+        "missing": []
+      }
+    },
+    {
+      "check": "API Key模式扫描",
+      "passed": true,
+      "detail": {
+        "files": 1445,
+        "candidate_files": [],
+        "scope": "仅sk-加25位字母数字模式，不扫描未引用Git仓库全体文件"
+      }
+    },
+    {
+      "check": "运行token字段脱敏",
+      "passed": true,
+      "detail": {
+        "candidate_files": []
+      }
+    }
+  ]
+}

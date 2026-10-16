@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:41:50.513751+00:00",
+  "url": "https://raw.githubusercontent.com/studio-dots-ai/dots.mocr/23f3e5612fb8066d4034d5ecfc8f33a9243533eb/tools/elo_score_prompt.py",
+  "method": "GET",
+  "status": 200,
+  "final_url": "https://raw.githubusercontent.com/studio-dots-ai/dots.mocr/23f3e5612fb8066d4034d5ecfc8f33a9243533eb/tools/elo_score_prompt.py",
+  "response_sha256": "5ae88b83b6ca489301dabe2ff1ca6ddf44fb8dd4963edf24ac0f97f617f10928",
+  "response_bytes": 5004,
+  "headers": {
+    "Content-Type": "text/plain; charset=utf-8",
+    "Date": "Tue, 13 Oct 2026 03:41:51 GMT"
+  },
+  "elapsed_seconds": 0.909
+}

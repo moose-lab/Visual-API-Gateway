@@ -1,0 +1,15 @@
+{
+  "id": "chatcmpl-d899e8e8c18943e29389df2af99",
+  "model": "paddleocr/pp-ocrv6",
+  "served_model_id": "paddleocr/pp-ocrv6",
+  "backend": "paddleocr",
+  "cost": 0.001,
+  "usage": {
+    "prompt_tokens": 256,
+    "completion_tokens": 13,
+    "total_tokens": 269,
+    "cost": 0.001
+  },
+  "status": "completed",
+  "latency_ms": 653.6447980033699
+}

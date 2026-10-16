@@ -1,0 +1,175 @@
+HaMeR | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+geopavlakos
+HaMeR
+About
+HaMeR is an open-weight model from geopavlakos. Transformer-based 3D hand mesh recovery with ViTPose-H detection. It accepts text and images.
+License
+—
+License on the weights.
+PricingCompareBenchmarksPerformanceInputsParametersMethodsEstimate costQuick startResponse
+Model specifications
+Providergeopavlakos
+Type
+pose
+Endpointgeopavlakos/hamer
+Input price$3.90 / 1M tokens$3.90 (cached) / 1M
+Output price$0 / 1M tokens
+Inputs
+textimage_url
+License—
+Latency p50662 ms p50
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Input / 1M$3.90
+Cached input / 1M$3.90
+Output / 1M$0
+Compare
+HaMeR is one of the catalog's pose models. The table is each model's published price, size, and context.
+ModelWhat it doesPriceParametersContext
+HaMeRTransformer-based 3D hand mesh recovery with ViTPose-H detection.$3.90 / 1M input——
+ViTPose+ Large2D human pose estimation (ViT-L, 434M).$3.90 / 1M input434M—
+Benchmarks
+Published scores for HaMeR, from the HaMeR paper.
+Evals
+FreiHAND F@5mm76.5
+FreiHAND PA-MPJPE mm13
+A lower score is better.
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeFreiHAND F@5mm: 76.5.
+Cost and performanceLower listed rate, mid-pack latency
+Performance
+Latency is the end-to-end round trip. Throughput is completion tokens divided by that time. It is a request rate, not decode speed.
+LatencyMedian, end to end
+662 ms
+ThroughputMedian completion tokens per second
+—
+RequestsCompleted, last 7 days
+2,534
+Supported inputs
+textIgnored
+A text part beside the media is accepted and ignored. A request with no media part is a 400.
+image_urlYes
+One per request. A second image_url part is a 400.
+video_urlNo
+Not accepted.
+document_urlNo
+Not accepted.
+pose is the only method.
+Each detected hand returns a left_hand or right_hand label, a detection score, a normalized bounding box, and 21 hand keypoints in OpenPose order, twice over: kpts_xy in the image plane and kpts_xyz in 3D. That is why the payload is tagged world.pose.kpts rather than img.pose.kpts, which is what the 2D-only ViTPose returns.
+Method parameters
+ParameterDefaultDescription
+body_conf0.5Minimum confidence for the body detection that locates the hands
+hand_conf0.5Minimum confidence for a hand to be reported
+rescale_factor2.0How far the detected hand box is expanded before the mesh is fit
+include_meshfalseReturn the full MANO mesh alongside the keypoints
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+pose (default)One entry per detected hand, with bbox_xywh, label, score, kpts_xy, and kpts_xyz
+Estimate cost
+Input tokensOutput tokens
+$3.90
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jsCLIcURL
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+response = client.chat.completions.create(
+model="geopavlakos/hamer",
+messages=[
+{
+"role": "user",
+"content": [
+{
+"type": "image_url",
+"image_url": {
+"url": "http://images.cocodataset.org/val2017/000000000785.jpg"
+},
+},
+],
+}
+],
+extra_body={"method": "pose", "method_params": {"hand_conf": 0.5}},
+)
+print(response.choices[0].message.content)
+Response
+Text modeJSON mode
+Copy
+A single image returns the json block alone, with no wrapper:
+{
+"object": "world.pose.kpts",
+"items": [
+{
+"bbox_xywh": [0.6735, 0.3556, 0.0623, 0.0938],
+"label": "left_hand",
+"score": 1.0,
+"kpts_xy": [[0.695, 0.3822], [0.6881, 0.3928], "..."],
+"kpts_xyz": [[-0.0957, 0.0064, 0.0062], [-0.1146, 0.0257, -0.0211], "..."]
+}
+],
+"kpts_labels": ["wrist", "thumb_mcp", "thumb_pip", "thumb_dip", "thumb_tip", "..."]
+}
+label is the hand's laterality, left_hand or right_hand, and score is the detection confidence.
+kpts_xy is normalized against the source image, so multiply by image_width and image_height for pixels. kpts_xyz is metric 3D in the model's own hand-centred frame and is not tied to image coordinates; it is the reason the payload is tagged world.pose.kpts rather than the img.pose.kpts that ViTPose returns. Both lists hold the same 21 joints in OpenPose hand order, named once on the container by kpts_labels: the wrist, then the thumb, index, middle, ring and pinky fingers, four joints each from base to tip (_mcp, _pip, _dip, _tip).
+method_params.include_mesh adds the full MANO mesh beside the keypoints.
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

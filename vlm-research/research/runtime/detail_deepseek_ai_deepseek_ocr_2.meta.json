@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:52:58.752565+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/deepseek-ai/deepseek-ocr-2",
+  "status": 200,
+  "elapsed_seconds": 2.269,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:53:00 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "c56ea8af-ac31-4293-aaa8-d54ef09fb2a9"
+  },
+  "response_sha256": "508bea19b87d8d75bd4133f9095c077142de893442f885f2f2175d47cd4bff81",
+  "response_bytes": 772
+}

@@ -1,0 +1,20 @@
+{
+  "url": "https://gateway.vlm.run/v1/openai/models",
+  "status": 200,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:26:09 GMT",
+    "server": "uvicorn",
+    "Content-Length": "24221",
+    "content-type": "application/json",
+    "x-ratelimit-limit": "10",
+    "x-ratelimit-remaining": "10",
+    "x-vlmrun-upgrade": "Free anonymous access is limited. Get a free API key at https://app.vlm.run/dashboard/settings/api-keys for higher limits.",
+    "x-request-id": "8870f85e-5517-4a8d-9f6a-f9fe4c279c44",
+    "vary": "Accept-Encoding",
+    "Via": "1.1 google",
+    "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+    "Connection": "close"
+  },
+  "sha256": "2ee1b32782b49c35bfa719cd4d3ba2192e395ef3c58b168db6ec748a2d748a40",
+  "captured_utc": "2026-10-11T06:26:10.244399+00:00"
+}

@@ -1,0 +1,6156 @@
+try {
+    ! function() {
+        var e = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof globalThis ? globalThis : "undefined" != typeof self ? self : {},
+            t = (new e.Error).stack;
+        t && (e._sentryDebugIds = e._sentryDebugIds || {}, e._sentryDebugIds[t] = "ef5ac22c-6854-4fee-abb0-e793dfae8752", e._sentryDebugIdIdentifier = "sentry-dbid-ef5ac22c-6854-4fee-abb0-e793dfae8752")
+    }()
+} catch (e) {}(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+    [85266], {
+        26944: function(e, t, n) {
+            "use strict";
+            var r, o, a = n(93214),
+                c = (r = n(2265), o = Object.create(null), r && Object.keys(r).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(r, e);
+                        Object.defineProperty(o, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return r[e]
+                            }
+                        })
+                    }
+                }), o.default = r, Object.freeze(o)),
+                i = function(e) {
+                    var t = e.files,
+                        n = c.useRef(),
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = c.useContext(a.ThemeContext).direction === a.TextDirection.RightToLeft,
+                        i = c.useRef([]),
+                        l = r && r.attachment ? r.attachment.clickToDownload : "Click to download",
+                        u = function(e) {
+                            var t = n.current,
+                                r = [].slice.call(t.getElementsByClassName("rpv-attachment__item"));
+                            if (0 !== r.length) {
+                                r.forEach(function(e) {
+                                    return e.setAttribute("tabindex", "-1")
+                                });
+                                var o = document.activeElement,
+                                    a = r[Math.min(r.length - 1, Math.max(0, e(r, o)))];
+                                a.setAttribute("tabindex", "0"), a.focus()
+                            }
+                        };
+                    return a.useIsomorphicLayoutEffect(function() {
+                        var e = n.current;
+                        if (e) {
+                            var t = [].slice.call(e.getElementsByClassName("rpv-attachment__item"));
+                            if (i.current = t, t.length > 0) {
+                                var r = t[0];
+                                r.focus(), r.setAttribute("tabindex", "0")
+                            }
+                        }
+                    }, []), c.createElement("div", {
+                        "data-testid": "attachment__list",
+                        className: a.classNames({
+                            "rpv-attachment__list": !0,
+                            "rpv-attachment__list--rtl": o
+                        }),
+                        ref: n,
+                        tabIndex: -1,
+                        onKeyDown: function(e) {
+                            switch (e.key) {
+                                case "ArrowDown":
+                                    e.preventDefault(), u(function(e, t) {
+                                        return e.indexOf(t) + 1
+                                    });
+                                    break;
+                                case "ArrowUp":
+                                    e.preventDefault(), u(function(e, t) {
+                                        return e.indexOf(t) - 1
+                                    });
+                                    break;
+                                case "End":
+                                    e.preventDefault(), u(function(e, t) {
+                                        return e.length - 1
+                                    });
+                                    break;
+                                case "Home":
+                                    e.preventDefault(), u(function(e, t) {
+                                        return 0
+                                    })
+                            }
+                        }
+                    }, t.map(function(e) {
+                        return c.createElement("button", {
+                            className: "rpv-attachment__item",
+                            key: e.fileName,
+                            tabIndex: -1,
+                            title: l,
+                            type: "button",
+                            onClick: function() {
+                                var t, n, r, o, a;
+                                return t = e.fileName, r = "string" == typeof(n = e.data) ? "" : URL.createObjectURL(new Blob([n], {
+                                    type: ""
+                                })), (o = document.createElement("a")).style.display = "none", o.href = r || t, o.setAttribute("download", (a = t.split("/").pop()) ? a.split("#")[0].split("?")[0] : t), document.body.appendChild(o), o.click(), document.body.removeChild(o), void(r && URL.revokeObjectURL(r))
+                            }
+                        }, e.fileName)
+                    }))
+                },
+                l = function(e) {
+                    var t = e.doc,
+                        n = c.useContext(a.LocalizationContext).l10n,
+                        r = c.useContext(a.ThemeContext).direction === a.TextDirection.RightToLeft,
+                        o = n && n.attachment ? n.attachment.noAttachment : "There is no attachment",
+                        l = c.useState({
+                            files: [],
+                            isLoaded: !1
+                        }),
+                        u = l[0],
+                        s = l[1];
+                    return c.useEffect(function() {
+                        t.getAttachments().then(function(e) {
+                            s({
+                                files: e ? Object.keys(e).map(function(t) {
+                                    return {
+                                        data: e[t].content,
+                                        fileName: e[t].filename
+                                    }
+                                }) : [],
+                                isLoaded: !0
+                            })
+                        })
+                    }, [t]), u.isLoaded ? 0 === u.files.length ? c.createElement("div", {
+                        "data-testid": "attachment__empty",
+                        className: a.classNames({
+                            "rpv-attachment__empty": !0,
+                            "rpv-attachment__empty--rtl": r
+                        })
+                    }, o) : c.createElement(i, {
+                        files: u.files
+                    }) : c.createElement(a.Spinner, null)
+                },
+                u = function(e) {
+                    var t = e.store,
+                        n = c.useState(t.get("doc")),
+                        r = n[0],
+                        o = n[1],
+                        i = function(e) {
+                            o(e)
+                        };
+                    return c.useEffect(function() {
+                        return t.subscribe("doc", i),
+                            function() {
+                                t.unsubscribe("doc", i)
+                            }
+                    }, []), r ? c.createElement(l, {
+                        doc: r
+                    }) : c.createElement("div", {
+                        className: "rpv-attachment__loader"
+                    }, c.createElement(a.Spinner, null))
+                };
+            t.attachmentPlugin = function() {
+                var e = c.useMemo(function() {
+                    return a.createStore({})
+                }, []);
+                return {
+                    onDocumentLoad: function(t) {
+                        e.update("doc", t.doc)
+                    },
+                    Attachments: function() {
+                        return c.createElement(u, {
+                            store: e
+                        })
+                    }
+                }
+            }
+        },
+        49790: function(e, t, n) {
+            "use strict";
+            e.exports = n(26944)
+        },
+        38562: function(e, t, n) {
+            "use strict";
+            var r, o, a, c, i = n(93214),
+                l = (o = n(2265), a = Object.create(null), o && Object.keys(o).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(o, e);
+                        Object.defineProperty(a, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return o[e]
+                            }
+                        })
+                    }
+                }), a.default = o, Object.freeze(a)),
+                u = function() {
+                    return (u = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                },
+                s = function() {
+                    return l.createElement(i.Icon, {
+                        size: 16
+                    }, l.createElement("path", {
+                        d: "M6.427,8.245A.5.5,0,0,1,6.862,7.5H17.138a.5.5,0,0,1,.435.749l-5.139,9a.5.5,0,0,1-.868,0Z"
+                    }))
+                },
+                d = function() {
+                    return l.createElement(i.Icon, {
+                        size: 16
+                    }, l.createElement("path", {
+                        d: "M9.248,17.572a.5.5,0,0,1-.748-.434V6.862a.5.5,0,0,1,.748-.434l8.992,5.138a.5.5,0,0,1,0,.868Z"
+                    }))
+                },
+                m = function(e) {
+                    var t = e.bookmark,
+                        n = e.depth,
+                        r = e.doc,
+                        o = e.index,
+                        a = e.isBookmarkExpanded,
+                        c = e.numberOfSiblings,
+                        m = e.pathFromRoot,
+                        p = e.renderBookmarkItem,
+                        g = e.store,
+                        h = m ? "".concat(m, ".").concat(o) : "".concat(o),
+                        v = l.useMemo(function() {
+                            return function(e) {
+                                var t = e.count,
+                                    n = e.items;
+                                if (t >= 0) return !1;
+                                var r = n.length;
+                                if (0 === r) return !1;
+                                for (var o = n.concat([]); o.length > 0;) {
+                                    var a = o.shift(),
+                                        c = a.items;
+                                    a.count && c && a.count > 0 && c.length > 0 && (r += c.length, o = o.concat(c))
+                                }
+                                return Math.abs(t) === r
+                            }(t)
+                        }, [t]),
+                        b = g.get("bookmarkExpandedMap"),
+                        E = a ? a({
+                            bookmark: t,
+                            doc: r,
+                            depth: n,
+                            index: o
+                        }) : b.has(h) ? b.get(h) : !v,
+                        k = l.useState(E),
+                        C = k[0],
+                        _ = k[1],
+                        S = t.items && t.items.length > 0,
+                        M = function() {
+                            var e = !C;
+                            g.updateCurrentValue("bookmarkExpandedMap", function(t) {
+                                return t.set(h, e)
+                            }), _(e)
+                        },
+                        P = function() {
+                            var e = t.dest,
+                                n = g.get("jumpToDestination");
+                            i.getDestination(r, e).then(function(e) {
+                                n && n(u({
+                                    label: t.title
+                                }, e))
+                            })
+                        },
+                        y = function() {
+                            S && t.dest && P()
+                        },
+                        w = function() {
+                            !S && t.dest && P()
+                        },
+                        x = function(e, t) {
+                            return l.createElement("div", {
+                                className: "rpv-bookmark__item",
+                                style: {
+                                    paddingLeft: "".concat(1.25 * n, "rem")
+                                },
+                                onClick: e
+                            }, t)
+                        },
+                        I = function(e, t) {
+                            return S ? l.createElement("span", {
+                                className: "rpv-bookmark__toggle",
+                                "data-testid": "bookmark__toggle-".concat(n, "-").concat(o),
+                                onClick: M
+                            }, C ? e : t) : l.createElement("span", {
+                                className: "rpv-bookmark__toggle"
+                            })
+                        },
+                        T = function(e) {
+                            return t.url ? l.createElement("a", {
+                                className: "rpv-bookmark__title",
+                                href: t.url,
+                                rel: "noopener noreferrer nofollow",
+                                target: t.newWindow ? "_blank" : ""
+                            }, t.title) : l.createElement("div", {
+                                className: "rpv-bookmark__title",
+                                "aria-label": t.title,
+                                onClick: e
+                            }, t.title)
+                        };
+                    return l.createElement("li", {
+                        "aria-expanded": C ? "true" : "false",
+                        "aria-label": t.title,
+                        "aria-level": n + 1,
+                        "aria-posinset": o + 1,
+                        "aria-setsize": c,
+                        role: "treeitem",
+                        tabIndex: -1
+                    }, p ? p({
+                        bookmark: t,
+                        depth: n,
+                        hasSubItems: S,
+                        index: o,
+                        isExpanded: C,
+                        path: h,
+                        defaultRenderItem: x,
+                        defaultRenderTitle: T,
+                        defaultRenderToggle: I,
+                        onClickItem: w,
+                        onClickTitle: y,
+                        onToggleSubItems: M
+                    }) : x(w, l.createElement(l.Fragment, null, I(l.createElement(s, null), l.createElement(d, null)), T(y))), S && C && l.createElement(f, {
+                        bookmarks: t.items,
+                        depth: n + 1,
+                        doc: r,
+                        isBookmarkExpanded: a,
+                        isRoot: !1,
+                        pathFromRoot: h,
+                        renderBookmarkItem: p,
+                        store: g
+                    }))
+                },
+                f = function(e) {
+                    var t = e.bookmarks,
+                        n = e.depth,
+                        r = void 0 === n ? 0 : n,
+                        o = e.doc,
+                        a = e.isBookmarkExpanded,
+                        c = e.isRoot,
+                        i = e.pathFromRoot,
+                        u = e.renderBookmarkItem,
+                        s = e.store;
+                    return l.createElement("ul", {
+                        className: "rpv-bookmark__list",
+                        role: c ? "tree" : "group",
+                        tabIndex: -1
+                    }, t.map(function(e, n) {
+                        return l.createElement(m, {
+                            bookmark: e,
+                            depth: r,
+                            doc: o,
+                            index: n,
+                            isBookmarkExpanded: a,
+                            key: n,
+                            numberOfSiblings: t.length,
+                            pathFromRoot: i,
+                            renderBookmarkItem: u,
+                            store: s
+                        })
+                    }))
+                };
+            (r = c || (c = {}))[r.Collapse = 0] = "Collapse", r[r.Expand = 1] = "Expand";
+            var p = function(e) {
+                    var t = e.bookmarks,
+                        n = e.doc,
+                        r = e.isBookmarkExpanded,
+                        o = e.renderBookmarkItem,
+                        a = e.store,
+                        i = l.useRef(),
+                        u = function(e) {
+                            var t = i.current;
+                            if (t && e.target instanceof HTMLElement && t.contains(e.target)) switch (e.key) {
+                                case "ArrowDown":
+                                    e.preventDefault(), d(function(e, t) {
+                                        return e.indexOf(t) + 1
+                                    });
+                                    break;
+                                case "ArrowLeft":
+                                    e.preventDefault(), m(c.Collapse);
+                                    break;
+                                case "ArrowRight":
+                                    e.preventDefault(), m(c.Expand);
+                                    break;
+                                case "ArrowUp":
+                                    e.preventDefault, d(function(e, t) {
+                                        return e.indexOf(t) - 1
+                                    });
+                                    break;
+                                case "End":
+                                    e.preventDefault(), d(function(e, t) {
+                                        return e.length - 1
+                                    });
+                                    break;
+                                case " ":
+                                case "Enter":
+                                case "Space":
+                                    e.preventDefault(), s();
+                                    break;
+                                case "Home":
+                                    e.preventDefault(), d(function(e, t) {
+                                        return 0
+                                    })
+                            }
+                        },
+                        s = function() {
+                            var e = document.activeElement.closest(".rpv-bookmark__item").querySelector(".rpv-bookmark__title");
+                            e && e.click()
+                        },
+                        d = function(e) {
+                            var t = i.current,
+                                n = [].slice.call(t.getElementsByClassName("rpv-bookmark__item"));
+                            if (0 !== n.length) {
+                                var r = document.activeElement,
+                                    o = n[Math.min(n.length - 1, Math.max(0, e(n, r)))];
+                                r.setAttribute("tabindex", "-1"), o.setAttribute("tabindex", "0"), o.focus()
+                            }
+                        },
+                        m = function(e) {
+                            var t = i.current;
+                            if (0 !== [].slice.call(t.getElementsByClassName("rpv-bookmark__item")).length) {
+                                var n = document.activeElement.closest(".rpv-bookmark__item"),
+                                    r = e === c.Collapse ? "true" : "false";
+                                if (n && n.parentElement.getAttribute("aria-expanded") === r) {
+                                    var o = n.querySelector(".rpv-bookmark__toggle");
+                                    o && o.click()
+                                }
+                            }
+                        };
+                    return l.useEffect(function() {
+                        return document.addEventListener("keydown", u),
+                            function() {
+                                document.removeEventListener("keydown", u)
+                            }
+                    }, []), l.useEffect(function() {
+                        var e = i.current;
+                        if (e) {
+                            var t = [].slice.call(e.getElementsByClassName("rpv-bookmark__item"));
+                            t.length > 0 && (t[0].focus(), t[0].setAttribute("tabindex", "0"))
+                        }
+                    }, []), l.createElement("div", {
+                        ref: i
+                    }, l.createElement(f, {
+                        bookmarks: t,
+                        depth: 0,
+                        doc: n,
+                        isBookmarkExpanded: r,
+                        isRoot: !0,
+                        pathFromRoot: "",
+                        renderBookmarkItem: o,
+                        store: a
+                    }))
+                },
+                g = function(e) {
+                    var t = e.doc,
+                        n = e.isBookmarkExpanded,
+                        r = e.renderBookmarkItem,
+                        o = e.store,
+                        a = l.useContext(i.LocalizationContext).l10n,
+                        c = l.useContext(i.ThemeContext).direction === i.TextDirection.RightToLeft,
+                        u = l.useState({
+                            isLoaded: !1,
+                            items: []
+                        }),
+                        s = u[0],
+                        d = u[1];
+                    return l.useEffect(function() {
+                        d({
+                            isLoaded: !1,
+                            items: []
+                        }), t.getOutline().then(function(e) {
+                            d({
+                                isLoaded: !0,
+                                items: e || []
+                            })
+                        })
+                    }, [t]), s.isLoaded ? 0 === s.items.length ? l.createElement("div", {
+                        "data-testid": "bookmark__empty",
+                        className: i.classNames({
+                            "rpv-bookmark__empty": !0,
+                            "rpv-bookmark__empty--rtl": c
+                        })
+                    }, a && a.bookmark ? a.bookmark.noBookmark : "There is no bookmark") : l.createElement("div", {
+                        "data-testid": "bookmark__container",
+                        className: i.classNames({
+                            "rpv-bookmark__container": !0,
+                            "rpv-bookmark__container--rtl": c
+                        })
+                    }, l.createElement(p, {
+                        bookmarks: s.items,
+                        doc: t,
+                        isBookmarkExpanded: n,
+                        renderBookmarkItem: r,
+                        store: o
+                    })) : l.createElement("div", {
+                        className: "rpv-bookmark__loader"
+                    }, l.createElement(i.Spinner, null))
+                },
+                h = function(e) {
+                    var t = e.isBookmarkExpanded,
+                        n = e.renderBookmarkItem,
+                        r = e.store,
+                        o = l.useState(r.get("doc")),
+                        a = o[0],
+                        c = o[1],
+                        u = function(e) {
+                            c(e)
+                        };
+                    return l.useEffect(function() {
+                        return r.subscribe("doc", u),
+                            function() {
+                                r.unsubscribe("doc", u)
+                            }
+                    }, []), a ? l.createElement(g, {
+                        doc: a,
+                        isBookmarkExpanded: t,
+                        renderBookmarkItem: n,
+                        store: r
+                    }) : l.createElement("div", {
+                        className: "rpv-bookmark__loader"
+                    }, l.createElement(i.Spinner, null))
+                };
+            t.DownArrowIcon = s, t.RightArrowIcon = d, t.bookmarkPlugin = function() {
+                var e = l.useMemo(function() {
+                    return i.createStore({
+                        bookmarkExpandedMap: new Map
+                    })
+                }, []);
+                return {
+                    install: function(t) {
+                        e.update("jumpToDestination", t.jumpToDestination)
+                    },
+                    onDocumentLoad: function(t) {
+                        e.update("doc", t.doc)
+                    },
+                    Bookmarks: function(t) {
+                        return l.createElement(h, {
+                            isBookmarkExpanded: null == t ? void 0 : t.isBookmarkExpanded,
+                            renderBookmarkItem: null == t ? void 0 : t.renderBookmarkItem,
+                            store: e
+                        })
+                    }
+                }
+            }
+        },
+        70450: function(e, t, n) {
+            "use strict";
+            e.exports = n(38562)
+        },
+        13647: function(e, t, n) {
+            "use strict";
+            var r, o = n(93214),
+                a = n(2265),
+                c = n(49790),
+                i = n(70450),
+                l = n(14741),
+                u = n(67635),
+                s = (r = Object.create(null), a && Object.keys(a).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(a, e);
+                        Object.defineProperty(r, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return a[e]
+                            }
+                        })
+                    }
+                }), r.default = a, Object.freeze(r)),
+                d = function() {
+                    return s.createElement(o.Icon, {
+                        size: 16
+                    }, s.createElement("path", {
+                        d: "M11.5,1.5h11c0.552,0,1,0.448,1,1v20c0,0.552-0.448,1-1,1h-21c-0.552,0-1-0.448-1-1v-20c0-0.552,0.448-1,1-1h3\n            M11.5,10.5c0,0.55-0.3,0.661-0.659,0.248L8,7.5l-2.844,3.246c-0.363,0.414-0.659,0.3-0.659-0.247v-9c0-0.552,0.448-1,1-1h5\n            c0.552,0,1,0.448,1,1L11.5,10.5z\n            M14.5,6.499h6\n            M14.5,10.499h6\n            M3.5,14.499h17\n            M3.5,18.499h16.497"
+                    }))
+                },
+                m = function() {
+                    return (m = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                },
+                f = function() {
+                    return s.createElement(o.Icon, {
+                        size: 16
+                    }, s.createElement("path", {
+                        d: "M7.618,15.345l8.666-8.666c0.78-0.812,2.071-0.838,2.883-0.058s0.838,2.071,0.058,2.883\n            c-0.019,0.02-0.038,0.039-0.058,0.058L7.461,21.305c-1.593,1.593-4.175,1.592-5.767,0s-1.592-4.175,0-5.767c0,0,0,0,0,0\n            L13.928,3.305c2.189-2.19,5.739-2.19,7.929-0.001s2.19,5.739,0,7.929l0,0L13.192,19.9"
+                    }))
+                },
+                p = function() {
+                    return s.createElement(o.Icon, {
+                        size: 16
+                    }, s.createElement("path", {
+                        d: "M10.5,9.5c0,0.552-0.448,1-1,1h-8c-0.552,0-1-0.448-1-1v-8c0-0.552,0.448-1,1-1h8c0.552,0,1,0.448,1,1V9.5z\n            M23.5,9.5c0,0.552-0.448,1-1,1h-8c-0.552,0-1-0.448-1-1v-8c0-0.552,0.448-1,1-1h8c0.552,0,1,0.448,1,1V9.5z\n            M10.5,22.5 c0,0.552-0.448,1-1,1h-8c-0.552,0-1-0.448-1-1v-8c0-0.552,0.448-1,1-1h8c0.552,0,1,0.448,1,1V22.5z\n            M23.5,22.5c0,0.552-0.448,1-1,1 h-8c-0.552,0-1-0.448-1-1v-8c0-0.552,0.448-1,1-1h8c0.552,0,1,0.448,1,1V22.5z"
+                    }))
+                },
+                g = {
+                    left: 8,
+                    top: 0
+                },
+                h = {
+                    left: -8,
+                    top: 0
+                },
+                v = function(e) {
+                    var t = e.attachmentTabContent,
+                        n = e.bookmarkTabContent,
+                        r = e.store,
+                        a = e.thumbnailTabContent,
+                        c = e.tabs,
+                        i = s.useRef(),
+                        l = s.useContext(o.LocalizationContext).l10n,
+                        u = s.useState(r.get("isCurrentTabOpened") || !1),
+                        m = u[0],
+                        v = u[1],
+                        b = s.useState(Math.max(r.get("currentTab") || 0, 0)),
+                        E = b[0],
+                        k = b[1],
+                        C = s.useContext(o.ThemeContext).direction === o.TextDirection.RightToLeft,
+                        _ = [{
+                            content: a,
+                            icon: s.createElement(p, null),
+                            title: l && l.defaultLayout ? l.defaultLayout.thumbnail : "Thumbnail"
+                        }, {
+                            content: n,
+                            icon: s.createElement(d, null),
+                            title: l && l.defaultLayout ? l.defaultLayout.bookmark : "Bookmark"
+                        }, {
+                            content: t,
+                            icon: s.createElement(f, null),
+                            title: l && l.defaultLayout ? l.defaultLayout.attachment : "Attachment"
+                        }],
+                        S = c ? c(_) : _,
+                        M = function(e) {
+                            e >= 0 && e <= S.length - 1 && (r.update("isCurrentTabOpened", !0), k(e))
+                        },
+                        P = function(e) {
+                            v(e)
+                        };
+                    return s.useEffect(function() {
+                        return r.subscribe("currentTab", M), r.subscribe("isCurrentTabOpened", P),
+                            function() {
+                                r.unsubscribe("currentTab", M), r.unsubscribe("isCurrentTabOpened", P)
+                            }
+                    }, []), 0 === S.length ? s.createElement(s.Fragment, null) : s.createElement(s.Fragment, null, s.createElement("div", {
+                        "data-testid": "default-layout__sidebar",
+                        className: o.classNames({
+                            "rpv-default-layout__sidebar": !0,
+                            "rpv-default-layout__sidebar--opened": m,
+                            "rpv-default-layout__sidebar--ltr": !C,
+                            "rpv-default-layout__sidebar--rtl": C
+                        }),
+                        ref: i
+                    }, s.createElement("div", {
+                        className: "rpv-default-layout__sidebar-tabs"
+                    }, s.createElement("div", {
+                        className: "rpv-default-layout__sidebar-headers",
+                        role: "tablist",
+                        "aria-orientation": "vertical"
+                    }, S.map(function(e, t) {
+                        return s.createElement("div", {
+                            "aria-controls": "rpv-default-layout__sidebar-content",
+                            "aria-selected": E === t,
+                            key: t,
+                            className: "rpv-default-layout__sidebar-header",
+                            id: "rpv-default-layout__sidebar-tab-".concat(t),
+                            role: "tab"
+                        }, s.createElement(o.Tooltip, {
+                            ariaControlsSuffix: "default-layout-sidebar-tab-".concat(t),
+                            position: C ? o.Position.LeftCenter : o.Position.RightCenter,
+                            target: s.createElement(o.MinimalButton, {
+                                ariaLabel: e.title,
+                                isSelected: E === t,
+                                onClick: function() {
+                                    return function(e) {
+                                        if (E === e) {
+                                            r.update("isCurrentTabOpened", !r.get("isCurrentTabOpened"));
+                                            var t = i.current;
+                                            t && t.style.width && t.style.removeProperty("width")
+                                        } else r.update("currentTab", e)
+                                    }(t)
+                                }
+                            }, e.icon),
+                            content: function() {
+                                return e.title
+                            },
+                            offset: C ? h : g
+                        }))
+                    })), s.createElement("div", {
+                        "aria-labelledby": "rpv-default-layout__sidebar-tab-".concat(E),
+                        id: "rpv-default-layout__sidebar-content",
+                        className: o.classNames({
+                            "rpv-default-layout__sidebar-content": !0,
+                            "rpv-default-layout__sidebar-content--opened": m,
+                            "rpv-default-layout__sidebar-content--ltr": !C,
+                            "rpv-default-layout__sidebar-content--rtl": C
+                        }),
+                        role: "tabpanel",
+                        tabIndex: -1
+                    }, S[E].content))), m && s.createElement(o.Splitter, {
+                        constrain: function(e) {
+                            return e.firstHalfPercentage >= 20 && e.firstHalfPercentage <= 80
+                        }
+                    }))
+                };
+            t.defaultLayoutPlugin = function(e) {
+                var t = s.useMemo(function() {
+                        return o.createStore({
+                            isCurrentTabOpened: !1,
+                            currentTab: 0
+                        })
+                    }, []),
+                    n = c.attachmentPlugin(),
+                    r = i.bookmarkPlugin(),
+                    a = l.thumbnailPlugin(e ? e.thumbnailPlugin : {}),
+                    d = u.toolbarPlugin(e ? e.toolbarPlugin : {}),
+                    f = n.Attachments,
+                    p = r.Bookmarks,
+                    g = a.Thumbnails,
+                    h = d.Toolbar,
+                    b = e ? e.sidebarTabs : function(e) {
+                        return e
+                    },
+                    E = [n, r, a, d];
+                return {
+                    attachmentPluginInstance: n,
+                    bookmarkPluginInstance: r,
+                    thumbnailPluginInstance: a,
+                    toolbarPluginInstance: d,
+                    activateTab: function(e) {
+                        t.update("currentTab", e)
+                    },
+                    toggleTab: function(e) {
+                        var n = t.get("currentTab");
+                        t.update("isCurrentTabOpened", !t.get("isCurrentTabOpened")), n !== e && t.update("currentTab", e)
+                    },
+                    install: function(e) {
+                        E.forEach(function(t) {
+                            t.install && t.install(e)
+                        })
+                    },
+                    renderPageLayer: function(e) {
+                        return s.createElement(s.Fragment, null, E.map(function(t, n) {
+                            return t.renderPageLayer ? s.createElement(s.Fragment, {
+                                key: n
+                            }, t.renderPageLayer(e)) : s.createElement(s.Fragment, {
+                                key: n
+                            }, s.createElement(s.Fragment, null))
+                        }))
+                    },
+                    renderViewer: function(n) {
+                        var r = n.slot;
+                        E.forEach(function(e) {
+                            e.renderViewer && (r = e.renderViewer(m(m({}, n), {
+                                slot: r
+                            })))
+                        });
+                        var a = r.subSlot && r.subSlot.attrs ? {
+                            className: r.subSlot.attrs.className,
+                            "data-testid": r.subSlot.attrs["data-testid"],
+                            ref: r.subSlot.attrs.ref,
+                            style: r.subSlot.attrs.style
+                        } : {};
+                        return r.children = s.createElement("div", {
+                            className: "rpv-default-layout__container"
+                        }, s.createElement("div", {
+                            "data-testid": "default-layout__main",
+                            className: o.classNames({
+                                "rpv-default-layout__main": !0,
+                                "rpv-default-layout__main--rtl": n.themeContext.direction === o.TextDirection.RightToLeft
+                            })
+                        }, s.createElement(v, {
+                            attachmentTabContent: s.createElement(f, null),
+                            bookmarkTabContent: s.createElement(p, null),
+                            store: t,
+                            thumbnailTabContent: s.createElement(g, null),
+                            tabs: b
+                        }), s.createElement("div", {
+                            className: "rpv-default-layout__body",
+                            "data-testid": "default-layout__body"
+                        }, s.createElement("div", {
+                            className: "rpv-default-layout__toolbar"
+                        }, e && e.renderToolbar ? e.renderToolbar(h) : s.createElement(h, null)), s.createElement("div", m({}, a), r.subSlot.children))), r.children), r.subSlot.attrs = {}, r.subSlot.children = s.createElement(s.Fragment, null), r
+                    },
+                    uninstall: function(e) {
+                        E.forEach(function(t) {
+                            t.uninstall && t.uninstall(e)
+                        })
+                    },
+                    onDocumentLoad: function(n) {
+                        E.forEach(function(e) {
+                            e.onDocumentLoad && e.onDocumentLoad(n)
+                        }), e && e.setInitialTab && e.setInitialTab(n.doc).then(function(e) {
+                            t.update("currentTab", e), t.update("isCurrentTabOpened", !0)
+                        })
+                    },
+                    onAnnotationLayerRender: function(e) {
+                        E.forEach(function(t) {
+                            t.onAnnotationLayerRender && t.onAnnotationLayerRender(e)
+                        })
+                    },
+                    onTextLayerRender: function(e) {
+                        E.forEach(function(t) {
+                            t.onTextLayerRender && t.onTextLayerRender(e)
+                        })
+                    },
+                    onViewerStateChange: function(e) {
+                        var t = e;
+                        return E.forEach(function(e) {
+                            e.onViewerStateChange && (t = e.onViewerStateChange(t))
+                        }), t
+                    }
+                }
+            }
+        },
+        36933: function(e, t, n) {
+            "use strict";
+            e.exports = n(13647)
+        },
+        9088: function(e, t, n) {
+            "use strict";
+            var r, o, a = n(93214),
+                c = (r = n(2265), o = Object.create(null), r && Object.keys(r).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(r, e);
+                        Object.defineProperty(o, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return r[e]
+                            }
+                        })
+                    }
+                }), o.default = r, Object.freeze(o)),
+                i = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M11.5 23.499L11.5 14.499"
+                    }), c.createElement("path", {
+                        d: "M7.5 18.499L11.5 14.499 15.5 18.499"
+                    }), c.createElement("path", {
+                        d: "M11.5 1.499L11.5 10.499"
+                    }), c.createElement("path", {
+                        d: "M7.5 6.499L11.5 10.499 15.5 6.499"
+                    }), c.createElement("path", {
+                        d: "M20.5 12.499L1.5 12.499"
+                    }))
+                },
+                l = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M0.5 12L23.5 12"
+                    }), c.createElement("path", {
+                        d: "M11.5 1L11.5 23"
+                    }), c.createElement("path", {
+                        d: "M8.5 4L11.5 1 14.5 4"
+                    }), c.createElement("path", {
+                        d: "M20.5 9L23.5 12 20.5 15"
+                    }), c.createElement("path", {
+                        d: "M3.5 15L0.5 12 3.5 9"
+                    }), c.createElement("path", {
+                        d: "M14.5 20L11.5 23 8.5 20"
+                    }))
+                },
+                u = function() {
+                    return (u = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                },
+                s = {
+                    left: 0,
+                    top: 8
+                },
+                d = function(e) {
+                    var t = e.enableShortcuts,
+                        n = e.onClick,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = r && r.fullScreen ? r.fullScreen.enterFullScreen : "Full screen",
+                        i = t ? a.isMac() ? "Meta+Ctrl+F" : "F11" : "";
+                    return c.createElement(a.Tooltip, {
+                        ariaControlsSuffix: "full-screen-enter",
+                        position: a.Position.BottomCenter,
+                        target: c.createElement(a.MinimalButton, {
+                            ariaKeyShortcuts: i,
+                            ariaLabel: o,
+                            isDisabled: !a.isFullScreenEnabled(),
+                            testId: "full-screen__enter-button",
+                            onClick: n
+                        }, c.createElement(l, null)),
+                        content: function() {
+                            return o
+                        },
+                        offset: s
+                    })
+                },
+                m = {
+                    left: 0,
+                    top: 8
+                },
+                f = function(e) {
+                    var t = e.onClick,
+                        n = c.useContext(a.LocalizationContext).l10n,
+                        r = n && n.fullScreen ? n.fullScreen.exitFullScreen : "Exit full screen";
+                    return c.createElement(a.Tooltip, {
+                        ariaControlsSuffix: "full-screen-exit",
+                        position: a.Position.BottomCenter,
+                        target: c.createElement(a.MinimalButton, {
+                            ariaKeyShortcuts: "Esc",
+                            ariaLabel: r,
+                            testId: "full-screen__exit-button-with-tooltip",
+                            onClick: t
+                        }, c.createElement(i, null)),
+                        content: function() {
+                            return r
+                        },
+                        offset: m
+                    })
+                },
+                p = function(e, t) {
+                    var n = c.useState(t.get("fullScreenMode")),
+                        r = n[0],
+                        o = n[1],
+                        i = c.useCallback(function(e) {
+                            o(e)
+                        }, []);
+                    return c.useEffect(function() {
+                        return t.subscribe("fullScreenMode", i),
+                            function() {
+                                t.unsubscribe("fullScreenMode", i)
+                            }
+                    }, []), {
+                        enterFullScreen: function() {
+                            var n = t.get("getPagesContainer");
+                            if (n) {
+                                var r = e(n());
+                                t.get("enterFullScreenMode")(r)
+                            }
+                        },
+                        exitFullScreen: function() {
+                            t.get("exitFullScreenMode")()
+                        },
+                        isFullScreen: r === a.FullScreenMode.Entering || r === a.FullScreenMode.EnteredCompletely
+                    }
+                },
+                g = function(e) {
+                    var t = e.children,
+                        n = e.enableShortcuts,
+                        r = p(e.getFullScreenTarget, e.store),
+                        o = r.enterFullScreen,
+                        a = r.exitFullScreen,
+                        i = r.isFullScreen;
+                    return (t || function(e) {
+                        return i ? c.createElement(f, {
+                            onClick: e.onClick
+                        }) : c.createElement(d, {
+                            enableShortcuts: n,
+                            onClick: e.onClick
+                        })
+                    })({
+                        onClick: i ? a : o
+                    })
+                },
+                h = function(e) {
+                    var t = e.onClick,
+                        n = c.useContext(a.LocalizationContext).l10n,
+                        r = n && n.fullScreen ? n.fullScreen.enterFullScreen : "Full screen";
+                    return c.createElement(a.MenuItem, {
+                        icon: c.createElement(l, null),
+                        isDisabled: !a.isFullScreenEnabled(),
+                        testId: "full-screen__enter-menu",
+                        onClick: t
+                    }, r)
+                },
+                v = function(e) {
+                    var t = e.onClick,
+                        n = c.useContext(a.LocalizationContext).l10n,
+                        r = c.useContext(a.ThemeContext).direction === a.TextDirection.RightToLeft,
+                        o = n && n.fullScreen ? n.fullScreen.exitFullScreen : "Exit full screen";
+                    return c.createElement("div", {
+                        className: a.classNames({
+                            "rpv-full-screen__exit-button": !0,
+                            "rpv-full-screen__exit-button--ltr": !r,
+                            "rpv-full-screen__exit-button--rtl": r
+                        })
+                    }, c.createElement(a.MinimalButton, {
+                        ariaLabel: o,
+                        testId: "full-screen__exit-button",
+                        onClick: t
+                    }, c.createElement(i, null)))
+                },
+                b = function(e) {
+                    var t = e.children,
+                        n = p(e.getFullScreenTarget, e.store),
+                        r = n.enterFullScreen,
+                        o = n.exitFullScreen,
+                        a = n.isFullScreen;
+                    return a && (t || function(e) {
+                        return c.createElement(v, {
+                            onClick: e.onClick
+                        })
+                    })({
+                        onClick: a ? o : r
+                    })
+                },
+                E = function(e) {
+                    var t = e.store,
+                        n = e.onEnterFullScreen,
+                        r = e.onExitFullScreen,
+                        o = c.useState(t.get("fullScreenMode")),
+                        i = o[0],
+                        l = o[1],
+                        u = c.useCallback(function(e) {
+                            l(e)
+                        }, []);
+                    return c.useEffect(function() {
+                        switch (i) {
+                            case a.FullScreenMode.EnteredCompletely:
+                                n(t.get("zoom"));
+                                break;
+                            case a.FullScreenMode.Exited:
+                                r(t.get("zoom"))
+                        }
+                    }, [i]), c.useEffect(function() {
+                        return t.subscribe("fullScreenMode", u),
+                            function() {
+                                t.unsubscribe("fullScreenMode", u)
+                            }
+                    }, []), (i === a.FullScreenMode.Entering || i === a.FullScreenMode.Entered) && c.createElement("div", {
+                        className: "rpv-full-screen__overlay"
+                    }, c.createElement(a.Spinner, null))
+                },
+                k = function(e) {
+                    var t = e.containerRef,
+                        n = p(e.getFullScreenTarget, e.store).enterFullScreen,
+                        r = function(e) {
+                            if (!e.shiftKey && !e.altKey && (a.isMac() ? e.metaKey && e.ctrlKey && "f" === e.key : "F11" === e.key)) {
+                                var r = t.current;
+                                r && document.activeElement && r.contains(document.activeElement) && (e.preventDefault(), n())
+                            }
+                        };
+                    return c.useEffect(function() {
+                        if (t.current) return document.addEventListener("keydown", r),
+                            function() {
+                                document.removeEventListener("keydown", r)
+                            }
+                    }, [t.current]), c.createElement(c.Fragment, null)
+                };
+            t.ExitFullScreenIcon = i, t.FullScreenIcon = l, t.fullScreenPlugin = function(e) {
+                var t = (null == e ? void 0 : e.getFullScreenTarget) || function(e) {
+                        return e
+                    },
+                    n = c.useMemo(function() {
+                        return Object.assign({}, {
+                            enableShortcuts: !0,
+                            onEnterFullScreen: function() {},
+                            onExitFullScreen: function() {}
+                        }, e)
+                    }, []),
+                    r = c.useMemo(function() {
+                        return a.createStore({
+                            enterFullScreenMode: function() {},
+                            exitFullScreenMode: function() {},
+                            fullScreenMode: a.FullScreenMode.Normal,
+                            zoom: function() {}
+                        })
+                    }, []),
+                    o = function(e) {
+                        return c.createElement(g, u({}, e, {
+                            enableShortcuts: n.enableShortcuts,
+                            getFullScreenTarget: t,
+                            store: r
+                        }))
+                    },
+                    i = function() {
+                        return c.createElement(b, {
+                            getFullScreenTarget: t,
+                            store: r
+                        }, null == e ? void 0 : e.renderExitFullScreenButton)
+                    };
+                return {
+                    install: function(e) {
+                        r.update("enterFullScreenMode", e.enterFullScreenMode), r.update("exitFullScreenMode", e.exitFullScreenMode), r.update("getPagesContainer", e.getPagesContainer), r.update("zoom", e.zoom)
+                    },
+                    onViewerStateChange: function(e) {
+                        return r.update("fullScreenMode", e.fullScreenMode), e
+                    },
+                    renderViewer: function(e) {
+                        var o = e.slot;
+                        return o.subSlot && (o.subSlot.children = c.createElement(c.Fragment, null, n.enableShortcuts && c.createElement(k, {
+                            containerRef: e.containerRef,
+                            getFullScreenTarget: t,
+                            store: r
+                        }), c.createElement(E, {
+                            store: r,
+                            onEnterFullScreen: n.onEnterFullScreen,
+                            onExitFullScreen: n.onExitFullScreen
+                        }), c.createElement(i, null), o.subSlot.children)), o
+                    },
+                    EnterFullScreen: o,
+                    EnterFullScreenButton: function() {
+                        return c.createElement(o, null, function(e) {
+                            return c.createElement(d, u({
+                                enableShortcuts: n.enableShortcuts
+                            }, e))
+                        })
+                    },
+                    EnterFullScreenMenuItem: function(e) {
+                        return c.createElement(o, null, function(t) {
+                            return c.createElement(h, {
+                                onClick: function() {
+                                    t.onClick(), e.onClick()
+                                }
+                            })
+                        })
+                    }
+                }
+            }
+        },
+        45093: function(e, t, n) {
+            "use strict";
+            e.exports = n(9088)
+        },
+        13857: function(e, t, n) {
+            "use strict";
+            var r, o, a = n(93214),
+                c = (r = n(2265), o = Object.create(null), r && Object.keys(r).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(r, e);
+                        Object.defineProperty(o, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return r[e]
+                            }
+                        })
+                    }
+                }), o.default = r, Object.freeze(o)),
+                i = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M5.5,11.5c-.275,0-.341.159-.146.354l6.292,6.293a.5.5,0,0,0,.709,0l6.311-6.275c.2-.193.13-.353-.145-.355L15.5,11.5V1.5a1,1,0,0,0-1-1h-5a1,1,0,0,0-1,1V11a.5.5,0,0,1-.5.5Z"
+                    }), c.createElement("path", {
+                        d: "M23.5,18.5v4a1,1,0,0,1-1,1H1.5a1,1,0,0,1-1-1v-4"
+                    }))
+                },
+                l = function() {
+                    return (l = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                },
+                u = {
+                    left: 0,
+                    top: 8
+                },
+                s = function(e) {
+                    var t = e.onClick,
+                        n = c.useContext(a.LocalizationContext).l10n,
+                        r = n && n.download ? n.download.download : "Download";
+                    return c.createElement(a.Tooltip, {
+                        ariaControlsSuffix: "get-file",
+                        position: a.Position.BottomCenter,
+                        target: c.createElement(a.MinimalButton, {
+                            ariaLabel: r,
+                            testId: "get-file__download-button",
+                            onClick: t
+                        }, c.createElement(i, null)),
+                        content: function() {
+                            return r
+                        },
+                        offset: u
+                    })
+                },
+                d = function(e, t) {
+                    var n = document.createElement("a");
+                    n.style.display = "none", n.href = e, n.setAttribute("download", t), document.body.appendChild(n), n.click(), document.body.removeChild(n)
+                },
+                m = function(e, t, n) {
+                    var r = URL.createObjectURL(new Blob([e], {
+                        type: n
+                    }));
+                    d(r, t), r && URL.revokeObjectURL(r)
+                },
+                f = function(e, t) {
+                    e.getData().then(function(e) {
+                        /iphone|ipod|ipad/i.test(navigator.userAgent) && !/CriOS/i.test(navigator.userAgent) ? m(e, t, "application/octet-stream") : /iphone|ipod|ipad/i.test(navigator.userAgent) && /CriOS/i.test(navigator.userAgent) ? d("data:application/pdf;base64,".concat(btoa(Array(e.length).fill("").map(function(t, n) {
+                            return String.fromCharCode(e[n])
+                        }).join(""))), t) : m(e, t, "application/pdf")
+                    })
+                },
+                p = function(e) {
+                    var t = e.children,
+                        n = e.fileNameGenerator,
+                        r = e.store,
+                        o = c.useState(r.get("file")),
+                        a = o[0],
+                        i = o[1],
+                        l = c.useState(r.get("doc")),
+                        u = l[0],
+                        d = l[1],
+                        m = function(e) {
+                            d(e)
+                        },
+                        p = function(e) {
+                            i(e)
+                        };
+                    return c.useEffect(function() {
+                        return r.subscribe("doc", m), r.subscribe("file", p),
+                            function() {
+                                r.subscribe("doc", m), r.unsubscribe("file", p)
+                            }
+                    }, []), (t || function(e) {
+                        return c.createElement(s, {
+                            onClick: e.onClick
+                        })
+                    })({
+                        onClick: function() {
+                            u && a && f(u, n(a))
+                        }
+                    })
+                },
+                g = function(e) {
+                    var t = e.onClick,
+                        n = c.useContext(a.LocalizationContext).l10n,
+                        r = n && n.download ? n.download.download : "Download";
+                    return c.createElement(a.MenuItem, {
+                        icon: c.createElement(i, null),
+                        testId: "get-file__download-menu",
+                        onClick: t
+                    }, r)
+                };
+            t.DownloadIcon = i, t.getFilePlugin = function(e) {
+                var t = c.useMemo(function() {
+                        return a.createStore({})
+                    }, []),
+                    n = function(e) {
+                        var t, n;
+                        return e.name ? (n = (t = e.name).split("/").pop()) ? n.split("#")[0].split("?")[0] : t : "document.pdf"
+                    },
+                    r = function(r) {
+                        return c.createElement(p, l({}, r, {
+                            fileNameGenerator: e && e.fileNameGenerator || n,
+                            store: t
+                        }))
+                    };
+                return {
+                    onDocumentLoad: function(e) {
+                        t.update("doc", e.doc), t.update("file", e.file)
+                    },
+                    Download: r,
+                    DownloadButton: function() {
+                        return c.createElement(r, null, function(e) {
+                            return c.createElement(s, l({}, e))
+                        })
+                    },
+                    DownloadMenuItem: function(e) {
+                        return c.createElement(r, null, function(t) {
+                            return c.createElement(g, {
+                                onClick: function() {
+                                    t.onClick(), e.onClick()
+                                }
+                            })
+                        })
+                    }
+                }
+            }
+        },
+        9154: function(e, t, n) {
+            "use strict";
+            e.exports = n(13857)
+        },
+        44424: function(e, t, n) {
+            "use strict";
+            var r, o, a = n(93214),
+                c = (r = n(2265), o = Object.create(null), r && Object.keys(r).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(r, e);
+                        Object.defineProperty(o, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return r[e]
+                            }
+                        })
+                    }
+                }), o.default = r, Object.freeze(o)),
+                i = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M18.5,7.5c.275,0,.341-.159.146-.354L12.354.854a.5.5,0,0,0-.708,0L5.354,7.147c-.2.195-.129.354.146.354h3v10a1,1,0,0,0,1,1h5a1,1,0,0,0,1-1V7.5Z"
+                    }), c.createElement("path", {
+                        d: "M23.5,18.5v4a1,1,0,0,1-1,1H1.5a1,1,0,0,1-1-1v-4"
+                    }))
+                },
+                l = function() {
+                    return (l = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                },
+                u = function(e) {
+                    var t = c.useRef(),
+                        n = function() {
+                            var n = t.current;
+                            n && (n.click(), e.get("triggerOpenFile") && e.update("triggerOpenFile", !1))
+                        },
+                        r = function(e) {
+                            e && n()
+                        };
+                    return c.useEffect(function() {
+                        return e.subscribe("triggerOpenFile", r),
+                            function() {
+                                e.unsubscribe("triggerOpenFile", r)
+                            }
+                    }, []), {
+                        inputRef: t,
+                        openFile: n
+                    }
+                },
+                s = {
+                    left: 0,
+                    top: 8
+                },
+                d = function(e) {
+                    var t = e.enableShortcuts,
+                        n = e.store,
+                        r = e.onClick,
+                        o = c.useContext(a.LocalizationContext).l10n,
+                        l = o && o.open ? o.open.openFile : "Open file",
+                        d = u(n),
+                        m = d.inputRef,
+                        f = d.openFile,
+                        p = t ? a.isMac() ? "Meta+O" : "Ctrl+O" : "";
+                    return c.createElement(a.Tooltip, {
+                        ariaControlsSuffix: "open",
+                        position: a.Position.BottomCenter,
+                        target: c.createElement("div", {
+                            className: "rpv-open__input-wrapper"
+                        }, c.createElement("input", {
+                            accept: ".pdf",
+                            ref: m,
+                            className: "rpv-open__input",
+                            multiple: !1,
+                            tabIndex: -1,
+                            title: "",
+                            type: "file",
+                            onChange: r
+                        }), c.createElement(a.MinimalButton, {
+                            ariaKeyShortcuts: p,
+                            ariaLabel: l,
+                            testId: "open__button",
+                            onClick: f
+                        }, c.createElement(i, null))),
+                        content: function() {
+                            return l
+                        },
+                        offset: s
+                    })
+                },
+                m = function(e) {
+                    var t = e.children,
+                        n = e.enableShortcuts,
+                        r = e.store;
+                    return (t || function(e) {
+                        return c.createElement(d, {
+                            enableShortcuts: n,
+                            store: r,
+                            onClick: e.onClick
+                        })
+                    })({
+                        onClick: function(e) {
+                            var t = e.target.files;
+                            if (t && t.length) {
+                                var n = r.get("openFile");
+                                n && n(t[0])
+                            }
+                        }
+                    })
+                },
+                f = function(e) {
+                    var t = e.store,
+                        n = e.onClick,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = r && r.open ? r.open.openFile : "Open file",
+                        l = u(t),
+                        s = l.inputRef,
+                        d = l.openFile;
+                    return c.createElement(a.MenuItem, {
+                        icon: c.createElement(i, null),
+                        testId: "open__menu",
+                        onClick: d
+                    }, c.createElement("div", {
+                        className: "rpv-open__input-wrapper"
+                    }, c.createElement("input", {
+                        accept: ".pdf",
+                        ref: s,
+                        className: "rpv-open__input",
+                        multiple: !1,
+                        tabIndex: -1,
+                        title: "",
+                        type: "file",
+                        onChange: n
+                    }), o))
+                },
+                p = function(e) {
+                    var t = e.containerRef,
+                        n = e.store,
+                        r = function(e) {
+                            if (!e.shiftKey && !e.altKey && "o" === e.key && (a.isMac() ? e.metaKey : e.ctrlKey)) {
+                                var r = t.current;
+                                r && document.activeElement && r.contains(document.activeElement) && (e.preventDefault(), n.update("triggerOpenFile", !0))
+                            }
+                        };
+                    return c.useEffect(function() {
+                        if (t.current) return document.addEventListener("keydown", r),
+                            function() {
+                                document.removeEventListener("keydown", r)
+                            }
+                    }, [t.current]), c.createElement(c.Fragment, null)
+                };
+            t.OpenFileIcon = i, t.openPlugin = function(e) {
+                var t = c.useMemo(function() {
+                        return Object.assign({}, {
+                            enableShortcuts: !0
+                        }, e)
+                    }, []),
+                    n = c.useMemo(function() {
+                        return a.createStore({})
+                    }, []),
+                    r = function(e) {
+                        return c.createElement(m, l({
+                            enableShortcuts: t.enableShortcuts
+                        }, e, {
+                            store: n
+                        }))
+                    };
+                return {
+                    install: function(e) {
+                        n.update("openFile", e.openFile)
+                    },
+                    renderViewer: function(e) {
+                        var r = e.slot,
+                            o = {
+                                children: c.createElement(c.Fragment, null, t.enableShortcuts && c.createElement(p, {
+                                    containerRef: e.containerRef,
+                                    store: n
+                                }), r.children)
+                            };
+                        return l(l({}, r), o)
+                    },
+                    Open: r,
+                    OpenButton: function() {
+                        return c.createElement(r, null)
+                    },
+                    OpenMenuItem: function() {
+                        return c.createElement(r, null, function(e) {
+                            return c.createElement(f, {
+                                store: n,
+                                onClick: e.onClick
+                            })
+                        })
+                    }
+                }
+            }
+        },
+        76963: function(e, t, n) {
+            "use strict";
+            e.exports = n(44424)
+        },
+        54753: function(e, t, n) {
+            "use strict";
+            var r, o, a = n(93214),
+                c = (r = n(2265), o = Object.create(null), r && Object.keys(r).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(r, e);
+                        Object.defineProperty(o, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return r[e]
+                            }
+                        })
+                    }
+                }), o.default = r, Object.freeze(o)),
+                i = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M2.32,2.966h19.452c0.552,0.001,1,0.449,0.999,1.001c0,0.182-0.05,0.36-0.144,0.516L12.9,20.552\n            c-0.286,0.472-0.901,0.624-1.373,0.338c-0.138-0.084-0.254-0.2-0.338-0.338L1.465,4.483C1.179,4.01,1.331,3.396,1.804,3.11\n            C1.96,3.016,2.138,2.966,2.32,2.966z"
+                    }))
+                },
+                l = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M0.541,5.627L11.666,18.2c0.183,0.207,0.499,0.226,0.706,0.043c0.015-0.014,0.03-0.028,0.043-0.043\n            L23.541,5.627"
+                    }))
+                },
+                u = function() {
+                    return (u = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                },
+                s = function(e) {
+                    var t = c.useState(e.get("currentPage") || 0),
+                        n = t[0],
+                        r = t[1],
+                        o = function(e) {
+                            r(e)
+                        };
+                    return a.useIsomorphicLayoutEffect(function() {
+                        return e.subscribe("currentPage", o),
+                            function() {
+                                e.unsubscribe("currentPage", o)
+                            }
+                    }, []), {
+                        currentPage: n
+                    }
+                },
+                d = function(e) {
+                    var t = c.useState(e.get("numberOfPages") || 0),
+                        n = t[0],
+                        r = t[1],
+                        o = function(e) {
+                            r(e)
+                        };
+                    return c.useEffect(function() {
+                        return e.subscribe("numberOfPages", o),
+                            function() {
+                                e.unsubscribe("numberOfPages", o)
+                            }
+                    }, []), {
+                        numberOfPages: n
+                    }
+                },
+                m = function(e) {
+                    var t = e.store,
+                        n = c.useContext(a.LocalizationContext).l10n,
+                        r = c.useState("1"),
+                        o = r[0],
+                        i = r[1],
+                        l = s(t).currentPage,
+                        u = d(t).numberOfPages;
+                    c.useEffect(function() {
+                        return i("".concat(l + 1))
+                    }, [l]);
+                    var m = function(e) {
+                            var n = t.get("jumpToPage");
+                            n && n(e)
+                        },
+                        f = n && n.pageNavigation ? n.pageNavigation.enterPageNumber : "Enter a page number";
+                    return c.createElement("span", {
+                        className: "rpv-page-navigation__current-page-input"
+                    }, c.createElement(a.TextBox, {
+                        ariaLabel: f,
+                        testId: "page-navigation__current-page-input",
+                        type: "text",
+                        value: o,
+                        onChange: i,
+                        onKeyDown: function(e) {
+                            var t, n, r;
+                            switch (e.key) {
+                                case "ArrowUp":
+                                    (r = l - 1) >= 0 && (i("".concat(r + 1)), m(r));
+                                    break;
+                                case "ArrowDown":
+                                    (n = l + 1) < u && (i("".concat(n + 1)), m(n));
+                                    break;
+                                case "Enter":
+                                    t = parseInt(o, 10), "" === o || t < 1 || t > u ? i("".concat(l + 1)) : m(t - 1)
+                            }
+                        }
+                    }))
+                },
+                f = function(e) {
+                    var t = e.children,
+                        n = e.doc,
+                        r = a.useIsMounted(),
+                        o = c.useState({
+                            loading: !0,
+                            labels: []
+                        }),
+                        i = o[0],
+                        l = o[1];
+                    return c.useEffect(function() {
+                        n.getPageLabels().then(function(e) {
+                            r.current && l({
+                                loading: !1,
+                                labels: e || []
+                            })
+                        })
+                    }, [n.loadingTask.docId]), i.loading ? c.createElement(c.Fragment, null) : t(i.labels)
+                },
+                p = function(e) {
+                    var t, n, r, o, a = e.children,
+                        i = e.store,
+                        l = (n = (t = c.useState(i.get("doc")))[0], r = t[1], o = function(e) {
+                            r(e)
+                        }, c.useEffect(function() {
+                            return i.subscribe("doc", o),
+                                function() {
+                                    i.unsubscribe("doc", o)
+                                }
+                        }, []), n),
+                        u = s(i).currentPage,
+                        m = d(i).numberOfPages,
+                        p = a || function(e) {
+                            return c.createElement(c.Fragment, null, e.currentPage + 1)
+                        };
+                    return l ? c.createElement(f, {
+                        doc: l
+                    }, function(e) {
+                        var t = e.length === m && m > 0 ? e[u] : "";
+                        return p({
+                            currentPage: u,
+                            numberOfPages: m,
+                            pageLabel: t
+                        })
+                    }) : c.createElement(c.Fragment, null)
+                },
+                g = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M21.783,21.034H2.332c-0.552,0-1-0.448-1-1c0-0.182,0.05-0.361,0.144-0.517L11.2,3.448\n            c0.286-0.472,0.901-0.624,1.373-0.338c0.138,0.084,0.254,0.2,0.338,0.338l9.726,16.069c0.286,0.473,0.134,1.087-0.339,1.373\n            C22.143,20.984,21.965,21.034,21.783,21.034z"
+                    }))
+                },
+                h = {
+                    left: 0,
+                    top: 8
+                },
+                v = function(e) {
+                    var t = e.isDisabled,
+                        n = e.onClick,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = r && r.pageNavigation ? r.pageNavigation.goToFirstPage : "First page";
+                    return c.createElement(a.Tooltip, {
+                        ariaControlsSuffix: "page-navigation-first",
+                        position: a.Position.BottomCenter,
+                        target: c.createElement(a.MinimalButton, {
+                            ariaLabel: o,
+                            isDisabled: t,
+                            testId: "page-navigation__first-button",
+                            onClick: n
+                        }, c.createElement(g, null)),
+                        content: function() {
+                            return o
+                        },
+                        offset: h
+                    })
+                },
+                b = function(e) {
+                    var t = e.children,
+                        n = e.store;
+                    return (t || function(e) {
+                        return c.createElement(v, {
+                            isDisabled: e.isDisabled,
+                            onClick: e.onClick
+                        })
+                    })({
+                        isDisabled: 0 === s(n).currentPage,
+                        onClick: function() {
+                            var e = n.get("jumpToPage");
+                            e && e(0)
+                        }
+                    })
+                },
+                E = function(e) {
+                    var t = e.isDisabled,
+                        n = e.onClick,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = r && r.pageNavigation ? r.pageNavigation.goToFirstPage : "First page";
+                    return c.createElement(a.MenuItem, {
+                        icon: c.createElement(g, null),
+                        isDisabled: t,
+                        testId: "page-navigation__first-menu",
+                        onClick: n
+                    }, o)
+                },
+                k = {
+                    left: 0,
+                    top: 8
+                },
+                C = function(e) {
+                    var t = e.isDisabled,
+                        n = e.onClick,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = r && r.pageNavigation ? r.pageNavigation.goToLastPage : "Last page";
+                    return c.createElement(a.Tooltip, {
+                        ariaControlsSuffix: "page-navigation-last",
+                        position: a.Position.BottomCenter,
+                        target: c.createElement(a.MinimalButton, {
+                            ariaLabel: o,
+                            isDisabled: t,
+                            testId: "page-navigation__last-button",
+                            onClick: n
+                        }, c.createElement(i, null)),
+                        content: function() {
+                            return o
+                        },
+                        offset: k
+                    })
+                },
+                _ = function(e) {
+                    var t = e.children,
+                        n = e.store,
+                        r = s(n).currentPage,
+                        o = d(n).numberOfPages;
+                    return (t || function(e) {
+                        return c.createElement(C, {
+                            isDisabled: e.isDisabled,
+                            onClick: e.onClick
+                        })
+                    })({
+                        isDisabled: r + 1 >= o,
+                        onClick: function() {
+                            var e = n.get("jumpToPage");
+                            e && e(o - 1)
+                        }
+                    })
+                },
+                S = function(e) {
+                    var t = e.isDisabled,
+                        n = e.onClick,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = r && r.pageNavigation ? r.pageNavigation.goToLastPage : "Last page";
+                    return c.createElement(a.MenuItem, {
+                        icon: c.createElement(i, null),
+                        isDisabled: t,
+                        testId: "page-navigation__last-menu",
+                        onClick: n
+                    }, o)
+                },
+                M = {
+                    left: 0,
+                    top: 8
+                },
+                P = function(e) {
+                    var t = e.isDisabled,
+                        n = e.onClick,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = r && r.pageNavigation ? r.pageNavigation.goToNextPage : "Next page";
+                    return c.createElement(a.Tooltip, {
+                        ariaControlsSuffix: "page-navigation-next",
+                        position: a.Position.BottomCenter,
+                        target: c.createElement(a.MinimalButton, {
+                            ariaLabel: o,
+                            isDisabled: t,
+                            testId: "page-navigation__next-button",
+                            onClick: n
+                        }, c.createElement(l, null)),
+                        content: function() {
+                            return o
+                        },
+                        offset: M
+                    })
+                },
+                y = function(e) {
+                    var t = e.children,
+                        n = e.store;
+                    return (t || function(e) {
+                        return c.createElement(P, {
+                            onClick: e.onClick,
+                            isDisabled: e.isDisabled
+                        })
+                    })({
+                        isDisabled: s(n).currentPage + 1 >= d(n).numberOfPages,
+                        onClick: function() {
+                            var e = n.get("jumpToNextPage");
+                            e && e()
+                        }
+                    })
+                },
+                w = function(e) {
+                    var t = e.isDisabled,
+                        n = e.onClick,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = r && r.pageNavigation ? r.pageNavigation.goToNextPage : "Next page";
+                    return c.createElement(a.MenuItem, {
+                        icon: c.createElement(l, null),
+                        isDisabled: t,
+                        testId: "page-navigation__next-menu",
+                        onClick: n
+                    }, o)
+                },
+                x = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M23.535,18.373L12.409,5.8c-0.183-0.207-0.499-0.226-0.706-0.043C11.688,5.77,11.674,5.785,11.66,5.8\n            L0.535,18.373"
+                    }))
+                },
+                I = {
+                    left: 0,
+                    top: 8
+                },
+                T = function(e) {
+                    var t = e.isDisabled,
+                        n = e.onClick,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = r && r.pageNavigation ? r.pageNavigation.goToPreviousPage : "Previous page";
+                    return c.createElement(a.Tooltip, {
+                        ariaControlsSuffix: "page-navigation-previous",
+                        position: a.Position.BottomCenter,
+                        target: c.createElement(a.MinimalButton, {
+                            ariaLabel: o,
+                            isDisabled: t,
+                            testId: "page-navigation__previous-button",
+                            onClick: n
+                        }, c.createElement(x, null)),
+                        content: function() {
+                            return o
+                        },
+                        offset: I
+                    })
+                },
+                L = function(e) {
+                    var t = e.store;
+                    return (e.children || function(e) {
+                        return c.createElement(T, {
+                            isDisabled: e.isDisabled,
+                            onClick: e.onClick
+                        })
+                    })({
+                        isDisabled: s(t).currentPage <= 0,
+                        onClick: function() {
+                            var e = t.get("jumpToPreviousPage");
+                            e && e()
+                        }
+                    })
+                },
+                O = function(e) {
+                    var t = e.isDisabled,
+                        n = e.onClick,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = r && r.pageNavigation ? r.pageNavigation.goToPreviousPage : "Previous page";
+                    return c.createElement(a.MenuItem, {
+                        icon: c.createElement(x, null),
+                        isDisabled: t,
+                        testId: "page-navigation__previous-menu",
+                        onClick: n
+                    }, o)
+                },
+                D = function(e) {
+                    var t = e.children,
+                        n = d(e.store).numberOfPages;
+                    return t ? t({
+                        numberOfPages: n
+                    }) : c.createElement(c.Fragment, null, n)
+                },
+                N = function(e) {
+                    var t = e.containerRef,
+                        n = e.numPages,
+                        r = e.store,
+                        o = s(r).currentPage,
+                        i = c.useRef(o);
+                    i.current = o;
+                    var l = c.useRef(!1),
+                        u = function() {
+                            l.current = !0
+                        },
+                        d = function() {
+                            l.current = !1
+                        },
+                        m = function(e) {
+                            var o = t.current,
+                                c = l.current || document.activeElement && o.contains(document.activeElement);
+                            if (o && c) {
+                                var u, s, d, m, f, p, g = e.altKey && "ArrowDown" === e.key || !e.shiftKey && !e.altKey && "PageDown" === e.key,
+                                    h = e.altKey && "ArrowUp" === e.key || !e.shiftKey && !e.altKey && "PageUp" === e.key;
+                                if (g) return e.preventDefault(), f = r.get("jumpToPage"), p = i.current + 1, void(f && p < n && f(p));
+                                if (h) return e.preventDefault(), void(u = r.get("jumpToPage"), s = i.current - 1, u && s >= 0 && u(s));
+                                if (a.isMac() ? e.metaKey && !e.ctrlKey : e.altKey) switch (e.key) {
+                                    case "ArrowLeft":
+                                        e.preventDefault(), (d = r.get("jumpToPreviousDestination")) && d();
+                                        break;
+                                    case "ArrowRight":
+                                        e.preventDefault(), (m = r.get("jumpToNextDestination")) && m()
+                                }
+                            }
+                        };
+                    return c.useEffect(function() {
+                        var e = t.current;
+                        if (e) return document.addEventListener("keydown", m), e.addEventListener("mouseenter", u), e.addEventListener("mouseleave", d),
+                            function() {
+                                document.removeEventListener("keydown", m), e.removeEventListener("mouseenter", u), e.removeEventListener("mouseleave", d)
+                            }
+                    }, [t.current]), c.createElement(c.Fragment, null)
+                };
+            t.DownArrowIcon = i, t.NextIcon = l, t.PreviousIcon = x, t.UpArrowIcon = g, t.pageNavigationPlugin = function(e) {
+                var t = c.useMemo(function() {
+                        return Object.assign({}, {
+                            enableShortcuts: !0
+                        }, e)
+                    }, []),
+                    n = c.useMemo(function() {
+                        return a.createStore()
+                    }, []),
+                    r = function(e) {
+                        return c.createElement(b, u({}, e, {
+                            store: n
+                        }))
+                    },
+                    o = function(e) {
+                        return c.createElement(_, u({}, e, {
+                            store: n
+                        }))
+                    },
+                    i = function(e) {
+                        return c.createElement(y, u({}, e, {
+                            store: n
+                        }))
+                    },
+                    l = function(e) {
+                        return c.createElement(L, u({}, e, {
+                            store: n
+                        }))
+                    };
+                return {
+                    install: function(e) {
+                        n.update("jumpToDestination", e.jumpToDestination), n.update("jumpToNextDestination", e.jumpToNextDestination), n.update("jumpToNextPage", e.jumpToNextPage), n.update("jumpToPage", e.jumpToPage), n.update("jumpToPreviousDestination", e.jumpToPreviousDestination), n.update("jumpToPreviousPage", e.jumpToPreviousPage)
+                    },
+                    renderViewer: function(e) {
+                        var r = e.slot;
+                        if (!t.enableShortcuts) return r;
+                        var o = {
+                            children: c.createElement(c.Fragment, null, c.createElement(N, {
+                                containerRef: e.containerRef,
+                                numPages: e.doc.numPages,
+                                store: n
+                            }), r.children)
+                        };
+                        return u(u({}, r), o)
+                    },
+                    onDocumentLoad: function(e) {
+                        n.update("doc", e.doc), n.update("numberOfPages", e.doc.numPages)
+                    },
+                    onViewerStateChange: function(e) {
+                        return n.update("currentPage", e.pageIndex), e
+                    },
+                    jumpToNextPage: function() {
+                        var e = n.get("jumpToNextPage");
+                        e && e()
+                    },
+                    jumpToPage: function(e) {
+                        var t = n.get("jumpToPage");
+                        t && t(e)
+                    },
+                    jumpToPreviousPage: function() {
+                        var e = n.get("jumpToPreviousPage");
+                        e && e()
+                    },
+                    CurrentPageInput: function() {
+                        return c.createElement(m, {
+                            store: n
+                        })
+                    },
+                    CurrentPageLabel: function(e) {
+                        return c.createElement(p, u({}, e, {
+                            store: n
+                        }))
+                    },
+                    GoToFirstPage: r,
+                    GoToFirstPageButton: function() {
+                        return c.createElement(r, null, function(e) {
+                            return c.createElement(v, u({}, e))
+                        })
+                    },
+                    GoToFirstPageMenuItem: function(e) {
+                        return c.createElement(r, null, function(t) {
+                            return c.createElement(E, {
+                                isDisabled: t.isDisabled,
+                                onClick: function() {
+                                    t.onClick(), e.onClick()
+                                }
+                            })
+                        })
+                    },
+                    GoToLastPage: o,
+                    GoToLastPageButton: function() {
+                        return c.createElement(o, null, function(e) {
+                            return c.createElement(C, u({}, e))
+                        })
+                    },
+                    GoToLastPageMenuItem: function(e) {
+                        return c.createElement(o, null, function(t) {
+                            return c.createElement(S, {
+                                isDisabled: t.isDisabled,
+                                onClick: function() {
+                                    t.onClick(), e.onClick()
+                                }
+                            })
+                        })
+                    },
+                    GoToNextPage: i,
+                    GoToNextPageButton: function() {
+                        return c.createElement(i, null, function(e) {
+                            return c.createElement(P, u({}, e))
+                        })
+                    },
+                    GoToNextPageMenuItem: function(e) {
+                        return c.createElement(i, null, function(t) {
+                            return c.createElement(w, {
+                                isDisabled: t.isDisabled,
+                                onClick: function() {
+                                    t.onClick(), e.onClick()
+                                }
+                            })
+                        })
+                    },
+                    GoToPreviousPage: l,
+                    GoToPreviousPageButton: function() {
+                        return c.createElement(l, null, function(e) {
+                            return c.createElement(T, u({}, e))
+                        })
+                    },
+                    GoToPreviousPageMenuItem: function(e) {
+                        return c.createElement(l, null, function(t) {
+                            return c.createElement(O, {
+                                isDisabled: t.isDisabled,
+                                onClick: function() {
+                                    t.onClick(), e.onClick()
+                                }
+                            })
+                        })
+                    },
+                    NumberOfPages: function(e) {
+                        return c.createElement(D, u({}, e, {
+                            store: n
+                        }))
+                    }
+                }
+            }
+        },
+        74402: function(e, t, n) {
+            "use strict";
+            e.exports = n(54753)
+        },
+        60613: function(e, t, n) {
+            "use strict";
+            var r, o, a, c = n(25566),
+                i = n(93214),
+                l = n(2265),
+                u = n(54887),
+                s = (o = Object.create(null), l && Object.keys(l).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(l, e);
+                        Object.defineProperty(o, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return l[e]
+                            }
+                        })
+                    }
+                }), o.default = l, Object.freeze(o)),
+                d = function() {
+                    return s.createElement(i.Icon, {
+                        size: 16
+                    }, s.createElement("path", {
+                        d: "M7.5,19.499h9 M7.5,16.499h9 M5.5,16.5h-3c-1.103-0.003-1.997-0.897-2-2v-6c0.003-1.103,0.897-1.997,2-2h19\n            c1.103,0.003,1.997,0.897,2,2v6c-0.003,1.103-0.897,1.997-2,2h-3\n            M5.5,4.5v-4h9.586c0.265,0,0.52,0.105,0.707,0.293l2.414,2.414\n            C18.395,3.394,18.5,3.649,18.5,3.914V4.5\n            M18.5,22.5c0,0.552-0.448,1-1,1h-11c-0.552,0-1-0.448-1-1v-9h13V22.5z\n            M3.5,8.499\n            c0.552,0,1,0.448,1,1s-0.448,1-1,1s-1-0.448-1-1S2.948,8.499,3.5,8.499z\n            M14.5,0.499v4h4"
+                    }))
+                },
+                m = function() {
+                    return (m = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                },
+                f = {
+                    left: 0,
+                    top: 8
+                },
+                p = function(e) {
+                    var t = e.enableShortcuts,
+                        n = e.onClick,
+                        r = s.useContext(i.LocalizationContext).l10n,
+                        o = r && r.print ? r.print.print : "Print",
+                        a = t ? i.isMac() ? "Meta+P" : "Ctrl+P" : "";
+                    return s.createElement(i.Tooltip, {
+                        ariaControlsSuffix: "print",
+                        position: i.Position.BottomCenter,
+                        target: s.createElement(i.MinimalButton, {
+                            ariaKeyShortcuts: a,
+                            ariaLabel: o,
+                            testId: "print__button",
+                            onClick: n
+                        }, s.createElement(d, null)),
+                        content: function() {
+                            return o
+                        },
+                        offset: f
+                    })
+                };
+            (r = a || (a = {})).CheckingPermission = "CheckingPermission", r.Inactive = "Inactive", r.Preparing = "Preparing", r.Cancelled = "Cancelled", r.Ready = "Ready";
+            var g = function(e) {
+                    var t = e.children,
+                        n = e.enableShortcuts,
+                        r = e.store;
+                    return (t || p)({
+                        enableShortcuts: n,
+                        onClick: function() {
+                            r.update("printStatus", a.CheckingPermission)
+                        }
+                    })
+                },
+                h = function(e) {
+                    var t = e.doc,
+                        n = e.store,
+                        r = s.useContext(i.LocalizationContext).l10n,
+                        o = s.useState(!0),
+                        c = o[0],
+                        l = o[1];
+                    return s.useEffect(function() {
+                        t.getPermissions().then(function(e) {
+                            null === e || e.includes(4) || e.includes(2048) ? n.update("printStatus", a.Preparing) : l(!1)
+                        })
+                    }, []), c ? s.createElement(s.Fragment, null) : s.createElement(i.Modal, {
+                        ariaControlsSuffix: "print-permission",
+                        closeOnClickOutside: !1,
+                        closeOnEscape: !1,
+                        content: function(e) {
+                            return s.createElement(s.Fragment, null, s.createElement("div", {
+                                className: "rpv-print__permission-body"
+                            }, r && r.print ? r.print.disallowPrint : "The document does not allow to print"), s.createElement("div", {
+                                className: "rpv-print__permission-footer"
+                            }, s.createElement(i.Button, {
+                                onClick: function() {
+                                    e(), n.update("printStatus", a.Cancelled)
+                                }
+                            }, r && r.print ? r.print.close : "Close")))
+                        },
+                        isOpened: !0
+                    })
+                },
+                v = function(e) {
+                    var t = e.numLoadedPages,
+                        n = e.numPages,
+                        r = e.onCancel,
+                        o = s.useContext(i.LocalizationContext).l10n,
+                        a = s.useContext(i.ThemeContext).direction === i.TextDirection.RightToLeft;
+                    return s.createElement("div", {
+                        className: "rpv-print__progress"
+                    }, s.createElement("div", {
+                        className: i.classNames({
+                            "rpv-print__progress-body": !0,
+                            "rpv-print__progress-body--rtl": a
+                        })
+                    }, s.createElement("div", {
+                        className: "rpv-print__progress-message"
+                    }, o && o.print ? o.print.preparingDocument : "Preparing document ..."), s.createElement("div", {
+                        className: "rpv-print__progress-bar"
+                    }, s.createElement(i.ProgressBar, {
+                        progress: Math.floor(100 * t / n)
+                    })), s.createElement(i.Button, {
+                        onClick: r
+                    }, o && o.print ? o.print.cancel : "Cancel")))
+                },
+                b = function(e) {
+                    var t = e.canvas,
+                        n = e.page,
+                        r = e.pageHeight,
+                        o = e.pageIndex,
+                        a = e.pageWidth,
+                        l = e.rotation,
+                        u = e.onLoad,
+                        d = i.useIsMounted(),
+                        m = s.useRef(),
+                        f = s.useState(""),
+                        p = f[0],
+                        g = f[1],
+                        h = s.useMemo(function() {
+                            return void 0 !== c && void 0 !== c.env.JEST_WORKER_ID
+                        }, []);
+                    return s.useEffect(function() {
+                        var e = m.current;
+                        e && e.cancel();
+                        var o = 150 / 72;
+                        t.height = Math.floor(r * o), t.width = Math.floor(a * o);
+                        var c = t.getContext("2d");
+                        c.save(), c.fillStyle = "rgb(255, 255, 255)", c.fillRect(0, 0, t.width, t.height), c.restore();
+                        var i = n.getViewport({
+                            rotation: l,
+                            scale: 1
+                        });
+                        m.current = n.render({
+                            canvasContext: c,
+                            intent: "print",
+                            transform: [o, 0, 0, o, 0, 0],
+                            viewport: i
+                        }), m.current.promise.then(function() {
+                            "toBlob" in t && "createObjectURL" in URL ? t.toBlob(function(e) {
+                                d.current && g(URL.createObjectURL(e)), h && u()
+                            }) : (d.current && g(t.toDataURL()), h && u())
+                        }, function() {})
+                    }, []), p && s.createElement("div", {
+                        className: "rpv-print__page"
+                    }, s.createElement("img", {
+                        "data-testid": "print__thumbnail-".concat(o),
+                        src: p,
+                        onLoad: function() {
+                            h || u()
+                        }
+                    }))
+                },
+                E = function(e) {
+                    var t = e.canvas,
+                        n = e.doc,
+                        r = e.pageIndex,
+                        o = e.pageRotation,
+                        a = e.pageSize,
+                        c = e.rotation,
+                        l = e.shouldRender,
+                        u = e.onLoad,
+                        d = i.useIsMounted(),
+                        m = s.useState(null),
+                        f = m[0],
+                        p = m[1],
+                        g = Math.abs(c + o) % 180 == 0;
+                    s.useEffect(function() {
+                        l && i.getPage(n, r).then(function(e) {
+                            d.current && p(e)
+                        })
+                    }, [l]);
+                    var h = (a.rotation + c + o) % 360;
+                    return f && s.createElement(b, {
+                        canvas: t,
+                        page: f,
+                        pageHeight: g ? a.pageHeight : a.pageWidth,
+                        pageIndex: r,
+                        pageWidth: g ? a.pageWidth : a.pageHeight,
+                        rotation: h,
+                        onLoad: u
+                    })
+                },
+                k = function(e) {
+                    var t = e.doc,
+                        n = e.numLoadedPages,
+                        r = e.pagesRotation,
+                        o = e.pageSizes,
+                        c = e.printPages,
+                        i = e.printStatus,
+                        l = e.rotation,
+                        d = e.onCancel,
+                        m = e.onLoad,
+                        f = s.useMemo(function() {
+                            return document.createElement("canvas")
+                        }, []),
+                        p = s.useMemo(function() {
+                            var e = document.querySelector(".rpv-print__zone");
+                            if (e) return e;
+                            var t = document.createElement("div");
+                            return t.classList.add("rpv-print__zone"), t.setAttribute("data-testid", "print__zone"), document.body.appendChild(t), t
+                        }, []);
+                    s.useEffect(function() {
+                        i === a.Ready && (document.documentElement.classList.add("rpv-print__html-printing"), document.body.classList.add("rpv-print__body-printing"), window.print());
+                        var e = function() {
+                            if (i === a.Ready) {
+                                document.documentElement.classList.remove("rpv-print__html-printing"), document.body.classList.remove("rpv-print__body-printing");
+                                var t = document.querySelectorAll(".rpv-print__zone");
+                                t && t.forEach(function(e) {
+                                    e.parentElement.removeChild(e)
+                                }), f.height = 0, f.width = 0, document.removeEventListener("mousemove", e), d()
+                            }
+                        };
+                        return document.addEventListener("mousemove", e),
+                            function() {
+                                return document.removeEventListener("mousemove", e)
+                            }
+                    }, [i]);
+                    var g = o[0].pageHeight,
+                        h = o[0].pageWidth;
+                    return u.createPortal(s.createElement(s.Fragment, null, c.map(function(e, a) {
+                        return s.createElement(E, {
+                            key: e,
+                            canvas: f,
+                            doc: t,
+                            pageIndex: e,
+                            pageRotation: r.has(e) ? r.get(e) : 0,
+                            pageSize: o[e],
+                            rotation: l,
+                            shouldRender: a === n,
+                            onLoad: m
+                        })
+                    }), s.createElement("style", {
+                        dangerouslySetInnerHTML: {
+                            __html: "@page { size: ".concat(h, "pt ").concat(g, "pt }")
+                        }
+                    })), p)
+                },
+                C = function(e) {
+                    var t = e.doc,
+                        n = e.pagesRotation,
+                        r = e.pageSizes,
+                        o = e.renderProgressBar,
+                        c = e.rotation,
+                        i = e.setPages,
+                        l = e.store,
+                        u = s.useState(a.Inactive),
+                        d = u[0],
+                        m = u[1],
+                        f = s.useState(0),
+                        p = f[0],
+                        g = f[1],
+                        b = s.useMemo(function() {
+                            var e = t.numPages;
+                            return i(t).filter(function(t) {
+                                return t >= 0 && t < e
+                            })
+                        }, [t, i]),
+                        E = b.length,
+                        C = function() {
+                            g(0), m(a.Inactive)
+                        },
+                        _ = function(e) {
+                            return m(e)
+                        };
+                    return s.useEffect(function() {
+                        return l.subscribe("printStatus", _),
+                            function() {
+                                l.unsubscribe("printStatus", _)
+                            }
+                    }, []), s.createElement(s.Fragment, null, d === a.CheckingPermission && s.createElement(h, {
+                        doc: t,
+                        store: l
+                    }), d === a.Preparing && (o ? o(p, E, C) : s.createElement(v, {
+                        numLoadedPages: p,
+                        numPages: E,
+                        onCancel: C
+                    })), (d === a.Preparing || d === a.Ready) && p <= E && s.createElement(k, {
+                        doc: t,
+                        numLoadedPages: p,
+                        pagesRotation: n,
+                        pageSizes: r,
+                        printPages: b,
+                        printStatus: d,
+                        rotation: c,
+                        onCancel: C,
+                        onLoad: function() {
+                            var e = p + 1;
+                            e <= E && (g(e), e === E && m(a.Ready))
+                        }
+                    }))
+                },
+                _ = function(e) {
+                    var t = e.onClick,
+                        n = s.useContext(i.LocalizationContext).l10n,
+                        r = n && n.print ? n.print.print : "Print";
+                    return s.createElement(i.MenuItem, {
+                        icon: s.createElement(d, null),
+                        testId: "print__menu",
+                        onClick: t
+                    }, r)
+                },
+                S = function(e) {
+                    var t = e.containerRef,
+                        n = e.store,
+                        r = function(e) {
+                            if (!e.shiftKey && !e.altKey && "p" === e.key && (i.isMac() ? e.metaKey : e.ctrlKey)) {
+                                var r = t.current;
+                                r && document.activeElement && r.contains(document.activeElement) && (e.preventDefault(), n.update("printStatus", a.Preparing))
+                            }
+                        };
+                    return s.useEffect(function() {
+                        if (t.current) return document.addEventListener("keydown", r),
+                            function() {
+                                document.removeEventListener("keydown", r)
+                            }
+                    }, [t.current]), s.createElement(s.Fragment, null)
+                };
+            t.PrintIcon = d, t.getAllPagesNumbers = function(e) {
+                return Array(e.numPages).fill(0).map(function(e, t) {
+                    return t
+                })
+            }, t.getCustomPagesNumbers = function(e) {
+                return function(t) {
+                    var n = [];
+                    return e.replace(/\s+/g, "").split(",").forEach(function(e) {
+                        var t, r = e.split("-").map(function(e) {
+                            return parseInt(e, 10)
+                        }).filter(function(e) {
+                            return Number.isInteger(e)
+                        });
+                        1 === r.length ? n.push(r[0] - 1) : 2 === r.length && n.push.apply(n, (t = r[0] - 1, Array(r[1] - 1 - t + 1).fill(0).map(function(e, n) {
+                            return t + n
+                        })))
+                    }), n.filter(function(e) {
+                        return n.indexOf(e) === n.lastIndexOf(e)
+                    }).filter(function(e) {
+                        return e >= 0 && e < t.numPages
+                    })
+                }
+            }, t.getEvenPagesNumbers = function(e) {
+                return Array(e.numPages).fill(0).map(function(e, t) {
+                    return t
+                }).filter(function(e) {
+                    return (e + 1) % 2 == 0
+                })
+            }, t.getOddPagesNumbers = function(e) {
+                return Array(e.numPages).fill(0).map(function(e, t) {
+                    return t
+                }).filter(function(e) {
+                    return (e + 1) % 2 == 1
+                })
+            }, t.printPlugin = function(e) {
+                var t = s.useMemo(function() {
+                        return Object.assign({}, {
+                            enableShortcuts: !0,
+                            setPages: function(e) {
+                                return Array(e.numPages).fill(0).map(function(e, t) {
+                                    return t
+                                })
+                            }
+                        }, e)
+                    }, []),
+                    n = s.useMemo(function() {
+                        return i.createStore({
+                            printStatus: a.Inactive
+                        })
+                    }, []),
+                    r = function(e) {
+                        return s.createElement(g, m({
+                            enableShortcuts: t.enableShortcuts
+                        }, e, {
+                            store: n
+                        }))
+                    };
+                return {
+                    print: function() {
+                        n.update("printStatus", a.CheckingPermission)
+                    },
+                    renderViewer: function(r) {
+                        var o = r.slot,
+                            a = {
+                                children: s.createElement(s.Fragment, null, t.enableShortcuts && s.createElement(S, {
+                                    containerRef: r.containerRef,
+                                    store: n
+                                }), s.createElement(C, {
+                                    doc: r.doc,
+                                    pagesRotation: r.pagesRotation,
+                                    pageSizes: r.pageSizes,
+                                    renderProgressBar: null == e ? void 0 : e.renderProgressBar,
+                                    rotation: r.rotation,
+                                    setPages: t.setPages,
+                                    store: n
+                                }), o.children)
+                            };
+                        return m(m({}, o), a)
+                    },
+                    Print: r,
+                    PrintButton: function() {
+                        return s.createElement(r, null, function(e) {
+                            return s.createElement(p, m({}, e))
+                        })
+                    },
+                    PrintMenuItem: function(e) {
+                        return s.createElement(r, null, function(t) {
+                            return s.createElement(_, {
+                                onClick: function() {
+                                    t.onClick(), e.onClick()
+                                }
+                            })
+                        })
+                    },
+                    setPages: function(e) {
+                        t.setPages = e
+                    }
+                }
+            }
+        },
+        84526: function(e, t, n) {
+            "use strict";
+            e.exports = n(60613)
+        },
+        53836: function(e, t, n) {
+            "use strict";
+            var r, o, a = n(93214),
+                c = (r = n(2265), o = Object.create(null), r && Object.keys(r).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(r, e);
+                        Object.defineProperty(o, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return r[e]
+                            }
+                        })
+                    }
+                }), o.default = r, Object.freeze(o)),
+                i = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M12,1.001c6.075,0,11,4.925,11,11s-4.925,11-11,11s-11-4.925-11-11S5.925,1.001,12,1.001z\n            M14.5,17.005H13\n            c-0.552,0-1-0.448-1-1v-6.5c0-0.276-0.224-0.5-0.5-0.5H10\n            M11.745,6.504L11.745,6.504\n            M11.745,6.5c-0.138,0-0.25,0.112-0.25,0.25\n            S11.607,7,11.745,7s0.25-0.112,0.25-0.25S11.883,6.5,11.745,6.5"
+                    }))
+                },
+                l = function() {
+                    return (l = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                },
+                u = function(e) {
+                    var t = e.doc,
+                        n = e.render,
+                        r = c.useState(),
+                        o = r[0],
+                        i = r[1];
+                    return c.useEffect(function() {
+                        t.getMetadata().then(function(e) {
+                            return Promise.resolve(e)
+                        }).then(function(e) {
+                            return t.getDownloadInfo().then(function(t) {
+                                return Promise.resolve({
+                                    fileName: e.contentDispositionFilename || "",
+                                    info: e.info,
+                                    length: t.length
+                                })
+                            })
+                        }).then(function(e) {
+                            i(e)
+                        })
+                    }, []), o ? n(o) : c.createElement("div", {
+                        className: "rpv-properties__loader"
+                    }, c.createElement(a.Spinner, null))
+                },
+                s = function(e) {
+                    var t = e.label,
+                        n = e.value,
+                        r = c.useContext(a.ThemeContext).direction === a.TextDirection.RightToLeft;
+                    return c.createElement("dl", {
+                        className: a.classNames({
+                            "rpv-properties__item": !0,
+                            "rpv-properties__item--rtl": r
+                        })
+                    }, c.createElement("dt", {
+                        className: "rpv-properties__item-label"
+                    }, t, ":"), c.createElement("dd", {
+                        className: "rpv-properties__item-value"
+                    }, n || "-"))
+                },
+                d = RegExp("^D:(\\d{4})(\\d{2})?(\\d{2})?(\\d{2})?(\\d{2})?(\\d{2})?([Z|+|-])?(\\d{2})?'?(\\d{2})?'?"),
+                m = function(e, t, n, r) {
+                    var o = parseInt(e, 10);
+                    return o >= t && o <= n ? o : r
+                },
+                f = function(e) {
+                    var t = e.doc,
+                        n = e.fileName,
+                        r = e.onToggle,
+                        o = c.useContext(a.LocalizationContext).l10n,
+                        i = function(e) {
+                            var t = function(e) {
+                                var t = d.exec(e);
+                                if (!t) return null;
+                                var n = parseInt(t[1], 10),
+                                    r = m(t[2], 1, 12, 1) - 1,
+                                    o = m(t[3], 1, 31, 1),
+                                    a = m(t[4], 0, 23, 0),
+                                    c = m(t[5], 0, 59, 0),
+                                    i = m(t[6], 0, 59, 0),
+                                    l = t[7] || "Z",
+                                    u = m(t[8], 0, 23, 0),
+                                    s = m(t[9], 0, 59, 0);
+                                switch (l) {
+                                    case "-":
+                                        a += u, c += s;
+                                        break;
+                                    case "+":
+                                        a -= u, c -= s
+                                }
+                                return new Date(Date.UTC(n, r, o, a, c, i))
+                            }(e);
+                            return t ? "".concat(t.toLocaleDateString(), ", ").concat(t.toLocaleTimeString()) : ""
+                        };
+                    return c.createElement("div", {
+                        className: "rpv-properties__modal"
+                    }, c.createElement(u, {
+                        doc: t,
+                        render: function(e) {
+                            var r, l, u;
+                            return c.createElement(c.Fragment, null, c.createElement("div", {
+                                className: "rpv-properties__modal-section"
+                            }, c.createElement(s, {
+                                label: o && o.properties ? o.properties.fileName : "File name",
+                                value: e.fileName || ((u = n.split("/").pop()) ? u.split("#")[0].split("?")[0] : n)
+                            }), c.createElement(s, {
+                                label: o && o.properties ? o.properties.fileSize : "File size",
+                                value: (l = Math.floor(Math.log(r = e.length) / Math.log(1024)), "".concat((r / Math.pow(1024, l)).toFixed(2), " ").concat(["B", "kB", "MB", "GB", "TB"][l]))
+                            })), c.createElement(a.Separator, null), c.createElement("div", {
+                                className: "rpv-properties__modal-section"
+                            }, c.createElement(s, {
+                                label: o && o.properties ? o.properties.title : "Title",
+                                value: e.info.Title
+                            }), c.createElement(s, {
+                                label: o && o.properties ? o.properties.author : "Author",
+                                value: e.info.Author
+                            }), c.createElement(s, {
+                                label: o && o.properties ? o.properties.subject : "Subject",
+                                value: e.info.Subject
+                            }), c.createElement(s, {
+                                label: o && o.properties ? o.properties.keywords : "Keywords",
+                                value: e.info.Keywords
+                            }), c.createElement(s, {
+                                label: o && o.properties ? o.properties.creator : "Creator",
+                                value: e.info.Creator
+                            }), c.createElement(s, {
+                                label: o && o.properties ? o.properties.creationDate : "Creation date",
+                                value: i(e.info.CreationDate)
+                            }), c.createElement(s, {
+                                label: o && o.properties ? o.properties.modificationDate : "Modification date",
+                                value: i(e.info.ModDate)
+                            })), c.createElement(a.Separator, null), c.createElement("div", {
+                                className: "rpv-properties__modal-section"
+                            }, c.createElement(s, {
+                                label: o && o.properties ? o.properties.pdfProducer : "PDF producer",
+                                value: e.info.Producer
+                            }), c.createElement(s, {
+                                label: o && o.properties ? o.properties.pdfVersion : "PDF version",
+                                value: e.info.PDFFormatVersion
+                            }), c.createElement(s, {
+                                label: o && o.properties ? o.properties.pageCount : "Page count",
+                                value: "".concat(t.numPages)
+                            })))
+                        }
+                    }), c.createElement("div", {
+                        className: "rpv-properties__modal-footer"
+                    }, c.createElement(a.Button, {
+                        onClick: r
+                    }, o && o.properties ? o.properties.close : "Close")))
+                },
+                p = {
+                    left: 0,
+                    top: 8
+                },
+                g = function(e) {
+                    var t = e.onClick,
+                        n = c.useContext(a.LocalizationContext).l10n,
+                        r = n && n.properties ? n.properties.showProperties : "Show properties";
+                    return c.createElement(a.Tooltip, {
+                        ariaControlsSuffix: "properties",
+                        position: a.Position.BottomCenter,
+                        target: c.createElement(a.MinimalButton, {
+                            ariaLabel: r,
+                            testId: "properties__button",
+                            onClick: t
+                        }, c.createElement(i, null)),
+                        content: function() {
+                            return r
+                        },
+                        offset: p
+                    })
+                },
+                h = function(e) {
+                    var t, n, r, o, i = e.children,
+                        u = e.store,
+                        s = (n = (t = c.useState(u.get("doc")))[0], r = t[1], o = function(e) {
+                            r(e)
+                        }, c.useEffect(function() {
+                            return u.subscribe("doc", o),
+                                function() {
+                                    u.unsubscribe("doc", o)
+                                }
+                        }, []), {
+                            currentDoc: n
+                        }).currentDoc,
+                        d = u.get("fileName") || "",
+                        m = i || function(e) {
+                            return c.createElement(g, l({}, e))
+                        };
+                    return s ? c.createElement(a.Modal, {
+                        ariaControlsSuffix: "properties",
+                        target: function(e) {
+                            return m({
+                                onClick: e
+                            })
+                        },
+                        content: function(e) {
+                            return c.createElement(f, {
+                                doc: s,
+                                fileName: d,
+                                onToggle: e
+                            })
+                        },
+                        closeOnClickOutside: !0,
+                        closeOnEscape: !0
+                    }) : c.createElement(c.Fragment, null)
+                },
+                v = function(e) {
+                    var t = e.onClick,
+                        n = c.useContext(a.LocalizationContext).l10n,
+                        r = n && n.properties ? n.properties.showProperties : "Show properties";
+                    return c.createElement(a.MenuItem, {
+                        icon: c.createElement(i, null),
+                        testId: "properties__menu",
+                        onClick: t
+                    }, r)
+                };
+            t.InfoIcon = i, t.propertiesPlugin = function() {
+                var e = c.useMemo(function() {
+                        return a.createStore({
+                            fileName: ""
+                        })
+                    }, []),
+                    t = function(t) {
+                        return c.createElement(h, l({}, t, {
+                            store: e
+                        }))
+                    };
+                return {
+                    onDocumentLoad: function(t) {
+                        e.update("doc", t.doc)
+                    },
+                    onViewerStateChange: function(t) {
+                        return e.update("fileName", t.file.name), t
+                    },
+                    ShowProperties: t,
+                    ShowPropertiesButton: function() {
+                        return c.createElement(h, {
+                            store: e
+                        })
+                    },
+                    ShowPropertiesMenuItem: function(e) {
+                        return c.createElement(t, null, function(e) {
+                            return c.createElement(v, l({}, e))
+                        })
+                    }
+                }
+            }
+        },
+        13335: function(e, t, n) {
+            "use strict";
+            e.exports = n(53836)
+        },
+        90221: function(e, t, n) {
+            "use strict";
+            var r, o, a = n(93214),
+                c = (r = n(2265), o = Object.create(null), r && Object.keys(r).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(r, e);
+                        Object.defineProperty(o, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return r[e]
+                            }
+                        })
+                    }
+                }), o.default = r, Object.freeze(o)),
+                i = function() {
+                    return c.createElement(a.Icon, {
+                        ignoreDirection: !0,
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M3.434,10.537c0.141-0.438,0.316-0.864,0.523-1.274\n            M3.069,14.425C3.023,14.053,3,13.679,3,13.305 c0-0.291,0.014-0.579,0.041-0.863\n            M4.389,18.111c-0.341-0.539-0.623-1.112-0.843-1.711\n            M7.163,20.9 c-0.543-0.345-1.048-0.747-1.506-1.2\n            M10.98,22.248c-0.65-0.074-1.29-0.218-1.909-0.431\n            M10,4.25h2 c4.987,0.015,9.017,4.069,9.003,9.055c-0.013,4.581-3.456,8.426-8.008,8.945\n            M13.5,1.75L10,4.25l3.5,2.5"
+                    }))
+                },
+                l = function() {
+                    return c.createElement(a.Icon, {
+                        ignoreDirection: !0,
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M20.566,10.537c-0.141-0.438-0.316-0.864-0.523-1.274\n            M20.931,14.425C20.977,14.053,21,13.679,21,13.305 c0-0.291-0.014-0.579-0.041-0.863\n            M19.611,18.111c0.341-0.539,0.624-1.114,0.843-1.713\n            M16.837,20.9 c0.543-0.345,1.048-0.747,1.506-1.2\n            M13.02,22.248c0.65-0.074,1.29-0.218,1.909-0.431\n            M14,4.25h-2 c-4.987,0.015-9.017,4.069-9.003,9.055c0.013,4.581,3.456,8.426,8.008,8.945\n            M10.5,1.75l3.5,2.5l-3.5,2.5"
+                    }))
+                },
+                u = function() {
+                    return (u = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                },
+                s = {
+                    left: 0,
+                    top: 8
+                },
+                d = function(e) {
+                    var t = e.direction,
+                        n = e.onClick,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = r && r.rotate ? r.rotate.rotateBackward : "Rotate counterclockwise",
+                        u = r && r.rotate ? r.rotate.rotateForward : "Rotate clockwise",
+                        d = t === a.RotateDirection.Backward ? o : u,
+                        m = t === a.RotateDirection.Backward ? c.createElement(i, null) : c.createElement(l, null);
+                    return c.createElement(a.Tooltip, {
+                        ariaControlsSuffix: "rotate",
+                        position: a.Position.BottomCenter,
+                        target: c.createElement(a.MinimalButton, {
+                            ariaLabel: d,
+                            testId: t === a.RotateDirection.Backward ? "rotate__backward-button" : "rotate__forward-button",
+                            onClick: n
+                        }, m),
+                        content: function() {
+                            return d
+                        },
+                        offset: s
+                    })
+                },
+                m = function(e) {
+                    var t = e.children,
+                        n = e.direction,
+                        r = e.store;
+                    return (t || function(e) {
+                        return c.createElement(d, {
+                            direction: e.direction,
+                            onClick: e.onClick
+                        })
+                    })({
+                        direction: n,
+                        onClick: function() {
+                            var e = r.get("rotate");
+                            e && e(n)
+                        }
+                    })
+                },
+                f = function(e) {
+                    var t = e.direction,
+                        n = e.onClick,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = r && r.rotate ? r.rotate.rotateBackward : "Rotate counterclockwise",
+                        u = r && r.rotate ? r.rotate.rotateForward : "Rotate clockwise",
+                        s = t === a.RotateDirection.Backward ? o : u,
+                        d = t === a.RotateDirection.Backward ? c.createElement(i, null) : c.createElement(l, null);
+                    return c.createElement(a.MenuItem, {
+                        icon: d,
+                        testId: t === a.RotateDirection.Backward ? "rotate__backward-menu" : "rotate__forward-menu",
+                        onClick: n
+                    }, s)
+                },
+                p = function(e) {
+                    var t = e.children,
+                        n = e.store;
+                    return t({
+                        onRotatePage: function(e, t) {
+                            var r = n.get("rotatePage");
+                            r && r(e, t)
+                        }
+                    })
+                };
+            t.RotateBackwardIcon = i, t.RotateForwardIcon = l, t.rotatePlugin = function() {
+                var e = c.useMemo(function() {
+                        return a.createStore()
+                    }, []),
+                    t = function(t) {
+                        return c.createElement(m, u({}, t, {
+                            store: e
+                        }))
+                    };
+                return {
+                    install: function(t) {
+                        e.update("rotate", t.rotate), e.update("rotatePage", t.rotatePage)
+                    },
+                    Rotate: t,
+                    RotateBackwardButton: function() {
+                        return c.createElement(t, {
+                            direction: a.RotateDirection.Backward
+                        }, function(e) {
+                            return c.createElement(d, u({}, e))
+                        })
+                    },
+                    RotateBackwardMenuItem: function(e) {
+                        return c.createElement(t, {
+                            direction: a.RotateDirection.Backward
+                        }, function(t) {
+                            return c.createElement(f, {
+                                direction: t.direction,
+                                onClick: function() {
+                                    t.onClick(), e.onClick()
+                                }
+                            })
+                        })
+                    },
+                    RotateForwardButton: function() {
+                        return c.createElement(t, {
+                            direction: a.RotateDirection.Forward
+                        }, function(e) {
+                            return c.createElement(d, u({}, e))
+                        })
+                    },
+                    RotateForwardMenuItem: function(e) {
+                        return c.createElement(t, {
+                            direction: a.RotateDirection.Forward
+                        }, function(t) {
+                            return c.createElement(f, {
+                                direction: t.direction,
+                                onClick: function() {
+                                    t.onClick(), e.onClick()
+                                }
+                            })
+                        })
+                    },
+                    RotatePage: function(t) {
+                        return c.createElement(p, u({}, t, {
+                            store: e
+                        }))
+                    }
+                }
+            }
+        },
+        78283: function(e, t, n) {
+            "use strict";
+            e.exports = n(90221)
+        },
+        55405: function(e, t, n) {
+            "use strict";
+            var r, o, a = n(93214),
+                c = (r = n(2265), o = Object.create(null), r && Object.keys(r).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(r, e);
+                        Object.defineProperty(o, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return r[e]
+                            }
+                        })
+                    }
+                }), o.default = r, Object.freeze(o)),
+                i = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("rect", {
+                        x: "0.5",
+                        y: "0.497",
+                        width: "22",
+                        height: "22",
+                        rx: "1",
+                        ry: "1"
+                    }), c.createElement("line", {
+                        x1: "0.5",
+                        y1: "6.497",
+                        x2: "22.5",
+                        y2: "6.497"
+                    }), c.createElement("line", {
+                        x1: "11.5",
+                        y1: "6.497",
+                        x2: "11.5",
+                        y2: "22.497"
+                    }))
+                },
+                l = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("rect", {
+                        x: "0.5",
+                        y: "0.497",
+                        width: "22",
+                        height: "22",
+                        rx: "1",
+                        ry: "1"
+                    }), c.createElement("line", {
+                        x1: "11.5",
+                        y1: "0.497",
+                        x2: "11.5",
+                        y2: "22.497"
+                    }))
+                },
+                u = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M6.5,21.5c0,0.552-0.448,1-1,1h-4c-0.552,0-1-0.448-1-1v-20c0-0.552,0.448-1,1-1h4c0.552,0,1,0.448,1,1V21.5z\n            M14.5,21.5c0,0.552-0.448,1-1,1h-4c-0.552,0-1-0.448-1-1v-20c0-0.552,0.448-1,1-1h4c0.552,0,1,0.448,1,1V21.5z\n            M22.5,21.5 c0,0.552-0.448,1-1,1h-4c-0.552,0-1-0.448-1-1v-20c0-0.552,0.448-1,1-1h4c0.552,0,1,0.448,1,1V21.5z"
+                    }))
+                },
+                s = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("rect", {
+                        x: "0.5",
+                        y: "0.497",
+                        width: "22",
+                        height: "22",
+                        rx: "1",
+                        ry: "1"
+                    }))
+                },
+                d = function() {
+                    return (d = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                },
+                m = function(e, t) {
+                    e.get("switchScrollMode")(t);
+                    var n = e.get("viewMode");
+                    t !== a.ScrollMode.Horizontal && t !== a.ScrollMode.Wrapped || n === a.ViewMode.SinglePage || e.get("switchViewMode")(a.ViewMode.SinglePage)
+                },
+                f = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M23.5,5.5c0,0.552-0.448,1-1,1h-21c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1h21c0.552,0,1,0.448,1,1V5.5z\n            M23.5,13.5c0,0.552-0.448,1-1,1h-21c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1h21c0.552,0,1,0.448,1,1V13.5z\n            M23.5,21.5 c0,0.552-0.448,1-1,1h-21c-0.552,0-1-0.448-1-1v-3c0-0.552,0.448-1,1-1h21c0.552,0,1,0.448,1,1V21.5z"
+                    }))
+                },
+                p = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M10.5,9.5c0,0.552-0.448,1-1,1h-8c-0.552,0-1-0.448-1-1v-8c0-0.552,0.448-1,1-1h8c0.552,0,1,0.448,1,1V9.5z\n            M23.5,9.5c0,0.552-0.448,1-1,1h-8c-0.552,0-1-0.448-1-1v-8c0-0.552,0.448-1,1-1h8c0.552,0,1,0.448,1,1V9.5z\n            M10.5,22.5 c0,0.552-0.448,1-1,1h-8c-0.552,0-1-0.448-1-1v-8c0-0.552,0.448-1,1-1h8c0.552,0,1,0.448,1,1V22.5z\n            M23.5,22.5c0,0.552-0.448,1-1,1 h-8c-0.552,0-1-0.448-1-1v-8c0-0.552,0.448-1,1-1h8c0.552,0,1,0.448,1,1V22.5z"
+                    }))
+                },
+                g = function(e) {
+                    var t = e.children,
+                        n = e.mode,
+                        r = e.onClick,
+                        o = c.useContext(a.LocalizationContext).l10n,
+                        i = "",
+                        l = c.createElement(f, null);
+                    switch (n) {
+                        case a.ScrollMode.Horizontal:
+                            i = o && o.scrollMode ? o.scrollMode.horizontalScrolling : "Horizontal scrolling", l = c.createElement(u, null);
+                            break;
+                        case a.ScrollMode.Page:
+                            i = o && o.scrollMode ? o.scrollMode.pageScrolling : "Page scrolling", l = c.createElement(s, null);
+                            break;
+                        case a.ScrollMode.Wrapped:
+                            i = o && o.scrollMode ? o.scrollMode.wrappedScrolling : "Wrapped scrolling", l = c.createElement(p, null);
+                            break;
+                        case a.ScrollMode.Vertical:
+                        default:
+                            i = o && o.scrollMode ? o.scrollMode.verticalScrolling : "Vertical scrolling", l = c.createElement(f, null)
+                    }
+                    return t({
+                        icon: l,
+                        label: i,
+                        onClick: r
+                    })
+                },
+                h = {
+                    left: 0,
+                    top: 8
+                },
+                v = function(e) {
+                    var t = e.isDisabled,
+                        n = e.isSelected,
+                        r = e.mode,
+                        o = e.onClick,
+                        i = "";
+                    switch (r) {
+                        case a.ScrollMode.Horizontal:
+                            i = "scroll-mode__horizontal-button";
+                            break;
+                        case a.ScrollMode.Page:
+                            i = "scroll-mode__page-button";
+                            break;
+                        case a.ScrollMode.Wrapped:
+                            i = "scroll-mode__wrapped-button";
+                            break;
+                        case a.ScrollMode.Vertical:
+                        default:
+                            i = "scroll-mode__vertical-button"
+                    }
+                    return c.createElement(g, {
+                        mode: r,
+                        onClick: o
+                    }, function(e) {
+                        return c.createElement(a.Tooltip, {
+                            ariaControlsSuffix: "scroll-mode-switch",
+                            position: a.Position.BottomCenter,
+                            target: c.createElement(a.MinimalButton, {
+                                ariaLabel: e.label,
+                                isDisabled: t,
+                                isSelected: n,
+                                testId: i,
+                                onClick: e.onClick
+                            }, e.icon),
+                            content: function() {
+                                return e.label
+                            },
+                            offset: h
+                        })
+                    })
+                },
+                b = function(e) {
+                    var t = c.useState(e.get("scrollMode") || a.ScrollMode.Vertical),
+                        n = t[0],
+                        r = t[1],
+                        o = function(e) {
+                            r(e)
+                        };
+                    return c.useEffect(function() {
+                        return e.subscribe("scrollMode", o),
+                            function() {
+                                e.unsubscribe("scrollMode", o)
+                            }
+                    }, []), {
+                        scrollMode: n
+                    }
+                },
+                E = function(e) {
+                    var t = c.useState(e.get("viewMode") || a.ViewMode.SinglePage),
+                        n = t[0],
+                        r = t[1],
+                        o = function(e) {
+                            r(e)
+                        };
+                    return c.useEffect(function() {
+                        return e.subscribe("viewMode", o),
+                            function() {
+                                e.unsubscribe("viewMode", o)
+                            }
+                    }, []), {
+                        viewMode: n
+                    }
+                },
+                k = function(e) {
+                    var t = e.children,
+                        n = e.mode,
+                        r = e.store,
+                        o = E(r).viewMode,
+                        i = b(r).scrollMode === n,
+                        l = (n === a.ScrollMode.Horizontal || n === a.ScrollMode.Wrapped) && o !== a.ViewMode.SinglePage;
+                    return (t || function(e) {
+                        return c.createElement(v, {
+                            isDisabled: l,
+                            isSelected: i,
+                            mode: e.mode,
+                            onClick: e.onClick
+                        })
+                    })({
+                        isDisabled: l,
+                        isSelected: i,
+                        mode: n,
+                        onClick: function() {
+                            m(r, n)
+                        }
+                    })
+                },
+                C = function(e) {
+                    var t = e.isDisabled,
+                        n = e.isSelected,
+                        r = e.mode,
+                        o = e.onClick,
+                        i = "";
+                    switch (r) {
+                        case a.ScrollMode.Horizontal:
+                            i = "scroll-mode__horizontal-menu";
+                            break;
+                        case a.ScrollMode.Page:
+                            i = "scroll-mode__page-menu";
+                            break;
+                        case a.ScrollMode.Wrapped:
+                            i = "scroll-mode__wrapped-menu";
+                            break;
+                        case a.ScrollMode.Vertical:
+                        default:
+                            i = "scroll-mode__vertical-menu"
+                    }
+                    return c.createElement(g, {
+                        mode: r,
+                        onClick: o
+                    }, function(e) {
+                        return c.createElement(a.MenuItem, {
+                            checked: n,
+                            icon: e.icon,
+                            isDisabled: t,
+                            testId: i,
+                            onClick: e.onClick
+                        }, e.label)
+                    })
+                },
+                _ = function(e, t) {
+                    e.get("switchViewMode")(t);
+                    var n = e.get("scrollMode");
+                    n !== a.ScrollMode.Horizontal && n !== a.ScrollMode.Wrapped || t === a.ViewMode.SinglePage || e.get("switchScrollMode")(a.ScrollMode.Vertical)
+                },
+                S = function(e) {
+                    var t = e.children,
+                        n = e.mode,
+                        r = e.onClick,
+                        o = c.useContext(a.LocalizationContext).l10n,
+                        u = "",
+                        d = c.createElement(s, null);
+                    switch (n) {
+                        case a.ViewMode.DualPage:
+                            u = o && o.scrollMode ? o.scrollMode.dualPage : "Dual page", d = c.createElement(l, null);
+                            break;
+                        case a.ViewMode.DualPageWithCover:
+                            u = o && o.scrollMode ? o.scrollMode.dualPageCover : "Dual page with cover", d = c.createElement(i, null);
+                            break;
+                        case a.ViewMode.SinglePage:
+                        default:
+                            u = o && o.scrollMode ? o.scrollMode.singlePage : "Single page", d = c.createElement(s, null)
+                    }
+                    return t({
+                        icon: d,
+                        label: u,
+                        onClick: r
+                    })
+                },
+                M = {
+                    left: 0,
+                    top: 8
+                },
+                P = function(e) {
+                    var t = e.isDisabled,
+                        n = e.isSelected,
+                        r = e.mode,
+                        o = e.onClick,
+                        i = "";
+                    switch (r) {
+                        case a.ViewMode.DualPage:
+                            i = "view-mode__dual-button";
+                            break;
+                        case a.ViewMode.DualPageWithCover:
+                            i = "view-mode__dual-cover-button";
+                            break;
+                        case a.ViewMode.SinglePage:
+                        default:
+                            i = "view-mode__single-button"
+                    }
+                    return c.createElement(S, {
+                        mode: r,
+                        onClick: o
+                    }, function(e) {
+                        return c.createElement(a.Tooltip, {
+                            ariaControlsSuffix: "view-mode-switch",
+                            position: a.Position.BottomCenter,
+                            target: c.createElement(a.MinimalButton, {
+                                ariaLabel: e.label,
+                                isDisabled: t,
+                                isSelected: n,
+                                testId: i,
+                                onClick: e.onClick
+                            }, e.icon),
+                            content: function() {
+                                return e.label
+                            },
+                            offset: M
+                        })
+                    })
+                },
+                y = function(e) {
+                    var t = e.children,
+                        n = e.mode,
+                        r = e.store,
+                        o = E(r).viewMode,
+                        i = b(r).scrollMode,
+                        l = o === n,
+                        u = (i === a.ScrollMode.Horizontal || i === a.ScrollMode.Wrapped) && n !== a.ViewMode.SinglePage;
+                    return (t || function(e) {
+                        return c.createElement(P, {
+                            isDisabled: u,
+                            isSelected: l,
+                            mode: e.mode,
+                            onClick: e.onClick
+                        })
+                    })({
+                        isDisabled: u,
+                        isSelected: l,
+                        mode: n,
+                        onClick: function() {
+                            _(r, n)
+                        }
+                    })
+                },
+                w = function(e) {
+                    var t = e.isDisabled,
+                        n = e.isSelected,
+                        r = e.mode,
+                        o = e.onClick,
+                        i = "";
+                    switch (r) {
+                        case a.ViewMode.DualPage:
+                            i = "view-mode__dual-menu";
+                            break;
+                        case a.ViewMode.DualPageWithCover:
+                            i = "view-mode__dual-cover-menu";
+                            break;
+                        case a.ViewMode.SinglePage:
+                        default:
+                            i = "view-mode__single-menu"
+                    }
+                    return c.createElement(S, {
+                        mode: r,
+                        onClick: o
+                    }, function(e) {
+                        return c.createElement(a.MenuItem, {
+                            checked: n,
+                            icon: e.icon,
+                            isDisabled: t,
+                            testId: i,
+                            onClick: e.onClick
+                        }, e.label)
+                    })
+                };
+            t.DualPageCoverViewModeIcon = i, t.DualPageViewModeIcon = l, t.HorizontalScrollingIcon = u, t.PageScrollingIcon = s, t.VerticalScrollingIcon = f, t.WrappedScrollingIcon = p, t.scrollModePlugin = function() {
+                var e = c.useMemo(function() {
+                        return a.createStore({
+                            scrollMode: a.ScrollMode.Vertical,
+                            viewMode: a.ViewMode.SinglePage,
+                            switchScrollMode: function() {},
+                            switchViewMode: function() {}
+                        })
+                    }, []),
+                    t = function(t) {
+                        return c.createElement(k, d({}, t, {
+                            store: e
+                        }))
+                    },
+                    n = function(t) {
+                        return c.createElement(y, d({}, t, {
+                            store: e
+                        }))
+                    };
+                return {
+                    install: function(t) {
+                        e.update("switchScrollMode", t.switchScrollMode), e.update("switchViewMode", t.switchViewMode)
+                    },
+                    onViewerStateChange: function(t) {
+                        return e.update("scrollMode", t.scrollMode), e.update("viewMode", t.viewMode), t
+                    },
+                    switchScrollMode: function(t) {
+                        m(e, t)
+                    },
+                    switchViewMode: function(t) {
+                        _(e, t)
+                    },
+                    SwitchScrollMode: t,
+                    SwitchScrollModeButton: function(e) {
+                        return c.createElement(t, {
+                            mode: e.mode
+                        }, function(e) {
+                            return c.createElement(v, {
+                                isDisabled: e.isDisabled,
+                                isSelected: e.isSelected,
+                                mode: e.mode,
+                                onClick: function() {
+                                    e.onClick()
+                                }
+                            })
+                        })
+                    },
+                    SwitchScrollModeMenuItem: function(e) {
+                        return c.createElement(t, {
+                            mode: e.mode
+                        }, function(t) {
+                            return c.createElement(C, {
+                                isDisabled: t.isDisabled,
+                                isSelected: t.isSelected,
+                                mode: t.mode,
+                                onClick: function() {
+                                    t.onClick(), e.onClick()
+                                }
+                            })
+                        })
+                    },
+                    SwitchViewMode: n,
+                    SwitchViewModeButton: function(e) {
+                        return c.createElement(n, {
+                            mode: e.mode
+                        }, function(e) {
+                            return c.createElement(P, {
+                                isDisabled: e.isDisabled,
+                                isSelected: e.isSelected,
+                                mode: e.mode,
+                                onClick: function() {
+                                    e.onClick()
+                                }
+                            })
+                        })
+                    },
+                    SwitchViewModeMenuItem: function(e) {
+                        return c.createElement(n, {
+                            mode: e.mode
+                        }, function(t) {
+                            return c.createElement(w, {
+                                isDisabled: t.isDisabled,
+                                isSelected: t.isSelected,
+                                mode: t.mode,
+                                onClick: function() {
+                                    t.onClick(), e.onClick()
+                                }
+                            })
+                        })
+                    }
+                }
+            }
+        },
+        65098: function(e, t, n) {
+            "use strict";
+            e.exports = n(55405)
+        },
+        89446: function(e, t, n) {
+            "use strict";
+            var r, o, a = n(93214),
+                c = (r = n(2265), o = Object.create(null), r && Object.keys(r).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(r, e);
+                        Object.defineProperty(o, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return r[e]
+                            }
+                        })
+                    }
+                }), o.default = r, Object.freeze(o)),
+                i = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M0.541,5.627L11.666,18.2c0.183,0.207,0.499,0.226,0.706,0.043c0.015-0.014,0.03-0.028,0.043-0.043\n            L23.541,5.627"
+                    }))
+                },
+                l = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M23.535,18.373L12.409,5.8c-0.183-0.207-0.499-0.226-0.706-0.043C11.688,5.77,11.674,5.785,11.66,5.8\n            L0.535,18.373"
+                    }))
+                },
+                u = function() {
+                    return c.createElement(a.Icon, {
+                        ignoreDirection: !0,
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M10.5,0.5c5.523,0,10,4.477,10,10s-4.477,10-10,10s-10-4.477-10-10S4.977,0.5,10.5,0.5z\n            M23.5,23.5\n            l-5.929-5.929"
+                    }))
+                },
+                s = function() {
+                    return (s = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                },
+                d = {
+                    keyword: "",
+                    regExp: RegExp(" "),
+                    wholeWords: !1
+                },
+                m = function(e) {
+                    return {
+                        left: "".concat(e.left, "%"),
+                        top: "".concat(e.top, "%"),
+                        height: "".concat(e.height, "%"),
+                        width: "".concat(e.width, "%")
+                    }
+                },
+                f = function(e) {
+                    var t = e.index,
+                        n = e.area,
+                        r = e.onHighlightKeyword,
+                        o = c.useRef();
+                    return a.useIsomorphicLayoutEffect(function() {
+                        var e = o.current;
+                        r && e && r({
+                            highlightEle: e,
+                            keyword: n.keyword
+                        })
+                    }, []), c.createElement("div", {
+                        className: "rpv-search__highlight",
+                        "data-index": t,
+                        ref: o,
+                        style: m(n),
+                        title: n.keywordStr.trim()
+                    })
+                },
+                p = function(e) {
+                    var t = e.parentNode;
+                    t && t.removeChild(e)
+                },
+                g = function(e) {
+                    var t = e.parentNode;
+                    if (t) {
+                        var n, r, o = document.createRange();
+                        o.selectNodeContents(e), p(n = o.extractContents()), (r = e.parentNode) && r.insertBefore(n, e), p(e), t.normalize()
+                    }
+                },
+                h = function(e, t) {
+                    return e.top < t.top ? -1 : e.top > t.top ? 1 : e.left < t.left ? -1 : e.left > t.left ? 1 : 0
+                },
+                v = function(e) {
+                    var t = e.numPages,
+                        n = e.pageIndex,
+                        r = e.renderHighlights,
+                        o = e.store,
+                        i = e.onHighlightKeyword,
+                        l = c.useRef(),
+                        u = c.useCallback(function(e) {
+                            return c.createElement(c.Fragment, null, e.highlightAreas.map(function(e, t) {
+                                return c.createElement(f, {
+                                    index: t,
+                                    key: t,
+                                    area: e,
+                                    onHighlightKeyword: i
+                                })
+                            }))
+                        }, []),
+                        s = c.useState(o.get("matchPosition")),
+                        p = s[0],
+                        v = s[1],
+                        b = c.useState(o.get("keyword") || [d]),
+                        E = b[0],
+                        k = b[1],
+                        C = c.useState({
+                            pageIndex: n,
+                            scale: 1,
+                            status: a.LayerRenderStatus.PreRender
+                        }),
+                        _ = C[0],
+                        S = C[1],
+                        M = c.useRef(null),
+                        P = c.useRef([]),
+                        y = c.useState([]),
+                        w = y[0],
+                        x = y[1],
+                        I = function() {
+                            return !0
+                        },
+                        T = c.useCallback(function() {
+                            return o.get("targetPageFilter") || I
+                        }, [o.get("targetPageFilter")]),
+                        L = function(e) {
+                            var r = P.current;
+                            if (0 === r.length) return [];
+                            var o = [],
+                                a = [].slice.call(e.querySelectorAll(".rpv-core__text-layer-text")),
+                                c = r.map(function(e) {
+                                    return e.char
+                                }).join("");
+                            return E.forEach(function(i) {
+                                var l = i.keyword;
+                                if (l.trim()) {
+                                    for (var u, s = -1 === i.regExp.flags.indexOf("g") ? new RegExp(i.regExp, "".concat(i.regExp.flags, "g")) : i.regExp, d = []; null !== (u = s.exec(c));) d.push({
+                                        keyword: s,
+                                        startIndex: u.index,
+                                        endIndex: s.lastIndex
+                                    });
+                                    d.map(function(e) {
+                                        return {
+                                            keyword: e.keyword,
+                                            indexes: r.slice(e.startIndex, e.endIndex)
+                                        }
+                                    }).forEach(function(r) {
+                                        Object.values(r.indexes.reduce(function(e, t) {
+                                            return e[t.spanIndex] = (e[t.spanIndex] || []).concat([t]), e
+                                        }, {})).forEach(function(c) {
+                                            if (1 !== c.length || "" !== c[0].char.trim()) {
+                                                var u = i.wholeWords ? c.slice(1, -1) : c,
+                                                    s = function(e, r, o, a, c) {
+                                                        var i = document.createRange(),
+                                                            l = a.firstChild;
+                                                        if (!l || l.nodeType !== Node.TEXT_NODE) return null;
+                                                        var u = l.textContent.length,
+                                                            s = c[0].charIndexInSpan,
+                                                            d = 1 === c.length ? s : c[c.length - 1].charIndexInSpan;
+                                                        if (s > u || d + 1 > u) return null;
+                                                        i.setStart(l, s), i.setEnd(l, d + 1);
+                                                        var m = document.createElement("span");
+                                                        i.surroundContents(m);
+                                                        var f = m.getBoundingClientRect(),
+                                                            p = o.getBoundingClientRect(),
+                                                            h = p.height,
+                                                            v = p.width,
+                                                            b = 100 * (f.left - p.left) / v,
+                                                            E = 100 * (f.top - p.top) / h,
+                                                            k = 100 * f.height / h,
+                                                            C = 100 * f.width / v;
+                                                        return g(m), {
+                                                            keyword: r,
+                                                            keywordStr: e,
+                                                            numPages: t,
+                                                            pageIndex: n,
+                                                            left: b,
+                                                            top: E,
+                                                            height: k,
+                                                            width: C,
+                                                            pageHeight: h,
+                                                            pageWidth: v
+                                                        }
+                                                    }(l, r.keyword, e, a[u[0].spanIndex], u);
+                                                s && o.push(s)
+                                            }
+                                        })
+                                    })
+                                }
+                            }), o.sort(h)
+                        },
+                        O = function(e) {
+                            e && e.length > 0 && k(e)
+                        },
+                        D = function(e) {
+                            return v(e)
+                        },
+                        N = function(e) {
+                            if (e.has(n)) {
+                                var t = e.get(n);
+                                t && S({
+                                    ele: t.ele,
+                                    pageIndex: n,
+                                    scale: t.scale,
+                                    status: t.status
+                                })
+                            }
+                        },
+                        z = function() {
+                            return 0 === E.length || 1 === E.length && "" === E[0].keyword.trim()
+                        };
+                    return c.useEffect(function() {
+                        if (!z() && _.status === a.LayerRenderStatus.DidRender && !P.current.length) {
+                            var e = _.ele,
+                                t = [].slice.call(e.querySelectorAll(".rpv-core__text-layer-text")).map(function(e) {
+                                    return e.textContent
+                                }).reduce(function(e, t, n) {
+                                    return e.concat(t.split("").map(function(e, t) {
+                                        return {
+                                            char: e,
+                                            charIndexInSpan: t,
+                                            spanIndex: n
+                                        }
+                                    }))
+                                }, [{
+                                    char: "",
+                                    charIndexInSpan: 0,
+                                    spanIndex: 0
+                                }]).slice(1);
+                            P.current = t
+                        }
+                    }, [E, _.status]), c.useEffect(function() {
+                        !z() && _.ele && _.status === a.LayerRenderStatus.DidRender && T()({
+                            pageIndex: n,
+                            numPages: t
+                        }) && x(L(_.ele))
+                    }, [E, p, _.status, P.current]), c.useEffect(function() {
+                        z() && _.ele && _.status === a.LayerRenderStatus.DidRender && x([])
+                    }, [E, _.status]), c.useEffect(function() {
+                        if (0 !== w.length) {
+                            var e = l.current;
+                            if (p.pageIndex === n && e && _.status === a.LayerRenderStatus.DidRender) {
+                                var t = e.querySelector('.rpv-search__highlight[data-index="'.concat(p.matchIndex, '"]'));
+                                if (t) {
+                                    var r = function(e, t) {
+                                            for (var n = e.offsetTop, r = e.offsetLeft, o = e.parentElement; o && o !== t;) n += o.offsetTop, r += o.offsetLeft, o = o.parentElement;
+                                            return {
+                                                left: r,
+                                                top: n
+                                            }
+                                        }(t, e),
+                                        c = r.left,
+                                        i = r.top,
+                                        u = o.get("jumpToDestination");
+                                    u && (u({
+                                        pageIndex: n,
+                                        bottomOffset: (e.getBoundingClientRect().height - i) / _.scale,
+                                        leftOffset: c / _.scale,
+                                        scaleTo: _.scale
+                                    }), M.current && M.current.classList.remove("rpv-search__highlight--current"), M.current = t, t.classList.add("rpv-search__highlight--current"))
+                                }
+                            }
+                        }
+                    }, [w, p]), c.useEffect(function() {
+                        return o.subscribe("keyword", O), o.subscribe("matchPosition", D), o.subscribe("renderStatus", N),
+                            function() {
+                                o.unsubscribe("keyword", O), o.unsubscribe("matchPosition", D), o.unsubscribe("renderStatus", N)
+                            }
+                    }, []), c.createElement("div", {
+                        className: "rpv-search__highlights",
+                        "data-testid": "search__highlights-".concat(n),
+                        ref: l
+                    }, (r || u)({
+                        getCssProperties: m,
+                        highlightAreas: w
+                    }))
+                },
+                b = function(e) {
+                    var t = e.wholeWords ? " ".concat(e.keyword, " ") : e.keyword,
+                        n = e.matchCase ? "g" : "gi";
+                    return {
+                        keyword: e.keyword,
+                        regExp: new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), n),
+                        wholeWords: e.wholeWords || !1
+                    }
+                },
+                E = function(e, t, n) {
+                    return e instanceof RegExp ? {
+                        keyword: e.source,
+                        regExp: e,
+                        wholeWords: n || !1
+                    } : "string" == typeof e ? "" === e ? d : b({
+                        keyword: e,
+                        matchCase: t || !1,
+                        wholeWords: n || !1
+                    }) : (void 0 !== t && (e.matchCase = t), void 0 !== n && (e.wholeWords = n), b(e))
+                },
+                k = function(e) {
+                    var t, n, r, o = e.get("initialKeyword"),
+                        i = c.useMemo(function() {
+                            if (o && 1 === o.length) {
+                                var e = E(o[0]);
+                                return {
+                                    matchCase: -1 === e.regExp.flags.indexOf("i"),
+                                    wholeWords: e.wholeWords
+                                }
+                            }
+                            return {
+                                matchCase: !1,
+                                wholeWords: !1
+                            }
+                        }, []),
+                        l = (t = c.useRef(e.get("doc")), n = function(e) {
+                            t.current = e
+                        }, c.useEffect(function() {
+                            return e.subscribe("doc", n),
+                                function() {
+                                    e.unsubscribe("doc", n)
+                                }
+                        }, []), t),
+                        u = c.useState(o),
+                        s = u[0],
+                        m = u[1],
+                        f = c.useState([]),
+                        p = f[0],
+                        g = f[1],
+                        h = c.useState(0),
+                        v = h[0],
+                        b = h[1],
+                        k = c.useState(i.matchCase),
+                        C = k[0],
+                        _ = k[1],
+                        S = c.useRef([]),
+                        M = c.useState(i.wholeWords),
+                        P = M[0],
+                        y = M[1],
+                        w = function() {
+                            return !0
+                        },
+                        x = c.useCallback(function() {
+                            return e.get("targetPageFilter") || w
+                        }, [e.get("targetPageFilter")]),
+                        I = function(e) {
+                            var t = p.length;
+                            if (0 === s.length || 0 === t) return null;
+                            var n = e === t + 1 ? 1 : Math.max(1, Math.min(t, e));
+                            return b(n), L(p[n - 1])
+                        },
+                        T = function(e) {
+                            return m("" === e ? [] : [e])
+                        },
+                        L = function(t) {
+                            var n = e.get("jumpToPage");
+                            return n && n(t.pageIndex), e.update("matchPosition", {
+                                matchIndex: t.matchIndex,
+                                pageIndex: t.pageIndex
+                            }), t
+                        },
+                        O = function(t, n, r) {
+                            var o = l.current;
+                            if (!o) return Promise.resolve([]);
+                            var c = o.numPages,
+                                i = t.map(function(e) {
+                                    return E(e, n, r)
+                                });
+                            return e.update("keyword", i), b(0), g([]), new Promise(function(e, t) {
+                                var n;
+                                (0 === S.current.length ? ((n = l.current) ? Promise.all(Array(n.numPages).fill(0).map(function(e, t) {
+                                    return a.getPage(n, t).then(function(e) {
+                                        return e.getTextContent()
+                                    }).then(function(e) {
+                                        return Promise.resolve({
+                                            pageContent: e.items.map(function(e) {
+                                                return e.str || ""
+                                            }).join(""),
+                                            pageIndex: t
+                                        })
+                                    })
+                                })).then(function(e) {
+                                    return e.sort(function(e, t) {
+                                        return e.pageIndex - t.pageIndex
+                                    }), Promise.resolve(e.map(function(e) {
+                                        return e.pageContent
+                                    }))
+                                }) : Promise.resolve([])).then(function(e) {
+                                    return S.current = e, Promise.resolve(e)
+                                }) : Promise.resolve(S.current)).then(function(t) {
+                                    var n = [];
+                                    t.forEach(function(e, t) {
+                                        x()({
+                                            pageIndex: t,
+                                            numPages: c
+                                        }) && i.forEach(function(r) {
+                                            for (var o, a = 0; null !== (o = r.regExp.exec(e));) n.push({
+                                                keyword: r.regExp,
+                                                matchIndex: a,
+                                                pageIndex: t,
+                                                pageText: e,
+                                                startIndex: o.index,
+                                                endIndex: r.regExp.lastIndex
+                                            }), a++
+                                        })
+                                    }), g(n), n.length > 0 && (b(1), L(n[0])), e(n)
+                                })
+                            })
+                        };
+                    return c.useEffect(function() {
+                        S.current = []
+                    }, [l.current]), {
+                        clearKeyword: function() {
+                            e.update("keyword", [d]), T(""), b(0), g([]), _(!1), y(!1)
+                        },
+                        changeMatchCase: function(e) {
+                            _(e), s.length > 0 && O(s, e, P)
+                        },
+                        changeWholeWords: function(e) {
+                            y(e), s.length > 0 && O(s, C, e)
+                        },
+                        currentMatch: v,
+                        jumpToMatch: I,
+                        jumpToNextMatch: function() {
+                            return I(v + 1)
+                        },
+                        jumpToPreviousMatch: function() {
+                            return I(v - 1)
+                        },
+                        keywords: s,
+                        matchCase: C,
+                        numberOfMatches: p.length,
+                        wholeWords: P,
+                        search: function() {
+                            return O(s, C, P)
+                        },
+                        searchFor: O,
+                        setKeywords: m,
+                        keyword: 0 === s.length ? "" : (r = s[0]) instanceof RegExp ? r.source : "string" == typeof r ? r : r.keyword,
+                        setKeyword: T,
+                        setTargetPages: function(t) {
+                            e.update("targetPageFilter", t)
+                        }
+                    }
+                },
+                C = function(e) {
+                    var t = e.children,
+                        n = e.store,
+                        r = k(n),
+                        o = c.useState(!1),
+                        a = o[0],
+                        i = o[1],
+                        l = function(e) {
+                            return i(!0)
+                        };
+                    return c.useEffect(function() {
+                        return n.subscribe("doc", l),
+                            function() {
+                                n.unsubscribe("doc", l)
+                            }
+                    }, []), t(s(s({}, r), {
+                        isDocumentLoaded: a
+                    }))
+                },
+                _ = function(e) {
+                    var t = e.containerRef,
+                        n = e.store,
+                        r = c.useRef(!1),
+                        o = function() {
+                            r.current = !0
+                        },
+                        i = function() {
+                            r.current = !1
+                        },
+                        l = function(e) {
+                            var o = t.current;
+                            o && (e.shiftKey || e.altKey || "f" !== e.key || (a.isMac() ? e.metaKey && !e.ctrlKey : e.ctrlKey) && (r.current || document.activeElement && o.contains(document.activeElement)) && (e.preventDefault(), n.update("areShortcutsPressed", !0)))
+                        };
+                    return c.useEffect(function() {
+                        var e = t.current;
+                        if (e) return document.addEventListener("keydown", l), e.addEventListener("mouseenter", o), e.addEventListener("mouseleave", i),
+                            function() {
+                                document.removeEventListener("keydown", l), e.removeEventListener("mouseenter", o), e.removeEventListener("mouseleave", i)
+                            }
+                    }, [t.current]), c.createElement(c.Fragment, null)
+                },
+                S = {
+                    left: 0,
+                    top: 8
+                },
+                M = function(e) {
+                    var t = e.store,
+                        n = e.onToggle,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = c.useContext(a.ThemeContext).direction,
+                        u = c.useState(!1),
+                        s = u[0],
+                        d = u[1],
+                        m = c.useState(!1),
+                        f = m[0],
+                        p = m[1],
+                        g = o === a.TextDirection.RightToLeft,
+                        h = k(t),
+                        v = h.clearKeyword,
+                        b = h.changeMatchCase,
+                        E = h.changeWholeWords,
+                        C = h.currentMatch,
+                        _ = h.jumpToNextMatch,
+                        M = h.jumpToPreviousMatch,
+                        P = h.keyword,
+                        y = h.matchCase,
+                        w = h.numberOfMatches,
+                        x = h.wholeWords,
+                        I = h.search,
+                        T = h.setKeyword,
+                        L = function(e) {
+                            d(!0), I().then(function(t) {
+                                d(!1), p(!0), e && e()
+                            })
+                        };
+                    c.useEffect(function() {
+                        var e = t.get("initialKeyword");
+                        e && 1 === e.length && P && L(function() {
+                            t.update("initialKeyword", [])
+                        })
+                    }, []);
+                    var O = r && r.search ? r.search.enterToSearch : "Enter to search",
+                        D = r && r.search ? r.search.previousMatch : "Previous match",
+                        N = r && r.search ? r.search.nextMatch : "Next match",
+                        z = r && r.search ? r.search.close : "Close";
+                    return c.createElement("div", {
+                        className: "rpv-search__popover"
+                    }, c.createElement("div", {
+                        className: "rpv-search__popover-input-counter"
+                    }, c.createElement(a.TextBox, {
+                        ariaLabel: O,
+                        autoFocus: !0,
+                        placeholder: O,
+                        type: "text",
+                        value: P,
+                        onChange: function(e) {
+                            p(!1), T(e)
+                        },
+                        onKeyDown: function(e) {
+                            "Enter" === e.key && P && (f ? _() : L())
+                        }
+                    }), c.createElement("div", {
+                        className: a.classNames({
+                            "rpv-search__popover-counter": !0,
+                            "rpv-search__popover-counter--ltr": !g,
+                            "rpv-search__popover-counter--rtl": g
+                        })
+                    }, s && c.createElement(a.Spinner, {
+                        testId: "search__popover-searching",
+                        size: "1rem"
+                    }), !s && c.createElement("span", {
+                        "data-testid": "search__popover-num-matches"
+                    }, C, "/", w))), c.createElement("label", {
+                        className: "rpv-search__popover-label"
+                    }, c.createElement("input", {
+                        className: "rpv-search__popover-label-checkbox",
+                        "data-testid": "search__popover-match-case",
+                        checked: y,
+                        type: "checkbox",
+                        onChange: function(e) {
+                            p(!1), b(e.target.checked)
+                        }
+                    }), " ", r && r.search ? r.search.matchCase : "Match case"), c.createElement("label", {
+                        className: "rpv-search__popover-label"
+                    }, c.createElement("input", {
+                        className: "rpv-search__popover-label-checkbox",
+                        checked: x,
+                        "data-testid": "search__popover-whole-words",
+                        type: "checkbox",
+                        onChange: function(e) {
+                            p(!1), E(e.target.checked)
+                        }
+                    }), " ", r && r.search ? r.search.wholeWords : "Whole words"), c.createElement("div", {
+                        className: "rpv-search__popover-footer"
+                    }, c.createElement("div", {
+                        className: "rpv-search__popover-footer-item"
+                    }, c.createElement(a.Tooltip, {
+                        ariaControlsSuffix: "search-previous-match",
+                        position: g ? a.Position.BottomRight : a.Position.BottomCenter,
+                        target: c.createElement(a.MinimalButton, {
+                            ariaLabel: D,
+                            isDisabled: C <= 1,
+                            onClick: M
+                        }, c.createElement(l, null)),
+                        content: function() {
+                            return D
+                        },
+                        offset: S
+                    })), c.createElement("div", {
+                        className: "rpv-search__popover-footer-item"
+                    }, c.createElement(a.Tooltip, {
+                        ariaControlsSuffix: "search-next-match",
+                        position: a.Position.BottomCenter,
+                        target: c.createElement(a.MinimalButton, {
+                            ariaLabel: N,
+                            isDisabled: C > w - 1,
+                            onClick: _
+                        }, c.createElement(i, null)),
+                        content: function() {
+                            return N
+                        },
+                        offset: S
+                    })), c.createElement("div", {
+                        className: a.classNames({
+                            "rpv-search__popover-footer-button": !0,
+                            "rpv-search__popover-footer-button--ltr": !g,
+                            "rpv-search__popover-footer-button--rtl": g
+                        })
+                    }, c.createElement(a.Button, {
+                        onClick: function() {
+                            n(), v()
+                        }
+                    }, z))))
+                },
+                P = function(e) {
+                    var t = e.children,
+                        n = e.onClick,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = r && r.search ? r.search.search : "Search";
+                    return t({
+                        icon: c.createElement(u, null),
+                        label: o,
+                        onClick: n
+                    })
+                },
+                y = {
+                    left: 0,
+                    top: 8
+                },
+                w = function(e) {
+                    var t = e.enableShortcuts,
+                        n = e.store,
+                        r = e.onClick,
+                        o = t ? a.isMac() ? "Meta+F" : "Ctrl+F" : "",
+                        i = function(e) {
+                            e && r()
+                        };
+                    return c.useEffect(function() {
+                        return n.subscribe("areShortcutsPressed", i),
+                            function() {
+                                n.unsubscribe("areShortcutsPressed", i)
+                            }
+                    }, []), c.createElement(P, {
+                        onClick: r
+                    }, function(e) {
+                        return c.createElement(a.Tooltip, {
+                            ariaControlsSuffix: "search-popover",
+                            position: a.Position.BottomCenter,
+                            target: c.createElement(a.MinimalButton, {
+                                ariaKeyShortcuts: o,
+                                ariaLabel: e.label,
+                                testId: "search__popover-button",
+                                onClick: r
+                            }, e.icon),
+                            content: function() {
+                                return e.label
+                            },
+                            offset: y
+                        })
+                    })
+                },
+                x = {
+                    left: 0,
+                    top: 8
+                },
+                I = function(e) {
+                    var t = e.children,
+                        n = e.enableShortcuts,
+                        r = e.store,
+                        o = c.useContext(a.ThemeContext).direction === a.TextDirection.RightToLeft ? a.Position.BottomRight : a.Position.BottomLeft,
+                        i = t || function(e) {
+                            return c.createElement(w, s({
+                                enableShortcuts: n,
+                                store: r
+                            }, e))
+                        };
+                    return c.createElement(a.Popover, {
+                        ariaControlsSuffix: "search",
+                        lockScroll: !1,
+                        position: o,
+                        target: function(e) {
+                            return i({
+                                onClick: e
+                            })
+                        },
+                        content: function(e) {
+                            return c.createElement(M, {
+                                store: r,
+                                onToggle: e
+                            })
+                        },
+                        offset: x,
+                        closeOnClickOutside: !1,
+                        closeOnEscape: !0
+                    })
+                },
+                T = function(e) {
+                    return Array.isArray(e) ? e.map(function(e) {
+                        return E(e)
+                    }) : [E(e)]
+                };
+            t.NextIcon = i, t.PreviousIcon = l, t.SearchIcon = u, t.searchPlugin = function(e) {
+                var t = c.useMemo(function() {
+                        return Object.assign({}, {
+                            enableShortcuts: !0,
+                            onHighlightKeyword: function() {}
+                        }, e)
+                    }, []),
+                    n = c.useMemo(function() {
+                        return a.createStore({
+                            initialKeyword: e && e.keyword ? Array.isArray(e.keyword) ? e.keyword : [e.keyword] : [],
+                            keyword: e && e.keyword ? T(e.keyword) : [d],
+                            matchPosition: {
+                                matchIndex: -1,
+                                pageIndex: -1
+                            },
+                            renderStatus: new Map
+                        })
+                    }, []),
+                    r = k(n),
+                    o = r.clearKeyword,
+                    i = r.jumpToMatch,
+                    l = r.jumpToNextMatch,
+                    u = r.jumpToPreviousMatch,
+                    m = r.searchFor,
+                    f = r.setKeywords,
+                    p = r.setTargetPages,
+                    g = function(e) {
+                        return c.createElement(I, s({
+                            enableShortcuts: t.enableShortcuts
+                        }, e, {
+                            store: n
+                        }))
+                    };
+                return {
+                    install: function(t) {
+                        var r = e && e.keyword ? Array.isArray(e.keyword) ? e.keyword : [e.keyword] : [],
+                            o = e && e.keyword ? T(e.keyword) : [d];
+                        n.update("initialKeyword", r), n.update("jumpToDestination", t.jumpToDestination), n.update("jumpToPage", t.jumpToPage), n.update("keyword", o)
+                    },
+                    renderPageLayer: function(r) {
+                        return c.createElement(v, {
+                            key: r.pageIndex,
+                            numPages: r.doc.numPages,
+                            pageIndex: r.pageIndex,
+                            renderHighlights: null == e ? void 0 : e.renderHighlights,
+                            store: n,
+                            onHighlightKeyword: t.onHighlightKeyword
+                        })
+                    },
+                    renderViewer: function(e) {
+                        var r = e.slot;
+                        return r.subSlot && (r.subSlot.children = c.createElement(c.Fragment, null, t.enableShortcuts && c.createElement(_, {
+                            containerRef: e.containerRef,
+                            store: n
+                        }), r.subSlot.children)), r
+                    },
+                    uninstall: function(e) {
+                        var t = n.get("renderStatus");
+                        t && t.clear()
+                    },
+                    onDocumentLoad: function(e) {
+                        n.update("doc", e.doc)
+                    },
+                    onTextLayerRender: function(e) {
+                        var t = n.get("renderStatus");
+                        t && (t = t.set(e.pageIndex, e), n.update("renderStatus", t))
+                    },
+                    Search: function(e) {
+                        return c.createElement(C, s({}, e, {
+                            store: n
+                        }))
+                    },
+                    ShowSearchPopover: g,
+                    ShowSearchPopoverButton: function() {
+                        return c.createElement(g, null, function(e) {
+                            return c.createElement(w, s({
+                                enableShortcuts: t.enableShortcuts,
+                                store: n
+                            }, e))
+                        })
+                    },
+                    clearHighlights: function() {
+                        o()
+                    },
+                    highlight: function(e) {
+                        var t = Array.isArray(e) ? e : [e];
+                        return f(t), m(t)
+                    },
+                    jumpToMatch: i,
+                    jumpToNextMatch: l,
+                    jumpToPreviousMatch: u,
+                    setTargetPages: p
+                }
+            }
+        },
+        27422: function(e, t, n) {
+            "use strict";
+            e.exports = n(89446)
+        },
+        17196: function(e, t, n) {
+            "use strict";
+            var r, o, a, c = n(93214),
+                i = (r = n(2265), o = Object.create(null), r && Object.keys(r).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(r, e);
+                        Object.defineProperty(o, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return r[e]
+                            }
+                        })
+                    }
+                }), o.default = r, Object.freeze(o)),
+                l = function() {
+                    return i.createElement(c.Icon, {
+                        size: 16
+                    }, i.createElement("path", {
+                        d: "M11.5,5.5v-2C11.5,2.672,12.172,2,13,2s1.5,0.672,1.5,1.5v2 M14.5,11.5v-6C14.5,4.672,15.172,4,16,4\n            c0.828,0,1.5,0.672,1.5,1.5v3 M17.5,13V8.5C17.5,7.672,18.172,7,19,7s1.5,0.672,1.5,1.5v10c0,2.761-2.239,5-5,5h-3.335\n            c-1.712-0.001-3.305-0.876-4.223-2.321C6.22,18.467,4.083,14,4.083,14c-0.378-0.545-0.242-1.292,0.303-1.67\n            c0.446-0.309,1.044-0.281,1.458,0.07L8.5,15.5v-10C8.5,4.672,9.172,4,10,4s1.5,0.672,1.5,1.5v6"
+                    }))
+                },
+                u = function() {
+                    return (u = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                };
+            t.SelectionMode = void 0, (a = t.SelectionMode || (t.SelectionMode = {})).Hand = "Hand", a.Text = "Text";
+            var s = function() {
+                    return i.createElement(c.Icon, {
+                        size: 16
+                    }, i.createElement("path", {
+                        d: "M13.675,11.671l2.941-2.941c0.195-0.196,0.195-0.512-0.001-0.707C16.563,7.971,16.5,7.931,16.43,7.906\n            L4.168,3.527C3.908,3.434,3.622,3.57,3.529,3.83c-0.039,0.109-0.039,0.228,0,0.336l4.379,12.262\n            c0.093,0.26,0.379,0.396,0.639,0.303c0.07-0.025,0.133-0.065,0.185-0.117l2.943-2.943l6.146,6.146c0.195,0.195,0.512,0.195,0.707,0\n            l1.293-1.293c0.195-0.195,0.195-0.512,0-0.707L13.675,11.671z"
+                    }))
+                },
+                d = function(e) {
+                    var n = e.children,
+                        r = e.mode,
+                        o = e.onClick,
+                        a = i.useContext(c.LocalizationContext).l10n,
+                        u = "",
+                        d = i.createElement(s, null);
+                    switch (r) {
+                        case t.SelectionMode.Hand:
+                            u = a && a.selectionMode ? a.selectionMode.handTool : "Hand tool", d = i.createElement(l, null);
+                            break;
+                        case t.SelectionMode.Text:
+                        default:
+                            u = a && a.selectionMode ? a.selectionMode.textSelectionTool : "Text selection tool", d = i.createElement(s, null)
+                    }
+                    return n({
+                        icon: d,
+                        label: u,
+                        onClick: o
+                    })
+                },
+                m = {
+                    left: 0,
+                    top: 8
+                },
+                f = function(e) {
+                    var n = e.isSelected,
+                        r = e.mode,
+                        o = e.onClick,
+                        a = "";
+                    switch (r) {
+                        case t.SelectionMode.Hand:
+                            a = "selection-mode__hand-button";
+                            break;
+                        case t.SelectionMode.Text:
+                        default:
+                            a = "selection-mode__text-button"
+                    }
+                    return i.createElement(d, {
+                        mode: r,
+                        onClick: o
+                    }, function(e) {
+                        return i.createElement(c.Tooltip, {
+                            ariaControlsSuffix: "selection-mode-switch",
+                            position: c.Position.BottomCenter,
+                            target: i.createElement(c.MinimalButton, {
+                                ariaLabel: e.label,
+                                isSelected: n,
+                                testId: a,
+                                onClick: e.onClick
+                            }, e.icon),
+                            content: function() {
+                                return e.label
+                            },
+                            offset: m
+                        })
+                    })
+                },
+                p = function(e) {
+                    var t = e.children,
+                        n = e.mode,
+                        r = e.store,
+                        o = n === r.get("selectionMode");
+                    return (t || function(e) {
+                        return i.createElement(f, {
+                            isSelected: o,
+                            mode: e.mode,
+                            onClick: e.onClick
+                        })
+                    })({
+                        isSelected: o,
+                        mode: n,
+                        onClick: function() {
+                            return r.update("selectionMode", n)
+                        }
+                    })
+                },
+                g = function(e) {
+                    var n = e.isSelected,
+                        r = e.mode,
+                        o = e.onClick,
+                        a = "";
+                    switch (r) {
+                        case t.SelectionMode.Hand:
+                            a = "selection-mode__hand-menu";
+                            break;
+                        case t.SelectionMode.Text:
+                        default:
+                            a = "selection-mode__text-menu"
+                    }
+                    return i.createElement(d, {
+                        mode: r,
+                        onClick: o
+                    }, function(e) {
+                        return i.createElement(c.MenuItem, {
+                            checked: n,
+                            icon: e.icon,
+                            testId: a,
+                            onClick: e.onClick
+                        }, e.label)
+                    })
+                },
+                h = function(e) {
+                    var n = e.store,
+                        r = i.useRef(null),
+                        o = i.useState(t.SelectionMode.Text),
+                        a = o[0],
+                        c = o[1],
+                        l = i.useRef({
+                            top: 0,
+                            left: 0,
+                            x: 0,
+                            y: 0
+                        }),
+                        u = function(e) {
+                            var t = r.current;
+                            t && (t.scrollTop = l.current.top - (e.clientY - l.current.y), t.scrollLeft = l.current.left - (e.clientX - l.current.x))
+                        },
+                        s = function() {
+                            var e = r.current;
+                            e && (e.classList.add("rpv-selection-mode__grab"), e.classList.remove("rpv-selection-mode__grabbing"), document.removeEventListener("mousemove", u), document.removeEventListener("mouseup", s))
+                        },
+                        d = function(e) {
+                            var n = r.current;
+                            n && a !== t.SelectionMode.Text && (n.classList.remove("rpv-selection-mode__grab"), n.classList.add("rpv-selection-mode__grabbing"), e.preventDefault(), e.stopPropagation(), l.current = {
+                                left: n.scrollLeft,
+                                top: n.scrollTop,
+                                x: e.clientX,
+                                y: e.clientY
+                            }, document.addEventListener("mousemove", u), document.addEventListener("mouseup", s))
+                        },
+                        m = function(e) {
+                            r.current = e()
+                        },
+                        f = function(e) {
+                            c(e)
+                        };
+                    return i.useEffect(function() {
+                        var e = r.current;
+                        if (e) return a === t.SelectionMode.Hand ? e.classList.add("rpv-selection-mode__grab") : e.classList.remove("rpv-selection-mode__grab"), e.addEventListener("mousedown", d),
+                            function() {
+                                e.removeEventListener("mousedown", d)
+                            }
+                    }, [a]), i.useEffect(function() {
+                        return n.subscribe("getPagesContainer", m), n.subscribe("selectionMode", f),
+                            function() {
+                                n.unsubscribe("getPagesContainer", m), n.unsubscribe("selectionMode", f)
+                            }
+                    }, []), i.createElement(i.Fragment, null)
+                };
+            t.HandToolIcon = l, t.TextSelectionIcon = s, t.selectionModePlugin = function(e) {
+                var n = i.useMemo(function() {
+                        return c.createStore()
+                    }, []),
+                    r = function(e) {
+                        return i.createElement(p, u({}, e, {
+                            store: n
+                        }))
+                    };
+                return {
+                    install: function(r) {
+                        n.update("selectionMode", e && e.selectionMode ? e.selectionMode : t.SelectionMode.Text), n.update("getPagesContainer", r.getPagesContainer)
+                    },
+                    renderViewer: function(e) {
+                        var t = e.slot;
+                        return t.subSlot && t.subSlot.children && (t.subSlot.children = i.createElement(i.Fragment, null, i.createElement(h, {
+                            store: n
+                        }), t.subSlot.children)), t
+                    },
+                    SwitchSelectionMode: r,
+                    SwitchSelectionModeButton: function(e) {
+                        return i.createElement(r, {
+                            mode: e.mode
+                        }, function(e) {
+                            return i.createElement(f, {
+                                isSelected: e.isSelected,
+                                mode: e.mode,
+                                onClick: function() {
+                                    e.onClick()
+                                }
+                            })
+                        })
+                    },
+                    SwitchSelectionModeMenuItem: function(e) {
+                        return i.createElement(r, {
+                            mode: e.mode
+                        }, function(t) {
+                            return i.createElement(g, {
+                                isSelected: t.isSelected,
+                                mode: t.mode,
+                                onClick: function() {
+                                    t.onClick(), e.onClick()
+                                }
+                            })
+                        })
+                    }
+                }
+            }
+        },
+        65453: function(e, t, n) {
+            "use strict";
+            e.exports = n(17196)
+        },
+        93457: function(e, t, n) {
+            "use strict";
+            var r, o, a = n(93214),
+                c = (r = n(2265), o = Object.create(null), r && Object.keys(r).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(r, e);
+                        Object.defineProperty(o, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return r[e]
+                            }
+                        })
+                    }
+                }), o.default = r, Object.freeze(o)),
+                i = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M19.5,15.106l2.4-2.4a1,1,0,0,0,0-1.414l-2.4-2.4V5.5a1,1,0,0,0-1-1H15.106l-2.4-2.4a1,1,0,0,0-1.414,0l-2.4,2.4H5.5a1,1,0,0,0-1,1V8.894l-2.4,2.4a1,1,0,0,0,0,1.414l2.4,2.4V18.5a1,1,0,0,0,1,1H8.894l2.4,2.4a1,1,0,0,0,1.414,0l2.4-2.4H18.5a1,1,0,0,0,1-1Z"
+                    }), c.createElement("path", {
+                        d: "M10,6.349a6,6,0,0,1,0,11.3,6,6,0,1,0,0-11.3Z"
+                    }))
+                },
+                l = function() {
+                    return c.createElement(a.Icon, {
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M19.491,15.106l2.4-2.4a1,1,0,0,0,0-1.414l-2.4-2.4V5.5a1,1,0,0,0-1-1H15.1L12.7,2.1a1,1,0,0,0-1.414,0l-2.4,2.4H5.491a1,1,0,0,0-1,1V8.894l-2.4,2.4a1,1,0,0,0,0,1.414l2.4,2.4V18.5a1,1,0,0,0,1,1H8.885l2.4,2.4a1,1,0,0,0,1.414,0l2.4-2.4h3.394a1,1,0,0,0,1-1Z"
+                    }), c.createElement("path", {
+                        d: "M11.491,6c4,0,6,2.686,6,6s-2,6-6,6Z"
+                    }))
+                },
+                u = function() {
+                    return (u = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                },
+                s = {
+                    left: 0,
+                    top: 8
+                },
+                d = function(e) {
+                    var t = e.onClick,
+                        n = c.useContext(a.ThemeContext),
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = "dark" === n.currentTheme,
+                        u = r && r.theme ? o ? r.theme.switchLightTheme : r.theme.switchDarkTheme : o ? "Switch to the light theme" : "Switch to the dark theme";
+                    return c.createElement(a.Tooltip, {
+                        ariaControlsSuffix: "theme-switch",
+                        position: a.Position.BottomCenter,
+                        target: c.createElement(a.MinimalButton, {
+                            ariaLabel: u,
+                            testId: "theme__switch-button",
+                            onClick: t
+                        }, o ? c.createElement(l, null) : c.createElement(i, null)),
+                        content: function() {
+                            return u
+                        },
+                        offset: s
+                    })
+                },
+                m = function(e) {
+                    var t = e.children,
+                        n = c.useContext(a.ThemeContext);
+                    return (t || function(e) {
+                        return c.createElement(d, {
+                            onClick: e.onClick
+                        })
+                    })({
+                        onClick: function() {
+                            return n.setCurrentTheme("dark" === n.currentTheme ? "light" : "dark")
+                        }
+                    })
+                },
+                f = function(e) {
+                    var t = e.onClick,
+                        n = c.useContext(a.ThemeContext),
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = "dark" === n.currentTheme,
+                        u = r && r.theme ? o ? r.theme.switchLightTheme : r.theme.switchDarkTheme : o ? "Switch to the light theme" : "Switch to the dark theme";
+                    return c.createElement(a.MenuItem, {
+                        icon: o ? c.createElement(l, null) : c.createElement(i, null),
+                        testId: "theme__switch-menu",
+                        onClick: t
+                    }, u)
+                };
+            t.DarkIcon = i, t.LightIcon = l, t.themePlugin = function() {
+                var e = function(e) {
+                    return c.createElement(m, u({}, e))
+                };
+                return {
+                    SwitchTheme: e,
+                    SwitchThemeButton: function() {
+                        return c.createElement(e, null, function(e) {
+                            return c.createElement(d, u({}, e))
+                        })
+                    },
+                    SwitchThemeMenuItem: function(t) {
+                        return c.createElement(e, null, function(e) {
+                            return c.createElement(f, {
+                                onClick: function() {
+                                    e.onClick(), t.onClick()
+                                }
+                            })
+                        })
+                    }
+                }
+            }
+        },
+        11040: function(e, t, n) {
+            "use strict";
+            e.exports = n(93457)
+        },
+        99299: function(e, t, n) {
+            "use strict";
+            var r, o, a, c = n(93214),
+                i = (r = n(2265), o = Object.create(null), r && Object.keys(r).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(r, e);
+                        Object.defineProperty(o, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return r[e]
+                            }
+                        })
+                    }
+                }), o.default = r, Object.freeze(o));
+            t.ThumbnailDirection = void 0, (a = t.ThumbnailDirection || (t.ThumbnailDirection = {})).Horizontal = "Horizontal", a.Vertical = "Vertical";
+            var l = function() {
+                    return (l = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                },
+                u = function(e) {
+                    var t = e.doc,
+                        n = e.getPageIndex,
+                        r = e.renderSpinner,
+                        o = e.store,
+                        a = e.width,
+                        l = t.numPages,
+                        u = Math.max(0, Math.min(n ? n({
+                            numPages: l
+                        }) : 0, l - 1)),
+                        s = o.get("pagesRotation") || new Map,
+                        d = s.has(u) ? s.get(u) : 0,
+                        m = i.useState(""),
+                        f = m[0],
+                        p = m[1],
+                        g = c.useIsMounted(),
+                        h = i.useRef(),
+                        v = i.useState(o.get("rotation") || 0),
+                        b = v[0],
+                        E = v[1],
+                        k = i.useState(d),
+                        C = k[0],
+                        _ = k[1],
+                        S = i.useState(!1),
+                        M = S[0],
+                        P = S[1],
+                        y = function(e) {
+                            _(e.has(u) ? e.get(u) : 0)
+                        },
+                        w = function(e) {
+                            E(e)
+                        },
+                        x = c.useIntersectionObserver({
+                            onVisibilityChanged: function(e) {
+                                P(e.isVisible)
+                            }
+                        });
+                    return i.useEffect(function() {
+                        if (M) {
+                            var e = x.current;
+                            e && (p(""), c.getPage(t, u).then(function(t) {
+                                var n = t.getViewport({
+                                        scale: 1
+                                    }),
+                                    r = (n.rotation + b + C) % 360,
+                                    o = Math.abs(b + C) % 180 == 0,
+                                    c = o ? n.width : n.height,
+                                    i = o ? n.height : n.width,
+                                    l = document.createElement("canvas"),
+                                    u = l.getContext("2d", {
+                                        alpha: !1
+                                    }),
+                                    s = e.clientWidth,
+                                    d = e.clientHeight,
+                                    m = a ? a / c : Math.min(s / c, d / i),
+                                    f = m * c,
+                                    v = m * i;
+                                l.height = v, l.width = f, l.style.opacity = "0";
+                                var E = t.getViewport({
+                                    rotation: r,
+                                    scale: m
+                                });
+                                h.current = t.render({
+                                    canvasContext: u,
+                                    viewport: E
+                                }), h.current.promise.then(function() {
+                                    g.current && p(l.toDataURL()), l.width = 0, l.height = 0
+                                }, function() {})
+                            }))
+                        }
+                    }, [C, M]), i.useEffect(function() {
+                        return o.subscribe("pagesRotation", y), o.subscribe("rotation", w),
+                            function() {
+                                o.unsubscribe("pagesRotation", y), o.unsubscribe("rotation", w)
+                            }
+                    }, []), i.useEffect(function() {
+                        return function() {
+                            var e;
+                            null === (e = h.current) || void 0 === e || e.cancel()
+                        }
+                    }, []), i.createElement("div", {
+                        ref: x,
+                        className: "rpv-thumbnail__cover-inner",
+                        "data-testid": "thumbnail__cover-inner"
+                    }, f ? i.createElement("img", {
+                        className: "rpv-thumbnail__cover-image",
+                        "data-testid": "thumbnail__cover-image",
+                        src: f
+                    }) : i.createElement("div", {
+                        className: "rpv-thumbnail__cover-loader",
+                        "data-testid": "thumbnail__cover-loader"
+                    }, r ? r() : i.createElement(c.Spinner, null)))
+                },
+                s = function(e) {
+                    var t = e.getPageIndex,
+                        n = e.renderSpinner,
+                        r = e.store,
+                        o = e.width,
+                        a = i.useState(r.get("doc")),
+                        l = a[0],
+                        s = a[1],
+                        d = function(e) {
+                            s(e)
+                        };
+                    return i.useEffect(function() {
+                        return r.subscribe("doc", d),
+                            function() {
+                                r.unsubscribe("doc", d)
+                            }
+                    }, []), i.createElement("div", {
+                        className: "rpv-thumbnail__cover"
+                    }, l ? i.createElement(u, {
+                        doc: l,
+                        getPageIndex: t,
+                        renderSpinner: n,
+                        store: r,
+                        width: o
+                    }) : i.createElement("div", {
+                        className: "rpv-thumbnail__cover-loader"
+                    }, n ? n() : i.createElement(c.Spinner, null)))
+                },
+                d = function() {
+                    return i.createElement(c.Spinner, null)
+                },
+                m = i.createContext({
+                    renderSpinner: d
+                }),
+                f = function(e) {
+                    var t = e.children,
+                        n = e.doc,
+                        r = c.useIsMounted(),
+                        o = i.useState({
+                            loading: !0,
+                            labels: []
+                        }),
+                        a = o[0],
+                        l = o[1];
+                    return i.useEffect(function() {
+                        n.getPageLabels().then(function(e) {
+                            r.current && l({
+                                loading: !1,
+                                labels: e || []
+                            })
+                        })
+                    }, [n.loadingTask.docId]), a.loading ? i.createElement(i.Fragment, null) : t(a.labels)
+                },
+                p = function(e) {
+                    var t = e.page,
+                        n = e.pageHeight,
+                        r = e.pageIndex,
+                        o = e.pageWidth,
+                        a = e.rotation,
+                        l = e.thumbnailHeight,
+                        u = e.thumbnailWidth,
+                        s = e.onRenderCompleted,
+                        d = i.useContext(c.LocalizationContext).l10n,
+                        f = i.useRef(),
+                        p = i.useState(""),
+                        g = p[0],
+                        h = p[1],
+                        v = d && d.thumbnail ? d.thumbnail.thumbnailLabel : "Thumbnail of page {{pageIndex}}";
+                    return i.useEffect(function() {
+                        var e = f.current;
+                        e && e.cancel();
+                        var c = document.createElement("canvas"),
+                            i = c.getContext("2d", {
+                                alpha: !1
+                            }),
+                            l = u / (o / n);
+                        c.height = l, c.width = u, c.style.height = "".concat(l, "px"), c.style.width = "".concat(u, "px");
+                        var d = t.getViewport({
+                            rotation: a,
+                            scale: u / o
+                        });
+                        return f.current = t.render({
+                                canvasContext: i,
+                                viewport: d
+                            }), f.current.promise.then(function() {
+                                h(c.toDataURL()), s(r)
+                            }, function() {
+                                s(r)
+                            }),
+                            function() {
+                                var e;
+                                null === (e = f.current) || void 0 === e || e.cancel()
+                            }
+                    }, [a]), g ? i.createElement("img", {
+                        "aria-label": v.replace("{{pageIndex}}", "".concat(r + 1)),
+                        src: g,
+                        height: "".concat(l, "px"),
+                        width: "".concat(u, "px")
+                    }) : i.useContext(m).renderSpinner()
+                },
+                g = function(e) {
+                    var t = e.doc,
+                        n = e.pageHeight,
+                        r = e.pageIndex,
+                        o = e.pageRotation,
+                        a = e.pageWidth,
+                        l = e.rotation,
+                        u = e.shouldRender,
+                        s = e.thumbnailWidth,
+                        d = e.onRenderCompleted,
+                        f = e.onVisibilityChanged,
+                        g = c.useIsMounted(),
+                        h = i.useState({
+                            height: n,
+                            page: null,
+                            viewportRotation: 0,
+                            width: a
+                        }),
+                        v = h[0],
+                        b = h[1],
+                        E = v.page,
+                        k = v.height,
+                        C = v.width,
+                        _ = C / k,
+                        S = Math.abs(l + o) % 180 == 0,
+                        M = S ? s : s / _,
+                        P = S ? s / _ : s;
+                    i.useEffect(function() {
+                        u && c.getPage(t, r).then(function(e) {
+                            var t = e.getViewport({
+                                scale: 1
+                            });
+                            g.current && b({
+                                height: t.height,
+                                page: e,
+                                viewportRotation: t.rotation,
+                                width: t.width
+                            })
+                        })
+                    }, [u]);
+                    var y = (v.viewportRotation + l + o) % 360,
+                        w = c.useIntersectionObserver({
+                            onVisibilityChanged: function(e) {
+                                f(r, e)
+                            }
+                        });
+                    return i.createElement("div", {
+                        className: "rpv-thumbnail__container",
+                        "data-testid": "thumbnail__container-".concat(r),
+                        ref: w,
+                        style: {
+                            height: "".concat(P, "px"),
+                            width: "".concat(M, "px")
+                        }
+                    }, E ? i.createElement(p, {
+                        page: E,
+                        pageHeight: S ? k : C,
+                        pageIndex: r,
+                        pageWidth: S ? C : k,
+                        rotation: y,
+                        thumbnailHeight: P,
+                        thumbnailWidth: M,
+                        onRenderCompleted: d
+                    }) : i.useContext(m).renderSpinner())
+                },
+                h = function(e) {
+                    var n = e.currentPage,
+                        r = e.doc,
+                        o = e.labels,
+                        a = e.pagesRotation,
+                        l = e.pageHeight,
+                        u = e.pageWidth,
+                        s = e.renderCurrentPageLabel,
+                        d = e.renderThumbnailItem,
+                        m = e.rotatedPage,
+                        f = e.rotation,
+                        p = e.thumbnailDirection,
+                        h = e.thumbnailWidth,
+                        v = e.viewMode,
+                        b = e.onJumpToPage,
+                        E = e.onRotatePage,
+                        k = r.numPages,
+                        C = r.loadingTask.docId,
+                        _ = i.useRef(null),
+                        S = i.useRef([]),
+                        M = i.useState(n),
+                        P = M[0],
+                        y = M[1],
+                        w = i.useContext(c.ThemeContext).direction === c.TextDirection.RightToLeft,
+                        x = i.useState(-1),
+                        I = x[0],
+                        T = x[1],
+                        L = c.useIsMounted(),
+                        O = c.usePrevious(v),
+                        D = i.useRef(!1),
+                        N = c.useRenderQueue({
+                            doc: r
+                        }),
+                        z = i.useMemo(function() {
+                            return Array(k).fill(0).map(function(e, t) {
+                                return t
+                            })
+                        }, [C]),
+                        R = i.useMemo(function() {
+                            switch (v) {
+                                case c.ViewMode.DualPage:
+                                    return c.chunk(z, 2);
+                                case c.ViewMode.DualPageWithCover:
+                                    return [
+                                        [z[0]]
+                                    ].concat(c.chunk(z.slice(1), 2));
+                                case c.ViewMode.SinglePage:
+                                default:
+                                    return c.chunk(z, 1)
+                            }
+                        }, [C, v]),
+                        j = function() {
+                            if (_.current) {
+                                var e = S.current,
+                                    t = P + 1;
+                                t < e.length && (P >= 0 && e[P].setAttribute("tabindex", "-1"), y(t))
+                            }
+                        },
+                        F = function() {
+                            if (_.current) {
+                                var e = S.current,
+                                    t = P - 1;
+                                t >= 0 && (P >= 0 && e[P].setAttribute("tabindex", "-1"), y(t))
+                            }
+                        },
+                        B = function() {
+                            P >= 0 && P < k && b(P)
+                        };
+                    c.useIsomorphicLayoutEffect(function() {
+                        var e = _.current;
+                        e && (S.current = Array.from(e.querySelectorAll(".rpv-thumbnail__item")))
+                    }, [v]), i.useEffect(function() {
+                        var e = S.current;
+                        if (!(0 === e.length || P < 0 || P > e.length)) {
+                            var t = e[P];
+                            t.setAttribute("tabindex", "0"), t.focus()
+                        }
+                    }, [P]), c.useIsomorphicLayoutEffect(function() {
+                        var e = _.current,
+                            r = S.current;
+                        if (!(!e || 0 === r.length || n < 0 || n > r.length)) {
+                            var o, a, c, i, l, u, s = r[n].closest(".rpv-thumbnail__items");
+                            s && (p === t.ThumbnailDirection.Vertical ? (o = s.getBoundingClientRect().top - e.getBoundingClientRect().top, a = s.clientHeight, c = e.clientHeight, o < 0 ? e.scrollTop += o : o + a <= c || (e.scrollTop += o + a - c)) : (i = s.getBoundingClientRect().left - e.getBoundingClientRect().left, l = s.clientWidth, u = e.clientWidth, i < 0 ? e.scrollLeft += i : i + l <= u || (e.scrollLeft += i + l - u)))
+                        }
+                    }, [n, p]);
+                    var V = i.useCallback(function(e) {
+                            L.current && (N.markRendered(e), D.current = !1, H())
+                        }, [C]),
+                        A = i.useCallback(function(e, t) {
+                            t.isVisible ? N.setVisibility(e, t.ratio) : N.setOutOfRange(e), H()
+                        }, [C]),
+                        H = i.useCallback(function() {
+                            if (!D.current) {
+                                var e = N.getHighestPriorityPage();
+                                e > -1 && (N.markRendering(e), D.current = !0, T(e))
+                            }
+                        }, [C]);
+                    return i.useEffect(function() {
+                        m >= 0 && (N.markRendering(m), D.current = !0, T(m))
+                    }, [C, m]), c.useIsomorphicLayoutEffect(function() {
+                        O !== v && (N.markNotRendered(), H())
+                    }, [v]), i.createElement("div", {
+                        ref: _,
+                        "data-testid": "thumbnail__list",
+                        className: c.classNames({
+                            "rpv-thumbnail__list": !0,
+                            "rpv-thumbnail__list--horizontal": p === t.ThumbnailDirection.Horizontal,
+                            "rpv-thumbnail__list--rtl": w,
+                            "rpv-thumbnail__list--vertical": p === t.ThumbnailDirection.Vertical
+                        }),
+                        onKeyDown: function(e) {
+                            switch (e.key) {
+                                case "ArrowDown":
+                                    j();
+                                    break;
+                                case "ArrowUp":
+                                    F();
+                                    break;
+                                case "Enter":
+                                    B()
+                            }
+                        }
+                    }, R.map(function(e, t) {
+                        var m = !1;
+                        switch (v) {
+                            case c.ViewMode.DualPage:
+                                m = n === 2 * t || n === 2 * t + 1;
+                                break;
+                            case c.ViewMode.DualPageWithCover:
+                                m = 0 === n && 0 === t || t > 0 && n === 2 * t - 1 || t > 0 && n === 2 * t;
+                                break;
+                            case c.ViewMode.SinglePage:
+                            default:
+                                m = n === t
+                        }
+                        return i.createElement("div", {
+                            className: c.classNames({
+                                "rpv-thumbnail__items": !0,
+                                "rpv-thumbnail__items--dual": v === c.ViewMode.DualPage,
+                                "rpv-thumbnail__items--dual-cover": v === c.ViewMode.DualPageWithCover,
+                                "rpv-thumbnail__items--single": v === c.ViewMode.SinglePage,
+                                "rpv-thumbnail__items--selected": m
+                            }),
+                            key: "".concat(t, "___").concat(v)
+                        }, e.map(function(e) {
+                            var t, m, p, C, _, S;
+                            return t = v === c.ViewMode.DualPageWithCover && (0 === e || k % 2 == 0 && e === k - 1), m = "".concat(r.loadingTask.docId, "___").concat(e), p = o.length === k ? o[e] : "".concat(e + 1), C = s ? s({
+                                currentPage: n,
+                                pageIndex: e,
+                                numPages: k,
+                                pageLabel: p
+                            }) : p, _ = a.has(e) ? a.get(e) : 0, S = i.createElement(g, {
+                                doc: r,
+                                pageHeight: l,
+                                pageIndex: e,
+                                pageRotation: _,
+                                pageWidth: u,
+                                rotation: f,
+                                shouldRender: I === e,
+                                thumbnailWidth: h,
+                                onRenderCompleted: V,
+                                onVisibilityChanged: A
+                            }), d ? d({
+                                currentPage: n,
+                                key: m,
+                                numPages: k,
+                                pageIndex: e,
+                                renderPageLabel: i.createElement(i.Fragment, null, C),
+                                renderPageThumbnail: S,
+                                onJumpToPage: function() {
+                                    return b(e)
+                                },
+                                onRotatePage: function(t) {
+                                    return E(e, t)
+                                }
+                            }) : i.createElement("div", {
+                                key: m
+                            }, i.createElement("div", {
+                                className: c.classNames({
+                                    "rpv-thumbnail__item": !0,
+                                    "rpv-thumbnail__item--dual-even": v === c.ViewMode.DualPage && e % 2 == 0,
+                                    "rpv-thumbnail__item--dual-odd": v === c.ViewMode.DualPage && e % 2 == 1,
+                                    "rpv-thumbnail__item--dual-cover": t,
+                                    "rpv-thumbnail__item--dual-cover-even": v === c.ViewMode.DualPageWithCover && !t && e % 2 == 0,
+                                    "rpv-thumbnail__item--dual-cover-odd": v === c.ViewMode.DualPageWithCover && !t && e % 2 == 1,
+                                    "rpv-thumbnail__item--single": v === c.ViewMode.SinglePage,
+                                    "rpv-thumbnail__item--selected": n === e
+                                }),
+                                role: "button",
+                                tabIndex: n === e ? 0 : -1,
+                                onClick: function() {
+                                    return b(e)
+                                }
+                            }, S), i.createElement("div", {
+                                "data-testid": "thumbnail__label-".concat(e),
+                                className: "rpv-thumbnail__label"
+                            }, C))
+                        }))
+                    }))
+                },
+                v = function(e) {
+                    var t = e.renderCurrentPageLabel,
+                        n = e.renderThumbnailItem,
+                        r = e.store,
+                        o = e.thumbnailDirection,
+                        a = e.thumbnailWidth,
+                        l = i.useState(r.get("doc")),
+                        u = l[0],
+                        s = l[1],
+                        d = i.useState(r.get("currentPage") || 0),
+                        p = d[0],
+                        g = d[1],
+                        v = i.useState(r.get("pageHeight") || 0),
+                        b = v[0],
+                        E = v[1],
+                        k = i.useState(r.get("pageWidth") || 0),
+                        C = k[0],
+                        _ = k[1],
+                        S = i.useState(r.get("rotation") || 0),
+                        M = S[0],
+                        P = S[1],
+                        y = i.useState(r.get("pagesRotation") || new Map),
+                        w = y[0],
+                        x = y[1],
+                        I = i.useState(r.get("rotatedPage") || -1),
+                        T = I[0],
+                        L = I[1],
+                        O = i.useState(r.get("viewMode")),
+                        D = O[0],
+                        N = O[1],
+                        z = function(e) {
+                            g(e)
+                        },
+                        R = function(e) {
+                            s(e)
+                        },
+                        j = function(e) {
+                            E(e)
+                        },
+                        F = function(e) {
+                            _(e)
+                        },
+                        B = function(e) {
+                            P(e)
+                        },
+                        V = function(e) {
+                            x(e)
+                        },
+                        A = function(e) {
+                            L(e)
+                        },
+                        H = function(e) {
+                            N(e)
+                        },
+                        W = function(e) {
+                            var t = r.get("jumpToPage");
+                            t && t(e)
+                        },
+                        K = function(e, t) {
+                            r.get("rotatePage")(e, t)
+                        };
+                    return i.useEffect(function() {
+                        return r.subscribe("doc", R), r.subscribe("pageHeight", j), r.subscribe("pageWidth", F), r.subscribe("rotatedPage", A), r.subscribe("rotation", B), r.subscribe("pagesRotation", V), r.subscribe("viewMode", H),
+                            function() {
+                                r.unsubscribe("doc", R), r.unsubscribe("pageHeight", j), r.unsubscribe("pageWidth", F), r.unsubscribe("rotatedPage", A), r.unsubscribe("rotation", B), r.unsubscribe("pagesRotation", V), r.unsubscribe("viewMode", H)
+                            }
+                    }, []), c.useIsomorphicLayoutEffect(function() {
+                        return r.subscribe("currentPage", z),
+                            function() {
+                                r.unsubscribe("currentPage", z)
+                            }
+                    }, []), u ? i.createElement(c.LazyRender, {
+                        testId: "thumbnail__list-container",
+                        attrs: {
+                            className: "rpv-thumbnail__list-container"
+                        }
+                    }, i.createElement(f, {
+                        doc: u
+                    }, function(e) {
+                        return i.createElement(h, {
+                            currentPage: p,
+                            doc: u,
+                            labels: e,
+                            pagesRotation: w,
+                            pageHeight: b,
+                            pageWidth: C,
+                            renderCurrentPageLabel: t,
+                            renderThumbnailItem: n,
+                            rotatedPage: T,
+                            rotation: M,
+                            thumbnailDirection: o,
+                            thumbnailWidth: a,
+                            viewMode: D,
+                            onJumpToPage: W,
+                            onRotatePage: K
+                        })
+                    })) : i.createElement("div", {
+                        "data-testid": "thumbnail-list__loader",
+                        className: "rpv-thumbnail__loader"
+                    }, i.useContext(m).renderSpinner())
+                };
+            t.thumbnailPlugin = function(e) {
+                var n = i.useMemo(function() {
+                        return c.createStore({
+                            rotatePage: function() {},
+                            viewMode: c.ViewMode.SinglePage
+                        })
+                    }, []),
+                    r = i.useState(""),
+                    o = r[0],
+                    a = r[1];
+                return {
+                    install: function(e) {
+                        n.update("jumpToPage", e.jumpToPage), n.update("rotatePage", e.rotatePage)
+                    },
+                    onDocumentLoad: function(e) {
+                        a(e.doc.loadingTask.docId), n.update("doc", e.doc)
+                    },
+                    onViewerStateChange: function(e) {
+                        return n.update("currentPage", e.pageIndex), n.update("pagesRotation", e.pagesRotation), n.update("pageHeight", e.pageHeight), n.update("pageWidth", e.pageWidth), n.update("rotation", e.rotation), n.update("rotatedPage", e.rotatedPage), n.update("viewMode", e.viewMode), e
+                    },
+                    Cover: function(t) {
+                        return i.createElement(s, l({}, t, {
+                            renderSpinner: null == e ? void 0 : e.renderSpinner,
+                            store: n
+                        }))
+                    },
+                    Thumbnails: i.useCallback(function(r) {
+                        return i.createElement(m.Provider, {
+                            value: {
+                                renderSpinner: (null == e ? void 0 : e.renderSpinner) || d
+                            }
+                        }, i.createElement(v, {
+                            renderCurrentPageLabel: null == e ? void 0 : e.renderCurrentPageLabel,
+                            renderThumbnailItem: null == r ? void 0 : r.renderThumbnailItem,
+                            store: n,
+                            thumbnailDirection: (null == r ? void 0 : r.thumbnailDirection) || t.ThumbnailDirection.Vertical,
+                            thumbnailWidth: (null == e ? void 0 : e.thumbnailWidth) || 100
+                        }))
+                    }, [o])
+                }
+            }
+        },
+        14741: function(e, t, n) {
+            "use strict";
+            e.exports = n(99299)
+        },
+        85601: function(e, t, n) {
+            "use strict";
+            var r, o = n(93214),
+                a = n(65453),
+                c = n(2265),
+                i = n(45093),
+                l = n(9154),
+                u = n(76963),
+                s = n(74402),
+                d = n(84526),
+                m = n(13335),
+                f = n(78283),
+                p = n(65098),
+                g = n(27422),
+                h = n(11040),
+                v = n(56936),
+                b = (r = Object.create(null), c && Object.keys(c).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(c, e);
+                        Object.defineProperty(r, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return c[e]
+                            }
+                        })
+                    }
+                }), r.default = c, Object.freeze(r)),
+                E = function() {
+                    return b.createElement(o.Icon, {
+                        size: 16
+                    }, b.createElement("path", {
+                        d: "M12,0.5c1.381,0,2.5,1.119,2.5,2.5S13.381,5.5,12,5.5S9.5,4.381,9.5,3S10.619,0.5,12,0.5z\n            M12,9.5\n            c1.381,0,2.5,1.119,2.5,2.5s-1.119,2.5-2.5,2.5S9.5,13.381,9.5,12S10.619,9.5,12,9.5z\n            M12,18.5c1.381,0,2.5,1.119,2.5,2.5\n            s-1.119,2.5-2.5,2.5S9.5,22.381,9.5,21S10.619,18.5,12,18.5z"
+                    }))
+                },
+                k = {
+                    left: 0,
+                    top: 8
+                },
+                C = function(e) {
+                    var t = e.toolbarSlot,
+                        n = b.useContext(o.LocalizationContext).l10n,
+                        r = b.useContext(o.ThemeContext).direction === o.TextDirection.RightToLeft ? o.Position.BottomLeft : o.Position.BottomRight,
+                        c = t.DownloadMenuItem,
+                        i = t.EnterFullScreenMenuItem,
+                        l = t.GoToFirstPageMenuItem,
+                        u = t.GoToLastPageMenuItem,
+                        s = t.GoToNextPageMenuItem,
+                        d = t.GoToPreviousPageMenuItem,
+                        m = t.OpenMenuItem,
+                        f = t.PrintMenuItem,
+                        p = t.RotateBackwardMenuItem,
+                        g = t.RotateForwardMenuItem,
+                        h = t.ShowPropertiesMenuItem,
+                        v = t.SwitchScrollModeMenuItem,
+                        C = t.SwitchSelectionModeMenuItem,
+                        _ = t.SwitchViewModeMenuItem,
+                        S = t.SwitchThemeMenuItem;
+                    return b.createElement(o.Popover, {
+                        ariaControlsSuffix: "toolbar-more-actions",
+                        ariaHasPopup: "menu",
+                        position: r,
+                        target: function(e, t) {
+                            var a = n && n.toolbar ? n.toolbar.moreActions : "More actions";
+                            return b.createElement(o.Tooltip, {
+                                ariaControlsSuffix: "toolbar-more-actions",
+                                position: r,
+                                target: b.createElement(o.MinimalButton, {
+                                    ariaLabel: a,
+                                    isSelected: t,
+                                    testId: "toolbar__more-actions-popover-target",
+                                    onClick: e
+                                }, b.createElement(E, null)),
+                                content: function() {
+                                    return a
+                                },
+                                offset: k
+                            })
+                        },
+                        content: function(e) {
+                            return b.createElement(o.Menu, null, b.createElement("div", {
+                                className: "rpv-core__display--block rpv-core__display--hidden-medium"
+                            }, b.createElement(S, {
+                                onClick: e
+                            })), b.createElement("div", {
+                                className: "rpv-core__display--block rpv-core__display--hidden-medium"
+                            }, b.createElement(i, {
+                                onClick: e
+                            })), b.createElement("div", {
+                                className: "rpv-core__display--block rpv-core__display--hidden-medium"
+                            }, b.createElement(m, null)), b.createElement("div", {
+                                className: "rpv-core__display--block rpv-core__display--hidden-medium"
+                            }, b.createElement(f, {
+                                onClick: e
+                            })), b.createElement("div", {
+                                className: "rpv-core__display--block rpv-core__display--hidden-medium"
+                            }, b.createElement(c, {
+                                onClick: e
+                            })), b.createElement("div", {
+                                className: "rpv-core__display--block rpv-core__display--hidden-medium"
+                            }, b.createElement(o.MenuDivider, null)), b.createElement(l, {
+                                onClick: e
+                            }), b.createElement("div", {
+                                className: "rpv-core__display--block rpv-core__display--hidden-medium"
+                            }, b.createElement(d, {
+                                onClick: e
+                            })), b.createElement("div", {
+                                className: "rpv-core__display--block rpv-core__display--hidden-medium"
+                            }, b.createElement(s, {
+                                onClick: e
+                            })), b.createElement(u, {
+                                onClick: e
+                            }), b.createElement(o.MenuDivider, null), b.createElement(g, {
+                                onClick: e
+                            }), b.createElement(p, {
+                                onClick: e
+                            }), b.createElement(o.MenuDivider, null), b.createElement(C, {
+                                mode: a.SelectionMode.Text,
+                                onClick: e
+                            }), b.createElement(C, {
+                                mode: a.SelectionMode.Hand,
+                                onClick: e
+                            }), b.createElement(o.MenuDivider, null), b.createElement(v, {
+                                mode: o.ScrollMode.Page,
+                                onClick: e
+                            }), b.createElement(v, {
+                                mode: o.ScrollMode.Vertical,
+                                onClick: e
+                            }), b.createElement(v, {
+                                mode: o.ScrollMode.Horizontal,
+                                onClick: e
+                            }), b.createElement(v, {
+                                mode: o.ScrollMode.Wrapped,
+                                onClick: e
+                            }), b.createElement(o.MenuDivider, null), b.createElement("div", {
+                                className: "rpv-core__display--hidden rpv-core__display--block-small"
+                            }, b.createElement(_, {
+                                mode: o.ViewMode.SinglePage,
+                                onClick: e
+                            })), b.createElement("div", {
+                                className: "rpv-core__display--hidden rpv-core__display--block-small"
+                            }, b.createElement(_, {
+                                mode: o.ViewMode.DualPage,
+                                onClick: e
+                            })), b.createElement("div", {
+                                className: "rpv-core__display--hidden rpv-core__display--block-small"
+                            }, b.createElement(_, {
+                                mode: o.ViewMode.DualPageWithCover,
+                                onClick: e
+                            })), b.createElement("div", {
+                                className: "rpv-core__display--hidden rpv-core__display--block-small"
+                            }, b.createElement(o.MenuDivider, null)), b.createElement(h, {
+                                onClick: e
+                            }))
+                        },
+                        offset: k,
+                        closeOnClickOutside: !0,
+                        closeOnEscape: !0
+                    })
+                },
+                _ = function() {
+                    return (_ = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                },
+                S = function(e) {
+                    return function(t) {
+                        var n = b.useMemo(function() {
+                                return e(t)
+                            }, []),
+                            r = b.useContext(o.ThemeContext).direction === o.TextDirection.RightToLeft,
+                            a = n.CurrentPageInput,
+                            c = n.Download,
+                            i = n.EnterFullScreen,
+                            l = n.GoToNextPage,
+                            u = n.GoToPreviousPage,
+                            s = n.NumberOfPages,
+                            d = n.Open,
+                            m = n.Print,
+                            f = n.ShowSearchPopover,
+                            p = n.SwitchTheme,
+                            g = n.Zoom,
+                            h = n.ZoomIn,
+                            v = n.ZoomOut;
+                        return b.createElement("div", {
+                            "data-testid": "toolbar",
+                            className: o.classNames({
+                                "rpv-toolbar": !0,
+                                "rpv-toolbar--rtl": r
+                            }),
+                            role: "toolbar",
+                            "aria-orientation": "horizontal"
+                        }, b.createElement("div", {
+                            className: "rpv-toolbar__left"
+                        }, b.createElement("div", {
+                            className: "rpv-toolbar__item"
+                        }, b.createElement(f, null)), b.createElement("div", {
+                            className: "rpv-core__display--hidden rpv-core__display--block-small"
+                        }, b.createElement("div", {
+                            className: "rpv-toolbar__item"
+                        }, b.createElement(u, null))), b.createElement("div", {
+                            className: "rpv-toolbar__item"
+                        }, b.createElement(a, null), b.createElement("span", {
+                            className: "rpv-toolbar__label"
+                        }, b.createElement(s, null))), b.createElement("div", {
+                            className: "rpv-core__display--hidden rpv-core__display--block-small"
+                        }, b.createElement("div", {
+                            className: "rpv-toolbar__item"
+                        }, b.createElement(l, null)))), b.createElement("div", {
+                            className: "rpv-toolbar__center"
+                        }, b.createElement("div", {
+                            className: "rpv-toolbar__item"
+                        }, b.createElement(v, null)), b.createElement("div", {
+                            className: "rpv-core__display--hidden rpv-core__display--block-small"
+                        }, b.createElement("div", {
+                            className: "rpv-toolbar__item"
+                        }, b.createElement(g, null))), b.createElement("div", {
+                            className: "rpv-toolbar__item"
+                        }, b.createElement(h, null))), b.createElement("div", {
+                            className: "rpv-toolbar__right"
+                        }, b.createElement("div", {
+                            className: "rpv-core__display--hidden rpv-core__display--block-medium"
+                        }, b.createElement("div", {
+                            className: "rpv-toolbar__item"
+                        }, b.createElement(p, null))), b.createElement("div", {
+                            className: "rpv-core__display--hidden rpv-core__display--block-medium"
+                        }, b.createElement("div", {
+                            className: "rpv-toolbar__item"
+                        }, b.createElement(i, null))), b.createElement("div", {
+                            className: "rpv-core__display--hidden rpv-core__display--block-medium"
+                        }, b.createElement("div", {
+                            className: "rpv-toolbar__item"
+                        }, b.createElement(d, null))), b.createElement("div", {
+                            className: "rpv-core__display--hidden rpv-core__display--block-medium"
+                        }, b.createElement("div", {
+                            className: "rpv-toolbar__item"
+                        }, b.createElement(c, null))), b.createElement("div", {
+                            className: "rpv-core__display--hidden rpv-core__display--block-medium"
+                        }, b.createElement("div", {
+                            className: "rpv-toolbar__item"
+                        }, b.createElement(m, null))), b.createElement("div", {
+                            className: "rpv-toolbar__item"
+                        }, b.createElement(C, {
+                            toolbarSlot: n
+                        }))))
+                    }
+                },
+                M = function(e) {
+                    var t = e.NumberOfPages;
+                    return Object.assign({}, e, {
+                        NumberOfPages: function() {
+                            return b.createElement(b.Fragment, null, "/ ", b.createElement(t, null))
+                        }
+                    })
+                },
+                P = function(e) {
+                    return (e.children || function(e) {
+                        return S(M)(e)
+                    })(e.slot)
+                };
+            t.MoreActionsPopover = C, t.MoreIcon = E, t.toolbarPlugin = function(e) {
+                var t = i.fullScreenPlugin(e ? e.fullScreenPlugin : {}),
+                    n = l.getFilePlugin(e ? e.getFilePlugin : {}),
+                    r = u.openPlugin(e ? e.openPlugin : {}),
+                    o = s.pageNavigationPlugin(e ? e.pageNavigationPlugin : {}),
+                    c = d.printPlugin(e ? e.printPlugin : {}),
+                    E = m.propertiesPlugin(),
+                    k = f.rotatePlugin(),
+                    C = p.scrollModePlugin(),
+                    M = g.searchPlugin(e ? e.searchPlugin : {}),
+                    y = a.selectionModePlugin(e ? e.selectionModePlugin : {}),
+                    w = h.themePlugin(),
+                    x = v.zoomPlugin(e ? e.zoomPlugin : {}),
+                    I = [t, n, r, o, c, E, k, C, M, y, w, x],
+                    T = b.useCallback(function(e) {
+                        var a = t.EnterFullScreen,
+                            i = t.EnterFullScreenMenuItem,
+                            l = n.Download,
+                            u = n.DownloadMenuItem,
+                            s = r.Open,
+                            d = r.OpenMenuItem,
+                            m = o.CurrentPageInput,
+                            f = o.CurrentPageLabel,
+                            p = o.GoToFirstPage,
+                            g = o.GoToFirstPageMenuItem,
+                            h = o.GoToLastPage,
+                            v = o.GoToLastPageMenuItem,
+                            S = o.GoToNextPage,
+                            I = o.GoToNextPageMenuItem,
+                            T = o.GoToPreviousPage,
+                            L = o.GoToPreviousPageMenuItem,
+                            O = o.NumberOfPages,
+                            D = c.Print,
+                            N = c.PrintMenuItem,
+                            z = E.ShowProperties,
+                            R = E.ShowPropertiesMenuItem,
+                            j = k.Rotate,
+                            F = k.RotateBackwardMenuItem,
+                            B = k.RotateForwardMenuItem,
+                            V = C.SwitchScrollMode,
+                            A = C.SwitchScrollModeMenuItem,
+                            H = C.SwitchViewMode,
+                            W = C.SwitchViewModeMenuItem,
+                            K = M.Search,
+                            Z = M.ShowSearchPopover,
+                            G = y.SwitchSelectionMode,
+                            U = y.SwitchSelectionModeMenuItem,
+                            q = w.SwitchTheme,
+                            J = w.SwitchThemeMenuItem,
+                            X = x.CurrentScale,
+                            Y = x.Zoom,
+                            $ = x.ZoomIn,
+                            Q = x.ZoomInMenuItem,
+                            ee = x.ZoomOut,
+                            et = x.ZoomOutMenuItem;
+                        return b.createElement(P, _({}, e, {
+                            slot: {
+                                CurrentPageInput: m,
+                                CurrentPageLabel: f,
+                                CurrentScale: X,
+                                Download: l,
+                                DownloadMenuItem: u,
+                                EnterFullScreen: a,
+                                EnterFullScreenMenuItem: i,
+                                GoToFirstPage: p,
+                                GoToFirstPageMenuItem: g,
+                                GoToLastPage: h,
+                                GoToLastPageMenuItem: v,
+                                GoToNextPage: S,
+                                GoToNextPageMenuItem: I,
+                                GoToPreviousPage: T,
+                                GoToPreviousPageMenuItem: L,
+                                NumberOfPages: O,
+                                Open: s,
+                                OpenMenuItem: d,
+                                Print: D,
+                                PrintMenuItem: N,
+                                Rotate: j,
+                                RotateBackwardMenuItem: F,
+                                RotateForwardMenuItem: B,
+                                Search: K,
+                                ShowProperties: z,
+                                ShowPropertiesMenuItem: R,
+                                ShowSearchPopover: Z,
+                                SwitchScrollMode: V,
+                                SwitchScrollModeMenuItem: A,
+                                SwitchSelectionMode: G,
+                                SwitchSelectionModeMenuItem: U,
+                                SwitchViewMode: H,
+                                SwitchViewModeMenuItem: W,
+                                SwitchTheme: q,
+                                SwitchThemeMenuItem: J,
+                                Zoom: Y,
+                                ZoomIn: $,
+                                ZoomInMenuItem: Q,
+                                ZoomOut: ee,
+                                ZoomOutMenuItem: et
+                            }
+                        }))
+                    }, []);
+                return {
+                    fullScreenPluginInstance: t,
+                    getFilePluginInstance: n,
+                    openPluginInstance: r,
+                    pageNavigationPluginInstance: o,
+                    printPluginInstance: c,
+                    propertiesPluginInstance: E,
+                    rotatePluginInstance: k,
+                    scrollModePluginInstance: C,
+                    searchPluginInstance: M,
+                    selectionModePluginInstance: y,
+                    themePluginInstance: w,
+                    zoomPluginInstance: x,
+                    install: function(e) {
+                        I.forEach(function(t) {
+                            t.install && t.install(e)
+                        })
+                    },
+                    renderPageLayer: function(e) {
+                        return b.createElement(b.Fragment, null, I.map(function(t, n) {
+                            return t.renderPageLayer ? b.createElement(b.Fragment, {
+                                key: n
+                            }, t.renderPageLayer(e)) : b.createElement(b.Fragment, {
+                                key: n
+                            })
+                        }))
+                    },
+                    renderViewer: function(e) {
+                        var t = e.slot;
+                        return I.forEach(function(n) {
+                            n.renderViewer && (t = n.renderViewer(_(_({}, e), {
+                                slot: t
+                            })))
+                        }), t
+                    },
+                    uninstall: function(e) {
+                        I.forEach(function(t) {
+                            t.uninstall && t.uninstall(e)
+                        })
+                    },
+                    onDocumentLoad: function(e) {
+                        I.forEach(function(t) {
+                            t.onDocumentLoad && t.onDocumentLoad(e)
+                        })
+                    },
+                    onAnnotationLayerRender: function(e) {
+                        I.forEach(function(t) {
+                            t.onAnnotationLayerRender && t.onAnnotationLayerRender(e)
+                        })
+                    },
+                    onTextLayerRender: function(e) {
+                        I.forEach(function(t) {
+                            t.onTextLayerRender && t.onTextLayerRender(e)
+                        })
+                    },
+                    onViewerStateChange: function(e) {
+                        var t = e;
+                        return I.forEach(function(e) {
+                            e.onViewerStateChange && (t = e.onViewerStateChange(t))
+                        }), t
+                    },
+                    renderDefaultToolbar: S,
+                    Toolbar: T
+                }
+            }
+        },
+        67635: function(e, t, n) {
+            "use strict";
+            e.exports = n(85601)
+        },
+        30023: function(e, t, n) {
+            "use strict";
+            var r, o, a = n(93214),
+                c = (r = n(2265), o = Object.create(null), r && Object.keys(r).forEach(function(e) {
+                    if ("default" !== e) {
+                        var t = Object.getOwnPropertyDescriptor(r, e);
+                        Object.defineProperty(o, e, t.get ? t : {
+                            enumerable: !0,
+                            get: function() {
+                                return r[e]
+                            }
+                        })
+                    }
+                }), o.default = r, Object.freeze(o)),
+                i = function() {
+                    return c.createElement(a.Icon, {
+                        ignoreDirection: !0,
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M10.5,0.499c5.523,0,10,4.477,10,10s-4.477,10-10,10s-10-4.477-10-10S4.977,0.499,10.5,0.499z\n            M23.5,23.499\n            l-5.929-5.929\n            M5.5,10.499h10\n            M10.5,5.499v10"
+                    }))
+                },
+                l = function() {
+                    return c.createElement(a.Icon, {
+                        ignoreDirection: !0,
+                        size: 16
+                    }, c.createElement("path", {
+                        d: "M10.5,0.499c5.523,0,10,4.477,10,10s-4.477,10-10,10s-10-4.477-10-10S4.977,0.499,10.5,0.499z\n            M23.5,23.499\n            l-5.929-5.929\n            M5.5,10.499h10"
+                    }))
+                },
+                u = function() {
+                    return (u = Object.assign || function(e) {
+                        for (var t, n = 1, r = arguments.length; n < r; n++)
+                            for (var o in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, o) && (e[o] = t[o]);
+                        return e
+                    }).apply(this, arguments)
+                },
+                s = function(e) {
+                    var t = c.useState(e.get("scale") || 0),
+                        n = t[0],
+                        r = t[1],
+                        o = function(e) {
+                            r(e)
+                        };
+                    return c.useEffect(function() {
+                        return e.subscribe("scale", o),
+                            function() {
+                                e.unsubscribe("scale", o)
+                            }
+                    }, []), {
+                        scale: n
+                    }
+                },
+                d = function(e) {
+                    return (e.children || function(e) {
+                        return c.createElement(c.Fragment, null, "".concat(Math.round(100 * e.scale), "%"))
+                    })({
+                        scale: s(e.store).scale
+                    })
+                },
+                m = {
+                    passive: !1
+                },
+                f = null,
+                p = function(e) {
+                    var t = e.pagesContainerRef,
+                        n = e.store,
+                        r = a.useDebounceCallback(function(e) {
+                            var t = n.get("zoom");
+                            t && t(e)
+                        }, 40),
+                        o = function(e) {
+                            if (e.ctrlKey) {
+                                e.preventDefault();
+                                var t = e.target.getBoundingClientRect(),
+                                    o = 1 - e.deltaY / 100,
+                                    a = e.clientX - t.left,
+                                    c = e.clientY - t.top,
+                                    i = n.get("scale");
+                                r((f || (f = document.createElementNS("http://www.w3.org/2000/svg", "svg"))).createSVGMatrix().translate(a, c).scale(o).translate(-a, -c).scale(i).a)
+                            }
+                        };
+                    return a.useIsomorphicLayoutEffect(function() {
+                        var e = t.current;
+                        if (e) return e.addEventListener("wheel", o, m),
+                            function() {
+                                e.removeEventListener("wheel", o)
+                            }
+                    }, []), c.createElement(c.Fragment, null)
+                },
+                g = [.1, .2, .3, .4, .5, .6, .7, .8, .9, 1, 1.1, 1.3, 1.5, 1.7, 1.9, 2.1, 2.4, 2.7, 3, 3.3, 3.7, 4.1, 4.6, 5.1, 5.7, 6.3, 7, 7.7, 8.5, 9.4, 10],
+                h = function(e) {
+                    return g.find(function(t) {
+                        return t > e
+                    }) || e
+                },
+                v = function(e) {
+                    var t = g.findIndex(function(t) {
+                        return t >= e
+                    });
+                    return -1 === t || 0 === t ? e : g[t - 1]
+                },
+                b = function(e) {
+                    var t = e.containerRef,
+                        n = e.store,
+                        r = function(e) {
+                            if (!e.shiftKey && !e.altKey && (a.isMac() ? e.metaKey : e.ctrlKey)) {
+                                var r = t.current;
+                                if (r && document.activeElement && r.contains(document.activeElement)) {
+                                    var o = n.get("zoom");
+                                    if (o) {
+                                        var c = n.get("scale") || 1,
+                                            i = 1;
+                                        switch (e.key) {
+                                            case "-":
+                                                i = v(c);
+                                                break;
+                                            case "=":
+                                                i = h(c);
+                                                break;
+                                            case "0":
+                                                i = 1;
+                                                break;
+                                            default:
+                                                i = c
+                                        }
+                                        i !== c && (e.preventDefault(), o(i))
+                                    }
+                                }
+                            }
+                        };
+                    return c.useEffect(function() {
+                        if (t.current) return document.addEventListener("keydown", r),
+                            function() {
+                                document.removeEventListener("keydown", r)
+                            }
+                    }, [t.current]), c.createElement(c.Fragment, null)
+                },
+                E = [.5, .75, 1, 1.25, 1.5, 2, 3, 4],
+                k = {
+                    left: 0,
+                    top: 8
+                },
+                C = function(e) {
+                    var t = e.levels,
+                        n = void 0 === t ? E : t,
+                        r = e.scale,
+                        o = e.onZoom,
+                        i = c.useContext(a.LocalizationContext).l10n,
+                        l = c.useContext(a.ThemeContext).direction === a.TextDirection.RightToLeft,
+                        u = i && i.zoom ? i.zoom.zoomDocument : "Zoom document";
+                    return c.createElement(a.Popover, {
+                        ariaControlsSuffix: "zoom",
+                        ariaHasPopup: "menu",
+                        position: a.Position.BottomCenter,
+                        target: function(e) {
+                            return c.createElement(a.MinimalButton, {
+                                ariaLabel: u,
+                                testId: "zoom__popover-target",
+                                onClick: function() {
+                                    e()
+                                }
+                            }, c.createElement("span", {
+                                className: "rpv-zoom__popover-target"
+                            }, c.createElement("span", {
+                                "data-testid": "zoom__popover-target-scale",
+                                className: a.classNames({
+                                    "rpv-zoom__popover-target-scale": !0,
+                                    "rpv-zoom__popover-target-scale--ltr": !l,
+                                    "rpv-zoom__popover-target-scale--rtl": l
+                                })
+                            }, Math.round(100 * r), "%"), c.createElement("span", {
+                                className: "rpv-zoom__popover-target-arrow"
+                            })))
+                        },
+                        content: function(e) {
+                            return c.createElement(a.Menu, null, Object.keys(a.SpecialZoomLevel).map(function(t) {
+                                return c.createElement(a.MenuItem, {
+                                    key: t,
+                                    onClick: function() {
+                                        e(), o(t)
+                                    }
+                                }, function(e) {
+                                    switch (e) {
+                                        case a.SpecialZoomLevel.ActualSize:
+                                            return i && i.zoom ? i.zoom.actualSize : "Actual size";
+                                        case a.SpecialZoomLevel.PageFit:
+                                            return i && i.zoom ? i.zoom.pageFit : "Page fit";
+                                        case a.SpecialZoomLevel.PageWidth:
+                                            return i && i.zoom ? i.zoom.pageWidth : "Page width"
+                                    }
+                                }(t))
+                            }), c.createElement(a.MenuDivider, null), n.map(function(t) {
+                                return c.createElement(a.MenuItem, {
+                                    key: t,
+                                    onClick: function() {
+                                        e(), o(t)
+                                    }
+                                }, "".concat(Math.round(100 * t), "%"))
+                            }))
+                        },
+                        offset: k,
+                        closeOnClickOutside: !0,
+                        closeOnEscape: !0
+                    })
+                },
+                _ = function(e) {
+                    var t = e.children,
+                        n = e.levels,
+                        r = e.store;
+                    return (t || function(e) {
+                        return c.createElement(C, {
+                            levels: n,
+                            scale: e.scale,
+                            onZoom: e.onZoom
+                        })
+                    })({
+                        scale: s(r).scale,
+                        onZoom: function(e) {
+                            var t = r.get("zoom");
+                            t && t(e)
+                        }
+                    })
+                },
+                S = {
+                    left: 0,
+                    top: 8
+                },
+                M = function(e) {
+                    var t = e.enableShortcuts,
+                        n = e.onClick,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = r && r.zoom ? r.zoom.zoomIn : "Zoom in",
+                        l = t ? a.isMac() ? "Meta+=" : "Ctrl+=" : "";
+                    return c.createElement(a.Tooltip, {
+                        ariaControlsSuffix: "zoom-in",
+                        position: a.Position.BottomCenter,
+                        target: c.createElement(a.MinimalButton, {
+                            ariaKeyShortcuts: l,
+                            ariaLabel: o,
+                            testId: "zoom__in-button",
+                            onClick: n
+                        }, c.createElement(i, null)),
+                        content: function() {
+                            return o
+                        },
+                        offset: S
+                    })
+                },
+                P = function(e) {
+                    var t = e.children,
+                        n = e.enableShortcuts,
+                        r = e.store,
+                        o = s(r).scale;
+                    return (t || M)({
+                        enableShortcuts: n,
+                        onClick: function() {
+                            var e = r.get("zoom");
+                            e && e(h(o))
+                        }
+                    })
+                },
+                y = function(e) {
+                    var t = e.onClick,
+                        n = c.useContext(a.LocalizationContext).l10n,
+                        r = n && n.zoom ? n.zoom.zoomIn : "Zoom in";
+                    return c.createElement(a.MenuItem, {
+                        icon: c.createElement(i, null),
+                        testId: "zoom__in-menu",
+                        onClick: t
+                    }, r)
+                },
+                w = {
+                    left: 0,
+                    top: 8
+                },
+                x = function(e) {
+                    var t = e.enableShortcuts,
+                        n = e.onClick,
+                        r = c.useContext(a.LocalizationContext).l10n,
+                        o = r && r.zoom ? r.zoom.zoomOut : "Zoom out",
+                        i = t ? a.isMac() ? "Meta+-" : "Ctrl+-" : "";
+                    return c.createElement(a.Tooltip, {
+                        ariaControlsSuffix: "zoom-out",
+                        position: a.Position.BottomCenter,
+                        target: c.createElement(a.MinimalButton, {
+                            ariaKeyShortcuts: i,
+                            ariaLabel: o,
+                            testId: "zoom__out-button",
+                            onClick: n
+                        }, c.createElement(l, null)),
+                        content: function() {
+                            return o
+                        },
+                        offset: w
+                    })
+                },
+                I = function(e) {
+                    var t = e.children,
+                        n = e.enableShortcuts,
+                        r = e.store,
+                        o = s(r).scale;
+                    return (t || x)({
+                        enableShortcuts: n,
+                        onClick: function() {
+                            var e = r.get("zoom");
+                            e && e(v(o))
+                        }
+                    })
+                },
+                T = function(e) {
+                    var t = e.onClick,
+                        n = c.useContext(a.LocalizationContext).l10n,
+                        r = n && n.zoom ? n.zoom.zoomOut : "Zoom out";
+                    return c.createElement(a.MenuItem, {
+                        icon: c.createElement(l, null),
+                        testId: "zoom__out-menu",
+                        onClick: t
+                    }, r)
+                };
+            t.ZoomInIcon = i, t.ZoomOutIcon = l, t.zoomPlugin = function(e) {
+                var t = c.useMemo(function() {
+                        return Object.assign({}, {
+                            enableShortcuts: !0
+                        }, e)
+                    }, []),
+                    n = c.useMemo(function() {
+                        return a.createStore({})
+                    }, []),
+                    r = function(e) {
+                        return c.createElement(P, u({
+                            enableShortcuts: t.enableShortcuts
+                        }, e, {
+                            store: n
+                        }))
+                    },
+                    o = function(e) {
+                        return c.createElement(I, u({
+                            enableShortcuts: t.enableShortcuts
+                        }, e, {
+                            store: n
+                        }))
+                    },
+                    i = function(e) {
+                        return c.createElement(_, u({}, e, {
+                            store: n
+                        }))
+                    };
+                return {
+                    renderViewer: function(e) {
+                        var r = e.slot;
+                        if (!t.enableShortcuts) return r;
+                        var o = {
+                            children: c.createElement(c.Fragment, null, c.createElement(b, {
+                                containerRef: e.containerRef,
+                                store: n
+                            }), c.createElement(p, {
+                                pagesContainerRef: e.pagesContainerRef,
+                                store: n
+                            }), r.children)
+                        };
+                        return u(u({}, r), o)
+                    },
+                    install: function(e) {
+                        n.update("zoom", e.zoom)
+                    },
+                    onViewerStateChange: function(e) {
+                        return n.update("scale", e.scale), e
+                    },
+                    zoomTo: function(e) {
+                        var t = n.get("zoom");
+                        t && t(e)
+                    },
+                    CurrentScale: function(e) {
+                        return c.createElement(d, u({}, e, {
+                            store: n
+                        }))
+                    },
+                    ZoomIn: r,
+                    ZoomInButton: function() {
+                        return c.createElement(r, null, function(e) {
+                            return c.createElement(M, u({}, e))
+                        })
+                    },
+                    ZoomInMenuItem: function(e) {
+                        return c.createElement(r, null, function(t) {
+                            return c.createElement(y, {
+                                onClick: function() {
+                                    t.onClick(), e.onClick()
+                                }
+                            })
+                        })
+                    },
+                    ZoomOut: o,
+                    ZoomOutButton: function() {
+                        return c.createElement(o, null, function(e) {
+                            return c.createElement(x, u({}, e))
+                        })
+                    },
+                    ZoomOutMenuItem: function(e) {
+                        return c.createElement(o, null, function(t) {
+                            return c.createElement(T, {
+                                onClick: function() {
+                                    t.onClick(), e.onClick()
+                                }
+                            })
+                        })
+                    },
+                    Zoom: i,
+                    ZoomPopover: function(e) {
+                        return c.createElement(i, null, function(t) {
+                            return c.createElement(C, u({
+                                levels: null == e ? void 0 : e.levels
+                            }, t))
+                        })
+                    }
+                }
+            }
+        },
+        56936: function(e, t, n) {
+            "use strict";
+            e.exports = n(30023)
+        },
+        92735: function(e, t, n) {
+            "use strict";
+            n.d(t, {
+                Z: function() {
+                    return r
+                }
+            });
+            let r = (0, n(79205).Z)("download", [
+                ["path", {
+                    d: "M12 15V3",
+                    key: "m9g1x1"
+                }],
+                ["path", {
+                    d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4",
+                    key: "ih7n3h"
+                }],
+                ["path", {
+                    d: "m7 10 5 5 5-5",
+                    key: "brsn70"
+                }]
+            ])
+        },
+        57208: function(e, t, n) {
+            "use strict";
+            n.d(t, {
+                Z: function() {
+                    return r
+                }
+            });
+            let r = (0, n(79205).Z)("expand", [
+                ["path", {
+                    d: "m15 15 6 6",
+                    key: "1s409w"
+                }],
+                ["path", {
+                    d: "m15 9 6-6",
+                    key: "ko1vev"
+                }],
+                ["path", {
+                    d: "M21 16v5h-5",
+                    key: "1ck2sf"
+                }],
+                ["path", {
+                    d: "M21 8V3h-5",
+                    key: "1qoq8a"
+                }],
+                ["path", {
+                    d: "M3 16v5h5",
+                    key: "1t08am"
+                }],
+                ["path", {
+                    d: "m3 21 6-6",
+                    key: "wwnumi"
+                }],
+                ["path", {
+                    d: "M3 8V3h5",
+                    key: "1ln10m"
+                }],
+                ["path", {
+                    d: "M9 9 3 3",
+                    key: "v551iv"
+                }]
+            ])
+        },
+        43391: function(e, t, n) {
+            "use strict";
+            n.d(t, {
+                Z: function() {
+                    return r
+                }
+            });
+            let r = (0, n(79205).Z)("zoom-in", [
+                ["circle", {
+                    cx: "11",
+                    cy: "11",
+                    r: "8",
+                    key: "4ej97u"
+                }],
+                ["line", {
+                    x1: "21",
+                    x2: "16.65",
+                    y1: "21",
+                    y2: "16.65",
+                    key: "13gj7c"
+                }],
+                ["line", {
+                    x1: "11",
+                    x2: "11",
+                    y1: "8",
+                    y2: "14",
+                    key: "1vmskp"
+                }],
+                ["line", {
+                    x1: "8",
+                    x2: "14",
+                    y1: "11",
+                    y2: "11",
+                    key: "durymu"
+                }]
+            ])
+        },
+        45802: function(e, t, n) {
+            "use strict";
+            n.d(t, {
+                Z: function() {
+                    return r
+                }
+            });
+            let r = (0, n(79205).Z)("zoom-out", [
+                ["circle", {
+                    cx: "11",
+                    cy: "11",
+                    r: "8",
+                    key: "4ej97u"
+                }],
+                ["line", {
+                    x1: "21",
+                    x2: "16.65",
+                    y1: "21",
+                    y2: "16.65",
+                    key: "13gj7c"
+                }],
+                ["line", {
+                    x1: "8",
+                    x2: "14",
+                    y1: "11",
+                    y2: "11",
+                    key: "durymu"
+                }]
+            ])
+        },
+        13856: function() {},
+        14923: function() {}
+    }
+]);

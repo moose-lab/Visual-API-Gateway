@@ -1,0 +1,2784 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "VLM Run Gateway API",
+    "summary": "Unified gateway for computer-vision workloads.",
+    "description": "The **VLM Run Gateway API** is the public entry point to the VLM Run\ninference platform. It fronts vision-language and computer-vision models\nbehind a single OpenAI-compatible surface plus first-class real-time\ntransports.\n\n[Documentation](https://docs.vlm.run) |\n[Terms of service](https://vlm.run/terms-of-service) |\n[Privacy policy](https://vlm.run/privacy) |\n[VLM Run](https://vlm.run) |\n[Send email to support@vlm.run](mailto:support@vlm.run)\n",
+    "termsOfService": "https://vlm.run/terms-of-service",
+    "contact": {
+      "name": "VLM Run",
+      "url": "https://vlm.run/gateway",
+      "email": "support@vlm.run"
+    },
+    "version": "0.47.1"
+  },
+  "servers": [
+    {
+      "url": "https://gateway.vlm.run",
+      "description": "Production"
+    },
+    {
+      "url": "http://localhost:8001",
+      "description": "Local development"
+    }
+  ],
+  "paths": {
+    "/v1/openai/chat/completions": {
+      "post": {
+        "summary": "Chat Completions",
+        "operationId": "chat_completions_v1_openai_chat_completions_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChatCompletionRequest"
+              },
+              "example": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ChatCompletionResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "_PermissiveHTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/v1/openai/embeddings": {
+      "post": {
+        "summary": "Embeddings",
+        "description": "OpenAI-compatible ``/v1/embeddings``; routes on ``body.model`` and forwards the batch to ``embed``.",
+        "operationId": "embeddings_v1_openai_embeddings_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmbeddingRequest"
+              },
+              "example": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmbeddingResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "_PermissiveHTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/v1/openai/audio/transcriptions": {
+      "post": {
+        "summary": "Audio Transcriptions",
+        "description": "OpenAI-compatible ``/v1/audio/transcriptions``.\n\nForwards the audio bytes to ``transcribe`` and renders per ``response_format``.",
+        "operationId": "audio_transcriptions_v1_openai_audio_transcriptions_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_audio_transcriptions_v1_openai_audio_transcriptions_post"
+              },
+              "example": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Response Audio Transcriptions V1 Openai Audio Transcriptions Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "_PermissiveHTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/v1/openai/models": {
+      "get": {
+        "summary": "List Models",
+        "operationId": "list_models_v1_openai_models_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "_PermissiveHTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/v1/models/{model_id}": {
+      "get": {
+        "summary": "Get Model Detail",
+        "operationId": "get_model_detail_v1_models__model_id__get",
+        "security": [
+          {
+            "_PermissiveHTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "model_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Model Id"
+            },
+            "example": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelDetail"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": true,
+                  "type": "object",
+                  "title": "Response Health Health Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/completions/{completion_id}": {
+      "get": {
+        "tags": [
+          "Completions"
+        ],
+        "summary": "Read Completion",
+        "operationId": "read_completion_v1_completions__completion_id__get",
+        "security": [
+          {
+            "_PermissiveHTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "completion_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Completion Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompletionInfo"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/typesafe/v1/systemone": {
+      "post": {
+        "tags": [
+          "System One"
+        ],
+        "summary": "Systemone",
+        "operationId": "systemone_typesafe_v1_systemone_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SystemOneRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemOneResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "_PermissiveHTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/typesafe/v1/models": {
+      "get": {
+        "tags": [
+          "System One"
+        ],
+        "summary": "Systemone Models",
+        "operationId": "systemone_models_typesafe_v1_models_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListModelsResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "_PermissiveHTTPBearer": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AudioUrl": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "title": "AudioUrl",
+        "description": "Audio referenced by URL or base64 data URI; resampled to 16 kHz mono."
+      },
+      "Body_audio_transcriptions_v1_openai_audio_transcriptions_post": {
+        "properties": {
+          "file": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File"
+          },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          },
+          "model": {
+            "type": "string",
+            "title": "Model"
+          },
+          "language": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Language"
+          },
+          "prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt"
+          },
+          "response_format": {
+            "type": "string",
+            "title": "Response Format",
+            "default": "json"
+          },
+          "temperature": {
+            "type": "number",
+            "title": "Temperature",
+            "default": 0.0
+          },
+          "timestamp_granularities[]": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Timestamp Granularities[]"
+          }
+        },
+        "type": "object",
+        "required": [
+          "model"
+        ],
+        "title": "Body_audio_transcriptions_v1_openai_audio_transcriptions_post"
+      },
+      "ChatCompletionRequest": {
+        "properties": {
+          "model": {
+            "type": "string",
+            "title": "Model"
+          },
+          "messages": {
+            "items": {
+              "$ref": "#/components/schemas/ChatMessage"
+            },
+            "type": "array",
+            "title": "Messages"
+          },
+          "temperature": {
+            "type": "number",
+            "title": "Temperature",
+            "default": 0.7
+          },
+          "max_tokens": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Tokens"
+          },
+          "top_p": {
+            "type": "number",
+            "title": "Top P",
+            "default": 1.0
+          },
+          "frequency_penalty": {
+            "type": "number",
+            "title": "Frequency Penalty",
+            "default": 0.0
+          },
+          "presence_penalty": {
+            "type": "number",
+            "title": "Presence Penalty",
+            "default": 0.0
+          },
+          "stop": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Stop"
+          },
+          "stream": {
+            "type": "boolean",
+            "title": "Stream",
+            "default": false
+          },
+          "n": {
+            "type": "integer",
+            "title": "N",
+            "default": 1
+          },
+          "reasoning_effort": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "minimal",
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reasoning Effort",
+            "default": "medium"
+          },
+          "chat_template_kwargs": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Chat Template Kwargs"
+          },
+          "llm": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Llm"
+          },
+          "method": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Method"
+          },
+          "method_params": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Method Params"
+          },
+          "video_max_frames": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Video Max Frames"
+          },
+          "video_fps": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Video Fps"
+          },
+          "video_encoder": {
+            "anyOf": [
+              {
+                "type": "string",
+                "const": "native"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Video Encoder"
+          },
+          "video_encoder_params": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Video Encoder Params"
+          },
+          "image_resolution": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "224x224",
+                  "336x336",
+                  "384x384",
+                  "448x448",
+                  "512x512",
+                  "768x768"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Image Resolution"
+          },
+          "video_resolution": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "256x192",
+                  "320x240",
+                  "448x336",
+                  "512x384",
+                  "640x480"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Video Resolution"
+          },
+          "document_dpi": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Document Dpi",
+            "default": 96
+          },
+          "document_max_pages": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Document Max Pages"
+          },
+          "document_pages": {
+            "anyOf": [
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "prefixItems": [
+                        {
+                          "type": "integer"
+                        },
+                        {
+                          "type": "integer"
+                        }
+                      ],
+                      "type": "array",
+                      "maxItems": 2,
+                      "minItems": 2
+                    }
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Document Pages"
+          },
+          "document_tool": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Document Tool"
+          },
+          "response_format": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ResponseFormat"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "precision": {
+            "type": "integer",
+            "maximum": 8.0,
+            "minimum": 1.0,
+            "title": "Precision",
+            "default": 4
+          }
+        },
+        "type": "object",
+        "required": [
+          "model",
+          "messages"
+        ],
+        "title": "ChatCompletionRequest",
+        "description": "OpenAI-compatible chat completion request."
+      },
+      "ChatCompletionResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "object": {
+            "type": "string",
+            "const": "chat.completion",
+            "title": "Object",
+            "default": "chat.completion"
+          },
+          "created": {
+            "type": "integer",
+            "title": "Created"
+          },
+          "model": {
+            "type": "string",
+            "title": "Model"
+          },
+          "served_model_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Served Model Id"
+          },
+          "backend": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Backend"
+          },
+          "provider": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Provider"
+          },
+          "choices": {
+            "items": {
+              "$ref": "#/components/schemas/Choice"
+            },
+            "type": "array",
+            "title": "Choices"
+          },
+          "usage": {
+            "$ref": "#/components/schemas/vlmrt__chat__types__Usage",
+            "default": {
+              "prompt_tokens": 0,
+              "completion_tokens": 0,
+              "total_tokens": 0
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "model",
+          "choices"
+        ],
+        "title": "ChatCompletionResponse",
+        "description": "OpenAI-compatible chat completion response.\n\nBeyond the OpenAI shape we surface three extra fields so clients can\naudit which model actually produced the output:\n\n- ``served_model_id`` — the canonical id of the deployment that\n  ran the request (e.g. ``\"rednote-hilab/dots.mocr\"``), even when the\n  caller used a short alias.  Mirrors the ``\"id\"`` echoed in\n  ``GET /v1/openai/models``.\n- ``backend`` — static label naming the inference runtime that\n  served the request (``\"vllm\"`` / ``\"transformers\"`` /\n  ``\"llama.cpp\"`` / ``\"paddleocr\"`` / ...).  Lets clients see the\n  runtime without opening a separate /models RPC.\n- ``provider`` — who ran the hardware.  Absent for models served on\n  VLM Run's own GPUs; otherwise the upstream that served the request\n  (``\"google-vertex\"``, ``\"huggingface\"``, ...).  Reported per\n  response rather than read from the catalog because a request can be\n  routed to a different upstream than the last one — the same model id\n  may be served by more than one, and they do not always agree on\n  capabilities or price.\n\nThe OpenAI-standard ``model`` field still echoes the *canonical*\nid (matching OpenAI's own behaviour where a generic alias like\n``gpt-4`` resolves to the dated snapshot ``gpt-4-0613`` in the\nresponse)."
+      },
+      "ChatMessage": {
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": [
+              "system",
+              "user",
+              "assistant",
+              "tool"
+            ],
+            "title": "Role"
+          },
+          "content": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ContentPart"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content"
+          },
+          "tool_calls": {
+            "anyOf": [
+              {
+                "items": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tool Calls"
+          },
+          "tool_call_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tool Call Id"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Name"
+          }
+        },
+        "type": "object",
+        "required": [
+          "role"
+        ],
+        "title": "ChatMessage",
+        "description": "A single message in the conversation."
+      },
+      "Choice": {
+        "properties": {
+          "index": {
+            "type": "integer",
+            "title": "Index",
+            "default": 0
+          },
+          "message": {
+            "$ref": "#/components/schemas/ChoiceMessage"
+          },
+          "finish_reason": {
+            "type": "string",
+            "enum": [
+              "stop",
+              "length"
+            ],
+            "title": "Finish Reason",
+            "default": "stop"
+          }
+        },
+        "type": "object",
+        "required": [
+          "message"
+        ],
+        "title": "Choice"
+      },
+      "ChoiceAnswer": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "choice",
+            "title": "Type",
+            "default": "choice"
+          },
+          "choice": {
+            "type": "string",
+            "title": "Choice"
+          },
+          "probabilities": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Probabilities"
+          },
+          "confidence": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Confidence",
+            "description": "1 - H(p)/ln K"
+          }
+        },
+        "type": "object",
+        "required": [
+          "choice",
+          "probabilities",
+          "confidence"
+        ],
+        "title": "ChoiceAnswer"
+      },
+      "ChoiceMessage": {
+        "properties": {
+          "role": {
+            "type": "string",
+            "const": "assistant",
+            "title": "Role",
+            "default": "assistant"
+          },
+          "content": {
+            "type": "string",
+            "title": "Content"
+          },
+          "reasoning": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reasoning"
+          }
+        },
+        "type": "object",
+        "required": [
+          "content"
+        ],
+        "title": "ChoiceMessage"
+      },
+      "ChoiceQuestion": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "choice",
+            "title": "Type"
+          },
+          "instructions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Instructions"
+          },
+          "criteria": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "items": {},
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "type": "object",
+            "maxProperties": 128,
+            "minProperties": 2,
+            "title": "Criteria"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "criteria"
+        ],
+        "title": "ChoiceQuestion",
+        "description": "Pick one of the named options; each may carry a description."
+      },
+      "CompletionInfo": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id",
+            "description": "The completion id (``chatcmpl-…`` or ``transcription-…``)."
+          },
+          "model": {
+            "type": "string",
+            "title": "Model",
+            "description": "The model id echoed on the response."
+          },
+          "served_model_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Served Model Id",
+            "description": "Canonical model id."
+          },
+          "backend": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Backend",
+            "description": "Inference runtime for the request (vllm, paddleocr, …)."
+          },
+          "cost": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cost",
+            "description": "Metered cost of the request in US dollars, or null when the request was not priced."
+          },
+          "usage": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Usage",
+            "description": "Usage block: prompt/completion/total tokens for chat, or input_tokens/output_tokens/input_audio_seconds for transcription."
+          },
+          "status": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Status",
+            "description": "Billing status (completed / failed)."
+          },
+          "latency_ms": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latency Ms",
+            "description": "End-to-end latency in milliseconds."
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "model"
+        ],
+        "title": "CompletionInfo",
+        "description": "Cost, token usage, and serving metadata for one gateway generation."
+      },
+      "CompletionTokensDetails": {
+        "properties": {
+          "reasoning_tokens": {
+            "type": "integer",
+            "title": "Reasoning Tokens",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "title": "CompletionTokensDetails",
+        "description": "OpenAI-compatible breakdown of completion token categories."
+      },
+      "ContentPart": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "text",
+              "image_url",
+              "video_url",
+              "document_url",
+              "file_url",
+              "file"
+            ],
+            "title": "Type"
+          },
+          "text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Text"
+          },
+          "image_url": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/vlmrt__chat__types__ImageUrl"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "video_url": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/VideoUrl"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "document_url": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/vlmrt__chat__types__DocumentUrl"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "file_url": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/FileUrl"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "file": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/vlmrt__chat__types__FileContent"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "title": "ContentPart",
+        "description": "A single content part in a multi-modal message."
+      },
+      "DocumentUrlPart": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "document_url",
+            "title": "Type"
+          },
+          "document_url": {
+            "$ref": "#/components/schemas/vlmrt__systemone__types__DocumentUrl"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "document_url"
+        ],
+        "title": "DocumentUrlPart",
+        "description": "``{\"type\": \"document_url\", \"document_url\": {\"url\": ..., \"detail\": ...}}`` —\nthe same PDF as a ``file`` part, named for callers that already speak this shape."
+      },
+      "EmbeddingContentPart": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "text",
+              "image_url",
+              "video_url",
+              "audio_url",
+              "input_audio",
+              "document_url",
+              "file"
+            ],
+            "title": "Type"
+          },
+          "text": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Text"
+          },
+          "image_url": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/vlmrt__chat__types__ImageUrl"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "video_url": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/VideoUrl"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "audio_url": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioUrl"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "input_audio": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/InputAudio"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "document_url": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/vlmrt__chat__types__DocumentUrl"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "file": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/vlmrt__chat__types__FileContent"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "title": "EmbeddingContentPart",
+        "description": "A single content part in a multimodal embedding input.\n\nScoped to the parts that make sense for embeddings (no ``role`` and no\nassistant turns): text, an image, a video, a clip of audio, or a PDF whose\npages are rasterised and read as images. ``type`` is the discriminant."
+      },
+      "EmbeddingData": {
+        "properties": {
+          "object": {
+            "type": "string",
+            "const": "embedding",
+            "title": "Object",
+            "default": "embedding"
+          },
+          "index": {
+            "type": "integer",
+            "title": "Index"
+          },
+          "embedding": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              },
+              {
+                "type": "string"
+              }
+            ],
+            "title": "Embedding"
+          }
+        },
+        "type": "object",
+        "required": [
+          "index",
+          "embedding"
+        ],
+        "title": "EmbeddingData",
+        "description": "Single ``data`` entry in an embeddings response."
+      },
+      "EmbeddingRequest": {
+        "properties": {
+          "model": {
+            "type": "string",
+            "title": "Model"
+          },
+          "input": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              },
+              {
+                "items": {
+                  "items": {
+                    "type": "integer"
+                  },
+                  "type": "array"
+                },
+                "type": "array"
+              },
+              {
+                "items": {
+                  "$ref": "#/components/schemas/EmbeddingContentPart"
+                },
+                "type": "array"
+              },
+              {
+                "items": {
+                  "items": {
+                    "$ref": "#/components/schemas/EmbeddingContentPart"
+                  },
+                  "type": "array"
+                },
+                "type": "array"
+              },
+              {
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "items": {
+                        "$ref": "#/components/schemas/EmbeddingContentPart"
+                      },
+                      "type": "array"
+                    }
+                  ]
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Input"
+          },
+          "encoding_format": {
+            "type": "string",
+            "enum": [
+              "float",
+              "base64"
+            ],
+            "title": "Encoding Format",
+            "default": "float"
+          },
+          "dimensions": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Dimensions"
+          },
+          "user": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "User"
+          },
+          "prompt_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt Name"
+          },
+          "document_pages": {
+            "anyOf": [
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Document Pages"
+          },
+          "document_max_pages": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Document Max Pages"
+          },
+          "truncate_prompt_tokens": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Truncate Prompt Tokens"
+          }
+        },
+        "type": "object",
+        "required": [
+          "model",
+          "input"
+        ],
+        "title": "EmbeddingRequest",
+        "description": "OpenAI-compatible embeddings request.\n\nThe ``input`` field is intentionally polymorphic to match both\nOpenAI's API (string / list-of-strings / list-of-token-ids) and\nvLLM's multimodal extension (list of content parts). The router\nnormalises everything to a list of items before handing it to the\nbackend, so individual backends only see one shape."
+      },
+      "EmbeddingResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "object": {
+            "type": "string",
+            "const": "list",
+            "title": "Object",
+            "default": "list"
+          },
+          "created": {
+            "type": "integer",
+            "title": "Created"
+          },
+          "model": {
+            "type": "string",
+            "title": "Model"
+          },
+          "served_model_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Served Model Id"
+          },
+          "backend": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Backend"
+          },
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/EmbeddingData"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "usage": {
+            "$ref": "#/components/schemas/EmbeddingUsage",
+            "default": {
+              "prompt_tokens": 0,
+              "total_tokens": 0
+            }
+          }
+        },
+        "type": "object",
+        "required": [
+          "model",
+          "data"
+        ],
+        "title": "EmbeddingResponse",
+        "description": "OpenAI-compatible embeddings response with audit extras\n(``served_model_id`` and ``backend``)."
+      },
+      "EmbeddingUsage": {
+        "properties": {
+          "prompt_tokens": {
+            "type": "integer",
+            "title": "Prompt Tokens",
+            "default": 0
+          },
+          "total_tokens": {
+            "type": "integer",
+            "title": "Total Tokens",
+            "default": 0
+          },
+          "cost": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cost"
+          }
+        },
+        "type": "object",
+        "title": "EmbeddingUsage"
+      },
+      "FilePart": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "file",
+            "title": "Type"
+          },
+          "file": {
+            "$ref": "#/components/schemas/vlmrt__systemone__types__FileContent"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "file"
+        ],
+        "title": "FilePart",
+        "description": "``{\"type\": \"file\", \"file\": {\"filename\": ..., \"file_data\": ...}}`` — the\nOpenAI content part, so a caller sends a PDF here exactly as it does to\n``/v1/openai/chat/completions``."
+      },
+      "FileUrl": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "title": "FileUrl",
+        "description": "Alias for :class:`DocumentUrl` — accepted for PDF document inputs."
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ImageUrlPart": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "image_url",
+            "title": "Type"
+          },
+          "image_url": {
+            "$ref": "#/components/schemas/vlmrt__systemone__types__ImageUrl"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "image_url"
+        ],
+        "title": "ImageUrlPart",
+        "description": "``{\"type\": \"image_url\", \"image_url\": {\"url\": ..., \"detail\": ...}}`` — the\nOpenAI chat content part, so a caller can reuse what it already sends to\n``/v1/openai/chat/completions``."
+      },
+      "InputAudio": {
+        "properties": {
+          "data": {
+            "type": "string",
+            "title": "Data"
+          },
+          "format": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Format"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "InputAudio",
+        "description": "OpenAI's ``input_audio``: the clip inline, base64, with its container."
+      },
+      "InputTokenDetails": {
+        "properties": {
+          "cached_tokens": {
+            "type": "integer",
+            "title": "Cached Tokens",
+            "default": 0
+          },
+          "image_tokens": {
+            "type": "integer",
+            "title": "Image Tokens",
+            "default": 0
+          },
+          "text_tokens": {
+            "type": "integer",
+            "title": "Text Tokens",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "title": "InputTokenDetails",
+        "description": "What the prompt was made of, in the shape the chat route reports usage.\n\n``cached_tokens`` is the engine's own count (the schema prompt repeats, so a\nwarm replica serves most of it from the prefix cache). ``image_tokens`` is\nderived from the budget this request applied, since the engine reports no\nimage/text split; ``text_tokens`` is the remainder."
+      },
+      "ListModelsResponse": {
+        "properties": {
+          "models": {
+            "items": {
+              "$ref": "#/components/schemas/ModelMetadata"
+            },
+            "type": "array",
+            "title": "Models"
+          }
+        },
+        "type": "object",
+        "required": [
+          "models"
+        ],
+        "title": "ListModelsResponse"
+      },
+      "ModelArchitecture": {
+        "properties": {
+          "input_modalities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Input Modalities"
+          },
+          "output_modalities": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Output Modalities"
+          },
+          "modality": {
+            "type": "string",
+            "title": "Modality"
+          }
+        },
+        "type": "object",
+        "required": [
+          "input_modalities",
+          "output_modalities",
+          "modality"
+        ],
+        "title": "ModelArchitecture"
+      },
+      "ModelCapabilities": {
+        "properties": {
+          "max_images": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Images",
+            "default": 1
+          },
+          "max_videos": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Max Videos",
+            "default": 0
+          },
+          "supports_text_only": {
+            "type": "boolean",
+            "title": "Supports Text Only",
+            "default": true
+          },
+          "supports_document_url": {
+            "type": "boolean",
+            "title": "Supports Document Url",
+            "default": false
+          },
+          "supports_json_object": {
+            "type": "boolean",
+            "title": "Supports Json Object",
+            "default": true
+          },
+          "supports_json_schema": {
+            "type": "boolean",
+            "title": "Supports Json Schema",
+            "default": false
+          },
+          "supported_input_types": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Supported Input Types"
+          }
+        },
+        "type": "object",
+        "title": "ModelCapabilities",
+        "description": "Declared input capabilities exposed via ``GET /v1/openai/models``.\n\nDescribes how many images / videos a model accepts, whether it supports\ntext-only prompts, and whether it can constrain generation to a JSON\nschema, so clients can validate a request before sending it.  ``None``\nmeans unlimited (no cap on that input type)."
+      },
+      "ModelDetail": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "hf_model_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hf Model Id"
+          },
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "task": {
+            "type": "string",
+            "enum": [
+              "chat",
+              "embed",
+              "transcribe"
+            ],
+            "title": "Task",
+            "default": "chat"
+          },
+          "context_length": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Context Length"
+          },
+          "architecture": {
+            "$ref": "#/components/schemas/ModelArchitecture"
+          },
+          "capabilities": {
+            "$ref": "#/components/schemas/ModelCapabilities"
+          },
+          "aliases": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Aliases"
+          },
+          "methods": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Methods"
+          },
+          "supported_parameters": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Supported Parameters"
+          },
+          "pricing": {
+            "$ref": "#/components/schemas/ModelPricing"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "description",
+          "architecture",
+          "capabilities",
+          "pricing"
+        ],
+        "title": "ModelDetail",
+        "description": "Flat JSON response for ``GET /v1/models/{model_id}``.\n\nInternal catalog fields such as ``provider`` are intentionally omitted."
+      },
+      "ModelMetadata": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description"
+          },
+          "release_date": {
+            "type": "string",
+            "title": "Release Date"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "description",
+          "release_date"
+        ],
+        "title": "ModelMetadata"
+      },
+      "ModelPricing": {
+        "properties": {
+          "prompt": {
+            "type": "number",
+            "title": "Prompt",
+            "default": 0.0
+          },
+          "completion": {
+            "type": "number",
+            "title": "Completion",
+            "default": 0.0
+          },
+          "input_cache_read": {
+            "type": "number",
+            "title": "Input Cache Read",
+            "default": 0.0
+          },
+          "input_cache_write": {
+            "type": "number",
+            "title": "Input Cache Write",
+            "default": 0.0
+          },
+          "image": {
+            "type": "number",
+            "title": "Image",
+            "default": 0.0
+          },
+          "video": {
+            "type": "number",
+            "title": "Video",
+            "default": 0.0
+          }
+        },
+        "type": "object",
+        "title": "ModelPricing",
+        "description": "USD per 1M tokens (``image`` / ``video`` are per-1M input equivalents)."
+      },
+      "NoulAnswer": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "noul",
+            "title": "Type",
+            "default": "noul"
+          },
+          "noul": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Noul",
+            "description": "P(yes)"
+          }
+        },
+        "type": "object",
+        "required": [
+          "noul"
+        ],
+        "title": "NoulAnswer"
+      },
+      "NoulCriteria": {
+        "properties": {
+          "true": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "True"
+          },
+          "false": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "False"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "NoulCriteria",
+        "description": "Optional descriptions of the yes and no outcomes."
+      },
+      "NoulQuestion": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "noul",
+            "title": "Type"
+          },
+          "instructions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Instructions"
+          },
+          "criteria": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/NoulCriteria"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "title": "NoulQuestion",
+        "description": "A yes/no question. The answer is ``P(yes)``."
+      },
+      "PromptTokensDetails": {
+        "properties": {
+          "cached_tokens": {
+            "type": "integer",
+            "title": "Cached Tokens",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "title": "PromptTokensDetails",
+        "description": "OpenAI-compatible breakdown of prompt token categories."
+      },
+      "ResponseFormat": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "text",
+              "json_object",
+              "json_schema"
+            ],
+            "title": "Type",
+            "default": "text"
+          },
+          "json_schema": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Json Schema"
+          }
+        },
+        "type": "object",
+        "title": "ResponseFormat",
+        "description": "Requested serialization of the assistant reply.\n\nMirrors the OpenAI ``response_format`` object so existing client code\nkeeps working:\n\n- ``{\"type\": \"text\"}`` (the default) returns the reply verbatim.\n- ``{\"type\": \"json_object\"}`` returns the reply as a single valid JSON\n  object string: structured results (detections, OCR regions, document\n  pages) are emitted as parseable JSON under a top-level ``data`` key.\n- ``{\"type\": \"json_schema\"}`` **constrains generation** to the supplied\n  schema, on the models that declare\n  :attr:`ModelCapabilities.supports_json_schema` — the chat VLMs served by\n  vLLM and the routed provider models. Anything else (the OCR and\n  detection models, whose reply is an envelope this gateway builds rather\n  than text the model is free to shape) rejects it with a 400 capability\n  violation instead of accepting it and ignoring it."
+      },
+      "ScoreAnswer": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "score",
+            "title": "Type",
+            "default": "score"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score",
+            "description": "Expected level, sum(i * p_i)"
+          },
+          "legend": {
+            "additionalProperties": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "items": {},
+                  "type": "array"
+                }
+              ]
+            },
+            "type": "object",
+            "title": "Legend"
+          },
+          "probabilities": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Probabilities"
+          },
+          "confidence": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Confidence"
+          }
+        },
+        "type": "object",
+        "required": [
+          "score",
+          "legend",
+          "probabilities",
+          "confidence"
+        ],
+        "title": "ScoreAnswer"
+      },
+      "ScoreQuestion": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "score",
+            "title": "Type"
+          },
+          "instructions": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "items": {},
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Instructions"
+          },
+          "criteria": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "items": {},
+                  "type": "array"
+                }
+              ]
+            },
+            "type": "array",
+            "maxItems": 10,
+            "minItems": 2,
+            "title": "Criteria"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "criteria"
+        ],
+        "title": "ScoreQuestion",
+        "description": "An ordered rubric; the answer is the expected level, 0-indexed."
+      },
+      "SystemOneRequest": {
+        "properties": {
+          "state": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "items": {},
+                "type": "array"
+              }
+            ],
+            "title": "State"
+          },
+          "model": {
+            "type": "string",
+            "title": "Model"
+          },
+          "questions": {
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/NoulQuestion"
+                },
+                {
+                  "$ref": "#/components/schemas/ChoiceQuestion"
+                },
+                {
+                  "$ref": "#/components/schemas/ScoreQuestion"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "choice": "#/components/schemas/ChoiceQuestion",
+                  "noul": "#/components/schemas/NoulQuestion",
+                  "score": "#/components/schemas/ScoreQuestion"
+                }
+              }
+            },
+            "type": "object",
+            "maxProperties": 16,
+            "minProperties": 1,
+            "title": "Questions",
+            "description": "Typed questions to answer, keyed by caller id. At most 16 per decision."
+          },
+          "content": {
+            "anyOf": [
+              {
+                "items": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/TextPart"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ImageUrlPart"
+                    },
+                    {
+                      "$ref": "#/components/schemas/FilePart"
+                    },
+                    {
+                      "$ref": "#/components/schemas/DocumentUrlPart"
+                    }
+                  ],
+                  "discriminator": {
+                    "propertyName": "type",
+                    "mapping": {
+                      "document_url": "#/components/schemas/DocumentUrlPart",
+                      "file": "#/components/schemas/FilePart",
+                      "image_url": "#/components/schemas/ImageUrlPart",
+                      "text": "#/components/schemas/TextPart"
+                    }
+                  }
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content",
+            "description": "Media for this request, as OpenAI content parts: `image_url` (max 8, data:image/…;base64 or http(s), ≤5 MB each) and one `file`, whose first 8 pages are read as images. Text is read after the state."
+          },
+          "reasoning_effort": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "minimal",
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reasoning Effort"
+          },
+          "steps": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 8.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Steps",
+            "description": "Denoise steps per read; Jev's contract is 1."
+          },
+          "samples": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 32.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Samples",
+            "description": "Fixed number of noise draws to average. Unset: one read, re-read on high entropy."
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "state",
+          "model",
+          "questions"
+        ],
+        "title": "SystemOneRequest",
+        "description": "The body of ``POST /typesafe/v1/systemone``."
+      },
+      "SystemOneResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "model": {
+            "type": "string",
+            "title": "Model"
+          },
+          "answers": {
+            "additionalProperties": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/NoulAnswer"
+                },
+                {
+                  "$ref": "#/components/schemas/ChoiceAnswer"
+                },
+                {
+                  "$ref": "#/components/schemas/ScoreAnswer"
+                }
+              ],
+              "discriminator": {
+                "propertyName": "type",
+                "mapping": {
+                  "choice": "#/components/schemas/ChoiceAnswer",
+                  "noul": "#/components/schemas/NoulAnswer",
+                  "score": "#/components/schemas/ScoreAnswer"
+                }
+              }
+            },
+            "type": "object",
+            "title": "Answers"
+          },
+          "usage": {
+            "$ref": "#/components/schemas/vlmrt__systemone__types__Usage"
+          }
+        },
+        "type": "object",
+        "required": [
+          "model",
+          "answers",
+          "usage"
+        ],
+        "title": "SystemOneResponse"
+      },
+      "TextPart": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "const": "text",
+            "title": "Type"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "type",
+          "text"
+        ],
+        "title": "TextPart",
+        "description": "``{\"type\": \"text\", \"text\": ...}`` — appended after the state."
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "VideoUrl": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "title": "VideoUrl"
+      },
+      "vlmrt__chat__types__DocumentUrl": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "title": "DocumentUrl",
+        "description": "PDF document referenced by URL or base64 data URI."
+      },
+      "vlmrt__chat__types__FileContent": {
+        "properties": {
+          "filename": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filename"
+          },
+          "file_data": {
+            "type": "string",
+            "title": "File Data"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file_data"
+        ],
+        "title": "FileContent",
+        "description": "OpenAI-compatible file attachment (Pydantic AI ``DocumentUrl`` maps here)."
+      },
+      "vlmrt__chat__types__ImageUrl": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "detail": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "low",
+              "high"
+            ],
+            "title": "Detail",
+            "default": "auto"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "title": "ImageUrl"
+      },
+      "vlmrt__chat__types__Usage": {
+        "properties": {
+          "prompt_tokens": {
+            "type": "integer",
+            "title": "Prompt Tokens",
+            "default": 0
+          },
+          "completion_tokens": {
+            "type": "integer",
+            "title": "Completion Tokens",
+            "default": 0
+          },
+          "total_tokens": {
+            "type": "integer",
+            "title": "Total Tokens",
+            "default": 0
+          },
+          "prompt_tokens_details": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PromptTokensDetails"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "completion_tokens_details": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CompletionTokensDetails"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "cost": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cost"
+          }
+        },
+        "type": "object",
+        "title": "Usage"
+      },
+      "vlmrt__systemone__types__DocumentUrl": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "detail": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "low",
+              "high"
+            ],
+            "title": "Detail",
+            "default": "auto"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "title": "DocumentUrl"
+      },
+      "vlmrt__systemone__types__FileContent": {
+        "properties": {
+          "filename": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filename"
+          },
+          "file_data": {
+            "type": "string",
+            "title": "File Data"
+          },
+          "detail": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "low",
+              "high"
+            ],
+            "title": "Detail",
+            "default": "auto"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "file_data"
+        ],
+        "title": "FileContent",
+        "description": "OpenAI's ``file`` object: the PDF inline in ``file_data``. ``detail`` is ours."
+      },
+      "vlmrt__systemone__types__ImageUrl": {
+        "properties": {
+          "url": {
+            "type": "string",
+            "title": "Url"
+          },
+          "detail": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "low",
+              "high"
+            ],
+            "title": "Detail",
+            "default": "auto"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "title": "ImageUrl"
+      },
+      "vlmrt__systemone__types__Usage": {
+        "properties": {
+          "input_tokens": {
+            "type": "integer",
+            "title": "Input Tokens",
+            "default": 0
+          },
+          "output_tokens": {
+            "type": "integer",
+            "title": "Output Tokens",
+            "default": 0
+          },
+          "input_tokens_details": {
+            "$ref": "#/components/schemas/InputTokenDetails"
+          },
+          "reads": {
+            "type": "integer",
+            "title": "Reads",
+            "default": 0
+          },
+          "cost": {
+            "type": "number",
+            "title": "Cost",
+            "default": 0.0
+          }
+        },
+        "type": "object",
+        "title": "Usage",
+        "description": "Jev's two counters, plus what the gateway bills for them.\n\n``cost`` is this gateway's addition. TypeSafe's decoder ignores a field it\ndoes not model, so the official SDK still parses the response; a client that\nreads the raw JSON (the ``vlmrun`` CLI) can show the price of a read."
+      }
+    },
+    "securitySchemes": {
+      "_PermissiveHTTPBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

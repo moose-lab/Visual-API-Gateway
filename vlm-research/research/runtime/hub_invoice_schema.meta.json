@@ -1,0 +1,14 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T07:07:31.267222+00:00",
+  "method": "POST",
+  "url": "https://api.vlm.run/v1/hub/schema",
+  "status": 200,
+  "elapsed_seconds": 2.217,
+  "headers": {
+    "Content-Type": "application/json",
+    "Date": "Sun, 11 Oct 2026 07:07:33 GMT"
+  },
+  "response_sha256": "0e1354a0dbd4840af22db68a66482a596af582931f40679b58a92b57c18d2b9b",
+  "response_bytes": 12236
+}

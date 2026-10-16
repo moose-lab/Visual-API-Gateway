@@ -1,0 +1,60 @@
+[
+  {
+    "name": "gateway",
+    "url": "https://vlm.run/gateway",
+    "final_url": "https://vlm.run/gateway",
+    "status": 200,
+    "file": "gateway.html",
+    "sha256": "556fecb3fa2efc8221da58cc1c6c269282f663f68551cb55bda3372cd8bf72da",
+    "headers": {
+      "Age": "80",
+      "Cache-Control": "public, max-age=0, must-revalidate",
+      "Content-Length": "493204",
+      "Content-Type": "text/html; charset=utf-8",
+      "Date": "Sun, 11 Oct 2026 00:50:38 GMT",
+      "Etag": "\"vw0yr0mk8sakbt\"",
+      "Link": "</llms.txt>; rel=\"llms-txt\", </llms-full.txt>; rel=\"llms-full-txt\"",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=63072000",
+      "Vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+      "X-Llms-Txt": "/llms.txt",
+      "X-Matched-Path": "/gateway",
+      "X-Nextjs-Prerender": "1",
+      "X-Nextjs-Stale-Time": "300",
+      "X-Powered-By": "Next.js",
+      "X-Vercel-Cache": "HIT",
+      "X-Vercel-Id": "sfo1::iad1::g64rm-1791699635252-c7d54879453b",
+      "Connection": "close"
+    },
+    "bytes": 493204
+  },
+  {
+    "name": "dashboard",
+    "url": "https://app.vlm.run/dashboard",
+    "final_url": "https://app.vlm.run/sign-in?redirect_url=%2Fdashboard",
+    "status": 200,
+    "file": "dashboard.html",
+    "sha256": "ab121ff9964a6b2bee67c0033b265a629301fcf1725053266fdec9d0d628498d",
+    "headers": {
+      "Age": "0",
+      "Cache-Control": "private, no-cache, no-store, max-age=0, must-revalidate",
+      "Content-Security-Policy": "frame-ancestors 'self'; script-src 'self' 'nonce-e262ef0f95fb4f31b14d19fd926ae94a' 'unsafe-inline' 'wasm-unsafe-eval' 'unsafe-eval' https://*.clerk.com https://*.clerk.accounts.dev https://*.clerk.services https://clerk.vlm.run https: data:; frame-src 'self' https://*.clerk.com https://*.clerk.accounts.dev https://*.clerk.services https://clerk.vlm.run https: blob: data:; connect-src 'self' https://*.clerk.com https://*.clerk.accounts.dev https://*.clerk.services https://clerk.vlm.run https: http: wss: ws: data: blob:; worker-src 'self' blob: https: data:; img-src 'self' https: http: data: blob:; style-src 'self' 'unsafe-inline' https: data:; font-src 'self' https: data:",
+      "Content-Type": "text/html; charset=utf-8",
+      "Date": "Sun, 11 Oct 2026 06:20:38 GMT",
+      "Link": "</_next/static/media/0f6d8a9ea9457c5d-s.p.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/25df6fc3fae31ad9-s.p.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/2c0cba033d89f707-s.p.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/43c4253ff97db1bd-s.p.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/4ff48e1acc89a600-s.p.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\"",
+      "Server": "Vercel",
+      "Strict-Transport-Security": "max-age=63072000",
+      "Vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch",
+      "X-Clerk-Auth-Reason": "session-token-and-uat-missing",
+      "X-Clerk-Auth-Status": "signed-out",
+      "X-Matched-Path": "/sign-in/[[...sign-in]]",
+      "X-Nonce": "e262ef0f95fb4f31b14d19fd926ae94a",
+      "X-Powered-By": "Next.js",
+      "X-Vercel-Cache": "MISS",
+      "X-Vercel-Id": "sfo1::iad1::fzn2l-1791699637880-0cc2b45fd8b8",
+      "Connection": "close",
+      "Transfer-Encoding": "chunked"
+    },
+    "bytes": 40209
+  }
+]

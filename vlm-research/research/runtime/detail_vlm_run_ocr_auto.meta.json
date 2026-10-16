@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:53:17.221550+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/vlm-run/ocr:auto",
+  "status": 200,
+  "elapsed_seconds": 2.87,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:53:19 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "2473d10f-eac9-4d04-87e3-569dc54ecb51"
+  },
+  "response_sha256": "055ba892a53c2bbce10d2652f69c287ff3e21232014597ad0e5186464d840fbd",
+  "response_bytes": 775
+}

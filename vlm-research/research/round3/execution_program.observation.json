@@ -1,0 +1,30 @@
+{
+  "evidence": "RUNTIME",
+  "execution_id": "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+  "requested_mode": "program",
+  "final": {
+    "usage": {
+      "elements_processed": 1,
+      "element_type": null,
+      "credits_used": 6,
+      "steps": 4,
+      "message": null,
+      "duration_seconds": 74,
+      "service_tier": "standard",
+      "mode_multiplier": 1.0,
+      "standard_cost_dollars": 0.050071,
+      "cost_dollars": 0.050071,
+      "savings_dollars": 0.0
+    },
+    "id": "d93beeb1-e3d5-4dc6-9c4e-abcbfef40e51",
+    "name": "arithmetic-pipeline-execution",
+    "response": {
+      "marker": "ROUND3_e1782fc9d14245e4862ee826259e1e40",
+      "sum": 42
+    },
+    "execution_mode": "agent",
+    "status": "completed",
+    "created_at": "2026-10-13T07:46:54.214200Z",
+    "completed_at": "2026-10-13T07:48:08.696808Z"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "properties": {
+    "response": {
+      "description": "The response output from the skill",
+      "title": "Response",
+      "type": "string"
+    }
+  },
+  "required": [
+    "response"
+  ],
+  "title": "JSONSchemaModel26fb0e99a5191372719abfc55b3b6b1a",
+  "type": "object"
+}

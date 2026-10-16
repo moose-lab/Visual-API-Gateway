@@ -1,0 +1,183 @@
+PaddleOCR-VL 1.6 | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+PaddlePaddle
+PaddleOCR-VL 1.6
+About
+PaddleOCR-VL 1.6 is a 0.9B open-weight model from PaddlePaddle. PaddleOCR-VL-1.6 for OCR, tables, formulas, and charts. It accepts text, images, and documents. Context window is 16K. Released May 27, 2026.
+Parameters
+0.9B
+Published parameter count.
+Context window
+16K
+Tokens of context on a request.
+License
+Apache-2.0
+License on the weights.
+PricingCompareBenchmarksPerformanceInputsMethodsEstimate costQuick startResponse
+Model specifications
+ProviderPaddlePaddle
+Type
+ocr
+Endpointpaddlepaddle/paddleocr-vl-1.6
+Parameters0.9B
+Context length16K
+Input price$0.15 / 1M tokens$0.15 (cached) / 1M
+Output price$0.35 / 1M tokens
+Inputs
+textimage_urldocument_url
+LicenseApache-2.0
+ReleasedMay 27, 2026
+Latency p50648 ms p50
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Input / 1M$0.15
+Cached input / 1M$0.15
+Output / 1M$0.35
+Compare
+PaddleOCR-VL 1.6 is one of the catalog's OCR models. The table is each model's published price, size, and context.
+ModelWhat it doesPriceParametersContext
+PaddleOCR-VL 1.6PaddleOCR-VL-1.6 for OCR, tables, formulas, and charts.$0.15 / 1M input0.9B16K
+OCR AutoRoutes each method to its best OCR engine: ocr to PP-OCRv6, markdown to a fast CPU parser (dots.mocr on error), layout to dots.mocr.$0 / 1M input——
+PP-OCRv6PaddleOCR PP-OCRv6 medium text detection and recognition; scene OCR JSONL on image chat; text returns plain text; document_url fan-out via text.$0.02 / 1M input20M—
+DeepSeek-OCR-2DeepSeek OCR 2 and markdown extraction.$0.25 / 1M input3.4B32K
+Benchmarks
+Published scores for PaddleOCR-VL 1.6, from the OmniDocBench leaderboard.
+Evals
+OmniDocBench v1.696.34
+Formula CDM97.53
+Table TEDS94.76
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeOmniDocBench v1.6: 96.34.
+Cost and performanceLower listed rate, mid-pack latency
+Performance
+Latency is the end-to-end round trip. Throughput is completion tokens divided by that time. It is a request rate, not decode speed.
+LatencyMedian, end to end
+648 ms
+ThroughputMedian completion tokens per second
+—
+RequestsCompleted, last 7 days
+1,353
+Supported inputs
+textIgnored
+A text part beside the media is accepted and ignored. A request with no media part is a 400.
+image_urlYes
+One per request. A second image_url part is a 400.
+video_urlNo
+Not accepted.
+document_urlYes
+One PDF, up to 128 pages, rasterized per page at document_dpi (default 96). See Document Inputs.
+Default method markdown. All five methods return a text payload; only the subject differs, so table, formula, and chart read a page's tables, equations, and charts rather than its prose.
+Context window 16,384 tokens.
+Aliases: paddleocr-vl-1.6, PaddlePaddle/PaddleOCR-VL-1.6, and the 1.5-era ids paddlepaddle/paddleocr-vl, paddleocr-vl, PaddlePaddle/PaddleOCR-VL.
+Weights: PaddlePaddle/PaddleOCR-VL-1.6.
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+markdown (default)Reading-order page read as Markdown
+ocrReading-order plain-text page read
+tableThe page's table alone, as OTSL structure tokens
+formulaLaTeX for the page's equations (e.g. $$E = mc^2$$)
+chartShort description followed by the series as a Markdown table
+Note
+A gateway build that predates the catalog fix lists only ocr, table, formula, and chart for this model and reports default_method as ocr, while still applying markdown when method is omitted. Send method explicitly whenever the page read matters.
+Every method on this model uses the shared contract on Methods & Response Format: <document> / <page id= format= width= height=> in text mode, and the flat reply with top-level model, method and the input's details in JSON mode. The method decides the payload, not the shape.
+Estimate cost
+Estimate. A page is 2,500 input tokens and 1,000 output tokens.
+Pages
+$0.73
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jsCLIcURL
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+response = client.chat.completions.create(
+model="paddlepaddle/paddleocr-vl-1.6",
+messages=[
+{
+"role": "user",
+"content": [
+{
+"type": "image_url",
+"image_url": {
+"url": "https://storage.googleapis.com/vlm-data-public-prod/hub/examples/document.receipt/playground/2.jpg"
+},
+},
+],
+}
+],
+extra_body={"method": "table"},
+)
+print(response.choices[0].message.content)
+Swap image_url for a document_url PDF to read every page with the same method; markdown is used when method is omitted.
+Response
+Both tabs below show method: "table", the method the request above uses. Every method on this model follows the same shared contract, so swapping in markdown (or omitting method) changes the payload, not its shape.
+Text modeJSON mode
+Copy
+A single image returns the payload alone, with no wrapper. The table payload is OTSL structure tokens, where <fcel> opens a cell, <lcel> continues one to the left, and <nl> ends a row:
+Metric20232024
+Revenue0.9M1.2M
+A PDF returns one <document> block per file and one <page> block per page:
+tsla-8k.pdf5 pages
+Page 0
+UNITED STATES SECURITIES AND EXCHANGE COMMISSION
+…
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

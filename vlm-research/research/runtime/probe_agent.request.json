@@ -1,0 +1,14 @@
+{
+  "method": "POST",
+  "url": "https://api.vlm.run/v1/openai/chat/completions",
+  "auth": "Bearer [REDACTED]",
+  "body": {
+    "model": "vlmrun-orion-1:fast",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Reply with exactly AGENT_OK. This is a connectivity test and needs no tools or media."
+      }
+    ]
+  }
+}

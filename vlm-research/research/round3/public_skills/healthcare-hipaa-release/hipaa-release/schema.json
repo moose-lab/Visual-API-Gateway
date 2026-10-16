@@ -1,0 +1,663 @@
+{
+  "$defs": {
+    "Address": {
+      "additionalProperties": false,
+      "properties": {
+        "line1": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Line1"
+        },
+        "line2": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Line2"
+        },
+        "city": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "City"
+        },
+        "state": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Two-letter abbreviation",
+          "title": "State"
+        },
+        "zip_code": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Zip Code"
+        },
+        "country": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Country"
+        }
+      },
+      "title": "Address",
+      "type": "object"
+    },
+    "AuthorizedRepresentative": {
+      "additionalProperties": false,
+      "properties": {
+        "first_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "First Name"
+        },
+        "last_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last Name"
+        },
+        "middle_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Middle Name"
+        },
+        "relationship": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "e.g. parent, guardian, power of attorney",
+          "title": "Relationship"
+        },
+        "contact": {
+          "items": {
+            "$ref": "#/$defs/ContactPoint"
+          },
+          "title": "Contact",
+          "type": "array"
+        }
+      },
+      "title": "AuthorizedRepresentative",
+      "type": "object"
+    },
+    "ContactPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "system": {
+          "anyOf": [
+            {
+              "enum": [
+                "phone",
+                "email",
+                "fax",
+                "sms",
+                "url"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "System"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "use": {
+          "anyOf": [
+            {
+              "enum": [
+                "home",
+                "work",
+                "mobile",
+                "temp"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Use"
+        }
+      },
+      "title": "ContactPoint",
+      "type": "object"
+    },
+    "Person": {
+      "additionalProperties": false,
+      "properties": {
+        "first_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "First Name"
+        },
+        "last_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last Name"
+        },
+        "middle_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Middle Name"
+        },
+        "date_of_birth": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Date Of Birth"
+        },
+        "gender": {
+          "anyOf": [
+            {
+              "enum": [
+                "male",
+                "female",
+                "other",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gender"
+        },
+        "race": {
+          "anyOf": [
+            {
+              "enum": [
+                "white",
+                "black",
+                "asian",
+                "aian",
+                "nhpi",
+                "other"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "aian=American Indian/Alaska Native, nhpi=Native Hawaiian/Pacific Islander",
+          "title": "Race"
+        },
+        "ethnicity": {
+          "anyOf": [
+            {
+              "enum": [
+                "hispanic",
+                "non_hispanic"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "hispanic=Hispanic or Latino, non_hispanic=Not Hispanic or Latino",
+          "title": "Ethnicity"
+        },
+        "language": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "e.g. English, Spanish",
+          "title": "Language"
+        },
+        "address": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Address"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "contact": {
+          "items": {
+            "$ref": "#/$defs/ContactPoint"
+          },
+          "title": "Contact",
+          "type": "array"
+        }
+      },
+      "title": "Person",
+      "type": "object"
+    },
+    "ReleaseParty": {
+      "additionalProperties": false,
+      "description": "Party authorized to receive or disclose PHI.",
+      "properties": {
+        "first_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "First Name"
+        },
+        "last_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last Name"
+        },
+        "middle_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Middle Name"
+        },
+        "credentials": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "e.g. MD, Esq.",
+          "title": "Credentials"
+        },
+        "organization": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Organization"
+        },
+        "address": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Address"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "contact": {
+          "items": {
+            "$ref": "#/$defs/ContactPoint"
+          },
+          "title": "Contact",
+          "type": "array"
+        },
+        "relationship": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Relationship to patient, e.g. attorney, spouse",
+          "title": "Relationship"
+        }
+      },
+      "title": "ReleaseParty",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "HIPAA Authorization to Release / Disclose PHI.",
+  "properties": {
+    "subject": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Person"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Patient whose PHI is being released"
+    },
+    "authorized_representative": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/AuthorizedRepresentative"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Person signing on behalf of the patient"
+    },
+    "receiver": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ReleaseParty"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Party authorized to receive PHI"
+    },
+    "disclosing_party": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ReleaseParty"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Provider/facility releasing PHI"
+    },
+    "purpose": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Purpose of disclosure",
+      "title": "Purpose"
+    },
+    "information_disclosed": {
+      "description": "Record categories authorized for release",
+      "items": {
+        "type": "string"
+      },
+      "title": "Information Disclosed",
+      "type": "array"
+    },
+    "record_period_start": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Record Period Start"
+    },
+    "record_period_end": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Record Period End"
+    },
+    "effective_period_start": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "When authorization takes effect",
+      "title": "Effective Period Start"
+    },
+    "effective_period_end": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "When authorization expires",
+      "title": "Effective Period End"
+    },
+    "expiration_event": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Event-based expiration if no fixed date",
+      "title": "Expiration Event"
+    },
+    "redisclosure_permitted": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Redisclosure Permitted"
+    },
+    "right_to_revoke_acknowledged": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Right To Revoke Acknowledged"
+    },
+    "signature_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Signature Date"
+    },
+    "signed_by_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Name of signer (patient or representative)",
+      "title": "Signed By Name"
+    },
+    "witness_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Witness Name"
+    },
+    "witness_signature_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Witness Signature Date"
+    }
+  },
+  "title": "HipaaRelease",
+  "type": "object"
+}

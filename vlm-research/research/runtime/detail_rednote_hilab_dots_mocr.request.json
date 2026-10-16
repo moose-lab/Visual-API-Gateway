@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/rednote-hilab/dots.mocr",
+  "auth": "Bearer [REDACTED]",
+  "body": null
+}

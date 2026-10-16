@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:32:39.279363+00:00",
+  "method": "POST",
+  "url": "https://gateway.vlm.run/v1/openai/chat/completions",
+  "status": 400,
+  "elapsed_seconds": 1.725,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:32:40 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "4d51a0a7-a1db-4d2f-af69-c714440ea17c"
+  },
+  "response_sha256": "183268057ccca9cfdf0b02c54d4b63107fa37b881c49a9cbafd22c08c3627dbd",
+  "response_bytes": 210
+}

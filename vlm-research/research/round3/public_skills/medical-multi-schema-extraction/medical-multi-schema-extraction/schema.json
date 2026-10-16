@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MedicalMultiSchemaExtraction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaUsed", "documentType", "classificationRationale", "data"],
+  "properties": {
+    "schemaUsed": {
+      "type": "string",
+      "enum": [
+        "referral",
+        "medical_record_request",
+        "progress_note_office_visit"
+      ]
+    },
+    "documentType": {
+      "type": "string",
+      "enum": ["referral", "medical_record_request", "progress_note_office_visit"]
+    },
+    "classificationRationale": {"type": "string"},
+    "data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pages"],
+      "properties": {
+        "pages": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["type", "patient"],
+            "properties": {
+              "type": {"type": "string"},
+              "patient": {
+                "type": "object",
+                "additionalProperties": true,
+                "required": ["givenName", "familyName"],
+                "properties": {
+                  "givenName": {"type": ["string", "null"]},
+                  "familyName": {"type": ["string", "null"]},
+                  "dateOfBirth": {"type": ["string", "null"]}
+                }
+              },
+              "reasonForReferral": {"type": ["string", "null"]},
+              "reasonForVisit": {"type": ["string", "null"]},
+              "dateOfReferral": {"type": ["string", "null"]},
+              "dateOfEvent": {"type": ["string", "null"]},
+              "dateReceived": {"type": ["string", "null"]}
+            }
+          }
+        }
+      }
+    }
+  }
+}

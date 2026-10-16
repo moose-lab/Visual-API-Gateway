@@ -1,0 +1,17 @@
+{
+  "evidence": "RUNTIME",
+  "skill_id": "91b90af4-63d4-47f3-b3b5-20a0d7e5bc6a",
+  "skill_version": "20260722-5d4d2e43",
+  "archive_sha256": "697183e610286d99e47140ce0a4c70e0854281231096bf23ba912d8129286fce",
+  "members": [
+    "medical-multi-schema-extraction/",
+    "medical-multi-schema-extraction/vlmrun.yaml",
+    "medical-multi-schema-extraction/schemas/",
+    "medical-multi-schema-extraction/schemas/progress_note_office_visit.json",
+    "medical-multi-schema-extraction/schemas/referral.json",
+    "medical-multi-schema-extraction/schemas/medical_record_request.json",
+    "medical-multi-schema-extraction/pipeline.py",
+    "medical-multi-schema-extraction/SKILL.md",
+    "medical-multi-schema-extraction/schema.json"
+  ]
+}

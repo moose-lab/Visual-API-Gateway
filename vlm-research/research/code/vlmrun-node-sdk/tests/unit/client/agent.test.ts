@@ -1,0 +1,669 @@
+import { Client } from "../../../src/client/base_requestor";
+import { Agent } from "../../../src/client/agent";
+import { PredictionResponse, AgentInfo } from "../../../src/client/types";
+import { DependencyError } from "../../../src/client/exceptions";
+
+jest.mock("../../../src/client/base_requestor");
+
+// Mock the openai module
+const mockCreate = jest.fn();
+const mockChatCompletions = { create: mockCreate };
+const mockOpenAI = jest.fn().mockImplementation(() => ({
+  chat: { completions: mockChatCompletions },
+}));
+
+jest.mock("openai", () => ({
+  default: mockOpenAI,
+}));
+
+describe("Agent", () => {
+  let client: jest.Mocked<Client>;
+  let agent: Agent;
+
+  beforeEach(() => {
+    client = {
+      apiKey: "test-api-key",
+      baseURL: "https://api.example.com",
+    } as jest.Mocked<Client>;
+
+    agent = new Agent(client);
+  });
+
+  describe("get", () => {
+    it("should get agent by name", async () => {
+      const mockResponse: AgentInfo = {
+        id: "agent_123",
+        name: "test-agent",
+        description: "Test agent for unit tests",
+        prompt: "Test prompt",
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+        status: "completed",
+      };
+
+      jest
+        .spyOn(agent["requestor"], "request")
+        .mockResolvedValue([mockResponse, 200, {}]);
+
+      const result = await agent.get({
+        name: "test-agent",
+      });
+
+      expect(result).toEqual(mockResponse);
+      expect(agent["requestor"].request).toHaveBeenCalledWith(
+        "POST",
+        "agent/lookup",
+        undefined,
+        { name: "test-agent" }
+      );
+    });
+
+    it("should get agent by id", async () => {
+      const mockResponse: AgentInfo = {
+        id: "agent_123",
+        name: "test-agent",
+        description: "Test agent for unit tests",
+        prompt: "Test prompt",
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+        status: "completed",
+      };
+
+      jest
+        .spyOn(agent["requestor"], "request")
+        .mockResolvedValue([mockResponse, 200, {}]);
+
+      const result = await agent.get({
+        id: "agent_123",
+      });
+
+      expect(result).toEqual(mockResponse);
+      expect(agent["requestor"].request).toHaveBeenCalledWith(
+        "POST",
+        "agent/lookup",
+        undefined,
+        { id: "agent_123" }
+      );
+    });
+
+    it("should get agent by prompt", async () => {
+      const mockResponse: AgentInfo = {
+        id: "agent_123",
+        name: "test-agent",
+        description: "Test agent for unit tests",
+        prompt: "Test prompt",
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+        status: "completed",
+      };
+
+      jest
+        .spyOn(agent["requestor"], "request")
+        .mockResolvedValue([mockResponse, 200, {}]);
+
+      const result = await agent.get({
+        prompt: "Test prompt",
+      });
+
+      expect(result).toEqual(mockResponse);
+      expect(agent["requestor"].request).toHaveBeenCalledWith(
+        "POST",
+        "agent/lookup",
+        undefined,
+        { prompt: "Test prompt" }
+      );
+    });
+
+    it("should throw error when multiple parameters are provided", async () => {
+      await expect(agent.get({ name: "test-agent", id: "agent_123" })).rejects.toThrow(
+        "Only one of `id` or `name` or `prompt` can be provided"
+      );
+
+      await expect(agent.get({ name: "test-agent", prompt: "Test prompt" })).rejects.toThrow(
+        "Only one of `id` or `name` or `prompt` can be provided"
+      );
+
+      await expect(agent.get({ id: "agent_123", prompt: "Test prompt" })).rejects.toThrow(
+        "Only one of `id` or `name` or `prompt` can be provided"
+      );
+    });
+
+    it("should throw error when no parameters are provided", async () => {
+      await expect(agent.get({})).rejects.toThrow(
+        "Either `id` or `name` or `prompt` must be provided"
+      );
+    });
+
+    it("should throw error for non-object response", async () => {
+      jest
+        .spyOn(agent["requestor"], "request")
+        .mockResolvedValue(["not-an-object", 200, {}]);
+
+      await expect(agent.get({ name: "test-agent" })).rejects.toThrow(
+        "Expected object response"
+      );
+    });
+  });
+
+  describe("execute", () => {
+    it("should execute agent with file IDs", async () => {
+      const mockResponse: PredictionResponse = {
+        id: "exec_123",
+        status: "running",
+        created_at: new Date().toISOString(),
+      };
+
+      jest
+        .spyOn(agent["requestor"], "request")
+        .mockResolvedValue([mockResponse, 200, {}]);
+
+      const result = await agent.executeLegacy({
+        name: "test-agent",
+        version: "v1",
+        fileIds: ["file_123", "file_456"],
+        batch: true,
+        config: {
+          detail: "hi",
+          confidence: true,
+        },
+        metadata: {
+          environment: "dev",
+          sessionId: "test-session",
+        },
+        callbackUrl: "https://webhook.example.com/callback",
+      });
+
+      expect(result).toEqual(mockResponse);
+      expect(agent["requestor"].request).toHaveBeenCalledWith(
+        "POST",
+        "agent/execute",
+        undefined,
+        {
+          name: "test-agent",
+          version: "v1",
+          batch: true,
+          file_ids: ["file_123", "file_456"],
+          config: {
+            detail: "hi",
+            confidence: true,
+          },
+          metadata: {
+            environment: "dev",
+            sessionId: "test-session",
+          },
+          callback_url: "https://webhook.example.com/callback",
+        }
+      );
+    });
+
+    it("should execute agent with URLs", async () => {
+      const mockResponse: PredictionResponse = {
+        id: "exec_456",
+        status: "running",
+        created_at: new Date().toISOString(),
+      };
+
+      jest
+        .spyOn(agent["requestor"], "request")
+        .mockResolvedValue([mockResponse, 200, {}]);
+
+      const result = await agent.executeLegacy({
+        name: "test-agent",
+        urls: ["https://example.com/test.pdf"],
+      });
+
+      expect(result).toEqual(mockResponse);
+      expect(agent["requestor"].request).toHaveBeenCalledWith(
+        "POST",
+        "agent/execute",
+        undefined,
+        {
+          name: "test-agent",
+          version: "latest",
+          batch: true,
+          urls: ["https://example.com/test.pdf"],
+        }
+      );
+    });
+
+    it("should throw error if neither fileIds nor urls are provided", async () => {
+      await expect(
+        agent.executeLegacy({
+          name: "test-agent",
+        })
+      ).rejects.toThrow("Either `fileIds` or `urls` must be provided");
+    });
+
+    it("should throw error if both fileIds and urls are provided", async () => {
+      await expect(
+        agent.executeLegacy({
+          name: "test-agent",
+          fileIds: ["file_123"],
+          urls: ["https://example.com/test.pdf"],
+        })
+      ).rejects.toThrow("Only one of `fileIds` or `urls` can be provided");
+    });
+
+    it("should throw error for non-object response", async () => {
+      jest
+        .spyOn(agent["requestor"], "request")
+        .mockResolvedValue(["not-an-object", 200, {}]);
+
+      await expect(
+        agent.executeLegacy({
+          name: "test-agent",
+          fileIds: ["file_123"],
+        })
+      ).rejects.toThrow("Expected object response");
+    });
+  });
+
+  describe("create", () => {
+    it("should create an agent successfully", async () => {
+      const mockResponse = {
+        id: "agent_123",
+        name: "test-agent",
+        created_at: "2023-01-01T00:00:00Z",
+        updated_at: "2023-01-01T00:00:00Z",
+        status: "completed",
+      };
+
+      jest
+        .spyOn(agent["requestor"], "request")
+        .mockResolvedValue([mockResponse, 200, {}]);
+
+      const result = await agent.create({
+        config: {
+          prompt: "Test prompt",
+        },
+        name: "test-agent",
+      });
+
+      expect(result).toEqual(mockResponse);
+      expect(agent["requestor"].request).toHaveBeenCalledWith(
+        "POST",
+        "agent/create",
+        undefined,
+        {
+          name: "test-agent",
+          inputs: undefined,
+          config: {
+            prompt: "Test prompt",
+            json_schema: undefined,
+          },
+        }
+      );
+    });
+
+    it("should throw error when prompt is missing", async () => {
+      await expect(
+        agent.create({
+          config: {},
+          name: "test-agent",
+        })
+      ).rejects.toThrow(
+        "Prompt is not provided as a request parameter, please provide a prompt"
+      );
+    });
+  });
+
+  describe("execute (new method)", () => {
+    it("should execute an agent successfully", async () => {
+      const mockResponse = {
+        id: "execution_123",
+        name: "test-agent",
+        created_at: "2023-01-01T00:00:00Z",
+        completed_at: "2023-01-01T00:00:01Z",
+        response: { result: "success" },
+        status: "completed",
+        usage: { credits_used: 10 },
+      };
+
+      jest
+        .spyOn(agent["requestor"], "request")
+        .mockResolvedValue([mockResponse, 200, {}]);
+
+      const result = await agent.execute({
+        name: "test-agent",
+        inputs: { test: "data" },
+        config: {
+          prompt: "Test prompt",
+        },
+      });
+
+      expect(result).toEqual(mockResponse);
+      expect(agent["requestor"].request).toHaveBeenCalledWith(
+        "POST",
+        "agent/execute",
+        undefined,
+        {
+          model: "vlmrun-orion-1:auto",
+          name: "test-agent",
+          batch: true,
+          inputs: { test: "data" },
+          config: {
+            prompt: "Test prompt",
+            json_schema: undefined,
+            skills: undefined,
+          },
+        }
+      );
+    });
+
+    it("should throw error when batch is false", async () => {
+      await expect(
+        agent.execute({
+          name: "test-agent",
+          batch: false,
+        })
+      ).rejects.toThrow("Batch mode is required for agent execution");
+    });
+  });
+
+  describe("list", () => {
+    it("should list agents successfully", async () => {
+      const mockResponse = [
+        {
+          id: "agent_123",
+          name: "test-agent",
+          description: "Test agent",
+          prompt: "Test prompt",
+          created_at: "2023-01-01T00:00:00Z",
+          updated_at: "2023-01-01T00:00:00Z",
+          status: "completed",
+        },
+      ];
+
+      jest
+        .spyOn(agent["requestor"], "request")
+        .mockResolvedValue([mockResponse, 200, {}]);
+
+      const result = await agent.list();
+
+      expect(result).toEqual(mockResponse);
+      expect(agent["requestor"].request).toHaveBeenCalledWith("GET", "agent");
+    });
+  });
+
+  describe("completions", () => {
+    beforeEach(() => {
+      // Reset the mock before each test
+      mockOpenAI.mockClear();
+      mockCreate.mockClear();
+      // Reset the cached completions
+      agent["_completions"] = null;
+    });
+
+    it("should return OpenAI chat completions object", () => {
+      const completions = agent.completions;
+
+      expect(completions).toBe(mockChatCompletions);
+      expect(mockOpenAI).toHaveBeenCalledWith({
+        apiKey: "test-api-key",
+        baseURL: "https://api.example.com/openai",
+        timeout: undefined,
+        maxRetries: 1,
+      });
+    });
+
+    it("should cache the completions object", () => {
+      const completions1 = agent.completions;
+      const completions2 = agent.completions;
+
+      expect(completions1).toBe(completions2);
+      expect(mockOpenAI).toHaveBeenCalledTimes(1);
+    });
+
+    it("should use client timeout and maxRetries when provided", () => {
+      const clientWithOptions: jest.Mocked<Client> = {
+        apiKey: "test-api-key",
+        baseURL: "https://agent.vlm.run/v1",
+        timeout: 30000,
+        maxRetries: 3,
+      } as jest.Mocked<Client>;
+
+      const agentWithOptions = new Agent(clientWithOptions);
+      agentWithOptions.completions;
+
+      expect(mockOpenAI).toHaveBeenCalledWith({
+        apiKey: "test-api-key",
+        baseURL: "https://agent.vlm.run/v1/openai",
+        timeout: 30000,
+        maxRetries: 3,
+      });
+    });
+
+    it("should allow calling create on completions", async () => {
+      const mockResponse = {
+        id: "chatcmpl-123",
+        object: "chat.completion",
+        created: 1677652288,
+        model: "vlmrun-orion-1",
+        choices: [
+          {
+            index: 0,
+            message: {
+              role: "assistant",
+              content: "Hello! How can I help you today?",
+            },
+            finish_reason: "stop",
+          },
+        ],
+        usage: {
+          prompt_tokens: 9,
+          completion_tokens: 12,
+          total_tokens: 21,
+        },
+      };
+
+      mockCreate.mockResolvedValue(mockResponse);
+
+      const completions = agent.completions;
+      const result = await completions.create({
+        model: "vlmrun-orion-1",
+        messages: [{ role: "user", content: "Hello!" }],
+      });
+
+      expect(result).toEqual(mockResponse);
+      expect(mockCreate).toHaveBeenCalledWith({
+        model: "vlmrun-orion-1",
+        messages: [{ role: "user", content: "Hello!" }],
+      });
+    });
+  });
+
+  describe("_processInputs", () => {
+    it("should return undefined for null input", () => {
+      const result = (agent as any)._processInputs(null);
+      expect(result).toBeUndefined();
+    });
+
+    it("should return undefined for undefined input", () => {
+      const result = (agent as any)._processInputs(undefined);
+      expect(result).toBeUndefined();
+    });
+
+    it("should call toJSON for objects with toJSON method", () => {
+      const inputWithToJSON = {
+        value: "test",
+        toJSON: jest.fn().mockReturnValue({ converted: true }),
+      };
+      const result = (agent as any)._processInputs(inputWithToJSON);
+      expect(inputWithToJSON.toJSON).toHaveBeenCalled();
+      expect(result).toEqual({ converted: true });
+    });
+
+    it("should issue deprecation warning for plain objects", () => {
+      const consoleSpy = jest.spyOn(console, "warn").mockImplementation();
+      const plainObject = { key: "value" };
+      const result = (agent as any)._processInputs(plainObject);
+      expect(consoleSpy).toHaveBeenCalledWith(
+        expect.stringContaining("Deprecation Warning")
+      );
+      expect(result).toEqual(plainObject);
+      consoleSpy.mockRestore();
+    });
+
+    it("should return the input as-is for non-plain objects without toJSON", () => {
+      class CustomClass {
+        value: string;
+        constructor() {
+          this.value = "test";
+        }
+      }
+      const customObj = new CustomClass();
+      const result = (agent as any)._processInputs(customObj);
+      expect(result).toBe(customObj);
+    });
+  });
+
+  describe("create with _processInputs", () => {
+    it("should process inputs through _processInputs", async () => {
+      const mockResponse = {
+        id: "agent_123",
+        name: "test-agent",
+        created_at: "2023-01-01T00:00:00Z",
+        updated_at: "2023-01-01T00:00:00Z",
+        status: "completed",
+      };
+
+      jest
+        .spyOn(agent["requestor"], "request")
+        .mockResolvedValue([mockResponse, 200, {}]);
+
+      const inputWithToJSON = {
+        image_url: "https://example.com/image.jpg",
+        toJSON: () => ({ image_url: "https://example.com/image.jpg" }),
+      };
+
+      await agent.create({
+        config: { prompt: "Test prompt" },
+        name: "test-agent",
+        inputs: inputWithToJSON,
+      });
+
+      expect(agent["requestor"].request).toHaveBeenCalledWith(
+        "POST",
+        "agent/create",
+        undefined,
+        expect.objectContaining({
+          inputs: { image_url: "https://example.com/image.jpg" },
+        })
+      );
+    });
+  });
+
+  describe("execute with _processInputs", () => {
+    it("should process inputs through _processInputs", async () => {
+      const mockResponse = {
+        id: "execution_123",
+        name: "test-agent",
+        created_at: "2023-01-01T00:00:00Z",
+        completed_at: "2023-01-01T00:00:01Z",
+        response: { result: "success" },
+        status: "completed",
+        usage: { credits_used: 10 },
+      };
+
+      jest
+        .spyOn(agent["requestor"], "request")
+        .mockResolvedValue([mockResponse, 200, {}]);
+
+      const inputWithToJSON = {
+        image_url: "https://example.com/image.jpg",
+        toJSON: () => ({ image_url: "https://example.com/image.jpg" }),
+      };
+
+      await agent.execute({
+        name: "test-agent",
+        inputs: inputWithToJSON,
+      });
+
+      expect(agent["requestor"].request).toHaveBeenCalledWith(
+        "POST",
+        "agent/execute",
+        undefined,
+        expect.objectContaining({
+          inputs: { image_url: "https://example.com/image.jpg" },
+        })
+      );
+    });
+  });
+
+  describe("service_tier", () => {
+    const mockExecuteResponse = {
+      id: "execution_123",
+      name: "test-agent",
+      created_at: "2023-01-01T00:00:00Z",
+      completed_at: "2023-01-01T00:00:01Z",
+      response: { result: "success" },
+      status: "completed",
+      usage: { credits_used: 10 },
+    };
+
+    const mockCreateResponse = {
+      id: "agent_123",
+      name: "test-agent",
+      created_at: "2023-01-01T00:00:00Z",
+      updated_at: "2023-01-01T00:00:00Z",
+      status: "completed",
+    };
+
+    it.each(["auto", "default", "standard", "flex", "priority", null] as const)(
+      "forwards service_tier=%s to /agent/execute as snake_case",
+      async (tier) => {
+        jest
+          .spyOn(agent["requestor"], "request")
+          .mockResolvedValue([mockExecuteResponse, 200, {}]);
+
+        await agent.execute({
+          name: "test-agent",
+          config: { prompt: "hi", serviceTier: tier },
+        });
+
+        expect(agent["requestor"].request).toHaveBeenCalledWith(
+          "POST",
+          "agent/execute",
+          undefined,
+          expect.objectContaining({
+            config: expect.objectContaining({ service_tier: tier }),
+          })
+        );
+      }
+    );
+
+    it("omits service_tier from /agent/execute payload when not set", async () => {
+      jest
+        .spyOn(agent["requestor"], "request")
+        .mockResolvedValue([mockExecuteResponse, 200, {}]);
+
+      await agent.execute({
+        name: "test-agent",
+        config: { prompt: "hi" },
+      });
+
+      const call = (agent["requestor"].request as jest.Mock).mock.calls[0];
+      expect(call[3].config).not.toHaveProperty("service_tier");
+    });
+
+    it("forwards service_tier through /agent/create", async () => {
+      jest
+        .spyOn(agent["requestor"], "request")
+        .mockResolvedValue([mockCreateResponse, 200, {}]);
+
+      await agent.create({
+        name: "test-agent",
+        config: { prompt: "Test prompt", serviceTier: "flex" },
+      });
+
+      expect(agent["requestor"].request).toHaveBeenCalledWith(
+        "POST",
+        "agent/create",
+        undefined,
+        expect.objectContaining({
+          config: expect.objectContaining({ service_tier: "flex" }),
+        })
+      );
+    });
+  });
+});

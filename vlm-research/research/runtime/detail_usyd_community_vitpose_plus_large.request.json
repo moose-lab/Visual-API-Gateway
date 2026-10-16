@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/usyd-community/vitpose-plus-large",
+  "auth": "Bearer [REDACTED]",
+  "body": null
+}

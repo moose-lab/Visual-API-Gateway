@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:41:50.513283+00:00",
+  "url": "https://raw.githubusercontent.com/studio-dots-ai/dots.mocr/23f3e5612fb8066d4034d5ecfc8f33a9243533eb/dots_mocr/utils/prompts.py",
+  "method": "GET",
+  "status": 200,
+  "final_url": "https://raw.githubusercontent.com/studio-dots-ai/dots.mocr/23f3e5612fb8066d4034d5ecfc8f33a9243533eb/dots_mocr/utils/prompts.py",
+  "response_sha256": "33c5437260e393b7dc04c9f19a6fc19b7cfa00d7c05ff8c6e66b5be28de29ec6",
+  "response_bytes": 2655,
+  "headers": {
+    "Content-Type": "text/plain; charset=utf-8",
+    "Date": "Tue, 13 Oct 2026 03:41:51 GMT"
+  },
+  "elapsed_seconds": 0.98
+}

@@ -1,0 +1,79 @@
+# VLM Run
+
+> The unified gateway for document, image, and video AI. Open-weight vision models behind one OpenAI-compatible API — Orion, our visual agent, sees, reasons, and acts when you need more than raw models.
+
+Key terms: Visual Intelligence, Vision-Language Model, VLM, Orion, Visual Agent, Document OCR, Structured Output, Visual Grounding, HIPAA, SOC 2, Computer Vision, Multimodal AI, Visual ETL, API
+
+## Product
+
+- [Homepage](https://vlm.run): The unified gateway for document, image, and video AI. Open-weight vision models behind one OpenAI-compatible API.
+- [Product](https://vlm.run/product): Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+- [Orion Visual Agent](https://vlm.run/orion): Orion, the visual agent that sees, reasons, and acts on images, video, and documents through a single OpenAI-compatible API.
+- [Gateway](https://vlm.run/gateway): The OpenAI-compatible gateway for visual AI. OCR, captioning, detection, and chat behind one endpoint.
+- [Gateway Models](https://vlm.run/gateway/models): Visual models on the VLM Run Gateway: OCR, markdown, captioning, detection, and embeddings behind one OpenAI-compatible endpoint.
+- [Frontier Models](https://vlm.run/gateway/models/frontier-models): Frontier models the gateway routes to an upstream provider, so one key and one OpenAI-compatible endpoint cover them as well.
+- [Document AI](https://vlm.run/doc-ai): Document intelligence for the agentic stack. Schema-validated JSON with grounding from PDFs and scans.
+- [Image AI](https://vlm.run/product/images): Caption, detect, segment, and generate images through one OpenAI-compatible API.
+- [Video AI](https://vlm.run/video-ai): Summarize, transcribe, and search video with time-anchored structured output.
+- [Physical AI Demo](https://vlm.run/demos/physical-ai): Side-by-side Orion dense segmentation on robot padlock-unlock episodes.
+- [Pricing](https://vlm.run/pricing): Dollar billing for Orion agents, models, and tools. Start free with a $10 balance.
+- [Chat Playground](https://chat.vlm.run): Try Orion in a hosted chat interface.
+- [API Docs](https://docs.vlm.run): Developer documentation, API reference, and quickstart guides.
+
+## Documentation
+
+- [Documentation llms.txt](https://docs.vlm.run/llms.txt): Machine-readable index of all docs pages with markdown URLs for AI crawlers and agents.
+- [Docs Introduction](https://docs.vlm.run/introduction): What VLM Run is and how to extract structured JSON from images, video, and documents.
+- [Ways to Use VLM Run](https://docs.vlm.run/ways-to-use-vlm-run): Requests, Executions, Chat Completions API, and Chat UI — when to use each entry point.
+- [Orion Agents](https://docs.vlm.run/agents/introduction): VLM Run Orion visual agent: sees, reasons, and acts on images, video, and documents.
+- [API Pricing (Docs)](https://docs.vlm.run/pricing): Dollar API pricing: token rates, fixed-price tools, grounding, service tiers, and examples.
+- [Parsing Invoices Guide](https://docs.vlm.run/guides/doc-ai/guide-parsing-invoices): Step-by-step guide to extract structured invoice data from PDFs and images.
+
+## Solutions
+
+- [Healthcare](https://vlm.run/solutions/healthcare): Healthcare document AI: parse handwritten intakes, extract histories, triage mixed faxes, and cite lab values as HIPAA-ready JSON for your EHR.
+- [Construction](https://vlm.run/solutions/construction): Construction drawing AI: parse blueprints, drawing sets, door schedules, and spec sections into structured JSON for takeoffs and submittal review.
+- [Insurance](https://vlm.run/solutions/insurance): Automate claims processing without brittle OCR. Extract, reason, and validate claims data across documents and images.
+- [Real Estate](https://vlm.run/solutions/real-estate): Make property data usable instantly. Extract lease terms, normalize rent rolls, and analyze listing images.
+- [Media & Entertainment](https://vlm.run/solutions/media-entertainment): Make massive media libraries searchable. Auto-tag, index, and summarize images and video at scale.
+- [SaaS](https://vlm.run/solutions/saas): Turn session recordings into structured UX insights. Understand video without watching it.
+- [Multimodal Intelligence](https://vlm.run/solutions/multimodal-intelligence): Deploy and orchestrate vLLM and vision models through one production API without building the stack.
+
+## Open Source
+
+- [vlmrun-hub](https://vlm.run/open-source/vlmrun-hub): Production-ready Pydantic schemas for Visual ETL. Extract structured, validated data from any VLM.
+- [vlmbench](https://vlm.run/open-source/vlmbench): Benchmark any vision-language model on your hardware with a single command.
+- [mm](https://vlm.run/open-source/mm): Fast multimodal context for agents. UNIX-style tools with multimodal powers.
+- [autovllm](https://vlm.run/open-source/autovllm): Optimized vLLM for production VLM inference with LRU caching and Triton kernel fusions.
+
+## Resources
+
+- [Blog](https://vlm.run/blog): Case studies, product updates, and technical posts from VLM Run.
+- [FAQ](https://vlm.run/faq): Answers about Orion, pricing, healthcare, construction, security, and enterprise deployment.
+- [About](https://vlm.run/about): VLM Run builds the gateway towards visual intelligence for enterprise teams.
+- [Orion Whitepaper](https://storage.googleapis.com/vlm-data-public-prod/web/assets/vlmrun-orion-whitepaper-latest.pdf): Technical overview of Orion architecture and capabilities.
+
+## Developers
+
+- [Agent authentication](https://vlm.run/auth.md): HTTP signup for agents: email a code, accept the terms, and receive an API key with $0.50 trial credit.
+- [CLI skill](https://vlm.run/SKILL.md): Agent skill for the VLM Run CLI. Chat with Orion on images, video, and documents.
+- [Gateway skill](https://vlm.run/gateway/SKILL.md): Agent skill for the VLM Run gateway and platform API: parse, chat, embeddings, and transcription.
+- [Agent skills index](https://vlm.run/.well-known/agent-skills/index.json): Machine-readable index of VLM Run agent skills.
+- [Agent signup OpenAPI](https://prod-vlm-cloud-nfsnfpr33q-uc.a.run.app/api/v1/agent/openapi.json): OpenAPI 3.1 schema for agent account creation and API key issuance.
+- [Cookbooks](https://github.com/vlm-run/vlmrun-cookbook): Example workflows and integration patterns for the VLM Run API.
+- [Discord](https://discord.gg/AMApC2UzVY): Community support and product discussion.
+- [GitHub](https://github.com/vlm-run): Open-source repositories, SDKs, and cookbooks.
+
+## Company
+
+- [Trust Center](https://trust.vlm.run): SOC 2, HIPAA, security, and compliance documentation.
+- [Careers](https://app.dover.com/VLM%20Run/careers/a63ca8a3-0866-4a36-88a7-b755a9b4aef3): Open positions at VLM Run.
+
+## Optional
+
+- [RSS Feed](https://vlm.run/blog/feed.xml): Blog syndication feed.
+- [Introducing the VLM Run Gateway: Unified API for Visual Intelligence](https://vlm.run/blog/introducing-gateway): One OpenAI-compatible endpoint for specialized VLMs. Swap models in a line, and stop paying frontier prices to read images, documents and videos.
+- [Orion 2: Frontier Visual Agents with Code Execution](https://vlm.run/blog/orion-2): Orion 2, our most capable visual agent, writes and executes vision programs on the fly – faster, cheaper, more reliable.
+- [How Scan.com Automates Document Workflows with VLM Run's Orion](https://vlm.run/blog/scan-com-case-study): How Scan.com Automates Document Workflows with VLM Run's Orion
+- [Introducing Artifacts Support for Orion](https://vlm.run/blog/introducing-orion-artifacts): Explore VLM Run's new visual Agent with Artifacts
+- [Automating PII and PHI Compliance with VLM Run’s Redaction API](https://vlm.run/blog/document-redaction): VLM Run's redaction API automatically detects and removes PII and PHI from sensitive documents. Ensure HIPAA, PCI DSS, and GDPR compliance across healthcare, finance, and legal workflows while protecting enterprise data.

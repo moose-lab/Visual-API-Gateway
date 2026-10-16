@@ -1,0 +1,843 @@
+{
+  "domain": "document.invoice",
+  "description": "Comprehensive invoice data extraction system that processes invoice images to extract structured information including invoice metadata, customer details, line items, and financial totals.",
+  "schema_version": "0.1.35",
+  "schema_hash": "beca61909593e8c37f408cf800e535a69d2621915a0bd7123dd0cec130229f5a",
+  "gql_stmt": "{\n  invoice_id\n  invoice_issue_date\n  invoice_due_date\n  period_start\n  period_end\n  order_id\n  customer_id\n  issuer_name\n  issuer_address {\n    street\n    city\n    state\n    postal_code\n    country\n  }\n  issuer_email\n  issuer_phone\n  issuer_vat_id\n  issuer_website\n  customer_name\n  customer_email\n  customer_phone\n  customer_billing_address {\n    street\n    city\n    state\n    postal_code\n    country\n  }\n  customer_shipping_address {\n    street\n    city\n    state\n    postal_code\n    country\n  }\n  customer_vat_id\n  items {\n    description\n    quantity\n    unit_price\n    total_price\n    currency\n    item_tax_details\n    item_adjustment_details\n  }\n  currency\n  subtotal\n  discount_amount\n  discount_percentage\n  discount_description\n  shipping_cost\n  shipping_description\n  tax_amount\n  tax_percentage\n  tax_description\n  overall_tax_notes\n  total_amount\n  amount_paid\n  balance_due\n  payment_terms\n  payment_instructions\n  payment_link\n  bank_details {\n    bank_name\n    account_holder_name\n    account_number\n    routing_number\n    bsb_number\n    iban\n    swift_bic\n  }\n  notes\n  terms_and_conditions\n  footer_text\n  page_information\n  logo_url\n}",
+  "json_schema": {
+    "$defs": {
+      "Address": {
+        "properties": {
+          "street": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Street address",
+            "title": "Street"
+          },
+          "city": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "City",
+            "title": "City"
+          },
+          "state": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "State, province, or region",
+            "title": "State"
+          },
+          "postal_code": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Postal or ZIP code",
+            "title": "Postal Code"
+          },
+          "country": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Country",
+            "title": "Country"
+          }
+        },
+        "title": "Address",
+        "type": "object"
+      },
+      "BankDetails": {
+        "properties": {
+          "bank_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Name of the bank",
+            "title": "Bank Name"
+          },
+          "account_holder_name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Name of the account holder",
+            "title": "Account Holder Name"
+          },
+          "account_number": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Bank account number",
+            "title": "Account Number"
+          },
+          "routing_number": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Bank routing number (e.g., ABA for US)",
+            "title": "Routing Number"
+          },
+          "bsb_number": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Branch Sort Code (BSB) or similar local bank code",
+            "title": "Bsb Number"
+          },
+          "iban": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "International Bank Account Number (IBAN)",
+            "title": "Iban"
+          },
+          "swift_bic": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "SWIFT/BIC code",
+            "title": "Swift Bic"
+          }
+        },
+        "title": "BankDetails",
+        "type": "object"
+      },
+      "Item": {
+        "properties": {
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Description or name of the item or service",
+            "title": "Description"
+          },
+          "quantity": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Quantity of the item, which can be a float for hours or partial units",
+            "title": "Quantity"
+          },
+          "unit_price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Unit price or rate of the item",
+            "title": "Unit Price"
+          },
+          "total_price": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Total price for this line item, typically quantity multiplied by unit price, before item-specific adjustments/taxes",
+            "title": "Total Price"
+          },
+          "currency": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "3-digit currency code for this item, if it differs from the main invoice currency",
+            "title": "Currency"
+          },
+          "item_tax_details": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Tax details or rate specific to this item (e.g., 'VAT 0%[1]', 'Sales Tax Exempt')",
+            "title": "Item Tax Details"
+          },
+          "item_adjustment_details": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "description": "Adjustment or discount details specific to this item (e.g., '10% off promo', 'Volume discount')",
+            "title": "Item Adjustment Details"
+          }
+        },
+        "title": "Item",
+        "type": "object"
+      }
+    },
+    "properties": {
+      "invoice_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Unique invoice identifier or number",
+        "title": "Invoice Id"
+      },
+      "invoice_issue_date": {
+        "anyOf": [
+          {
+            "format": "date",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Date when the invoice was issued",
+        "title": "Invoice Issue Date"
+      },
+      "invoice_due_date": {
+        "anyOf": [
+          {
+            "format": "date",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Date by which the invoice payment is due",
+        "title": "Invoice Due Date"
+      },
+      "period_start": {
+        "anyOf": [
+          {
+            "format": "date",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Start date of the billing period covered by the invoice, if applicable",
+        "title": "Period Start"
+      },
+      "period_end": {
+        "anyOf": [
+          {
+            "format": "date",
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "End date of the billing period covered by the invoice, if applicable",
+        "title": "Period End"
+      },
+      "order_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Unique order identifier related to this invoice, if applicable",
+        "title": "Order Id"
+      },
+      "customer_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Unique customer identifier, if applicable",
+        "title": "Customer Id"
+      },
+      "issuer_name": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Name of the invoice issuer (company or individual)",
+        "title": "Issuer Name"
+      },
+      "issuer_address": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/Address"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Address of the invoice issuer"
+      },
+      "issuer_email": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Email address of the invoice issuer",
+        "title": "Issuer Email"
+      },
+      "issuer_phone": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Phone number of the invoice issuer",
+        "title": "Issuer Phone"
+      },
+      "issuer_vat_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "VAT identification number or other tax ID of the issuer",
+        "title": "Issuer Vat Id"
+      },
+      "issuer_website": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Website of the invoice issuer",
+        "title": "Issuer Website"
+      },
+      "customer_name": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Name of the invoice recipient (company or individual)",
+        "title": "Customer Name"
+      },
+      "customer_email": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Email address of the recipient",
+        "title": "Customer Email"
+      },
+      "customer_phone": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Phone number of the recipient",
+        "title": "Customer Phone"
+      },
+      "customer_billing_address": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/Address"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Billing address of the recipient"
+      },
+      "customer_shipping_address": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/Address"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Shipping address of the recipient, if different from billing"
+      },
+      "customer_vat_id": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "VAT identification number or other tax ID of the customer",
+        "title": "Customer Vat Id"
+      },
+      "items": {
+        "anyOf": [
+          {
+            "items": {
+              "$ref": "#/$defs/Item"
+            },
+            "type": "array"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "List of items or services detailed in the invoice",
+        "title": "Items"
+      },
+      "currency": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Primary 3-digit currency code for the invoice amounts (e.g., USD, EUR)",
+        "title": "Currency"
+      },
+      "subtotal": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Total amount of all line items before any discounts, taxes, and shipping",
+        "title": "Subtotal"
+      },
+      "discount_amount": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Total discount amount applied to the invoice subtotal",
+        "title": "Discount Amount"
+      },
+      "discount_percentage": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Overall discount percentage applied to the invoice",
+        "title": "Discount Percentage"
+      },
+      "discount_description": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Description of the discount applied (e.g., 'Early payment discount', 'Volume discount')",
+        "title": "Discount Description"
+      },
+      "shipping_cost": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Shipping and handling charges",
+        "title": "Shipping Cost"
+      },
+      "shipping_description": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Description of shipping charges or method",
+        "title": "Shipping Description"
+      },
+      "tax_amount": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Total tax amount for the invoice",
+        "title": "Tax Amount"
+      },
+      "tax_percentage": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Overall tax rate percentage applied to the taxable amount",
+        "title": "Tax Percentage"
+      },
+      "tax_description": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Description of the tax applied, such as type, rate, or jurisdiction",
+        "title": "Tax Description"
+      },
+      "overall_tax_notes": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Additional notes regarding taxes for the entire invoice (e.g., 'Tax to be paid on reverse charge basis')",
+        "title": "Overall Tax Notes"
+      },
+      "total_amount": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "The final total amount of the invoice after all deductions and additions (subtotal - discounts + shipping + taxes)",
+        "title": "Total Amount"
+      },
+      "amount_paid": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Amount already paid by the customer towards this invoice",
+        "title": "Amount Paid"
+      },
+      "balance_due": {
+        "anyOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Remaining amount due for payment (total_amount - amount_paid)",
+        "title": "Balance Due"
+      },
+      "payment_terms": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Payment terms and conditions (e.g., 'Net 30 days', 'Due upon receipt')",
+        "title": "Payment Terms"
+      },
+      "payment_instructions": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Specific instructions for making payment",
+        "title": "Payment Instructions"
+      },
+      "payment_link": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "A URL for online payment, if available",
+        "title": "Payment Link"
+      },
+      "bank_details": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/BankDetails"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Bank account details for payment transfers"
+      },
+      "notes": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "General notes, comments, or miscellaneous information on the invoice",
+        "title": "Notes"
+      },
+      "terms_and_conditions": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "General terms and conditions related to the invoice or service",
+        "title": "Terms And Conditions"
+      },
+      "footer_text": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Text appearing in the footer of the invoice (e.g., thank you message, company slogan)",
+        "title": "Footer Text"
+      },
+      "page_information": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "Page numbering or other page-specific information (e.g., 'Page 1 of 1')",
+        "title": "Page Information"
+      },
+      "logo_url": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "default": null,
+        "description": "URL of the company logo displayed on the invoice",
+        "title": "Logo Url"
+      }
+    },
+    "title": "Invoice",
+    "type": "object"
+  },
+  "json_sample": null
+}

@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:00:34.558360+00:00",
+  "url": "https://api.github.com/search/repositories?q=xberg+ocr",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "33f43c65e759c7bee972cd5b233ed28c5f568da0505277c7d5688df1bb095e0a",
+  "response_bytes": 27877,
+  "headers": {
+    "Date": "Tue, 13 Oct 2026 03:00:35 GMT",
+    "Content-Type": "application/json; charset=utf-8",
+    "Server": "github.com"
+  },
+  "elapsed_seconds": 1.404
+}

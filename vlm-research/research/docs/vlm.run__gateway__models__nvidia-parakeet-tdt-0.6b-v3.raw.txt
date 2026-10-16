@@ -1,0 +1,157 @@
+Parakeet TDT 0.6B v3 | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+NVIDIA
+Parakeet TDT 0.6B v3
+About
+Parakeet TDT 0.6B v3 is a 0.6B open-weight model from NVIDIA. NeMo Parakeet speech-to-text transcription. It accepts text, images, and video. Released August 4, 2025.
+Parameters
+0.6B
+Published parameter count.
+License
+CC-BY-4.0
+License on the weights.
+PricingCompareBenchmarksMethodsInputsEstimate costQuick startResponse
+Model specifications
+ProviderNVIDIA
+Type
+transcription
+Endpointnvidia/parakeet-tdt-0.6b-v3
+Parameters0.6B
+Per 1M audio seconds$16.67
+Inputs
+textimage_urlvideo_url
+LicenseCC-BY-4.0
+ReleasedAugust 4, 2025
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Per 1M audio seconds$16.67
+Compare
+Parakeet TDT 0.6B v3 is the only transcription model in the catalog. The other rows take similar inputs and do a different job.
+ModelWhat it doesPriceParametersContext
+Parakeet TDT 0.6B v3NeMo Parakeet speech-to-text transcription.$16.67 / 1M audio seconds0.6B—
+PP-OCRv6PaddleOCR PP-OCRv6 medium text detection and recognition; scene OCR JSONL on image chat; text returns plain text; document_url fan-out via text.$0.02 / 1M input20M—
+Gemini 3.5 Flash LiteFastest and cheapest Gemini tier. Multimodal chat; emits no reasoning tokens.$0.30 / 1M input—1M
+Gemini 3.7 FlashNewest Gemini Flash tier with extended reasoning. Multimodal chat + native video.$0.75 / 1M input—1M
+Benchmarks
+Published scores for Parakeet TDT 0.6B v3, from the Parakeet paper.
+Evals
+Open ASR avg WER6.32
+AMI WER11.39
+LibriSpeech other WER3.59
+A lower score is better.
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeOpen ASR avg WER: 6.32.
+Cost and performanceLower listed rate, mid-pack latency
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+transcribeA transcript
+Supported inputs
+Audio upload (file)Yes
+One file per request, as multipart form data.
+Audio URL (url)Yes
+A hosted file, in place of file.
+Video containerYes
+An mp4, mov, webm, or mkv upload or URL is accepted and its audio track is transcribed.
+text, image_url, document_urlNo
+This model is not a chat model. A chat completion naming it is a 400.
+Served over POST /v1/openai/audio/transcriptions. Only method: transcribe. language is an optional ISO-639-1 hint.
+Billed per audio second on json and verbose_json replies. See Pricing.
+Weights: nvidia/parakeet-tdt-0.6b-v3.
+Estimate cost
+Hours of audio
+$60.01
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jsCLIcURL
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+with open("sample.mp3", "rb") as audio_file:
+response = client.audio.transcriptions.create(
+model="nvidia/parakeet-tdt-0.6b-v3",
+file=audio_file,
+)
+print(response.text)
+Response
+response_format defaults to json, which carries the transcript and a usage block:
+JSON
+{
+"id": "transcription-3d1df87d0037",
+"object": "audio.transcription",
+"model": "nvidia/parakeet-tdt-0.6b-v3",
+"backend": "nemo",
+"task": "transcribe",
+"duration": 252.726,
+"text": "McKeys Rocks is a rough and tumble area just outside Pittsburgh…",
+"usage": {
+"type": "duration",
+"input_audio_seconds": 252.726,
+"input_tokens": 0,
+"output_tokens": 581,
+"total_tokens": 581,
+"cost": 0.004213
+}
+}
+usage.cost is the metered charge in USD, and input_audio_seconds is the quantity it was computed from: the clip's duration at $0.06 per audio hour. See Pricing.
+Note
+Only json and verbose_json carry a usage block. text, srt, and vtt return the transcript alone, so read the cost from one of the JSON formats if you need it.
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

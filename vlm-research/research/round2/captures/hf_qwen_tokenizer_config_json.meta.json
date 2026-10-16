@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:40:05.041386+00:00",
+  "url": "https://huggingface.co/AxionML/Qwen3.5-0.8B-NVFP4/resolve/2ac1e750cda67cc8538d731f6216f77b9c3a6f72/tokenizer_config.json",
+  "method": "GET",
+  "status": 200,
+  "final_url": "https://huggingface.co/api/resolve-cache/models/AxionML/Qwen3.5-0.8B-NVFP4/2ac1e750cda67cc8538d731f6216f77b9c3a6f72/tokenizer_config.json?%2FAxionML%2FQwen3.5-0.8B-NVFP4%2Fresolve%2F2ac1e750cda67cc8538d731f6216f77b9c3a6f72%2Ftokenizer_config.json=&etag=%22fae3ce993e07c092ad024dde45e592379fde91bb%22",
+  "response_sha256": "49e2b6e395f959f077f1e992b338919c0d4a9732fc6e613995e06557f843500c",
+  "response_bytes": 16709,
+  "headers": {
+    "Content-Type": "text/plain; charset=utf-8",
+    "Date": "Tue, 29 Sep 2026 09:48:05 GMT",
+    "X-Request-Id": "Root=1-6abb8955-03eddcc14e182e631c4d438a;afbb3a2f-1d83-471e-aa70-23455fc7bf41"
+  },
+  "elapsed_seconds": 1.66
+}

@@ -1,0 +1,10 @@
+{
+  "evidence": "PROPOSAL",
+  "scope": "Locally authored test expectation; not server evidence",
+  "inputs": {
+    "text": "Return the greeting ROUND3_HELLO."
+  },
+  "expected": {
+    "response": "ROUND3_HELLO"
+  }
+}

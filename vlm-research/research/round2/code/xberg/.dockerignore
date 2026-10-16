@@ -1,0 +1,40 @@
+# =============================================================================
+# .dockerignore — Docker builds only need Cargo.toml, Cargo.lock, and crates/
+# Exclude everything else to minimize context and speed up builds.
+# =============================================================================
+
+# Start by ignoring everything
+*
+
+# Allow only what Docker builds need
+!Cargo.toml
+!Cargo.lock
+!crates/xberg/
+!crates/xberg-gliner/
+!crates/xberg-cli/
+!crates/xberg-tesseract/
+!crates/xberg-paddle-ocr/
+!crates/xberg-candle-ocr/
+!crates/xberg-pdfium-render/
+!crates/xberg-native-pdf/
+!crates/xberg-ffi/
+!crates/xberg-libheif/
+!crates/xberg-libwpd/
+!crates/xberg-py/
+!packages/python/
+!crates/xberg-node/
+!crates/xberg-wasm/
+!packages/elixir/native/xberg_nif/
+!docker/
+!scripts/ci/vendor-native-closure.sh
+
+# Re-exclude build artifacts inside allowed dirs
+**/target/
+**/.git/
+**/node_modules/
+**/__pycache__/
+**/*.pyc
+**/*.so
+**/*.dylib
+**/*.dll
+**/*.node

@@ -1,0 +1,129 @@
+MiniMax M3 | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+All models
+MiniMax
+MiniMax M3
+About
+MiniMax M3 is a 428B open-weight model from MiniMax. MiniMax M3. Text, multi-image, and native video. Reasoning model. It accepts text, images, and video. Context window is 1M. Released June 2, 2026.
+Parameters
+428B
+Published parameter count.
+Context window
+1M
+Tokens of context on a request.
+License
+MiniMax Community
+License on the weights.
+PricingCompareBenchmarksMethodsEstimate costQuick start
+Model specifications
+ProviderMiniMax
+Type
+detectionchat
+Endpointminimax/minimax-m3
+Parameters428B
+Context length1M
+Input price$0.30 / 1M tokens$0.06 (cached) / 1M
+Output price$1.20 / 1M tokens
+Inputs
+textimage_urlvideo_url
+LicenseMiniMax Community
+ReleasedJune 2, 2026
+PlaygroundUse model
+Pricing
+Token rates are US dollars per 1M tokens. Image rates are per 1K images. Audio rates are per 1M audio seconds.
+RatePrice
+Input / 1M$0.30
+Cached input / 1M$0.06
+Output / 1M$1.20
+Compare
+MiniMax M3 is one of the catalog's chat models. The table is each model's published price, size, and context.
+ModelWhat it doesPriceParametersContext
+MiniMax M3MiniMax M3. Text, multi-image, and native video. Reasoning model.$0.30 / 1M input428B1M
+Qwen3.5 0.8BMultimodal chat model with up to 64 images or one video per request.$0.08 / 1M input0.8B256K
+Gemini 3.5 Flash LiteFastest and cheapest Gemini tier. Multimodal chat; emits no reasoning tokens.$0.30 / 1M input—1M
+Gemini 3.7 FlashNewest Gemini Flash tier with extended reasoning. Multimodal chat + native video.$0.75 / 1M input—1M
+Benchmarks
+Published scores for MiniMax M3, from the MiniMax-M3 FlagOS card.
+Evals
+SWE-Bench Pro59
+GPQA Diamond86.36
+ERQA52.25
+ReadingExample
+QualitativeClear structure, grounded in the input
+QuantitativeSWE-Bench Pro: 59.
+Cost and performanceLower listed rate, mid-pack latency
+Methods
+Methods this model serves. Payload shapes are in the docs.
+MethodReturns
+detectionBoxes around objects
+chatThe model's reply
+Estimate cost
+Estimate. An hour of video is 15 frames a minute at 256 tokens a frame, plus the audio in that request, and 500 output tokens a minute.
+Hours of video
+$139.68
+Quick start
+Call this model on the OpenAI-compatible gateway. The model id is already filled in.
+PythonNode.jscURLCLI
+from openai import OpenAI
+client = OpenAI(
+base_url="https://gateway.vlm.run/v1/openai",
+api_key="<VLMRUN_API_KEY>",
+)
+response = client.chat.completions.create(
+model="minimax/minimax-m3",
+messages=[{"role": "user", "content": "What is in this image?"}],
+)
+print(response.choices[0].message.content)
+Get an API key. Ship vision today.
+Get an API KeyRead the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

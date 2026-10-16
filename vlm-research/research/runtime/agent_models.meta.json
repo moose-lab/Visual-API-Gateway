@@ -1,0 +1,14 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:23:49.294902+00:00",
+  "method": "GET",
+  "url": "https://api.vlm.run/v1/openai/models",
+  "status": 200,
+  "elapsed_seconds": 2.677,
+  "headers": {
+    "Content-Type": "application/json",
+    "Date": "Sun, 11 Oct 2026 06:23:51 GMT"
+  },
+  "response_sha256": "d94bea121ee6d070d1152489c1168d80e47a371aff300b12e72f2312b9268d57",
+  "response_bytes": 712
+}

@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:40:06.701903+00:00",
+  "url": "https://huggingface.co/nvidia/diffusiongemma-26B-A4B-it-NVFP4/resolve/ec4ff3df205028f4e81c954c2227f9312b3ec2ea/README.md",
+  "method": "GET",
+  "status": 200,
+  "final_url": "https://huggingface.co/api/resolve-cache/models/nvidia/diffusiongemma-26B-A4B-it-NVFP4/ec4ff3df205028f4e81c954c2227f9312b3ec2ea/README.md?%2Fnvidia%2Fdiffusiongemma-26B-A4B-it-NVFP4%2Fresolve%2Fec4ff3df205028f4e81c954c2227f9312b3ec2ea%2FREADME.md=&etag=%22041af39e7f732ba745c9ba35d000b11e2ca289d1%22",
+  "response_sha256": "94f0de6f2c026f7a0acc102c36e814a72cefca201342b08fcdd85373328686d1",
+  "response_bytes": 9993,
+  "headers": {
+    "Content-Type": "text/plain; charset=utf-8",
+    "Date": "Wed, 02 Sep 2026 21:49:52 GMT",
+    "X-Request-Id": "Root=1-6a989a00-2f93d1d96fce26f1019c4b0c"
+  },
+  "elapsed_seconds": 1.76
+}

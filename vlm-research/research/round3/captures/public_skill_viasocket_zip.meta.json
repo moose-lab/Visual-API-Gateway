@@ -1,0 +1,15 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T07:47:52.219700+00:00",
+  "url": "https://storage.googleapis.com/vlm-userdata-prod/files/f108387c-32c1-497a-b137-c1c38746e246/skill_viasocket_2c106acbf326.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=[REDACTED]&X-Goog-Date=20261013T074752Z&X-Goog-Expires=604800&X-Goog-SignedHeaders=host&X-Goog-Signature=[REDACTED]",
+  "method": "GET",
+  "status": 200,
+  "response_sha256": "77f9d58e4358cd8f2474d34c0339f2ac8284ab945d594a12bbb61a800c41d77b",
+  "response_bytes": 1342,
+  "headers": {
+    "Content-Type": "application/zip",
+    "Date": "Tue, 13 Oct 2026 07:47:53 GMT",
+    "Server": "UploadServer"
+  },
+  "elapsed_seconds": 1.081
+}

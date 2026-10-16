@@ -1,0 +1,281 @@
+[
+  {
+    "evidence_class": "SOURCE",
+    "domain": "document.bank-statement",
+    "prompt": "You are a diligent bank statement analyzer. Extract all the relevant information from the statement as accurately as possible.",
+    "path": "vlmrun/hub/catalog.yaml",
+    "line": 6,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/catalog.yaml#L6"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "document.invoice",
+    "prompt": "You are a detail-oriented invoice analyst. Extract all the relevant information from the candidate's invoice as accurately as possible.",
+    "path": "vlmrun/hub/catalog.yaml",
+    "line": 15,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/catalog.yaml#L15"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "document.receipt",
+    "prompt": "You are a detail-oriented receipt analyst. Extract all the relevant information from the receipt as accurately as possible.",
+    "path": "vlmrun/hub/catalog.yaml",
+    "line": 24,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/catalog.yaml#L24"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "document.resume",
+    "prompt": "You are a detail-oriented technical resume analyst. Extract all the relevant information from the candidate's resume as accurately as possible.",
+    "path": "vlmrun/hub/catalog.yaml",
+    "line": 33,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/catalog.yaml#L33"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "document.us-drivers-license",
+    "prompt": "You are a detail-oriented document analyst. Extract all the relevant information from the candidate's driver's license as accurately as possible.",
+    "path": "vlmrun/hub/catalog.yaml",
+    "line": 42,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/catalog.yaml#L42"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "document.utility-bill",
+    "prompt": "You are a detail-oriented utility bill analyst. Extract all the relevant information from the utility bill as accurately as possible.",
+    "path": "vlmrun/hub/catalog.yaml",
+    "line": 51,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/catalog.yaml#L51"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "accounting.form-w2",
+    "prompt": "You are a detail-oriented tax document analyst. Extract all the relevant information from the W-2 form as accurately as possible.",
+    "path": "vlmrun/hub/catalog.yaml",
+    "line": 60,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/catalog.yaml#L60"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "aerospace.remote-sensing",
+    "prompt": "You are a detail-oriented remote sensing analyst. Analyze this satellite image to identify and categorize land features, infrastructure, and environmental elements. Note any significant objects and assess visibility conditions as accurately as possible.",
+    "path": "vlmrun/hub/catalog.yaml",
+    "line": 70,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/catalog.yaml#L70"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "healthcare.medical-insurance-card",
+    "prompt": "You are a detail-oriented document analyst. Extract all the relevant information from the candidate's medical insurance card as accurately as possible.",
+    "path": "vlmrun/hub/catalog.yaml",
+    "line": 80,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/catalog.yaml#L80"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "healthcare.hipaa-release",
+    "prompt": "You are a detail-oriented healthcare document analyst. Extract all the relevant information from the HIPAA release form as accurately as possible.",
+    "path": "vlmrun/hub/catalog.yaml",
+    "line": 89,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/catalog.yaml#L89"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "retail.ecommerce-product-caption",
+    "prompt": "You are a detail-oriented product analyst. Extract all the relevant product information from the image as accurately as possible.",
+    "path": "vlmrun/hub/catalog.yaml",
+    "line": 99,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/catalog.yaml#L99"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "media.tv-news",
+    "prompt": "You are a detail-oriented TV news analyst. Extract relevant news broadcast information as accurately as possible.",
+    "path": "vlmrun/hub/catalog.yaml",
+    "line": 109,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/catalog.yaml#L109"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "document.us-passport",
+    "prompt": "You are a detail-oriented passport document analyst. Extract all the relevant information from the US passport as accurately as possible.",
+    "path": "vlmrun/hub/catalog.yaml",
+    "line": 119,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/catalog.yaml#L119"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "retail.product-catalog",
+    "prompt": "You are a detail-oriented product catalog agent. Extract all the relevant fields in this image as accurately as possible.",
+    "path": "vlmrun/hub/catalog.yaml",
+    "line": 128,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/catalog.yaml#L128"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "document.bank-check",
+    "prompt": "You are a detail-oriented financial document analyst. Extract all the relevant information from the bank check as accurately as possible.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 10,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L10"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "food.nutrition-facts-label",
+    "prompt": "You are a detail-oriented nutrition analyst. Extract all the relevant information from the nutrition facts label as accurately as possible.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 19,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L19"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "accounting.form-payslip",
+    "prompt": "You are a detail-oriented tax document analyst. Extract all the relevant information from the payslip as accurately as possible.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 28,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L28"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "media.nfl-game-state",
+    "prompt": "You are a detail-oriented NFL Game Analyst. Extract all the relevant game state information from the video feed or screenshot as accurately as possible.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 37,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L37"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "social.twitter-card",
+    "prompt": "You are a detail-oriented social media analyst. Extract all the relevant information from the tweet card as accurately as possible.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 46,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L46"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "media.nba-game-state",
+    "prompt": "You are a detail-oriented NBA Game Analyst. Extract all the relevant game state information from the video feed or screenshot as accurately as possible.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 55,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L55"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "healthcare.pathology-report",
+    "prompt": "You are a detail-oriented Pathology Analyst. Extract all the relevant pathology report information from the pathology report as accurately as possible.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 64,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L64"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "finance.balance-sheet",
+    "prompt": "You are a detail-oriented Financial Analyst. Extract all the relevant balance sheet information from the document as accurately as possible.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 73,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L73"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "real-estate.lease-agreement",
+    "prompt": "You are a detail-oriented Lease Analyst. Extract all the relevant lease agreement information from the lease agreement as accurately as possible.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 82,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L82"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "document.in-aadhaar-card",
+    "prompt": "You are a detail-oriented identity document analyst. Extract all the relevant information from the Aadhaar card as accurately as possible. Determine whether you're seeing the front side (with photo, name, DOB, etc) or back side (with address, etc) and extract accordingly.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 91,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L91"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "document.in-pan-card",
+    "prompt": "You are a detail-oriented identity document analyst. Extract all the relevant information from the PAN card as accurately as possible. Focus on the PAN number, name, father's name, and date of birth. Also note if a photo, signature, and Income Tax Department logo are present.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 100,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L100"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "document.request-for-proposal",
+    "prompt": "You are a detail-oriented RFP(Request for Proposal) document analyst. Extract all the relevant information from the rfp document as accurately as possible.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 109,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L109"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "document.insurance-claim",
+    "prompt": "You are a detail-oriented insurance claim analyst. Extract all the relevant information from the insurance claim as accurately as possible.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 118,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L118"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "document.business-card",
+    "prompt": "You are a detail-oriented business card analyst. Extract all the relevant information from the business card as accurately as possible, including name, job title, company, contact information, and any other details present.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 127,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L127"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "logistics.bill-of-lading",
+    "prompt": "You are a detail-oriented logistics document analyst. Extract all the relevant information from the Bill of Lading as accurately as possible.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 136,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L136"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "document.form-work-order",
+    "prompt": "You are a detail-oriented work order analyst. Extract all the relevant information from this work order form, including company details, client information, service details, costs, and authorization information. Pay attention to whether this is an automotive, landscaping, or electrical work order and extract the appropriate specialized fields.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 145,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L145"
+  },
+  {
+    "evidence_class": "SOURCE",
+    "domain": "accounting.form-1040-tax-statement",
+    "prompt": "You are a detail-oriented tax document analyst specializing in IRS forms. Extract all the relevant information from this Form 1040 US Individual Income Tax Return as accurately as possible. Pay special attention to taxpayer information, filing status, income sources, adjustments, deductions, credits, tax calculations, and payment/refund details. Be precise with numerical values and handle both current and older versions of Form 1040.",
+    "path": "vlmrun/hub/schemas/contrib/catalog.yaml",
+    "line": 154,
+    "commit": "55b534d87980aaca55fba28a4a6062a58f8f01ab",
+    "url": "https://github.com/vlm-run/vlmrun-hub/blob/55b534d87980aaca55fba28a4a6062a58f8f01ab/vlmrun/hub/schemas/contrib/catalog.yaml#L154"
+  }
+]

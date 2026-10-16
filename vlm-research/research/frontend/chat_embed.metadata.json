@@ -1,0 +1,24 @@
+{
+  "url": "https://chat.vlm.run/embed/chat?models=qwen%2Fqwen3.5-0.8b&hide_auth=true&utm_source=website&utm_medium=model-card&utm_campaign=playground",
+  "final_url": "https://chat.vlm.run/embed/chat?models=qwen%2Fqwen3.5-0.8b&hide_auth=true&utm_source=website&utm_medium=model-card&utm_campaign=playground",
+  "status": 200,
+  "headers": {
+    "Age": "0",
+    "Cache-Control": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "Content-Security-Policy": "frame-ancestors 'self' https://vlm.run https://www.vlm.run https://vlmrun.com https://www.vlmrun.com http://localhost:3000 https://chat.vlm.run https://dev-app.vlm.run https://dev-chat.vlm.run https://app.vlm.run; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' 'unsafe-eval' https://*.clerk.com https://*.clerk.accounts.dev https://*.clerk.services https://clerk.vlm.run https: data:; frame-src 'self' https://*.clerk.com https://*.clerk.accounts.dev https://*.clerk.services https://clerk.vlm.run https: blob: data:; connect-src 'self' https://*.clerk.com https://*.clerk.accounts.dev https://*.clerk.services https://clerk.vlm.run https: http: wss: ws: data: blob:; worker-src 'self' blob: https: data:; img-src 'self' https: http: data: blob:; style-src 'self' 'unsafe-inline' https: data:; font-src 'self' https: data:",
+    "Content-Type": "text/html; charset=utf-8",
+    "Date": "Sun, 11 Oct 2026 06:27:09 GMT",
+    "Link": "</_next/static/media/0f6d8a9ea9457c5d-s.p.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/25df6fc3fae31ad9-s.p.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/2c0cba033d89f707-s.p.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/43c4253ff97db1bd-s.p.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/4ff48e1acc89a600-s.p.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\"",
+    "Server": "Vercel",
+    "Strict-Transport-Security": "max-age=63072000",
+    "Vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch",
+    "X-Matched-Path": "/chat",
+    "X-Powered-By": "Next.js",
+    "X-Vercel-Cache": "MISS",
+    "X-Vercel-Id": "sfo1::iad1::kpffp-1791700028950-d928d50ad30f",
+    "Connection": "close",
+    "Transfer-Encoding": "chunked"
+  },
+  "file": "chat_embed.html",
+  "sha256": "4c8a106d57f98bc66f8f373e075c491bd6993831a159e2f0e6bd4e0f0bcfe4ec"
+}

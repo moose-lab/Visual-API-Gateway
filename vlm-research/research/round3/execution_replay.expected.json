@@ -1,0 +1,13 @@
+{
+  "evidence": "PROPOSAL",
+  "scope": "Locally authored test expectation; not server evidence",
+  "inputs": {
+    "left": 31,
+    "right": 19,
+    "marker": "ROUND3_95fa411f3bd54819a6727e60188cb8f9"
+  },
+  "expected": {
+    "marker": "ROUND3_95fa411f3bd54819a6727e60188cb8f9",
+    "sum": 50
+  }
+}

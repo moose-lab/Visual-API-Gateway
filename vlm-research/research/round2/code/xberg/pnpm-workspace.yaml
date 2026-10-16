@@ -1,0 +1,17 @@
+packages:
+  - "."
+  - "crates/*"
+  - "packages/*"
+  - "packages/**/*"
+  - "e2e/**/*"
+  - "e2e/*"
+  - "!e2e/wasm"
+allowBuilds:
+  esbuild: true
+sharedWorkspaceLockfile: true
+autoInstallPeers: true
+hoist: true
+overrides:
+  glob: "10.5.0"
+  js-yaml: 4.3.2
+minimumReleaseAge: 0

@@ -1,0 +1,22 @@
+{
+  "usage": {
+    "elements_processed": null,
+    "element_type": null,
+    "credits_used": null,
+    "steps": null,
+    "message": null,
+    "duration_seconds": 0,
+    "service_tier": null,
+    "mode_multiplier": null,
+    "standard_cost_dollars": null,
+    "cost_dollars": null,
+    "savings_dollars": null
+  },
+  "id": "640e05c7-0ad4-4ee4-b480-5737b3046e1c",
+  "name": "grounded-document-extraction",
+  "response": null,
+  "execution_mode": "agent",
+  "status": "running",
+  "created_at": "2026-10-13T07:53:11.678955Z",
+  "completed_at": "2026-10-13T07:53:11.412940Z"
+}

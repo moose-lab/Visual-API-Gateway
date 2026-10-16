@@ -1,0 +1,10 @@
+{
+  "detail": {
+    "error": {
+      "message": "Model 'microsoft/florence-2-base-ft' requires at least one image_url or video_url content part.",
+      "type": "invalid_request_error",
+      "code": "capability_violation",
+      "param": "messages"
+    }
+  }
+}

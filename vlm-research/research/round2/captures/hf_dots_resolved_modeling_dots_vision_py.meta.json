@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-13T03:40:09.565480+00:00",
+  "url": "https://huggingface.co/dots-studio/dots.mocr/resolve/e539fbb52280393adc081b289ec597430a0f9031/modeling_dots_vision.py",
+  "method": "GET",
+  "status": 200,
+  "final_url": "https://huggingface.co/api/resolve-cache/models/dots-studio/dots.mocr/e539fbb52280393adc081b289ec597430a0f9031/modeling_dots_vision.py?%2Fdots-studio%2Fdots.mocr%2Fresolve%2Fe539fbb52280393adc081b289ec597430a0f9031%2Fmodeling_dots_vision.py=&etag=%22225320ece059983ea3bc471e4aaf94f959edb574%22",
+  "response_sha256": "f22d6251a05a03c7510d329ba1be9e959438cd54b32204eb51ccb1b56392a96f",
+  "response_bytes": 14890,
+  "headers": {
+    "Content-Type": "text/plain; charset=utf-8",
+    "Date": "Wed, 02 Sep 2026 06:47:11 GMT",
+    "X-Request-Id": "Root=1-6a97c66f-22031d912dd07ad175905496"
+  },
+  "elapsed_seconds": 3.54
+}

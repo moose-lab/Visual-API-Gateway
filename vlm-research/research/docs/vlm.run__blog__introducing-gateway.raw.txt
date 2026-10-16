@@ -1,0 +1,129 @@
+Introducing the VLM Run Gateway: Unified API for Visual Intelligence – VLM Run Blog | VLM Run
+Product
+Solutions
+PricingDocsBlogAbout
+Book a DemoDashboard
+Product
+Platform
+OrionThe flagship visual agent that sees, reasons, and acts on images, video, and documents.GatewayOne unified API, Any Visual Model.
+Orion
+Chat PlaygroundTry Orion in our hosted chat interface.WhitepaperThe technical overview of Orion, our flagship visual agent.
+Open Source
+mmFast, multi-modal context for agents.vlmbenchBenchmark any VLM on your hardware, in one command.vlmrun-hubStructured schemas for production VLM use cases.
+Solutions
+By Modality
+DocumentsTurn hours of manual document work into seconds of schema-validated JSON.VideosSummarize, transcribe, and search long-form video without watching it.ImagesComing soonCaption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AIAgentic data-labeling for robotics training data.HealthcareDocument AI for faxes, scans, and clinical paperwork.ConstructionDocument AI for blueprints, schedules, and specs.
+PricingDocsBlogAbout
+Book a DemoDashboard
+Introducing the VLM Run Gateway: Unified API for Visual Intelligence
+Sep 1, 2026
+Sudeep Pillai
+Dinesh Reddy
+Jeremy Park
+Table of contents
+You don't need a trillion parameter VLM
+Choosing the model is the hard part
+What the Gateway is
+Build your own agents
+Get started
+Since the Orion agent launch in November, our customers have run hundreds of thousands of requests spanning millions of tool calls in production every month, across healthcare claims, construction submittals, legal contracts, and faxes. One question came back more than any other: which models are you running underneath, and can we call them directly?
+We listened and gave them early access to the models through our gateway. Today, we're opening access to everyone.
+The VLM Run Gateway runs open-weight VLMs, OCR VLMs, embodied VLMs, and specialized ViTs behind one OpenAI-compatible API, at a fraction of commercial API pricing. Because they all share one interface, you can run and compare results on your own data and pick your own point on the cost/accuracy frontier by changing a single parameter. Point base_url at https://gateway.vlm.run/v1/openai and every model takes the request shape your OpenAI SDK already uses. It's free during alpha, so try it on your own documents, images, and videos today.
+You don't need a trillion parameter VLM
+Parsing a documents, understanding images, summarizing videos: the best model for the job is rarely the biggest one. zai-org/glm-ocr is 0.9B parameters, rednote-hilab/dots.mocr 3B. Both are trained on page images at document-native resolutions, and it shows: over 3,000 output tokens/sec on commodity hardware, a fraction of the vision tokens a general-purpose VLM burns on the same page, and small enough to run on older GPUs, which is what makes on-prem and VPC deployment tractable.
+Frontier VLMs are built for open-ended reasoning, "figure out what this means" rather than "read this," and there they remain the right call. On documents they fail repeatably: dense multi-column tables, low-DPI fax scans, overlaid stamps and handwriting, non-Latin scripts. For extraction, OCR, and layout, they're an expensive default nobody chose deliberately.
+To test this, we evaluated six OCR models on the Gateway against eight commercial document parsers on ParseBench, and three open-weight VLMs on the Gateway against the frontier VLMs on MVBench. Every model is plotted at its measured cost, per thousand pages for documents and per thousand clips for video:
+On documents, two models land in the optimal quadrant, score 70 or better under $3 per thousand pages, and both are open-weight models on the Gateway. infly/infinity-parser2-pro scores about 79 at roughly $2.10 (per 1K pages), and dots.mocr about 74 at roughly $0.78. No commercial parser makes it into that box.
+infinity-parser2-pro also matches or beats 7 of the 8 commercial parsers on the chart, including Gemini 3 Flash, Mistral OCR 4, Azure DI and Extend 2.0, at 2-12x less. AWS Textract sits about 24 points lower and costs 7x more. The one parser above it is LlamaParse in its cost-effective tier at roughly 80.5, a point and a half of accuracy for about twice the price.
+Switch to the video benchmark and the picture is similar. Three models clear 70 under $10 per thousand clips, and two are open-weight models on the Gateway: qwen3.8-27b at about 75.5 for roughly $5.50 (per 1K clips), and muse-glimmer-30b at about 74 for roughly $1.50. qwen3.8-27b lands above GPT-5.6 Terra, while muse-glimmer-30b matches GPT-5, at a fraction of the $22 those cost. Gemini 3.7 Flash tops the chart at about 82, eight points up and roughly 6x the price of muse-glimmer-30b.
+In other words: open-weight models are competitive on accuracy while often being significantly cheaper. Which point on that frontier is yours depends on your use case, and the Gateway is what makes switching between them easy.
+Choosing the model is the hard part
+Why does anyone send documents to a frontier API? Because no single small model wins everywhere. Healthcare forms, construction drawings and legal contracts have different winners, and the winner changes with scan quality, language and layout density.
+Evaluating candidates is expensive for reasons unrelated to the models. ONNX, GGUF, and PyTorch checkpoints need different runtimes, and some can't share a process at all. Every model returns a different output shape, so each candidate needs its own parser. And you run out of VRAM long before you run out of candidates. So teams do the rational thing: pick the one API that handles everything and absorb the markup.
+We know because we hit it first. Orion tool calls each request to multiple underlying models because no single model leads across localization, segmentation, and video.
+The Gateway's product isn't any single model. It's making the choice reversible. When every model runs on one API, changing models is as simple as changing a parameter: same endpoint, same request shape, same output contract.
+- model="rednote-hilab/dots.mocr",
++ model="infly/infinity-parser2-pro",
+Everything else in your code stays identical.
+What the Gateway is
+Try the models in the Gateway model catalog today. Alongside the OCR models above, it covers layout detection with reading order, captioning and detection, visual chat over images, video and PDFs, embeddings, and audio transcription. Each model is served behind the standard chat.completions, embeddings, or transcriptions interface.
+Five runtimes sit behind one router, each model an isolated plugin, so conflicting dependency stacks coexist. Models stay resident rather than cold-starting per request, which is what keeps latency predictable and prices low.
+The Gateway also handles the work around the model. PDFs are rasterized page by page across parallel workers, with document_dpi, document_pages, and stream: true controlling raster quality, page range, and incremental delivery. A page that fails is retried or marked rather than killing the document. Output comes back normalized: markdown with page markers, a unified bounding-box schema, self-describing JSON. Every response carries metered usage.cost and an x-request-id. The output contract belongs to the Gateway, not the model. That's what makes the one-line swap real.
+Build your own agents
+An MCP server at https://gateway.vlm.run/mcp exposes read_document, read_video, and read_audio, so any MCP-compatible framework (Pydantic AI, LangChain, Mastra, OpenAI Agents SDK, Claude Code) consumes visual content through the same pipeline, auth, and billing. Most of the models in our catalog is open-weight: which means you can run it in your VPC, fine-tune it on your data, own the weights. Enterprise deployments will support BYOK, private VPC, and BAAs for HIPAA.
+Get started
+The visual frontier just moved. Your AI bill should too.
+All endpoints support anonymous access with IP-based rate limits, the Gateway is free during alpha, and the published prices are already live, so the cost signals you build against today are the ones you'll use in production. Point your OpenAI SDK at https://gateway.vlm.run/v1/openai, or list the catalog from your terminal:
+# List the models on the gateway
+uvx vlmrun gw models
+# Run GLM-OCR, dots.mocr, Deepseek OCR 2 on a document
+uvx vlmrun gw chat -m glm-ocr <doc>.pdf
+uvx vlmrun gw chat -m dots.mocr <doc>.pdf
+uvx vlmrun gw chat -m deepseek-ocr-2 <doc>.pdf
+# Run qwen3.5-0.8b on image / video
+uvx vlmrun gw chat -m qwen3.5-0.8b  -p "describe the image" <image>.png
+uvx vlmrun gw chat -m qwen3.5-0.8b  -p "describe the video" <video>.mp4
+For more detail, see the docs. Join the discussion on Discord.
+Quickstart · Model catalog · MCP server
+from openai import OpenAI
+client = OpenAI(base_url="https://gateway.vlm.run/v1/openai/",
+api_key="<VLM_RUN_API_KEY>")
+resp = client.chat.completions.create(
+model="rednote-hilab/dots.mocr",
+messages=[{"role": "user", "content": [
+{"type": "document_url", "document_url": {"url": "invoice.pdf"}},
+]}],
+extra_body={"method": "markdown"},
+)
+print(resp.choices[0].message.content)
+# <document page="1">
+# ## Invoice #1042
+# | Item      | Qty | Amount |
+# | API seats |  12 | $1,200 |
+# </document>
+Related posts
+View all
+Orion 2: Frontier Visual Agents with Code Execution
+Orion 2, our most capable visual agent, writes and executes vision programs on the fly – faster, cheaper, more reliable.
+How Scan.com Automates Document Workflows with VLM Run's Orion
+How Scan.com Automates Document Workflows with VLM Run's Orion
+Introducing Artifacts Support for Orion
+Explore VLM Run's new visual Agent with Artifacts
+Try Orion Free today.
+Chat with OrionBook a Demo
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+© 2026 Autonomi AI Inc. All rights reserved.
+Terms & ConditionsPrivacy Policy

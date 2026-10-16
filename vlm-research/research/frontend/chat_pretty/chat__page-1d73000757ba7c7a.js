@@ -1,0 +1,2547 @@
+try {
+    ! function() {
+        var t = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof globalThis ? globalThis : "undefined" != typeof self ? self : {},
+            e = (new t.Error).stack;
+        e && (t._sentryDebugIds = t._sentryDebugIds || {}, t._sentryDebugIds[e] = "cc5f6935-ea2a-4728-81c9-e613d67a9942", t._sentryDebugIdIdentifier = "sentry-dbid-cc5f6935-ea2a-4728-81c9-e613d67a9942")
+    }()
+} catch (t) {}(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+    [31929, 86903, 27292], {
+        94828: function(t, e, r) {
+            Promise.resolve().then(r.bind(r, 74723))
+        },
+        74723: function(t, e, r) {
+            "use strict";
+            r.r(e), r.d(e, {
+                default: function() {
+                    return u
+                }
+            });
+            var n = r(57437),
+                i = r(2265),
+                s = r(37296),
+                o = r(87108),
+                a = r(11851);
+
+            function u() {
+                let t = (0, s.cP)();
+                return (0, i.useEffect)(() => {
+                    t && t.page({
+                        pathname: "/c"
+                    })
+                }, [t]), (0, n.jsx)(a.FeatureFlagGuard, {
+                    feature: "agents_chat",
+                    checkAuth: !0,
+                    children: (0, n.jsx)(o.ChatLayout, {})
+                })
+            }
+        },
+        11851: function(t, e, r) {
+            "use strict";
+            r.r(e), r.d(e, {
+                FeatureFlagGuard: function() {
+                    return y
+                }
+            });
+            var n = r(57437),
+                i = r(99376),
+                s = r(49842),
+                o = r(54353),
+                a = r(51817),
+                u = r(66337),
+                l = r(14938),
+                c = r(25066),
+                d = r(86581),
+                h = r(89555),
+                f = r(8102),
+                p = r(62869),
+                m = r(26110);
+            let g = () => (0, n.jsx)("div", {
+                className: "flex min-h-screen items-center justify-center bg-background",
+                children: (0, n.jsx)(a.Z, {
+                    className: "size-5 animate-spin text-blue-600 dark:text-blue-400"
+                })
+            });
+
+            function y(t) {
+                let {
+                    feature: e,
+                    children: r,
+                    fallbackTitle: a,
+                    fallbackDescription: u,
+                    checkAuth: l = !1,
+                    onDismiss: p
+                } = t;
+                (0, i.useRouter)();
+                let {
+                    isSignedIn: m,
+                    isLoaded: y
+                } = (0, o.aF)(), {
+                    isBackendAuthenticated: _,
+                    isAuthenticating: w,
+                    isInitializing: b
+                } = (0, s.a)(), {
+                    isSuperUser: S
+                } = (0, f.L)(t => ({
+                    isSuperUser: t.isSuperUser
+                })), A = (0, h.U)(), {
+                    features: C,
+                    isLoading: E,
+                    error: x
+                } = (0, d.g)(!l || A), k = !!(null == C ? void 0 : C[e]), I = null != p ? p : () => {
+                    window.location.href = "".concat("https://app.vlm.run").concat(c.$d)
+                };
+                if (l && "agents_chat" !== e) {
+                    if (b || !y) return (0, n.jsx)(g, {});
+                    if (!m) return (0, n.jsx)(n.Fragment, {
+                        children: r
+                    });
+                    if (w || !_) return (0, n.jsx)(g, {})
+                }
+                return "agents_chat" === e ? !C || k || S ? (0, n.jsx)(n.Fragment, {
+                    children: r
+                }) : (0, n.jsx)(v, {
+                    onDismiss: I,
+                    title: a,
+                    description: u,
+                    featureName: e
+                }) : E ? (0, n.jsx)(g, {}) : x && !C ? (0, n.jsx)(v, {
+                    onDismiss: I,
+                    title: "Unable to Load Features",
+                    description: "There was an error loading your feature permissions. Please try refreshing the page or contact support if the issue persists.",
+                    featureName: e,
+                    badge: "Error"
+                }) : k || S ? (0, n.jsx)(n.Fragment, {
+                    children: r
+                }) : (0, n.jsx)(v, {
+                    onDismiss: I,
+                    title: a,
+                    description: u,
+                    featureName: e
+                })
+            }
+
+            function v(t) {
+                let {
+                    onDismiss: e,
+                    title: r,
+                    description: i,
+                    badge: s = "Locked",
+                    featureName: o = "feature"
+                } = t, a = r || "".concat(o.charAt(0).toUpperCase() + o.slice(1), " Not Available");
+                return (0, n.jsx)(m.Vq, {
+                    open: !0,
+                    children: (0, n.jsx)(m.cZ, {
+                        className: "sm:max-w-md [&>button]:hidden",
+                        onPointerDownOutside: t => t.preventDefault(),
+                        onEscapeKeyDown: t => t.preventDefault(),
+                        children: (0, n.jsxs)("div", {
+                            className: "flex flex-col items-center text-center duration-300 animate-in fade-in zoom-in",
+                            children: [(0, n.jsx)("div", {
+                                className: "mb-6 flex size-16 items-center justify-center rounded-2xl bg-muted/30 ring-1 ring-border/50",
+                                children: (0, n.jsx)(u.Z, {
+                                    className: "size-8 text-muted-foreground/80",
+                                    strokeWidth: 1.5
+                                })
+                            }), (0, n.jsxs)("div", {
+                                className: "max-w-md space-y-2",
+                                children: [(0, n.jsxs)("div", {
+                                    className: "flex items-center justify-center gap-2",
+                                    children: [(0, n.jsx)(m.$N, {
+                                        className: "text-2xl font-semibold tracking-tight text-foreground",
+                                        children: a
+                                    }), s && (0, n.jsx)("span", {
+                                        className: "rounded-full bg-muted px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-muted-foreground",
+                                        children: s
+                                    })]
+                                }), (0, n.jsx)(m.Be, {
+                                    className: "text-balance text-sm leading-relaxed text-muted-foreground",
+                                    children: i || "The ".concat(o, " feature is not enabled for your organization. Please contact support to enable this feature.")
+                                })]
+                            }), (0, n.jsx)("div", {
+                                className: "mt-10",
+                                children: (0, n.jsxs)(p.z, {
+                                    variant: "default",
+                                    size: "sm",
+                                    className: "rounded-full px-6 shadow-sm transition-all duration-200 hover:shadow-md",
+                                    onClick: e,
+                                    children: [(0, n.jsx)(l.Z, {
+                                        className: "mr-2 size-3.5"
+                                    }), "Go to Dashboard"]
+                                })
+                            })]
+                        })
+                    })
+                })
+            }
+        },
+        86581: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                D: function() {
+                    return s
+                },
+                g: function() {
+                    return o
+                }
+            });
+            var n = r(2265),
+                i = r(36147);
+            let s = "vlm_user_features",
+                o = function() {
+                    var t, e, r, o;
+                    let a = !(arguments.length > 0) || void 0 === arguments[0] || arguments[0],
+                        [u, l] = (0, n.useState)(null);
+                    (0, n.useEffect)(() => {
+                        try {
+                            let t = localStorage.getItem(s);
+                            t && l(JSON.parse(t))
+                        } catch (t) {
+                            console.warn("Failed to load features from cache:", t)
+                        }
+                    }, []);
+                    let {
+                        data: c,
+                        isLoading: d,
+                        error: h
+                    } = (0, i.Zd)(a);
+                    (0, n.useEffect)(() => {
+                        if (c) {
+                            l(c);
+                            try {
+                                localStorage.setItem(s, JSON.stringify(c))
+                            } catch (t) {
+                                console.warn("Failed to cache features:", t)
+                            }
+                        }
+                    }, [c]);
+                    let f = null !== (t = null == u ? void 0 : u.agents) && void 0 !== t && t;
+                    return {
+                        isAgentsEnabled: f,
+                        isAgentsChatEnabled: null !== (e = null == u ? void 0 : u.agents_chat) && void 0 !== e && e,
+                        isAgentsAdvancedEnabled: null !== (r = null == u ? void 0 : u.agents_advanced) && void 0 !== r && r,
+                        isExecutionsEnabled: null !== (o = null == u ? void 0 : u.agents) && void 0 !== o && o,
+                        features: u,
+                        isLoading: d && !u,
+                        error: h
+                    }
+                }
+        },
+        8102: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                L: function() {
+                    return o
+                }
+            });
+            var n = r(59625),
+                i = r(89134),
+                s = r(12655);
+            let o = (0, n.Ue)((0, i.tJ)(t => ({
+                id: null,
+                email: null,
+                inspecting: null,
+                isSuperUser: !1,
+                isOrgAdmin: !1,
+                isPro: !1,
+                planType: null,
+                originalClerkId: null,
+                showAdminControls: !1,
+                demoAnalytics: !1,
+                setUser: (e, r, n, i, o, a) => {
+                    if (!n) {
+                        (0, s.FZ)(!1), t({
+                            id: e,
+                            email: r,
+                            isSuperUser: n,
+                            isOrgAdmin: i,
+                            isPro: o,
+                            planType: a,
+                            demoAnalytics: !1
+                        });
+                        return
+                    }
+                    t({
+                        id: e,
+                        email: r,
+                        isSuperUser: n,
+                        isOrgAdmin: i,
+                        isPro: o,
+                        planType: a
+                    })
+                },
+                clearUser: () => {
+                    (0, s.FZ)(!1), t({
+                        id: null,
+                        email: null,
+                        isSuperUser: !1,
+                        isOrgAdmin: !1,
+                        isPro: !1,
+                        planType: null,
+                        inspecting: null,
+                        originalClerkId: null,
+                        showAdminControls: !1,
+                        demoAnalytics: !1
+                    })
+                },
+                setInspecting: e => t({
+                    inspecting: e
+                }),
+                setOriginalClerkId: e => t({
+                    originalClerkId: e
+                }),
+                setShowAdminControls: e => t({
+                    showAdminControls: e
+                }),
+                setDemoAnalytics: e => {
+                    (0, s.FZ)(e), t({
+                        demoAnalytics: e
+                    })
+                }
+            }), {
+                name: "userState",
+                storage: (0, i.FL)(() => localStorage)
+            }))
+        },
+        25066: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                $d: function() {
+                    return n
+                },
+                EI: function() {
+                    return d
+                },
+                Ef: function() {
+                    return h
+                },
+                Js: function() {
+                    return a
+                },
+                R0: function() {
+                    return s
+                },
+                au: function() {
+                    return u
+                },
+                ft: function() {
+                    return o
+                },
+                jN: function() {
+                    return f
+                },
+                ld: function() {
+                    return l
+                },
+                v2: function() {
+                    return c
+                },
+                vP: function() {
+                    return i
+                }
+            });
+            let n = "/dashboard",
+                i = "/dashboard/insights",
+                s = "/dashboard/analytics/logs",
+                o = "/dashboard/settings/api-keys",
+                a = "/dashboard/explore",
+                u = "/dashboard/requests",
+                l = "https://docs.vlm.run/",
+                c = "https://chat.vlm.run",
+                d = "create",
+                h = () => n,
+                f = () => "".concat(o, "?").concat(d, "=1")
+        },
+        51495: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                Tg: function() {
+                    return o
+                },
+                Yw: function() {
+                    return a
+                },
+                iL: function() {
+                    return i
+                }
+            });
+            var n = r(25066);
+            let i = () => !0,
+                s = () => i() ? "/" : (0, n.Ef)(),
+                o = t => {
+                    if (!t) return null;
+                    if (t.startsWith("/")) return t;
+                    try {
+                        return new URL(t).pathname
+                    } catch (t) {
+                        return null
+                    }
+                },
+                a = t => {
+                    var e;
+                    return null !== (e = o(t)) && void 0 !== e ? e : s()
+                }
+        },
+        91377: function(t, e, r) {
+            "use strict";
+            var n, i;
+            r.d(e, {
+                L0: function() {
+                    return n
+                },
+                Sm: function() {
+                    return o
+                },
+                w4: function() {
+                    return a
+                },
+                wd: function() {
+                    return u
+                }
+            }), (i = n || (n = {})).FREE = "free", i.PAYG = "payg", i.STARTER = "starter", i.PRO = "pro", i.ENTERPRISE = "enterprise";
+            let s = ["starter", "pro", "enterprise"],
+                o = t => s.includes(t),
+                a = 90,
+                u = (t, e) => !!e && !!t && Date.now() - new Date(t).getTime() > 864e5 * a
+        },
+        27292: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                Yh: function() {
+                    return d
+                },
+                _m: function() {
+                    return o
+                },
+                eq: function() {
+                    return u
+                },
+                tK: function() {
+                    return l
+                },
+                yJ: function() {
+                    return c
+                },
+                z0: function() {
+                    return a
+                }
+            });
+            var n = r(8481),
+                i = r(25066),
+                s = r(51495);
+            let o = [{
+                    value: "google",
+                    label: "Google"
+                }, {
+                    value: "reddit",
+                    label: "Reddit"
+                }, {
+                    value: "x",
+                    label: "X (Twitter)"
+                }, {
+                    value: "linkedin",
+                    label: "LinkedIn"
+                }, {
+                    value: "friend_or_colleague",
+                    label: "Friend or colleague"
+                }, {
+                    value: "hackernews",
+                    label: "Hacker News"
+                }, {
+                    value: "youtube",
+                    label: "YouTube"
+                }, {
+                    value: "conference_or_event",
+                    label: "Conference or event"
+                }, {
+                    value: "other",
+                    label: "Other"
+                }],
+                a = [{
+                    value: "structured_extraction",
+                    label: "Structured Extraction"
+                }, {
+                    value: "multimodal_agents",
+                    label: "Orion 2: Explore multimodal agents"
+                }, {
+                    value: "gateway",
+                    label: "Gateway: Experiment with new VLMs"
+                }, {
+                    value: "chat_playground",
+                    label: "Chat Playground"
+                }],
+                u = (t, e) => {
+                    var r, n;
+                    return "other" === t && (null == e ? void 0 : e.trim()) ? e.trim() : null !== (n = null === (r = o.find(e => e.value === t)) || void 0 === r ? void 0 : r.label) && void 0 !== n ? n : t
+                },
+                l = t => {
+                    var e, r;
+                    return null !== (r = null === (e = a.find(e => e.value === t)) || void 0 === e ? void 0 : e.label) && void 0 !== r ? r : t
+                },
+                c = t => t === i.$d || "/" === t ? "/onboarding" : "/onboarding?redirect_url=".concat(encodeURIComponent(t)),
+                d = t => {
+                    let e = (0, s.Yw)(t);
+                    return (0, n.N0)() ? e : c(e)
+                }
+        },
+        37296: function(t, e, r) {
+            "use strict";
+            let n;
+            r.d(e, {
+                _Z: function() {
+                    return tL
+                },
+                cP: function() {
+                    return tD
+                },
+                xd: function() {
+                    return tU
+                }
+            });
+            var i = r(2265),
+                s = r(82957).Buffer,
+                o = Object.defineProperty,
+                a = Object.defineProperties,
+                u = Object.getOwnPropertyDescriptors,
+                l = Object.getOwnPropertySymbols,
+                c = Object.prototype.hasOwnProperty,
+                d = Object.prototype.propertyIsEnumerable,
+                h = (t, e, r) => e in t ? o(t, e, {
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0,
+                    value: r
+                }) : t[e] = r,
+                f = (t, e) => {
+                    for (var r in e || (e = {})) c.call(e, r) && h(t, r, e[r]);
+                    if (l)
+                        for (var r of l(e)) d.call(e, r) && h(t, r, e[r]);
+                    return t
+                },
+                p = (t, e) => a(t, u(e)),
+                m = "https://api.unifyintent.com/analytics/v1",
+                g = /^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$/,
+                y = ["identify", "page"];
+
+            function v(t) {
+                return !!t && "object" == typeof t && !Array.isArray(t) && y.every(e => e in t)
+            }
+
+            function _(t, e) {
+                var r;
+                return (null != (r = null == e ? void 0 : e.getTime()) ? r : new Date().getTime()) + 6e4 * t
+            }
+            var w = t => ({
+                    path: null != t ? t : window.location.pathname,
+                    query: A(window.location.href),
+                    referrer: document.referrer,
+                    title: document.title,
+                    url: void 0 !== t ? function({
+                        location: t,
+                        pathname: e
+                    }) {
+                        let r = new URL(t.href);
+                        return r.pathname = e, r.toString()
+                    }({
+                        location: window.location,
+                        pathname: t
+                    }) : window.location.href
+                }),
+                b = () => ({
+                    userAgent: window.navigator.userAgent,
+                    userAgentData: void 0 !== navigator.userAgentData ? navigator.userAgentData : void 0
+                }),
+                S = t => {
+                    if (g.test(t)) return t
+                },
+                A = t => {
+                    let e = new URL(t).searchParams,
+                        r = {};
+                    for (let [t, n] of e.entries()) r[t] = n;
+                    return r
+                };
+
+            function C(t) {
+                try {
+                    return new URL(t.startsWith("http") ? t : `https://${t}`).hostname
+                } catch (t) {
+                    return null
+                }
+            }
+
+            function E(t) {
+                var e;
+                return null != (e = t.split("@").at(1)) ? e : null
+            }
+            var x, k = () => {
+                    var t, e, r, n, i;
+                    let s = new URL(location.href),
+                        o = {
+                            source: null != (t = s.searchParams.get("utm_source")) ? t : void 0,
+                            medium: null != (e = s.searchParams.get("utm_medium")) ? e : void 0,
+                            campaign: null != (r = s.searchParams.get("utm_campaign")) ? r : void 0,
+                            term: null != (n = s.searchParams.get("utm_term")) ? n : void 0,
+                            content: null != (i = s.searchParams.get("utm_content")) ? i : void 0
+                        };
+                    return p(f({
+                        locale: navigator.language
+                    }, b()), {
+                        utm: o
+                    })
+                },
+                I = class {
+                    constructor(t) {
+                        this.getBaseActivityPayload = () => ({
+                            type: this.getActivityType(),
+                            visitorId: this._intentContext.identityManager.getOrCreateVisitorId(),
+                            sessionId: this._intentContext.sessionManager.getOrCreateSession().sessionId,
+                            context: k(),
+                            timestamp: new Date().toISOString()
+                        }), this._intentContext = t
+                    }
+                    track() {
+                        this._intentContext.apiClient.post(this.getActivityURL(), this.getTrackPayload())
+                    }
+                    getTrackPayload() {
+                        return f(f({}, this.getBaseActivityPayload()), this.getActivityData())
+                    }
+                },
+                P = `${m}/page`,
+                T = class extends I {
+                    constructor(t, e) {
+                        super(t), this.getActivityData = () => {
+                            var t;
+                            return {
+                                type: "page",
+                                properties: w(null == (t = this._options) ? void 0 : t.pathname)
+                            }
+                        }, this._options = e
+                    }
+                    getActivityType() {
+                        return "page"
+                    }
+                    getActivityURL() {
+                        return P
+                    }
+                },
+                O = `${m}/identify`,
+                N = class extends I {
+                    constructor(t, {
+                        email: e,
+                        person: r,
+                        company: n
+                    }) {
+                        super(t), this.getActivityData = () => {
+                            var t;
+                            let e = this._company && C(null == (t = this._company) ? void 0 : t.domain),
+                                r = E(this._email),
+                                n = e && e === r ? this._company : void 0;
+                            return f({
+                                type: "identify",
+                                person: p(f({}, this._person), {
+                                    email: this._email
+                                })
+                            }, n && {
+                                company: this._company
+                            })
+                        }, this._email = e, this._person = r, this._company = n
+                    }
+                    getActivityType() {
+                        return "identify"
+                    }
+                    getActivityURL() {
+                        return O
+                    }
+                },
+                U = `${m}/track`,
+                M = class extends I {
+                    constructor(t, {
+                        name: e,
+                        properties: r
+                    }) {
+                        super(t), this.getActivityData = () => ({
+                            type: "track",
+                            name: this._name,
+                            properties: f(f({}, w()), this._properties)
+                        }), this._name = e, this._properties = r
+                    }
+                    getActivityType() {
+                        return "track"
+                    }
+                    getActivityURL() {
+                        return U
+                    }
+                },
+                L = new Uint8Array(16),
+                D = [];
+            for (let t = 0; t < 256; ++t) D.push((t + 256).toString(16).slice(1));
+            var j = {
+                    randomUUID: "undefined" != typeof crypto && crypto.randomUUID && crypto.randomUUID.bind(crypto)
+                },
+                R = function(t, e, r) {
+                    if (j.randomUUID && !e && !t) return j.randomUUID();
+                    let n = (t = t || {}).random || (t.rng || function() {
+                        if (!x && !(x = "undefined" != typeof crypto && crypto.getRandomValues && crypto.getRandomValues.bind(crypto))) throw Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported");
+                        return x(L)
+                    })();
+                    if (n[6] = 15 & n[6] | 64, n[8] = 63 & n[8] | 128, e) {
+                        r = r || 0;
+                        for (let t = 0; t < 16; ++t) e[r + t] = n[t];
+                        return e
+                    }
+                    return function(t, e = 0) {
+                        return D[t[e + 0]] + D[t[e + 1]] + D[t[e + 2]] + D[t[e + 3]] + "-" + D[t[e + 4]] + D[t[e + 5]] + "-" + D[t[e + 6]] + D[t[e + 7]] + "-" + D[t[e + 8]] + D[t[e + 9]] + "-" + D[t[e + 10]] + D[t[e + 11]] + D[t[e + 12]] + D[t[e + 13]] + D[t[e + 14]] + D[t[e + 15]]
+                    }(n)
+                };
+
+            function F(t) {
+                for (var e = 1; e < arguments.length; e++) {
+                    var r = arguments[e];
+                    for (var n in r) t[n] = r[n]
+                }
+                return t
+            }
+            var K = function t(e, r) {
+                    function n(t, n, i) {
+                        if ("undefined" != typeof document) {
+                            "number" == typeof(i = F({}, r, i)).expires && (i.expires = new Date(Date.now() + 864e5 * i.expires)), i.expires && (i.expires = i.expires.toUTCString()), t = encodeURIComponent(t).replace(/%(2[346B]|5E|60|7C)/g, decodeURIComponent).replace(/[()]/g, escape);
+                            var s = "";
+                            for (var o in i) i[o] && (s += "; " + o, !0 !== i[o] && (s += "=" + i[o].split(";")[0]));
+                            return document.cookie = t + "=" + e.write(n, t) + s
+                        }
+                    }
+                    return Object.create({
+                        set: n,
+                        get: function(t) {
+                            if (!("undefined" == typeof document || arguments.length && !t)) {
+                                for (var r = document.cookie ? document.cookie.split("; ") : [], n = {}, i = 0; i < r.length; i++) {
+                                    var s = r[i].split("="),
+                                        o = s.slice(1).join("=");
+                                    try {
+                                        var a = decodeURIComponent(s[0]);
+                                        if (n[a] = e.read(o, a), t === a) break
+                                    } catch (t) {}
+                                }
+                                return t ? n[t] : n
+                            }
+                        },
+                        remove: function(t, e) {
+                            n(t, "", F({}, e, {
+                                expires: -1
+                            }))
+                        },
+                        withAttributes: function(e) {
+                            return t(this.converter, F({}, this.attributes, e))
+                        },
+                        withConverter: function(e) {
+                            return t(F({}, this.converter, e), this.attributes)
+                        }
+                    }, {
+                        attributes: {
+                            value: Object.freeze(r)
+                        },
+                        converter: {
+                            value: Object.freeze(e)
+                        }
+                    })
+                }({
+                    read: function(t) {
+                        return '"' === t[0] && (t = t.slice(1, -1)), t.replace(/(%[\dA-F]{2})+/gi, decodeURIComponent)
+                    },
+                    write: function(t) {
+                        return encodeURIComponent(t).replace(/%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g, decodeURIComponent)
+                    }
+                }, {
+                    path: "/"
+                }),
+                B = "function" == typeof s,
+                q = "function" == typeof TextDecoder ? new TextDecoder : void 0,
+                z = "function" == typeof TextEncoder ? new TextEncoder : void 0,
+                Z = Array.prototype.slice.call("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="),
+                V = (n = {}, Z.forEach((t, e) => n[t] = e), n),
+                $ = /^(?:[A-Za-z\d+\/]{4})*?(?:[A-Za-z\d+\/]{2}(?:==)?|[A-Za-z\d+\/]{3}=?)?$/,
+                H = String.fromCharCode.bind(String),
+                G = "function" == typeof Uint8Array.from ? Uint8Array.from.bind(Uint8Array) : t => new Uint8Array(Array.prototype.slice.call(t, 0)),
+                Y = t => t.replace(/=/g, "").replace(/[+\/]/g, t => "+" == t ? "-" : "_"),
+                J = t => t.replace(/[^A-Za-z0-9\+\/]/g, ""),
+                W = "function" == typeof btoa ? t => btoa(t) : B ? t => s.from(t, "binary").toString("base64") : t => {
+                    let e, r, n, i, s = "",
+                        o = t.length % 3;
+                    for (let o = 0; o < t.length;) {
+                        if ((r = t.charCodeAt(o++)) > 255 || (n = t.charCodeAt(o++)) > 255 || (i = t.charCodeAt(o++)) > 255) throw TypeError("invalid character found");
+                        s += Z[(e = r << 16 | n << 8 | i) >> 18 & 63] + Z[e >> 12 & 63] + Z[e >> 6 & 63] + Z[63 & e]
+                    }
+                    return o ? s.slice(0, o - 3) + "===".substring(o) : s
+                },
+                X = B ? t => s.from(t).toString("base64") : t => {
+                    let e = [];
+                    for (let r = 0, n = t.length; r < n; r += 4096) e.push(H.apply(null, t.subarray(r, r + 4096)));
+                    return W(e.join(""))
+                },
+                Q = t => {
+                    if (t.length < 2) {
+                        var e = t.charCodeAt(0);
+                        return e < 128 ? t : e < 2048 ? H(192 | e >>> 6) + H(128 | 63 & e) : H(224 | e >>> 12 & 15) + H(128 | e >>> 6 & 63) + H(128 | 63 & e)
+                    }
+                    var e = 65536 + (t.charCodeAt(0) - 55296) * 1024 + (t.charCodeAt(1) - 56320);
+                    return H(240 | e >>> 18 & 7) + H(128 | e >>> 12 & 63) + H(128 | e >>> 6 & 63) + H(128 | 63 & e)
+                },
+                tt = /[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x00-\x7F]/g,
+                te = t => t.replace(tt, Q),
+                tr = B ? t => s.from(t, "utf8").toString("base64") : z ? t => X(z.encode(t)) : t => W(te(t)),
+                tn = (t, e = !1) => e ? Y(tr(t)) : tr(t),
+                ti = /[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3}/g,
+                ts = t => {
+                    switch (t.length) {
+                        case 4:
+                            var e = ((7 & t.charCodeAt(0)) << 18 | (63 & t.charCodeAt(1)) << 12 | (63 & t.charCodeAt(2)) << 6 | 63 & t.charCodeAt(3)) - 65536;
+                            return H((e >>> 10) + 55296) + H((1023 & e) + 56320);
+                        case 3:
+                            return H((15 & t.charCodeAt(0)) << 12 | (63 & t.charCodeAt(1)) << 6 | 63 & t.charCodeAt(2));
+                        default:
+                            return H((31 & t.charCodeAt(0)) << 6 | 63 & t.charCodeAt(1))
+                    }
+                },
+                to = t => t.replace(ti, ts),
+                ta = "function" == typeof atob ? t => atob(J(t)) : B ? t => s.from(t, "base64").toString("binary") : t => {
+                    if (t = t.replace(/\s+/g, ""), !$.test(t)) throw TypeError("malformed base64.");
+                    t += "==".slice(2 - (3 & t.length));
+                    let e, r = "",
+                        n, i;
+                    for (let s = 0; s < t.length;) e = V[t.charAt(s++)] << 18 | V[t.charAt(s++)] << 12 | (n = V[t.charAt(s++)]) << 6 | (i = V[t.charAt(s++)]), r += 64 === n ? H(e >> 16 & 255) : 64 === i ? H(e >> 16 & 255, e >> 8 & 255) : H(e >> 16 & 255, e >> 8 & 255, 255 & e);
+                    return r
+                },
+                tu = B ? t => G(s.from(t, "base64")) : t => G(ta(t).split("").map(t => t.charCodeAt(0))),
+                tl = B ? t => s.from(t, "base64").toString("utf8") : q ? t => q.decode(tu(t)) : t => to(ta(t)),
+                tc = t => J(t.replace(/[-_]/g, t => "-" == t ? "+" : "/")),
+                td = t => tl(tc(t)),
+                th = "test";
+
+            function tf(t) {
+                try {
+                    return JSON.parse(t)
+                } catch (e) {
+                    return t
+                }
+            }
+
+            function tp(t) {
+                return tn(JSON.stringify(t))
+            }
+            var tm = class {
+                    constructor(t) {
+                        this.get = t => {
+                            let e = this.retrieveValue(t);
+                            return e ? tf(e) : this.legacyGet(t)
+                        }, this.legacyGet = t => {
+                            let e = this.retrieveValue(this.buildKey(t));
+                            return e ? tf(td(e)) : null
+                        }, this.set = (t, e) => {
+                            this.storeValue(t, "string" == typeof e ? e : JSON.stringify(e)), this.legacySet(t, e)
+                        }, this.legacySet = (t, e) => {
+                            this.storeValue(this.buildKey(t), tp(e))
+                        }, this.buildKey = t => tp(`${this._writeKey}_${t}`), this._writeKey = t
+                    }
+                },
+                tg = class extends tm {
+                    retrieveValue(t) {
+                        var e;
+                        let r = null != (e = K.get(t)) ? e : null;
+                        return r && this.storeValue(t, r), r
+                    }
+                    storeValue(t, e) {
+                        K.set(t, e, {
+                            domain: `.${(0,window.location.hostname).split(".").slice(-2).join(".")}`,
+                            expires: 400
+                        })
+                    }
+                },
+                ty = class extends tm {
+                    constructor(t) {
+                        super(t), this.retrieveValue = t => this._localStorageAvailable ? localStorage.getItem(t) : null, this.storeValue = (t, e) => {
+                            this._localStorageAvailable && localStorage.setItem(t, e)
+                        }, this._localStorageAvailable = function() {
+                            try {
+                                return localStorage.setItem(th, th), localStorage.removeItem(th), !0
+                            } catch (t) {
+                                return !1
+                            }
+                        }()
+                    }
+                },
+                tv = "unify_visitor_id",
+                t_ = class {
+                    constructor(t) {
+                        this.getOrCreateVisitorId = () => {
+                            if (this._visitorId) return this._visitorId;
+                            let t = this.getVisitorId() || this.createVisitorId();
+                            return this._visitorId = t, t
+                        }, this.getVisitorId = () => {
+                            let t = this._storageService.get(tv);
+                            if (t) return t;
+                            let e = this._storageService.get("anonymousUserId");
+                            return e && this._storageService.set(tv, e), e
+                        }, this.createVisitorId = () => {
+                            let t = R();
+                            return this._storageService.set(tv, t), t
+                        }, this._storageService = new tg(t), this._visitorId = null
+                    }
+                },
+                tw = {
+                    durationMinutes: 30
+                },
+                tb = "unify_session",
+                tS = class {
+                    constructor(t, e) {
+                        this.getOrCreateSession = () => this.getAndUpdateSession() || this.createSession(), this.getAndUpdateSession = () => {
+                            let t = this._currentSession || this.getStoredSession();
+                            if (t && t.expiration > new Date().getTime()) return this.updateSessionExpiration(t)
+                        }, this.createSession = () => {
+                            var t;
+                            let e = f({
+                                sessionId: R(),
+                                startTime: new Date,
+                                expiration: _(null != (t = this._options.durationMinutes) ? t : 30),
+                                initial: w()
+                            }, b());
+                            return this._currentSession = e, this.setStoredSession(e), e
+                        }, this.updateSessionExpiration = t => {
+                            var e;
+                            let r = p(f({}, t), {
+                                expiration: _(null != (e = this._options.durationMinutes) ? e : 30)
+                            });
+                            return this._currentSession = r, this.setStoredSession(r), r
+                        }, this.getStoredSession = () => {
+                            let t = this._storageService.get(tb);
+                            if (t) return t;
+                            let e = this._storageService.get("clientSession");
+                            return e && this.setStoredSession(e), e
+                        }, this.setStoredSession = t => {
+                            this._storageService.set(tb, t), this._cookieStorageService.set("unify_session_id", t.sessionId)
+                        }, this._writeKey = t, this._options = null != e ? e : tw, this._storageService = new ty(this._writeKey), this._cookieStorageService = new tg(this._writeKey), this._currentSession = null
+                    }
+                },
+                tA = class {
+                    constructor(t) {
+                        this.post = (t, e) => {
+                            let r = JSON.stringify(e);
+                            if (fetch) fetch(t, {
+                                method: "POST",
+                                body: r,
+                                headers: {
+                                    "Content-type": "application/json; charset=UTF-8",
+                                    "X-Write-Key": this._writeKey
+                                },
+                                keepalive: !0
+                            }).catch(() => {});
+                            else {
+                                let e = new XMLHttpRequest;
+                                e.open("POST", t, !0), e.setRequestHeader("Content-type", "application/json; charset=UTF-8"), e.setRequestHeader("X-Write-Key", this._writeKey), e.send(r)
+                            }
+                        }, this._writeKey = t
+                    }
+                };
+
+            function tC({
+                message: t,
+                error: e,
+                attrs: r,
+                apiClient: n
+            }) {
+                console.debug(`%c[Unify]: %c${t}${e?`: ${e.message}`:""}${r?`, data: ${JSON.stringify(r)}`:""}`, "font-weight: bold;", "");
+                let i = r && Object.entries(r).reduce((t, [e, r]) => p(f({}, t), {
+                    [e]: "string" == typeof r ? r : JSON.stringify(r)
+                }), {});
+                null == n || n.post("https://api.unifyintent.com/analytics/v1/_internal/logs", {
+                    status: "error",
+                    message: t,
+                    attrs: i,
+                    name: null == e ? void 0 : e.name,
+                    stack: null == e ? void 0 : e.stack,
+                    version: "1.5.0"
+                })
+            }
+            var tE = "unifyAttr",
+                tx = ["default.form_completed", "deafult.form_page_submitted", "default.form_page_submitted"];
+
+            function tk(t) {
+                return tx.includes(t.event)
+            }
+
+            function tI(t, e, r) {
+                var n, i;
+                return null != (i = null == (n = r.find(({
+                    object: r,
+                    name: n
+                }) => r === e && n === t)) ? void 0 : n.value) ? i : null
+            }
+
+            function tP(t, e = 80) {
+                if (!t) return null;
+                let r = t.replace(/\s+/g, " ").trim();
+                return r ? r.length > e ? r.slice(0, e - 1) + "..." : r : null
+            }
+
+            function tT(t) {
+                return t.innerText || t.textContent || ""
+            }
+            var tO = class {
+                    constructor(t) {
+                        var e, r;
+                        this._monitoredInputs = new Set, this._submittedEmails = new Set, this._historyMonitored = !1, this._isTrackingClicks = !1, this.startAutoPage = () => {
+                            this._historyMonitored || this.monitorHistory(), this._autoPage = !0
+                        }, this.stopAutoPage = () => {
+                            this._historyMonitored && window.removeEventListener("popstate", this.maybeTrackPage), this._autoPage = !1
+                        }, this.startAutoIdentify = () => {
+                            this._autoIdentify = !0, this.refreshMonitoredInputs(), setInterval(this.refreshMonitoredInputs, 2e3), this.subscribeToThirdPartyMessages()
+                        }, this.stopAutoIdentify = () => {
+                            this._monitoredInputs.forEach(t => {
+                                t.isConnected && (t.removeEventListener("blur", this.handleInputBlur), t.removeEventListener("keydown", this.handleInputKeydown))
+                            }), this._monitoredInputs.clear(), this.unsubscribeFromThirdPartyMessages(), this._autoIdentify = !1
+                        }, this.startAutoTrack = t => {
+                            t && (this._autoTrackOptions = t), this.startTrackingClicks()
+                        }, this.stopAutoTrack = () => {
+                            this.stopTrackingClicks()
+                        }, this.monitorHistory = () => {
+                            try {
+                                let t = history.pushState;
+                                history.pushState = (...e) => {
+                                    t.apply(history, e), this.maybeTrackPage()
+                                };
+                                let e = history.replaceState;
+                                history.replaceState = (...t) => {
+                                    e.apply(history, t), this.maybeTrackPage()
+                                }, window.addEventListener("popstate", this.maybeTrackPage), this._historyMonitored = !0
+                            } catch (t) {
+                                this.logError("Error occurred in monitorHistory", t)
+                            }
+                        }, this.maybeTrackPage = () => {
+                            if (this._autoPage) try {
+                                var t, e;
+                                this._lastLocation && (t = this._lastLocation, e = window.location, t.hostname === e.hostname && t.pathname === e.pathname) || (new T(this._intentContext).track(), this._lastLocation = f({}, window.location))
+                            } catch (t) {
+                                this.logError("Error occurred in maybeTrackPage", t)
+                            }
+                        }, this.startTrackingClicks = () => {
+                            this._isTrackingClicks || (document.addEventListener("click", this.handleDocumentClick), this._isTrackingClicks = !0)
+                        }, this.stopTrackingClicks = () => {
+                            this._isTrackingClicks && (document.removeEventListener("click", this.handleDocumentClick), this._isTrackingClicks = !1)
+                        }, this.handleDocumentClick = t => {
+                            var e;
+                            try {
+                                let r = t.target;
+                                if (!r) return;
+                                let n = ["[data-unify-track-clicks]", ...null != (e = this._autoTrackOptions.clickTrackingSelectors) ? e : []],
+                                    i = r.closest(n.join(", "));
+                                if (!i || !(i instanceof HTMLElement)) return;
+                                this.maybeTrackClick(i)
+                            } catch (t) {
+                                this.logError("Error occurred in handleDocumentClick", t)
+                            }
+                        }, this.refreshMonitoredInputs = () => {
+                            if (this._autoIdentify) try {
+                                this._monitoredInputs.forEach(t => {
+                                    t.isConnected || this._monitoredInputs.delete(t)
+                                }), Array.from(document.getElementsByTagName("input")).filter(t => !this._monitoredInputs.has(t) && ("email" === t.type || "text" === t.type)).forEach(t => {
+                                    t.addEventListener("blur", this.handleInputBlur), t.addEventListener("keydown", this.handleInputKeydown), this._monitoredInputs.add(t)
+                                })
+                            } catch (t) {
+                                this.logError("Error occurred in refreshMonitoredInputs", t)
+                            }
+                        }, this.subscribeToThirdPartyMessages = () => {
+                            window.addEventListener("message", this.handleThirdPartyMessage)
+                        }, this.unsubscribeFromThirdPartyMessages = () => {
+                            window.removeEventListener("message", this.handleThirdPartyMessage)
+                        }, this.handleThirdPartyMessage = t => {
+                            if (this._autoIdentify) try {
+                                switch (t.origin) {
+                                    case "https://forms.default.com":
+                                        this.handleDefaultFormMessage(t);
+                                        break;
+                                    case "https://capture.navattic.com":
+                                        this.handleNavatticDemoMessage(t)
+                                }
+                            } catch (t) {
+                                this.logError("Error occurred in handleThirdPartyMessage", t)
+                            }
+                        }, this.handleDefaultFormMessage = t => {
+                            if (this._autoIdentify) try {
+                                if (tk(t.data)) {
+                                    let e = t.data.payload.email;
+                                    e && this.maybeIdentifyInputEmail(e, function(t, e) {
+                                        if (tk(t)) try {
+                                            let {
+                                                email: e,
+                                                attributes: r
+                                            } = t.payload, n = f({
+                                                email: e
+                                            }, r && f(f(f(f({}, r.first_name && {
+                                                first_name: r.first_name
+                                            }), r.last_name && {
+                                                last_name: r.last_name
+                                            }), r.phone && {
+                                                mobile_phone: r.phone
+                                            }), r.title && {
+                                                title: r.title
+                                            })), i = null != r && r.website ? C(r.website) : null, s;
+                                            if (i && i === E(e)) {
+                                                let t = r && !isNaN(Number(r.head_count)) ? Number(r.head_count) : void 0;
+                                                s = f({
+                                                    domain: i
+                                                }, r && f(f(f({}, r.company && {
+                                                    name: r.company
+                                                }), r.industry_group && {
+                                                    industry: r.industry_group
+                                                }), t && {
+                                                    employee_count: t
+                                                }))
+                                            }
+                                            return f({
+                                                person: n
+                                            }, s && {
+                                                company: s
+                                            })
+                                        } catch (t) {
+                                            tC({
+                                                message: `Error occurred while parsing attributes from Default event payload: ${t}`,
+                                                error: t,
+                                                apiClient: e
+                                            });
+                                            return
+                                        }
+                                    }(t.data, this._intentContext.apiClient))
+                                }
+                            } catch (t) {
+                                this.logError("Error occurred in handleDefaultFormMessage", t)
+                            }
+                        }, this.handleNavatticDemoMessage = t => {
+                            var e, r;
+                            if (this._autoIdentify) try {
+                                let n = (null != (r = null == (e = t.data) ? void 0 : e.properties) ? r : []).find(({
+                                    object: t,
+                                    name: e
+                                }) => "END_USER" === t && "email" === e);
+                                n && this.maybeIdentifyInputEmail(n.value, function(t, e) {
+                                    var r, n, i, s, o;
+                                    try {
+                                        let e = null != (r = t.properties) ? r : [],
+                                            a = tI("email", "END_USER", e);
+                                        if (!a) return;
+                                        let u = tI("fullName", "END_USER", e),
+                                            l = u ? u.split(" ")[0] : tI("firstName", "END_USER", e),
+                                            c = u ? u.split(" ")[1] : tI("lastName", "END_USER", e),
+                                            d = tI("phone", "END_USER", e),
+                                            h = f(f(f({
+                                                email: a
+                                            }, l && {
+                                                first_name: l
+                                            }), c && {
+                                                last_name: c
+                                            }), d && {
+                                                mobile_phone: d
+                                            }),
+                                            p = tI("domain", "COMPANY_ACCOUNT", e),
+                                            m = p ? C(p) : null,
+                                            g;
+                                        if (m && m === E(a)) {
+                                            let t = null != (n = tI("name", "COMPANY_ACCOUNT", e)) ? n : void 0,
+                                                r = null != (i = tI("description", "COMPANY_ACCOUNT", e)) ? i : void 0,
+                                                a = null != (s = tI("linkedin", "COMPANY_ACCOUNT", e)) ? s : void 0,
+                                                u = tI("industry", "COMPANY_ACCOUNT", e),
+                                                l = tI("foundedYear", "COMPANY_ACCOUNT", e),
+                                                c = null != (o = tI("employeeCount", "COMPANY_ACCOUNT", e)) ? o : void 0,
+                                                d = isNaN(Number(c)) ? void 0 : Number(c);
+                                            g = f(f(f(f(f(f({
+                                                domain: m
+                                            }, t && {
+                                                name: t
+                                            }), r && {
+                                                description: r
+                                            }), a && {
+                                                linkedin_url: a
+                                            }), u && {
+                                                industry: u
+                                            }), l && {
+                                                founded: l
+                                            }), d && {
+                                                employee_count: d
+                                            })
+                                        }
+                                        return f({
+                                            person: h
+                                        }, g && {
+                                            company: g
+                                        })
+                                    } catch (t) {
+                                        tC({
+                                            message: `Error occurred while parsing attributes from Navattic event payload: ${t}`,
+                                            error: t,
+                                            apiClient: e
+                                        });
+                                        return
+                                    }
+                                }(t.data, this._intentContext.apiClient))
+                            } catch (t) {
+                                this.logError("Error occurred in handleNavatticDemoMessage", t)
+                            }
+                        }, this.handleInputBlur = t => {
+                            if (this._autoIdentify) try {
+                                t.target instanceof HTMLInputElement && this.maybeIdentifyInputEmail(t.target.value)
+                            } catch (t) {
+                                this.logError("Error occurred in handleInputBlur", t)
+                            }
+                        }, this.handleInputKeydown = t => {
+                            if (this._autoIdentify) try {
+                                "Enter" === t.key && t.target instanceof HTMLInputElement && this.maybeIdentifyInputEmail(t.target.value)
+                            } catch (t) {
+                                this.logError("Error occurred in handleInputKeyDown", t)
+                            }
+                        }, this.maybeIdentifyInputEmail = (t, e) => {
+                            if (this._autoIdentify) try {
+                                if (t) {
+                                    if (!S(t) || this._submittedEmails.has(t)) return;
+                                    new N(this._intentContext, {
+                                        email: t,
+                                        person: null == e ? void 0 : e.person,
+                                        company: null == e ? void 0 : e.company
+                                    }).track(), this._submittedEmails.add(t)
+                                }
+                            } catch (t) {
+                                this.logError("Error occurred in maybeIdentifyInputEmail", t)
+                            }
+                        }, this.maybeTrackClick = t => {
+                            try {
+                                if (!(t instanceof HTMLElement) || function(t) {
+                                        if (!(t instanceof HTMLElement)) return !1;
+                                        if (t.hidden || "true" === t.getAttribute("aria-hidden")) return !0;
+                                        let e = getComputedStyle(t);
+                                        return "none" === e.display || "hidden" === e.visibility
+                                    }(t) || t.matches(":disabled") || "true" === t.getAttribute("aria-disabled") || t.classList.contains("disabled") || function(t, e) {
+                                        if (!(t instanceof HTMLElement)) return !1;
+                                        let {
+                                            dataset: r
+                                        } = t;
+                                        return !!r[e]
+                                    }(t, "unifyExclude")) return;
+                                let e = function(t) {
+                                    let e, r, n = function(t, e) {
+                                        if (!(t instanceof HTMLElement)) return null;
+                                        let {
+                                            dataset: r
+                                        } = t;
+                                        return r[e] ? String(r[e]) : null
+                                    }(t, "unifyLabel");
+                                    if (n) return n;
+                                    let i = tT(t);
+                                    if (i) return tP(i);
+                                    let s = t.getAttribute("aria-label");
+                                    if (s) return tP(s);
+                                    let o = (e = t.getAttribute("aria-labelledby")) ? e.split(/\s+/).map(t => {
+                                        let e = document.getElementById(t);
+                                        return e ? tT(e) : null
+                                    }).filter(t => !!t).join(" ") : null;
+                                    if (o) return tP(o);
+                                    let a = (r = t.querySelector("img[alt]"), (null == r ? void 0 : r.alt) || null);
+                                    return a ? tP(a) : null
+                                }(t);
+                                if (!e) return;
+                                let r = function(t) {
+                                    if (!(t instanceof HTMLElement)) return {};
+                                    let e = {};
+                                    return Object.entries(t.dataset).forEach(([t, r]) => {
+                                        if (t.startsWith(tE) && r) {
+                                            let n = t.slice(tE.length);
+                                            n && (e[`${n.charAt(0).toLowerCase()}${n.slice(1)}`] = r)
+                                        }
+                                    }), e
+                                }(t);
+                                new M(this._intentContext, {
+                                    name: "Element Clicked",
+                                    properties: p(f({}, r), {
+                                        elementName: e,
+                                        wasAutoTracked: !0
+                                    })
+                                }).track()
+                            } catch (t) {
+                                this.logError("Error occurred in maybeTrackClick", t)
+                            }
+                        }, this.logError = (t, e) => {
+                            tC({
+                                message: `UnifyIntentAgent: ${t}`,
+                                error: e,
+                                apiClient: this._intentContext.apiClient
+                            })
+                        }, this.__getMonitoredInputs = () => this._monitoredInputs, this.__getSubmittedEmails = () => this._submittedEmails, this._intentContext = t, this._autoPage = null != (e = t.clientConfig.autoPage) && e, this._autoIdentify = null != (r = t.clientConfig.autoIdentify) && r, this._autoTrackOptions = f({}, t.clientConfig.autoTrackOptions), this._autoPage && (this.startAutoPage(), this.maybeTrackPage()), this._autoIdentify && this.startAutoIdentify(), this.startAutoTrack()
+                    }
+                },
+                tN = {
+                    autoPage: !1,
+                    autoIdentify: !1,
+                    sessionDurationMinutes: 30
+                },
+                tU = class {
+                    constructor(t, e = tN) {
+                        this._mounted = !1, this.mount = () => {
+                            if ("undefined" != typeof window) try {
+                                var t;
+                                if (v(window.unify) || v(window.unifyBrowser)) {
+                                    tC({
+                                        message: "UnifyIntentClient already exists on window, a new one will not be created."
+                                    });
+                                    return
+                                }
+                                let e = new tA(this._writeKey),
+                                    r = new tS(this._writeKey, {
+                                        durationMinutes: this._config.sessionDurationMinutes
+                                    });
+                                r.getOrCreateSession();
+                                let n = new t_(this._writeKey);
+                                n.getOrCreateVisitorId(), this._context = {
+                                    writeKey: this._writeKey,
+                                    clientConfig: this._config,
+                                    apiClient: e,
+                                    sessionManager: r,
+                                    identityManager: n
+                                }, this._intentAgent = new tO(this._context), this._mounted = !0, t = this, (Array.isArray(window.unify) ? [...window.unify] : Array.isArray(window.unifyBrowser) ? [...window.unifyBrowser] : []).forEach(([r, n]) => {
+                                    if ("function" == typeof t[r]) try {
+                                        Array.isArray(n) ? t[r].call(t, ...n) : t[r].call(t)
+                                    } catch (t) {
+                                        tC({
+                                            message: `Error occurred while flushing queue: ${null==t?void 0:t.message}`,
+                                            error: t,
+                                            apiClient: e
+                                        })
+                                    }
+                                }), window.unify = this, window.unifyBrowser = this
+                            } catch (t) {
+                                this.logError("Error occurred in mount", t)
+                            }
+                        }, this.unmount = () => {
+                            if ("undefined" != typeof window) try {
+                                this._config.autoPage && this.stopAutoPage(), this._config.autoIdentify && this.stopAutoIdentify(), this.stopAutoTrack(), this._mounted = !1, window.unify = void 0, window.unifyBrowser = void 0
+                            } catch (t) {
+                                this.logError("Error occurred in unmount", t)
+                            }
+                        }, this.page = t => {
+                            if (this._mounted) try {
+                                new T(this._context, t).track()
+                            } catch (t) {
+                                this.logError("Error occurred in page", t)
+                            }
+                        }, this.getPagePayload = t => {
+                            if (this._mounted) try {
+                                return new T(this._context, t).getTrackPayload()
+                            } catch (t) {
+                                this.logError("Error occurred in getPagePayload", t)
+                            }
+                        }, this.identify = (t, e) => {
+                            if (!this._mounted) return !1;
+                            try {
+                                let r = S(t);
+                                if (r) return new N(this._context, {
+                                    email: r,
+                                    person: null == e ? void 0 : e.person,
+                                    company: null == e ? void 0 : e.company
+                                }).track(), !0
+                            } catch (t) {
+                                this.logError("Error occurred in identify", t)
+                            }
+                            return !1
+                        }, this.getIdentifyPayload = (t, e) => {
+                            if (!this._mounted) return !1;
+                            try {
+                                let r = S(t);
+                                if (r) return new N(this._context, {
+                                    email: r,
+                                    person: null == e ? void 0 : e.person,
+                                    company: null == e ? void 0 : e.company
+                                }).getTrackPayload()
+                            } catch (t) {
+                                this.logError("Error occurred in getIdentifyPayload", t)
+                            }
+                        }, this.track = (t, e) => {
+                            if (this._mounted) try {
+                                new M(this._context, {
+                                    name: t,
+                                    properties: e
+                                }).track()
+                            } catch (t) {
+                                this.logError("Error occurred in track", t)
+                            }
+                        }, this.getTrackPayload = (t, e) => {
+                            if (this._mounted) try {
+                                return new M(this._context, {
+                                    name: t,
+                                    properties: e
+                                }).getTrackPayload()
+                            } catch (t) {
+                                this.logError("Error occurred in getTrackPayload", t)
+                            }
+                        }, this.startAutoPage = () => {
+                            if (this._mounted) try {
+                                this._intentAgent || (this._intentAgent = new tO(this._context)), this._intentAgent.startAutoPage()
+                            } catch (t) {
+                                this.logError("Error occurred in startAutoPage", t)
+                            }
+                        }, this.stopAutoPage = () => {
+                            var t;
+                            if (this._mounted) try {
+                                null == (t = this._intentAgent) || t.stopAutoPage()
+                            } catch (t) {
+                                this.logError("Error occurred in stopAutoPage", t)
+                            }
+                        }, this.startAutoIdentify = () => {
+                            if (this._mounted) try {
+                                this._intentAgent || (this._intentAgent = new tO(this._context)), this._intentAgent.startAutoIdentify()
+                            } catch (t) {
+                                this.logError("Error occurred in startAutoIdentify", t)
+                            }
+                        }, this.stopAutoIdentify = () => {
+                            var t;
+                            if (this._mounted) try {
+                                null == (t = this._intentAgent) || t.stopAutoIdentify()
+                            } catch (t) {
+                                this.logError("Error occurred in stopAutoIdentify", t)
+                            }
+                        }, this.startAutoTrack = t => {
+                            if (this._mounted) try {
+                                t && (this._config.autoTrackOptions = t), this._intentAgent || (this._intentAgent = new tO(this._context)), this._intentAgent.startAutoTrack(t)
+                            } catch (t) {
+                                this.logError("Error occurred in startAutoTrack", t)
+                            }
+                        }, this.stopAutoTrack = () => {
+                            var t;
+                            if (this._mounted) try {
+                                null == (t = this._intentAgent) || t.stopAutoTrack()
+                            } catch (t) {
+                                this.logError("Error occurred in stopAutoTrack", t)
+                            }
+                        }, this.logError = (t, e) => {
+                            tC({
+                                message: `UnifyIntentClient: ${t}`,
+                                error: e,
+                                apiClient: this._context.apiClient
+                            })
+                        }, this._writeKey = t, this._config = e
+                    }
+                },
+                tM = i.createContext({
+                    client: null
+                });
+            tM.displayName = "UnifyIntentContext";
+            var tL = ({
+                    intentClient: t,
+                    children: e
+                }) => {
+                    let [r] = (0, i.useState)(t);
+                    return (0, i.useEffect)(() => (r.mount(), () => {
+                        r.unmount()
+                    }), []), i.createElement(tM.Provider, {
+                        value: {
+                            client: r
+                        }
+                    }, e)
+                },
+                tD = function() {
+                    let {
+                        client: t
+                    } = (0, i.useContext)(tM);
+                    if (null === t) throw Error("useUnifyIntent can only be used within a UnifyIntentProvider.");
+                    return t
+                }
+        },
+        79205: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                Z: function() {
+                    return d
+                }
+            });
+            var n = r(2265);
+            let i = t => t.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase(),
+                s = t => t.replace(/^([A-Z])|[\s-_]+(\w)/g, (t, e, r) => r ? r.toUpperCase() : e.toLowerCase()),
+                o = t => {
+                    let e = s(t);
+                    return e.charAt(0).toUpperCase() + e.slice(1)
+                },
+                a = function() {
+                    for (var t = arguments.length, e = Array(t), r = 0; r < t; r++) e[r] = arguments[r];
+                    return e.filter((t, e, r) => !!t && "" !== t.trim() && r.indexOf(t) === e).join(" ").trim()
+                },
+                u = t => {
+                    for (let e in t)
+                        if (e.startsWith("aria-") || "role" === e || "title" === e) return !0
+                };
+            var l = {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: 24,
+                height: 24,
+                viewBox: "0 0 24 24",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: 2,
+                strokeLinecap: "round",
+                strokeLinejoin: "round"
+            };
+            let c = (0, n.forwardRef)((t, e) => {
+                    let {
+                        color: r = "currentColor",
+                        size: i = 24,
+                        strokeWidth: s = 2,
+                        absoluteStrokeWidth: o,
+                        className: c = "",
+                        children: d,
+                        iconNode: h,
+                        ...f
+                    } = t;
+                    return (0, n.createElement)("svg", {
+                        ref: e,
+                        ...l,
+                        width: i,
+                        height: i,
+                        stroke: r,
+                        strokeWidth: o ? 24 * Number(s) / Number(i) : s,
+                        className: a("lucide", c),
+                        ...!d && !u(f) && {
+                            "aria-hidden": "true"
+                        },
+                        ...f
+                    }, [...h.map(t => {
+                        let [e, r] = t;
+                        return (0, n.createElement)(e, r)
+                    }), ...Array.isArray(d) ? d : [d]])
+                }),
+                d = (t, e) => {
+                    let r = (0, n.forwardRef)((r, s) => {
+                        let {
+                            className: u,
+                            ...l
+                        } = r;
+                        return (0, n.createElement)(c, {
+                            ref: s,
+                            iconNode: e,
+                            className: a("lucide-".concat(i(o(t))), "lucide-".concat(t), u),
+                            ...l
+                        })
+                    });
+                    return r.displayName = o(t), r
+                }
+        },
+        51817: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                Z: function() {
+                    return n
+                }
+            });
+            let n = (0, r(79205).Z)("loader-circle", [
+                ["path", {
+                    d: "M21 12a9 9 0 1 1-6.219-8.56",
+                    key: "13zald"
+                }]
+            ])
+        },
+        30166: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                default: function() {
+                    return i.a
+                }
+            });
+            var n = r(55775),
+                i = r.n(n)
+        },
+        99376: function(t, e, r) {
+            "use strict";
+            var n = r(35475);
+            r.o(n, "useParams") && r.d(e, {
+                useParams: function() {
+                    return n.useParams
+                }
+            }), r.o(n, "usePathname") && r.d(e, {
+                usePathname: function() {
+                    return n.usePathname
+                }
+            }), r.o(n, "useRouter") && r.d(e, {
+                useRouter: function() {
+                    return n.useRouter
+                }
+            }), r.o(n, "useSearchParams") && r.d(e, {
+                useSearchParams: function() {
+                    return n.useSearchParams
+                }
+            }), r.o(n, "useSelectedLayoutSegments") && r.d(e, {
+                useSelectedLayoutSegments: function() {
+                    return n.useSelectedLayoutSegments
+                }
+            })
+        },
+        55775: function(t, e, r) {
+            "use strict";
+            Object.defineProperty(e, "__esModule", {
+                value: !0
+            }), Object.defineProperty(e, "default", {
+                enumerable: !0,
+                get: function() {
+                    return s
+                }
+            });
+            let n = r(60917);
+            r(57437), r(2265);
+            let i = n._(r(15602));
+
+            function s(t, e) {
+                var r;
+                let n = {
+                    loading: t => {
+                        let {
+                            error: e,
+                            isLoading: r,
+                            pastDelay: n
+                        } = t;
+                        return null
+                    }
+                };
+                "function" == typeof t && (n.loader = t);
+                let s = {
+                    ...n,
+                    ...e
+                };
+                return (0, i.default)({
+                    ...s,
+                    modules: null == (r = s.loadableGenerated) ? void 0 : r.modules
+                })
+            }("function" == typeof e.default || "object" == typeof e.default && null !== e.default) && void 0 === e.default.__esModule && (Object.defineProperty(e.default, "__esModule", {
+                value: !0
+            }), Object.assign(e.default, e), t.exports = e.default)
+        },
+        81523: function(t, e, r) {
+            "use strict";
+            Object.defineProperty(e, "__esModule", {
+                value: !0
+            }), Object.defineProperty(e, "BailoutToCSR", {
+                enumerable: !0,
+                get: function() {
+                    return i
+                }
+            });
+            let n = r(18993);
+
+            function i(t) {
+                let {
+                    reason: e,
+                    children: r
+                } = t;
+                if ("undefined" == typeof window) throw new n.BailoutToCSRError(e);
+                return r
+            }
+        },
+        15602: function(t, e, r) {
+            "use strict";
+            Object.defineProperty(e, "__esModule", {
+                value: !0
+            }), Object.defineProperty(e, "default", {
+                enumerable: !0,
+                get: function() {
+                    return l
+                }
+            });
+            let n = r(57437),
+                i = r(2265),
+                s = r(81523),
+                o = r(70049);
+
+            function a(t) {
+                return {
+                    default: t && "default" in t ? t.default : t
+                }
+            }
+            let u = {
+                    loader: () => Promise.resolve(a(() => null)),
+                    loading: null,
+                    ssr: !0
+                },
+                l = function(t) {
+                    let e = {
+                            ...u,
+                            ...t
+                        },
+                        r = (0, i.lazy)(() => e.loader().then(a)),
+                        l = e.loading;
+
+                    function c(t) {
+                        let a = l ? (0, n.jsx)(l, {
+                                isLoading: !0,
+                                pastDelay: !0,
+                                error: null
+                            }) : null,
+                            u = e.ssr ? (0, n.jsxs)(n.Fragment, {
+                                children: ["undefined" == typeof window ? (0, n.jsx)(o.PreloadCss, {
+                                    moduleIds: e.modules
+                                }) : null, (0, n.jsx)(r, {
+                                    ...t
+                                })]
+                            }) : (0, n.jsx)(s.BailoutToCSR, {
+                                reason: "next/dynamic",
+                                children: (0, n.jsx)(r, {
+                                    ...t
+                                })
+                            });
+                        return (0, n.jsx)(i.Suspense, {
+                            fallback: a,
+                            children: u
+                        })
+                    }
+                    return c.displayName = "LoadableComponent", c
+                }
+        },
+        70049: function(t, e, r) {
+            "use strict";
+            Object.defineProperty(e, "__esModule", {
+                value: !0
+            }), Object.defineProperty(e, "PreloadCss", {
+                enumerable: !0,
+                get: function() {
+                    return s
+                }
+            });
+            let n = r(57437),
+                i = r(20544);
+
+            function s(t) {
+                let {
+                    moduleIds: e
+                } = t;
+                if ("undefined" != typeof window) return null;
+                let r = (0, i.getExpectedRequestStore)("next/dynamic css"),
+                    s = [];
+                if (r.reactLoadableManifest && e) {
+                    let t = r.reactLoadableManifest;
+                    for (let r of e) {
+                        if (!t[r]) continue;
+                        let e = t[r].files.filter(t => t.endsWith(".css"));
+                        s.push(...e)
+                    }
+                }
+                return 0 === s.length ? null : (0, n.jsx)(n.Fragment, {
+                    children: s.map(t => (0, n.jsx)("link", {
+                        precedence: "dynamic",
+                        rel: "stylesheet",
+                        href: r.assetPrefix + "/_next/" + encodeURI(t),
+                        as: "style"
+                    }, t))
+                })
+            }
+        },
+        47071: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                Cd: function() {
+                    return i
+                },
+                U7: function() {
+                    return n
+                }
+            });
+            let n = {
+                    PUBLIC: {
+                        PLAYGROUND: {
+                            MODELS: ["playground-models"],
+                            CATEGORIES: ["playground-categories"],
+                            INDUSTRIES: ["playground-industries"],
+                            TAGS: ["playground-tags"],
+                            PURPOSES: ["playground-purposes"]
+                        },
+                        COOKBOOK: {
+                            ALL: ["cookbooks"],
+                            SINGLE: t => ["cookbook", t],
+                            SINGLE_BY_SLUG: t => ["cookbook", "slug", t],
+                            NOTEBOOK: t => ["notebook", t]
+                        },
+                        USE_CASE_TEMPLATES: {
+                            ALL: ["use-case-templates"],
+                            METADATA: ["use-case-templates-metadata"]
+                        }
+                    },
+                    PRIVATE: {
+                        CHAT: {
+                            HISTORY: ["chat-history"],
+                            MESSAGES: t => ["chat-messages", t],
+                            METADATA: t => ["chat-metadata", t]
+                        }
+                    }
+                },
+                i = () => {
+                    let t = [],
+                        e = r => {
+                            Object.values(r).forEach(r => {
+                                r && Array.isArray(r) ? t.push(r) : r && "object" == typeof r && !r.hasOwnProperty("call") && e(r)
+                            })
+                        };
+                    return e(n.PUBLIC), t
+                }
+        },
+        14856: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                x4: function() {
+                    return o
+                },
+                zC: function() {
+                    return a
+                }
+            });
+            var n = r(31125),
+                i = r(83464);
+            let s = "[vlm-login-client]",
+                o = async t => {
+                    try {
+                        let {
+                            data: e
+                        } = await i.default.post("/api/login", {
+                            clerk_id: t
+                        });
+                        return console.info(s, "POST /api/login ok", {
+                            clerkId: t
+                        }), e
+                    } catch (t) {
+                        if (i.default.isAxiosError(t)) {
+                            var e, r, n;
+                            console.error(s, "POST /api/login failed", {
+                                status: null === (e = t.response) || void 0 === e ? void 0 : e.status,
+                                data: "string" == typeof(null === (r = t.response) || void 0 === r ? void 0 : r.data) ? t.response.data : JSON.stringify(null === (n = t.response) || void 0 === n ? void 0 : n.data),
+                                message: t.message,
+                                code: t.code
+                            })
+                        } else console.error(s, "POST /api/login unexpected error", t);
+                        throw t
+                    }
+                }, a = async t => {
+                    let {
+                        data: e
+                    } = await n.Z.post("/api/v1/login/account-exists", {
+                        email: t
+                    });
+                    return !!(null == e ? void 0 : e.exists)
+                }
+        },
+        18302: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                w: function() {
+                    return i
+                }
+            });
+            var n = r(31125);
+            let i = {
+                getCurrentUserFeatures: async () => (await n.Z.get("/api/v1/features/me")).data,
+                getFeatures: async t => (await n.Z.get("/api/v1/features/".concat(t))).data,
+                updateFeatures: async (t, e) => (await n.Z.patch("/api/v1/features/".concat(t), e)).data
+            }
+        },
+        58549: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                f: function() {
+                    return s
+                }
+            });
+            var n = r(21770),
+                i = r(14856);
+            let s = () => (0, n.D)({
+                mutationFn: t => (0, i.x4)(t)
+            })
+        },
+        36147: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                Lq: function() {
+                    return u
+                },
+                Zd: function() {
+                    return a
+                },
+                eO: function() {
+                    return l
+                }
+            });
+            var n = r(92850),
+                i = r(29827),
+                s = r(21770),
+                o = r(18302);
+            let a = function() {
+                    let t = !(arguments.length > 0) || void 0 === arguments[0] || arguments[0];
+                    return (0, n.a)({
+                        queryKey: ["features", "me"],
+                        queryFn: () => o.w.getCurrentUserFeatures(),
+                        enabled: t
+                    })
+                },
+                u = t => (0, n.a)({
+                    queryKey: ["features", t],
+                    queryFn: () => o.w.getFeatures(t),
+                    enabled: !!t
+                }),
+                l = () => {
+                    let t = (0, i.NL)();
+                    return (0, s.D)({
+                        mutationFn: async t => {
+                            let {
+                                organizationId: e,
+                                features: r
+                            } = t;
+                            return o.w.updateFeatures(e, r)
+                        },
+                        onSuccess: e => {
+                            t.invalidateQueries({
+                                queryKey: ["features", e.org_id]
+                            }), t.invalidateQueries({
+                                queryKey: ["organizations"]
+                            })
+                        }
+                    })
+                }
+        },
+        31125: function(t, e, r) {
+            "use strict";
+            var n = r(83688),
+                i = r(83464),
+                s = r(8481),
+                o = r(12655),
+                a = r(9715);
+            let u = () => "".concat(Date.now(), "-").concat(Math.random().toString(16).slice(2, 8)),
+                l = t => {
+                    if (!t) return "";
+                    let e = t.baseURL || "",
+                        r = t.url || "";
+                    return "".concat(e).concat(r)
+                },
+                c = function(t, e) {
+                    var r, i;
+                    let s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : "info",
+                        o = "[axios:".concat(t, "] ").concat(null !== (r = e.method) && void 0 !== r ? r : "", " ").concat(null !== (i = e.url) && void 0 !== i ? i : "");
+                    n.n({
+                        category: "http",
+                        message: o,
+                        data: e,
+                        level: s
+                    })
+                },
+                d = i.default.create({
+                    baseURL: "https://prod-vlm-cloud-nfsnfpr33q-uc.a.run.app",
+                    paramsSerializer: t => {
+                        let e = new URLSearchParams;
+                        return Object.entries(t).forEach(t => {
+                            let [r, n] = t;
+                            Array.isArray(n) ? r.endsWith("__in") ? n.length > 0 && e.append(r, n.join(",")) : n.forEach(t => e.append(r, String(t))) : null != n && e.append(r, String(n))
+                        }), e.toString()
+                    }
+                });
+            d.interceptors.request.use(t => {
+                var e;
+                let r = localStorage.getItem("access_token"),
+                    n = ["/login/clerk-user", "/refresh-token"].some(e => t.url && t.url.includes(e));
+                r && !n && (t.headers.Authorization = "Bearer ".concat(r)), (0, o.Wh)() && (t.headers["X-Demo-Analytics"] = "1");
+                let i = u();
+                return t.metadata = {
+                    requestId: i,
+                    startTime: Date.now()
+                }, c("request", {
+                    requestId: i,
+                    url: l(t),
+                    method: null === (e = t.method) || void 0 === e ? void 0 : e.toUpperCase(),
+                    hasAuthHeader: !!t.headers.Authorization,
+                    isNoAuthEndpoint: n
+                }), t
+            }, t => Promise.reject(t)), d.interceptors.response.use(t => {
+                var e, r, n, i;
+                let s = t.config,
+                    o = s.metadata ? Date.now() - s.metadata.startTime : void 0;
+                return c("response", {
+                    requestId: null === (e = s.metadata) || void 0 === e ? void 0 : e.requestId,
+                    url: l(s),
+                    method: null === (r = s.method) || void 0 === r ? void 0 : r.toUpperCase(),
+                    status: t.status,
+                    durationMs: o,
+                    responseRequestId: (null === (n = t.headers) || void 0 === n ? void 0 : n["x-request-id"]) || (null === (i = t.headers) || void 0 === i ? void 0 : i["request-id"])
+                }), t
+            }, async t => {
+                var e, r, n, i, o, u, h, f, p, m, g, y, v;
+                let _ = t.config,
+                    w = (null == _ ? void 0 : _.metadata) ? Date.now() - _.metadata.startTime : void 0,
+                    b = null === (e = t.response) || void 0 === e ? void 0 : e.status,
+                    S = (null === (n = t.response) || void 0 === n ? void 0 : null === (r = n.headers) || void 0 === r ? void 0 : r["x-request-id"]) || (null === (o = t.response) || void 0 === o ? void 0 : null === (i = o.headers) || void 0 === i ? void 0 : i["request-id"]),
+                    A = null === (u = t.response) || void 0 === u ? void 0 : u.data,
+                    C = "string" == typeof A ? A.slice(0, 500) : (null == A ? void 0 : A.message) || (null == A ? void 0 : A.error);
+                if (c("error", {
+                        requestId: null == _ ? void 0 : null === (h = _.metadata) || void 0 === h ? void 0 : h.requestId,
+                        url: l(_),
+                        method: null == _ ? void 0 : null === (f = _.method) || void 0 === f ? void 0 : f.toUpperCase(),
+                        status: b,
+                        durationMs: w,
+                        errorName: t.name,
+                        errorMessage: t.message,
+                        responseMessage: C,
+                        responseRequestId: S,
+                        hasAuthHeader: !!(null == _ ? void 0 : null === (p = _.headers) || void 0 === p ? void 0 : p.Authorization)
+                    }, "error"), (null === (m = t.response) || void 0 === m ? void 0 : m.status) === 498 && !_._retry && localStorage.getItem("refresh_token")) {
+                    _._retry = !0;
+                    let t = await (0, a.refreshToken)();
+                    if (null == t ? void 0 : t.access_token) return _.headers = _.headers || {}, _.headers.Authorization = "Bearer ".concat(t.access_token), d(_)
+                }
+                return (null === (g = t.response) || void 0 === g ? void 0 : g.status) === 400 && (null === (v = t.response) || void 0 === v ? void 0 : null === (y = v.data) || void 0 === y ? void 0 : y.detail) === "Inactive user" && ((0, s.wH)(), window.location.href = "/logout"), Promise.reject(t)
+            }), e.Z = d
+        },
+        12655: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                D5: function() {
+                    return a
+                },
+                FZ: function() {
+                    return s
+                },
+                Wh: function() {
+                    return o
+                }
+            });
+            var n = r(14438);
+            let i = !1;
+
+            function s(t) {
+                i = t
+            }
+
+            function o() {
+                return i
+            }
+
+            function a() {
+                return !!i && (n.Am.message("Demo data — row details are not available in demo mode."), !0)
+            }
+            i = function() {
+                try {
+                    var t, e;
+                    let r = localStorage.getItem("userState");
+                    if (!r) return !1;
+                    let n = JSON.parse(r);
+                    return !!((null === (t = n.state) || void 0 === t ? void 0 : t.demoAnalytics) && (null === (e = n.state) || void 0 === e ? void 0 : e.isSuperUser))
+                } catch (t) {
+                    return !1
+                }
+            }()
+        },
+        8481: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                N0: function() {
+                    return a
+                },
+                Sl: function() {
+                    return d
+                },
+                l9: function() {
+                    return i
+                },
+                n5: function() {
+                    return o
+                },
+                sw: function() {
+                    return l
+                },
+                wH: function() {
+                    return s
+                },
+                w_: function() {
+                    return c
+                }
+            });
+            var n = r(86581);
+            let i = t => {
+                    localStorage.setItem("access_token", t.access_token), localStorage.setItem("refresh_token", t.refresh_token), localStorage.setItem("id", t.id), localStorage.setItem("email", t.email), localStorage.setItem("clerk_id", t.clerk_id), localStorage.setItem("is_sup", t.is_superuser), localStorage.setItem("signup_survey_completed", !1 === t.signup_survey_completed ? "false" : "true"), localStorage.removeItem("api_key")
+                },
+                s = () => {
+                    localStorage.removeItem("access_token"), localStorage.removeItem("refresh_token"), localStorage.removeItem("id"), localStorage.removeItem("email"), localStorage.removeItem("clerk_id"), localStorage.removeItem("is_sup"), localStorage.removeItem("signup_survey_completed"), localStorage.removeItem("api_key"), localStorage.removeItem(n.D), d()
+                },
+                o = () => localStorage.getItem("id"),
+                a = () => "false" !== localStorage.getItem("signup_survey_completed"),
+                u = "vlm_onboarding_api_key",
+                l = (t, e) => {
+                    try {
+                        localStorage.setItem(u, JSON.stringify({
+                            key: t,
+                            orgId: e
+                        }))
+                    } catch (t) {}
+                },
+                c = t => {
+                    try {
+                        let e = localStorage.getItem(u);
+                        if (!e) return null;
+                        let r = JSON.parse(e);
+                        if (!r.key || t && r.orgId && r.orgId !== t) return null;
+                        return r.key
+                    } catch (t) {
+                        return null
+                    }
+                },
+                d = () => {
+                    try {
+                        localStorage.removeItem(u)
+                    } catch (t) {}
+                }
+        },
+        49842: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                a: function() {
+                    return w
+                }
+            });
+            var n = r(57437),
+                i = r(2265),
+                s = r(99376),
+                o = r(47071),
+                a = r(58549),
+                u = r(54353),
+                l = r(29827),
+                c = r(37296),
+                d = r(83464),
+                h = r(51495),
+                f = r(91377),
+                p = r(27292),
+                m = r(8102),
+                g = r(18302),
+                y = r(8481);
+            let v = ["/sign-in", "/sign-up", "/sso-callback", "/onboarding", "/reset-password"],
+                _ = (0, i.createContext)({
+                    isBackendAuthenticated: !1,
+                    isAuthenticating: !1,
+                    isInitializing: !0,
+                    currentUserId: null
+                }),
+                w = () => {
+                    let t = (0, i.useContext)(_);
+                    if (!t) throw Error("useAuth must be used within AuthProvider");
+                    return t
+                };
+            e.default = t => {
+                let {
+                    children: e
+                } = t, {
+                    user: r,
+                    isLoaded: w
+                } = (0, u.aF)(), {
+                    signOut: b
+                } = (0, u.ll)(), {
+                    mutate: S,
+                    isPending: A
+                } = (0, a.f)(), {
+                    isSignedIn: C,
+                    isLoaded: E
+                } = (0, u.kP)(), x = (0, l.NL)(), k = (0, c.cP)(), {
+                    setUser: I,
+                    clearUser: P,
+                    setInspecting: T,
+                    inspecting: O,
+                    originalClerkId: N,
+                    id: U
+                } = (0, m.L)(), M = (0, s.usePathname)(), [L, D] = (0, i.useState)(!1), [j, R] = (0, i.useState)(!1), [F, K] = (0, i.useState)(!0), [B, q] = (0, i.useState)(null);
+                (0, i.useEffect)(() => {
+                    localStorage.getItem("access_token") && localStorage.getItem("id") && (R(!0), K(!1), q(localStorage.getItem("clerk_id")))
+                }, []), (0, i.useEffect)(() => {
+                    let t = t => {
+                        "assume_role_cancelled" === t.key && t.newValue && (null == r ? void 0 : r.id) === t.newValue && (localStorage.removeItem("assume_role_cancelled"), S(r.id, {
+                            onSuccess: t => {
+                                var e, r;
+                                (0, y.l9)(t), I(t.id, t.email, t.is_superuser, null !== (e = t.is_org_admin) && void 0 !== e && e, (0, f.Sm)(t.org_plan_type), null !== (r = t.org_plan_type) && void 0 !== r ? r : null), T(null), m.L.setState({
+                                    originalClerkId: null
+                                }), window.location.href = "/dashboard"
+                            }
+                        }))
+                    };
+                    return window.addEventListener("storage", t), () => window.removeEventListener("storage", t)
+                }, [null == r ? void 0 : r.id, S, I, T]);
+                let z = (0, i.useCallback)(() => {
+                        (0, y.wH)(), P(), T(null), R(!1), D(!1), q(null);
+                        let t = (0, o.Cd)();
+                        x.removeQueries({
+                            predicate: e => !t.some(t => t.every((t, r) => e.queryKey[r] === t))
+                        })
+                    }, [P, T, x]),
+                    Z = (0, i.useCallback)(async () => {
+                        if (!r || !w || !E || L || A || "/logout" === M) return;
+                        let t = t => {
+                            if (v.some(t => M === t || (null == M ? void 0 : M.startsWith("".concat(t, "/")))) || O || (0, y.N0)()) return;
+                            let e = (0, h.Yw)(t);
+                            window.location.replace((0, p.yJ)(e))
+                        };
+                        if (O && N === r.id && (0, y.n5)() === U) {
+                            R(!0), K(!1), q(r.id), D(!0);
+                            return
+                        }
+                        B && B !== r.id && z(), q(r.id), D(!0), S(r.id, {
+                            onSuccess: e => {
+                                var r, n;
+                                (0, y.l9)(e), e.initial_api_key && (0, y.sw)(e.initial_api_key, e.organization_id || e.org_id), I(e.id, e.email, e.is_superuser, null !== (r = e.is_org_admin) && void 0 !== r && r, (0, f.Sm)(e.org_plan_type), null !== (n = e.org_plan_type) && void 0 !== n ? n : null), O || T(null), R(!0), K(!1), x.prefetchQuery({
+                                    queryKey: ["features", "me"],
+                                    queryFn: () => g.w.getCurrentUserFeatures()
+                                }), t(new URLSearchParams(window.location.search).get("redirect_url")), k && k.identify(e.email)
+                            },
+                            onError: t => {
+                                if (d.default.isAxiosError(t)) {
+                                    var e, n, i;
+                                    console.error("[vlm-login-auth-provider] backend exchange failed", {
+                                        pathname: M,
+                                        clerkUserId: r.id,
+                                        status: null === (e = t.response) || void 0 === e ? void 0 : e.status,
+                                        data: "string" == typeof(null === (n = t.response) || void 0 === n ? void 0 : n.data) ? t.response.data : JSON.stringify(null === (i = t.response) || void 0 === i ? void 0 : i.data),
+                                        message: t.message,
+                                        code: t.code
+                                    })
+                                } else console.error("[vlm-login-auth-provider] backend exchange failed (non-axios)", {
+                                    pathname: M,
+                                    clerkUserId: r.id,
+                                    err: t
+                                });
+                                z(), K(!1), "/logout" !== M && window.location.replace("/logout")
+                            }
+                        })
+                    }, [r, w, E, L, A, O, N, U, B, z, S, I, T, k, M]);
+                return (0, i.useEffect)(() => {
+                    if (w && E) {
+                        if (!1 === C) z(), K(!1);
+                        else if (r && B && B !== r.id) {
+                            if (O && N === r.id) return;
+                            z()
+                        }
+                    }
+                }, [C, r, B, O, N, w, E, z]), (0, i.useEffect)(() => {
+                    w && E && (C && r && !L ? Z() : C || K(!1))
+                }, [w, E, C, r, L, Z]), (0, n.jsx)(_.Provider, {
+                    value: {
+                        isBackendAuthenticated: j,
+                        isAuthenticating: !!(A || C && !j && L),
+                        isInitializing: !!(F || !w || !E),
+                        currentUserId: B
+                    },
+                    children: e
+                })
+            }
+        },
+        9715: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                refreshToken: function() {
+                    return l
+                }
+            });
+            var n = r(83688),
+                i = r(22048),
+                s = r(83464),
+                o = r(14438),
+                a = r(8481);
+            let u = null,
+                l = async () => {
+                    let t = localStorage.getItem("refresh_token");
+                    if (!t) return null;
+                    if (u) return u;
+                    u = c(t);
+                    try {
+                        return await u
+                    } finally {
+                        u = null
+                    }
+                }, c = async t => {
+                    try {
+                        let {
+                            data: e
+                        } = await s.default.post("".concat("https://prod-vlm-cloud-nfsnfpr33q-uc.a.run.app", "/api/v1/refresh-token"), {
+                            refresh_token: t
+                        });
+                        return n.n({
+                            category: "auth",
+                            message: "[auth] Token refresh succeeded"
+                        }), (0, a.l9)(e), e
+                    } catch (t) {
+                        return console.error("[auth] Token refresh failed", t), i.uT("token_refresh_failed", {
+                            level: "warning",
+                            extra: {
+                                message: t instanceof Error ? t.message : "unknown_error"
+                            }
+                        }), (0, a.wH)(), o.Am.error("Session expired", {
+                            description: "Your session has expired. Please log in again."
+                        }), window.location.replace("/logout"), null
+                    }
+                }
+        },
+        2894: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                R: function() {
+                    return a
+                },
+                m: function() {
+                    return o
+                }
+            });
+            var n = r(18238),
+                i = r(7989),
+                s = r(11255),
+                o = class extends i.F {
+                    #t;
+                    #e;
+                    #r;
+                    #n;
+                    constructor(t) {
+                        super(), this.#t = t.client, this.mutationId = t.mutationId, this.#r = t.mutationCache, this.#e = [], this.state = t.state || a(), this.setOptions(t.options), this.scheduleGc()
+                    }
+                    setOptions(t) {
+                        this.options = t, this.updateGcTime(this.options.gcTime)
+                    }
+                    get meta() {
+                        return this.options.meta
+                    }
+                    addObserver(t) {
+                        this.#e.includes(t) || (this.#e.push(t), this.clearGcTimeout(), this.#r.notify({
+                            type: "observerAdded",
+                            mutation: this,
+                            observer: t
+                        }))
+                    }
+                    removeObserver(t) {
+                        this.#e = this.#e.filter(e => e !== t), this.scheduleGc(), this.#r.notify({
+                            type: "observerRemoved",
+                            mutation: this,
+                            observer: t
+                        })
+                    }
+                    optionalRemove() {
+                        this.#e.length || ("pending" === this.state.status ? this.scheduleGc() : this.#r.remove(this))
+                    }
+                    continue () {
+                        return this.#n?.continue() ?? this.execute(this.state.variables)
+                    }
+                    async execute(t) {
+                        let e = () => {
+                                this.#i({
+                                    type: "continue"
+                                })
+                            },
+                            r = {
+                                client: this.#t,
+                                meta: this.options.meta,
+                                mutationKey: this.options.mutationKey
+                            };
+                        this.#n = (0, s.Mz)({
+                            fn: () => this.options.mutationFn ? this.options.mutationFn(t, r) : Promise.reject(Error("No mutationFn found")),
+                            onFail: (t, e) => {
+                                this.#i({
+                                    type: "failed",
+                                    failureCount: t,
+                                    error: e
+                                })
+                            },
+                            onPause: () => {
+                                this.#i({
+                                    type: "pause"
+                                })
+                            },
+                            onContinue: e,
+                            retry: this.options.retry ?? 0,
+                            retryDelay: this.options.retryDelay,
+                            networkMode: this.options.networkMode,
+                            canRun: () => this.#r.canRun(this)
+                        });
+                        let n = "pending" === this.state.status,
+                            i = !this.#n.canStart();
+                        try {
+                            if (n) e();
+                            else {
+                                this.#i({
+                                    type: "pending",
+                                    variables: t,
+                                    isPaused: i
+                                }), await this.#r.config.onMutate?.(t, this, r);
+                                let e = await this.options.onMutate?.(t, r);
+                                e !== this.state.context && this.#i({
+                                    type: "pending",
+                                    context: e,
+                                    variables: t,
+                                    isPaused: i
+                                })
+                            }
+                            let s = await this.#n.start();
+                            return await this.#r.config.onSuccess?.(s, t, this.state.context, this, r), await this.options.onSuccess?.(s, t, this.state.context, r), await this.#r.config.onSettled?.(s, null, this.state.variables, this.state.context, this, r), await this.options.onSettled?.(s, null, t, this.state.context, r), this.#i({
+                                type: "success",
+                                data: s
+                            }), s
+                        } catch (e) {
+                            try {
+                                throw await this.#r.config.onError?.(e, t, this.state.context, this, r), await this.options.onError?.(e, t, this.state.context, r), await this.#r.config.onSettled?.(void 0, e, this.state.variables, this.state.context, this, r), await this.options.onSettled?.(void 0, e, t, this.state.context, r), e
+                            } finally {
+                                this.#i({
+                                    type: "error",
+                                    error: e
+                                })
+                            }
+                        } finally {
+                            this.#r.runNext(this)
+                        }
+                    }
+                    #i(t) {
+                        this.state = (e => {
+                            switch (t.type) {
+                                case "failed":
+                                    return {
+                                        ...e, failureCount: t.failureCount, failureReason: t.error
+                                    };
+                                case "pause":
+                                    return {
+                                        ...e, isPaused: !0
+                                    };
+                                case "continue":
+                                    return {
+                                        ...e, isPaused: !1
+                                    };
+                                case "pending":
+                                    return {
+                                        ...e, context: t.context, data: void 0, failureCount: 0, failureReason: null, error: null, isPaused: t.isPaused, status: "pending", variables: t.variables, submittedAt: Date.now()
+                                    };
+                                case "success":
+                                    return {
+                                        ...e, data: t.data, failureCount: 0, failureReason: null, error: null, status: "success", isPaused: !1
+                                    };
+                                case "error":
+                                    return {
+                                        ...e, data: void 0, error: t.error, failureCount: e.failureCount + 1, failureReason: t.error, isPaused: !1, status: "error"
+                                    }
+                            }
+                        })(this.state), n.Vr.batch(() => {
+                            this.#e.forEach(e => {
+                                e.onMutationUpdate(t)
+                            }), this.#r.notify({
+                                mutation: this,
+                                type: "updated",
+                                action: t
+                            })
+                        })
+                    }
+                };
+
+            function a() {
+                return {
+                    context: void 0,
+                    data: void 0,
+                    error: null,
+                    failureCount: 0,
+                    failureReason: null,
+                    isPaused: !1,
+                    status: "idle",
+                    variables: void 0,
+                    submittedAt: 0
+                }
+            }
+        },
+        21770: function(t, e, r) {
+            "use strict";
+            r.d(e, {
+                D: function() {
+                    return c
+                }
+            });
+            var n = r(2265),
+                i = r(2894),
+                s = r(18238),
+                o = r(24112),
+                a = r(45345),
+                u = class extends o.l {
+                    #t;
+                    #s = void 0;
+                    #o;
+                    #a;
+                    constructor(t, e) {
+                        super(), this.#t = t, this.setOptions(e), this.bindMethods(), this.#u()
+                    }
+                    bindMethods() {
+                        this.mutate = this.mutate.bind(this), this.reset = this.reset.bind(this)
+                    }
+                    setOptions(t) {
+                        let e = this.options;
+                        this.options = this.#t.defaultMutationOptions(t), (0, a.VS)(this.options, e) || this.#t.getMutationCache().notify({
+                            type: "observerOptionsUpdated",
+                            mutation: this.#o,
+                            observer: this
+                        }), e?.mutationKey && this.options.mutationKey && (0, a.Ym)(e.mutationKey) !== (0, a.Ym)(this.options.mutationKey) ? this.reset() : this.#o?.state.status === "pending" && this.#o.setOptions(this.options)
+                    }
+                    onUnsubscribe() {
+                        this.hasListeners() || this.#o?.removeObserver(this)
+                    }
+                    onMutationUpdate(t) {
+                        this.#u(), this.#l(t)
+                    }
+                    getCurrentResult() {
+                        return this.#s
+                    }
+                    reset() {
+                        this.#o?.removeObserver(this), this.#o = void 0, this.#u(), this.#l()
+                    }
+                    mutate(t, e) {
+                        return this.#a = e, this.#o?.removeObserver(this), this.#o = this.#t.getMutationCache().build(this.#t, this.options), this.#o.addObserver(this), this.#o.execute(t)
+                    }
+                    #u() {
+                        let t = this.#o?.state ?? (0, i.R)();
+                        this.#s = {
+                            ...t,
+                            isPending: "pending" === t.status,
+                            isSuccess: "success" === t.status,
+                            isError: "error" === t.status,
+                            isIdle: "idle" === t.status,
+                            mutate: this.mutate,
+                            reset: this.reset
+                        }
+                    }
+                    #l(t) {
+                        s.Vr.batch(() => {
+                            if (this.#a && this.hasListeners()) {
+                                let e = this.#s.variables,
+                                    r = this.#s.context,
+                                    n = {
+                                        client: this.#t,
+                                        meta: this.options.meta,
+                                        mutationKey: this.options.mutationKey
+                                    };
+                                t?.type === "success" ? (this.#a.onSuccess?.(t.data, e, r, n), this.#a.onSettled?.(t.data, null, e, r, n)) : t?.type === "error" && (this.#a.onError?.(t.error, e, r, n), this.#a.onSettled?.(void 0, t.error, e, r, n))
+                            }
+                            this.listeners.forEach(t => {
+                                t(this.#s)
+                            })
+                        })
+                    }
+                },
+                l = r(29827);
+
+            function c(t, e) {
+                let r = (0, l.NL)(e),
+                    [i] = n.useState(() => new u(r, t));
+                n.useEffect(() => {
+                    i.setOptions(t)
+                }, [i, t]);
+                let o = n.useSyncExternalStore(n.useCallback(t => i.subscribe(s.Vr.batchCalls(t)), [i]), () => i.getCurrentResult(), () => i.getCurrentResult()),
+                    c = n.useCallback((t, e) => {
+                        i.mutate(t, e).catch(a.ZT)
+                    }, [i]);
+                if (o.error && (0, a.L3)(i.options.throwOnError, [o.error])) throw o.error;
+                return {
+                    ...o,
+                    mutate: c,
+                    mutateAsync: o.mutate
+                }
+            }
+        }
+    },
+    function(t) {
+        t.O(0, [22829, 8310, 48218, 10598, 86401, 75651, 73954, 36693, 82957, 14438, 92850, 83464, 89737, 90282, 21107, 54353, 36227, 85883, 72056, 91351, 89294, 61312, 56873, 74166, 53491, 33145, 14299, 24443, 84541, 81655, 91846, 88102, 91426, 3080, 27344, 82244, 85266, 57635, 27186, 84764, 37094, 4216, 29662, 6635, 43756, 16299, 72515, 61926, 77742, 57878, 63864, 56912, 83794, 47156, 90320, 98301, 73164, 57084, 56254, 41193, 83776, 83964, 68904, 75448, 90933, 74720, 84282, 6116, 95990, 87108, 60991, 92971, 32864, 1744], function() {
+            return t(t.s = 94828)
+        }), _N_E = t.O()
+    }
+]);

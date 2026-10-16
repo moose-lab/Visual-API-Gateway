@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "url": "https://gateway.vlm.run/health",
+  "auth": "none",
+  "body": null
+}

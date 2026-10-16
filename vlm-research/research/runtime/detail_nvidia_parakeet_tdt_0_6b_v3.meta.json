@@ -1,0 +1,16 @@
+{
+  "evidence": "RUNTIME",
+  "captured_at": "2026-10-11T06:52:50.724775+00:00",
+  "method": "GET",
+  "url": "https://gateway.vlm.run/v1/models/nvidia/parakeet-tdt-0.6b-v3",
+  "status": 200,
+  "elapsed_seconds": 1.84,
+  "headers": {
+    "date": "Sun, 11 Oct 2026 06:52:51 GMT",
+    "server": "uvicorn",
+    "content-type": "application/json",
+    "x-request-id": "b0fea54a-3950-41c8-b865-797677dc5cc1"
+  },
+  "response_sha256": "31585fce875820b2f8f7442d7f98516250642451635634f40ae4ed61ffa64dea",
+  "response_bytes": 746
+}

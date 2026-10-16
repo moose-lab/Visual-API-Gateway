@@ -1,0 +1,1087 @@
+Gateway | VLM Run
+#__framer-editorbar-button,
+.framer-6jWyo,
+.framer-n0ccwk,
+.framer-v-n0ccwk,
+.framer-bmpgw8,
+.__framer-badge {
+  display: none !important;
+}
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init Rr Mr fi Or Ar ci Tr Cr capture Mi calculateEventProperties Lr register register_once register_for_session unregister unregister_for_session Hr getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Ur jr createPersonProfile zr kr Br opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Dr debug M Nr getPageViewId captureTraceFeedback captureTraceMetric $r".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_nLd5fIfL19h5BjS7HexEGY4oE6zlKxWRLrEtI0ltz5T', {
+  api_host: 'https://us.i.posthog.com',
+  defaults: '2025-05-24',
+  person_profiles: 'identified_only',
+})
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://vlm.run/#organization","name":"VLM Run","url":"https://vlm.run","logo":"https://vlm.run/icon-192.png","description":"The unified gateway for document, image, and video AI. Open-weight vision models behind one OpenAI-compatible API — Orion, our visual agent, sees, reasons, and acts when you need more than raw models.","sameAs":["https://github.com/vlm-run","https://discord.gg/AMApC2UzVY"]},{"@type":"WebSite","@id":"https://vlm.run/#website","name":"VLM Run","url":"https://vlm.run","description":"The unified gateway for document, image, and video AI. Open-weight vision models behind one OpenAI-compatible API — Orion, our visual agent, sees, reasons, and acts when you need more than raw models.","publisher":{"@id":"https://vlm.run/#organization"}}]}
+Product
+Solutions
+Pricing
+Docs
+Blog
+About
+Book a Demo
+Dashboard
+Product
+Platform
+Orion
+The flagship visual agent that sees, reasons, and acts on images, video, and documents.
+Gateway
+One unified API, Any Visual Model.
+Orion
+Chat Playground
+Try Orion in our hosted chat interface.
+Whitepaper
+The technical overview of Orion, our flagship visual agent.
+Open Source
+mm
+Fast, multi-modal context for agents.
+vlmbench
+Benchmark any VLM on your hardware, in one command.
+vlmrun-hub
+Structured schemas for production VLM use cases.
+Solutions
+By Modality
+Documents
+Turn hours of manual document work into seconds of schema-validated JSON.
+Videos
+Summarize, transcribe, and search long-form video without watching it.
+Images
+Coming soon
+Caption, detect, segment, and generate. Every image operation through one API.
+By Industry
+Physical AI
+Agentic data-labeling for robotics training data.
+Healthcare
+Document AI for faxes, scans, and clinical paperwork.
+Construction
+Document AI for blueprints, schedules, and specs.
+Pricing
+Docs
+Blog
+About
+Book a Demo
+Dashboard
+One unified API, Any Visual Model.
+Document OCR, captioning, and multi-modal chat: every visual capability behind one MCP server.
+Read the Docs
+Get an API Key
+Supported providers
+Explore models
+24 visual models. One endpoint.
+All
+Chat
+OCR
+Markdown
+Detection
+Segmentation
+Pose
+Transcription
+Embedding
+Transcription
+All
+Chat
+OCR
+Markdown
+Detection
+Segmentation
+Pose
+Transcription
+Embedding
+Search models
+Usage
+Providers
+Qwen3.8 27B
+qwen/qwen3.8-27b
+Usage
+171.1K requests in the last 31 days
+Context
+164K
+Input / 1M
+$0.35
+Cached / 1M
+$0.05
+Output / 1M
+$2.55
+PP-OCRv6
+paddleocr/pp-ocrv6
+Usage
+84.2K requests in the last 31 days
+Context
+—
+Input / 1M
+$0.02
+Cached / 1M
+$0.02
+Output / 1M
+$0.40
+SAM 3.1
+facebook/sam3.1
+Usage
+11.6K requests in the last 31 days
+Context
+—
+Input / 1M
+$1/1K
+Cached / 1M
+—
+Output / 1M
+—
+ViTPose+ Large
+usyd-community/vitpose-plus-large
+Usage
+8.91K requests in the last 31 days
+Context
+—
+Input / 1M
+$3.90
+Cached / 1M
+$3.90
+Output / 1M
+—
+Qwen3.5 0.8B
+qwen/qwen3.5-0.8b
+Usage
+7.93K requests in the last 31 days
+Context
+256K
+Input / 1M
+$0.08
+Cached / 1M
+$0.02
+Output / 1M
+$0.15
+HaMeR
+geopavlakos/hamer
+Usage
+7.15K requests in the last 31 days
+Context
+—
+Input / 1M
+$3.90
+Cached / 1M
+$3.90
+Output / 1M
+—
+dots.mocr
+rednote-hilab/dots.mocr
+Usage
+4.42K requests in the last 31 days
+Context
+32K
+Input / 1M
+$0.20
+Cached / 1M
+$0.03
+Output / 1M
+$0.40
+PaddleOCR-VL 1.6
+paddlepaddle/paddleocr-vl-1.6
+Usage
+3.69K requests in the last 31 days
+Context
+16K
+Input / 1M
+$0.15
+Cached / 1M
+$0.15
+Output / 1M
+$0.35
+Florence-2
+microsoft/florence-2-base-ft
+Usage
+3.05K requests in the last 31 days
+Context
+—
+Input / 1M
+$0.10
+Cached / 1M
+$0.03
+Output / 1M
+$0.30
+GLM-OCR
+zai-org/glm-ocr
+Usage
+1.54K requests in the last 31 days
+Context
+8K
+Input / 1M
+$0.10
+Cached / 1M
+$0.02
+Output / 1M
+$0.20
+Gemini Robotics-ER 2 (preview)
+google/gemini-robotics-er-2-preview
+Usage
+1.28K requests in the last 31 days
+Context
+1M
+Input / 1M
+$0.30
+Cached / 1M
+$0.03
+Output / 1M
+$2.50
+DeepSeek-OCR-2
+deepseek-ai/deepseek-ocr-2
+Usage
+1.13K requests in the last 31 days
+Context
+32K
+Input / 1M
+$0.25
+Cached / 1M
+$0.25
+Output / 1M
+$0.80
+Unlimited-OCR
+baidu/unlimited-ocr
+Usage
+513 requests in the last 31 days
+Context
+32K
+Input / 1M
+$0.25
+Cached / 1M
+$0.03
+Output / 1M
+$0.55
+Gemma 4 26B-A4B Instruct
+google/gemma-4-26b-a4b-it
+Usage
+469 requests in the last 31 days
+Context
+80K
+Input / 1M
+$0.10
+Cached / 1M
+$0.05
+Output / 1M
+$0.30
+DiffusionGemma 26B-A4B
+google/diffusiongemma-26b-a4b-it
+Usage
+323 requests in the last 31 days
+Context
+16K
+Input / 1M
+$0.35
+Cached / 1M
+$0.05
+Output / 1M
+$1.50
+Gemini 3.5 Flash Lite
+google/gemini-3.5-flash-lite
+Usage
+311 requests in the last 31 days
+Context
+1M
+Input / 1M
+$0.30
+Cached / 1M
+$0.03
+Output / 1M
+$2.50
+Gemini 3.7 Flash
+google/gemini-3.7-flash
+Usage
+298 requests in the last 31 days
+Context
+1M
+Input / 1M
+$0.75
+Cached / 1M
+$0.075
+Output / 1M
+$3.75
+MiniMax M3
+minimax/minimax-m3
+Usage
+223 requests in the last 31 days
+Context
+1M
+Input / 1M
+$0.30
+Cached / 1M
+$0.06
+Output / 1M
+$1.20
+Muse Spark 1.2
+meta/muse-spark-1.2
+Usage
+208 requests in the last 31 days
+Context
+1M
+Input / 1M
+$1.25
+Cached / 1M
+$0.15
+Output / 1M
+$4.25
+Kimi K3
+moonshotai/kimi-k3
+Usage
+201 requests in the last 31 days
+Context
+256K
+Input / 1M
+$3
+Cached / 1M
+$0.30
+Output / 1M
+$15
+Muse Glimmer 30B
+meta/muse-glimmer-30b
+Usage
+135 requests in the last 31 days
+Context
+128K
+Input / 1M
+$0.35
+Cached / 1M
+$0.04
+Output / 1M
+$1.50
+OCR Auto
+vlm-run/ocr:auto
+Usage
+114 requests in the last 31 days
+Context
+—
+Input / 1M
+$0
+Cached / 1M
+—
+Output / 1M
+—
+Parakeet TDT 0.6B v3
+nvidia/parakeet-tdt-0.6b-v3
+Usage
+27 requests in the last 31 days
+Context
+—
+Input / 1M
+$16.67/1M s
+Cached / 1M
+—
+Output / 1M
+—
+Qwen3-VL Embedding 2B
+qwen/qwen3-vl-embedding-2b
+Usage
+11 requests in the last 31 days
+Context
+8K
+Input / 1M
+$0.013
+Cached / 1M
+$0.013
+Output / 1M
+—
+RF-DETR Large
+roboflow/rf-detr-large
+Usage
+—
+Context
+—
+Input / 1M
+—
+Cached / 1M
+—
+Output / 1M
+—
+LightOnOCR
+lightonai/lightonocr-1b-1025
+Usage
+—
+Context
+8K
+Input / 1M
+—
+Cached / 1M
+—
+Output / 1M
+—
+Model
+Usage
+Capabilities
+Inputs
+Context
+Input
+USD per 1M input tokens for token models. Per-image models show USD per 1K images. Audio models show USD per 1M audio seconds.
+Cached
+USD per 1M cached input tokens. A dash means the model does not bill cache separately.
+Output
+USD per 1M output tokens. A dash means the model does not bill output.
+Qwen3.8 27B
+qwen/qwen3.8-27b
+171.1K requests in the last 31 days
+detection
+chat
+text
+image_url
+video_url
+164K
+$0.35
+$0.05
+$2.55
+PP-OCRv6
+paddleocr/pp-ocrv6
+84.2K requests in the last 31 days
+ocr
+detection
+image_url
+document_url
+—
+$0.02
+$0.02
+$0.40
+SAM 3.1
+facebook/sam3.1
+11.6K requests in the last 31 days
+segmentation
+text
+image_url
+video_url
+—
+$1/1K
+—
+—
+ViTPose+ Large
+usyd-community/vitpose-plus-large
+8.91K requests in the last 31 days
+pose
+text
+image_url
+video_url
+—
+$3.90
+$3.90
+—
+Qwen3.5 0.8B
+qwen/qwen3.5-0.8b
+7.93K requests in the last 31 days
+detection
+chat
+text
+image_url
+video_url
+256K
+$0.08
+$0.02
+$0.15
+HaMeR
+geopavlakos/hamer
+7.15K requests in the last 31 days
+pose
+text
+image_url
+—
+$3.90
+$3.90
+—
+dots.mocr
+rednote-hilab/dots.mocr
+4.42K requests in the last 31 days
+ocr
+markdown
+text
+image_url
+document_url
+32K
+$0.20
+$0.03
+$0.40
+PaddleOCR-VL 1.6
+paddlepaddle/paddleocr-vl-1.6
+3.69K requests in the last 31 days
+ocr
+text
+image_url
+document_url
+16K
+$0.15
+$0.15
+$0.35
+Florence-2
+microsoft/florence-2-base-ft
+3.05K requests in the last 31 days
+ocr
+detection
+text
+image_url
+—
+$0.10
+$0.03
+$0.30
+GLM-OCR
+zai-org/glm-ocr
+1.54K requests in the last 31 days
+markdown
+text
+image_url
+document_url
+8K
+$0.10
+$0.02
+$0.20
+Gemini Robotics-ER 2 (preview)
+Proprietary weights. Same endpoint and key, billed at the upstream list price.
+google/gemini-robotics-er-2-preview
+1.28K requests in the last 31 days
+detection
+chat
+text
+image_url
+document_url
+video_url
+1M
+$0.30
+$0.03
+$2.50
+DeepSeek-OCR-2
+deepseek-ai/deepseek-ocr-2
+1.13K requests in the last 31 days
+ocr
+markdown
+text
+image_url
+document_url
+32K
+$0.25
+$0.25
+$0.80
+Unlimited-OCR
+baidu/unlimited-ocr
+513 requests in the last 31 days
+ocr
+markdown
+text
+image_url
+document_url
+32K
+$0.25
+$0.03
+$0.55
+Gemma 4 26B-A4B Instruct
+google/gemma-4-26b-a4b-it
+469 requests in the last 31 days
+detection
+chat
+text
+image_url
+video_url
+80K
+$0.10
+$0.05
+$0.30
+DiffusionGemma 26B-A4B
+google/diffusiongemma-26b-a4b-it
+323 requests in the last 31 days
+detection
+chat
+text
+image_url
+16K
+$0.35
+$0.05
+$1.50
+Gemini 3.5 Flash Lite
+Proprietary weights. Same endpoint and key, billed at the upstream list price.
+google/gemini-3.5-flash-lite
+311 requests in the last 31 days
+detection
+chat
+text
+image_url
+document_url
+video_url
+1M
+$0.30
+$0.03
+$2.50
+Gemini 3.7 Flash
+Proprietary weights. Same endpoint and key, billed at the upstream list price.
+google/gemini-3.7-flash
+298 requests in the last 31 days
+detection
+chat
+text
+image_url
+document_url
+video_url
+1M
+$0.75
+$0.075
+$3.75
+MiniMax M3
+minimax/minimax-m3
+223 requests in the last 31 days
+detection
+chat
+text
+image_url
+video_url
+1M
+$0.30
+$0.06
+$1.20
+Muse Spark 1.2
+Proprietary weights. Same endpoint and key, billed at the upstream list price.
+meta/muse-spark-1.2
+208 requests in the last 31 days
+detection
+chat
+text
+image_url
+video_url
+1M
+$1.25
+$0.15
+$4.25
+Kimi K3
+moonshotai/kimi-k3
+201 requests in the last 31 days
+detection
+chat
+text
+image_url
+video_url
+256K
+$3
+$0.30
+$15
+Muse Glimmer 30B
+meta/muse-glimmer-30b
+135 requests in the last 31 days
+detection
+chat
+text
+image_url
+video_url
+128K
+$0.35
+$0.04
+$1.50
+OCR Auto
+vlm-run/ocr:auto
+114 requests in the last 31 days
+ocr
+markdown
+text
+image_url
+document_url
+—
+$0
+—
+—
+Parakeet TDT 0.6B v3
+nvidia/parakeet-tdt-0.6b-v3
+27 requests in the last 31 days
+transcription
+text
+image_url
+video_url
+—
+$16.67/1M s
+—
+—
+Qwen3-VL Embedding 2B
+qwen/qwen3-vl-embedding-2b
+11 requests in the last 31 days
+embedding
+text
+image_url
+video_url
+8K
+$0.013
+$0.013
+—
+RF-DETR Large
+Coming soon
+roboflow/rf-detr-large
+—
+detection
+text
+image_url
+—
+—
+—
+—
+LightOnOCR
+Coming soon
+lightonai/lightonocr-1b-1025
+—
+markdown
+text
+image_url
+8K
+—
+—
+—
+26
+models
+Pricing calculator
+Dirt-cheap Document OCR.
+Pick a document type, page volume, and OCR model. See cost savings versus closed vision APIs.
+Documents
+Video
+Document type
+Legal
+(
+~1000 tokens / pg
+)
+Healthcare
+(
+~700 tokens / pg
+)
+Construction
+(
+~600 tokens / pg
+)
+Slides
+(
+~400 tokens / pg
+)
+Forms
+(
+~250 tokens / pg
+)
+OCR model
+All models (price band)
+PP-OCRv6
+DeepSeek-OCR-2
+dots.mocr
+GLM-OCR
+PaddleOCR-VL 1.6
+Unlimited-OCR
+OCR Auto
+100K
+Page volume / month
+Gateway OCR tokens (in / out)
+120M - 250M / 100M
+Frontier billed tokens (in / out)
+250M
+/
+200M
+2.5K image tokens per page; output includes reasoning at 2× OCR text.
+Total cost
+what the gateway bills for this workload
+$0 - $118
+Documents / month
+100K
+pages
+Cost comparison
+(log scale)
+Cheapest - most expensive
+VLM Run Gateway
+Document OCR VLMs
+$0 - $118
+$0 - $118
+OCR APIs
+Textract, Azure Doc AI
+$150 - $1K
+$150 - $1K
+Document AI APIs
+Reducto, LlamaParse, Extend
+$1K - $6K
+$1K - $6K
+Frontier VLMs
+Gemini, Claude, GPT
+$938 - $7.3K
+$938 - $7.3K
+$100
+$1K
+$10K
+Estimates vs typical OCR, Document AI, and frontier VLM pricing.
+Source: llm-prices.com
+Workload
+Understand
+:
+~500 toks / min
+Summarize
+:
+150 toks / min
+Segment
+:
+30 toks / min
+Model
+All models (price band)
+Gemma 4 26B-A4B
+Muse Glimmer 30B
+Qwen3.8 27B
+10K h
+Footage volume / month
+Gateway billed tokens (in / out)
+2.4B - 3.5B / 300M
+Gemini 3.5 Flash Lite
+billed tokens (in / out)
+10.4B
+/
+600M
+Total cost
+what the gateway bills for this workload
+$335 - $2K
+Video / month
+10K
+hours
+Cost comparison
+(log scale)
+Cheapest - most expensive
+VLM Run Gateway
+Native Video
+$335 - $2K
+$335 - $2K
+Frontier Multimodal LLMs
+Native Video (Gemini)
+$4.6K - $28.1K
+$4.6K - $28.1K
+Frontier LLMs
+Sampled Video (Claude, GPT)
+$6.3K - $71.1K
+$6.3K - $71.1K
+Video AI APIs
+Rekognition, Video Intelligence
+$19.8K - $60K
+$19.8K - $60K
+$100
+$1K
+$10K
+$100K
+A vision-only gateway, built for builders.
+LLM routers and gateways route to 100s of LLMs, yet only a handful of VLMs, and often no OCR or classical CV models. Visual AI deserves its own stack.
+01
+Multimodal, Multitask
+One catalog spanning multi-modal inputs and multi-task outputs: OCR, detection, segmentation, pose, keypoints, and more.
+02
+Chat Completions Native
+OCR, captioning, and multimodal chat run through the same OpenAI-compatible chat completions API you already use.
+03
+Orchestration Built-In
+Send a 500-page PDF or a 2-hour video in a single call. The gateway chunks, batches, and reassembles for you. No pipelines to build.
+04
+Structured Outputs, Out of the Box
+JSON-schema enforcement on every call. CV wrappers emit fixed schemas; VLMs honor response_format.
+05
+Open Models, No Lock-In
+Every model is open-weight, served through the OpenAI-compatible API you already use. Swap models or providers freely, your client code never changes.
+06
+Agent-native vision, via MCP
+Give any MCP client instant access to the full visual model catalog. Agents see, read, and reason over images out of the box.
+Built for production visual AI.
+Optimized for production workloads and cost-efficiency. Every model deployed gets its own performance tune-up.
+Models Supported
+24
+p50 Latency
+<100ms
+Uptime SLA
+99.9%
+Type II · HIPAA · BAA
+SOC 2
+For Developers
+For Agents
+Document Markdown
+Document OCR
+Visual Chat
+CLI
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+from
+openai
+import
+OpenAI
+
+client = OpenAI
+(
+base_url=
+"https://gateway.vlm.run/v1/openai/"
+,
+                api_key=
+"<VLM_RUN_API_KEY>"
+)
+resp = client.chat.completions.create
+(
+model=
+"rednote-hilab/dots.mocr"
+,
+    messages=
+[
+{
+"role"
+:
+"user"
+,
+"content"
+:
+[
+{
+"type"
+:
+"document_url"
+,
+"document_url"
+:
+{
+"url"
+:
+"invoice.pdf"
+}
+}
+,
+]
+}
+]
+,
+    extra_body=
+{
+"method"
+:
+"markdown"
+}
+,
+)
+print
+(
+resp.choices
+[
+0
+]
+.message.content
+)
+# <document page="1">
+# ## Invoice #1042
+# | Item      | Qty | Amount |
+# | API seats |  12 | $1,200 |
+# </document>
+Vision-native Chat Completions.
+Point the OpenAI SDK at the gateway and swap the model, or hand the same catalog to an agent over MCP. Same signature, exhaustive visual model catalog.
+For Developers
+01
+Document Markdown
+02
+Document OCR
+03
+Visual Chat
+04
+CLI
+For Agents
+05
+Claude Code
+06
+Codex
+07
+Pydantic AI
+08
+Mastra
+Read the Docs
+Document OCR
+Use cases
+What you can build with the Gateway.
+Compose vision models like building blocks. One SDK. One key. One bill.
+Document ingestion pipelines
+Layout, OCR, and markdown extraction across contracts, statements, and forms, at sub-cent per-page economics.
+Multi-modal chatbots and agents
+Build powerful multi-modal chatbots and agents with VLMs that pack native support for multi-modal inputs such as images, PDFs, or videos in a single chat completion.
+Media and asset tagging
+Auto-caption, tag, and index large image and video libraries for search, dedup, and recommendations.
+Private and regulated deployments
+Stand up the whole visual stack inside your own VPC or on-prem, with SSO, RBAC, and audit log export. Regulated data stays inside your boundary, under a BAA, on dedicated capacity you control.
+Get an API key. Ship vision today.
+Get an API Key
+Read the Docs
+Visual Intelligence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.
+Newsletter
+Email address
+Product updates and research. Unsubscribe in one click.
+Product
+Dashboard
+Orion Chat
+Orion Whitepaper
+Gateway
+Solutions
+Physical AI
+Healthcare
+Construction
+Open Source
+mm
+vlmbench
+vlmrun-hub
+Developers
+API Docs
+Pricing
+Cookbooks
+Discord
+GitHub
+Resources
+Blog
+Case Studies
+Integrations
+Partners
+Company
+About Us
+Careers
+Trust Center
+©
+2026
+Autonomi AI Inc. All rights reserved.
+Terms & Conditions
+Privacy Policy
+(self.__next_f=self.__next_f||[]).push([0])
+self.__next_f.push([1,"1:\"$Sreact.fragment\"\n8:I[863179,[\"/_next/static/chunks/f48adf65bd74c555.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/1c16513460985c1f.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"default\"]\n:HL[\"/_next/static/chunks/ec8bcc8319d09d26.css?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"style\"]\n:HL[\"/_next/static/chunks/35f3b0677a4accca.css?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"style\"]\n:HL[\"/_next/static/media/797e433ab948586e-s.p.29207c2f.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/STKBureauSerif_Bold_Trial-s.p.c27beddf.otf\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/otf\"}]\n:HL[\"/_next/static/media/STKBureauSerif_Book_Italic_Trial-s.p.70d14807.otf\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/otf\"}]\n:HL[\"/_next/static/media/STKBureauSerif_Book_Trial-s.p.b334dfd8.otf\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/otf\"}]\n:HL[\"/_next/static/media/STKBureauSerif_Medium_Trial-s.p.aa3ae6af.otf\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/otf\"}]\n:HL[\"/_next/static/media/STKBureauSerif_SemiBold_Trial-s.p.d84ab951.otf\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/otf\"}]\n:HL[\"/_next/static/media/aeonikpro_regular-s.p.2b4706af.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/caa3a2e1cccd8315-s.p.3b6cae6d.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n2:T820,"])
+self.__next_f.push([1,"!function(t,e){var o,n,p,r;e.__SV||(window.posthog \u0026\u0026 window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(\".\");2==o.length\u0026\u0026(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement(\"script\")).type=\"text/javascript\",p.crossOrigin=\"anonymous\",p.async=!0,p.src=s.api_host.replace(\".i.posthog.com\",\"-assets.i.posthog.com\")+\"/static/array.js\",(r=t.getElementsByTagName(\"script\")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a=\"posthog\",u.people=u.people||[],u.toString=function(t){var e=\"posthog\";return\"posthog\"!==a\u0026\u0026(e+=\".\"+a),t||(e+=\" (stub)\"),e},u.people.toString=function(){return u.toString(1)+\".people (stub)\"},o=\"init Rr Mr fi Or Ar ci Tr Cr capture Mi calculateEventProperties Lr register register_once register_for_session unregister unregister_for_session Hr getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Ur jr createPersonProfile zr kr Br opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing Dr debug M Nr getPageViewId captureTraceFeedback captureTraceMetric $r\".split(\" \"),n=0;n\u003co.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);\nposthog.init('phc_nLd5fIfL19h5BjS7HexEGY4oE6zlKxWRLrEtI0ltz5T', {\n  api_host: 'https://us.i.posthog.com',\n  defaults: '2025-05-24',\n  person_profiles: 'identified_only',\n})"])
+self.__next_f.push([1,"0:{\"P\":null,\"b\":\"Wmgyydl5_EMolKxRtmG45\",\"c\":[\"\",\"gateway\"],\"q\":\"\",\"i\":false,\"f\":[[[\"\",{\"children\":[\"(marketing)\",{\"children\":[\"gateway\",{\"children\":[\"__PAGE__\",{}]}]}]},\"$undefined\",\"$undefined\",true],[[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/ec8bcc8319d09d26.css?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"link\",\"1\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/chunks/35f3b0677a4accca.css?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"suppressHydrationWarning\":true,\"className\":\"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable bureauserif_174e0ef1-module__xx2fpG__variable aeonikpro_138444b6-module__vPRYsq__variable overflow-x-clip\",\"children\":[[\"$\",\"head\",null,{\"children\":[[\"$\",\"link\",null,{\"rel\":\"preconnect\",\"href\":\"https://cdn.sanity.io\",\"crossOrigin\":\"anonymous\"}],[\"$\",\"link\",null,{\"rel\":\"preconnect\",\"href\":\"https://framerusercontent.com\",\"crossOrigin\":\"anonymous\"}],[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"#__framer-editorbar-button,\\n.framer-6jWyo,\\n.framer-n0ccwk,\\n.framer-v-n0ccwk,\\n.framer-bmpgw8,\\n.__framer-badge {\\n  display: none !important;\\n}\"}}],[\"$\",\"script\",null,{\"type\":\"text/javascript\",\"dangerouslySetInnerHTML\":{\"__html\":\"$2\"}}]]}],\"$L3\"]}]]}],{\"children\":[\"$L4\",{\"children\":[\"$L5\",{\"children\":[\"$L6\",{},null,false,false]},null,false,false]},null,false,false]},null,false,false],\"$L7\",false]],\"m\":\"$undefined\",\"G\":[\"$8\",[]],\"S\":true}\n"])
+self.__next_f.push([1,"9:I[148335,[\"/_next/static/chunks/f48adf65bd74c555.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/1c16513460985c1f.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"default\"]\na:I[269372,[\"/_next/static/chunks/f48adf65bd74c555.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/1c16513460985c1f.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"default\"]\nb:I[930390,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/4035309ee323478d.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/df2d0e54478bc56b.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"default\"]\nc:I[744501,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"Analytics\"]\nd:I[165278,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"GoogleAnalytics\"]\ne:I[226219,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"\"]\n10:I[433770,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/2b247885c6725624.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/f214a4e47049aa46.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/df2d0e54478bc56b.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/9b6dc91b04fc3a63.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"MarketingChatProvider\"]\n11:I[462276,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/2b247885c6725624.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/f214a4e47049aa46.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/df2d0e54478bc56b.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/9b6dc91b04fc3a63.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"MarketingShell\"]\n12:I[502506,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/2b247885c6725624.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/f214a4e47049aa46.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/df2d0e54478bc56b.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/9b6dc91b04fc3a63.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"default\"]\n13:I[993983,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/2b247885c6725624.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/f214a4e47049aa46.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/df2d0e54478bc56b.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/9b6dc91b04fc3a63.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"default\"]\n14:I[993983,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/2b247885c6725624.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/f214a4e47049aa46.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/df2d0e54478bc56b.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/9b6dc91b04fc3a63.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"HeaderSpacer\"]\n15:I[617571,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/2b247885c6725624.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/f214a4e47049aa46.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/df2d0e54478bc56b.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/9b6dc91b04fc3a63.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"default\"]\n25:I[231702,[\"/_next/static/chunks/f48adf65bd74c555.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/1c16513460985c1f.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"OutletBoundary\"]\n26:\"$Sreact.suspense\"\n28:I[231702,[\"/_next/static/chunks/f48adf65bd74c555.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/1c16513460985c1f.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"ViewportBoundary\"]\n2a:I[231702,[\"/_next/static/chunks/f48adf65bd74c555.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/1c16513460985c1f.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVe"])
+self.__next_f.push([1,"jNFnj3\"],\"MetadataBoundary\"]\n"])
+self.__next_f.push([1,"3:[\"$\",\"body\",null,{\"className\":\"font-sans\",\"children\":[[\"$\",\"script\",null,{\"type\":\"application/ld+json\",\"dangerouslySetInnerHTML\":{\"__html\":\"{\\\"@context\\\":\\\"https://schema.org\\\",\\\"@graph\\\":[{\\\"@type\\\":\\\"Organization\\\",\\\"@id\\\":\\\"https://vlm.run/#organization\\\",\\\"name\\\":\\\"VLM Run\\\",\\\"url\\\":\\\"https://vlm.run\\\",\\\"logo\\\":\\\"https://vlm.run/icon-192.png\\\",\\\"description\\\":\\\"The unified gateway for document, image, and video AI. Open-weight vision models behind one OpenAI-compatible API — Orion, our visual agent, sees, reasons, and acts when you need more than raw models.\\\",\\\"sameAs\\\":[\\\"https://github.com/vlm-run\\\",\\\"https://discord.gg/AMApC2UzVY\\\"]},{\\\"@type\\\":\\\"WebSite\\\",\\\"@id\\\":\\\"https://vlm.run/#website\\\",\\\"name\\\":\\\"VLM Run\\\",\\\"url\\\":\\\"https://vlm.run\\\",\\\"description\\\":\\\"The unified gateway for document, image, and video AI. Open-weight vision models behind one OpenAI-compatible API — Orion, our visual agent, sees, reasons, and acts when you need more than raw models.\\\",\\\"publisher\\\":{\\\"@id\\\":\\\"https://vlm.run/#organization\\\"}}]}\"}}],[\"$\",\"$L9\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$La\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"div\",null,{\"className\":\"relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-body px-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"pointer-events-none absolute inset-0 overflow-hidden\",\"aria-hidden\":true,\"children\":[[\"$\",\"div\",null,{\"className\":\"absolute inset-0 opacity-[0.035]\",\"style\":{\"backgroundImage\":\"linear-gradient(var(--primary) 1px, transparent 1px), linear-gradient(to right, var(--primary) 1px, transparent 1px)\",\"backgroundSize\":\"60px 60px\"}}],[\"$\",\"div\",null,{\"className\":\"absolute inset-0 bg-gradient-to-b from-body via-transparent to-body\"}]]}],[\"$\",\"div\",null,{\"className\":\"relative z-10 flex flex-col items-center\",\"children\":[[\"$\",\"div\",null,{\"className\":\"relative select-none\",\"aria-hidden\":true,\"children\":[[\"$\",\"span\",null,{\"className\":\"font-aeonik text-[10rem] font-black leading-none tracking-tighter text-primary/[0.07] sm:text-[14rem]\",\"children\":\"404\"}],[\"$\",\"div\",null,{\"className\":\"absolute inset-0 flex items-center justify-center\",\"children\":[\"$\",\"span\",null,{\"className\":\"font-aeonik text-5xl font-bold tracking-tight text-navy sm:text-6xl\",\"children\":\"404\"}]}]]}],[\"$\",\"div\",null,{\"className\":\"mt-2 max-w-md space-y-2 text-center\",\"children\":[[\"$\",\"h1\",null,{\"className\":\"text-heading-md font-semibold tracking-tight text-navy\",\"children\":\"Page not found\"}],[\"$\",\"p\",null,{\"className\":\"text-balance text-body-md leading-relaxed text-muted\",\"children\":\"The URL you entered may be incorrect, or this page no longer exists.\"}]]}],[\"$\",\"div\",null,{\"className\":\"mt-8 flex flex-wrap items-center justify-center gap-3\",\"children\":[[\"$\",\"a\",null,{\"href\":\"/\",\"target\":\"$undefined\",\"rel\":\"$undefined\",\"className\":\"inline-flex items-center justify-center gap-1.5 cursor-pointer ease-out hover:opacity-90 no-underline font-medium bg-primary-mid text-white border border-primary-border text-body-md py-2 rounded-full px-5 shadow-btn transition-[transform,box-shadow] duration-200 hover:-translate-y-px hover:shadow-md\",\"children\":[[\"$\",\"svg\",null,{\"className\":\"size-3.5 shrink-0\",\"aria-hidden\":true,\"viewBox\":\"0 0 24 24\",\"fill\":\"none\",\"stroke\":\"currentColor\",\"strokeWidth\":\"2\",\"strokeLinecap\":\"round\",\"strokeLinejoin\":\"round\",\"children\":[[\"$\",\"path\",null,{\"d\":\"m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"}],[\"$\",\"polyline\",null,{\"points\":\"9 22 9 12 15 12 15 22\"}]]}],\"Go home\"]}],[\"$\",\"$Lb\",null,{\"label\":\"Go back\",\"className\":\"rounded-full px-5 text-muted hover:text-navy\"}]]}]]}]]}],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}],[\"$\",\"$Lc\",null,{}],[\"$\",\"$Ld\",null,{\"gaId\":\"G-LSDXBEMB6J\"}],[\"$\",\"$Le\",null,{\"id\":\"unify-loader\",\"strategy\":\"afterInteractive\",\"dangerouslySetInnerHTML\":{\"__html\":\"!function(){var e=[\\\"identify\\\",\\\"page\\\",\\\"startAutoPage\\\",\\\"stopAutoPage\\\",\\\"startAutoIdentify\\\",\\\"stopAutoIdentify\\\"];function t(o){return Object.assign([],e.reduce(function(r,n){return r[n]=function(){return o.push([n,[].slice.call(arguments)]),o},r},{}))}window.unify||(window.unify=t(window.unify)),window.unifyBrowser||(window.unifyBrowser=t(window.unifyBrowser));var n=document.createElement(\\\"script\\\");n.async=!0,n.setAttribute(\\\"src\\\",\\\"https://tag.unifyintent.com/v1/Dt1UeY6ixuWJP4NWtEqUXj/script.js\\\"),n.setAttribute(\\\"data-api-key\\\",\\\"wk_jmZRryRw_E2pTA3dkRhWbxa1ckZfYapmsh1gwrkMM\\\"),n.setAttribute(\\\"id\\\",\\\"unifytag\\\"),(document.body||document.head).appendChild(n)}();\"}}],\"$Lf\"]}]\n"])
+self.__next_f.push([1,"4:[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/2b247885c6725624.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/f214a4e47049aa46.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-2\",{\"src\":\"/_next/static/chunks/df2d0e54478bc56b.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-3\",{\"src\":\"/_next/static/chunks/9b6dc91b04fc3a63.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"$L10\",null,{\"children\":[\"$\",\"$L11\",null,{\"children\":[[\"$\",\"$L12\",null,{}],[\"$\",\"$L13\",null,{}],[\"$\",\"$L14\",null,{}],[\"$\",\"main\",null,{\"className\":\"relative\",\"children\":[[\"$\",\"$L15\",null,{}],[\"$\",\"$L9\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$La\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"div\",null,{\"className\":\"relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-body px-6\",\"children\":[[\"$\",\"div\",null,{\"className\":\"pointer-events-none absolute inset-0 overflow-hidden\",\"aria-hidden\":true,\"children\":[[\"$\",\"div\",null,{\"className\":\"absolute inset-0 opacity-[0.035]\",\"style\":\"$3:props:children:1:props:notFound:0:props:children:0:props:children:0:props:style\"}],[\"$\",\"div\",null,{\"className\":\"absolute inset-0 bg-gradient-to-b from-body via-transparent to-body\"}]]}],[\"$\",\"div\",null,{\"className\":\"relative z-10 flex flex-col items-center\",\"children\":[[\"$\",\"div\",null,{\"className\":\"relative select-none\",\"aria-hidden\":true,\"children\":[[\"$\",\"span\",null,{\"className\":\"font-aeonik text-[10rem] font-black leading-none tracking-tighter text-primary/[0.07] sm:text-[14rem]\",\"children\":\"404\"}],[\"$\",\"div\",null,{\"className\":\"absolute inset-0 flex items-center justify-center\",\"children\":[\"$\",\"span\",null,{\"className\":\"font-aeonik text-5xl font-bold tracking-tight text-navy sm:text-6xl\",\"children\":\"404\"}]}]]}],[\"$\",\"div\",null,{\"className\":\"mt-2 max-w-md space-y-2 text-center\",\"children\":[[\"$\",\"h1\",null,{\"className\":\"text-heading-md font-semibold tracking-tight text-navy\",\"children\":\"Page not found\"}],[\"$\",\"p\",null,{\"className\":\"text-balance text-body-md leading-relaxed text-muted\",\"children\":\"The URL you entered may be incorrect, or this page no longer exists.\"}]]}],[\"$\",\"div\",null,{\"className\":\"mt-8 flex flex-wrap items-center justify-center gap-3\",\"children\":[[\"$\",\"a\",null,{\"href\":\"/\",\"target\":\"$undefined\",\"rel\":\"$undefined\",\"className\":\"inline-flex items-center justify-center gap-1.5 cursor-pointer ease-out hover:opacity-90 no-underline font-medium bg-primary-mid text-white border border-primary-border text-body-md py-2 rounded-full px-5 shadow-btn transition-[transform,box-shadow] duration-200 hover:-translate-y-px hover:shadow-md\",\"children\":[[\"$\",\"svg\",null,{\"className\":\"size-3.5 shrink-0\",\"aria-hidden\":true,\"viewBox\":\"0 0 24 24\",\"fill\":\"none\",\"stroke\":\"currentColor\",\"strokeWidth\":\"2\",\"strokeLinecap\":\"round\",\"strokeLinejoin\":\"round\",\"children\":[[\"$\",\"path\",null,{\"d\":\"m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"}],[\"$\",\"polyline\",null,{\"points\":\"9 22 9 12 15 12 15 22\"}]]}],\"Go home\"]}],[\"$\",\"$Lb\",null,{\"label\":\"Go back\",\"className\":\"rounded-full px-5 text-muted hover:text-navy\"}]]}]]}]]}],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],[\"$\",\"footer\",null,{\"className\":\"relative z-[11] scroll-mt-24 overflow-x-clip bg-navy-dark pb-[max(2.5rem,env(safe-area-inset-bottom))]\",\"children\":[[\"$\",\"div\",null,{\"aria-hidden\":\"true\",\"className\":\"pointer-events-none absolute top-0 bottom-0 border-x border-dark-border\",\"style\":{\"left\":\"max(20px, calc((var(--page-rail-width, 100vw) - 1168px) / 2))\",\"right\":\"max(20px, calc((var(--page-rail-width, 100vw) - 1168px) / 2))\"}}],[\"$\",\"div\",null,{\"className\":\"relative z-10\",\"style\":{\"padding\":\"0 max(20px, calc((var(--page-rail-width, 100vw) - 1168px) / 2))\"},\"children\":[\"$\",\"div\",null,{\"className\":\"mx-auto flex max-w-[1168px] min-w-0 flex-col gap-10 px-5 pt-14 sm:px-8 lg:gap-12 lg:px-16\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex flex-col lg:flex-row justify-between items-start gap-8\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-4 max-w-sm\",\"children\":[[\"$\",\"svg\",null,{\"viewBox\":\"0 0 67.6 52\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"aria-label\":\"VLM Run\",\"className\":\"w-[53px] h-10\",\"children\":[\"$L16\",\"$L17\",\"$L18\",\"$L19\",\"$L1a\",\"$L1b\",\"$L1c\",\"$L1d\"]}],\"$L1e\",\"$L1f\",\"$L20\"]}],\"$L21\"]}],\"$L22\",\"$L23\"]}]}]]}],null]}]}]]}]\n"])
+self.__next_f.push([1,"5:[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L9\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$La\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}]\n6:[\"$\",\"$1\",\"c\",{\"children\":[\"$L24\",[[\"$\",\"script\",\"script-0\",{\"src\":\"/_next/static/chunks/007c35a18659a37e.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"async\":true,\"nonce\":\"$undefined\"}],[\"$\",\"script\",\"script-1\",{\"src\":\"/_next/static/chunks/c7e5deab826c6e88.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"async\":true,\"nonce\":\"$undefined\"}]],[\"$\",\"$L25\",null,{\"children\":[\"$\",\"$26\",null,{\"name\":\"Next.MetadataOutlet\",\"children\":\"$@27\"}]}]]}]\n7:[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$L28\",null,{\"children\":\"$@29\"}],[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$L2a\",null,{\"children\":[\"$\",\"$26\",null,{\"name\":\"Next.Metadata\",\"children\":\"$@2b\"}]}]}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}]\n"])
+self.__next_f.push([1,"2c:I[575863,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/2b247885c6725624.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/f214a4e47049aa46.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/df2d0e54478bc56b.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/9b6dc91b04fc3a63.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"default\"]\n2d:I[453135,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/2b247885c6725624.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/f214a4e47049aa46.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/df2d0e54478bc56b.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/9b6dc91b04fc3a63.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/007c35a18659a37e.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/c7e5deab826c6e88.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"Image\"]\nf:[\"$\",\"$Le\",null,{\"id\":\"vtag-ai-js\",\"strategy\":\"afterInteractive\",\"src\":\"https://r2.leadsy.ai/tag.js\",\"data-pid\":\"eqgjkSKARErRxLSO\",\"data-version\":\"062024\"}]\n16:[\"$\",\"path\",null,{\"d\":\"M 4.21 6.45 C 4.21 2.888 7.098 0 10.66 0 L 19.08 0 L 19.08 4.3 L 10.66 4.3 C 9.473 4.3 8.51 5.263 8.51 6.45 L 8.51 23.335 C 8.51 24.522 7.547 25.485 6.36 25.485 L 6.36 26.515 C 7.547 26.515 8.51 27.478 8.51 28.665 L 8.51 45.55 C 8.51 46.737 9.473 47.7 10.66 47.7 L 19.08 47.7 L 19.08 52 L 10.66 52 C 7.098 52 4.21 49.112 4.21 45.55 L 4.21 28.15 L 0 28.15 L 0 23.85 L 4.21 23.85 Z\",\"fill\":\"rgb(255,255,255)\"}]\n17:[\"$\",\"path\",null,{\"d\":\"M 17.788 24.387 L 13.015 11.125 L 16.911 11.125 L 20.11 20.672 L 23.258 11.125 L 27.077 11.125 L 22.303 24.387 Z\",\"fill\":\"rgb(255,255,255)\"}]\n18:[\"$\",\"path\",null,{\"d\":\"M 27.773 24.387 L 27.773 6.326 L 31.411 6.326 L 31.411 24.387 Z\",\"fill\":\"rgb(255,255,255)\"}]\n19:[\"$\",\"path\",null,{\"d\":\"M 49.299 10.97 C 52.034 10.97 54.201 12.518 54.201 16.776 L 54.201 24.387 L 50.563 24.387 L 50.563 16.982 C 50.563 14.995 49.84 13.963 48.267 13.963 C 46.693 13.963 45.635 15.124 45.635 17.137 L 45.635 24.387 L 41.997 24.387 L 41.997 16.982 C 41.997 14.995 41.274 13.963 39.674 13.963 C 38.101 13.963 37.068 15.176 37.068 17.163 L 37.068 24.387 L 33.43 24.387 L 33.43 11.125 L 36.604 11.125 L 36.94 12.776 C 37.739 11.744 38.9 10.996 40.835 10.97 C 42.461 10.944 43.983 11.538 44.809 13.215 C 45.738 11.796 47.286 10.97 49.299 10.97 Z\",\"fill\":\"rgb(255,255,255)\"}]\n1a:[\"$\",\"path\",null,{\"d\":\"M 23.399 29.401 L 24.019 29.401 L 24.019 32.704 L 22.574 32.704 C 20.406 32.704 19.581 34.149 19.581 36.161 L 19.581 42.664 L 15.943 42.664 L 15.943 29.401 L 19.245 29.401 L 19.581 31.388 C 20.303 30.201 21.335 29.401 23.399 29.401 Z\",\"fill\":\"rgb(255,255,255)\"}]\n1b:[\"$\",\"path\",null,{\"d\":\"M 33.977 36.032 L 33.977 29.401 L 37.615 29.401 L 37.615 42.664 L 34.39 42.664 L 34.055 41.064 C 33.203 42.096 32.042 42.818 30.159 42.818 C 27.424 42.818 24.895 41.451 24.895 36.755 L 24.895 29.401 L 28.533 29.401 L 28.533 36.265 C 28.533 38.638 29.307 39.8 31.113 39.8 C 32.92 39.8 33.977 38.484 33.977 36.032 Z\",\"fill\":\"rgb(255,255,255)\"}]\n1c:[\"$\",\"path\",null,{\"d\":\"M 47.24 29.246 C 50.104 29.246 52.556 30.769 52.556 35.31 L 52.556 42.664 L 48.918 42.664 L 48.918 35.671 C 48.918 33.426 48.066 32.239 46.234 32.239 C 44.351 32.239 43.267 33.581 43.267 35.878 L 43.267 42.664 L 39.629 42.664 L 39.629 29.401 L 42.803 29.401 L 43.138 31.053 C 43.989 30.021 45.202 29.246 47.24 29.246 Z\",\"fill\":\"rgb(255,255,255)\"}]\n1d:[\"$\",\"path\",null,{\"d\":\"M 64.052 6.45 C 64.052 2.888 61.164 0 57.602 0 L 49.182 0 L 49.182 4.3 L 57.602 4.3 C 58.789 4.3 59.752 5.263 59.752 6.45 L 59.752 23.335 C 59.752 24.522 60.715 25.485 61.902 25.485 L 61.902 26.515 C 60.715 26.515 59.752 27.478 59.752 28.665 L 59.752 45.55 C 59.752 46.737 58.789 47.7 57.602 47.7 L 49.182 47.7 L 49.182 52 L 57.602 52 C 61.164 52 64.052 49.112 64.052 45.55 L 64.052 28.15 L 68.262 28.15 L 68.262 23.85 L 64.052 23.85 Z\",\"fill\":\"rgb(255,255,255)\"}]\n1e:[\"$\",\"p\",null,{\"className\":\"text-white/50 text-sm leading-[140%]\",\"children\":\"Visual Intell"])
+self.__next_f.push([1,"igence for Enterprise. Build, run, and operate visual AI across images, documents, and video with production-grade accuracy, observability, and control.\"}]\n1f:[\"$\",\"$L2c\",null,{}]\n"])
+self.__next_f.push([1,"20:[\"$\",\"div\",null,{\"className\":\"flex items-center gap-2 pt-2\",\"children\":[[\"$\",\"a\",null,{\"href\":\"https://x.com/vlmrun\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"aria-label\":\"X / Twitter\",\"className\":\"flex size-11 items-center justify-center text-white/50 transition-colors hover:text-white lg:size-auto\",\"children\":[\"$\",\"svg\",null,{\"width\":\"18\",\"height\":\"18\",\"viewBox\":\"0 0 24 24\",\"fill\":\"currentColor\",\"aria-hidden\":\"true\",\"children\":[\"$\",\"path\",null,{\"d\":\"M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z\"}]}]}],[\"$\",\"a\",null,{\"href\":\"https://www.linkedin.com/company/vlm-run\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"aria-label\":\"LinkedIn\",\"className\":\"flex size-11 items-center justify-center text-white/50 transition-colors hover:text-white lg:size-auto\",\"children\":[\"$\",\"svg\",null,{\"width\":\"18\",\"height\":\"18\",\"viewBox\":\"0 0 24 24\",\"fill\":\"currentColor\",\"aria-hidden\":\"true\",\"children\":[\"$\",\"path\",null,{\"d\":\"M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z\"}]}]}],[\"$\",\"a\",null,{\"href\":\"https://github.com/vlm-run\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"aria-label\":\"GitHub\",\"className\":\"flex size-11 items-center justify-center text-white/50 transition-colors hover:text-white lg:size-auto\",\"children\":[\"$\",\"svg\",null,{\"width\":18,\"height\":18,\"viewBox\":\"0 0 24 24\",\"fill\":\"currentColor\",\"aria-hidden\":\"true\",\"children\":[\"$\",\"path\",null,{\"d\":\"M12 .296C5.37.296 0 5.666 0 12.296c0 5.302 3.438 9.8 8.207 11.387.6.111.793-.261.793-.577v-2.234c-3.338.726-4.042-1.415-4.042-1.415-.546-1.387-1.333-1.756-1.333-1.756-1.089-.744.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.835 2.807 1.304 3.492.997.108-.776.42-1.305.762-1.605-2.665-.302-5.467-1.332-5.467-5.93 0-1.31.468-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.323 3.301 1.23a11.5 11.5 0 0 1 3.003-.404c1.019.005 2.045.138 3.003.404 2.291-1.553 3.298-1.23 3.298-1.23.654 1.652.242 2.873.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.625-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.565 22.092 24 17.596 24 12.296 24 5.666 18.627.296 12 .296Z\"}]}]}],[\"$\",\"a\",null,{\"href\":\"https://www.youtube.com/@vlm-run\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"aria-label\":\"YouTube\",\"className\":\"flex size-11 items-center justify-center text-white/50 transition-colors hover:text-white lg:size-auto\",\"children\":[\"$\",\"svg\",null,{\"width\":\"18\",\"height\":\"18\",\"viewBox\":\"0 0 24 24\",\"fill\":\"currentColor\",\"aria-hidden\":\"true\",\"children\":[\"$\",\"path\",null,{\"d\":\"M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z\"}]}]}]]}]\n"])
+self.__next_f.push([1,"21:[\"$\",\"div\",null,{\"className\":\"flex items-center gap-6\",\"children\":[[\"$\",\"$L2d\",null,{\"src\":\"/images/badges/hipaa.png\",\"alt\":\"HIPAA compliant\",\"width\":460,\"height\":216,\"className\":\"h-[54px] w-auto object-contain\"}],[\"$\",\"$L2d\",null,{\"src\":\"/images/badges/soc2.png\",\"alt\":\"AICPA SOC certified\",\"width\":366,\"height\":355,\"className\":\"h-[54px] w-auto object-contain\"}]]}]\n"])
+self.__next_f.push([1,"22:[\"$\",\"div\",null,{\"data-footer-columns\":true,\"className\":\"grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-y-10 lg:grid-cols-6 lg:gap-8\",\"children\":[[\"$\",\"nav\",\"Product\",{\"aria-label\":\"Product\",\"className\":\"flex min-w-0 flex-col gap-3\",\"children\":[[\"$\",\"h3\",null,{\"className\":\"text-white text-label font-semibold tracking-[0.12em] uppercase\",\"children\":\"Product\"}],[\"$\",\"ul\",null,{\"className\":\"flex flex-col\",\"children\":[[\"$\",\"li\",\"Dashboard\",{\"children\":[\"$\",\"a\",null,{\"href\":\"https://app.vlm.run\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Dashboard\"}]}],[\"$\",\"li\",\"Orion Chat\",{\"children\":[\"$\",\"a\",null,{\"href\":\"https://chat.vlm.run\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Orion Chat\"}]}],[\"$\",\"li\",\"Orion Whitepaper\",{\"children\":[\"$\",\"a\",null,{\"href\":\"https://storage.googleapis.com/vlm-data-public-prod/web/assets/vlmrun-orion-whitepaper-latest.pdf\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Orion Whitepaper\"}]}],[\"$\",\"li\",\"Gateway\",{\"children\":[\"$\",\"a\",null,{\"href\":\"/gateway\",\"target\":\"$undefined\",\"rel\":\"$undefined\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Gateway\"}]}]]}]]}],[\"$\",\"nav\",\"Solutions\",{\"aria-label\":\"Solutions\",\"className\":\"flex min-w-0 flex-col gap-3\",\"children\":[[\"$\",\"h3\",null,{\"className\":\"text-white text-label font-semibold tracking-[0.12em] uppercase\",\"children\":\"Solutions\"}],[\"$\",\"ul\",null,{\"className\":\"flex flex-col\",\"children\":[[\"$\",\"li\",\"Physical AI\",{\"children\":[\"$\",\"a\",null,{\"href\":\"/product/physical-ai\",\"target\":\"$undefined\",\"rel\":\"$undefined\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Physical AI\"}]}],[\"$\",\"li\",\"Healthcare\",{\"children\":[\"$\",\"a\",null,{\"href\":\"/solutions/healthcare\",\"target\":\"$undefined\",\"rel\":\"$undefined\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Healthcare\"}]}],[\"$\",\"li\",\"Construction\",{\"children\":[\"$\",\"a\",null,{\"href\":\"/solutions/construction\",\"target\":\"$undefined\",\"rel\":\"$undefined\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Construction\"}]}]]}]]}],[\"$\",\"nav\",\"Open Source\",{\"aria-label\":\"Open Source\",\"className\":\"flex min-w-0 flex-col gap-3\",\"children\":[[\"$\",\"h3\",null,{\"className\":\"text-white text-label font-semibold tracking-[0.12em] uppercase\",\"children\":\"Open Source\"}],[\"$\",\"ul\",null,{\"className\":\"flex flex-col\",\"children\":[[\"$\",\"li\",\"mm\",{\"children\":[\"$\",\"a\",null,{\"href\":\"/open-source/mm\",\"target\":\"$undefined\",\"rel\":\"$undefined\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"mm\"}]}],[\"$\",\"li\",\"vlmbench\",{\"children\":[\"$\",\"a\",null,{\"href\":\"/open-source/vlmbench\",\"target\":\"$undefined\",\"rel\":\"$undefined\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"vlmbench\"}]}],[\"$\",\"li\",\"vlmrun-hub\",{\"children\":[\"$\",\"a\",null,{\"href\":\"/open-source/vlmrun-hub\",\"target\":\"$undefined\",\"rel\":\"$undefined\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"vlmrun-hub\"}]}]]}]]}],\"$L2e\",\"$L2f\",\"$L30\"]}]\n"])
+self.__next_f.push([1,"23:[\"$\",\"div\",null,{\"data-footer-legal\":true,\"className\":\"flex flex-col items-start justify-between gap-4 pb-8 pt-2 sm:flex-row sm:items-center max-lg:pb-24\",\"children\":[[\"$\",\"p\",null,{\"className\":\"text-pretty text-sm leading-[140%] text-white/70\",\"children\":[\"© \",2026,\" Autonomi AI Inc. All rights reserved.\"]}],[\"$\",\"div\",null,{\"className\":\"flex flex-wrap items-center gap-x-6 gap-y-2\",\"children\":[[\"$\",\"a\",null,{\"href\":\"/terms-of-service\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"text-white/70 text-sm leading-[140%] hover:text-white transition-colors\",\"children\":\"Terms \u0026 Conditions\"}],[\"$\",\"a\",null,{\"href\":\"/privacy\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"text-white/70 text-sm leading-[140%] hover:text-white transition-colors\",\"children\":\"Privacy Policy\"}]]}]]}]\n"])
+self.__next_f.push([1,"2e:[\"$\",\"nav\",\"Developers\",{\"aria-label\":\"Developers\",\"className\":\"flex min-w-0 flex-col gap-3\",\"children\":[[\"$\",\"h3\",null,{\"className\":\"text-white text-label font-semibold tracking-[0.12em] uppercase\",\"children\":\"Developers\"}],[\"$\",\"ul\",null,{\"className\":\"flex flex-col\",\"children\":[[\"$\",\"li\",\"API Docs\",{\"children\":[\"$\",\"a\",null,{\"href\":\"https://docs.vlm.run\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"API Docs\"}]}],[\"$\",\"li\",\"Pricing\",{\"children\":[\"$\",\"a\",null,{\"href\":\"/pricing\",\"target\":\"$undefined\",\"rel\":\"$undefined\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Pricing\"}]}],[\"$\",\"li\",\"Cookbooks\",{\"children\":[\"$\",\"a\",null,{\"href\":\"https://github.com/vlm-run/vlmrun-cookbook\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Cookbooks\"}]}],[\"$\",\"li\",\"Discord\",{\"children\":[\"$\",\"a\",null,{\"href\":\"https://discord.gg/AMApC2UzVY\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Discord\"}]}],[\"$\",\"li\",\"GitHub\",{\"children\":[\"$\",\"a\",null,{\"href\":\"https://github.com/vlm-run\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"GitHub\"}]}]]}]]}]\n"])
+self.__next_f.push([1,"2f:[\"$\",\"nav\",\"Resources\",{\"aria-label\":\"Resources\",\"className\":\"flex min-w-0 flex-col gap-3\",\"children\":[[\"$\",\"h3\",null,{\"className\":\"text-white text-label font-semibold tracking-[0.12em] uppercase\",\"children\":\"Resources\"}],[\"$\",\"ul\",null,{\"className\":\"flex flex-col\",\"children\":[[\"$\",\"li\",\"Blog\",{\"children\":[\"$\",\"a\",null,{\"href\":\"/blog\",\"target\":\"$undefined\",\"rel\":\"$undefined\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Blog\"}]}],[\"$\",\"li\",\"Case Studies\",{\"children\":[\"$\",\"a\",null,{\"href\":\"/blog\",\"target\":\"$undefined\",\"rel\":\"$undefined\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Case Studies\"}]}],[\"$\",\"li\",\"Integrations\",{\"children\":[\"$\",\"a\",null,{\"href\":\"https://docs.vlm.run/integrations/integrations-zapier\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Integrations\"}]}],[\"$\",\"li\",\"Partners\",{\"children\":[\"$\",\"a\",null,{\"href\":\"https://docs.vlm.run/integrations/integrations-mongodb\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Partners\"}]}]]}]]}]\n"])
+self.__next_f.push([1,"30:[\"$\",\"nav\",\"Company\",{\"aria-label\":\"Company\",\"className\":\"flex min-w-0 flex-col gap-3\",\"children\":[[\"$\",\"h3\",null,{\"className\":\"text-white text-label font-semibold tracking-[0.12em] uppercase\",\"children\":\"Company\"}],[\"$\",\"ul\",null,{\"className\":\"flex flex-col\",\"children\":[[\"$\",\"li\",\"About Us\",{\"children\":[\"$\",\"a\",null,{\"href\":\"/about\",\"target\":\"$undefined\",\"rel\":\"$undefined\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"About Us\"}]}],[\"$\",\"li\",\"Careers\",{\"children\":[\"$\",\"a\",null,{\"href\":\"https://app.dover.com/VLM%20Run/careers/a63ca8a3-0866-4a36-88a7-b755a9b4aef3\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Careers\"}]}],[\"$\",\"li\",\"Trust Center\",{\"children\":[\"$\",\"a\",null,{\"href\":\"https://trust.vlm.run/\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"inline-flex min-h-11 max-w-full items-center py-1 text-sm leading-[140%] text-white/50 transition-colors hover:text-white lg:min-h-0 lg:py-0.5\",\"children\":\"Trust Center\"}]}]]}]]}]\n"])
+self.__next_f.push([1,"29:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n"])
+self.__next_f.push([1,"31:I[551810,[\"/_next/static/chunks/f48adf65bd74c555.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/1c16513460985c1f.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"IconMark\"]\n"])
+self.__next_f.push([1,"2b:[[\"$\",\"title\",\"0\",{\"children\":\"Gateway | VLM Run\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"The OpenAI-compatible gateway for visual AI. 24 visual models behind one chat-completions endpoint. Token and per-image pricing, structured outputs, BYOK ready.\"}],[\"$\",\"meta\",\"2\",{\"name\":\"robots\",\"content\":\"index, follow, max-image-preview:large\"}],[\"$\",\"link\",\"3\",{\"rel\":\"canonical\",\"href\":\"https://vlm.run/gateway\"}],[\"$\",\"meta\",\"4\",{\"property\":\"og:title\",\"content\":\"Gateway | VLM Run\"}],[\"$\",\"meta\",\"5\",{\"property\":\"og:description\",\"content\":\"The OpenAI-compatible gateway for visual AI. 24 visual models behind one chat-completions endpoint. Token and per-image pricing, structured outputs, BYOK ready.\"}],[\"$\",\"meta\",\"6\",{\"property\":\"og:url\",\"content\":\"https://vlm.run/gateway\"}],[\"$\",\"meta\",\"7\",{\"property\":\"og:image\",\"content\":\"https://vlm.run/og?title=Gateway\"}],[\"$\",\"meta\",\"8\",{\"property\":\"og:image:width\",\"content\":\"1200\"}],[\"$\",\"meta\",\"9\",{\"property\":\"og:image:height\",\"content\":\"630\"}],[\"$\",\"meta\",\"10\",{\"property\":\"og:image:alt\",\"content\":\"Gateway\"}],[\"$\",\"meta\",\"11\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"12\",{\"name\":\"twitter:title\",\"content\":\"Gateway | VLM Run\"}],[\"$\",\"meta\",\"13\",{\"name\":\"twitter:description\",\"content\":\"The OpenAI-compatible gateway for visual AI. 24 visual models behind one chat-completions endpoint. Token and per-image pricing, structured outputs, BYOK ready.\"}],[\"$\",\"meta\",\"14\",{\"name\":\"twitter:image\",\"content\":\"https://vlm.run/og?title=Gateway\"}],[\"$\",\"link\",\"15\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"sizes\":\"32x32\"}],[\"$\",\"link\",\"16\",{\"rel\":\"icon\",\"href\":\"/favicon.png\",\"sizes\":\"512x512\",\"type\":\"image/png\"}],[\"$\",\"link\",\"17\",{\"rel\":\"icon\",\"href\":\"/icon-192.png\",\"sizes\":\"192x192\",\"type\":\"image/png\"}],[\"$\",\"link\",\"18\",{\"rel\":\"apple-touch-icon\",\"href\":\"/apple-touch-icon.png\",\"sizes\":\"180x180\"}],[\"$\",\"$L31\",\"19\",{}]]\n"])
+self.__next_f.push([1,"27:null\n"])
+self.__next_f.push([1,"32:I[860115,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/2b247885c6725624.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/f214a4e47049aa46.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/df2d0e54478bc56b.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/9b6dc91b04fc3a63.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/007c35a18659a37e.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/c7e5deab826c6e88.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"default\"]\n"])
+self.__next_f.push([1,"24:[[\"$\",\"$L32\",null,{\"headline\":\"One unified API, Any Visual Model.\",\"subheadline\":\"Document OCR, captioning, and multi-modal chat: every visual capability behind one MCP server.\",\"primaryCta\":{\"label\":\"Read the Docs\",\"href\":\"https://docs.vlm.run/gateway/introduction\"},\"secondaryCta\":{\"label\":\"Get an API Key\",\"href\":\"https://app.vlm.run\"},\"examples\":[]}],[\"$\",\"section\",null,{\"className\":\"bg-surface border-b border-border\",\"children\":[\"$\",\"div\",null,{\"className\":\"mx-auto max-w-[1168px] px-5 sm:px-8 lg:px-16 flex flex-col items-center gap-8 pt-10 pb-24\",\"children\":[[\"$\",\"p\",null,{\"className\":\"font-mono text-[11px] font-medium uppercase tracking-[0.16em] text-muted\",\"children\":\"Supported providers\"}],[\"$\",\"div\",null,{\"className\":\"flex w-full flex-col items-center gap-7\",\"children\":[[\"$\",\"ul\",null,{\"className\":\"flex flex-wrap items-center justify-center gap-x-8 gap-y-5 sm:gap-x-10\",\"children\":[[\"$\",\"li\",\"Google\",{\"className\":\"flex items-center justify-center\",\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/google.svg\",\"alt\":\"Google\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]}],[\"$\",\"li\",\"OpenAI\",{\"className\":\"flex items-center justify-center\",\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/openai.svg\",\"alt\":\"OpenAI\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]}],[\"$\",\"li\",\"Anthropic\",{\"className\":\"flex items-center justify-center\",\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/anthropic.svg\",\"alt\":\"Anthropic\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]}],[\"$\",\"li\",\"xAI\",{\"className\":\"flex items-center justify-center\",\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/xai.svg\",\"alt\":\"xAI\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]}],[\"$\",\"li\",\"Meta\",{\"className\":\"flex items-center justify-center\",\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/meta.svg\",\"alt\":\"Meta\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]}],[\"$\",\"li\",\"Moonshot\",{\"className\":\"flex items-center justify-center\",\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/moonshot.svg\",\"alt\":\"Moonshot\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]}],[\"$\",\"li\",\"Microsoft\",{\"className\":\"flex items-center justify-center\",\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/microsoft.svg\",\"alt\":\"Microsoft\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]}],[\"$\",\"li\",\"Qwen\",{\"className\":\"flex items-center justify-center\",\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/qwen.svg\",\"alt\":\"Qwen\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]}]]}],[\"$\",\"ul\",null,{\"className\":\"flex flex-wrap items-center justify-center gap-x-8 gap-y-5 sm:gap-x-10\",\"children\":[[\"$\",\"li\",\"DeepSeek\",{\"className\":\"flex items-center justify-center\",\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/deepseek.svg\",\"alt\":\"DeepSeek\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]}],[\"$\",\"li\",\"ZAI\",{\"className\":\"flex items-center justify-center\",\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/zai.svg\",\"alt\":\"ZAI\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]}],[\"$\",\"li\",\"Baidu\",{\"className\":\"flex items-center justify-center\",\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/baidu.svg\",\"alt\":\"Baidu\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]}],[\"$\",\"li\",\"Roboflow\",{\"className\":\"flex items-center justify-center\",\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/roboflow.svg\",\"alt\":\"Roboflow\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]}],[\"$\",\"li\",\"LightOn\",{\"className\":\"flex items-center justify-center\",\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/lighton.svg\",\"alt\":\"LightOn\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]}],[\"$\",\"li\",\"RedNote\",{\"className\":\"flex items-center justify-center\",\"children\":\"$L33\"}],\"$L34\",\"$L35\"]}]]}],\"$L36\"]}]}],\"$L37\",\"$L38\",\"$L39\",\"$L3a\",\"$L3b\",\"$L3c\",\"$L3d\"]\n"])
+self.__next_f.push([1,"3e:I[750153,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/2b247885c6725624.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/f214a4e47049aa46.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/df2d0e54478bc56b.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/9b6dc91b04fc3a63.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/007c35a18659a37e.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/c7e5deab826c6e88.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"default\"]\n3f:I[681312,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/2b247885c6725624.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/f214a4e47049aa46.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/df2d0e54478bc56b.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/9b6dc91b04fc3a63.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/007c35a18659a37e.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/c7e5deab826c6e88.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"default\"]\n4c:I[193443,[\"/_next/static/chunks/b076810d0fd38179.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/2b247885c6725624.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/f214a4e47049aa46.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/df2d0e54478bc56b.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/9b6dc91b04fc3a63.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/007c35a18659a37e.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\",\"/_next/static/chunks/c7e5deab826c6e88.js?dpl=dpl_ECYyVTvmC2RAfYSm8YdEVejNFnj3\"],\"default\"]\n33:[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/rednote.svg\",\"alt\":\"RedNote\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]\n34:[\"$\",\"li\",\"USYD\",{\"className\":\"flex items-center justify-center\",\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/usyd.svg\",\"alt\":\"USYD\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]}]\n35:[\"$\",\"li\",\"Hugging Face\",{\"className\":\"flex items-center justify-center\",\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/providers/huggingface.svg\",\"alt\":\"Hugging Face\",\"width\":32,\"height\":32,\"className\":\"h-8 w-8 object-contain opacity-55\",\"unoptimized\":true}]}]\n36:[\"$\",\"a\",null,{\"href\":\"/gateway/models\",\"className\":\"group inline-flex items-center gap-1.5 text-body-md font-medium text-navy transition-colors hover:text-primary-mid\",\"children\":[\"Explore models\",[\"$\",\"span\",null,{\"className\":\"text-muted transition-colors group-hover:text-primary-mid\",\"aria-hidden\":\"true\",\"children\":[\"$\",\"svg\",null,{\"width\":14,\"height\":14,\"viewBox\":\"0 0 14 14\",\"fill\":\"none\",\"aria-hidden\":\"true\",\"children\":[\"$\",\"path\",null,{\"d\":\"M5.5 3.5L9 7l-3.5 3.5\",\"stroke\":\"currentColor\",\"strokeWidth\":\"1.5\",\"strokeLinecap\":\"round\",\"strokeLinejoin\":\"round\"}]}]}]]}]\n"])
+self.__next_f.push([1,"37:[\"$\",\"$L3e\",null,{\"headline\":\"24 visual models. One endpoint.\",\"models\":[{\"id\":\"qwen/qwen3.8-27b\",\"name\":\"Qwen3.8 27B\",\"provider\":\"Alibaba\",\"providerLogo\":\"/images/gateway/providers/qwen.svg\",\"task\":\"Reasoning VLM (image + video + text)\",\"types\":[\"detection\",\"chat\"],\"inputs\":[\"text\",\"image_url\",\"video_url\"],\"context\":\"164K\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"Qwen/Qwen3.8-27B-FP8\",\"routed\":false,\"released\":\"2026-08-13\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.35\",\"cachePrice\":\"$$0.05\",\"outputPrice\":\"$$2.55\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[\"chat\"]},{\"id\":\"meta/muse-glimmer-30b\",\"name\":\"Muse Glimmer 30B\",\"provider\":\"Meta\",\"providerLogo\":\"/images/gateway/providers/meta.svg\",\"task\":\"Meta Muse Glimmer 30B. Text, multi-image, and native video.\",\"types\":[\"detection\",\"chat\"],\"inputs\":[\"text\",\"image_url\",\"video_url\"],\"context\":\"128K\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"meta-models/Muse-Glimmer-30B\",\"routed\":true,\"released\":\"2026-08-09\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.35\",\"cachePrice\":\"$$0.04\",\"outputPrice\":\"$$1.50\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[]},{\"id\":\"baidu/unlimited-ocr\",\"name\":\"Unlimited-OCR\",\"provider\":\"Baidu\",\"providerLogo\":\"/images/gateway/providers/baidu.svg\",\"task\":\"Long-horizon document parsing with batched multi-page OCR.\",\"types\":[\"ocr\",\"markdown\"],\"inputs\":[\"text\",\"image_url\",\"document_url\"],\"context\":\"32K\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"baidu/Unlimited-OCR\",\"routed\":false,\"released\":\"2026-06-19\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.25\",\"cachePrice\":\"$$0.03\",\"outputPrice\":\"$$0.55\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[\"markdown\",\"multi_page\"]},{\"id\":\"moonshotai/kimi-k3\",\"name\":\"Kimi K3\",\"provider\":\"Moonshot AI\",\"providerLogo\":\"/images/gateway/providers/moonshot.svg\",\"task\":\"Moonshot Kimi K3. Text, multi-image, and native video.\",\"types\":[\"detection\",\"chat\"],\"inputs\":[\"text\",\"image_url\",\"video_url\"],\"context\":\"256K\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"moonshotai/Kimi-K3\",\"routed\":true,\"released\":\"2026-06-13\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$3\",\"cachePrice\":\"$$0.30\",\"outputPrice\":\"$$15\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[]},{\"id\":\"paddleocr/pp-ocrv6\",\"name\":\"PP-OCRv6\",\"provider\":\"PaddlePaddle\",\"providerLogo\":\"/images/gateway/providers/baidu.svg\",\"task\":\"PaddleOCR PP-OCRv6 medium text detection and recognition; scene OCR JSONL on image chat; text returns plain text; document_url fan-out via text.\",\"types\":[\"ocr\",\"detection\"],\"inputs\":[\"image_url\",\"document_url\"],\"context\":\"—\",\"tokensPerSec\":\"536\",\"pagesPerSec\":\"8.3\",\"hfModelId\":\"paddleocr/pp-ocrv6\",\"routed\":false,\"released\":\"2026-06-11\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.02\",\"cachePrice\":\"$$0.02\",\"outputPrice\":\"$$0.40\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[\"ocr\",\"detect\",\"text\"]},{\"id\":\"google/diffusiongemma-26b-a4b-it\",\"name\":\"DiffusionGemma 26B-A4B\",\"provider\":\"Google\",\"providerLogo\":\"/images/gateway/providers/google.svg\",\"task\":\"Block-diffusion Gemma 4 26B-A4B: chat over text and up to 8 images, and System One typed decisions on POST /typesafe/v1/systemone.\",\"types\":[\"detection\",\"chat\"],\"inputs\":[\"text\",\"image_url\"],\"context\":\"16K\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"nvidia/diffusiongemma-26B-A4B-it-NVFP4\",\"routed\":false,\"released\":\"2026-06-10\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.35\",\"cachePrice\":\"$$0.05\",\"outputPrice\":\"$$1.50\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[]},{\"id\":\"minimax/minimax-m3\",\"name\":\"MiniMax M3\",\"provider\":\"MiniMax\",\"providerLogo\":\"/images/gateway/providers/minimax.png\",\"task\":\"MiniMax M3. Text, multi-image, and native video. Reasoning model.\",\"types\":[\"detection\",\"chat\"],\"inputs\":[\"text\",\"image_url\",\"video_url\"],\"context\":\"1M\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"MiniMaxAI/MiniMax-M3\",\"routed\":true,\"released\":\"2026-06-02\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.30\",\"cachePrice\":\"$$0.06\",\"outputPrice\":\"$$1.20\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[]},{\"id\":\"paddlepaddle/paddleocr-vl-1.6\",\"name\":\"PaddleOCR-VL 1.6\",\"provider\":\"PaddlePaddle\",\"providerLogo\":\"/images/gateway/providers/baidu.svg\",\"task\":\"PaddleOCR-VL-1.6 for OCR, tables, formulas, and charts.\",\"types\":[\"ocr\"],\"inputs\":[\"text\",\"image_url\",\"document_url\"],\"context\":\"16K\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"1.8\",\"hfModelId\":\"PaddlePaddle/PaddleOCR-VL-1.6\",\"routed\":false,\"released\":\"2026-05-27\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.15\",\"cachePrice\":\"$$0.15\",\"outputPrice\":\"$$0.35\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[\"ocr\",\"table\",\"formula\",\"chart\"]},{\"id\":\"google/gemma-4-26b-a4b-it\",\"name\":\"Gemma 4 26B-A4B Instruct\",\"provider\":\"Google\",\"providerLogo\":\"/images/gateway/providers/google.svg\",\"task\":\"Google Gemma 4 26B MoE (4B active), instruction-tuned. Text, up to 64 images, or one video per request.\",\"types\":[\"detection\",\"chat\"],\"inputs\":[\"text\",\"image_url\",\"video_url\"],\"context\":\"80K\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"nvidia/Gemma-4-26B-A4B-NVFP4\",\"routed\":false,\"released\":\"2026-05-01\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.10\",\"cachePrice\":\"$$0.05\",\"outputPrice\":\"$$0.30\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[]},{\"id\":\"facebook/sam3.1\",\"name\":\"SAM 3.1\",\"provider\":\"Meta\",\"providerLogo\":\"/images/gateway/providers/meta.svg\",\"task\":\"SAM 3.1 Object Multiplex: promptable segmentation and faster multi-object video tracking.\",\"types\":[\"segmentation\"],\"inputs\":[\"text\",\"image_url\",\"video_url\"],\"context\":\"—\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"facebook/sam3.1\",\"routed\":false,\"released\":\"2026-03-26\",\"openWeights\":true,\"pricingMode\":\"per_image\",\"inputPrice\":\"$$1/1K\",\"cachePrice\":\"—\",\"outputPrice\":\"—\",\"imagePrice\":\"$$1/1K\",\"comingSoon\":false,\"methods\":[\"segment\",\"segment_box\",\"track\"]},{\"id\":\"rednote-hilab/dots.mocr\",\"name\":\"dots.mocr\",\"provider\":\"rednote-hilab\",\"providerLogo\":\"/images/gateway/providers/rednote.svg\",\"task\":\"Multilingual document layout parsing and markdown OCR.\",\"types\":[\"ocr\",\"markdown\"],\"inputs\":[\"text\",\"image_url\",\"document_url\"],\"context\":\"32K\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"1.5\",\"hfModelId\":\"rednote-hilab/dots.mocr\",\"routed\":false,\"released\":\"2026-03-19\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.20\",\"cachePrice\":\"$$0.03\",\"outputPrice\":\"$$0.40\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[\"parse_layout\",\"parse_layout_only\",\"ocr\",\"markdown\"]},{\"id\":\"qwen/qwen3.5-0.8b\",\"name\":\"Qwen3.5 0.8B\",\"provider\":\"Alibaba\",\"providerLogo\":\"/images/gateway/providers/qwen.svg\",\"task\":\"Multimodal chat model with up to 64 images or one video per request.\",\"types\":[\"detection\",\"chat\"],\"inputs\":[\"text\",\"image_url\",\"video_url\"],\"context\":\"256K\",\"tokensPerSec\":\"44\",\"pagesPerSec\":\"1.1\",\"hfModelId\":\"AxionML/Qwen3.5-0.8B-NVFP4\",\"routed\":false,\"released\":\"2026-03-03\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.08\",\"cachePrice\":\"$$0.02\",\"outputPrice\":\"$$0.15\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[\"chat\"]},{\"id\":\"zai-org/glm-ocr\",\"name\":\"GLM-OCR\",\"provider\":\"Zhipu AI\",\"providerLogo\":\"/images/gateway/providers/zai.svg\",\"task\":\"Compact multilingual document OCR and markdown extraction.\",\"types\":[\"markdown\"],\"inputs\":[\"text\",\"image_url\",\"document_url\"],\"context\":\"8K\",\"tokensPerSec\":\"601\",\"pagesPerSec\":\"4.0\",\"hfModelId\":\"zai-org/GLM-OCR\",\"routed\":false,\"released\":\"2026-01-30\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.10\",\"cachePrice\":\"$$0.02\",\"outputPrice\":\"$$0.20\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[\"ocr\",\"markdown\"]},{\"id\":\"deepseek-ai/deepseek-ocr-2\",\"name\":\"DeepSeek-OCR-2\",\"provider\":\"DeepSeek\",\"providerLogo\":\"/images/gateway/providers/deepseek.svg\",\"task\":\"DeepSeek OCR 2 and markdown extraction.\",\"types\":[\"ocr\",\"markdown\"],\"inputs\":[\"text\",\"image_url\",\"document_url\"],\"context\":\"32K\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"2.8\",\"hfModelId\":\"deepseek-ai/DeepSeek-OCR-2\",\"routed\":false,\"released\":\"2026-01-27\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.25\",\"cachePrice\":\"$$0.25\",\"outputPrice\":\"$$0.80\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[\"ocr\",\"markdown\",\"free_ocr\",\"grounding_ocr\"]},{\"id\":\"qwen/qwen3-vl-embedding-2b\",\"name\":\"Qwen3-VL Embedding 2B\",\"provider\":\"Alibaba\",\"providerLogo\":\"/images/gateway/providers/qwen.svg\",\"task\":\"Multimodal embedding model for text, image, and video inputs.\",\"types\":[\"embedding\"],\"inputs\":[\"text\",\"image_url\",\"video_url\"],\"context\":\"8K\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"Qwen/Qwen3-VL-Embedding-2B\",\"routed\":false,\"released\":\"2026-01-07\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.013\",\"cachePrice\":\"$$0.013\",\"outputPrice\":\"—\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[\"embed\"]},{\"id\":\"nvidia/parakeet-tdt-0.6b-v3\",\"name\":\"Parakeet TDT 0.6B v3\",\"provider\":\"NVIDIA\",\"providerLogo\":\"/images/gateway/providers/nvidia.png\",\"task\":\"NeMo Parakeet speech-to-text transcription.\",\"types\":[\"transcription\"],\"inputs\":[\"text\",\"image_url\",\"video_url\"],\"context\":\"—\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"nvidia/parakeet-tdt-0.6b-v3\",\"routed\":false,\"released\":\"2025-08-04\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$16.67/1M s\",\"cachePrice\":\"—\",\"outputPrice\":\"—\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[\"transcribe\"]},{\"id\":\"usyd-community/vitpose-plus-large\",\"name\":\"ViTPose+ Large\",\"provider\":\"USYD Community\",\"providerLogo\":\"/images/gateway/providers/usyd.svg\",\"task\":\"2D human pose estimation (ViT-L, 434M).\",\"types\":[\"pose\"],\"inputs\":[\"text\",\"image_url\",\"video_url\"],\"context\":\"—\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"usyd-community/vitpose-plus-large\",\"routed\":false,\"released\":\"2025-01-12\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$3.90\",\"cachePrice\":\"$$3.90\",\"outputPrice\":\"—\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[\"pose\"]},{\"id\":\"microsoft/florence-2-base-ft\",\"name\":\"Florence-2\",\"provider\":\"Microsoft\",\"providerLogo\":\"/images/gateway/providers/microsoft.svg\",\"task\":\"Vision foundation model for captioning, OCR, detection, and region tasks.\",\"types\":[\"ocr\",\"detection\"],\"inputs\":[\"text\",\"image_url\"],\"context\":\"—\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"5.6\",\"hfModelId\":\"microsoft/Florence-2-base-ft\",\"routed\":false,\"released\":\"2024-06-15\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.10\",\"cachePrice\":\"$$0.03\",\"outputPrice\":\"$$0.30\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[\"caption\",\"detailed_caption\",\"more_detailed_caption\",\"ocr\",\"ocr_with_region\",\"od\",\"dense_region_caption\",\"region_proposal\"]},{\"id\":\"geopavlakos/hamer\",\"name\":\"HaMeR\",\"provider\":\"geopavlakos\",\"providerLogo\":\"/images/gateway/providers/huggingface.svg\",\"task\":\"Transformer-based 3D hand mesh recovery with ViTPose-H detection.\",\"types\":[\"pose\"],\"inputs\":[\"text\",\"image_url\"],\"context\":\"—\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"geopavlakos/HaMeR\",\"routed\":false,\"released\":\"\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$3.90\",\"cachePrice\":\"$$3.90\",\"outputPrice\":\"—\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[\"pose\"]},{\"id\":\"vlm-run/ocr:auto\",\"name\":\"OCR Auto\",\"provider\":\"VLM Run\",\"providerLogo\":\"/images/gateway/providers/vlm-run.svg\",\"task\":\"Routes each method to its best OCR engine: ocr to PP-OCRv6, markdown to a fast CPU parser (dots.mocr on error), layout to dots.mocr.\",\"types\":[\"ocr\",\"markdown\"],\"inputs\":[\"text\",\"image_url\",\"document_url\"],\"context\":\"—\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"vlm-run/ocr:auto\",\"routed\":false,\"released\":\"\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"$$0\",\"cachePrice\":\"—\",\"outputPrice\":\"—\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[]},{\"id\":\"google/gemini-3.7-flash\",\"name\":\"Gemini 3.7 Flash\",\"provider\":\"Google\",\"providerLogo\":\"/images/gateway/providers/google.svg\",\"task\":\"Newest Gemini Flash tier with extended reasoning. Multimodal chat + native video.\",\"types\":[\"detection\",\"chat\"],\"inputs\":[\"text\",\"image_url\",\"document_url\",\"video_url\"],\"context\":\"1M\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"\",\"routed\":true,\"released\":\"2026-08-13\",\"openWeights\":false,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.75\",\"cachePrice\":\"$$0.075\",\"outputPrice\":\"$$3.75\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[]},{\"id\":\"meta/muse-spark-1.2\",\"name\":\"Muse Spark 1.2\",\"provider\":\"Meta\",\"providerLogo\":\"/images/gateway/providers/meta.svg\",\"task\":\"Meta Muse Spark 1.2. Text, multi-image, and native video. Reasoning model.\",\"types\":[\"detection\",\"chat\"],\"inputs\":[\"text\",\"image_url\",\"video_url\"],\"context\":\"1M\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"\",\"routed\":true,\"released\":\"2026-08-05\",\"openWeights\":false,\"pricingMode\":\"token\",\"inputPrice\":\"$$1.25\",\"cachePrice\":\"$$0.15\",\"outputPrice\":\"$$4.25\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[]},{\"id\":\"google/gemini-robotics-er-2-preview\",\"name\":\"Gemini Robotics-ER 2 (preview)\",\"provider\":\"Google\",\"providerLogo\":\"/images/gateway/providers/google.svg\",\"task\":\"Embodied-reasoning VLM for robotics. Text, multi-image, and native video.\",\"types\":[\"detection\",\"chat\"],\"inputs\":[\"text\",\"image_url\",\"document_url\",\"video_url\"],\"context\":\"1M\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"\",\"routed\":true,\"released\":\"2026-07-30\",\"openWeights\":false,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.30\",\"cachePrice\":\"$$0.03\",\"outputPrice\":\"$$2.50\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[]},{\"id\":\"google/gemini-3.5-flash-lite\",\"name\":\"Gemini 3.5 Flash Lite\",\"provider\":\"Google\",\"providerLogo\":\"/images/gateway/providers/google.svg\",\"task\":\"Fastest and cheapest Gemini tier. Multimodal chat; emits no reasoning tokens.\",\"types\":[\"detection\",\"chat\"],\"inputs\":[\"text\",\"image_url\",\"document_url\",\"video_url\"],\"context\":\"1M\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"\",\"routed\":true,\"released\":\"2026-07-21\",\"openWeights\":false,\"pricingMode\":\"token\",\"inputPrice\":\"$$0.30\",\"cachePrice\":\"$$0.03\",\"outputPrice\":\"$$2.50\",\"imagePrice\":\"—\",\"comingSoon\":false,\"methods\":[]},{\"id\":\"roboflow/rf-detr-large\",\"name\":\"RF-DETR Large\",\"provider\":\"Roboflow\",\"providerLogo\":\"/images/gateway/providers/roboflow.svg\",\"task\":\"Open-vocab detection\",\"types\":[\"detection\"],\"inputs\":[\"text\",\"image_url\"],\"context\":\"—\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"roboflow/rf-detr-large\",\"routed\":false,\"released\":\"2026-05-11\",\"openWeights\":true,\"pricingMode\":\"per_image\",\"inputPrice\":\"—\",\"cachePrice\":\"—\",\"outputPrice\":\"—\",\"imagePrice\":\"—\",\"comingSoon\":true,\"methods\":[]},{\"id\":\"lightonai/lightonocr-1b-1025\",\"name\":\"LightOnOCR\",\"provider\":\"LightOn\",\"providerLogo\":\"/images/gateway/providers/lighton.svg\",\"task\":\"Compact document VLM\",\"types\":[\"markdown\"],\"inputs\":[\"text\",\"image_url\"],\"context\":\"8K\",\"tokensPerSec\":\"—\",\"pagesPerSec\":\"—\",\"hfModelId\":\"lightonai/LightOnOCR-1B-1025\",\"routed\":false,\"released\":\"2025-10-20\",\"openWeights\":true,\"pricingMode\":\"token\",\"inputPrice\":\"—\",\"cachePrice\":\"—\",\"outputPrice\":\"—\",\"imagePrice\":\"—\",\"comingSoon\":true,\"methods\":[]}],\"usage\":{\"live\":true,\"byModel\":{\"qwen/qwen3.8-27b\":{\"series\":[3327,2720,1159,3600,3714,3580,6667,6511,4088,783,7923,8876,9137,5305,4649,3099,2379,5091,4722,2478,1988,6756,3079,2032,6384,31744,13979,6020,6729,2573,9],\"total\":171101,\"label\":\"171.1K requests in the last 31 days\"},\"paddleocr/pp-ocrv6\":{\"series\":[130,302,179,725,738,2023,2097,3828,91,16,97,264,273,100,519,46,65,340,1835,204,131,1061,201,62824,510,2997,196,1306,521,529,33],\"total\":84181,\"label\":\"84.2K requests in the last 31 days\"},\"facebook/sam3.1\":{\"series\":[1072,0,0,1,761,801,973,18,919,8,102,84,141,752,3917,149,106,39,410,60,85,216,22,4,266,110,24,194,283,108,0],\"total\":11625,\"label\":\"11.6K requests in the last 31 days\"},\"usyd-community/vitpose-plus-large\":{\"series\":[484,156,455,1459,57,733,426,66,504,1158,50,2467,36,61,97,16,31,38,71,43,94,28,45,1,40,22,16,131,50,75,0],\"total\":8910,\"label\":\"8.91K requests in the last 31 days\"},\"qwen/qwen3.5-0.8b\":{\"series\":[161,106,205,6,131,23,18,896,241,20,145,448,230,271,531,278,442,474,364,240,202,144,69,83,320,416,323,320,660,165,3],\"total\":7935,\"label\":\"7.93K requests in the last 31 days\"},\"geopavlakos/hamer\":{\"series\":[689,0,0,3585,2,1,251,1,1,0,1,0,0,1,0,0,0,16,28,16,21,0,2,1,14,1,2520,0,1,0,0],\"total\":7152,\"label\":\"7.15K requests in the last 31 days\"},\"rednote-hilab/dots.mocr\":{\"series\":[58,26,100,24,74,471,343,117,76,6,30,106,56,27,96,25,28,44,104,38,37,36,16,18,107,1660,59,6,7,623,0],\"total\":4418,\"label\":\"4.42K requests in the last 31 days\"},\"paddlepaddle/paddleocr-vl-1.6\":{\"series\":[68,34,105,9,125,151,66,136,103,6,41,140,76,38,561,35,46,290,123,49,54,74,1,1,412,485,41,15,130,268,2],\"total\":3685,\"label\":\"3.69K requests in the last 31 days\"},\"microsoft/florence-2-base-ft\":{\"series\":[102,74,218,13,113,41,124,204,154,0,53,256,106,56,61,52,61,72,183,65,69,51,1,9,552,62,52,2,1,240,0],\"total\":3047,\"label\":\"3.05K requests in the last 31 days\"},\"zai-org/glm-ocr\":{\"series\":[177,23,31,6,24,3,1,28,22,4,9,32,18,9,11,7,10,25,35,13,269,19,13,1,32,33,16,407,7,254,0],\"total\":1539,\"label\":\"1.54K requests in the last 31 days\"},\"google/gemini-robotics-er-2-preview\":{\"series\":[6,3,5,1,708,0,0,86,13,0,3,12,6,6,11,3,6,56,1,1,1,326,2,1,5,1,5,6,3,1,0],\"total\":1278,\"label\":\"1.28K requests in the last 31 days\"},\"deepseek-ai/deepseek-ocr-2\":{\"series\":[42,20,62,1,56,8,1,76,59,5,20,80,46,21,26,19,22,36,91,36,23,24,3,10,42,31,18,5,6,240,0],\"total\":1129,\"label\":\"1.13K requests in the last 31 days\"},\"baidu/unlimited-ocr\":{\"series\":[14,7,27,1,16,69,1,28,0,4,1,4,5,1,1,0,0,9,30,5,2,5,1,1,20,12,8,1,1,239,0],\"total\":513,\"label\":\"513 requests in the last 31 days\"},\"google/gemma-4-26b-a4b-it\":{\"series\":[6,3,5,1,6,1,1,25,13,0,3,12,6,2,3,1,2,60,4,10,10,194,5,2,65,4,6,9,8,2,0],\"total\":469,\"label\":\"469 requests in the last 31 days\"},\"google/diffusiongemma-26b-a4b-it\":{\"series\":[0,0,0,0,0,0,0,0,0,0,0,0,15,4,1,0,6,57,93,32,20,2,1,3,13,2,2,4,46,22,0],\"total\":323,\"label\":\"323 requests in the last 31 days\"},\"google/gemini-3.5-flash-lite\":{\"series\":[6,3,5,2,6,1,0,23,3,3,4,6,7,10,1,43,0,59,6,4,15,3,7,1,59,1,7,5,17,4,0],\"total\":311,\"label\":\"311 requests in the last 31 days\"},\"google/gemini-3.7-flash\":{\"series\":[7,3,5,1,6,28,1,23,1,3,8,6,5,12,2,7,1,57,6,7,20,1,4,3,41,22,7,3,5,3,0],\"total\":298,\"label\":\"298 requests in the last 31 days\"},\"minimax/minimax-m3\":{\"series\":[6,3,5,1,6,1,1,12,18,3,3,14,6,6,11,3,6,56,2,2,9,0,3,4,15,3,5,9,7,3,0],\"total\":223,\"label\":\"223 requests in the last 31 days\"},\"meta/muse-spark-1.2\":{\"series\":[6,3,5,1,6,1,0,12,16,1,3,12,6,6,11,3,6,57,3,1,7,0,3,3,16,3,6,7,3,1,0],\"total\":208,\"label\":\"208 requests in the last 31 days\"},\"moonshotai/kimi-k3\":{\"series\":[6,3,5,2,6,0,1,12,13,3,2,8,4,4,7,2,4,56,2,2,14,2,3,4,9,3,8,4,9,3,0],\"total\":201,\"label\":\"201 requests in the last 31 days\"},\"meta/muse-glimmer-30b\":{\"series\":[6,3,5,1,6,1,0,12,18,0,3,12,6,6,11,3,6,1,3,2,1,0,3,3,5,1,6,3,5,3,0],\"total\":135,\"label\":\"135 requests in the last 31 days\"},\"vlm-run/ocr:auto\":{\"series\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,16,54,9,11,2,0,0,4,0,10,4,4,0,0],\"total\":114,\"label\":\"114 requests in the last 31 days\"},\"infly/infinity-parser2-flash\":{\"series\":[34,17,44,0,1,0,0,0,0,1,0,1,0,0,1,0,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0],\"total\":102,\"label\":\"102 requests in the last 31 days\"},\"dotsocr/dots-ocr-1.5\":{\"series\":[0,0,0,2,0,0,0,0,0,0,0,0,0,0,27,0,0,5,2,7,12,0,0,0,0,20,0,0,0,0,0],\"total\":75,\"label\":\"75 requests in the last 31 days\"},\"deepseek/deepseek-ocr\":{\"series\":[0,0,0,1,0,0,0,0,0,0,0,0,0,0,27,0,0,5,2,7,12,0,0,0,0,20,0,0,0,0,0],\"total\":74,\"label\":\"74 requests in the last 31 days\"},\"dotsocr/dots-ocr\":{\"series\":[0,0,0,1,0,0,0,0,0,0,0,0,0,0,27,0,0,5,2,7,12,0,0,0,0,20,0,0,0,0,0],\"total\":74,\"label\":\"74 requests in the last 31 days\"},\"chandra/chandra-ocr-2\":{\"series\":[0,0,0,1,0,0,0,0,0,0,0,0,0,0,27,0,0,4,2,7,12,0,0,0,0,20,0,0,0,0,0],\"total\":73,\"label\":\"73 requests in the last 31 days\"},\"opendatalab/mineru2.5\":{\"series\":[0,0,0,1,0,0,0,0,0,0,0,0,0,0,27,0,0,4,2,7,12,0,0,0,0,20,0,0,0,0,0],\"total\":73,\"label\":\"73 requests in the last 31 days\"},\"nvidia/parakeet-tdt-0.6b-v3\":{\"series\":[0,0,0,1,0,0,0,2,1,0,0,1,0,5,0,0,0,1,1,1,0,0,2,0,0,1,2,7,1,1,0],\"total\":27,\"label\":\"27 requests in the last 31 days\"},\"qwen/qwen3-vl-embedding-2b\":{\"series\":[0,0,0,1,0,0,0,0,0,0,0,1,0,4,0,0,0,1,0,1,0,0,1,0,0,1,0,1,0,0,0],\"total\":11,\"label\":\"11 requests in the last 31 days\"}}},\"headingLevel\":\"h2\"}]\n"])
+self.__next_f.push([1,"38:[\"$\",\"$L3f\",null,{\"layout\":\"tabs\",\"documents\":{\"eyebrow\":\"Pricing calculator\",\"headline\":\"Dirt-cheap Document OCR.\",\"subheadline\":\"Pick a document type, page volume, and OCR model. See cost savings versus closed vision APIs.\",\"documentTypes\":[{\"id\":\"legal\",\"label\":\"Legal\",\"tokensPerPage\":1000,\"description\":\"~1000 tokens / pg\"},{\"id\":\"healthcare\",\"label\":\"Healthcare\",\"tokensPerPage\":700,\"description\":\"~700 tokens / pg\"},{\"id\":\"construction\",\"label\":\"Construction\",\"tokensPerPage\":600,\"description\":\"~600 tokens / pg\"},{\"id\":\"slides\",\"label\":\"Slides\",\"tokensPerPage\":400,\"description\":\"~400 tokens / pg\"},{\"id\":\"forms\",\"label\":\"Forms\",\"tokensPerPage\":250,\"description\":\"~250 tokens / pg\"}],\"pageCounts\":[10000,100000,1000000],\"models\":[{\"id\":\"paddleocr/pp-ocrv6\",\"label\":\"PP-OCRv6\",\"inputTokensPerPage\":2500,\"inputPrice\":0.02,\"outputPrice\":0.4},{\"id\":\"deepseek-ai/deepseek-ocr-2\",\"label\":\"DeepSeek-OCR-2\",\"inputTokensPerPage\":1200,\"inputPrice\":0.25,\"outputPrice\":0.8},{\"id\":\"rednote-hilab/dots.mocr\",\"label\":\"dots.mocr\",\"inputTokensPerPage\":2500,\"inputPrice\":0.2,\"outputPrice\":0.4},{\"id\":\"zai-org/glm-ocr\",\"label\":\"GLM-OCR\",\"inputTokensPerPage\":2500,\"inputPrice\":0.1,\"outputPrice\":0.2},{\"id\":\"paddlepaddle/paddleocr-vl-1.6\",\"label\":\"PaddleOCR-VL 1.6\",\"inputTokensPerPage\":2500,\"inputPrice\":0.15,\"outputPrice\":0.35},{\"id\":\"baidu/unlimited-ocr\",\"label\":\"Unlimited-OCR\",\"inputTokensPerPage\":2500,\"inputPrice\":0.25,\"outputPrice\":0.55},{\"id\":\"vlm-run/ocr:auto\",\"label\":\"OCR Auto\",\"inputTokensPerPage\":2500,\"inputPrice\":0,\"outputPrice\":0}],\"competitors\":[{\"id\":\"gemini-3.7-flash\",\"label\":\"Gemini 3.7 Flash\",\"inputPrice\":0.75,\"outputPrice\":3.75},{\"id\":\"claude-sonnet-5\",\"label\":\"Claude Sonnet 5\",\"inputPrice\":2,\"outputPrice\":10},{\"id\":\"claude-opus-4-8\",\"label\":\"Claude Opus 4.8\",\"inputPrice\":5,\"outputPrice\":25},{\"id\":\"gpt-5.6-sol\",\"label\":\"GPT-5.6 Sol\",\"inputPrice\":5,\"outputPrice\":30}]},\"video\":{\"eyebrow\":\"Pricing calculator\",\"headline\":\"Video understanding by the hour.\",\"subheadline\":\"Pick a workload, footage volume, and model. See cost savings versus vendors that bill every second of the timeline.\",\"workloads\":[{\"id\":\"understand\",\"label\":\"Understand\",\"description\":\"~500 toks / min\",\"framesPerMinute\":15,\"outputTokensPerMinute\":500,\"hasSpeech\":true},{\"id\":\"summarize\",\"label\":\"Summarize\",\"description\":\"150 toks / min\",\"framesPerMinute\":5,\"outputTokensPerMinute\":150,\"hasSpeech\":true},{\"id\":\"segment\",\"label\":\"Segment\",\"description\":\"30 toks / min\",\"framesPerMinute\":30,\"outputTokensPerMinute\":30,\"hasSpeech\":false}],\"durationsHours\":[1000,10000,100000],\"models\":[{\"id\":\"google/gemma-4-26b-a4b-it\",\"label\":\"Gemma 4 26B-A4B\",\"tokensPerFrame\":144,\"audioTokensPerMinute\":1920,\"inputPrice\":0.1,\"outputPrice\":0.3},{\"id\":\"meta/muse-glimmer-30b\",\"label\":\"Muse Glimmer 30B\",\"tokensPerFrame\":256,\"audioTokensPerMinute\":1920,\"inputPrice\":0.35,\"outputPrice\":1.5},{\"id\":\"qwen/qwen3.8-27b\",\"label\":\"Qwen3.8 27B\",\"tokensPerFrame\":256,\"audioTokensPerMinute\":1920,\"inputPrice\":0.35,\"outputPrice\":2.55}],\"competitors\":[{\"id\":\"gemini-3.5-flash-lite\",\"label\":\"Gemini 3.5 Flash Lite\",\"subtitle\":\"Native Video (Gemini)\",\"group\":\"Frontier Multimodal LLMs\",\"groupSubtitle\":\"Native Video (Gemini)\",\"intake\":\"native\",\"videoTokensPerSecond\":258,\"audioTokensPerSecond\":32,\"inputPrice\":0.3,\"outputPrice\":2.5},{\"id\":\"gemini-3.1-pro\",\"label\":\"Gemini 3.1 Pro\",\"subtitle\":\"Native Video (Gemini)\",\"group\":\"Frontier Multimodal LLMs\",\"groupSubtitle\":\"Native Video (Gemini)\",\"intake\":\"native\",\"videoTokensPerSecond\":258,\"audioTokensPerSecond\":32,\"inputPrice\":2,\"outputPrice\":12},{\"id\":\"gpt-5.4-nano\",\"label\":\"GPT-5.4 nano\",\"subtitle\":\"Sampled Video (Claude, GPT)\",\"group\":\"Frontier LLMs\",\"groupSubtitle\":\"Sampled Video (Claude, GPT)\",\"intake\":\"frames\",\"tokensPerFrame\":1100,\"transcriptionPricePerMinute\":0.006,\"inputPrice\":0.2,\"outputPrice\":1.25},{\"id\":\"claude-haiku-4.5\",\"label\":\"Claude Haiku 4.5\",\"subtitle\":\"Sampled Video (Claude, GPT)\",\"group\":\"Frontier LLMs\",\"groupSubtitle\":\"Sampled Video (Claude, GPT)\",\"intake\":\"frames\",\"tokensPerFrame\":800,\"transcriptionPricePerMinute\":0.006,\"inputPrice\":1,\"outputPrice\":5},{\"id\":\"gpt-5.5\",\"label\":\"GPT-5.5\",\"subtitle\":\"Sampled Video (Claude, GPT)\",\"group\":\"Frontier LLMs\",\"groupSubtitle\":\"Sampled Video (Claude, GPT)\",\"intake\":\"frames\",\"tokensPerFrame\":1100,\"transcriptionPricePerMinute\":0.006,\"inputPrice\":5,\"outputPrice\":30},{\"id\":\"claude-opus-5\",\"label\":\"Claude Opus 5\",\"subtitle\":\"Sampled Video (Claude, GPT)\",\"group\":\"Frontier LLMs\",\"groupSubtitle\":\"Sampled Video (Claude, GPT)\",\"intake\":\"frames\",\"tokensPerFrame\":800,\"transcriptionPricePerMinute\":0.006,\"inputPrice\":5,\"outputPrice\":25},{\"id\":\"gpt-5.6-sol\",\"label\":\"GPT-5.6 Sol\",\"subtitle\":\"Sampled Video (Claude, GPT)\",\"group\":\"Frontier LLMs\",\"groupSubtitle\":\"Sampled Video (Claude, GPT)\",\"intake\":\"frames\",\"tokensPerFrame\":1100,\"transcriptionPricePerMinute\":0.006,\"inputPrice\":5,\"outputPrice\":30}],\"perMinuteApis\":{\"label\":\"Video AI APIs\",\"subtitle\":\"Rekognition, Video Intelligence\",\"pricePerMinuteMin\":0.033,\"pricePerMinuteMax\":0.1}}}]\n"])
+self.__next_f.push([1,"39:[\"$\",\"section\",null,{\"className\":\"border-b border-border bg-body\",\"children\":[\"$\",\"div\",null,{\"style\":\"$4:props:children:1:props:children:props:children:4:props:children:1:props:style\",\"children\":[\"$\",\"div\",null,{\"className\":\"px-5 pb-24 pt-28 sm:px-8 sm:py-24 lg:px-16\",\"children\":[[\"$\",\"div\",null,{\"className\":\"mb-16 max-w-2xl\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-4\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-balance font-serif text-navy text-display-md\",\"children\":\"A vision-only gateway, built for builders.\"}],[\"$\",\"p\",null,{\"className\":\"text-body-lg text-muted text-balance\",\"children\":\"LLM routers and gateways route to 100s of LLMs, yet only a handful of VLMs, and often no OCR or classical CV models. Visual AI deserves its own stack.\"}]]}]}],[\"$\",\"ul\",null,{\"className\":\"grid grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3\",\"children\":[[\"$\",\"li\",\"Multimodal, Multitask\",{\"className\":\"min-h-0\",\"children\":[\"$\",\"article\",null,{\"className\":\"group relative flex h-full min-h-[220px] flex-col gap-3 bg-white p-6 transition-colors duration-300 hover:bg-surface sm:p-8\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"absolute inset-x-0 top-0 h-px bg-primary/0 transition-colors duration-500 group-hover:bg-primary/50\"}],[\"$\",\"div\",null,{\"className\":\"flex items-start justify-between gap-4\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-wrap items-center gap-2\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"font-mono text-body-sm text-primary/40 transition-colors duration-300 group-hover:text-primary\",\"children\":\"01\"}],null]}],[\"$\",\"svg\",null,{\"width\":\"40\",\"height\":\"40\",\"viewBox\":\"0 0 40 40\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"className\":\"shrink-0\",\"aria-hidden\":\"true\",\"children\":[[\"$\",\"path\",null,{\"d\":\"M1.5 40C0.672 40 0 39.328 0 38.5V1.5C0 0.672 0.672 0 1.5 0H38.5C39.328 0 40 0.672 40 1.5V38.5C40 39.328 39.328 40 38.5 40Z\",\"fill\":\"rgba(30,90,202,0.1)\"}],[[\"$\",\"circle\",null,{\"cx\":\"20\",\"cy\":\"20\",\"r\":\"11\",\"stroke\":\"rgba(30,90,202,0.4)\",\"strokeWidth\":\"1.5\",\"fill\":\"none\"}],[\"$\",\"circle\",null,{\"cx\":\"20\",\"cy\":\"20\",\"r\":\"7\",\"stroke\":\"rgb(30,90,202)\",\"strokeWidth\":\"1.5\",\"fill\":\"none\"}],[\"$\",\"circle\",null,{\"cx\":\"20\",\"cy\":\"20\",\"r\":\"2.5\",\"fill\":\"rgb(30,90,202)\"}]],[\"$\",\"path\",null,{\"d\":\"M0 6V1C0 0.448 0.448 0 1 0H6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M34 0H39C39.552 0 40 0.448 40 1V6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M40 34V39C40 39.552 39.552 40 39 40H34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M6 40H1C0.448 40 0 39.552 0 39V34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]]}]]}],[\"$\",\"h3\",null,{\"className\":\"font-serif text-heading-md text-navy\",\"children\":\"Multimodal, Multitask\"}],[\"$\",\"p\",null,{\"className\":\"text-body-md leading-relaxed text-muted\",\"children\":\"One catalog spanning multi-modal inputs and multi-task outputs: OCR, detection, segmentation, pose, keypoints, and more.\"}]]}]}],[\"$\",\"li\",\"Chat Completions Native\",{\"className\":\"min-h-0\",\"children\":[\"$\",\"article\",null,{\"className\":\"group relative flex h-full min-h-[220px] flex-col gap-3 bg-white p-6 transition-colors duration-300 hover:bg-surface sm:p-8\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"absolute inset-x-0 top-0 h-px bg-primary/0 transition-colors duration-500 group-hover:bg-primary/50\"}],[\"$\",\"div\",null,{\"className\":\"flex items-start justify-between gap-4\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-wrap items-center gap-2\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"font-mono text-body-sm text-primary/40 transition-colors duration-300 group-hover:text-primary\",\"children\":\"02\"}],null]}],[\"$\",\"svg\",null,{\"width\":\"40\",\"height\":\"40\",\"viewBox\":\"0 0 40 40\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"className\":\"shrink-0\",\"aria-hidden\":\"true\",\"children\":[[\"$\",\"path\",null,{\"d\":\"M1.5 40C0.672 40 0 39.328 0 38.5V1.5C0 0.672 0.672 0 1.5 0H38.5C39.328 0 40 0.672 40 1.5V38.5C40 39.328 39.328 40 38.5 40Z\",\"fill\":\"rgba(30,90,202,0.1)\"}],[[\"$\",\"path\",null,{\"d\":\"M10 13.5C10 11.567 11.567 10 13.5 10H26.5C28.433 10 30 11.567 30 13.5V22.5C30 24.433 28.433 26 26.5 26H17L12 30V26H13.5C11.567 26 10 24.433 10 22.5V13.5Z\",\"fill\":\"rgba(30,90,202,0.4)\"}],\"$L40\",\"$L41\"],\"$L42\",\"$L43\",\"$L44\",\"$L45\"]}]]}],\"$L46\",\"$L47\"]}]}],\"$L48\",\"$L49\",\"$L4a\",\"$L4b\"]}]]}]}]}]\n"])
+self.__next_f.push([1,"3a:[\"$\",\"section\",null,{\"className\":\"border-b border-border bg-surface\",\"children\":[\"$\",\"div\",null,{\"style\":\"$4:props:children:1:props:children:props:children:4:props:children:1:props:style\",\"children\":[\"$\",\"div\",null,{\"className\":\"px-5 pb-24 pt-28 sm:px-8 sm:py-24 lg:px-16\",\"children\":[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-3 lg:flex-row lg:items-stretch\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex flex-1 flex-col justify-center gap-4 self-stretch\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"max-w-[20ch] font-serif text-display-md text-navy antialiased sm:text-display-lg\",\"children\":\"Built for production visual AI.\"}],[\"$\",\"p\",null,{\"className\":\"max-w-[394px] text-pretty text-body-lg text-muted\",\"children\":\"Optimized for production workloads and cost-efficiency. Every model deployed gets its own performance tune-up. \"}]]}],[\"$\",\"ul\",null,{\"className\":\"grid flex-1 grid-cols-1 gap-px border border-border bg-border sm:grid-cols-2\",\"children\":[[\"$\",\"li\",\"Models Supported\",{\"className\":\"group relative flex min-h-[220px] flex-col justify-between bg-white p-8 transition-colors duration-300 hover:bg-surface\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"absolute inset-x-0 top-0 h-px bg-primary/0 transition-colors duration-500 group-hover:bg-primary/50\"}],[\"$\",\"div\",null,{\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/metrics/models.svg\",\"alt\":\"\",\"width\":16,\"height\":16,\"className\":\"size-4 shrink-0 opacity-60\",\"unoptimized\":true,\"aria-hidden\":true}],[\"$\",\"p\",null,{\"className\":\"text-body-md text-muted\",\"children\":\"Models Supported\"}]]}],[\"$\",\"p\",null,{\"className\":\"font-serif text-display-md leading-[1.1] tracking-[-0.02em] text-navy\",\"children\":\"24\"}]]}],[\"$\",\"li\",\"p50 Latency\",{\"className\":\"group relative flex min-h-[220px] flex-col justify-between bg-white p-8 transition-colors duration-300 hover:bg-surface\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"absolute inset-x-0 top-0 h-px bg-primary/0 transition-colors duration-500 group-hover:bg-primary/50\"}],[\"$\",\"div\",null,{\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/metrics/latency.svg\",\"alt\":\"\",\"width\":16,\"height\":16,\"className\":\"size-4 shrink-0 opacity-60\",\"unoptimized\":true,\"aria-hidden\":true}],[\"$\",\"p\",null,{\"className\":\"text-body-md text-muted\",\"children\":\"p50 Latency\"}]]}],[\"$\",\"p\",null,{\"className\":\"font-serif text-display-md leading-[1.1] tracking-[-0.02em] text-navy\",\"children\":\"\u003c100ms\"}]]}],[\"$\",\"li\",\"Uptime SLA\",{\"className\":\"group relative flex min-h-[220px] flex-col justify-between bg-white p-8 transition-colors duration-300 hover:bg-surface\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"absolute inset-x-0 top-0 h-px bg-primary/0 transition-colors duration-500 group-hover:bg-primary/50\"}],[\"$\",\"div\",null,{\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/metrics/uptime.svg\",\"alt\":\"\",\"width\":16,\"height\":16,\"className\":\"size-4 shrink-0 opacity-60\",\"unoptimized\":true,\"aria-hidden\":true}],[\"$\",\"p\",null,{\"className\":\"text-body-md text-muted\",\"children\":\"Uptime SLA\"}]]}],[\"$\",\"p\",null,{\"className\":\"font-serif text-display-md leading-[1.1] tracking-[-0.02em] text-navy\",\"children\":\"99.9%\"}]]}],[\"$\",\"li\",\"Type II · HIPAA · BAA\",{\"className\":\"group relative flex min-h-[220px] flex-col justify-between bg-white p-8 transition-colors duration-300 hover:bg-surface\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"absolute inset-x-0 top-0 h-px bg-primary/0 transition-colors duration-500 group-hover:bg-primary/50\"}],[\"$\",\"div\",null,{\"className\":\"flex items-center gap-2\",\"children\":[[\"$\",\"$L2d\",null,{\"src\":\"/images/gateway/metrics/providers.svg\",\"alt\":\"\",\"width\":16,\"height\":16,\"className\":\"size-4 shrink-0 opacity-60\",\"unoptimized\":true,\"aria-hidden\":true}],[\"$\",\"p\",null,{\"className\":\"text-body-md text-muted\",\"children\":\"Type II · HIPAA · BAA\"}]]}],[\"$\",\"p\",null,{\"className\":\"font-serif text-display-md leading-[1.1] tracking-[-0.02em] text-navy\",\"children\":\"SOC 2\"}]]}]]}]]}]}]}]}]\n"])
+self.__next_f.push([1,"3b:[\"$\",\"$L4c\",null,{\"headline\":\"Vision-native Chat Completions.\",\"description\":\"Point the OpenAI SDK at the gateway and swap the model, or hand the same catalog to an agent over MCP. Same signature, exhaustive visual model catalog.\",\"tabs\":[{\"label\":\"Document Markdown\",\"group\":\"For Developers\",\"language\":\"python\",\"code\":\"from openai import OpenAI\\n\\nclient = OpenAI(base_url=\\\"https://gateway.vlm.run/v1/openai/\\\",\\n                api_key=\\\"\u003cVLM_RUN_API_KEY\u003e\\\")\\n\\nresp = client.chat.completions.create(\\n    model=\\\"rednote-hilab/dots.mocr\\\",\\n    messages=[{\\\"role\\\": \\\"user\\\", \\\"content\\\": [\\n        {\\\"type\\\": \\\"document_url\\\", \\\"document_url\\\": {\\\"url\\\": \\\"invoice.pdf\\\"}},\\n    ]}],\\n    extra_body={\\\"method\\\": \\\"markdown\\\"},\\n)\\nprint(resp.choices[0].message.content)\\n\\n# \u003cdocument page=\\\"1\\\"\u003e\\n# ## Invoice #1042\\n# | Item      | Qty | Amount |\\n# | API seats |  12 | $1,200 |\\n# \u003c/document\u003e\\n\"},{\"label\":\"Document OCR\",\"group\":\"For Developers\",\"language\":\"python\",\"code\":\"from openai import OpenAI\\n\\nclient = OpenAI(base_url=\\\"https://gateway.vlm.run/v1/openai/\\\",\\n                api_key=\\\"\u003cVLM_RUN_API_KEY\u003e\\\")\\n\\nresp = client.chat.completions.create(\\n    model=\\\"paddleocr/pp-ocrv6\\\",\\n    messages=[{\\\"role\\\": \\\"user\\\", \\\"content\\\": [\\n        {\\\"type\\\": \\\"document_url\\\", \\\"document_url\\\": {\\\"url\\\": \\\"invoice.pdf\\\"}},\\n    ]}],\\n    extra_body={\\\"method\\\": \\\"ocr\\\"},\\n)\\nprint(resp.choices[0].message.content)\\n\\n# [\\n#    {\\\"text\\\": \\\"INVOICE\\\", \\\"bbox_xywh\\\": [0.02,0.13,0.44,0.03], \\\"score\\\": 1.0}, \\n#    {...},\\n# ]\\n\"},{\"label\":\"Visual Chat\",\"group\":\"For Developers\",\"language\":\"python\",\"code\":\"from openai import OpenAI\\n\\nclient = OpenAI(base_url=\\\"https://gateway.vlm.run/v1/openai/\\\",\\n                api_key=\\\"\u003cVLM_RUN_API_KEY\u003e\\\")\\n                \\nresp = client.chat.completions.create(\\n    model=\\\"qwen/qwen3.5-0.8b\\\",\\n    messages=[{\\\"role\\\": \\\"user\\\", \\\"content\\\": [\\n        {\\\"type\\\": \\\"text\\\", \\\"text\\\": \\\"What is happening in this image?\\\"},\\n        {\\\"type\\\": \\\"image_url\\\", \\\"image_url\\\": {\\\"url\\\": \\\"city.jpg\\\"}},\\n    ]}],\\n)\\nprint(resp.choices[0].message.content)\\n\\n# \\\"A busy city street at dusk ....\\\"\\n\"},{\"label\":\"CLI\",\"group\":\"For Developers\",\"language\":\"bash\",\"code\":\"export VLM_RUN_API_KEY=\\\"\u003cVLM_RUN_API_KEY\u003e\\\"\\n\\n# Read a document with any model in the catalog\\nuvx vlmrun gw chat -m rednote-hilab/dots.mocr invoice.pdf\\n\\n# ## Invoice #1042\\n# | Item      | Qty | Amount |\\n# | API seats |  12 | $1,200 |\\n\\n# Ask a question about an image instead\\nuvx vlmrun gw chat -m qwen/qwen3.5-0.8b city.jpg \\\\\\n  -p \\\"What is happening in this image?\\\"\\n\"},{\"label\":\"Claude Code\",\"group\":\"For Agents\",\"language\":\"bash\",\"code\":\"claude mcp add --transport http vlmrun-gateway \\\\\\n  https://gateway.vlm.run/mcp \\\\\\n  --header \\\"Authorization: Bearer $VLM_RUN_API_KEY\\\"\\n\\n# then just ask, in whatever your agent already speaks\\n\u003e Read invoice.pdf as markdown with rednote-hilab/dots.mocr\\n\\n# ## Invoice #1042\\n# | Item      | Qty | Amount |\\n# | API seats |  12 | $1,200 |\\n\"},{\"label\":\"Codex\",\"group\":\"For Agents\",\"language\":\"bash\",\"code\":\"codex mcp add vlmrun-gateway \\\\\\n  --url https://gateway.vlm.run/mcp \\\\\\n  --bearer-token-env-var VLM_RUN_API_KEY\\n\\n# read_document, read_image, read_audio, read_video and\\n# list_models show up as tools in the session\\n\u003e Read invoice.pdf as markdown with rednote-hilab/dots.mocr\\n\"},{\"label\":\"Pydantic AI\",\"group\":\"For Agents\",\"language\":\"python\",\"code\":\"from pydantic import BaseModel\\nfrom pydantic_ai import Agent\\nfrom pydantic_ai.capabilities import MCP\\n\\nclass Invoice(BaseModel):\\n    invoice_no: str\\n    total: float\\n\\nheaders = { \\\"Authorization\\\": \\\"Bearer \u003cVLM_RUN_API_KEY\u003e\\\" }\\nmcp = MCP(\\\"https://gateway.vlm.run/mcp\\\", native=False, headers=headers)\\n\\nagent = Agent(\\n    \\\"anthropic:claude-sonnet-5\\\",  # any LLM\\n    capabilities=[mcp],\\n    output_type=Invoice,\\n)\\nresult = agent.run_sync(f\\\"Extract the invoice details from {URL}\\\")\\n\\nprint(result.output)\\n# Invoice(invoice_no='1042', total=1200.0)\\n\"},{\"label\":\"Mastra\",\"group\":\"For Agents\",\"language\":\"typescript\",\"code\":\"const mcpClient = new MCPClient({\\n  id: \\\"vlmrun-gateway\\\",\\n  servers: {\\n    vlmrun: {\\n      url: new URL(\\\"https://gateway.vlm.run/mcp\\\"),\\n      requestInit: {\\n        headers: { Authorization: `Bearer \u003cVLM_RUN_API_KEY\u003e` },\\n      },\\n    },\\n  },\\n});\\n\\nconst agent = new Agent({\\n  name: \\\"Invoice Parser\\\",\\n  instructions: \\\"Use the VLM Run gateway tools to read documents.\\\",\\n  model: \\\"anthropic/claude-sonnet-5\\\", // any LLM\\n  tools: await mcpClient.listTools(),\\n});\\n\\nconst response = await agent.generate(\\n  `Extract the invoice fields from ${PDF_URL}`,\\n  { structuredOutput: { schema: Invoice } },\\n);\\n\"}],\"primaryCta\":{\"label\":\"Read the Docs\",\"href\":\"https://docs.vlm.run/gateway/introduction\"},\"secondaryCta\":{\"label\":\"Document OCR\",\"href\":\"https://docs.vlm.run/gateway/guides/document-ocr\"}}]\n"])
+self.__next_f.push([1,"3c:[\"$\",\"section\",null,{\"className\":\"border-y border-border bg-body\",\"children\":[\"$\",\"div\",null,{\"style\":\"$4:props:children:1:props:children:props:children:4:props:children:1:props:style\",\"children\":[\"$\",\"div\",null,{\"className\":\"px-5 pb-24 pt-28 sm:px-8 sm:py-24 lg:px-16\",\"children\":[[\"$\",\"div\",null,{\"className\":\"mb-14 max-w-2xl\",\"children\":[[\"$\",\"p\",null,{\"className\":\"mb-4 font-mono text-[12px] font-medium uppercase tracking-[2.4px] leading-5 text-primary-light\",\"children\":\"Use cases\"}],[\"$\",\"div\",null,{\"className\":\"flex flex-col gap-4\",\"children\":[[\"$\",\"h2\",null,{\"className\":\"text-balance font-serif text-navy text-display-md\",\"children\":\"What you can build with the Gateway.\"}],[\"$\",\"p\",null,{\"className\":\"text-body-lg text-muted text-balance\",\"children\":\"Compose vision models like building blocks. One SDK. One key. One bill.\"}]]}]]}],[\"$\",\"div\",null,{\"className\":\"overflow-hidden border border-border bg-border\",\"children\":[\"$\",\"div\",null,{\"className\":\"grid grid-cols-1 gap-px sm:grid-cols-2\",\"children\":[[\"$\",\"article\",\"Document ingestion pipelines\",{\"className\":\"flex items-center gap-4 bg-white px-5 py-7 sm:gap-8 sm:p-10\",\"children\":[[\"$\",\"div\",null,{\"className\":\"min-w-0 flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex flex-wrap items-center gap-2\",\"children\":[[\"$\",\"h3\",null,{\"className\":\"font-serif text-heading-md text-navy\",\"children\":\"Document ingestion pipelines\"}],null]}],[\"$\",\"p\",null,{\"className\":\"mt-3 max-w-sm text-body-md leading-relaxed text-muted\",\"children\":\"Layout, OCR, and markdown extraction across contracts, statements, and forms, at sub-cent per-page economics.\"}]]}],[\"$\",\"svg\",null,{\"width\":\"40\",\"height\":\"40\",\"viewBox\":\"0 0 40 40\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"className\":\"shrink-0\",\"aria-hidden\":\"true\",\"children\":[[\"$\",\"path\",null,{\"d\":\"M1.5 40C0.672 40 0 39.328 0 38.5V1.5C0 0.672 0.672 0 1.5 0H38.5C39.328 0 40 0.672 40 1.5V38.5C40 39.328 39.328 40 38.5 40Z\",\"fill\":\"rgba(30,90,202,0.1)\"}],[[\"$\",\"path\",null,{\"d\":\"M13 9H22L27 14V29C27 30.105 26.105 31 25 31H13C11.895 31 11 30.105 11 29V11C11 9.895 11.895 9 13 9Z\",\"fill\":\"rgba(30,90,202,0.4)\"}],[\"$\",\"path\",null,{\"d\":\"M22 9V14H27\",\"fill\":\"rgba(30,90,202,0.2)\"}],[\"$\",\"path\",null,{\"d\":\"M15 19H23M15 23H21\",\"stroke\":\"white\",\"strokeWidth\":\"1.5\",\"strokeLinecap\":\"round\"}]],[\"$\",\"path\",null,{\"d\":\"M0 6V1C0 0.448 0.448 0 1 0H6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M34 0H39C39.552 0 40 0.448 40 1V6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M40 34V39C40 39.552 39.552 40 39 40H34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M6 40H1C0.448 40 0 39.552 0 39V34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]]}]]}],[\"$\",\"article\",\"Multi-modal chatbots and agents\",{\"className\":\"flex items-center gap-4 bg-white px-5 py-7 sm:gap-8 sm:p-10\",\"children\":[[\"$\",\"div\",null,{\"className\":\"min-w-0 flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex flex-wrap items-center gap-2\",\"children\":[[\"$\",\"h3\",null,{\"className\":\"font-serif text-heading-md text-navy\",\"children\":\"Multi-modal chatbots and agents\"}],null]}],[\"$\",\"p\",null,{\"className\":\"mt-3 max-w-sm text-body-md leading-relaxed text-muted\",\"children\":\"Build powerful multi-modal chatbots and agents with VLMs that pack native support for multi-modal inputs such as images, PDFs, or videos in a single chat completion.\"}]]}],[\"$\",\"svg\",null,{\"width\":\"40\",\"height\":\"40\",\"viewBox\":\"0 0 40 40\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"className\":\"shrink-0\",\"aria-hidden\":\"true\",\"children\":[[\"$\",\"path\",null,{\"d\":\"M1.5 40C0.672 40 0 39.328 0 38.5V1.5C0 0.672 0.672 0 1.5 0H38.5C39.328 0 40 0.672 40 1.5V38.5C40 39.328 39.328 40 38.5 40Z\",\"fill\":\"rgba(30,90,202,0.1)\"}],[[\"$\",\"path\",null,{\"d\":\"M12 11H23C24.657 11 26 12.343 26 14V20C26 21.657 24.657 23 23 23H18L14.5 26V23H12C10.343 23 9 21.657 9 20V14C9 12.343 10.343 11 12 11Z\",\"fill\":\"rgba(30,90,202,0.4)\"}],[\"$\",\"path\",null,{\"d\":\"M17 15H28C29.657 15 31 16.343 31 18V24C31 25.657 29.657 27 28 27H26.5V30L23 27H17C15.343 27 14 25.657 14 24V18C14 16.343 15.343 15 17 15Z\",\"fill\":\"rgb(30,90,202)\"}],\"$L4d\"],\"$L4e\",\"$L4f\",\"$L50\",\"$L51\"]}]]}],\"$L52\",\"$L53\"]}]}]]}]}]}]\n"])
+self.__next_f.push([1,"3d:[\"$\",\"section\",null,{\"className\":\"relative z-[11]\",\"aria-labelledby\":\"cta-headline\",\"children\":[[\"$\",\"div\",null,{\"className\":\"pointer-events-none absolute inset-0\",\"aria-hidden\":\"true\",\"children\":[[\"$\",\"div\",null,{\"className\":\"absolute top-0 left-0 right-0 bg-body\",\"style\":{\"height\":\"45%\"}}],[\"$\",\"div\",null,{\"className\":\"absolute bottom-0 left-0 right-0 bg-navy-dark\",\"style\":{\"height\":\"55%\"},\"children\":[\"$\",\"div\",null,{\"aria-hidden\":\"true\",\"className\":\"pointer-events-none absolute top-0 bottom-0 border-x border-dark-border\",\"style\":{\"left\":\"max(20px, calc((var(--page-rail-width, 100vw) - 1168px) / 2))\",\"right\":\"max(20px, calc((var(--page-rail-width, 100vw) - 1168px) / 2))\"}}]}]]}],[\"$\",\"div\",null,{\"className\":\"relative z-10 mx-[6px] 3xl:mx-10 overflow-hidden rounded-[4px] bg-primary-mid [--rail-margin:6px] 3xl:[--rail-margin:2.5rem]\",\"children\":[[\"$\",\"div\",null,{\"aria-hidden\":\"true\",\"className\":\"pointer-events-none absolute top-0 bottom-0 border-x border-cta-border\",\"style\":{\"left\":\"calc(max(20px, calc((var(--page-rail-width, 100vw) - 1168px) / 2)) - var(--rail-margin, 6px))\",\"right\":\"calc(max(20px, calc((var(--page-rail-width, 100vw) - 1168px) / 2)) - var(--rail-margin, 6px))\"}}],[\"$\",\"div\",null,{\"aria-hidden\":\"true\",\"className\":\"mix-blend-overlay opacity-50 absolute z-[1]\",\"style\":{\"inset\":\"-16px 0 -217px\",\"WebkitMaskImage\":\"linear-gradient(transparent 0%, black 100%)\",\"maskImage\":\"linear-gradient(transparent 0%, black 100%)\"},\"children\":[\"$\",\"$L2d\",null,{\"src\":\"/images/cta-bg.png\",\"alt\":\"\",\"fill\":true,\"className\":\"object-cover object-center\"}]}],[\"$\",\"div\",null,{\"aria-hidden\":\"true\",\"className\":\"pointer-events-none absolute inset-x-0 top-0 z-[5] h-px bg-border/10\"}],[\"$\",\"div\",null,{\"className\":\"relative z-10 mx-auto flex max-w-[1168px] flex-col items-center gap-8 px-6 py-24 text-center sm:px-10 sm:py-20 lg:px-16\",\"children\":[[\"$\",\"svg\",null,{\"viewBox\":\"0 0 67.6 52\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"aria-label\":\"VLM Run\",\"className\":\"h-[52px] w-[68px]\",\"children\":[[\"$\",\"path\",null,{\"d\":\"M 4.21 6.45 C 4.21 2.888 7.098 0 10.66 0 L 19.08 0 L 19.08 4.3 L 10.66 4.3 C 9.473 4.3 8.51 5.263 8.51 6.45 L 8.51 23.335 C 8.51 24.522 7.547 25.485 6.36 25.485 L 6.36 26.515 C 7.547 26.515 8.51 27.478 8.51 28.665 L 8.51 45.55 C 8.51 46.737 9.473 47.7 10.66 47.7 L 19.08 47.7 L 19.08 52 L 10.66 52 C 7.098 52 4.21 49.112 4.21 45.55 L 4.21 28.15 L 0 28.15 L 0 23.85 L 4.21 23.85 Z\",\"fill\":\"rgb(255,255,255)\"}],[\"$\",\"path\",null,{\"d\":\"M 17.788 24.387 L 13.015 11.125 L 16.911 11.125 L 20.11 20.672 L 23.258 11.125 L 27.077 11.125 L 22.303 24.387 Z\",\"fill\":\"rgb(255,255,255)\"}],[\"$\",\"path\",null,{\"d\":\"M 27.773 24.387 L 27.773 6.326 L 31.411 6.326 L 31.411 24.387 Z\",\"fill\":\"rgb(255,255,255)\"}],[\"$\",\"path\",null,{\"d\":\"M 49.299 10.97 C 52.034 10.97 54.201 12.518 54.201 16.776 L 54.201 24.387 L 50.563 24.387 L 50.563 16.982 C 50.563 14.995 49.84 13.963 48.267 13.963 C 46.693 13.963 45.635 15.124 45.635 17.137 L 45.635 24.387 L 41.997 24.387 L 41.997 16.982 C 41.997 14.995 41.274 13.963 39.674 13.963 C 38.101 13.963 37.068 15.176 37.068 17.163 L 37.068 24.387 L 33.43 24.387 L 33.43 11.125 L 36.604 11.125 L 36.94 12.776 C 37.739 11.744 38.9 10.996 40.835 10.97 C 42.461 10.944 43.983 11.538 44.809 13.215 C 45.738 11.796 47.286 10.97 49.299 10.97 Z\",\"fill\":\"rgb(255,255,255)\"}],[\"$\",\"path\",null,{\"d\":\"M 23.399 29.401 L 24.019 29.401 L 24.019 32.704 L 22.574 32.704 C 20.406 32.704 19.581 34.149 19.581 36.161 L 19.581 42.664 L 15.943 42.664 L 15.943 29.401 L 19.245 29.401 L 19.581 31.388 C 20.303 30.201 21.335 29.401 23.399 29.401 Z\",\"fill\":\"rgb(255,255,255)\"}],[\"$\",\"path\",null,{\"d\":\"M 33.977 36.032 L 33.977 29.401 L 37.615 29.401 L 37.615 42.664 L 34.39 42.664 L 34.055 41.064 C 33.203 42.096 32.042 42.818 30.159 42.818 C 27.424 42.818 24.895 41.451 24.895 36.755 L 24.895 29.401 L 28.533 29.401 L 28.533 36.265 C 28.533 38.638 29.307 39.8 31.113 39.8 C 32.92 39.8 33.977 38.484 33.977 36.032 Z\",\"fill\":\"rgb(255,255,255)\"}],\"$L54\",\"$L55\"]}],\"$L56\",\"$L57\"]}]]}],\"$L58\"]}]\n"])
+self.__next_f.push([1,"40:[\"$\",\"path\",null,{\"d\":\"M14 16H26\",\"stroke\":\"white\",\"strokeWidth\":\"1.5\",\"strokeLinecap\":\"round\"}]\n41:[\"$\",\"path\",null,{\"d\":\"M14 20H22\",\"stroke\":\"white\",\"strokeWidth\":\"1.5\",\"strokeLinecap\":\"round\"}]\n42:[\"$\",\"path\",null,{\"d\":\"M0 6V1C0 0.448 0.448 0 1 0H6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]\n43:[\"$\",\"path\",null,{\"d\":\"M34 0H39C39.552 0 40 0.448 40 1V6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]\n44:[\"$\",\"path\",null,{\"d\":\"M40 34V39C40 39.552 39.552 40 39 40H34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]\n45:[\"$\",\"path\",null,{\"d\":\"M6 40H1C0.448 40 0 39.552 0 39V34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]\n46:[\"$\",\"h3\",null,{\"className\":\"font-serif text-heading-md text-navy\",\"children\":\"Chat Completions Native\"}]\n47:[\"$\",\"p\",null,{\"className\":\"text-body-md leading-relaxed text-muted\",\"children\":\"OCR, captioning, and multimodal chat run through the same OpenAI-compatible chat completions API you already use.\"}]\n"])
+self.__next_f.push([1,"48:[\"$\",\"li\",\"Orchestration Built-In\",{\"className\":\"min-h-0\",\"children\":[\"$\",\"article\",null,{\"className\":\"group relative flex h-full min-h-[220px] flex-col gap-3 bg-white p-6 transition-colors duration-300 hover:bg-surface sm:p-8\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"absolute inset-x-0 top-0 h-px bg-primary/0 transition-colors duration-500 group-hover:bg-primary/50\"}],[\"$\",\"div\",null,{\"className\":\"flex items-start justify-between gap-4\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-wrap items-center gap-2\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"font-mono text-body-sm text-primary/40 transition-colors duration-300 group-hover:text-primary\",\"children\":\"03\"}],null]}],[\"$\",\"svg\",null,{\"width\":\"40\",\"height\":\"40\",\"viewBox\":\"0 0 40 40\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"className\":\"shrink-0\",\"aria-hidden\":\"true\",\"children\":[[\"$\",\"path\",null,{\"d\":\"M1.5 40C0.672 40 0 39.328 0 38.5V1.5C0 0.672 0.672 0 1.5 0H38.5C39.328 0 40 0.672 40 1.5V38.5C40 39.328 39.328 40 38.5 40Z\",\"fill\":\"rgba(30,90,202,0.1)\"}],[[\"$\",\"rect\",null,{\"x\":\"9\",\"y\":\"10\",\"width\":\"8\",\"height\":\"8\",\"rx\":\"1.5\",\"fill\":\"rgba(30,90,202,0.2)\"}],[\"$\",\"rect\",null,{\"x\":\"16\",\"y\":\"16\",\"width\":\"8\",\"height\":\"8\",\"rx\":\"1.5\",\"fill\":\"rgba(30,90,202,0.4)\"}],[\"$\",\"rect\",null,{\"x\":\"23\",\"y\":\"22\",\"width\":\"8\",\"height\":\"8\",\"rx\":\"1.5\",\"fill\":\"rgb(30,90,202)\"}]],[\"$\",\"path\",null,{\"d\":\"M0 6V1C0 0.448 0.448 0 1 0H6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M34 0H39C39.552 0 40 0.448 40 1V6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M40 34V39C40 39.552 39.552 40 39 40H34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M6 40H1C0.448 40 0 39.552 0 39V34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]]}]]}],[\"$\",\"h3\",null,{\"className\":\"font-serif text-heading-md text-navy\",\"children\":\"Orchestration Built-In\"}],[\"$\",\"p\",null,{\"className\":\"text-body-md leading-relaxed text-muted\",\"children\":\"Send a 500-page PDF or a 2-hour video in a single call. The gateway chunks, batches, and reassembles for you. No pipelines to build.\"}]]}]}]\n"])
+self.__next_f.push([1,"49:[\"$\",\"li\",\"Structured Outputs, Out of the Box\",{\"className\":\"min-h-0\",\"children\":[\"$\",\"article\",null,{\"className\":\"group relative flex h-full min-h-[220px] flex-col gap-3 bg-white p-6 transition-colors duration-300 hover:bg-surface sm:p-8\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"absolute inset-x-0 top-0 h-px bg-primary/0 transition-colors duration-500 group-hover:bg-primary/50\"}],[\"$\",\"div\",null,{\"className\":\"flex items-start justify-between gap-4\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-wrap items-center gap-2\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"font-mono text-body-sm text-primary/40 transition-colors duration-300 group-hover:text-primary\",\"children\":\"04\"}],null]}],[\"$\",\"svg\",null,{\"width\":\"40\",\"height\":\"40\",\"viewBox\":\"0 0 40 40\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"className\":\"shrink-0\",\"aria-hidden\":\"true\",\"children\":[[\"$\",\"path\",null,{\"d\":\"M1.5 40C0.672 40 0 39.328 0 38.5V1.5C0 0.672 0.672 0 1.5 0H38.5C39.328 0 40 0.672 40 1.5V38.5C40 39.328 39.328 40 38.5 40Z\",\"fill\":\"rgba(30,90,202,0.1)\"}],[[\"$\",\"path\",null,{\"d\":\"M15 12C13.5 12 12.5 13 12.5 14.5V17C12.5 18 11.5 19 10.5 19C11.5 19 12.5 20 12.5 21V23.5C12.5 25 13.5 26 15 26\",\"stroke\":\"rgb(30,90,202)\",\"strokeWidth\":\"1.75\",\"strokeLinecap\":\"round\",\"fill\":\"none\"}],[\"$\",\"path\",null,{\"d\":\"M25 12C26.5 12 27.5 13 27.5 14.5V17C27.5 18 28.5 19 29.5 19C28.5 19 27.5 20 27.5 21V23.5C27.5 25 26.5 26 25 26\",\"stroke\":\"rgba(30,90,202,0.4)\",\"strokeWidth\":\"1.75\",\"strokeLinecap\":\"round\",\"fill\":\"none\"}]],[\"$\",\"path\",null,{\"d\":\"M0 6V1C0 0.448 0.448 0 1 0H6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M34 0H39C39.552 0 40 0.448 40 1V6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M40 34V39C40 39.552 39.552 40 39 40H34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M6 40H1C0.448 40 0 39.552 0 39V34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]]}]]}],[\"$\",\"h3\",null,{\"className\":\"font-serif text-heading-md text-navy\",\"children\":\"Structured Outputs, Out of the Box\"}],[\"$\",\"p\",null,{\"className\":\"text-body-md leading-relaxed text-muted\",\"children\":\"JSON-schema enforcement on every call. CV wrappers emit fixed schemas; VLMs honor response_format.\"}]]}]}]\n"])
+self.__next_f.push([1,"4a:[\"$\",\"li\",\"Open Models, No Lock-In\",{\"className\":\"min-h-0\",\"children\":[\"$\",\"article\",null,{\"className\":\"group relative flex h-full min-h-[220px] flex-col gap-3 bg-white p-6 transition-colors duration-300 hover:bg-surface sm:p-8\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"absolute inset-x-0 top-0 h-px bg-primary/0 transition-colors duration-500 group-hover:bg-primary/50\"}],[\"$\",\"div\",null,{\"className\":\"flex items-start justify-between gap-4\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-wrap items-center gap-2\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"font-mono text-body-sm text-primary/40 transition-colors duration-300 group-hover:text-primary\",\"children\":\"05\"}],null]}],[\"$\",\"svg\",null,{\"width\":\"40\",\"height\":\"40\",\"viewBox\":\"0 0 40 40\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"className\":\"shrink-0\",\"aria-hidden\":\"true\",\"children\":[[\"$\",\"path\",null,{\"d\":\"M1.5 40C0.672 40 0 39.328 0 38.5V1.5C0 0.672 0.672 0 1.5 0H38.5C39.328 0 40 0.672 40 1.5V38.5C40 39.328 39.328 40 38.5 40Z\",\"fill\":\"rgba(30,90,202,0.1)\"}],[[\"$\",\"rect\",null,{\"x\":\"12\",\"y\":\"18\",\"width\":\"16\",\"height\":\"12\",\"rx\":\"2\",\"fill\":\"rgba(30,90,202,0.4)\"}],[\"$\",\"path\",null,{\"d\":\"M15 18V15C15 12.239 17.239 10 20 10C22.761 10 25 12.239 25 15\",\"stroke\":\"rgb(30,90,202)\",\"strokeWidth\":\"1.75\",\"strokeLinecap\":\"round\",\"fill\":\"none\"}],[\"$\",\"circle\",null,{\"cx\":\"20\",\"cy\":\"24\",\"r\":\"1.75\",\"fill\":\"white\"}]],[\"$\",\"path\",null,{\"d\":\"M0 6V1C0 0.448 0.448 0 1 0H6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M34 0H39C39.552 0 40 0.448 40 1V6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M40 34V39C40 39.552 39.552 40 39 40H34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M6 40H1C0.448 40 0 39.552 0 39V34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]]}]]}],[\"$\",\"h3\",null,{\"className\":\"font-serif text-heading-md text-navy\",\"children\":\"Open Models, No Lock-In\"}],[\"$\",\"p\",null,{\"className\":\"text-body-md leading-relaxed text-muted\",\"children\":\"Every model is open-weight, served through the OpenAI-compatible API you already use. Swap models or providers freely, your client code never changes.\"}]]}]}]\n"])
+self.__next_f.push([1,"4b:[\"$\",\"li\",\"Agent-native vision, via MCP\",{\"className\":\"min-h-0\",\"children\":[\"$\",\"article\",null,{\"className\":\"group relative flex h-full min-h-[220px] flex-col gap-3 bg-white p-6 transition-colors duration-300 hover:bg-surface sm:p-8\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"absolute inset-x-0 top-0 h-px bg-primary/0 transition-colors duration-500 group-hover:bg-primary/50\"}],[\"$\",\"div\",null,{\"className\":\"flex items-start justify-between gap-4\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex min-w-0 flex-wrap items-center gap-2\",\"children\":[[\"$\",\"span\",null,{\"aria-hidden\":\"true\",\"className\":\"font-mono text-body-sm text-primary/40 transition-colors duration-300 group-hover:text-primary\",\"children\":\"06\"}],null]}],[\"$\",\"svg\",null,{\"width\":\"40\",\"height\":\"40\",\"viewBox\":\"0 0 40 40\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"className\":\"shrink-0\",\"aria-hidden\":\"true\",\"children\":[[\"$\",\"path\",null,{\"d\":\"M1.5 40C0.672 40 0 39.328 0 38.5V1.5C0 0.672 0.672 0 1.5 0H38.5C39.328 0 40 0.672 40 1.5V38.5C40 39.328 39.328 40 38.5 40Z\",\"fill\":\"rgba(30,90,202,0.1)\"}],[[\"$\",\"path\",null,{\"d\":\"M20 8V12\",\"stroke\":\"rgb(30,90,202)\",\"strokeWidth\":\"1.5\",\"strokeLinecap\":\"round\"}],[\"$\",\"circle\",null,{\"cx\":\"20\",\"cy\":\"7.5\",\"r\":\"2\",\"fill\":\"rgb(30,90,202)\"}],[\"$\",\"path\",null,{\"d\":\"M8 21H10V26H8C7.448 26 7 25.552 7 25V22C7 21.448 7.448 21 8 21Z\",\"fill\":\"rgba(30,90,202,0.4)\"}],[\"$\",\"path\",null,{\"d\":\"M32 21H30V26H32C32.552 26 33 25.552 33 25V22C33 21.448 32.552 21 32 21Z\",\"fill\":\"rgba(30,90,202,0.4)\"}],[\"$\",\"path\",null,{\"d\":\"M14 12H26C28.209 12 30 13.791 30 16V26C30 28.209 28.209 30 26 30H14C11.791 30 10 28.209 10 26V16C10 13.791 11.791 12 14 12Z\",\"fill\":\"rgb(30,90,202)\"}],[\"$\",\"circle\",null,{\"cx\":\"16\",\"cy\":\"19.5\",\"r\":\"2.25\",\"fill\":\"white\"}],[\"$\",\"circle\",null,{\"cx\":\"24\",\"cy\":\"19.5\",\"r\":\"2.25\",\"fill\":\"white\"}],[\"$\",\"path\",null,{\"d\":\"M16 25.5H24\",\"stroke\":\"white\",\"strokeWidth\":\"1.5\",\"strokeLinecap\":\"round\",\"opacity\":\"0.7\"}]],[\"$\",\"path\",null,{\"d\":\"M0 6V1C0 0.448 0.448 0 1 0H6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M34 0H39C39.552 0 40 0.448 40 1V6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M40 34V39C40 39.552 39.552 40 39 40H34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M6 40H1C0.448 40 0 39.552 0 39V34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]]}]]}],[\"$\",\"h3\",null,{\"className\":\"font-serif text-heading-md text-navy\",\"children\":\"Agent-native vision, via MCP\"}],[\"$\",\"p\",null,{\"className\":\"text-body-md leading-relaxed text-muted\",\"children\":\"Give any MCP client instant access to the full visual model catalog. Agents see, read, and reason over images out of the box.\"}]]}]}]\n"])
+self.__next_f.push([1,"4d:[\"$\",\"path\",null,{\"d\":\"M18 20H25\",\"stroke\":\"white\",\"strokeWidth\":\"1.5\",\"strokeLinecap\":\"round\"}]\n4e:[\"$\",\"path\",null,{\"d\":\"M0 6V1C0 0.448 0.448 0 1 0H6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]\n4f:[\"$\",\"path\",null,{\"d\":\"M34 0H39C39.552 0 40 0.448 40 1V6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]\n50:[\"$\",\"path\",null,{\"d\":\"M40 34V39C40 39.552 39.552 40 39 40H34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]\n51:[\"$\",\"path\",null,{\"d\":\"M6 40H1C0.448 40 0 39.552 0 39V34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]\n"])
+self.__next_f.push([1,"52:[\"$\",\"article\",\"Media and asset tagging\",{\"className\":\"flex items-center gap-4 bg-white px-5 py-7 sm:gap-8 sm:p-10\",\"children\":[[\"$\",\"div\",null,{\"className\":\"min-w-0 flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex flex-wrap items-center gap-2\",\"children\":[[\"$\",\"h3\",null,{\"className\":\"font-serif text-heading-md text-navy\",\"children\":\"Media and asset tagging\"}],null]}],[\"$\",\"p\",null,{\"className\":\"mt-3 max-w-sm text-body-md leading-relaxed text-muted\",\"children\":\"Auto-caption, tag, and index large image and video libraries for search, dedup, and recommendations.\"}]]}],[\"$\",\"svg\",null,{\"width\":\"40\",\"height\":\"40\",\"viewBox\":\"0 0 40 40\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"className\":\"shrink-0\",\"aria-hidden\":\"true\",\"children\":[[\"$\",\"path\",null,{\"d\":\"M1.5 40C0.672 40 0 39.328 0 38.5V1.5C0 0.672 0.672 0 1.5 0H38.5C39.328 0 40 0.672 40 1.5V38.5C40 39.328 39.328 40 38.5 40Z\",\"fill\":\"rgba(30,90,202,0.1)\"}],[[\"$\",\"path\",null,{\"d\":\"M10 18.5V12C10 10.895 10.895 10 12 10H18.5L29 20.5C29.78 21.28 29.78 22.55 29 23.33L23.33 29C22.55 29.78 21.28 29.78 20.5 29L10 18.5Z\",\"fill\":\"rgba(30,90,202,0.4)\"}],[\"$\",\"circle\",null,{\"cx\":\"15\",\"cy\":\"15\",\"r\":\"1.75\",\"fill\":\"white\"}]],[\"$\",\"path\",null,{\"d\":\"M0 6V1C0 0.448 0.448 0 1 0H6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M34 0H39C39.552 0 40 0.448 40 1V6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M40 34V39C40 39.552 39.552 40 39 40H34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M6 40H1C0.448 40 0 39.552 0 39V34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]]}]]}]\n"])
+self.__next_f.push([1,"53:[\"$\",\"article\",\"Private and regulated deployments\",{\"className\":\"flex items-center gap-4 bg-white px-5 py-7 sm:gap-8 sm:p-10\",\"children\":[[\"$\",\"div\",null,{\"className\":\"min-w-0 flex-1\",\"children\":[[\"$\",\"div\",null,{\"className\":\"flex flex-wrap items-center gap-2\",\"children\":[[\"$\",\"h3\",null,{\"className\":\"font-serif text-heading-md text-navy\",\"children\":\"Private and regulated deployments\"}],null]}],[\"$\",\"p\",null,{\"className\":\"mt-3 max-w-sm text-body-md leading-relaxed text-muted\",\"children\":\"Stand up the whole visual stack inside your own VPC or on-prem, with SSO, RBAC, and audit log export. Regulated data stays inside your boundary, under a BAA, on dedicated capacity you control.\"}]]}],[\"$\",\"svg\",null,{\"width\":\"40\",\"height\":\"40\",\"viewBox\":\"0 0 40 40\",\"fill\":\"none\",\"xmlns\":\"http://www.w3.org/2000/svg\",\"className\":\"shrink-0\",\"aria-hidden\":\"true\",\"children\":[[\"$\",\"path\",null,{\"d\":\"M1.5 40C0.672 40 0 39.328 0 38.5V1.5C0 0.672 0.672 0 1.5 0H38.5C39.328 0 40 0.672 40 1.5V38.5C40 39.328 39.328 40 38.5 40Z\",\"fill\":\"rgba(30,90,202,0.1)\"}],[[\"$\",\"path\",null,{\"d\":\"M20 12C13 12 8 20 8 20C8 20 13 28 20 28C27 28 32 20 32 20C32 20 27 12 20 12Z\",\"fill\":\"rgba(30,90,202,0.4)\"}],[\"$\",\"circle\",null,{\"cx\":\"20\",\"cy\":\"20\",\"r\":\"4\",\"fill\":\"rgb(30,90,202)\"}],[\"$\",\"circle\",null,{\"cx\":\"20\",\"cy\":\"20\",\"r\":\"1.75\",\"fill\":\"white\"}]],[\"$\",\"path\",null,{\"d\":\"M0 6V1C0 0.448 0.448 0 1 0H6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M34 0H39C39.552 0 40 0.448 40 1V6\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M40 34V39C40 39.552 39.552 40 39 40H34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}],[\"$\",\"path\",null,{\"d\":\"M6 40H1C0.448 40 0 39.552 0 39V34\",\"stroke\":\"rgb(78,140,255)\",\"strokeMiterlimit\":\"10\"}]]}]]}]\n"])
+self.__next_f.push([1,"54:[\"$\",\"path\",null,{\"d\":\"M 47.24 29.246 C 50.104 29.246 52.556 30.769 52.556 35.31 L 52.556 42.664 L 48.918 42.664 L 48.918 35.671 C 48.918 33.426 48.066 32.239 46.234 32.239 C 44.351 32.239 43.267 33.581 43.267 35.878 L 43.267 42.664 L 39.629 42.664 L 39.629 29.401 L 42.803 29.401 L 43.138 31.053 C 43.989 30.021 45.202 29.246 47.24 29.246 Z\",\"fill\":\"rgb(255,255,255)\"}]\n55:[\"$\",\"path\",null,{\"d\":\"M 64.052 6.45 C 64.052 2.888 61.164 0 57.602 0 L 49.182 0 L 49.182 4.3 L 57.602 4.3 C 58.789 4.3 59.752 5.263 59.752 6.45 L 59.752 23.335 C 59.752 24.522 60.715 25.485 61.902 25.485 L 61.902 26.515 C 60.715 26.515 59.752 27.478 59.752 28.665 L 59.752 45.55 C 59.752 46.737 58.789 47.7 57.602 47.7 L 49.182 47.7 L 49.182 52 L 57.602 52 C 61.164 52 64.052 49.112 64.052 45.55 L 64.052 28.15 L 68.262 28.15 L 68.262 23.85 L 64.052 23.85 Z\",\"fill\":\"rgb(255,255,255)\"}]\n56:[\"$\",\"h2\",null,{\"id\":\"cta-headline\",\"className\":\"font-serif text-display-lg text-white\",\"children\":\"Get an API key. Ship vision today.\"}]\n57:[\"$\",\"div\",null,{\"className\":\"flex flex-col items-center justify-center gap-4 sm:flex-row\",\"children\":[[\"$\",\"a\",null,{\"href\":\"https://app.vlm.run\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"inline-flex items-center justify-center gap-1.5 cursor-pointer transition-[transform,box-shadow,background-color,opacity] duration-300 ease-out hover:opacity-90 hover:-translate-y-px no-underline font-medium bg-white text-primary-mid rounded-[20px] border border-btn-white-border shadow-btn-white h-9 px-3 text-sm leading-4\",\"children\":[\"Get an API Key\",[\"$\",\"svg\",null,{\"width\":14,\"height\":14,\"viewBox\":\"0 0 14 14\",\"fill\":\"none\",\"aria-hidden\":\"true\",\"children\":[\"$\",\"path\",null,{\"d\":\"M5.5 3.5L9 7l-3.5 3.5\",\"stroke\":\"currentColor\",\"strokeWidth\":\"1.5\",\"strokeLinecap\":\"round\",\"strokeLinejoin\":\"round\"}]}]]}],[\"$\",\"a\",null,{\"href\":\"https://docs.vlm.run/gateway/introduction\",\"target\":\"_blank\",\"rel\":\"noopener noreferrer\",\"className\":\"inline-flex items-center justify-center gap-1.5 cursor-pointer transition-[transform,box-shadow,background-color,opacity] duration-300 ease-out hover:opacity-90 hover:-translate-y-px no-underline font-medium bg-white/15 text-white rounded-[20px] backdrop-blur-sm border-0 text-body-md px-3 py-2\",\"children\":\"Read the Docs\"}]]}]\n58:[\"$\",\"div\",null,{\"aria-hidden\":\"true\",\"className\":\"relative z-10 bg-navy-dark\",\"style\":{\"height\":30},\"children\":[\"$\",\"div\",null,{\"aria-hidden\":\"true\",\"className\":\"pointer-events-none absolute top-0 bottom-0 border-x border-dark-border\",\"style\":{\"left\":\"max(20px, calc((var(--page-rail-width, 100vw) - 1168px) / 2))\",\"right\":\"max(20px, calc((var(--page-rail-width, 100vw) - 1168px) / 2))\"}}]}]\n"])
